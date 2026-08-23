@@ -1,0 +1,13 @@
+Do not include:
+
+Environment or story illustration: clouds battlefield, altar panorama, Yaochi terrace, temple, cave mural as a scene, palace interior, floor tiles, horizon, landscape, trees as scenery, atmospheric depth.
+
+Buddhist default symbols (unless the card is explicitly a Buddhist unit): monk, pilgrim, kasaya, shaved head, alms bowl, khakkhara / tin monk staff, vajra, dharma wheel as relic, lotus throne / lotus pedestal, mudra, Sanskrit / Tibetan script, wooden fish, prayer beads, Garuda, yaksha dharmapala, radiating Buddha halo, thousand-ray nimbus.
+
+Flying apsaras: swirling celestial scarves wrapping the body, hovering worshipper pose, ribbon connecting multiple figures.
+
+Full-frame narrative illustration, collage merging all subjects into one tableau.
+
+Anime chibi moe, huge sparkle eyes, Q-version proportions, modern firearms, sci-fi guns, mecha, photoreal skin, Western oil impasto, Gwent muddy realism, gongbi silk fine-line hatching as the main look, bronze-blood ritual horror as the main look.
+
+Readable text, captions, watermarks, UI chrome, card frame filigree around the whole image.

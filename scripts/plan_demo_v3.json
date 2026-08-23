@@ -1,0 +1,15 @@
+[
+  {"wait": 2000},
+  {"shot": "v3-demo-a1.png"},
+  {"wait": 160},
+  {"shot": "v3-demo-a2.png"},
+  {"wait": 1400},
+  {"shot": "v3-demo-b1.png"},
+  {"wait": 160},
+  {"shot": "v3-demo-b2.png"},
+  {"wait": 1400},
+  {"shot": "v3-demo-c1.png"},
+  {"wait": 160},
+  {"shot": "v3-demo-c2.png"},
+  {"eval": "JSON.stringify({drawMs: window.__corridorDrawMs})"}
+]

@@ -1,0 +1,5 @@
+[
+  {"wait": 3500},
+  {"shot": "smoke_index.png"},
+  {"eval": "JSON.stringify({ver: document.querySelector('script[src*=main]')?.src, err: window.__lastError || null})"}
+]

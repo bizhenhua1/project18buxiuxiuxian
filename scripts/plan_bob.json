@@ -1,0 +1,10 @@
+[
+  {"wait": 3000},
+  {"shot": "bob_1.png"},
+  {"wait": 400},
+  {"shot": "bob_2.png"},
+  {"wait": 400},
+  {"shot": "bob_3.png"},
+  {"wait": 400},
+  {"shot": "bob_4.png"}
+]

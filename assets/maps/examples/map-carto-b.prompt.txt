@@ -1,0 +1,14 @@
+Use the visible style-e Dunhuang mineral-flat paintings as COLOR AND LINE STYLE ONLY (azurite, malachite, cinnabar accents, ochre, cream, thin even dark outlines, unblended blocks). Do NOT copy the people.
+
+SUBJECT: a TRUE TOP-DOWN regional STRATEGY MAP / cartographic area map. Camera is almost straight down (bird’s-eye), like a board-game / Total War / Romance of the Three Kingdoms terrain map, not a landscape illustration.
+
+COMPOSITION (must look like a map):
+- NO sky, NO horizon, NO side-view mountains. The whole 4:3 frame is a filled land-use map.
+- Clear color-block REGIONS as map symbols: ochre/tan agricultural field patches (simple striped or parcel polygons), malachite woodland masses, azurite-grey mountain massifs as nested contour-like polygons (not side-view peaks), a few cream roads as thin network lines connecting regions, one small cinnabar-roof hamlet cluster as a tiny map glyph (3–4 rectangles), not a city illustration.
+- Road network is visible but secondary to terrain color blocks. Forks and junctions exist.
+- Readable like a strategy layer: field vs forest vs mountain vs water (small lake) with hard edges.
+- Detail richer than a blank poster: internal field parcels, tree-blob texture inside forests, simple ridge hatching on mountains. Still graphic, not satellite, not oil.
+
+STYLE: Dunhuang mineral flat painting, game cartography, hard-edged regions, paper-cut map symbols.
+
+FORBIDDEN: people, flags, banners, waypoints, numbers, text, compass, legend, UI, “you are here”, fog, photoreal, 3D globe, satellite imagery, side-view scenery, empty sky.

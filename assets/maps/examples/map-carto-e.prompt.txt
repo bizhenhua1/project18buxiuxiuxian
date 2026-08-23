@@ -1,0 +1,14 @@
+Use the visible style-e Dunhuang mineral-flat paintings as COLOR BASE (azurite, malachite, ochre, cream, sparse cinnabar). Shift DRAWING LANGUAGE toward a Chinese classical YUTU / gazetteer map (舆图): fine even lines, polyline routes, a sense of scale like a hand-copied atlas page, still mineral flat color not silk-wash realism. Do NOT copy the people. Do NOT add any letters, numbers, or cartouches.
+
+SUBJECT: an oblique-top cartographic atlas map of a mountain-road region, like Ming/Qing yutu or a game world-map parchment, filling the 4:3 frame.
+
+COMPOSITION:
+- Aged mural-cream paper ground as the map sheet, with the LAND drawn as a map (not a painting of scenery).
+- POLYLINE PATHS: several thin dark-outlined ochre routes drawn as slightly angular polyline roads (not a single serpentine ribbon), connecting sparse landmarks: a mountain-pass glyph, a grove symbol cluster, a small walled-town glyph (simple square with a few roofs), a river as a double-line or azurite ribbon.
+- Mountains as repeated map-symbol peaks / fish-scale hill glyphs arranged in ranges (cartographic symbols), trees as small repeated canopy glyphs, not a side-view landscape layer.
+- Subtle grid or implied scale feeling from evenly spaced route segments and region partitions — but NO actual numbers, NO Chinese/English text, NO scale bar numerals, NO compass labels.
+- Denser linework than the other maps, still readable, not a complex oil painting, not photoreal satellite.
+
+STYLE: mineral-color gongbi-adjacent cartography, atlas page, graphic game map.
+
+FORBIDDEN: readable text of any language, flags, waypoints, numbered stages, “you are here”, stamps, seals with characters, UI, photoreal, 3D, side-view scroll landscape, empty sky.

@@ -1,0 +1,1 @@
+Use the visible style-e character as art-style reference only. Seamless tileable top-down 2D painted grass path tile filling the entire square. Flat malachite and olive patches, ink-line grass tufts, ochre fallen leaf stickers. Even lighting, no 3D bump. Matching edges so it tiles. No waypoints, no characters, no trees, no magenta. Mineral flat painting, not photo, not PBR.

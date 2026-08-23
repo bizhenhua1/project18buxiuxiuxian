@@ -1,0 +1,5 @@
+Use the visible style-e character as art-style reference only (Dunhuang mineral flat painting): flat mineral fills, clean dark ink outlines, large unblended color blocks, grainy mineral pigment, paper-cutout silhouette. Do not copy the person.
+
+Single isolated 2D game tree cutout, side view, one tall deciduous Chinese forest tree as a paper theater prop. Tan trunk with ink bark lines, malachite-green leaf clumps as flat stacked cloud-shapes. Full tree from roots to canopy inside the frame with magenta margin. One tree only.
+
+Background is 100% solid flat magenta #FF00FF. No ground plane, no shadow, no other trees, no gold disc, no Buddhist symbols, no text. Not photoreal, not PBR, not 3D, not pixel art.

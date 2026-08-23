@@ -1,0 +1,5 @@
+16:9 wide panoramic 2D night landscape SAMPLE. Dunhuang mineral pigment mural style-e: large hard-edged color blocks, paper-cut silhouettes, clean thin dark uniform outlines, matte mineral pigments. NIGHT CINNABAR (dansha) palette: deep indigo-azurite flat sky, dusty plum and muted cinnabar-pink cut-paper cloud blobs, one small cream circle moon with NO halo. Hills as overlapping polygons: dark indigo farthest, brick-red / cinnabar middle, oxblood-ochre nearer. NOT photoreal night, NO bloom, NO neon, NO stars except at most 3 tiny cream dots that are NOT path markers.
+
+VERY FEW landmarks: almost none. One pale amber winding path of even width left-to-right through the middle, empty, no stations, no dots. Sparse dark-red/plum tree blobs, maybe 4-6. No paifang, no pavilion, no stele, no buildings.
+
+NO people, flags, glowing waypoints, numbers, circular markers, "you are here", UI, text. NO fog, mist, volume light, brick carving. Horizontal 16:9 strip filling the entire frame. Empty night pilgrimage strip.

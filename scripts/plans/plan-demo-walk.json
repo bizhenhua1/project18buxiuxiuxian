@@ -1,0 +1,14 @@
+[
+  {"wait_until": 1500},
+  {"shot": "after-walk-1.png"},
+  {"key": "KeyW", "down": true},
+  {"wait_until": 2600},
+  {"shot": "after-walk-2.png"},
+  {"wait_until": 3700},
+  {"shot": "after-walk-3.png"},
+  {"wait_until": 4800},
+  {"shot": "after-walk-4.png"},
+  {"key": "KeyW", "down": false},
+  {"wait_until": 5600},
+  {"shot": "after-walk-5.png"}
+]

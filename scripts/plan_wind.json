@@ -1,0 +1,7 @@
+[
+  {"wait": 3500},
+  {"shot": "wind_a.png"},
+  {"wait": 10000},
+  {"shot": "wind_b.png"},
+  {"eval": "JSON.stringify({drawMs: window.__corridorDrawMs})"}
+]

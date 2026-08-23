@@ -1,0 +1,10 @@
+mtn-far.png / mtn-near.png / cloud-strip.png / ground-tile.png
+生成方式：内置 image_gen（品红 #FF00FF 底），scripts/keyout_parallax.py 抠底+裁剪+缩放；祥云另做一次残留品红去噪。
+原图：raw/mtn-far-raw.png raw/mtn-near-raw.png raw/cloud-strip-raw.png raw/ground-tile-raw.png
+
+mtn-far：Dunhuang mural mineral-pigment flat-color distant mountain silhouette strip, very dark desaturated blue-green and ink-black flat tones, subtle ink outline accents, flat mist bands, lower 55%, magenta background, ridgeline edges level for horizontal tiling.
+mtn-near：mid-distance bolder ridgeline, flat dark malachite-green / deep ink-teal, thin ink ridge outlines, few flat rock facet strokes, lower 60%, magenta background.
+cloud-strip：traditional auspicious scroll clouds (祥云) band, flat muted grey-blue and dim pale-gold, dark ink outline spirals, dark subdued night mood, middle 60%, clusters loosely spaced, magenta background.
+ground-tile：top-down seamless dark forest floor tile, deep moss green / dark earth-brown flat patches, tiny moss clumps, small flat stones, grass speckles, thin ink accents, uniform density and brightness, no focal point, 512x512.
+
+渲染约定：山/云条带在运行时用镜像平铺（奇数块水平翻转）消除接缝；地面纹理用 ping-pong 采样（u/v 往返寻址），不依赖素材自身无缝。

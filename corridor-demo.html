@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>森林通道 · 纸片走廊</title>
+  <link rel="stylesheet" href="css/corridor.css?v=canvas25" />
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: "Noto Serif SC", "Source Han Serif SC", serif; color: #e8efe8; }
+    .demo-root { position: fixed; inset: 0; }
+    .hud {
+      position: fixed; inset: 0; z-index: 4; pointer-events: none;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 18px 22px; box-sizing: border-box;
+    }
+    .hud a { pointer-events: auto; }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    h1 { margin: 0; font-size: 22px; letter-spacing: .12em; font-weight: 700; text-shadow: 0 2px 10px #000; }
+    .sub { margin: 6px 0 0; font-size: 13px; opacity: .82; }
+    .back {
+      color: #d7ead4; text-decoration: none; border: 1px solid rgba(210,230,210,.35);
+      padding: 8px 14px; border-radius: 999px; background: rgba(12,22,16,.55);
+    }
+    .back:hover { background: rgba(28,48,36,.75); }
+    .help { max-width: 560px; font-size: 13px; line-height: 1.65; opacity: .9; text-shadow: 0 1px 8px #000; }
+    kbd {
+      display: inline-block; min-width: 1.2em; text-align: center;
+      border: 1px solid rgba(255,255,255,.28); border-bottom-width: 2px;
+      border-radius: 4px; padding: 0 5px; font-size: 12px; background: rgba(0,0,0,.35);
+    }
+    .status { font-size: 12px; opacity: .75; }
+  </style>
+</head>
+<body>
+  <div class="demo-root" id="corridor-host"></div>
+  <div class="hud">
+    <div class="top">
+      <div>
+        <h1>森林通道</h1>
+        <p class="sub">canvas 画家算法 · 针孔投影伪 3D</p>
+      </div>
+      <a class="back" href="index.html">Esc 回主页</a>
+    </div>
+    <div>
+      <p class="help">
+        默认沿轨道自动向前。<kbd>W</kbd> 加速，<kbd>S</kbd> 后退，<kbd>A</kbd><kbd>D</kbd> 左右平移，
+        <kbd>空格</kbd> 开关自动前进。单张 canvas 针孔投影，远处压暗成隧道尽头的黑。
+      </p>
+      <p class="status" id="status">加载精灵…</p>
+    </div>
+  </div>
+  <script type="module">
+    import { createCorridor } from "./js/corridor.js?v=canvas25";
+
+    const statusEl = document.getElementById("status");
+    createCorridor(document.getElementById("corridor-host"), {
+      keyboard: true,
+      autoForward: true,
+      onStatus: (text) => { statusEl.textContent = text; },
+    });
+    statusEl.textContent = "已进入森林通道。按住 W 沿轨道向前。";
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

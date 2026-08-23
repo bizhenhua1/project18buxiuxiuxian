@@ -1,0 +1,26 @@
+16:9 wide panoramic 2D game map background strip, Dunhuang mineral pigment mural (style-e): large hard-edged color blocks, paper-cut silhouettes, clean thin dark uniform outlines, matte mineral pigments. NOT a landscape illustration, NOT oil paint, NOT photoreal, NOT 3D, NOT pixel art, NOT watercolor, NO fog, NO mist, NO atmospheric haze, NO volume lighting, NO cliff brick texture, NO realistic mountain strata.
+
+MEDIUM density composition (not empty, not busy): the frame is fully filled with color shapes; the middle third is a lived-in path, never a blank void.
+
+SKY (top ~28%): flat azurite stone-blue (shi-qing) rectangle. Simple cloud COLOR BLOCKS: 5–7 pale cream and light celadon ovals/blobs with thin dark outline, like cut-paper clouds, NOT realistic cumulus, no shading, no glow.
+
+FAR HILLS: THREE stacked mountain layers with DIFFERENT values, overlapping triangles and trapezoids across the full width:
+- farthest layer: pale dusty azurite-blue-grey silhouettes
+- middle layer: malachite / shi-lv green hills, a few cinnabar-red facet blocks
+- nearer hills: darker teal-green plus ochre (tuhuang) earth bands
+Each peak is a large flat polygon. NOT one solid color band.
+
+ROAD: one clear pale cream winding ribbon of even width from the left edge to the right edge through the CENTER of the frame, slightly serpentine, readable as a pilgrimage path, thin dark outline, no cobblestones.
+
+ROADSIDE dressing (sparse but present): about 10–14 flat-painted tree clumps (dark teal canopy blobs like mushrooms or simple umbrellas, tiny trunks) plus a handful of geometric ochre/grey rock polygons along the road. Not a forest.
+
+LANDMARKS: exactly two geometric silhouettes, no architecture detail:
+1) left-center of the road: a simple Chinese paifang / ceremonial gate — two posts, one lintel, one triangular roof, cream and mineral gold
+2) right third of the road: a tiny square pavilion — diamond roof + two posts, malachite roof
+No city walls, no brickwork.
+
+Foreground bottom band: darker ochre-green ground with a few more rocks so the bottom is not empty.
+
+Forbidden: people, animals, armies, flags, numbers, Chinese or Latin text, UI, labels, watermarks, steles with writing, waterfalls, rivers with foam, pine needle forests, palaces, temples with many roofs, stars, sun with rays.
+
+Horizontal panoramic strip filling the entire 16:9 frame, production game overworld background.

@@ -1,0 +1,9 @@
+[
+  {"wait": 2500},
+  {"eval": "document.querySelectorAll('.ce-presets button')[1].click(); __corridorSetHour(15); 'sun-15'"},
+  {"wait": 250},
+  {"shot": "sunmoon_6_sun15.png"},
+  {"eval": "__corridorSetHour(16); 'sun-16'"},
+  {"wait": 250},
+  {"shot": "sunmoon_7_sun16.png"}
+]

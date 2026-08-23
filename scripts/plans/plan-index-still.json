@@ -1,0 +1,8 @@
+[
+  {"wait_until": 1200},
+  {"shot": "after-index-t12.png"},
+  {"eval": "(function(){const c=document.querySelector('.corridor-canvas');if(!c)return{err:'no canvas'};const u=c.toDataURL();let h=0;for(let i=0;i<u.length;i++){h=(h*31+u.charCodeAt(i))|0;}const g=c.getContext('2d');const d=g.getImageData(0,Math.floor(c.height*0.7),c.width,1).data;let lit=0;for(let i=0;i<d.length;i+=4){if(d[i]+d[i+1]+d[i+2]>30)lit++;}return{t:'t1',hash:h,lit:lit,drawn:window.__corridorDrawMs!==undefined};})()"},
+  {"wait_until": 3500},
+  {"shot": "after-index-t35.png"},
+  {"eval": "(function(){const c=document.querySelector('.corridor-canvas');const u=c.toDataURL();let h=0;for(let i=0;i<u.length;i++){h=(h*31+u.charCodeAt(i))|0;}return{t:'t2',hash:h};})()"}
+]

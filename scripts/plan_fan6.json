@@ -1,0 +1,21 @@
+[
+  {"wait": 2500},
+  {"eval": "__corridorSetHour(7); 'slot1'"},
+  {"wait": 200},
+  {"shot": "fan_1_h07.png"},
+  {"eval": "__corridorSetHour(9); 'slot2'"},
+  {"wait": 200},
+  {"shot": "fan_2_h09.png"},
+  {"eval": "__corridorSetHour(11); 'slot3'"},
+  {"wait": 200},
+  {"shot": "fan_3_h11.png"},
+  {"eval": "__corridorSetHour(13); 'slot4'"},
+  {"wait": 200},
+  {"shot": "fan_4_h13.png"},
+  {"eval": "__corridorSetHour(15); 'slot5'"},
+  {"wait": 200},
+  {"shot": "fan_5_h15.png"},
+  {"eval": "__corridorSetHour(17); 'slot6'"},
+  {"wait": 200},
+  {"shot": "fan_6_h17.png"}
+]

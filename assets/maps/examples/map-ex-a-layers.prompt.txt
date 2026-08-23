@@ -1,0 +1,7 @@
+16:9 wide panoramic 2D landscape SAMPLE strip, NOT a game HUD, NOT a level map overlay. Dunhuang mineral pigment mural style-e: large hard-edged color blocks, paper-cut silhouettes, clean thin dark uniform outlines, matte mineral pigments. Palette: azurite stone-blue sky, malachite green, dusty ochre, cream, a few cinnabar facets. NOT oil paint, NOT photoreal, NOT 3D, NOT pixel art, NOT watercolor.
+
+MEDIUM density: three stacked far-mountain layers as overlapping triangles/trapezoids across the full width, different values (pale dusty azurite-grey farthest, malachite mid, darker teal-ochre nearer). Sky is a flat azurite rectangle with 5-7 pale cream cut-paper cloud blobs.
+
+ONE pale cream winding dirt-path ribbon of even width from left edge to right through the center, slightly serpentine, thin dark outline, no cobblestones. Sparse roadside: about 8-10 simple umbrella-tree canopy blobs and a few geometric rock polygons. Foreground a darker ochre-green band.
+
+NO people, animals, flags, banners, glowing dots, sparkles, stars as waypoints, numbered stages, circular markers, dots on the road, checkpoints, "you are here", UI, text, watermarks. NO fog, mist, haze, volume light, brick carving, cliff strata. Empty path: the road has ZERO stations. Horizontal strip filling entire 16:9 frame.

@@ -1,0 +1,12 @@
+# 调试截图与诊断产物（由 scripts/cdp_shot.py 等生成，随时可重建）
+shots/
+shots_*/
+scripts/shots/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 系统文件
+Thumbs.db
+.DS_Store

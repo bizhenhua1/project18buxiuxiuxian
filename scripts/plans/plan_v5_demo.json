@@ -1,0 +1,1 @@
+[{"wait": 2500}, {"shot": "v5-demo-still.png"}, {"wait": 1200}, {"shot": "v5-demo-a.png"}, {"wait": 400}, {"shot": "v5-demo-b.png"}, {"wait": 400}, {"shot": "v5-demo-c.png"}, {"wait": 1500}, {"shot": "v5-demo-d.png"}, {"eval": "window.__corridorDrawMs"}]

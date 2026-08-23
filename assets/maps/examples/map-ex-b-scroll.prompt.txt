@@ -1,0 +1,5 @@
+16:9 wide panoramic 2D side-scrolling landscape SAMPLE, lots of empty space, horizontal beat-em-up / side-scroller framing. Dunhuang mineral pigment mural style-e: large hard-edged color blocks, paper-cut silhouettes, clean thin dark uniform outlines, matte mineral pigments. Palette: wide flat azurite stone-blue sky occupying the TOP 55-60% of the frame as empty color field; few cream cut-paper clouds; a thin band of distant pale mountain silhouettes hugging the horizon; sparse malachite and ochre ground along the BOTTOM 20-25% only.
+
+Side-view / profile composition, not top-down map. Generous negative space in the sky. Ground is a simple flat ochre-cream terrace with one thin cream path hugging the lower third, even width, left-to-right, no stations. Very few props: maybe 3-4 tiny tree silhouettes and one distant hill. Airy, empty, scrollable.
+
+NO people, flags, glowing dots, numbers, circular waypoints, checkpoints, UI, text. NO fog, mist, volume light, brick detail, palaces. NOT busy, NOT filled. Horizontal 16:9 strip filling the frame.

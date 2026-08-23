@@ -1,0 +1,21 @@
+style-e mineral palette (describe in prompts; hex is for UI/QC, not photoreal matching)
+
+Background
+- Shiqing / azurite stone-blue (preferred flat fill): about #2A4F6E to #3A6588
+- Pale mural cream (optional alternate fill): about #E4D5B5, still flat, no silk landscape
+
+Fills
+- Azurite stone-blue: #2F5F8F, #4A7A9C
+- Malachite stone-green: #3D7A5A, #5C9A6E
+- Cinnabar earth-red: #B44A3A, #C45C48
+- Muted tan / wall plaster: #C4A574, #D7C09A
+- Mineral white (fox, dog, ape): #E8E0D0, not pure #FFFFFF glare
+- Matte mineral gold: #C9A44A, #B8923E — dull metal leaf, NOT chrome, NOT emissive #FFE7A0 fire
+
+Lines
+- Clean dark outline: #2A2418 to #3D3428, even weight, not sketchy graphite
+
+Rules
+- Large unblended blocks; one accent gold per subject is enough
+- No rainbow gradients, no neon, no PBR rust
+- Gold is paint, not light

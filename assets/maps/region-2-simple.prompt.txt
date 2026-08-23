@@ -1,0 +1,26 @@
+16:9 wide panoramic 2D game map background strip, SAME medium-density Dunhuang mineral mural language as a daytime sibling map, but NIGHT CINNABAR (dansha) palette. Style-e: large hard-edged color blocks, paper-cut silhouettes, clean thin dark uniform outlines, matte mineral pigments. NOT oil paint, NOT photoreal, NOT 3D, NOT pixel art, NO fog, NO mist, NO atmospheric haze, NO volume lighting, NO glowing bloom, NO cliff brick texture.
+
+MEDIUM density: frame fully filled; middle third is a path with props, never a blank black void.
+
+SKY (top ~28%): deep indigo-azurite flat rectangle. Simple night cloud COLOR BLOCKS: 5–6 dusty plum and muted cinnabar-pink ovals/blobs with thin outline, cut-paper clouds, NOT realistic cumulus. One small cream circle moon, NO halo, NO stars except at most 4 tiny cream dots.
+
+FAR HILLS: THREE stacked mountain layers with DIFFERENT values across the full width:
+- farthest: dark indigo-blue silhouettes
+- middle: brick-red / cinnabar (dansha) hills with a few malachite-green facet blocks
+- nearer: darker oxblood and ochre earth bands
+Overlapping triangles and trapezoids, not one solid red slab.
+
+ROAD: one pale cream-to-amber winding ribbon of even width from left edge to right edge through the CENTER, slightly serpentine, thin dark outline, no cobblestones.
+
+ROADSIDE: about 10–12 flat dark-red / plum tree clumps (simple canopy blobs + tiny trunks) and geometric dark rock polygons along the road. Not a forest.
+
+LANDMARKS: exactly two geometric silhouettes:
+1) left-center: a simple Chinese paifang — two posts, lintel, triangular roof, dull gold and cream
+2) right third: a stone-stele silhouette — tall rectangle on a trapezoid base, NO writing, NO characters, cream-grey flat fill
+No city walls, no brickwork.
+
+Foreground: darker oxblood-ochre ground band with a few rocks.
+
+Forbidden: people, animals, flags, numbers, Chinese or Latin text, UI, labels, watermarks, written steles, waterfalls, rivers, pine forests, palaces, neon glow, photoreal night photography.
+
+Horizontal panoramic 16:9 strip filling the entire frame, production game overworld background.

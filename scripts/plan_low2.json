@@ -1,0 +1,9 @@
+[
+  {"wait": 2500},
+  {"shot": "low2_a.png"},
+  {"key": "KeyW", "down": true},
+  {"wait": 1800},
+  {"shot": "low2_b.png"},
+  {"key": "KeyW", "down": false},
+  {"eval": "window.__corridorDrawMs"}
+]

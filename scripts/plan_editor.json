@@ -1,0 +1,17 @@
+[
+  {"wait": 2500},
+  {"eval": "document.querySelector('.corridor-gear').click(); 'opened'"},
+  {"wait": 300},
+  {"shot": "ed_open.png"},
+  {"eval": "{ const r=document.querySelectorAll('.corridor-editor input[type=range]')[0]; r.value=400; r.dispatchEvent(new Event('input')); } 'curveA1=400'"},
+  {"eval": "{ const r=document.querySelectorAll('.corridor-editor input[type=range]')[1]; r.value=600; r.dispatchEvent(new Event('input')); } 'curveL1=600'"},
+  {"wait": 300},
+  {"shot": "ed_curve.png"},
+  {"eval": "{ const r=document.querySelectorAll('.corridor-editor input[type=range]')[6]; r.value=0.4; r.dispatchEvent(new Event('input')); } 'treeDensity=0.4'"},
+  {"wait": 300},
+  {"shot": "ed_sparse.png"},
+  {"eval": "document.querySelector('.ce-foot button').click(); 'reset'"},
+  {"wait": 300},
+  {"shot": "ed_reset.png"},
+  {"eval": "JSON.stringify({drawMs: window.__corridorDrawMs, savedA1: JSON.parse(localStorage.getItem('corridor-params-v1')).curveA1})"}
+]

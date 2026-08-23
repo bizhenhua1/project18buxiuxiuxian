@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>巴扎乱斗 · 横屏 Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=paper8" />
+  <link rel="stylesheet" href="css/corridor.css?v=canvas25" />
+</head>
+<body>
+  <div class="app">
+    <aside class="rail left-rail">
+      <div class="brand">
+        <h1>巴扎乱斗</h1>
+        <p>一排队列 · 打最左存活 · 死亡留尸</p>
+      </div>
+      <section class="panel">
+        <h2>解锁进度</h2>
+        <div class="unlock-nums">
+          <strong id="unlock-label">可携带 0/8</strong>
+          <span id="unlock-stage">关卡 1 / 9</span>
+        </div>
+        <div class="unlock-track"><span id="unlock-bar"></span></div>
+        <p class="hint" id="unlock-hint"></p>
+      </section>
+      <section class="panel inspect-panel">
+        <h2>单位详情</h2>
+        <div id="inspect" class="inspect">点选或悬停卡牌查看属性</div>
+      </section>
+      <section class="panel pool-panel">
+        <h2>卡牌库</h2>
+        <p class="hint">仅道童与五件法宝。开战前拖到我方一排；拖出可卸下。敌军只用低级怪物。</p>
+        <div class="pool" id="card-pool"></div>
+      </section>
+    </aside>
+
+    <main class="stage">
+      <svg class="link-layer" id="link-layer"></svg>
+      <section class="board-wrap enemy-side">
+        <div class="board" id="enemy-board">
+          <div class="lane" id="enemy-lane" data-side="enemy">
+            <div class="slot-row" id="enemy-slots"></div>
+            <div class="card-layer" id="enemy-cards"></div>
+            <div class="insert-caret" id="enemy-caret" hidden></div>
+          </div>
+        </div>
+        <div class="board-head">
+          <h2>敌方队列</h2>
+          <span class="count" id="enemy-count">0 存活</span>
+        </div>
+      </section>
+
+      <section class="map-zone" id="map-zone">
+        <div class="corridor-host" id="corridor-host"></div>
+        <div class="map-region-label" id="map-region-label"></div>
+        <div class="map-hud">
+          <div class="battle-status" id="battle-status">布阵中：拖到我方一排插入</div>
+        </div>
+      </section>
+
+      <section class="board-wrap player-side">
+        <div class="board-head">
+          <h2>我方队列</h2>
+          <span class="count" id="player-count">0 存活</span>
+        </div>
+        <div class="board" id="player-board">
+          <div class="lane" id="player-lane" data-side="player">
+            <div class="slot-row" id="player-slots"></div>
+            <div class="card-layer" id="player-cards"></div>
+            <div class="insert-caret" id="player-caret" hidden></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="rail right-rail">
+      <section class="panel">
+        <h2>战斗控制</h2>
+        <div class="controls">
+          <button type="button" id="btn-start" class="btn primary">开始战斗</button>
+          <button type="button" id="btn-reset" class="btn">重置布阵</button>
+          <button type="button" id="btn-next" class="btn gold">下一关解锁</button>
+          <label class="speed">
+            速度
+            <select id="speed-select">
+              <option value="0.5">0.5×</option>
+              <option value="1" selected>1×</option>
+              <option value="2">2×</option>
+              <option value="4">4×</option>
+            </select>
+          </label>
+          <div class="skin-switch">
+            <span>卡牌样式</span>
+            <div class="skin-btns">
+              <button type="button" id="btn-skin1" class="btn skin-btn" data-skin="skin1">方案1</button>
+              <button type="button" id="btn-skin2" class="btn skin-btn on" data-skin="skin2">方案2</button>
+            </div>
+          </div>
+          <button type="button" id="btn-enemy-preset" class="btn">敌军预设</button>
+          <button type="button" id="btn-enemy-random" class="btn">敌军随机</button>
+          <button type="button" id="btn-player-fill" class="btn">我方一键布阵</button>
+          <button type="button" id="btn-player-clear" class="btn">清空我方</button>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>胜负</h2>
+        <div id="outcome" class="outcome idle">布阵中</div>
+        <div id="win-count" class="win-count">胜利 0 次</div>
+      </section>
+      <section class="panel dps-panel">
+        <h2>输出统计</h2>
+        <div id="dps-board" class="dps-board"><p class="dps-empty">开战后再统计输出</p></div>
+      </section>
+    </aside>
+  </div>
+  <div id="float-layer" class="float-layer"></div>
+  <div id="card-tip" class="card-tip" hidden></div>
+  <script type="module" src="js/main.js?v=cap10"></script>
+</body>
+</html>

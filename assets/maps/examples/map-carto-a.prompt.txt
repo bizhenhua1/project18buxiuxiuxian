@@ -1,0 +1,15 @@
+Use the visible style-e Dunhuang mineral-flat paintings as COLOR AND LINE STYLE ONLY (azurite stone-blue, malachite stone-green, cinnabar, ochre tan, cream, thin even dark outlines, matte unblended color blocks). Do NOT copy the people.
+
+SUBJECT: a 3/4 oblique GAME LEVEL WORLD MAP, like a hand-painted cartographic overworld / playable stage base (Kingdom Rush / RPG overworld / Silk Road bazaar map feeling). Camera looks DOWN-AND-FORWARD onto the whole terrain filling the frame. This is a MAP of a region, not a landscape painting.
+
+COMPOSITION (must look like a map, not a scroll):
+- NO sky band, NO horizon line, NO side-view stacked mountain layers, NO panoramic strip of “mountains + sky”.
+- The entire 4:3 frame is terrain: ground, roads, woods, hills seen from above.
+- A branching DIRT ROAD NETWORK: one ochre cream path entering from bottom-left, forking into 3–4 branches, a loop around a grove, a spur to a pass. Roads are map symbols: even-width pale ochre ribbons with thin dark outlines, readable from above.
+- ONE city/pass silhouette only: a small walled compound or mountain gate (few roofs + wall, not a dense town), placed on a hill near upper-right, seen in 3/4.
+- Terrain symbols: clustered malachite tree-canopy blobs as woodland patches, overlapping triangular/trapezoid hills as mountain symbols (seen from above/oblique, not a side-view range), a small azurite pond, ochre fields.
+- Medium-high map detail: you can read regions and path forks. Not empty color slabs. Not satellite photo. Not oil painting.
+
+STYLE: Dunhuang mineral flat painting, paper-cut silhouettes, hard edges, matte pigments, clean thin dark outlines. Graphic 2D game map art.
+
+FORBIDDEN: people, animals, flags, banners, waypoints, glowing dots, numbered stages, circles on roads, “you are here”, compass rose, scale bar, text, UI, watermarks, fog, 3D, photoreal, pixel art, watercolor wash, cinematic lighting, side-view landscape, empty sky.

@@ -1,0 +1,15 @@
+CINNABAR NIGHT but it must be a TRUE TOP-DOWN GAME MAP filling 100% of the 4:3 frame — same cartographic structure as a regional strategy map, NOT a night landscape painting.
+
+CRITICAL: NO sky, NO horizon, NO moon in a sky, NO cinematic lighting, NO empty dark void around the land. The entire image is terrain seen from almost straight above, like a board-game night map printed on dark paper.
+
+PALETTE: deep azurite-ink ground (#1E3348–#2A4F6E), malachite-dark woodland blobs, cinnabar red mountain facets and a few roofs (#B44A3A), pale ochre dirt roads, cream as path highlight only. Matte mineral paints, thin even dark outlines, unblended blocks. Style-e Dunhuang mineral flat painting.
+
+MAP CONTENT:
+- Branching dirt-road network with clear forks and a loop, readable from above.
+- Forest patches, mountain massifs as nested polygons (map symbols, not side-view peaks), one small azurite lake.
+- ONE sparse walled pass/compound (few cinnabar roofs), not a dense city.
+- Rich enough to read regions; not satellite; not oil painting.
+
+FORBIDDEN: people, flags, waypoints, glowing dots, numbers, text, UI, moon-in-sky, stars as sparkles, fog, volume light, side-view scenery.
+
+Visual reference: keep the regional top-down structure of map-carto-b, recolor to cinnabar night.

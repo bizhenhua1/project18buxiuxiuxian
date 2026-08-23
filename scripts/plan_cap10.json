@@ -1,0 +1,13 @@
+[
+  {"wait": 3000},
+  {"eval": "(() => { [...document.querySelectorAll('button')].find(b=>b.textContent.includes('下一关解锁')).click(); return 'u1'; })()"},
+  {"wait": 4000},
+  {"eval": "(() => { [...document.querySelectorAll('button')].find(b=>b.textContent.includes('下一关解锁')).click(); return 'u2'; })()"},
+  {"wait": 4000},
+  {"eval": "(() => { [...document.querySelectorAll('button')].find(b=>b.textContent.includes('下一关解锁')).click(); return 'u3'; })()"},
+  {"wait": 4000},
+  {"eval": "(() => { [...document.querySelectorAll('button')].find(b=>b.textContent.includes('下一关解锁')).click(); return 'u4'; })()"},
+  {"wait": 4000},
+  {"eval": "(() => { const cards = document.querySelectorAll('.card').length; return JSON.stringify({allCards: cards, html: document.body.textContent.match(/可携带[^ ]*/)?.[0] || '' }); })()"},
+  {"shot": "cap10.png"}
+]

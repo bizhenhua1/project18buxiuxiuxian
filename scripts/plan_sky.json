@@ -1,0 +1,18 @@
+[
+  {"wait": 2500},
+  {"shot": "sky_0_night.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[1].click(); 'sunny'"},
+  {"wait": 250},
+  {"shot": "sky_1_sunny.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[2].click(); 'overcast'"},
+  {"wait": 250},
+  {"shot": "sky_2_overcast.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[3].click(); 'dusk'"},
+  {"wait": 250},
+  {"shot": "sky_3_dusk.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[4].click(); 'horror'"},
+  {"wait": 250},
+  {"shot": "sky_4_horror.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[0].click(); 'back-to-night'"},
+  {"eval": "JSON.stringify({drawMs: window.__corridorDrawMs})"}
+]

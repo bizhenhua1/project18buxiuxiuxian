@@ -1,0 +1,14 @@
+Use the visible style-e Dunhuang mineral-flat paintings as COLOR AND LINE STYLE ONLY (azurite water, malachite banks, ochre land, cream, thin even dark outlines). Do NOT copy the people.
+
+SUBJECT: a WATERSHED / RIVER-SKELETON GAME MAP, top-down or slight 3/4 cartography. The river system is the spine of the map, like a hydrographic chart mixed with an RPG overworld.
+
+COMPOSITION (must look like a map):
+- NO side-view “a river in a valley with sky”. Camera looks DOWN onto a basin filling the 4:3 frame.
+- A wide azurite main river snakes from top-left to bottom-right, with 4–6 tributaries joining it (true dendritic drainage as MAP SYMBOLS). Small lakes, a marsh of malachite-azurite polygons, a pale sandbar.
+- Banks: ochre floodplain, malachite groves, a few hill symbols. TWO simple bridges as graphic bars. Sparse: one tiny riverside hamlet of 3 roofs, not a city.
+- Dirt paths follow the river and fork to tributaries, but water is the main structure.
+- Readable watershed: you can see the whole drainage network at a glance. Graphic mineral fills, not satellite water, not oil reflections.
+
+STYLE: Dunhuang mineral flat painting, cartographic river map, hard edges, paper-cut water shapes.
+
+FORBIDDEN: people, boats with sailors, flags, waypoints, numbers, text, compass, UI, fog, photoreal water, 3D, side-view landscape, empty sky band.

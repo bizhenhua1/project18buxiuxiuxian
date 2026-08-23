@@ -1,0 +1,19 @@
+[
+  {"wait": 2500},
+  {"eval": "document.querySelectorAll('.ce-presets button')[1].click(); __corridorSetHour(7.5); 'sun-morning'"},
+  {"wait": 250},
+  {"shot": "sunmoon_1_morning.png"},
+  {"eval": "__corridorSetHour(12); 'sun-noon'"},
+  {"wait": 250},
+  {"shot": "sunmoon_2_noon.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[3].click(); __corridorSetHour(16.8); 'sun-evening'"},
+  {"wait": 250},
+  {"shot": "sunmoon_3_evening.png"},
+  {"eval": "document.querySelectorAll('.ce-presets button')[0].click(); __corridorSetHour(21); 'moon-rising'"},
+  {"wait": 250},
+  {"shot": "sunmoon_4_moon21.png"},
+  {"eval": "__corridorSetHour(0); 'moon-midnight'"},
+  {"wait": 250},
+  {"shot": "sunmoon_5_moon0.png"},
+  {"eval": "JSON.stringify({drawMs: window.__corridorDrawMs})"}
+]

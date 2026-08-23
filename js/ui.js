@@ -1,8 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmost, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=cap10";
-import { PLAYER_LIBRARY, unitDesc } from "./unit.js?v=growth1";
-import { collectTargetPairs } from "./combat.js?v=growth1";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=corridor1";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=growth1";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao1";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao1";
+import { collectTargetPairs } from "./combat.js?v=dao1";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao1";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao1";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao1";
+import { equipMods } from "./equipment.js?v=dao1";
+import { ownedBeasts } from "./loot.js?v=dao1";
 
 let sceneCorridor = null;
 
@@ -25,23 +28,55 @@ export function buildLanes() {
   };
 }
 
+function poolCardEl(card, badge = "") {
+  const el = document.createElement("div");
+  const kind = card.kind || (card.id === "daotong" ? "char" : "artifact");
+  el.className = `pool-card kind-${kind} type-${card.cardType || "fabao"}`;
+  el.dataset.cardId = card.id;
+  const thumb = card.art
+    ? `<div class="pool-thumb"><img class="art-${kind}" src="${card.art}" alt="${card.name}" draggable="false" /></div>`
+    : `<div class="icon">${card.icon}</div>`;
+  const typeName = CARD_TYPE_NAMES[card.cardType] || "法宝";
+  const wt = card.cardType === "weapon" ? ` · 重${card.weight}` : "";
+  el.innerHTML = `
+    ${thumb}
+    <div class="title">${card.name}</div>
+    <div class="size">${typeName}${wt}${badge}</div>
+    <div class="meta">攻${card.atk} 血${card.hp} · ${(card.cd / 1000).toFixed(1)}s</div>
+  `;
+  return el;
+}
+
+function poolSection(root, title, hint = "") {
+  const el = document.createElement("div");
+  el.className = "pool-sec";
+  el.innerHTML = `<span>${title}</span>${hint ? `<em>${hint}</em>` : ""}`;
+  root.appendChild(el);
+}
+
 export function buildPool(root) {
   root.innerHTML = "";
-  for (const card of PLAYER_LIBRARY) {
-    const el = document.createElement("div");
-    const kind = card.kind || (card.id === "daotong" ? "char" : "artifact");
-    el.className = `pool-card kind-${kind}`;
-    el.dataset.cardId = card.id;
-    const thumb = card.art
-      ? `<div class="pool-thumb"><img class="art-${kind}" src="${card.art}" alt="${card.name}" draggable="false" /></div>`
-      : `<div class="icon">${card.icon}</div>`;
-    el.innerHTML = `
-      ${thumb}
-      <div class="title">${card.name}</div>
-      <div class="size">${card.pool === "player" && card.id === "daotong" ? "主角" : "法宝"}</div>
-      <div class="meta">攻${card.atk} 血${card.hp} · ${(card.cd / 1000).toFixed(1)}s</div>
-    `;
-    root.appendChild(el);
+  const chars = PLAYER_LIBRARY.filter((c) => c.cardType === "char" || c.cardType === "fabao");
+  const weapons = PLAYER_LIBRARY.filter((c) => c.cardType === "weapon");
+  const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell");
+
+  poolSection(root, "主角 · 法宝");
+  for (const card of chars) root.appendChild(poolCardEl(card));
+
+  poolSection(root, "武器", "体修开手持格后可持");
+  for (const card of weapons) root.appendChild(poolCardEl(card));
+
+  poolSection(root, "法术", "法修开识海格后可挂");
+  for (const card of spells) root.appendChild(poolCardEl(card));
+
+  const owned = ownedBeasts();
+  const beastIds = Object.keys(owned).filter((id) => owned[id] > 0);
+  if (beastIds.length) {
+    poolSection(root, "御兽", "战斗收服所得");
+    for (const id of beastIds) {
+      const card = ENEMY_LIBRARY.find((c) => c.id === id);
+      if (card) root.appendChild(poolCardEl(card, ` ×${owned[id]}`));
+    }
   }
 }
 
@@ -49,7 +84,9 @@ function refreshPoolStats(stage) {
   const root = document.getElementById("card-pool");
   if (!root) return;
   for (const el of root.querySelectorAll(".pool-card")) {
-    const card = PLAYER_LIBRARY.find((c) => c.id === el.dataset.cardId);
+    const card =
+      PLAYER_LIBRARY.find((c) => c.id === el.dataset.cardId) ||
+      ENEMY_LIBRARY.find((c) => c.id === el.dataset.cardId);
     if (!card) continue;
     const e = effectiveStats(card, stage, "player");
     const meta = el.querySelector(".meta");
@@ -310,13 +347,31 @@ export function renderUnlock(state) {
   }
   const wins = document.getElementById("win-count");
   if (wins) wins.textContent = `胜利 ${state.wins} 次`;
+  renderSlotSummary(state);
   refreshPoolStats(state.unlockStage);
+}
+
+/** 左栏格位摘要：天赋+装备决定各类型格位数量。 */
+export function renderSlotSummary(state) {
+  const el = document.getElementById("slot-summary");
+  if (!el) return;
+  const slots = slotTable(mergeMods(talentMods(), equipMods()));
+  const q = state.playerQueue;
+  const cnt = (t) => q.filter((u) => u.cardType === t).length;
+  const wUsed = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
+  const parts = [
+    `法宝 ${cnt("fabao")}/${slots.fabao}`,
+    slots.hand > 0 ? `手持 ${cnt("weapon")}/${slots.hand}（重 ${wUsed}/${slots.weight}）` : "手持 未开",
+    slots.mind > 0 ? `识海 ${cnt("spell")}/${slots.mind}` : "识海 未开",
+    slots.beast > 0 ? `兽栏 ${cnt("beast")}/${slots.beast}` : "兽栏 未开",
+  ];
+  el.textContent = `格位：${parts.join(" · ")}`;
 }
 
 export function renderBoards(state, lanes) {
   const cap = capAt(state.unlockStage);
-  const eFocus = leftmost(state.enemyQueue);
-  const pFocus = leftmost(state.playerQueue);
+  const eFocus = leftmostTargetable(state.enemyQueue);
+  const pFocus = leftmostTargetable(state.playerQueue);
   renderSlots(lanes.enemySlots, lanes.enemyCards, "enemy");
   renderSlots(lanes.playerSlots, lanes.playerCards, "player");
   const skin = state.cardSkin === "skin2" ? "skin2" : "skin1";
@@ -404,7 +459,9 @@ export function formatCardTip(card, stage = 0) {
   const now = scaled
     ? `<span class="tip-stats">当前 攻 ${e.atk}　血 ${e.hp}　CD ${(e.cd / 1000).toFixed(1)}s</span>`
     : "";
-  return `<strong>${card.name}</strong><span class="tip-stats">白板 攻 ${card.atk}　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s</span>${now}<span class="tip-desc">${card.skillText}</span>`;
+  const typeName = CARD_TYPE_NAMES[card.cardType] || "法宝";
+  const wt = card.cardType === "weapon" ? `（重量 ${card.weight}）` : "";
+  return `<strong>${card.name} · ${typeName}${wt}</strong><span class="tip-stats">白板 攻 ${card.atk}　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s</span>${now}<span class="tip-desc">${card.skillText}</span>`;
 }
 
 export function formatUnitTip(unit, elapsedSec = 0) {

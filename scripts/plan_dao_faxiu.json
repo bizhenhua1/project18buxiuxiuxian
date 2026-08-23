@@ -1,0 +1,21 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(7); document.getElementById('btn-talents').click(); document.getElementById('talent-respec').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['f1','f2','f3','f5'].forEach(click); const pts = document.getElementById('talent-points').textContent; document.getElementById('talent-close').click(); return pts + ' | ' + JSON.stringify(window.__dao.slots()); })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = ['daotong','xiaohulu','xiaohulu','waci-yin','tongjing','lihuo-shu','bingfu-jue','tianlei-yin','huichun-shu'].map(id=>p.place(id)); return JSON.stringify(r) + ' | enemies:' + window.__dao.state.enemyQueue.length; })()"},
+  {"shot": "dao_faxiu_lineup.png"},
+  {"eval": "(() => { window.__dao.start(); return 'battle'; })()"},
+  {"wait": 5000},
+  {"eval": "(() => { const s = window.__dao.state; const eFocusName = (s.playerQueue.filter(u=>u.status==='alive'&&u.cardType!=='spell'&&u.cardType!=='weapon')[0]||{}).name; const spellsUntouched = s.playerQueue.filter(u=>u.cardType==='spell').every(u=>u.hp===u.maxHp); const dmg = s.playerQueue.filter(u=>u.cardType==='spell').map(u=>u.name+':'+Math.round(u.damageDealt||0)+'/'+Math.round(u.healDone||0)); return JSON.stringify({eFocusName, spellsUntouched, dmg}); })()"},
+  {"shot": "dao_faxiu_fight.png"},
+  {"wait": 30000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({winner: s.winner, running: s.running, loot: [...document.querySelectorAll('.loot-line')].map(e=>e.textContent), bag: (JSON.parse(localStorage.getItem('dao-bag-v1')||'{}').items||[]).length}); })()"},
+  {"shot": "dao_faxiu_end.png"},
+  {"eval": "(() => { document.getElementById('btn-bag').click(); return 'bag'; })()"},
+  {"wait": 400},
+  {"eval": "(() => { const chip = document.querySelector('.bag-chip'); if (!chip) return 'empty bag'; chip.click(); return 'picked'; })()"},
+  {"wait": 300},
+  {"shot": "dao_faxiu_bag.png"},
+  {"eval": "(() => { const btn = document.getElementById('btn-equip'); if (!btn) return 'no equip btn'; btn.click(); return JSON.stringify({equipped: Object.keys(JSON.parse(localStorage.getItem('dao-bag-v1')||'{}').equipped||{})}); })()"},
+  {"wait": 300},
+  {"shot": "dao_faxiu_equipped.png"}
+]

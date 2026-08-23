@@ -10,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=paper8" />
   <link rel="stylesheet" href="css/corridor.css?v=canvas25" />
+  <link rel="stylesheet" href="css/panels.css?v=dao1" />
 </head>
 <body>
   <div class="app">
@@ -25,6 +26,7 @@
           <span id="unlock-stage">关卡 1 / 9</span>
         </div>
         <div class="unlock-track"><span id="unlock-bar"></span></div>
+        <p class="hint" id="slot-summary"></p>
         <p class="hint" id="unlock-hint"></p>
       </section>
       <section class="panel inspect-panel">
@@ -107,6 +109,14 @@
         </div>
       </section>
       <section class="panel">
+        <h2>修行</h2>
+        <div class="controls">
+          <button type="button" id="btn-talents" class="btn gold">道途天赋</button>
+          <button type="button" id="btn-bag" class="btn">行囊</button>
+        </div>
+        <div id="loot-log" class="loot-log"></div>
+      </section>
+      <section class="panel">
         <h2>胜负</h2>
         <div id="outcome" class="outcome idle">布阵中</div>
         <div id="win-count" class="win-count">胜利 0 次</div>
@@ -119,6 +129,6 @@
   </div>
   <div id="float-layer" class="float-layer"></div>
   <div id="card-tip" class="card-tip" hidden></div>
-  <script type="module" src="js/main.js?v=cap10"></script>
+  <script type="module" src="js/main.js?v=dao1"></script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(6); document.getElementById('btn-talents').click(); document.getElementById('talent-respec').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['y1','y7','y2'].forEach(click); const pts = document.getElementById('talent-points').textContent; document.getElementById('talent-close').click(); return pts + ' | ' + JSON.stringify(window.__dao.slots()); })()"},
+  {"eval": "(() => { document.getElementById('btn-player-fill').click(); return window.__dao.state.playerQueue.map(u=>u.name).join(','); })()"},
+  {"eval": "(() => { window.__dao.start(); return 'battle'; })()"},
+  {"wait": 25000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({winner: s.winner, running: s.running}); })()"},
+  {"wait": 15000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({winner: s.winner, running: s.running, loot: [...document.querySelectorAll('.loot-line')].map(e=>e.textContent), beasts: localStorage.getItem('dao-beasts-v1'), bag: (JSON.parse(localStorage.getItem('dao-bag-v1')||'{}').items||[]).length}); })()"},
+  {"shot": "dao_yushou_end.png"},
+  {"eval": "(() => { const beasts = JSON.parse(localStorage.getItem('dao-beasts-v1')||'{}'); const id = Object.keys(beasts)[0]; if (!id) return 'no beast'; return id + ' -> ' + window.__dao.place(id); })()"},
+  {"wait": 300},
+  {"shot": "dao_yushou_beast.png"}
+]

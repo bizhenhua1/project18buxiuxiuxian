@@ -1,0 +1,12 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(10); return 'enemies:' + window.__dao.state.enemyQueue.length + ' cap:' + JSON.stringify(window.__dao.slots()); })()"},
+  {"shot": "dao_final_board.png"},
+  {"eval": "(() => { document.getElementById('btn-talents').click(); return 'tree'; })()"},
+  {"wait": 400},
+  {"shot": "dao_final_tree.png"},
+  {"eval": "(() => { document.getElementById('talent-close').click(); document.getElementById('btn-bag').click(); return 'bag'; })()"},
+  {"wait": 500},
+  {"shot": "dao_final_bag.png"},
+  {"eval": "(() => { const chips = document.querySelectorAll('.bag-chip').length; const eq = document.querySelectorAll('.equip-slot:not(.empty)').length; const arts = [...document.querySelectorAll('.chip-art')].filter(i=>i.complete&&i.naturalWidth>0).length; return JSON.stringify({chips, eq, artsLoaded: arts}); })()"}
+]

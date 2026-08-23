@@ -47,6 +47,16 @@ export function leftmost(queue) {
   return livingUnits(queue)[0] || null;
 }
 
+/** 法术与手持武器不占承伤位：敌方集火跳过它们。 */
+export function isTargetable(u) {
+  return !!(u && u.cardType !== "spell" && u.cardType !== "weapon");
+}
+
+/** 最左可承伤的存活单位（集火目标）。 */
+export function leftmostTargetable(queue) {
+  return livingUnits(queue).find(isTargetable) || null;
+}
+
 export function markCorpse(unit) {
   if (!unit) return unit;
   unit.hp = 0;

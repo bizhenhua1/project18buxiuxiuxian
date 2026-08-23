@@ -1,0 +1,13 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(9); document.getElementById('btn-talents').click(); document.getElementById('talent-respec').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['q1','q4','q5','b1','b2','q2','q6'].forEach(click); const pts = document.getElementById('talent-points').textContent; document.getElementById('talent-close').click(); return pts + ' | ' + JSON.stringify(window.__dao.slots()) + ' | enemies:' + window.__dao.state.enemyQueue.length; })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = ['daotong','taomu-jian','qingfeng-jian','xuantie-jian','juhun-fan','xiaohulu','waci-yin','tongjing','masuo'].map(id=>p.place(id)); return JSON.stringify(r) + ' | swordEcho:' + (p.state.playerQueue.find(u=>u.cardId==='taomu-jian')||{}).swordEcho + ' | fanPerStack:' + (p.state.playerQueue.find(u=>u.cardId==='juhun-fan')||{}).fanPerStack; })()"},
+  {"shot": "dao_qidao_lineup.png"},
+  {"eval": "(() => { window.__dao.start(); return 'battle'; })()"},
+  {"wait": 8000},
+  {"eval": "(() => { const s = window.__dao.state; const fan = s.playerQueue.find(u=>u.cardId==='juhun-fan'); const swords = s.playerQueue.filter(u=>u.tags.includes('sword')).map(u=>u.name+':'+Math.round(u.damageDealt||0)); return JSON.stringify({fanStacks: fan?fan.soulStacks:null, fanDmg: fan?Math.round(fan.damageDealt):0, swords}); })()"},
+  {"shot": "dao_qidao_fight.png"},
+  {"wait": 30000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({winner: s.winner, running: s.running, loot: [...document.querySelectorAll('.loot-line')].map(e=>e.textContent)}); })()"},
+  {"shot": "dao_qidao_end.png"}
+]

@@ -3,16 +3,29 @@ import {
   capAt,
   createEmptyQueue,
   livingUnits,
-  canAdd,
   insertUnit,
   removeUnit,
   moveUnit,
   clearQueue,
   findUnitByUid,
-} from "./grid.js?v=cap10";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, createUnit, getCard, resetCombatState } from "./unit.js?v=growth1";
-import { tick, resolveShot, checkWinner } from "./combat.js?v=cap10";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult } from "./balance.js?v=growth1";
+} from "./grid.js?v=dao1";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao1";
+import { tick, resolveShot, checkWinner, processDeaths } from "./combat.js?v=dao1";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao1";
+import {
+  talentMods,
+  talentPoints,
+  spentPoints,
+  slotTable,
+  mergeMods,
+  applyPlayerMods,
+  applyQueueEffects,
+  reconcile,
+} from "./talents.js?v=dao1";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao1";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao1";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao1";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao1";
 import {
   buildLanes,
   buildPool,
@@ -41,13 +54,27 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=cap10";
+} from "./ui.js?v=dao1";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=corridor1";
+} from "./map.js?v=dao1";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas25";
+
+const PROGRESS_KEY = "dao-progress-v1";
+
+function loadProgress() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "null");
+    if (raw && Number.isFinite(raw.unlockStage)) {
+      return { unlockStage: Math.max(0, Math.floor(raw.unlockStage)), wins: Math.max(0, raw.wins | 0) };
+    }
+  } catch { /* 损坏则从头开始 */ }
+  return { unlockStage: 0, wins: 0 };
+}
+
+const progress = loadProgress();
 
 const state = {
   playerQueue: createEmptyQueue(),
@@ -58,11 +85,31 @@ const state = {
   speed: 1,
   winner: null,
   selectedUid: null,
-  unlockStage: 0,
-  focusStage: 0,
-  wins: 0,
+  unlockStage: progress.unlockStage,
+  focusStage: progress.unlockStage,
+  wins: progress.wins,
   cardSkin: "skin2",
+  killedEnemies: [],
+  bloodPact: false,
 };
+
+function saveProgress() {
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify({ unlockStage: state.unlockStage, wins: state.wins }));
+  } catch { /* 静默 */ }
+}
+
+// 天赋+装备聚合修正（变更时刷新缓存）
+let mods = mergeMods(talentMods(), equipMods());
+reconcile(state.unlockStage);
+
+function refreshMods() {
+  mods = mergeMods(talentMods(), equipMods());
+}
+
+function currentSlots() {
+  return slotTable(mods);
+}
 
 const lanes = buildLanes();
 const poolRoot = document.getElementById("card-pool");
@@ -89,11 +136,18 @@ function enemyStage() {
 }
 
 function makeUnit(id, side, index = 0) {
-  return createUnit(id, side, index, side === "enemy" ? enemyStage() : playerStage());
+  const unit = createUnit(id, side, index, side === "enemy" ? enemyStage() : playerStage());
+  if (side === "player") applyPlayerMods(unit, mods);
+  return unit;
 }
 
 function restatQueues() {
-  for (const u of state.playerQueue) applyEffectiveStats(u, playerStage());
+  for (const u of state.playerQueue) {
+    applyEffectiveStats(u, playerStage());
+    applyPlayerMods(u, mods);
+  }
+  applyQueueEffects(state.playerQueue, mods);
+  state.bloodPact = !!mods.bloodPact;
   for (const u of state.enemyQueue) applyEffectiveStats(u, enemyStage());
 }
 
@@ -112,16 +166,62 @@ function applyImpact(events, at = null) {
   }
 }
 
+/** 结算一批事件：死亡后处理（幡叠层/收服记录/血契回血）再统一跳字。 */
+function settle(events, at = null) {
+  const extra = processDeaths(state, events);
+  applyImpact([...events, ...extra], at);
+}
+
+const LOOT_LOG_MAX = 8;
+
+function pushLootLog(html) {
+  const box = document.getElementById("loot-log");
+  if (!box) return;
+  const line = document.createElement("div");
+  line.className = "loot-line";
+  line.innerHTML = html;
+  box.prepend(line);
+  while (box.childElementCount > LOOT_LOG_MAX) box.lastElementChild.remove();
+}
+
+/** 胜利结算：掉落装备 + 收服御兽。 */
+function settleVictory() {
+  const boss = isBossStage(enemyStage());
+  const items = rollLoot(enemyStage(), boss, mods.luckPct);
+  for (const item of items) {
+    addItem(item);
+    pushLootLog(`掉落 <b style="color:${rarityById(item.rarity).color}">${item.name}</b>`);
+  }
+  const caught = rollCaptures(state.killedEnemies, mods.capturePct + mods.luckPct * 0.5);
+  for (const id of caught) {
+    addBeast(id);
+    const card = getCard(id);
+    pushLootLog(`收服 <b class="loot-beast">${card ? card.name : id}</b>（共 ${beastCount(id)} 只）`);
+  }
+  if (caught.length) buildPool(poolRoot);
+  refreshMods();
+  syncMetaButtons();
+  return { items, caught };
+}
+
 function finishIfNeeded() {
   if (inflight > 0 || !state.running) return false;
   checkWinner(state);
   if (!state.winner) return false;
   state.running = false;
-  const msg =
+  let msg =
     state.winner === "player" ? "胜利：敌方无存活（只剩尸体也算输）" :
     state.winner === "enemy" ? "失败：我方无存活" : "平局：双方均无存活";
   const kind = state.winner === "player" ? "win" : state.winner === "enemy" ? "lose" : "draw";
-  if (state.winner === "player") state.wins += 1;
+  if (state.winner === "player") {
+    state.wins += 1;
+    const { items, caught } = settleVictory();
+    const bits = [];
+    if (items.length) bits.push(`掉落 ${items.map((it) => it.name).join("、")}`);
+    if (caught.length) bits.push(`收服 ${caught.map((id) => getCard(id)?.name || id).join("、")}`);
+    if (bits.length) msg += ` · ${bits.join("；")}`;
+    saveProgress();
+  }
   state.battleEndTs = performance.now();
   setStatus(msg, kind);
   syncButtons();
@@ -134,7 +234,7 @@ function launchShot(shot) {
   if (shot.style === "heal") {
     playCardAnim(shot.from.uid, "atk", shot.to.uid);
     playCardAnim(shot.to.uid, "heal");
-    applyImpact(resolveShot(shot));
+    settle(resolveShot(shot));
     return;
   }
   playCardAnim(shot.from.uid, "atk", shot.to.uid);
@@ -153,12 +253,13 @@ function launchShot(shot) {
       const evs = resolveShot(shot);
       const died = evs.some((e) => e.type === "death");
       playCardAnim(shot.to.uid, died ? "dead" : "hit");
-      applyImpact(evs, hit);
+      settle(evs, hit);
     },
   });
 }
 
 function applyEvents(events) {
+  const batch = [];
   for (const ev of events) {
     if (ev.type === "shot") {
       launchShot(ev);
@@ -168,8 +269,9 @@ function applyEvents(events) {
       playCardAnim(ev.from.uid, "atk", ev.to.uid);
       playCardAnim(ev.to.uid, "heal");
     }
-    applyImpact([ev]);
+    batch.push(ev);
   }
+  if (batch.length) settle(batch);
 }
 
 function loop(ts) {
@@ -205,17 +307,28 @@ function fillQueue(queue, side, ids) {
   }
 }
 
+/** 我方格位总容量：道童 + 各类型格位之和（上限仍受 cap 约束）。 */
+function totalCapacity() {
+  const s = currentSlots();
+  return Math.min(cap(), 1 + s.fabao + s.hand + s.mind + s.beast);
+}
+
+/** 敌方出战数与我方格位容量对称：天赋开格子，敌人同步变多。 */
+function enemyCount() {
+  return totalCapacity();
+}
+
 function fillEnemyPreset() {
   const roster = ENEMY_LIBRARY.map((c) => c.id);
   const wish = [];
-  const n = cap();
+  const n = enemyCount();
   for (let i = 0; i < n; i++) wish.push(roster[i % roster.length]);
   fillQueue(state.enemyQueue, "enemy", wish);
 }
 
 function fillEnemyRandom() {
   clearQueue(state.enemyQueue);
-  const n = cap();
+  const n = enemyCount();
   for (let i = 0; i < n; i++) {
     const card = ENEMY_LIBRARY[Math.floor(Math.random() * ENEMY_LIBRARY.length)];
     insertUnit(state.enemyQueue, makeUnit(card.id, "enemy", i), i, n);
@@ -223,11 +336,62 @@ function fillEnemyRandom() {
 }
 
 function fillPlayerDemo() {
-  const arts = PLAYER_LIBRARY.filter((c) => c.id !== "daotong").map((c) => c.id);
+  // 一键布阵尊重格位：道童 + 法宝填满法宝格，再按已开格位补武器/法术
+  const slots = currentSlots();
   const wish = ["daotong"];
-  const n = cap();
-  for (let i = 1; i < n; i++) wish.push(arts[(i - 1) % arts.length]);
-  fillQueue(state.playerQueue, "player", wish);
+  const fabaos = PLAYER_LIBRARY.filter((c) => c.cardType === "fabao").map((c) => c.id);
+  for (let i = 0; i < slots.fabao && wish.length < cap(); i++) wish.push(fabaos[i % fabaos.length]);
+  if (slots.hand > 0) {
+    let weightLeft = slots.weight;
+    const weapons = PLAYER_LIBRARY.filter((c) => c.cardType === "weapon");
+    let placed = 0;
+    for (const w of weapons) {
+      if (placed >= slots.hand || wish.length >= cap() || w.weight > weightLeft) continue;
+      wish.push(w.id);
+      weightLeft -= w.weight;
+      placed++;
+    }
+  }
+  if (slots.mind > 0) {
+    const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell").map((c) => c.id);
+    for (let i = 0; i < slots.mind && i < spells.length && wish.length < cap(); i++) wish.push(spells[i]);
+  }
+  clearQueue(state.playerQueue);
+  for (const id of wish) {
+    if (state.playerQueue.length >= cap()) break;
+    const card = getCard(id);
+    if (!card || placeError(card)) continue;
+    insertUnit(state.playerQueue, makeUnit(id, "player", state.playerQueue.length), state.playerQueue.length, cap());
+  }
+  restatQueues();
+}
+
+/** 上阵校验：位置上限 + 格位类型 + 重量预算 + 御兽持有数。返回错误文案或 null。 */
+function placeError(card, ignoreUid = null) {
+  const q = state.playerQueue.filter((u) => u && u.uid !== ignoreUid);
+  if (q.length >= cap()) return `已达上限 ${cap()} 位`;
+  const slots = currentSlots();
+  const type = fieldCardType(card, "player");
+  const cnt = (t) => q.filter((u) => u.cardType === t).length;
+  if (type === "char" && cnt("char") >= 1) return "道童只能上场一位";
+  if (type === "fabao" && cnt("fabao") >= slots.fabao) return `法宝格已满（${slots.fabao}），可修「器道·多宝」扩容`;
+  if (type === "weapon") {
+    if (slots.hand <= 0) return "手持格未开：先修「体修·两手蛮力」";
+    if (cnt("weapon") >= slots.hand) return `手持格已满（${slots.hand}）`;
+    const used = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
+    if (used + (card.weight || 0) > slots.weight) return `重量超限：${used}+${card.weight} > ${slots.weight}（力量预算）`;
+  }
+  if (type === "spell") {
+    if (slots.mind <= 0) return "识海格未开：先修「法修·识海开窍」";
+    if (cnt("spell") >= slots.mind) return `识海格已满（${slots.mind}）`;
+  }
+  if (type === "beast") {
+    if (slots.beast <= 0) return "兽栏格未开：先修「御兽·兽栏」";
+    if (cnt("beast") >= slots.beast) return `兽栏格已满（${slots.beast}）`;
+    const fielded = q.filter((u) => u.cardId === card.id && u.cardType === "beast").length;
+    if (fielded >= beastCount(card.id)) return `「${card.name}」仅收服了 ${beastCount(card.id)} 只`;
+  }
+  return null;
 }
 
 function startBattle() {
@@ -236,7 +400,14 @@ function startBattle() {
     setStatus("请先把卡牌插入我方队列", "warn");
     return;
   }
+  const hasHeld = state.playerQueue.some((u) => u.cardType === "weapon" || u.cardType === "spell");
+  const hasChar = state.playerQueue.some((u) => u.cardType === "char");
+  if (hasHeld && !hasChar) {
+    setStatus("手持武器与识海法术系于道童一身：请先上道童", "warn");
+    return;
+  }
   if (livingUnits(state.enemyQueue).length === 0) fillEnemyPreset();
+  state.killedEnemies = [];
   restatQueues();
   primeQueues();
   state.running = true;
@@ -279,6 +450,8 @@ function applyNextStageSpawn() {
   state.unlockStage += 1;
   state.focusStage = state.unlockStage;
   state.winner = null;
+  saveProgress();
+  syncMetaButtons();
   fillEnemyPreset();
   restatQueues();
   corridor?.setMoving?.(false);
@@ -425,8 +598,7 @@ function onPointerMove(e) {
   const lane = laneFromPoint(e.clientX, e.clientY);
   if (!lane || lane.dataset.side !== "player" || !canEdit()) return;
   const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
-  const ignore = drag.kind === "move" ? drag.uid : null;
-  const ok = drag.kind === "move" || canAdd(state.playerQueue, cap(), ignore);
+  const ok = drag.kind === "move" || !placeError(getCard(drag.cardId));
   showInsertCaret(lanes, "player", index, state.playerQueue, ok);
   drag.insertAt = index;
   drag.ok = ok;
@@ -442,10 +614,12 @@ function onPointerUp(e) {
   if (canEdit() && lane && lane.dataset.side === "player") {
     const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
     if (drag.kind === "new") {
-      if (!canAdd(state.playerQueue, cap())) {
-        setStatus(`已达携带上限 ${cap()}`, "warn");
+      const err = placeError(getCard(drag.cardId));
+      if (err) {
+        setStatus(err, "warn");
       } else {
         insertUnit(state.playerQueue, makeUnit(drag.cardId, "player"), index, cap());
+        restatQueues();
       }
     } else if (drag.kind === "move") {
       const unit = findUnitByUid([state.playerQueue], drag.uid);
@@ -453,7 +627,10 @@ function onPointerUp(e) {
     }
   } else if (drag?.kind === "move") {
     const unit = findUnitByUid([state.playerQueue], drag.uid);
-    if (unit && canEdit()) removeUnit(state.playerQueue, unit);
+    if (unit && canEdit()) {
+      removeUnit(state.playerQueue, unit);
+      restatQueues();
+    }
   }
   drag = null;
   lockCardTip(false);
@@ -510,6 +687,54 @@ document.getElementById("speed-select").addEventListener("change", (e) => {
 document.getElementById("btn-skin1")?.addEventListener("click", () => setCardSkin("skin1"));
 document.getElementById("btn-skin2")?.addEventListener("click", () => setCardSkin("skin2"));
 
+// ==== 修行：天赋树 + 行囊 ====
+
+function syncMetaButtons() {
+  const btn = document.getElementById("btn-talents");
+  if (btn) {
+    const left = talentPoints(state.unlockStage) - spentPoints();
+    btn.textContent = `道途天赋${left > 0 ? ` · 悟性余 ${left}` : ""}`;
+    btn.classList.toggle("has-points", left > 0);
+  }
+}
+
+/** 天赋/装备变更后的统一刷新：重聚合 → 重算队列 → 重绘。 */
+function onMetaChange() {
+  refreshMods();
+  // 格位收缩后可能出现超编（如洗髓掉手持格）：从右往左移除超编卡
+  const slots = currentSlots();
+  const over = [];
+  const cnt = { fabao: 0, weapon: 0, spell: 0, beast: 0 };
+  let weight = 0;
+  for (const u of state.playerQueue) {
+    const t = u.cardType;
+    if (t === "fabao" && ++cnt.fabao > slots.fabao) over.push(u);
+    else if (t === "weapon") {
+      weight += u.weight || 0;
+      if (++cnt.weapon > slots.hand || weight > slots.weight) over.push(u);
+    } else if (t === "spell" && ++cnt.spell > slots.mind) over.push(u);
+    else if (t === "beast" && ++cnt.beast > slots.beast) over.push(u);
+  }
+  for (const u of over) removeUnit(state.playerQueue, u);
+  if (over.length) setStatus(`格位变动：${over.map((u) => u.name).join("、")} 已回到卡池`, "warn");
+  // 敌我对称：格位容量变化时同步刷新敌方出战数
+  if (canEdit()) fillEnemyPreset();
+  restatQueues();
+  syncMetaButtons();
+  paint();
+}
+
+initTalentUI({ getStage: () => state.unlockStage, onChange: onMetaChange });
+initBagUI({ onChange: onMetaChange });
+document.getElementById("btn-talents")?.addEventListener("click", () => {
+  if (state.running) return;
+  openTalentPanel();
+});
+document.getElementById("btn-bag")?.addEventListener("click", () => {
+  if (state.running) return;
+  openBagPanel();
+});
+
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 document.addEventListener("selectstart", (e) => e.preventDefault());
 document.addEventListener("dragstart", (e) => e.preventDefault());
@@ -520,5 +745,37 @@ fillEnemyPreset();
 setStatus("布阵中：拖到我方一排插入", "idle");
 syncButtons();
 syncSkinButtons();
+syncMetaButtons();
 paint();
 requestAnimationFrame(() => paint());
+
+// 调试钩子（与走廊 __corridorSet 同类，供自动化验收）
+window.__dao = {
+  state,
+  mods: () => mods,
+  slots: () => currentSlots(),
+  setStage(n) {
+    state.unlockStage = Math.max(0, Math.floor(n));
+    state.focusStage = state.unlockStage;
+    saveProgress();
+    fillEnemyPreset();
+    restatQueues();
+    syncMetaButtons();
+    paint();
+  },
+  place(id) {
+    const card = getCard(id);
+    if (!card) return "unknown card";
+    const err = placeError(card);
+    if (err) return err;
+    insertUnit(state.playerQueue, makeUnit(id, "player"), state.playerQueue.length, cap());
+    restatQueues();
+    paint();
+    return "ok";
+  },
+  clear() {
+    clearQueue(state.playerQueue);
+    paint();
+  },
+  start: () => startBattle(),
+};

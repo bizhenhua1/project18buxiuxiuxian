@@ -3,7 +3,20 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const files = ["js/grid.js", "js/ui.js", "js/main.js", "js/combat.js", "js/unit.js"];
+const files = [
+  "js/grid.js",
+  "js/ui.js",
+  "js/main.js",
+  "js/combat.js",
+  "js/unit.js",
+  "js/balance.js",
+  "js/map.js",
+  "js/talents.js",
+  "js/equipment.js",
+  "js/loot.js",
+  "js/talent-ui.js",
+  "js/bag-ui.js",
+];
 
 function exportsOf(src) {
   const names = new Set();

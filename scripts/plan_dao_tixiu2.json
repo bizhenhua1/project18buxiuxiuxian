@@ -1,0 +1,14 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(16); document.getElementById('btn-talents').click(); document.getElementById('talent-respec').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b1','b2','b3','b4','b5','b6','b7','b8','b9'].forEach(click); const pts = document.getElementById('talent-points').textContent; document.getElementById('talent-close').click(); return pts + ' | ' + JSON.stringify(window.__dao.slots()); })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = ['daotong','qingfeng-jian','qingfeng-jian','xuantie-jian','xuantie-jian','xiaohulu','xiaohulu','waci-yin','tongjing','masuo'].map(id=>p.place(id)); return JSON.stringify(r); })()"},
+  {"eval": "(() => { const q = window.__dao.state.playerQueue; const dt = q.find(u=>u.cardType==='char'); const wsum = q.filter(u=>u.cardType==='weapon').reduce((s,u)=>s+u.maxHp,0); return JSON.stringify({daotongHp: dt.maxHp, weaponPool: wsum}); })()"},
+  {"shot": "dao_tixiu2_lineup.png"},
+  {"eval": "(() => { window.__dao.start(); return 'battle'; })()"},
+  {"wait": 4000},
+  {"eval": "(() => { const q = window.__dao.state.playerQueue; const dt = q.find(u=>u.cardType==='char'); const weaponsIntact = q.filter(u=>u.cardType==='weapon').every(u=>u.hp===u.maxHp && u.status==='alive'); return JSON.stringify({charAlive: dt.status==='alive', charHp: dt.hp+'/'+dt.maxHp, weaponsIntact}); })()"},
+  {"shot": "dao_tixiu2_fight.png"},
+  {"wait": 20000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({winner: s.winner, loot: [...document.querySelectorAll('.loot-line')].map(e=>e.textContent), beasts: localStorage.getItem('dao-beasts-v1')}); })()"},
+  {"shot": "dao_tixiu2_end.png"}
+]

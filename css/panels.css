@@ -1,0 +1,259 @@
+/* ========== 修行面板（天赋树 / 行囊）共用弹层 ========== */
+
+.dao-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(8, 6, 4, 0.72);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dao-overlay[hidden] { display: none; }
+
+.dao-frame {
+  width: min(880px, 94vw);
+  height: min(720px, 92vh);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #2b241a, #17130e);
+  border: 1px solid #6b5a34;
+  border-radius: 12px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.dao-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #4a3d24;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dao-head h2 {
+  margin: 0;
+  font-family: var(--font-title, serif);
+  font-size: 18px;
+  color: #f0c14b;
+  white-space: nowrap;
+}
+
+.dao-points {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  color: #cbb87f;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dao-head .btn { width: auto; flex: 0 0 auto; }
+
+.dao-close {
+  min-width: 34px;
+  padding: 4px 8px;
+}
+
+.dao-respec { padding: 4px 10px; font-size: 12px; }
+.dao-foot .btn { width: auto; }
+
+.dao-body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.dao-foot {
+  padding: 8px 14px;
+  min-height: 38px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #d8c9a0;
+  border-top: 1px solid #4a3d24;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dao-foot.warn { color: #e8a07a; }
+
+/* ========== 天赋树 ========== */
+
+.talent-body { display: flex; }
+#talent-svg { width: 100%; height: 100%; }
+
+.tedge {
+  stroke: #4a3d24;
+  stroke-width: 2.5;
+}
+.tedge.half { stroke: #79683f; }
+.tedge.on { stroke: #e6c46a; stroke-width: 3.5; }
+
+.tnode circle {
+  fill: #241d13;
+  stroke: var(--bc, #999);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: fill 0.15s ease, stroke-width 0.15s ease;
+}
+.tnode.locked circle { opacity: 0.42; cursor: not-allowed; }
+.tnode.avail circle { fill: #3a2f1c; }
+.tnode.avail:hover circle { fill: #52432a; stroke-width: 3; }
+.tnode.on circle {
+  fill: var(--bc, #e6c46a);
+  stroke: #fff2cc;
+}
+.tnode.on:hover circle { stroke-width: 3; }
+.tnode.root circle { cursor: default; }
+
+.tks-ring {
+  fill: none;
+  stroke: var(--bc, #e6c46a);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 3;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.tlabel {
+  font-size: 12px;
+  fill: #d8c9a0;
+  pointer-events: none;
+  font-family: var(--font-title, serif);
+}
+.tnode.on .tlabel { fill: #ffe9ad; }
+
+.tbranch {
+  font-size: 13px;
+  fill: #8f7c50;
+  font-family: var(--font-title, serif);
+}
+
+/* ========== 行囊 ========== */
+
+.bag-body {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 0;
+}
+
+.bag-equipped {
+  border-right: 1px solid #4a3d24;
+  padding: 10px;
+  overflow: auto;
+}
+.bag-equipped h3, .bag-list h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #cbb87f;
+  font-weight: 600;
+}
+.bag-list {
+  padding: 10px;
+  overflow: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.bag-grid {
+  flex: 1;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+  align-content: start;
+}
+
+.bag-chip,
+.equip-slot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 8px;
+  border: 1px solid var(--rc, #4a3d24);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+.equip-slot { margin-bottom: 6px; }
+.equip-slot.empty { cursor: default; opacity: 0.6; border-style: dashed; border-color: #4a3d24; }
+.bag-chip:hover, .equip-slot:not(.empty):hover { background: rgba(90, 70, 30, 0.3); }
+.bag-chip.selected, .equip-slot.selected { outline: 1px solid #ffe9ad; }
+
+.chip-icon { font-size: 16px; }
+.chip-art {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+.equip-slot.empty .chip-art { opacity: 0.45; filter: grayscale(0.7); }
+.chip-name { flex: 1; color: var(--rc, #d8c9a0); }
+.chip-name.muted { color: #7d7361; }
+.chip-stage { font-size: 10px; color: #8f7c50; }
+
+.bag-empty { color: #7d7361; font-size: 12px; }
+
+.bag-foot { max-height: 118px; overflow: auto; }
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.detail-lines { flex: 1; min-width: 200px; }
+.detail-cur em { font-style: normal; }
+.detail-row .btn { padding: 3px 12px; font-size: 12px; }
+.muted { color: #7d7361; }
+
+/* ========== 卡池分区标题 ========== */
+
+.pool-sec {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 4px 0 0;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed #4a3d24;
+  font-size: 12px;
+  color: #cbb87f;
+  font-family: var(--font-title, serif);
+}
+.pool-sec em {
+  font-style: normal;
+  font-size: 10px;
+  color: #7d7361;
+}
+.pool-card.type-weapon { border-color: #7c8a96; }
+.pool-card.type-spell { border-color: #7ab7d9; }
+.pool-card.type-beast { border-color: #8fce8a; }
+
+/* ========== 掉落日志 / 修行按钮 ========== */
+
+.loot-log {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 120px;
+  overflow: auto;
+}
+.loot-line {
+  font-size: 11px;
+  color: #b9ab85;
+  line-height: 1.4;
+}
+.loot-line b { font-weight: 600; }
+.loot-beast { color: #8fce8a; }
+
+.btn.has-points {
+  border-color: #f0c14b;
+  box-shadow: 0 0 8px rgba(240, 193, 75, 0.35);
+}

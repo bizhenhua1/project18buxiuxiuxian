@@ -1,16 +1,17 @@
 import {
   livingUnits,
-  leftmost,
+  leftmostTargetable,
+  isTargetable,
   markCorpse,
   queueNeighbors,
   unitsBehind,
-} from "./grid.js?v=cap10";
+} from "./grid.js?v=dao1";
 
 const RANGED_IDS = new Set(["tongjing", "yewu", "huangfeng"]);
 
-/** 永远打对方当前最左边的存活单位，跳过尸体。 */
+/** 永远打对方当前最左边的「可承伤」存活单位（跳过尸体、法术、手持武器）。 */
 export function findTarget(enemyQueue) {
-  return leftmost(enemyQueue);
+  return leftmostTargetable(enemyQueue);
 }
 
 function lowestHpAlly(attacker, allyQueue) {
@@ -27,10 +28,19 @@ function shotStyle(unit) {
   return "melee";
 }
 
+/** 幡类：魂力层数放大攻击。其余单位原样返回。 */
+function attackAmount(unit) {
+  let a = unit.atk;
+  if ((unit.soulStacks || 0) > 0 && unit.tags?.includes("fan")) {
+    a *= 1 + unit.soulStacks * (unit.fanPerStack || 0.08);
+  }
+  return a;
+}
+
 export function applyDamage(target, amount) {
   const events = [];
   if (!target || target.status === "corpse" || target.hp <= 0) return events;
-  let rest = Math.max(0, Math.round(amount));
+  let rest = Math.max(0, Math.round(amount * (1 - (target.dmgReduce || 0))));
   if (rest <= 0) return events;
   let dealt = 0;
   if (target.shield > 0) {
@@ -72,6 +82,52 @@ function allyQueue(attacker, state) {
   return attacker.side === "player" ? state.playerQueue : state.enemyQueue;
 }
 
+/** 识海法术：无血量、不占承伤位，按 CD 自动施放。 */
+function castSpell(attacker, foes, allies) {
+  const events = [];
+  const power = attackAmount(attacker);
+
+  if (attacker.spellKind === "mend") {
+    const wounded = livingUnits(allies).filter((u) => u.uid !== attacker.uid && u.hp < u.maxHp);
+    if (wounded.length) {
+      events.push({ type: "cast", kind: "heal", from: attacker, to: wounded[0] });
+      for (const u of wounded) {
+        const heals = applyHeal(u, power * 0.8 * (1 + (attacker.healBoost || 0)));
+        const gained = heals.reduce((s, ev) => s + (ev.type === "heal" ? ev.amount : 0), 0);
+        attacker.healDone = (attacker.healDone || 0) + gained;
+        events.push(...heals);
+      }
+      return events;
+    }
+    // 全满则轰击最左，避免空转
+  }
+
+  const target = findTarget(foes);
+  if (!target) return events;
+  attacker.lastTargetUid = target.uid;
+
+  if (attacker.spellKind === "fireball") {
+    const all = livingUnits(foes).filter(isTargetable);
+    all.forEach((foe, i) => {
+      events.push({ type: "shot", style: "beam", from: attacker, to: foe, amount: power, secondary: i > 0 });
+    });
+    return events;
+  }
+  if (attacker.spellKind === "bind") {
+    target.cdLeft += 1400;
+    events.push({ type: "buff", unit: target, amount: 0 });
+    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 0.4, secondary: false });
+    return events;
+  }
+  if (attacker.spellKind === "bolt") {
+    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 2.2, secondary: false });
+    return events;
+  }
+  // mend 落空或未知法术：普通一击
+  events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power, secondary: false });
+  return events;
+}
+
 export function act(attacker, state, now) {
   const events = [];
   if (!attacker || attacker.status === "corpse" || attacker.hp <= 0) return events;
@@ -82,10 +138,14 @@ export function act(attacker, state, now) {
   attacker.actingUntil = now + 180;
   attacker.cdLeft = attacker.cd;
 
+  if (attacker.cardType === "spell") {
+    return castSpell(attacker, foes, allies);
+  }
+
   if (attacker.skill === "heal") {
     const wounded = lowestHpAlly(attacker, allies);
     if (wounded) {
-      const heal = Math.round(attacker.atk * 1.4);
+      const heal = Math.round(attacker.atk * 1.4 * (1 + (attacker.healBoost || 0)));
       attacker.lastTargetUid = wounded.uid;
       events.push({ type: "cast", kind: "heal", from: attacker, to: wounded });
       const heals = applyHeal(wounded, heal);
@@ -97,7 +157,7 @@ export function act(attacker, state, now) {
   }
 
   if (attacker.skill === "shield") {
-    const gain = Math.round(attacker.maxHp * 0.18);
+    const gain = Math.round(attacker.maxHp * 0.18 * (1 + (attacker.shieldBoost || 0)));
     attacker.shield += gain;
     events.push({ type: "buff", unit: attacker, amount: gain });
   }
@@ -120,17 +180,33 @@ export function act(attacker, state, now) {
     style,
     from: attacker,
     to: target,
-    amount: attacker.atk,
+    amount: attackAmount(attacker),
     secondary: false,
   });
   if (attacker.skill === "splash") {
-    for (const extra of unitsBehind(foes, target, 2)) {
+    const n = attacker.splashN ?? 2;
+    const mult = attacker.splashMult ?? 0.5;
+    for (const extra of unitsBehind(foes, target, n).filter(isTargetable)) {
       events.push({
         type: "shot",
         style,
         from: attacker,
         to: extra,
-        amount: attacker.atk * 0.5,
+        amount: attackAmount(attacker) * mult,
+        secondary: true,
+      });
+    }
+  }
+  // 剑阵连携：剑类出手时，其余存活剑类各补一段追击
+  if ((attacker.swordEcho || 0) > 0 && attacker.tags?.includes("sword")) {
+    for (const ally of livingUnits(allies)) {
+      if (ally.uid === attacker.uid || !ally.tags?.includes("sword")) continue;
+      events.push({
+        type: "shot",
+        style: shotStyle(ally),
+        from: ally,
+        to: target,
+        amount: attackAmount(ally) * attacker.swordEcho,
         secondary: true,
       });
     }
@@ -151,11 +227,78 @@ export function resolveShot(shot) {
   const dealt = hits.reduce((s, ev) => s + (ev.type === "damage" ? (ev.dealt || 0) : 0), 0);
   if (shot.from) shot.from.damageDealt = (shot.from.damageDealt || 0) + dealt;
   events.push(...hits);
+  // 反伤：近战命中后按承伤者 thorns 比例反弹给攻击者
+  if (
+    shot.style === "melee" &&
+    dealt > 0 &&
+    (shot.to.thorns || 0) > 0 &&
+    shot.from &&
+    shot.from.status === "alive" &&
+    shot.from.hp > 0
+  ) {
+    const reflect = Math.round(dealt * shot.to.thorns);
+    if (reflect > 0) {
+      const back = applyDamage(shot.from, reflect);
+      const rDealt = back.reduce((s, ev) => s + (ev.type === "damage" ? (ev.dealt || 0) : 0), 0);
+      shot.to.damageDealt = (shot.to.damageDealt || 0) + rDealt;
+      events.push(...back);
+    }
+  }
   return events;
+}
+
+/** 道童阵亡则其手持武器与识海法术随之消散（尸体占位）。 */
+function collapseOrphans(queue) {
+  const events = [];
+  const living = livingUnits(queue);
+  if (!living.length) return events;
+  const hasChar = living.some((u) => u.cardType === "char");
+  if (hasChar) return events;
+  for (const u of living) {
+    if (u.cardType === "weapon" || u.cardType === "spell") {
+      markCorpse(u);
+      events.push({ type: "death", unit: u });
+    }
+  }
+  return events;
+}
+
+/**
+ * 死亡后处理（主流程在事件结算后调用）：
+ * - 幡：敌我任意死亡，场上所有存活幡叠 1 层魂力
+ * - 御兽收服：记录被击杀的敌方妖兽
+ * - 兽王血契：我方御兽死亡时为道童回血
+ * 返回附加事件（治疗跳字等）。
+ */
+export function processDeaths(state, events) {
+  const extra = [];
+  for (const ev of events) {
+    if (ev.type !== "death") continue;
+    for (const q of [state.playerQueue, state.enemyQueue]) {
+      for (const u of q) {
+        if (u.status === "alive" && u.hp > 0 && u.tags?.includes("fan")) {
+          u.soulStacks = (u.soulStacks || 0) + 1;
+          extra.push({ type: "buff", unit: u, amount: u.soulStacks });
+        }
+      }
+    }
+    if (ev.unit.side === "enemy" && ev.unit.pool === "enemy") {
+      (state.killedEnemies ||= []).push(ev.unit.cardId);
+    }
+    if (ev.unit.side === "player" && ev.unit.cardType === "beast" && state.bloodPact) {
+      const char = state.playerQueue.find((u) => u.cardType === "char" && u.status === "alive" && u.hp > 0);
+      if (char) {
+        const heals = applyHeal(char, ev.unit.maxHp * 0.2);
+        extra.push(...heals);
+      }
+    }
+  }
+  return extra;
 }
 
 export function tick(state, dt, now) {
   const events = [];
+  events.push(...collapseOrphans(state.playerQueue));
   const all = [...livingUnits(state.playerQueue), ...livingUnits(state.enemyQueue)];
   all.sort((a, b) => a.uid - b.uid);
 

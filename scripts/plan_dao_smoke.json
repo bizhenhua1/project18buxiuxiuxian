@@ -1,0 +1,11 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const pool = document.querySelectorAll('#card-pool .pool-card').length; const secs = document.querySelectorAll('#card-pool .pool-sec').length; const btn = !!document.getElementById('btn-talents'); const slotTxt = (document.getElementById('slot-summary')||{}).textContent; return JSON.stringify({pool, secs, btn, slotTxt}); })()"},
+  {"shot": "dao_smoke_board.png"},
+  {"eval": "(() => { document.getElementById('btn-talents').click(); return 'opened'; })()"},
+  {"wait": 600},
+  {"shot": "dao_smoke_tree.png"},
+  {"eval": "(() => { document.getElementById('talent-close').click(); document.getElementById('btn-bag').click(); return 'bag'; })()"},
+  {"wait": 500},
+  {"shot": "dao_smoke_bag.png"}
+]

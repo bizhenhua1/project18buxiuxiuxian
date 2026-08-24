@@ -1,0 +1,14 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; p.setStage(0); p.clear(); const r = [p.place('taomu-jian')]; const u = p.state.playerQueue[0]; p.start(); return JSON.stringify({ r, mode: u.mode, reviveMs: u.reviveMs, running: p.state.running }); })()"},
+  {"eval": "(async () => { const p = window.__dao; const u = p.state.playerQueue[0]; const t0 = Date.now(); while (Date.now() - t0 < 15000) { if (u.status === 'corpse') { await new Promise(r=>setTimeout(r,120)); const pAlive = p.state.playerQueue.filter(x=>x.status==='alive').length; return JSON.stringify({ died: true, reviveLeft: Math.round(u.reviveLeft), pAlive, winnerWhileReviving: p.state.winner, stillRunning: p.state.running }); } await new Promise(r=>setTimeout(r,80)); } return 'timeout: no death'; })()"},
+  {"shot": "fb20_reviving.png"},
+  {"eval": "(async () => { const p = window.__dao; const u = p.state.playerQueue[0]; const t0 = Date.now(); while (Date.now() - t0 < 15000) { if (u.status === 'alive') { return JSON.stringify({ revived: true, hpFull: u.hp === u.maxHp, hp: u.hp, maxHp: u.maxHp, index: u.index, reviveLeft: u.reviveLeft, battleContinues: p.state.running }); } await new Promise(r=>setTimeout(r,60)); } return 'timeout: no revive'; })()"},
+  {"shot": "fb21_revived.png"},
+  {"eval": "(() => { document.getElementById('btn-reset').click(); const u = window.__dao.state.playerQueue; return JSON.stringify({ resetCleared: u.every ? true : true, queueLen: u.length, running: window.__dao.state.running }); })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = [p.place('taomu-jian'), p.place('daotong'), p.place('xuantie-jian'), p.place('kaishan-fu'), p.place('tongjing')]; p.start(); return JSON.stringify({ r, modes: p.state.playerQueue.map(u=>[u.cardId, u.mode]) }); })()"},
+  {"eval": "(async () => { const p = window.__dao; const s = p.state; const taomu = s.playerQueue.find(u=>u.cardId==='taomu-jian'); let diedSeen = false, revivedSeen = false; const t0 = Date.now(); while (Date.now() - t0 < 30000) { if (taomu.status === 'corpse') diedSeen = true; if (diedSeen && taomu.status === 'alive') revivedSeen = true; if (s.winner) { return JSON.stringify({ winner: s.winner, taomuDiedSeen: diedSeen, taomuRevivedSeen: revivedSeen, reviveLeftCleared: s.playerQueue.every(u=>(u.reviveLeft||0)===0) }); } await new Promise(r=>setTimeout(r,80)); } return JSON.stringify({ timeout: true, diedSeen, taomu: taomu.status, enemiesAlive: s.enemyQueue.filter(u=>u.status==='alive').length }); })()"},
+  {"shot": "fb22_end.png"}
+]

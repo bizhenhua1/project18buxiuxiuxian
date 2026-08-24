@@ -1,0 +1,19 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => JSON.stringify({ poolSecs: document.querySelectorAll('.pool-sec').length, poolCards: document.querySelectorAll('.pool-card').length }))()"},
+  {"eval": "(() => { const el = [...document.querySelectorAll('.pool-card')].find(c=>c.dataset.cardId==='xuantie-jian'); const r = el.getBoundingClientRect(); el.dispatchEvent(new MouseEvent('pointermove',{bubbles:true,clientX:r.left+r.width/2,clientY:r.top+r.height/2})); const tip = document.getElementById('card-tip'); return JSON.stringify({ tipShown: !tip.hidden, hasWeight: tip.textContent.includes('\u91cd\u91cf'), hasRevive: tip.textContent.includes('\u91cd\u805a'), hasHeldNote: tip.textContent.includes('\u624b\u6301') }); })()"},
+  {"shot": "fb40_pool_tip.png"},
+  {"eval": "(() => { window.__dao.setStage(12); document.getElementById('btn-talents').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b1','b2'].forEach(click); document.getElementById('talent-close').click(); document.getElementById('btn-player-fill').click(); const q = window.__dao.state.playerQueue; return JSON.stringify({ team: q.map(u=>[u.cardId, u.mode || u.cardType]), heldCount: q.filter(u=>u.mode==='held').length, heldWeight: q.filter(u=>u.mode==='held').reduce((s,u)=>s+u.weight,0) }); })()"},
+  {"wait": 300},
+  {"eval": "(() => { const types = [...document.querySelectorAll('#player-slots .slot')].map(s => (s.className.match(/st-(\\w+)/) || [])[1]); const badges = document.querySelectorAll('#player-cards .held-badge').length; return JSON.stringify({ slotTypes: types.join(','), heldBadges: badges }); })()"},
+  {"shot": "fb41_fill_badges.png"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); p.place('daotong'); p.place('waci-yin'); const u = p.state.playerQueue.find(x=>x.cardId==='waci-yin'); const card = document.querySelector(`.unit-card[data-uid=\"${u.uid}\"]`); const r = card.getBoundingClientRect(); const fire = type => card.dispatchEvent(new PointerEvent(type,{bubbles:true,clientX:r.left+r.width/2,clientY:r.top+r.height/2})); fire('pointerdown'); window.dispatchEvent(new PointerEvent('pointerup',{clientX:r.left+r.width/2,clientY:r.top+r.height/2})); fire('pointerdown'); window.dispatchEvent(new PointerEvent('pointerup',{clientX:r.left+r.width/2,clientY:r.top+r.height/2})); return JSON.stringify({ modeAfterDblclick: u.mode }); })()"},
+  {"wait": 300},
+  {"shot": "fb42_dblclick_held.png"},
+  {"eval": "(() => { const p = window.__dao; const u = p.state.playerQueue.find(x=>x.cardId==='waci-yin'); return JSON.stringify({ toggleBack: p.toggleMode(u.uid), modeNow: u.mode }); })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); p.place('daotong'); const r = ['taomu-jian','waci-yin','masuo','tongjing','xiaohulu'].map(id=>p.place(id)); const modes = p.state.playerQueue.filter(u=>u.cardType==='fabao').map(u=>[u.cardId,u.mode]); return JSON.stringify({ r, modes, autoHeldLast: modes[modes.length-1][1] }); })()"},
+  {"eval": "(() => { const p = window.__dao; const before = p.state.playerQueue.map(u=>[u.cardId, u.mode||u.cardType]); document.getElementById('btn-talents').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b2'].forEach(click); document.getElementById('talent-close').click(); const after = p.state.playerQueue.map(u=>[u.cardId, u.mode||u.cardType]); return JSON.stringify({ before, after, note: 'deallocate b2 -> held should convert to station or return to pool' }); })()"},
+  {"shot": "fb43_respec_fallback.png"}
+]

@@ -1,0 +1,12 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(12); document.getElementById('btn-talents').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b1','b2','q1','q4'].forEach(click); document.getElementById('talent-close').click(); return JSON.stringify(window.__dao.slots()); })()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = [p.place('daotong'), p.place('qingfeng-jian','held'), p.place('juhun-fan','held'), p.place('taomu-jian','station'), p.place('xuantie-jian','station'), p.place('juhun-fan','station')]; const q = p.state.playerQueue; return JSON.stringify({ r, team: q.map(u=>[u.cardId, u.mode]), heldSwordEcho: q.find(u=>u.cardId==='qingfeng-jian').swordEcho }); })()"},
+  {"eval": "(() => { const p = window.__dao; p.setStage(2); p.start(); const held = p.state.playerQueue.find(u=>u.cardId==='qingfeng-jian' && u.mode==='held'); held.cdLeft = 9e9; return JSON.stringify({ frozen: held.cdLeft > 1e8, running: p.state.running }); })()"},
+  {"eval": "(async () => { const p = window.__dao; const held = p.state.playerQueue.find(u=>u.cardId==='qingfeng-jian' && u.mode==='held'); const t0 = Date.now(); while (Date.now() - t0 < 15000) { if (held.damageDealt > 0) { return JSON.stringify({ heldSwordEchoDamage: Math.round(held.damageDealt), cdStillFrozen: held.cdLeft > 1e8 }); } await new Promise(r=>setTimeout(r,80)); } return 'timeout: held sword no echo damage'; })()"},
+  {"shot": "fb30_sword_echo.png"},
+  {"eval": "(async () => { const p = window.__dao; const fans = p.state.playerQueue.filter(u=>u.cardId==='juhun-fan'); const t0 = Date.now(); while (Date.now() - t0 < 20000) { if (fans.every(f=>(f.soulStacks||0) > 0)) { return JSON.stringify({ fanStacks: fans.map(f=>[f.mode, f.soulStacks]) }); } await new Promise(r=>setTimeout(r,120)); } return JSON.stringify({ timeout: true, fanStacks: fans.map(f=>[f.mode, f.soulStacks, f.status]) }); })()"},
+  {"shot": "fb31_fan_stacks.png"}
+]

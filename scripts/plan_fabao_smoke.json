@@ -1,0 +1,8 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => JSON.stringify({ dao: typeof window.__dao, pool: document.querySelectorAll('.pool-card').length, secs: [...document.querySelectorAll('.pool-sec span')].map(e=>e.textContent) }))()"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); const r = [p.place('daotong'), p.place('xuantie-jian'), p.place('xiaohulu')]; const q = p.state.playerQueue.map(u => ({ id: u.cardId, type: u.cardType, mode: u.mode, w: u.weight, rev: u.reviveMs, hp: u.maxHp, atk: u.atk, cd: u.cd })); return JSON.stringify({ r, q }); })()"},
+  {"shot": "fb00_smoke.png"}
+]

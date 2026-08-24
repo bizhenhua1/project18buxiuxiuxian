@@ -394,6 +394,22 @@ button, select { font-family: inherit; }
 }
 .focus-badge { color: #1a1208; background: var(--gold); }
 .corpse-badge { color: #ececec; background: #5a5a5a; }
+.corpse-badge.reviving { color: #eaf6ff; background: #3a6ea8; }
+/* 手持（held）法宝角标：明显的“持”字小标 */
+.held-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 3;
+  font-size: 10px;
+  line-height: 1.4;
+  border-radius: 5px;
+  padding: 0 4px;
+  font-weight: 800;
+  color: #1a1208;
+  background: #e08a3c;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
 .sh-fill {
   position: absolute;
   left: 0;
@@ -791,6 +807,20 @@ button, select { font-family: inherit; }
 .float-num.dmg { color: #ff4d45; }
 .float-num.heal { color: #3dff7a; }
 .float-num.buff { color: #9dd6ff; font-size: 18px; }
+/* 暴击跳字：更大字号 + “暴”标 */
+.float-num.crit {
+  color: #ffb03a;
+  font-size: 26px;
+  text-shadow: 0 0 6px rgba(255, 120, 40, 0.65);
+}
+.float-num.crit::before {
+  content: "暴";
+  font-size: 13px;
+  vertical-align: super;
+  margin-right: 1px;
+  color: #ff6a3a;
+}
+.float-num.revive { color: #7db9ff; font-size: 18px; letter-spacing: 2px; }
 .bullet {
   position: absolute;
   pointer-events: none;

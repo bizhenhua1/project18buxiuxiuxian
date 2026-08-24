@@ -5,7 +5,7 @@
  * - 收服：本场每击杀 1 只敌方妖兽，独立掷收服（基础 10% + 天赋/词条）
  */
 
-import { makeItem } from "./equipment.js?v=dao1";
+import { makeItem } from "./equipment.js?v=dao5";
 
 const BEAST_KEY = "dao-beasts-v1";
 

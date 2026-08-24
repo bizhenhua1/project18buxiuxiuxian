@@ -45,7 +45,9 @@ export const TREE_NODES = [
   node("b6", "铁布衫", "small", "体修", pos(TI, 215, -78), "全队受到伤害-5%", { dmgReducePct: 5 }),
   node("b7", "体魄", "small", "体修", pos(TI, 280, -84), "全队生命+8%", { hpPct: 8 }),
   node("b8", "三头六臂", "keystone", "体修", pos(TI, 262), "道果：手持格再+2（共6），力量+4——六臂各持凶兵", { handSlots: 2, weightAdd: 4 }),
-  node("b9", "法宝合身", "keystone", "体修", pos(TI, 322), "道果：手持武器血量的 60% 并入道童本体，且道童金刚护体（受伤-30%）——全队一根粗血条", { mergeWeaponHp: 60, dmgReducePct: 30 }),
+  node("b9", "法宝合身", "keystone", "体修", pos(TI, 322), "道果：手持法宝血量继承比例+30%（基础30%→60%），且道童金刚护体（受伤-30%）——全队一根粗血条", { mergeHeldHpPct: 30, dmgReducePct: 30 }),
+  node("b10", "猿臂", "small", "体修", pos(TI, 280, 84), "攻速+6%：降低道童与手持法宝的等效冷却", { atkSpeedPct: 6 }),
+  node("b11", "锐目", "small", "体修", pos(TI, 345, 88), "暴击+5%：道童与手持法宝出手可暴击（暴伤150%）", { critPct: 5 }),
 
   // ---- 法修（右上）：识海格 / 法术强度 / CD ----
   node("f1", "凝神", "small", "法修", pos(FA, 70), "法术强度+8%", { spellPct: 8 }),
@@ -81,6 +83,7 @@ export const TREE_NODES = [
 export const TREE_EDGES = [
   ["root", "b1"], ["b1", "b2"], ["b2", "b5"], ["b5", "b8"], ["b8", "b9"],
   ["b2", "b3"], ["b3", "b4"], ["b5", "b6"], ["b6", "b7"],
+  ["b4", "b10"], ["b10", "b11"],
   ["root", "f1"], ["f1", "f2"], ["f2", "f5"], ["f5", "f8"],
   ["f2", "f3"], ["f2", "f4"], ["f5", "f6"], ["f6", "f7"],
   ["root", "q1"], ["q1", "q2"], ["q2", "q7"], ["q7", "q8"],
@@ -199,8 +202,9 @@ export function emptyMods() {
     capturePct: 0, luckPct: 0, weightAdd: 0, mindSlotAdd: 0,
     fabaoAtkPct: 0, fabaoHpPct: 0, beastAtkPct: 0, beastHpPct: 0,
     swordEchoPct: 0, fanPerStackPct: 0,
+    atkSpeedPct: 0, critPct: 0, critDmgPct: 0, mergeHeldHpPct: 0, reviveCdrPct: 0,
     handSlots: 0, mindSlots: 0, beastSlots: 0, fabaoSlots: 0,
-    beastResonance: false, bloodPact: false, mergeWeaponHp: 0,
+    beastResonance: false, bloodPact: false,
   };
 }
 
@@ -236,9 +240,18 @@ export function slotTable(mods) {
   };
 }
 
+/** held 法宝：重量额外攻加成 ×(1+w×0.06)——举得动=打得狠（与 unit.js HELD_WEIGHT_ATK_STEP 同值）。 */
+const HELD_WEIGHT_ATK_STEP = 0.06;
+/** held 法宝血量并入主角的基础比例（%），恒定生效；mergeHeldHpPct 在此之上叠加。 */
+export const HELD_HP_MERGE_BASE = 30;
+
+function isHeld(unit) {
+  return unit.cardType === "fabao" && unit.mode === "held";
+}
+
 /**
  * 把聚合修正落到我方单位上（在 applyEffectiveStats 之后调用）。
- * 幡层加成 / 剑阵 / 反伤等在战斗层读取这里写入的字段。
+ * 幡层加成 / 剑阵 / 反伤 / 暴击等在战斗层读取这里写入的字段。
  */
 export function applyPlayerMods(unit, mods) {
   if (!unit || unit.side !== "player") return unit;
@@ -256,10 +269,30 @@ export function applyPlayerMods(unit, mods) {
     atkPct += mods.spellPct;
   }
   unit.atk = Math.max(1, Math.round(unit.atk * (1 + atkPct / 100)));
+  if (isHeld(unit)) {
+    unit.atk = Math.max(1, Math.round(unit.atk * (1 + (unit.weight || 0) * HELD_WEIGHT_ATK_STEP)));
+  }
   unit.maxHp = Math.max(1, Math.round(unit.maxHp * (1 + hpPct / 100)));
   unit.hp = unit.maxHp;
   unit.cd = Math.max(400, Math.round(unit.cd * Math.max(0.5, 1 - mods.cdPct / 100)));
+  // 攻速只作用于主角与手持法宝（与全队 cdPct 区分开）：等效 CD = CD / (1 + 攻速%)
+  if ((unit.cardType === "char" || isHeld(unit)) && mods.atkSpeedPct > 0) {
+    unit.cd = Math.max(400, Math.round(unit.cd / (1 + mods.atkSpeedPct / 100)));
+  }
   unit.cdLeft = Math.min(unit.cdLeft, unit.cd);
+  // 暴击只属于主角与手持法宝（手持继承主角暴击）
+  if (unit.cardType === "char" || isHeld(unit)) {
+    unit.critChance = Math.max(0, Math.min(1, mods.critPct / 100));
+    unit.critDmg = 1.5 + Math.max(0, mods.critDmgPct) / 100;
+  } else {
+    unit.critChance = 0;
+    unit.critDmg = 1.5;
+  }
+  // 重聚时间是法宝自身属性，仅天赋/词条「重聚缩减%」可修改
+  if (unit.cardType === "fabao") {
+    const cdr = Math.max(0, Math.min(80, mods.reviveCdrPct || 0));
+    unit.reviveMs = Math.max(1000, Math.round((unit.baseReviveMs || 0) * (1 - cdr / 100)));
+  }
   unit.dmgReduce = Math.min(0.6, mods.dmgReducePct / 100);
   unit.thorns = Math.max(0, mods.thornsPct / 100);
   unit.splashMult = 0.5 * (1 + mods.splashDmgPct / 100);
@@ -274,7 +307,7 @@ export function applyPlayerMods(unit, mods) {
 /**
  * 整队级效果（每次重算队列数值时调用）：
  * - 兽魂共鸣：按场上不同御兽种类给全队攻加成
- * - 法宝合身：手持武器血量按比例并入道童
+ * - 手持继承：held 法宝血量按比例并入道童（基础 30% 恒定生效，「法宝合身」再+30%）
  */
 export function applyQueueEffects(queue, mods) {
   const resonance = mods.beastResonance
@@ -286,17 +319,14 @@ export function applyQueueEffects(queue, mods) {
       u.atk = Math.max(1, Math.round(u.atk * (1 + resonance / 100)));
     }
   }
-  if (mods.mergeWeaponHp > 0) {
-    const char = queue.find((u) => u.cardType === "char");
-    if (char) {
-      const pool = queue
-        .filter((u) => u.cardType === "weapon")
-        .reduce((s, u) => s + u.maxHp, 0);
-      const bonus = Math.round((pool * mods.mergeWeaponHp) / 100);
-      if (bonus > 0) {
-        char.maxHp += bonus;
-        char.hp = char.maxHp;
-      }
+  const mergePct = HELD_HP_MERGE_BASE + Math.max(0, mods.mergeHeldHpPct || 0);
+  const char = queue.find((u) => u.cardType === "char");
+  if (char) {
+    const pool = queue.filter(isHeld).reduce((s, u) => s + u.maxHp, 0);
+    const bonus = Math.round((pool * mergePct) / 100);
+    if (bonus > 0) {
+      char.maxHp += bonus;
+      char.hp = char.maxHp;
     }
   }
 }

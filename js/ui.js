@@ -1,11 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao1";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao1";
-import { collectTargetPairs } from "./combat.js?v=dao1";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao1";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao1";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao1";
-import { equipMods } from "./equipment.js?v=dao1";
-import { ownedBeasts } from "./loot.js?v=dao1";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao5";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao5";
+import { collectTargetPairs } from "./combat.js?v=dao5";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao5";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao5";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao5";
+import { equipMods } from "./equipment.js?v=dao5";
+import { ownedBeasts } from "./loot.js?v=dao5";
 
 let sceneCorridor = null;
 
@@ -37,7 +37,7 @@ function poolCardEl(card, badge = "") {
     ? `<div class="pool-thumb"><img class="art-${kind}" src="${card.art}" alt="${card.name}" draggable="false" /></div>`
     : `<div class="icon">${card.icon}</div>`;
   const typeName = CARD_TYPE_NAMES[card.cardType] || "法宝";
-  const wt = card.cardType === "weapon" ? ` · 重${card.weight}` : "";
+  const wt = card.cardType === "fabao" ? ` · 重${card.weight} · 聚${(card.reviveMs / 1000).toFixed(1)}s` : "";
   el.innerHTML = `
     ${thumb}
     <div class="title">${card.name}</div>
@@ -57,14 +57,10 @@ function poolSection(root, title, hint = "") {
 export function buildPool(root) {
   root.innerHTML = "";
   const chars = PLAYER_LIBRARY.filter((c) => c.cardType === "char" || c.cardType === "fabao");
-  const weapons = PLAYER_LIBRARY.filter((c) => c.cardType === "weapon");
   const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell");
 
-  poolSection(root, "主角 · 法宝");
+  poolSection(root, "主角 · 法宝", "默认入法宝格，体修开手持格后可持");
   for (const card of chars) root.appendChild(poolCardEl(card));
-
-  poolSection(root, "武器", "体修开手持格后可持");
-  for (const card of weapons) root.appendChild(poolCardEl(card));
 
   poolSection(root, "法术", "法修开识海格后可挂");
   for (const card of spells) root.appendChild(poolCardEl(card));
@@ -168,11 +164,17 @@ function slotPlan(state, side, slots, capacity) {
   }
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
-  for (const u of q) plan.push(u.cardType in SLOT_EMBLEM_ART ? u.cardType : "fabao");
+  const heldCnt = q.filter((u) => u.cardType === "fabao" && u.mode === "held").length;
+  const stationCnt = cnt("fabao") - heldCnt;
+  // held 法宝对应手持格底纹，station 法宝对应法宝格底纹
+  for (const u of q) {
+    if (u.cardType === "fabao") plan.push(u.mode === "held" ? "weapon" : "fabao");
+    else plan.push(u.cardType in SLOT_EMBLEM_ART ? u.cardType : "fabao");
+  }
   const rest = [];
   if (cnt("char") < 1) rest.push("char");
-  for (let i = cnt("fabao"); i < slots.fabao; i++) rest.push("fabao");
-  for (let i = cnt("weapon"); i < slots.hand; i++) rest.push("weapon");
+  for (let i = stationCnt; i < slots.fabao; i++) rest.push("fabao");
+  for (let i = heldCnt; i < slots.hand; i++) rest.push("weapon");
   for (let i = cnt("spell"); i < slots.mind; i++) rest.push("spell");
   for (let i = cnt("beast"); i < slots.beast; i++) rest.push("beast");
   while (plan.length < SLOT_COUNT) plan.push(rest.length ? rest.shift() : "locked");
@@ -196,15 +198,16 @@ function lockedTipHtml(state, slots, capacity) {
 function slotTipHtml(type, state, slots, capacity) {
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
+  const held = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
   if (type === "char") {
-    return `<strong>🧘 本体格</strong><span class="tip-stats">全队仅此一位</span><span class="tip-desc">道童本尊之位。手持武器与识海法术皆系于他一身：道童若阵亡，武器与法术随之消散。</span>`;
+    return `<strong>🧘 本体格</strong><span class="tip-stats">全队仅此一位</span><span class="tip-desc">道童本尊之位。手持法宝与识海法术皆系于他一身：道童若阵亡，手持法宝与法术随之消散。</span>`;
   }
   if (type === "fabao") {
-    return `<strong>☯ 法宝格 ${cnt("fabao")}/${slots.fabao}</strong><span class="tip-stats">可放入：法宝（幡、剑等子类）</span><span class="tip-desc">法宝有独立血量、自走出手。幡类吞魂叠层、剑类可入剑阵。修「器道·多宝／万宝归宗」扩容。</span>`;
+    return `<strong>☯ 法宝格 ${cnt("fabao") - held.length}/${slots.fabao}</strong><span class="tip-stats">法术操控：独立血条、自走出手</span><span class="tip-desc">操控的法宝可被集火，但被击毁后经过自身重聚时间原位满血复活。幡类吞魂叠层、剑类可入剑阵，主动技正常施放。布阵期双击可与手持切换。修「器道·多宝／万宝归宗」扩容。</span>`;
   }
   if (type === "weapon") {
-    const used = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
-    return `<strong>✊ 手持格 ${cnt("weapon")}/${slots.hand}</strong><span class="tip-stats">重量 ${used}/${slots.weight} · 只能放武器</span><span class="tip-desc">武器捏在道童手中：不占承伤位、不会被集火，但受力量预算（重量）约束。体修天赋可增手增力，「法宝合身」可把武器血量并入道童。</span>`;
+    const used = held.reduce((s, u) => s + (u.weight || 0), 0);
+    return `<strong>✊ 手持格 ${held.length}/${slots.hand}</strong><span class="tip-stats">重量 ${used}/${slots.weight} · 手持法宝</span><span class="tip-desc">法宝捏在道童手中：不占承伤位、继承道童攻速与暴击，重量越大手持攻击加成越高；主动技封印（退化为普攻），被动照常。血量 30% 并入道童（「法宝合身」提至 60%）。布阵期双击可切回操控。</span>`;
   }
   if (type === "spell") {
     return `<strong>👁 识海格 ${cnt("spell")}/${slots.mind}</strong><span class="tip-stats">只能放法术</span><span class="tip-desc">识海中温养的法术：无血量、不可被攻击，按冷却自动施放。法修天赋可拓识海、增法术强度。</span>`;
@@ -226,7 +229,7 @@ function renderSlots(slotRoot, layerEl, side, state) {
   const plan = slotPlan(state, side, slots, capacity);
   const occupied = side === "enemy" ? state.enemyQueue.length : state.playerQueue.length;
   const wUsed = state.playerQueue
-    .filter((u) => u.cardType === "weapon")
+    .filter((u) => u.cardType === "fabao" && u.mode === "held")
     .reduce((s, u) => s + (u.weight || 0), 0);
   const sig = `${Math.round(box.width)}x${Math.round(box.height)}|${plan.join(",")}|${occupied}|${state.unlockStage}|${wUsed}`;
   if (slotRoot.dataset.sig === sig && slotRoot.childElementCount === SLOT_COUNT) return;
@@ -274,11 +277,15 @@ function artHtml(unit, dead) {
 function cardInnerHtml(unit, i, dead, isFocus, skin) {
   const hpPct = dead ? 0 : (100 * unit.hp) / unit.maxHp;
   const chargeLeft = dead ? 100 : Math.max(0, Math.min(100, (100 * unit.cdLeft) / unit.cd));
-  const badge = dead
-    ? `<div class="corpse-badge">尸体</div>`
+  const reviving = dead && (unit.reviveLeft || 0) > 0;
+  let badge = dead
+    ? `<div class="corpse-badge${reviving ? " reviving" : ""}">${reviving ? "重聚" : "尸体"}</div>`
     : isFocus
       ? `<div class="focus-badge">集火</div>`
       : "";
+  if (!dead && unit.cardType === "fabao" && unit.mode === "held") {
+    badge += `<div class="held-badge">持</div>`;
+  }
   if (skin === "skin2") {
     const chargePct = dead ? 0 : Math.max(0, Math.min(100, 100 * (1 - unit.cdLeft / unit.cd)));
     const hp = dead ? 0 : Math.max(0, Math.round(unit.hp));
@@ -339,6 +346,7 @@ function cardClassName(unit, i, pos, selectedUid, focusUid, skinId) {
     `face-${unit.face}`,
     `job-${job}`,
     `kind-${artKind(unit)}`,
+    unit.cardType === "fabao" && unit.mode === "held" ? "held" : "",
     pos.stacked ? "stacked" : "",
     unit.actingUntil > performance.now() ? "acting" : "",
     unit.uid === selectedUid ? "selected" : "",
@@ -414,6 +422,7 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
     const kind = artKind(unit);
     const cardId = String(unit.cardId || "");
     let card = layer.querySelector(`.unit-card[data-uid="${uid}"]`);
+    const reviving = dead && (unit.reviveLeft || 0) > 0;
     const rebuild =
       !card ||
       card.dataset.uid !== uid ||
@@ -423,6 +432,8 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
       card.dataset.dead !== String(dead) ||
       card.dataset.idx !== String(i) ||
       card.dataset.focus !== String(isFocus) ||
+      card.dataset.mode !== String(unit.mode || "") ||
+      card.dataset.reviving !== String(reviving) ||
       card.dataset.shield !== String(unit.shield || 0);
     if (!card) {
       card = document.createElement("div");
@@ -437,6 +448,8 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
     card.dataset.dead = String(dead);
     card.dataset.idx = String(i);
     card.dataset.focus = String(isFocus);
+    card.dataset.mode = String(unit.mode || "");
+    card.dataset.reviving = String(reviving);
     card.dataset.shield = String(unit.shield || 0);
     const keepAnim = ["atk-anim", "hit-anim", "hit-dead", "heal-anim"].filter((c) => card.classList.contains(c));
     card.className = cardClassName(unit, i, pos, selectedUid, focusUid, skinId);
@@ -493,10 +506,11 @@ export function renderSlotSummary(state) {
   const slots = slotTable(mergeMods(talentMods(), equipMods()));
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
-  const wUsed = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
+  const held = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
+  const wUsed = held.reduce((s, u) => s + (u.weight || 0), 0);
   const parts = [
-    `法宝 ${cnt("fabao")}/${slots.fabao}`,
-    slots.hand > 0 ? `手持 ${cnt("weapon")}/${slots.hand}（重 ${wUsed}/${slots.weight}）` : "手持 未开",
+    `法宝 ${cnt("fabao") - held.length}/${slots.fabao}`,
+    slots.hand > 0 ? `手持 ${held.length}/${slots.hand}（重 ${wUsed}/${slots.weight}）` : "手持 未开",
     slots.mind > 0 ? `识海 ${cnt("spell")}/${slots.mind}` : "识海 未开",
     slots.beast > 0 ? `兽栏 ${cnt("beast")}/${slots.beast}` : "兽栏 未开",
   ];
@@ -595,13 +609,22 @@ export function formatCardTip(card, stage = 0) {
     ? `<span class="tip-stats">当前 攻 ${e.atk}　血 ${e.hp}　CD ${(e.cd / 1000).toFixed(1)}s</span>`
     : "";
   const typeName = CARD_TYPE_NAMES[card.cardType] || "法宝";
-  const wt = card.cardType === "weapon" ? `（重量 ${card.weight}）` : "";
-  return `<strong>${card.name} · ${typeName}${wt}</strong><span class="tip-stats">白板 攻 ${card.atk}　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s</span>${now}<span class="tip-desc">${card.skillText}</span>`;
+  const wt = card.cardType === "fabao" ? `（重量 ${card.weight} · 重聚 ${(card.reviveMs / 1000).toFixed(1)}s）` : "";
+  const modeNote =
+    card.cardType === "fabao"
+      ? `<span class="tip-desc">法宝格＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。手持格＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童。</span>`
+      : "";
+  return `<strong>${card.name} · ${typeName}${wt}</strong><span class="tip-stats">白板 攻 ${card.atk}　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s</span>${now}<span class="tip-desc">${card.skillText}</span>${modeNote}`;
 }
 
 export function formatUnitTip(unit, elapsedSec = 0) {
   if (!unit) return "";
   const dead = unit.status === "corpse";
+  const reviving = dead && (unit.reviveLeft || 0) > 0;
+  const modeLine =
+    unit.cardType === "fabao"
+      ? `<span class="tip-stats">${unit.mode === "held" ? "手持：不占承伤位，主动技封印，继承攻速暴击" : `法术操控：独立血条，重聚 ${(unit.reviveMs / 1000).toFixed(1)}s`}　重量 ${unit.weight}${reviving ? `　重聚中 剩 ${(unit.reviveLeft / 1000).toFixed(1)}s` : ""}</span>`
+      : "";
   const cd = dead ? "冷却已停" : `CD ${(Math.max(0, unit.cdLeft) / 1000).toFixed(2)}s / ${(unit.cd / 1000).toFixed(1)}s`;
   const dealt = Math.round(unit.damageDealt || 0);
   const sec = Math.max(0.1, elapsedSec || 0.1);
@@ -613,7 +636,7 @@ export function formatUnitTip(unit, elapsedSec = 0) {
     unit.atkMult != null
       ? `<span class="tip-stats">关卡 攻×${fmtMult(unit.atkMult)}　血×${fmtMult(unit.hpMult)}</span>`
       : "";
-  return `<strong>${unit.name}${dead ? " · 尸体" : ""}</strong><span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
+  return `<strong>${unit.name}${dead ? (reviving ? " · 重聚中" : " · 尸体") : ""}</strong><span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${modeLine}${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
 }
 
 export function hideCardTip() {

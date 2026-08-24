@@ -1,8 +1,23 @@
-import { applyEffectiveStats } from "./balance.js?v=dao1";
+import { applyEffectiveStats } from "./balance.js?v=dao5";
 
 let uidSeq = 1;
 
 const ART = "assets/style-e";
+
+// ---------------------------------------------------------------------------
+// 法宝归一化：重量映射数值 + 双模式（手持 held / 法术操控 station）
+// ---------------------------------------------------------------------------
+
+/** 重量→数值映射系数：血 ×(1+w×0.25)、攻 ×(1+w×0.18)、CD ×(1+w×0.12)。 */
+export const WEIGHT_HP_STEP = 0.25;
+export const WEIGHT_ATK_STEP = 0.18;
+export const WEIGHT_CD_STEP = 0.12;
+/** 手持模式额外攻击加成 ×(1+w×0.06)：举得动 = 打得狠。 */
+export const HELD_WEIGHT_ATK_STEP = 0.06;
+/** held 法宝血量并入主角的基础比例（%），天赋 mergeHeldHpPct 在此之上叠加。 */
+export const HELD_HP_MERGE_BASE = 30;
+/** 主动技（手持时封印，退化为普攻）；幡叠层/剑阵连携为被动技，两种模式都生效。 */
+export const ACTIVE_SKILLS = new Set(["heal", "shield", "haste"]);
 
 function card(spec) {
   return {
@@ -15,16 +30,31 @@ function card(spec) {
     kind: spec.pool === "enemy" ? "monster" : "artifact",
     cardType: spec.cardType || (spec.pool === "enemy" ? "monster" : "fabao"),
     weight: spec.weight || 0,
+    reviveMs: spec.reviveMs || 0,
     tags: spec.tags || [],
     ...spec,
   };
+}
+
+/**
+ * 法宝卡：base 为基准三围（按「映射后 ≈ 原手感数值」回推），
+ * 卡面数值 = 基准 × 重量映射，避免归一化造成平衡大崩。
+ */
+function fabao(spec) {
+  const { base, weight } = spec;
+  return card({
+    ...spec,
+    cardType: "fabao",
+    hp: Math.round(base.hp * (1 + weight * WEIGHT_HP_STEP)),
+    atk: Math.round(base.atk * (1 + weight * WEIGHT_ATK_STEP)),
+    cd: Math.round(base.cd * (1 + weight * WEIGHT_CD_STEP)),
+  });
 }
 
 /** 卡牌类型中文名（卡池/提示用） */
 export const CARD_TYPE_NAMES = {
   char: "主角",
   fabao: "法宝",
-  weapon: "武器",
   spell: "法术",
   beast: "御兽",
   monster: "妖兽",
@@ -53,7 +83,7 @@ export const PLAYER_LIBRARY = [
     skill: "none",
     skillText: "主角，攻守均衡，单体攻击最左存活。手持武器与识海法术都系于他一身",
   }),
-  card({
+  fabao({
     id: "taomu-jian",
     name: "桃木剑",
     icon: "🗡️",
@@ -61,67 +91,67 @@ export const PLAYER_LIBRARY = [
     theme: "crimson",
     tags: ["sword"],
     art: `${ART}/style-e-artifact-taomu-jian.png`,
-    hp: 22,
-    atk: 14,
-    cd: 900,
+    weight: 1,
+    reviveMs: 4500,
+    base: { hp: 17.6, atk: 11.86, cd: 803.6 },
     skill: "none",
-    skillText: "攻高血薄，冷却短。属剑类：修出剑心后参与剑阵连携",
+    skillText: "攻高血薄，冷却短。属剑类：修出剑心后参与剑阵连携（被动，手持照常生效）",
   }),
-  card({
+  fabao({
     id: "waci-yin",
     name: "瓦瓷印",
     icon: "🪨",
     pool: "player",
     theme: "steel",
     art: `${ART}/style-e-artifact-waci-yin.png`,
-    hp: 42,
-    atk: 6,
-    cd: 1700,
+    weight: 3,
+    reviveMs: 7000,
+    base: { hp: 24, atk: 3.9, cd: 1250 },
     skill: "shield",
-    skillText: "行动时获得护盾再攻击最左",
+    skillText: "主动技：行动时获得护盾再攻击最左（手持时封印，退化为普攻）",
   }),
-  card({
+  fabao({
     id: "masuo",
     name: "麻索",
     icon: "🪢",
     pool: "player",
     theme: "amber",
     art: `${ART}/style-e-artifact-masuo.png`,
-    hp: 28,
-    atk: 5,
-    cd: 1600,
+    weight: 1,
+    reviveMs: 4000,
+    base: { hp: 22.4, atk: 4.24, cd: 1428.6 },
     skill: "haste",
-    skillText: "加速队列左右相邻友军冷却",
+    skillText: "主动技：加速队列左右相邻友军冷却（手持时封印，退化为普攻）",
   }),
-  card({
+  fabao({
     id: "tongjing",
     name: "铜镜",
     icon: "🪞",
     pool: "player",
     theme: "violet",
     art: `${ART}/style-e-artifact-tongjing.png`,
-    hp: 26,
-    atk: 8,
-    cd: 1500,
+    weight: 2,
+    reviveMs: 5500,
+    base: { hp: 17.33, atk: 5.88, cd: 1209.7 },
     ranged: true,
     atkType: "beam",
     skill: "splash",
-    skillText: "光线，打最左并溅射其身后 2 张",
+    skillText: "光线，打最左并溅射其身后 2 张（攻击形态，两种模式都生效）",
   }),
-  card({
+  fabao({
     id: "xiaohulu",
     name: "小葫芦",
     icon: "🫙",
     pool: "player",
     theme: "mint",
     art: `${ART}/style-e-artifact-xiaohulu.png`,
-    hp: 32,
-    atk: 5,
-    cd: 1500,
+    weight: 2,
+    reviveMs: 5500,
+    base: { hp: 21.33, atk: 3.68, cd: 1209.7 },
     skill: "heal",
-    skillText: "优先治疗伤员；全满则打对方最左存活单位",
+    skillText: "主动技：优先治疗伤员，全满则打对方最左（手持时封印，退化为普攻）",
   }),
-  card({
+  fabao({
     id: "juhun-fan",
     name: "聚魂幡",
     icon: "🚩",
@@ -129,56 +159,49 @@ export const PLAYER_LIBRARY = [
     theme: "violet",
     tags: ["fan"],
     art: "",
-    hp: 30,
-    atk: 6,
-    cd: 1500,
+    weight: 2,
+    reviveMs: 6000,
+    base: { hp: 20, atk: 4.41, cd: 1209.7 },
     skill: "none",
-    skillText: "敌我任意单位死亡时幡叠 1 层魂力，每层攻击+8%。克送死复活流",
+    skillText: "被动：敌我任意单位死亡时幡叠 1 层魂力，每层攻击+8%（手持照常叠层）。克送死复活流",
   }),
-  // ==== 武器（手持格专用，重量受体修力量预算约束，不占承伤位）====
-  card({
+  fabao({
     id: "qingfeng-jian",
     name: "青锋剑",
     icon: "⚔️",
     pool: "player",
-    cardType: "weapon",
-    weight: 2,
     tags: ["sword"],
     theme: "steel",
-    hp: 20,
-    atk: 12,
-    cd: 1000,
+    weight: 2,
+    reviveMs: 5000,
+    base: { hp: 13.33, atk: 8.82, cd: 806.5 },
     skill: "none",
-    skillText: "轻剑（重量2）。手持不占承伤位；属剑类可入剑阵",
+    skillText: "轻剑：锋利趁手。属剑类可入剑阵（被动，手持照常生效）",
   }),
-  card({
+  fabao({
     id: "xuantie-jian",
     name: "玄铁重剑",
     icon: "🗡",
     pool: "player",
-    cardType: "weapon",
-    weight: 3,
     tags: ["sword"],
     theme: "steel",
-    hp: 34,
-    atk: 22,
-    cd: 1800,
+    weight: 3,
+    reviveMs: 7500,
+    base: { hp: 19.43, atk: 14.29, cd: 1323.5 },
     skill: "none",
-    skillText: "重剑（重量3）。高锋利高重量；属剑类可入剑阵",
+    skillText: "重剑：高锋利高重量。属剑类可入剑阵（被动，手持照常生效）",
   }),
-  card({
+  fabao({
     id: "kaishan-fu",
     name: "开山斧",
     icon: "🪓",
     pool: "player",
-    cardType: "weapon",
-    weight: 4,
     theme: "crimson",
-    hp: 40,
-    atk: 30,
-    cd: 2400,
+    weight: 4,
+    reviveMs: 9000,
+    base: { hp: 20, atk: 17.44, cd: 1621.6 },
     skill: "none",
-    skillText: "巨斧（重量4）。极重极狠，冷却极长",
+    skillText: "巨斧：极重极狠，冷却极长。手持时重量加成最高",
   }),
   // ==== 法术（识海格专用，无血量、不占承伤位、不可被攻击）====
   card({
@@ -379,7 +402,7 @@ export function getCard(id) {
   return CARD_LIBRARY.find((c) => c.id === id);
 }
 
-/** 满血、满冷却（环未蓄力）、清护盾，开战/布阵/重置共用。 */
+/** 满血、满冷却（环未蓄力）、清护盾、清重聚计时，开战/布阵/重置共用。 */
 export function resetCombatState(unit) {
   if (!unit) return unit;
   unit.hp = unit.maxHp;
@@ -391,12 +414,14 @@ export function resetCombatState(unit) {
   unit.damageDealt = 0;
   unit.healDone = 0;
   unit.soulStacks = 0;
+  unit.reviveLeft = 0;
   return unit;
 }
 
-export function createUnit(cardId, side, index = 0, stage = 0) {
+export function createUnit(cardId, side, index = 0, stage = 0, mode = "station") {
   const card = getCard(cardId);
   if (!card) throw new Error(`未知卡牌: ${cardId}`);
+  const cardType = fieldCardType(card, side);
   const unit = {
     uid: uidSeq++,
     cardId: card.id,
@@ -408,8 +433,15 @@ export function createUnit(cardId, side, index = 0, stage = 0) {
     atkType: card.atkType || (card.ranged ? "ranged" : "melee"),
     pool: card.pool,
     kind: card.kind || (card.pool === "enemy" ? "monster" : card.id === "daotong" ? "char" : "artifact"),
-    cardType: fieldCardType(card, side),
+    cardType,
+    // 法宝双模式：held=手持（不占承伤位、主动技封印）；station=法术操控（独立血条、击毁后自行重聚）
+    mode: cardType === "fabao" ? (mode === "held" ? "held" : "station") : "",
     weight: card.weight || 0,
+    baseReviveMs: card.reviveMs || 0,
+    reviveMs: card.reviveMs || 0,
+    reviveLeft: 0,
+    critChance: 0,
+    critDmg: 1.5,
     tags: card.tags || [],
     spellKind: card.spellKind || "",
     face: card.face,
@@ -456,7 +488,14 @@ export function unitDesc(unit) {
   const baseAtk = unit.baseAtk != null ? `（白板 ${unit.baseAtk}）` : "";
   const baseHp = unit.baseHp != null ? `（白板 ${unit.baseHp}）` : "";
   const typeName = CARD_TYPE_NAMES[unit.cardType] || "法宝";
-  const holdNote = unit.cardType === "weapon" ? "（手持，不占承伤位）" : unit.cardType === "spell" ? "（识海，无血量不可被攻击）" : "";
+  const holdNote =
+    unit.cardType === "fabao" && unit.mode === "held"
+      ? "（手持，不占承伤位，主动技封印）"
+      : unit.cardType === "fabao"
+        ? `（操控，击毁后 ${(unit.reviveMs / 1000).toFixed(1)}s 原位重聚）`
+        : unit.cardType === "spell"
+          ? "（识海，无血量不可被攻击）"
+          : "";
   return [
     `${unit.icon} ${unit.name}（${unit.side === "player" ? "我方" : "敌方"} · ${typeName}）${dead ? " · 尸体" : ""}`,
     `队列第 ${unit.index + 1} 位${role}${holdNote}`,

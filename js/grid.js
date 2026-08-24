@@ -47,9 +47,12 @@ export function leftmost(queue) {
   return livingUnits(queue)[0] || null;
 }
 
-/** 法术与手持武器不占承伤位：敌方集火跳过它们。 */
+/** 法术与手持（held）法宝不占承伤位：敌方集火跳过它们；操控（station）法宝有独立血条可被集火。 */
 export function isTargetable(u) {
-  return !!(u && u.cardType !== "spell" && u.cardType !== "weapon");
+  if (!u) return false;
+  if (u.cardType === "spell") return false;
+  if (u.cardType === "fabao" && u.mode === "held") return false;
+  return true;
 }
 
 /** 最左可承伤的存活单位（集火目标）。 */

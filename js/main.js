@@ -8,10 +8,10 @@ import {
   moveUnit,
   clearQueue,
   findUnitByUid,
-} from "./grid.js?v=dao1";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao1";
-import { tick, resolveShot, checkWinner, processDeaths } from "./combat.js?v=dao1";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao1";
+} from "./grid.js?v=dao5";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao5";
+import { tick, resolveShot, checkWinner, processDeaths } from "./combat.js?v=dao5";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao5";
 import {
   talentMods,
   talentPoints,
@@ -21,11 +21,11 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao1";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao1";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao1";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao2";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao2";
+} from "./talents.js?v=dao5";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao5";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao5";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao5";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao5";
 import {
   buildLanes,
   buildPool,
@@ -54,12 +54,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao4";
+} from "./ui.js?v=dao5";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao1";
+} from "./map.js?v=dao5";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas25";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -136,8 +136,8 @@ function enemyStage() {
   return Number.isFinite(state.focusStage) ? state.focusStage : state.unlockStage;
 }
 
-function makeUnit(id, side, index = 0) {
-  const unit = createUnit(id, side, index, side === "enemy" ? enemyStage() : playerStage());
+function makeUnit(id, side, index = 0, mode = "station") {
+  const unit = createUnit(id, side, index, side === "enemy" ? enemyStage() : playerStage(), mode);
   if (side === "player") applyPlayerMods(unit, mods);
   return unit;
 }
@@ -161,9 +161,10 @@ function paint() {
 
 function applyImpact(events, at = null) {
   for (const ev of events) {
-    if (ev.type === "damage") spawnFloat(ev.unit, `-${ev.amount}`, "dmg", at);
+    if (ev.type === "damage") spawnFloat(ev.unit, `-${ev.amount}`, ev.crit ? "dmg crit" : "dmg", at);
     if (ev.type === "heal") spawnFloat(ev.unit, `+${ev.amount}`, "heal", at);
     if (ev.type === "buff") spawnFloat(ev.unit, ev.amount ? "▲" : "▲0", "buff", at);
+    if (ev.type === "revive") spawnFloat(ev.unit, "重聚", "revive");
   }
 }
 
@@ -230,6 +231,8 @@ function finishIfNeeded() {
   checkWinner(state);
   if (!state.winner) return false;
   state.running = false;
+  // 战斗结束清除未完成的重聚计时
+  for (const u of state.playerQueue) u.reviveLeft = 0;
   let msg =
     state.winner === "player" ? "胜利：敌方无存活（只剩尸体也算输）" :
     state.winner === "enemy" ? "失败：我方无存活" : "平局：双方均无存活";
@@ -356,62 +359,99 @@ function fillEnemyRandom() {
 }
 
 function fillPlayerDemo() {
-  // 一键布阵尊重格位：道童 + 法宝填满法宝格，再按已开格位补武器/法术
+  // 一键布阵尊重格位：道童 + 法宝填满法宝格；有手持格则从重到轻持法宝（重量预算内）；再补法术
   const slots = currentSlots();
-  const wish = ["daotong"];
-  const fabaos = PLAYER_LIBRARY.filter((c) => c.cardType === "fabao").map((c) => c.id);
-  for (let i = 0; i < slots.fabao && wish.length < cap(); i++) wish.push(fabaos[i % fabaos.length]);
+  clearQueue(state.playerQueue);
+  const put = (id, mode = null) => {
+    if (state.playerQueue.length >= cap()) return false;
+    const card = getCard(id);
+    if (!card) return false;
+    const res = resolvePlacement(card, null, mode);
+    if (res.error) return false;
+    insertUnit(state.playerQueue, makeUnit(id, "player", state.playerQueue.length, res.mode), state.playerQueue.length, cap());
+    return true;
+  };
+  put("daotong");
+  const fabaos = PLAYER_LIBRARY.filter((c) => c.cardType === "fabao");
+  for (let i = 0; i < slots.fabao; i++) put(fabaos[i % fabaos.length].id, "station");
   if (slots.hand > 0) {
-    let weightLeft = slots.weight;
-    const weapons = PLAYER_LIBRARY.filter((c) => c.cardType === "weapon");
-    let placed = 0;
-    for (const w of weapons) {
-      if (placed >= slots.hand || wish.length >= cap() || w.weight > weightLeft) continue;
-      wish.push(w.id);
-      weightLeft -= w.weight;
-      placed++;
-    }
+    const heavyFirst = [...fabaos].sort((a, b) => (b.weight || 0) - (a.weight || 0));
+    for (const c of heavyFirst) put(c.id, "held");
   }
   if (slots.mind > 0) {
-    const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell").map((c) => c.id);
-    for (let i = 0; i < slots.mind && i < spells.length && wish.length < cap(); i++) wish.push(spells[i]);
-  }
-  clearQueue(state.playerQueue);
-  for (const id of wish) {
-    if (state.playerQueue.length >= cap()) break;
-    const card = getCard(id);
-    if (!card || placeError(card)) continue;
-    insertUnit(state.playerQueue, makeUnit(id, "player", state.playerQueue.length), state.playerQueue.length, cap());
+    for (const c of PLAYER_LIBRARY.filter((cc) => cc.cardType === "spell")) put(c.id);
   }
   restatQueues();
 }
 
-/** 上阵校验：位置上限 + 格位类型 + 重量预算 + 御兽持有数。返回错误文案或 null。 */
-function placeError(card, ignoreUid = null) {
+/**
+ * 上阵校验 + 入位模式：位置上限 + 格位类型 + 重量预算 + 御兽持有数。
+ * 法宝默认入法宝格（station）；法宝格满且手持格有余（含重量预算）则自动入手持（held）。
+ * wantMode 可强制指定（双击切换/一键布阵/调试钩子用）。返回 { mode } 或 { error }。
+ */
+function resolvePlacement(card, ignoreUid = null, wantMode = null) {
   const q = state.playerQueue.filter((u) => u && u.uid !== ignoreUid);
-  if (q.length >= cap()) return `已达上限 ${cap()} 位`;
+  if (q.length >= cap()) return { error: `已达上限 ${cap()} 位` };
   const slots = currentSlots();
   const type = fieldCardType(card, "player");
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
-  if (type === "char" && cnt("char") >= 1) return "道童只能上场一位";
-  if (type === "fabao" && cnt("fabao") >= slots.fabao) return `法宝格已满（${slots.fabao}），可修「器道·多宝」扩容`;
-  if (type === "weapon") {
-    if (slots.hand <= 0) return "手持格未开：先修「体修·两手蛮力」";
-    if (cnt("weapon") >= slots.hand) return `手持格已满（${slots.hand}）`;
-    const used = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
-    if (used + (card.weight || 0) > slots.weight) return `重量超限：${used}+${card.weight} > ${slots.weight}（力量预算）`;
+  if (type === "char") {
+    if (cnt("char") >= 1) return { error: "道童只能上场一位" };
+    return { mode: "" };
+  }
+  if (type === "fabao") {
+    const heldUnits = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
+    const station = cnt("fabao") - heldUnits.length;
+    const wUsed = heldUnits.reduce((s, u) => s + (u.weight || 0), 0);
+    const heldError =
+      slots.hand <= 0
+        ? "手持格未开：先修「体修·两手蛮力」"
+        : heldUnits.length >= slots.hand
+          ? `手持格已满（${slots.hand}）`
+          : wUsed + (card.weight || 0) > slots.weight
+            ? `重量超限：${wUsed}+${card.weight} > ${slots.weight}（力量预算）`
+            : null;
+    const stationError =
+      station >= slots.fabao ? `法宝格已满（${slots.fabao}），可修「器道·多宝」扩容` : null;
+    if (wantMode === "held") return heldError ? { error: heldError } : { mode: "held" };
+    if (wantMode === "station") return stationError ? { error: stationError } : { mode: "station" };
+    if (!stationError) return { mode: "station" };
+    if (!heldError) return { mode: "held" };
+    return { error: `${stationError}；${heldError}` };
   }
   if (type === "spell") {
-    if (slots.mind <= 0) return "识海格未开：先修「法修·识海开窍」";
-    if (cnt("spell") >= slots.mind) return `识海格已满（${slots.mind}）`;
+    if (slots.mind <= 0) return { error: "识海格未开：先修「法修·识海开窍」" };
+    if (cnt("spell") >= slots.mind) return { error: `识海格已满（${slots.mind}）` };
   }
   if (type === "beast") {
-    if (slots.beast <= 0) return "兽栏格未开：先修「御兽·兽栏」";
-    if (cnt("beast") >= slots.beast) return `兽栏格已满（${slots.beast}）`;
+    if (slots.beast <= 0) return { error: "兽栏格未开：先修「御兽·兽栏」" };
+    if (cnt("beast") >= slots.beast) return { error: `兽栏格已满（${slots.beast}）` };
     const fielded = q.filter((u) => u.cardId === card.id && u.cardType === "beast").length;
-    if (fielded >= beastCount(card.id)) return `「${card.name}」仅收服了 ${beastCount(card.id)} 只`;
+    if (fielded >= beastCount(card.id)) return { error: `「${card.name}」仅收服了 ${beastCount(card.id)} 只` };
   }
-  return null;
+  return { mode: "" };
+}
+
+function placeError(card, ignoreUid = null) {
+  return resolvePlacement(card, ignoreUid).error || null;
+}
+
+/** 布阵期双击场上法宝：held ↔ station 切换（校验目标格位余量与重量预算）。 */
+function toggleFabaoMode(unit) {
+  if (!canEdit() || !unit || unit.cardType !== "fabao") return;
+  const want = unit.mode === "held" ? "station" : "held";
+  const res = resolvePlacement(getCard(unit.cardId), unit.uid, want);
+  if (res.error) {
+    setStatus(`切换失败：${res.error}`, "warn");
+    return;
+  }
+  unit.mode = want;
+  restatQueues();
+  setStatus(
+    `${unit.name} 已切换为${want === "held" ? "手持：不占承伤位、继承攻速暴击，主动技封印" : "法术操控：独立血条，被击毁后自行重聚"}`,
+    "idle",
+  );
+  paint();
 }
 
 function startBattle() {
@@ -420,10 +460,12 @@ function startBattle() {
     setStatus("请先把卡牌插入我方队列", "warn");
     return;
   }
-  const hasHeld = state.playerQueue.some((u) => u.cardType === "weapon" || u.cardType === "spell");
+  const hasHeld = state.playerQueue.some(
+    (u) => u.cardType === "spell" || (u.cardType === "fabao" && u.mode === "held"),
+  );
   const hasChar = state.playerQueue.some((u) => u.cardType === "char");
   if (hasHeld && !hasChar) {
-    setStatus("手持武器与识海法术系于道童一身：请先上道童", "warn");
+    setStatus("手持法宝与识海法术系于道童一身：请先上道童", "warn");
     return;
   }
   clearPendingRevive();
@@ -585,6 +627,9 @@ function onPointerDownPool(e) {
   beginDrag({ kind: "new", cardId: card.id, icon: card.icon, face: card.face, art: card.art }, e);
 }
 
+let lastTapUid = 0;
+let lastTapTs = 0;
+
 function onPointerDownLane(e) {
   hideCardTip();
   const card = e.target.closest(".unit-card");
@@ -594,6 +639,15 @@ function onPointerDownLane(e) {
     if (!canEdit() || card.dataset.side !== "player") return;
     const unit = findUnitByUid([state.playerQueue], state.selectedUid);
     if (!unit) return;
+    // 布阵期双击场上法宝：held ↔ station 切换（pointerdown 上 preventDefault 会吞原生 dblclick，手动检测）
+    const now = performance.now();
+    if (unit.uid === lastTapUid && now - lastTapTs < 350 && unit.cardType === "fabao") {
+      lastTapUid = 0;
+      toggleFabaoMode(unit);
+      return;
+    }
+    lastTapUid = unit.uid;
+    lastTapTs = now;
     beginDrag({ kind: "move", uid: unit.uid, icon: unit.icon, face: unit.face, art: unit.art }, e);
     return;
   }
@@ -642,11 +696,11 @@ function onPointerUp(e) {
   if (canEdit() && lane && lane.dataset.side === "player") {
     const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
     if (drag.kind === "new") {
-      const err = placeError(getCard(drag.cardId));
-      if (err) {
-        setStatus(err, "warn");
+      const res = resolvePlacement(getCard(drag.cardId));
+      if (res.error) {
+        setStatus(res.error, "warn");
       } else {
-        insertUnit(state.playerQueue, makeUnit(drag.cardId, "player"), index, cap());
+        insertUnit(state.playerQueue, makeUnit(drag.cardId, "player", 0, res.mode), index, cap());
         restatQueues();
       }
     } else if (drag.kind === "move") {
@@ -729,22 +783,50 @@ function syncMetaButtons() {
 /** 天赋/装备变更后的统一刷新：重聚合 → 重算队列 → 重绘。 */
 function onMetaChange() {
   refreshMods();
-  // 格位收缩后可能出现超编（如洗髓掉手持格）：从右往左移除超编卡
+  // 格位收缩后可能出现超编（如洗髓掉手持格）：超编 held 优先转 station（法宝格有空），转不了才退回卡池
   const slots = currentSlots();
-  const over = [];
-  const cnt = { fabao: 0, weapon: 0, spell: 0, beast: 0 };
-  let weight = 0;
-  for (const u of state.playerQueue) {
-    const t = u.cardType;
-    if (t === "fabao" && ++cnt.fabao > slots.fabao) over.push(u);
-    else if (t === "weapon") {
-      weight += u.weight || 0;
-      if (++cnt.weapon > slots.hand || weight > slots.weight) over.push(u);
-    } else if (t === "spell" && ++cnt.spell > slots.mind) over.push(u);
-    else if (t === "beast" && ++cnt.beast > slots.beast) over.push(u);
+  const removed = [];
+  const converted = [];
+  let station = 0;
+  for (const u of [...state.playerQueue]) {
+    if (u.cardType === "fabao" && u.mode === "station" && ++station > slots.fabao) {
+      station -= 1;
+      removeUnit(state.playerQueue, u);
+      removed.push(u);
+    }
   }
-  for (const u of over) removeUnit(state.playerQueue, u);
-  if (over.length) setStatus(`格位变动：${over.map((u) => u.name).join("、")} 已回到卡池`, "warn");
+  let held = 0;
+  let weight = 0;
+  for (const u of [...state.playerQueue]) {
+    if (u.cardType !== "fabao" || u.mode !== "held") continue;
+    held += 1;
+    weight += u.weight || 0;
+    if (held <= slots.hand && weight <= slots.weight) continue;
+    held -= 1;
+    weight -= u.weight || 0;
+    if (station < slots.fabao) {
+      station += 1;
+      u.mode = "station";
+      converted.push(u);
+    } else {
+      removeUnit(state.playerQueue, u);
+      removed.push(u);
+    }
+  }
+  const cnt = { spell: 0, beast: 0 };
+  for (const u of [...state.playerQueue]) {
+    if (u.cardType === "spell" && ++cnt.spell > slots.mind) {
+      removeUnit(state.playerQueue, u);
+      removed.push(u);
+    } else if (u.cardType === "beast" && ++cnt.beast > slots.beast) {
+      removeUnit(state.playerQueue, u);
+      removed.push(u);
+    }
+  }
+  const notes = [];
+  if (converted.length) notes.push(`${converted.map((u) => u.name).join("、")} 转为法术操控`);
+  if (removed.length) notes.push(`${removed.map((u) => u.name).join("、")} 已回到卡池`);
+  if (notes.length) setStatus(`格位变动：${notes.join("；")}`, "warn");
   restatQueues();
   syncMetaButtons();
   paint();
@@ -789,15 +871,20 @@ window.__dao = {
     syncMetaButtons();
     paint();
   },
-  place(id) {
+  place(id, mode = null) {
     const card = getCard(id);
     if (!card) return "unknown card";
-    const err = placeError(card);
-    if (err) return err;
-    insertUnit(state.playerQueue, makeUnit(id, "player"), state.playerQueue.length, cap());
+    const res = resolvePlacement(card, null, mode);
+    if (res.error) return res.error;
+    insertUnit(state.playerQueue, makeUnit(id, "player", 0, res.mode), state.playerQueue.length, cap());
     restatQueues();
     paint();
     return "ok";
+  },
+  toggleMode(uid) {
+    const unit = findUnitByUid([state.playerQueue], uid);
+    if (unit) toggleFabaoMode(unit);
+    return unit ? unit.mode : "not found";
   },
   clear() {
     clearQueue(state.playerQueue);

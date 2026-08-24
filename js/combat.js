@@ -5,9 +5,20 @@ import {
   markCorpse,
   queueNeighbors,
   unitsBehind,
-} from "./grid.js?v=dao1";
+} from "./grid.js?v=dao5";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao5";
 
 const RANGED_IDS = new Set(["tongjing", "yewu", "huangfeng"]);
+
+/** 手持（held）法宝：主动技封印，退化为普攻；被动技照常。 */
+function skillSealed(unit) {
+  return unit.cardType === "fabao" && unit.mode === "held" && ACTIVE_SKILLS.has(unit.skill);
+}
+
+/** 暴击掷点：只有主角与手持法宝拥有 critChance（见 talents.applyPlayerMods）。 */
+function rollCrit(unit) {
+  return (unit.critChance || 0) > 0 && Math.random() < unit.critChance;
+}
 
 /** 永远打对方当前最左边的「可承伤」存活单位（跳过尸体、法术、手持武器）。 */
 export function findTarget(enemyQueue) {
@@ -142,7 +153,9 @@ export function act(attacker, state, now) {
     return castSpell(attacker, foes, allies);
   }
 
-  if (attacker.skill === "heal") {
+  const sealed = skillSealed(attacker);
+
+  if (!sealed && attacker.skill === "heal") {
     const wounded = lowestHpAlly(attacker, allies);
     if (wounded) {
       const heal = Math.round(attacker.atk * 1.4 * (1 + (attacker.healBoost || 0)));
@@ -156,13 +169,13 @@ export function act(attacker, state, now) {
     }
   }
 
-  if (attacker.skill === "shield") {
+  if (!sealed && attacker.skill === "shield") {
     const gain = Math.round(attacker.maxHp * 0.18 * (1 + (attacker.shieldBoost || 0)));
     attacker.shield += gain;
     events.push({ type: "buff", unit: attacker, amount: gain });
   }
 
-  if (attacker.skill === "haste") {
+  if (!sealed && attacker.skill === "haste") {
     const near = queueNeighbors(allies, attacker);
     for (const u of near) u.cdLeft = Math.max(80, u.cdLeft - u.cd * 0.28);
     events.push({ type: "buff", unit: attacker, amount: near.length });
@@ -175,12 +188,15 @@ export function act(attacker, state, now) {
   }
   attacker.lastTargetUid = target.uid;
   const style = shotStyle(attacker);
+  const crit = rollCrit(attacker);
+  const critMult = crit ? attacker.critDmg || 1.5 : 1;
   events.push({
     type: "shot",
     style,
     from: attacker,
     to: target,
-    amount: attackAmount(attacker),
+    amount: attackAmount(attacker) * critMult,
+    crit,
     secondary: false,
   });
   if (attacker.skill === "splash") {
@@ -192,21 +208,24 @@ export function act(attacker, state, now) {
         style,
         from: attacker,
         to: extra,
-        amount: attackAmount(attacker) * mult,
+        amount: attackAmount(attacker) * mult * critMult,
+        crit,
         secondary: true,
       });
     }
   }
-  // 剑阵连携：剑类出手时，其余存活剑类各补一段追击
+  // 剑阵连携（被动，手持剑照常参与）：剑类出手时，其余存活剑类各补一段追击
   if ((attacker.swordEcho || 0) > 0 && attacker.tags?.includes("sword")) {
     for (const ally of livingUnits(allies)) {
       if (ally.uid === attacker.uid || !ally.tags?.includes("sword")) continue;
+      const echoCrit = rollCrit(ally);
       events.push({
         type: "shot",
         style: shotStyle(ally),
         from: ally,
         to: target,
-        amount: attackAmount(ally) * attacker.swordEcho,
+        amount: attackAmount(ally) * attacker.swordEcho * (echoCrit ? ally.critDmg || 1.5 : 1),
+        crit: echoCrit,
         secondary: true,
       });
     }
@@ -226,6 +245,11 @@ export function resolveShot(shot) {
   const hits = applyDamage(shot.to, shot.amount);
   const dealt = hits.reduce((s, ev) => s + (ev.type === "damage" ? (ev.dealt || 0) : 0), 0);
   if (shot.from) shot.from.damageDealt = (shot.from.damageDealt || 0) + dealt;
+  if (shot.crit) {
+    for (const ev of hits) {
+      if (ev.type === "damage") ev.crit = true;
+    }
+  }
   events.push(...hits);
   // 反伤：近战命中后按承伤者 thorns 比例反弹给攻击者
   if (
@@ -247,7 +271,7 @@ export function resolveShot(shot) {
   return events;
 }
 
-/** 道童阵亡则其手持武器与识海法术随之消散（尸体占位）。 */
+/** 道童阵亡则其手持（held）法宝与识海法术随之消散（尸体占位）；操控（station）法宝不受影响。 */
 function collapseOrphans(queue) {
   const events = [];
   const living = livingUnits(queue);
@@ -255,7 +279,7 @@ function collapseOrphans(queue) {
   const hasChar = living.some((u) => u.cardType === "char");
   if (hasChar) return events;
   for (const u of living) {
-    if (u.cardType === "weapon" || u.cardType === "spell") {
+    if (u.cardType === "spell" || (u.cardType === "fabao" && u.mode === "held")) {
       markCorpse(u);
       events.push({ type: "death", unit: u });
     }
@@ -266,6 +290,7 @@ function collapseOrphans(queue) {
 /**
  * 死亡后处理（主流程在事件结算后调用）：
  * - 幡：敌我任意死亡，场上所有存活幡叠 1 层魂力
+ * - 操控法宝：被击毁后启动重聚计时（经过自身 reviveMs 原位满血复活）
  * - 御兽收服：记录被击杀的敌方妖兽
  * - 兽王血契：我方御兽死亡时为道童回血
  * 返回附加事件（治疗跳字等）。
@@ -274,6 +299,15 @@ export function processDeaths(state, events) {
   const extra = [];
   for (const ev of events) {
     if (ev.type !== "death") continue;
+    // station 法宝自行复活：死亡次数不影响重聚时长，仅天赋/词条「重聚缩减」可修改
+    if (
+      ev.unit.side === "player" &&
+      ev.unit.cardType === "fabao" &&
+      ev.unit.mode === "station" &&
+      (ev.unit.reviveMs || 0) > 0
+    ) {
+      ev.unit.reviveLeft = ev.unit.reviveMs;
+    }
     for (const q of [state.playerQueue, state.enemyQueue]) {
       for (const u of q) {
         if (u.status === "alive" && u.hp > 0 && u.tags?.includes("fan")) {
@@ -299,6 +333,20 @@ export function processDeaths(state, events) {
 export function tick(state, dt, now) {
   const events = [];
   events.push(...collapseOrphans(state.playerQueue));
+  // 操控法宝重聚：计时走完则原位满血复活（护盾清零、冷却重蓄）
+  for (const u of state.playerQueue) {
+    if (!u || u.status !== "corpse" || (u.reviveLeft || 0) <= 0) continue;
+    u.reviveLeft -= dt;
+    if (u.reviveLeft <= 0) {
+      u.reviveLeft = 0;
+      u.status = "alive";
+      u.hp = u.maxHp;
+      u.shield = 0;
+      u.cdLeft = u.cd;
+      u.lastTargetUid = null;
+      events.push({ type: "revive", unit: u });
+    }
+  }
   const all = [...livingUnits(state.playerQueue), ...livingUnits(state.enemyQueue)];
   all.sort((a, b) => a.uid - b.uid);
 
@@ -312,9 +360,18 @@ export function tick(state, dt, now) {
   return events;
 }
 
+/** 我方还有「重聚中」的法宝时不判负：战斗继续直到重聚回归或主角侧真正无人。 */
+export function hasPendingRevive(queue) {
+  return queue.some((u) => u && u.status === "corpse" && (u.reviveLeft || 0) > 0);
+}
+
 export function checkWinner(state) {
   const pAlive = livingUnits(state.playerQueue).length;
   const eAlive = livingUnits(state.enemyQueue).length;
+  if (pAlive === 0 && hasPendingRevive(state.playerQueue)) {
+    state.winner = null;
+    return;
+  }
   if (pAlive === 0 && eAlive === 0) state.winner = "draw";
   else if (pAlive === 0) state.winner = "enemy";
   else if (eAlive === 0) state.winner = "player";

@@ -4,7 +4,7 @@
  * 装备穿在道童身上、数值全队生效（全队本就是修士的持有物）。
  */
 
-import { emptyMods, mergeMods } from "./talents.js?v=dao1";
+import { emptyMods, mergeMods } from "./talents.js?v=dao5";
 
 const BAG_KEY = "dao-bag-v1";
 
@@ -43,6 +43,10 @@ export const STAT_NAMES = {
   fabaoHpPct: "法宝生命",
   beastAtkPct: "御兽攻击",
   beastHpPct: "御兽生命",
+  atkSpeedPct: "攻速",
+  critPct: "暴击",
+  critDmgPct: "暴击伤害",
+  reviveCdrPct: "重聚缩减",
 };
 
 /** 词条是否为非百分比的固定值 */
@@ -51,7 +55,7 @@ const FLAT_STATS = new Set(["weightAdd", "mindSlotAdd"]);
 export function fmtStat(stat, val) {
   const name = STAT_NAMES[stat] || stat;
   if (FLAT_STATS.has(stat)) return `${name}+${val}`;
-  if (stat === "cdPct" || stat === "dmgReducePct") return `${name} ${val}%`;
+  if (stat === "cdPct" || stat === "dmgReducePct" || stat === "reviveCdrPct") return `${name} ${val}%`;
   return `${name}+${val}%`;
 }
 
@@ -70,6 +74,9 @@ const AFFIX_POOL = [
   { stat: "luckPct", base: 3, favored: ["jade"] },
   { stat: "fabaoAtkPct", base: 4, favored: ["bracer"] },
   { stat: "beastAtkPct", base: 4, favored: ["jade"] },
+  { stat: "atkSpeedPct", base: 4, favored: ["bracer", "ring"] },
+  { stat: "critPct", base: 4, favored: ["bracer", "ring"] },
+  { stat: "reviveCdrPct", base: 6, favored: ["amulet"] },
 ];
 
 /** 仙品专属强词条（每部位一条，必然附加）。 */

@@ -1,0 +1,7 @@
+[
+  { "wait": 2600 },
+  { "shot": "forest-check1.png" },
+  { "wait": 1500 },
+  { "shot": "forest-check2.png" },
+  { "eval": "window.__corridorDrawMs" }
+]

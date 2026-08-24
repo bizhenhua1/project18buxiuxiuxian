@@ -1,0 +1,17 @@
+[
+  { "wait": 2600 },
+  { "eval": "window.__corridorSetTheme('cave')" },
+  { "key": "Space", "down": true },
+  { "key": "Space", "down": false },
+  { "wait": 900 },
+  { "shot": "cave-still.png" },
+  { "key": "Space", "down": true },
+  { "key": "Space", "down": false },
+  { "wait": 1500 },
+  { "shot": "cave-move1.png" },
+  { "wait": 1800 },
+  { "shot": "cave-move2.png" },
+  { "wait": 1800 },
+  { "shot": "cave-move3.png" },
+  { "eval": "window.__corridorDrawMs" }
+]

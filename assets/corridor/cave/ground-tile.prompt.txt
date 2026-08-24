@@ -1,0 +1,6 @@
+[reference: arch-a 原稿作画风参照 | 内置 GenerateImage | scripts/make_cave_assets.py 缩放到 512（满幅不透明贴图，不抠底）]
+原图：raw/ground-tile-raw.png
+
+Top-down seamless 2D game ground texture tile of a dark cave stone path: deep ink-blue-grey cracked slate slabs and dark charcoal cobblestones packed edge to edge, thin ink crack lines between stones, a few small scattered pebbles and subtle dark ochre-brown dust patches, one or two tiny pale-teal crystal chips. Uniform density and brightness across the whole tile, no focal point, no large object, no border, edges must wrap seamlessly (left matches right, top matches bottom). Overall very dark low-brightness tone so it reads as a dim cave floor. Full-bleed texture filling the entire image, no background color visible. Not photoreal, not 3D, not pixel art, no text. Style: Dunhuang mural mineral-pigment flat-color, grainy mineral pigment.
+
+渲染约定：运行时 ping-pong 采样（v 往返寻址），不依赖素材自身无缝。

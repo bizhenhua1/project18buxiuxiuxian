@@ -1,0 +1,16 @@
+[
+  { "wait": 2600 },
+  { "eval": "window.__corridorSet('themeSegment', 2)" },
+  { "shot": "trans-1-forest.png" },
+  { "wait_until": 6600 },
+  { "shot": "trans-2-fade.png" },
+  { "wait_until": 7300 },
+  { "shot": "trans-3-fadein.png" },
+  { "wait_until": 9000 },
+  { "shot": "trans-4-cave.png" },
+  { "wait_until": 14500 },
+  { "shot": "trans-5-back.png" },
+  { "wait_until": 16500 },
+  { "shot": "trans-6-forest.png" },
+  { "eval": "window.__corridorDrawMs" }
+]

@@ -1,0 +1,9 @@
+pillar-a.png / pillar-b.png / pillar-c.png（岩壁立柱三变体，逐张单独生成，3:4 竖构图）
+生成方式：内置 GenerateImage（品红 #FF00FF 底，arch-a/arch-b 原稿作画风与色板参照），scripts/make_cave_assets.py 抠底+裁剪+限尺寸。
+原图：raw/pillar-a-raw.png raw/pillar-b-raw.png raw/pillar-c-raw.png
+
+pillar-a：one tall rugged natural stone column, massive craggy vertical rock tower of stacked angular boulders, wider at the base, tapering slightly toward a blunt jagged top, thin ink crack lines, a few moss patches and one small ochre stripe.
+pillar-b：DIFFERENT variant, tall leaning column of large stacked flat slate slabs, slightly tilted silhouette, alternating dark teal-grey and umber slabs, a small cluster of tiny pale-teal crystal shards embedded near the middle, a few thin hanging dry roots from a ledge.
+pillar-c：THIRD variant, thick fused stalagmite-column of melted-looking rounded stone folds and vertical flowstone ridges like stacked candle-wax layers rendered as flat mineral color bands, crowned with two short stalactite spikes fused at the top, one faint pale-green glowing moss patch near the base.
+
+共同约束：Dunhuang mural mineral-pigment flat-color style, flat unblended mineral color blocks, clean dark ink outlines, grainy mineral pigment; full pillar from flat-ish base to top inside the frame with generous magenta margin; one pillar only; background 100% solid flat magenta #FF00FF; no ground plane, no shadow, no text; not photoreal, not 3D, not pixel art.

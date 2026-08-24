@@ -1,0 +1,9 @@
+deco-stalag-1/2、deco-mushroom、deco-crystal-a/b、deco-bones、deco-lantern、deco-rubble-1/2（3×3 洞穴道具拼图切片）
+生成方式：内置 GenerateImage（品红 #FF00FF 底，arch-a 原稿作画风与色板参照），scripts/make_cave_assets.py 抠底+九宫格切片+越界碎片过滤+去粉残留+根部侵蚀。
+原图：raw/props-pack-raw.png
+
+A 3x3 sprite sheet grid (3 rows, 3 columns, 9 equal invisible cells) of nine DIFFERENT small cave floor props for a 2D game. Row 1 left to right: (1) one slender pointed stalagmite spire, dark blue-grey stone with ochre band; (2) a cluster of two short fat stalagmites side by side; (3) a cluster of glowing pale-green cave mushrooms with round caps, faint flat pale-green halo dots. Row 2: (4) a cluster of pale-teal crystal shards growing from a small rock base; (5) a cluster of dim purple crystal shards from a rock base; (6) scattered old bones with one skull, bone-white with ink outlines. Row 3: (7) a broken old paper lantern leaning on a small stone, dim warm orange flame glow as flat pale-orange halo; (8) a plain low pile of grey rubble stones, no plants; (9) a plain low mound of dark gravel with a few small rocks, no plants.
+
+Each prop centered in its own cell, occupying only the central 65% of the cell, generous magenta padding around each, nothing touching cell edges or image edges, consistent scale across cells. Background must be one uniform solid magenta #FF00FF everywhere, no ground line, no shadows, no visible grid lines or borders, no text. Not photoreal, not 3D, not pixel art. Style: Dunhuang mural mineral-pigment flat-color, flat unblended mineral color blocks, clean dark ink outlines, grainy mineral pigment.
+
+[处理备注：deco-rubble-1 / deco-rubble-2 为无点缀素件变体（对应森林低草的"无花素株"），供路缘碎石带与低条带使用；灯笼的偏粉光晕与全表零星粉点由 depink 通道清除（r>140 且 r>b 且 b>g+10 且 r>g+50 → 透明），紫水晶因 b>r 不受影响。]

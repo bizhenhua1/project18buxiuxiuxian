@@ -1,0 +1,7 @@
+[reference: forest/raw/tree-b-raw.png 作画风参照 | 内置 GenerateImage | scripts/make_cave_assets.py 抠底+裁剪]
+
+Use the attached magenta-background tree cutout image as art-style reference only (Dunhuang mural mineral-pigment flat-color style: flat unblended mineral color blocks, clean dark ink outlines, grainy mineral pigment, paper-cutout silhouette). Do not copy the tree.
+
+Single isolated 2D game cave tunnel ring cutout, front view, a paper-theater cave slice prop. A complete closed ring of dark rock framing a large empty opening: one massive craggy stone arch across the top, its two ends flowing down into two thick rough rock wall pillars on the left and right, pillar bases ending level with each other near the bottom of the frame. Jagged stalactite teeth hang from the underside of the arch. Flat dark ink-blue-grey and deep ochre-brown stone blocks, a few dark malachite moss patches, thin ink crack lines. The large central opening inside the ring must be pure magenta (see-through hole).
+
+Background and the central opening are 100% solid flat magenta #FF00FF, generous magenta margin on all sides, nothing touching image edges. No ground plane, no shadow, no creatures, no text. Not photoreal, not PBR, not 3D, not pixel art.

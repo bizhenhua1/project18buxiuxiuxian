@@ -1,0 +1,18 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared:' + ks.join(','); })()"},
+  {"wait": 3200},
+  {"eval": "(() => JSON.stringify({ slots: document.querySelectorAll('.slot').length, emblems: document.querySelectorAll('.slot .slot-emblem').length, frames: document.querySelectorAll('.slot .slot-art').length, firstEmblem: document.querySelector('.slot .slot-emblem')?.getAttribute('src') }))()"},
+  {"shot": "se01_base.png"},
+  {"eval": "(() => { const slot = document.querySelector('#player-slots .slot.usable:not(.occupied)'); if (!slot) return 'no empty usable slot'; const r = slot.getBoundingClientRect(); slot.dispatchEvent(new MouseEvent('pointermove', { bubbles: true, clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 })); return 'hover:' + slot.className; })()"},
+  {"wait": 300},
+  {"eval": "(() => { const t = document.getElementById('card-tip'); return t ? JSON.stringify({ visible: !t.hidden && t.style.display !== 'none', text: t.textContent.replace(/\\s+/g, ' ').slice(0, 100) }) : 'no #card-tip'; })()"},
+  {"shot": "se02_hover_usable.png"},
+  {"eval": "(() => { const slot = document.querySelector('#player-slots .slot.locked'); if (!slot) return 'no locked slot'; const r = slot.getBoundingClientRect(); slot.dispatchEvent(new MouseEvent('pointermove', { bubbles: true, clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 })); return 'hover:' + slot.className; })()"},
+  {"wait": 300},
+  {"shot": "se03_hover_locked.png"},
+  {"eval": "(() => { window.__dao.setStage(6); document.getElementById('btn-talents').click(); const click = id => document.querySelector('.tnode[data-id=\"' + id + '\"]')?.dispatchEvent(new MouseEvent('click', { bubbles: true })); click('f1'); click('f2'); document.getElementById('talent-close').click(); const types = [...document.querySelectorAll('#player-slots .slot')].map(s => (s.className.match(/st-(\\w+)/) || [])[1]).join(','); return JSON.stringify({ playerTypes: types, slots: window.__dao.slots() }); })()"},
+  {"wait": 400},
+  {"shot": "se04_after_f2.png"},
+  {"eval": "(() => JSON.stringify([...document.querySelectorAll('#player-slots .slot')].map(s => ({ cls: s.className.replace('slot ', ''), src: s.querySelector('.slot-emblem')?.getAttribute('src')?.split('/').pop() }))))()"}
+]

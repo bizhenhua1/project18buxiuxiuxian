@@ -98,9 +98,15 @@ function laneAlign(side) {
   return side === "enemy" ? "start" : "end";
 }
 
-// ==== 类型化格位：美术框 + 悬浮说明 ====
+// ==== 类型化格位：中央底纹 + 悬浮说明（边框层预留） ====
 
-const SLOT_ART = {
+/**
+ * 边框系统开关：当前按美术要求只显示中央底纹（emblem 层）。
+ * 后续「边框系统」上线后置 true（或按格子逐个开启）即可叠加 slot-{type}.png 完整框体。
+ */
+const SHOW_SLOT_FRAMES = false;
+
+const SLOT_FRAME_ART = {
   char: "assets/slots/slot-char.png",
   fabao: "assets/slots/slot-fabao.png",
   weapon: "assets/slots/slot-weapon.png",
@@ -109,6 +115,17 @@ const SLOT_ART = {
   monster: "assets/slots/slot-monster.png",
   locked: "assets/slots/slot-locked.png",
   plain: "assets/slots/slot-plain.png",
+};
+
+const SLOT_EMBLEM_ART = {
+  char: "assets/slots/emblem-char.png",
+  fabao: "assets/slots/emblem-fabao.png",
+  weapon: "assets/slots/emblem-weapon.png",
+  spell: "assets/slots/emblem-spell.png",
+  beast: "assets/slots/emblem-beast.png",
+  monster: "assets/slots/emblem-monster.png",
+  locked: "assets/slots/emblem-locked.png",
+  plain: "assets/slots/emblem-plain.png",
 };
 
 const SLOT_TAGS = {
@@ -151,7 +168,7 @@ function slotPlan(state, side, slots, capacity) {
   }
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
-  for (const u of q) plan.push(u.cardType in SLOT_ART ? u.cardType : "fabao");
+  for (const u of q) plan.push(u.cardType in SLOT_EMBLEM_ART ? u.cardType : "fabao");
   const rest = [];
   if (cnt("char") < 1) rest.push("char");
   for (let i = cnt("fabao"); i < slots.fabao; i++) rest.push("fabao");
@@ -231,7 +248,8 @@ function renderSlots(slotRoot, layerEl, side, state) {
     slot.style.height = `${m.cardH}px`;
     slot.style.marginRight = i < SLOT_COUNT - 1 ? `${m.gap}px` : "0";
     slot.innerHTML = `
-      <img class="slot-art" src="${SLOT_ART[type]}" alt="" draggable="false" />
+      <img class="slot-emblem" src="${SLOT_EMBLEM_ART[type]}" alt="" draggable="false" />
+      ${SHOW_SLOT_FRAMES ? `<img class="slot-art" src="${SLOT_FRAME_ART[type]}" alt="" draggable="false" />` : ""}
       ${isOccupied ? "" : `<span class="slot-tag">${SLOT_TAGS[type]}</span>`}
     `;
     if (!isOccupied) slot.dataset.tipHtml = slotTipHtml(type, state, slots, capacity);

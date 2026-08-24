@@ -259,6 +259,19 @@
   overflow: hidden;
 }
 
+/* 中央底纹层（当前唯一可见层） */
+.slot-emblem {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* 边框层：资产与渲染保留，供后续「边框系统」启用（ui.js SHOW_SLOT_FRAMES） */
 .slot-art {
   position: absolute;
   inset: 0;
@@ -284,18 +297,22 @@
   white-space: nowrap;
 }
 
-/* 可用空位：悬浮点亮 */
+/* 可用空位：底纹清晰，悬浮点亮 */
 .slot.usable { cursor: help; }
-.slot.usable .slot-art { opacity: 0.92; transition: filter 0.15s ease, opacity 0.15s ease; }
+.slot.usable .slot-emblem,
+.slot.usable .slot-art { opacity: 0.95; transition: filter 0.15s ease, opacity 0.15s ease; }
+.slot.usable:hover .slot-emblem,
 .slot.usable:hover .slot-art { filter: brightness(1.35) saturate(1.15); opacity: 1; }
 .slot.usable:hover .slot-tag { color: #ffe9ad; }
 
 /* 已占用：仅作衬底，压暗 */
-.slot.occupied .slot-art { opacity: 0.55; }
+.slot.occupied .slot-emblem,
+.slot.occupied .slot-art { opacity: 0.5; }
 
-/* 封印：整体压暗去色 */
+/* 封印：无边框时用去色+压暗+降透明区分可用格 */
 .slot.locked { cursor: not-allowed; }
-.slot.locked .slot-art { opacity: 0.62; filter: grayscale(0.35) brightness(0.85); }
+.slot.locked .slot-emblem,
+.slot.locked .slot-art { opacity: 0.55; filter: grayscale(0.55) brightness(0.7); }
 .slot.locked .slot-tag { color: rgba(150, 138, 118, 0.6); }
 
 /* ========== 掉落日志 / 修行按钮 ========== */

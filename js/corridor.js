@@ -6,11 +6,11 @@
  * 静止时零重绘。
  *
  * 主题体系：THEMES 登记每个主题的资产清单/图层开关/氛围参数（森林 forest、
- * 洞穴 cave……），按推进关数分段自动轮换（P.themeSegment 关一段），
+ * 洞穴 cave、云海 cloudsea……），按推进关数分段自动轮换（P.themeSegment 关一段），
  * 段落边界处做全黑淡入淡出过渡，主题资产懒加载、在黑幕下完成替换。
  */
 
-export const CORRIDOR_VERSION = "canvas26";
+export const CORRIDOR_VERSION = "canvas27";
 /** @deprecated 兼容保留：基线森林主题目录。运行时以 THEMES[*].base 为准。 */
 export const CORRIDOR_BASE = "assets/corridor/forest/";
 export const STAGE_STEP = 420;
@@ -107,6 +107,13 @@ const CAVE_LANES = [
   { baseX: 340, spreadX: 80, size: 240, step: 28 },
   { baseX: 228, spreadX: 48, size: 190, step: 34 },
   { baseX: 152, spreadX: 26, size: 150, step: 46 },
+];
+/* 云海云墙车道：隆起云墙拔高聚拢，左右围成云谷（体型比树更高大）。 */
+const CLOUD_LANES = [
+  { baseX: 540, spreadX: 110, size: 380, step: 30 },
+  { baseX: 372, spreadX: 88, size: 308, step: 28 },
+  { baseX: 248, spreadX: 58, size: 252, step: 34 },
+  { baseX: 164, spreadX: 30, size: 204, step: 44 },
 ];
 
 /* 天空：程序驱动的垂直渐变（无素材）。每个预设 = 一组色标（0=画幅顶，1=地平线）
@@ -206,6 +213,16 @@ function timeSky(hour) {
  *                  size, sizeJitter }——沿 z 每 spacing 放一圈，
  *                  顶部岩拱+左右岩壁立柱环形包围，随 pathOffset 蜿蜒
  *   curveMul       弯道幅度倍率（洞穴管道转弯更明显）
+ *   dimColor       深度压暗的目标色：黑 = 传统"没入黑暗"（森林/洞穴）；
+ *                  亮色（云海=雾金白）= 远方精灵/雾带压向亮雾而非黑暗，
+ *                  第二笔剪影改用该色的染色变体
+ *   floaters       悬浮件（云海浮空碎石）：{ images, cache, count,
+ *                  alt: [基准, 随机幅度] }——不贴地，锚在悬浮高度上，
+ *                  小幅正弦上下浮动
+ *   seaDrift       true = 密植条带整体做极慢横向漂移（云海层叠云面），
+ *                  漂速挂在云风 P.cloudWind 上
+ *   fullWidthStrips true = 条带全宽铺满、不为道路让口（云海：脚下就是
+ *                  层叠云海，无道路裁剪——实心云块被区段裁剪会切出直边）
  * ===================================================================== */
 export const THEMES = {
   forest: {
@@ -244,6 +261,7 @@ export const THEMES = {
     groundFallback: [[0, "#000000"], [0.22, "#0c1607"], [0.55, "#1a2c0f"], [1, "#2a4418"]],
     rings: null,
     curveMul: 1,
+    dimColor: "#000000",
   },
   cave: {
     label: "洞穴",
@@ -300,10 +318,61 @@ export const THEMES = {
       sizeJitter: 0.1,
     },
     curveMul: 1.3,
+    dimColor: "#000000",
+  },
+  cloudsea: {
+    label: "云海",
+    base: "assets/corridor/cloudsea/",
+    sky: true,
+    bigs: [
+      { name: "wall-a.png", cache: 768 },
+      { name: "wall-b.png", cache: 768 },
+      { name: "wall-c.png", cache: 768 },
+    ],
+    lanes: CLOUD_LANES,
+    /* 地被 = puff 云团：散铺 + 烘成层叠云海条带（行式后流视差），
+     * 路面低层 = 压矮云絮，中央通道浮着薄云。 */
+    deco: [
+      { name: "puff-1.png", cache: 300 },
+      { name: "puff-2.png", cache: 300 },
+      { name: "puff-3.png", cache: 300 },
+      { name: "puff-4.png", cache: 300 },
+    ],
+    decoWeights: [0.3, 0.3, 0.22, 0.18],
+    decoAccent: [false, false, false, false],
+    lowVariants: [0, 3],
+    decoSize: 46,
+    lowDecoSize: 26,
+    stampH: [22, 30],
+    lowStampH: [8, 9],
+    /* 浮空仙山：单件远景，悬在云海雾带之上，吃雾霾染色随天空演变；
+     * 放在中央天空楔内偏右（两侧被云墙盖死，只有楔内可见）。 */
+    farLayers: [
+      { name: "island-far.png", dim: 0.5, single: true, h: 0.32, lift: 0.16, x: 0.54 },
+    ],
+    /* 天空全套复用森林素材：祥云条带 + 日月（同 style-e 画风）。 */
+    cloud: "../forest/cloud-strip.png",
+    sun: "../forest/sun.png",
+    moon: "../forest/moon.png",
+    /* 无 Mode-7 地面：脚下就是云海，条带层层铺满；垫底用亮雾渐变。 */
+    ground: null,
+    groundFallback: [[0, "#e8d9b9"], [0.45, "#cdd2d6"], [1, "#a9bac9"]],
+    rings: null,
+    curveMul: 1.1,
+    /* 关键差异：远方压向雾金亮色而非黑暗——云上世界没有黑尽头。 */
+    dimColor: "#e8d9b9",
+    floaters: {
+      images: ["rock-1.png", "rock-2.png", "rock-3.png", "rock-4.png"],
+      cache: 320,
+      count: 14,
+      alt: [42, 110],
+    },
+    seaDrift: true,
+    fullWidthStrips: true,
   },
 };
 /** 自动轮换顺序（P.themeMode >= 0 时也用作固定主题下标表）。 */
-export const THEME_ORDER = ["forest", "cave"];
+export const THEME_ORDER = ["forest", "cave", "cloudsea"];
 
 const GROUND_TILE_WORLD = 150;  // 一块 512px 纹理对应的世界长度
 const GROUND_SLICES = 48;
@@ -506,6 +575,7 @@ export function createCorridor(host, opts = {}) {
   let bobPhase = 0;
   let bobEnv = 0;          // 镜头起伏包络（随速度渐入，到站后缓出不弹跳）
   let windAcc = 0;         // 云横向风的位移累积（静止时节流重绘）
+  let seaDrift = 0;        // 云海条带横向漂移累积（云海主题，挂在云风上）
   let raf = 0;
   let lastTs = 0;
   let alive = true;
@@ -551,13 +621,14 @@ export function createCorridor(host, opts = {}) {
     if (themeLoading.has(id)) return themeLoading.get(id);
     const cfg = THEMES[id];
     const job = (async () => {
-      const [bigImgs, decoImgs, farImgs, ringImgs, cloudImg, groundImg, sunI, moonI] = await Promise.all([
+      const [bigImgs, decoImgs, farImgs, ringImgs, floatImgs, cloudImg, groundImg, sunI, moonI] = await Promise.all([
         Promise.all(cfg.bigs.map((t) => loadImage(asset(cfg, t.name)))),
         Promise.all(cfg.deco.map((g) => loadImage(asset(cfg, g.name)))),
         Promise.all(cfg.farLayers.map((s) => loadImage(asset(cfg, s.name)))),
         Promise.all((cfg.rings ? cfg.rings.images : []).map((n) => loadImage(asset(cfg, n)))),
+        Promise.all((cfg.floaters ? cfg.floaters.images : []).map((n) => loadImage(asset(cfg, n)))),
         cfg.cloud ? loadImage(asset(cfg, cfg.cloud)) : null,
-        loadImage(asset(cfg, cfg.ground)),
+        cfg.ground ? loadImage(asset(cfg, cfg.ground)) : null,
         cfg.sun ? loadImage(asset(cfg, cfg.sun)) : null,
         cfg.moon ? loadImage(asset(cfg, cfg.moon)) : null,
       ]);
@@ -566,6 +637,7 @@ export function createCorridor(host, opts = {}) {
         decoCaches: decoImgs.map((img, i) => (img ? buildSpriteCache(img, cfg.deco[i].cache) : null)),
         farCaches: farImgs.map((img) => (img ? buildSkyCache(img) : null)),
         ringCaches: ringImgs.map((img) => (img ? buildSpriteCache(img, cfg.rings.cache) : null)),
+        floatCaches: floatImgs.map((img) => (img ? buildSpriteCache(img, cfg.floaters.cache) : null)),
         cloudCaches: [],
         lowCaches: [],
         stripCaches: [],
@@ -586,9 +658,11 @@ export function createCorridor(host, opts = {}) {
       const bigFallback = bundle.bigCaches.find(Boolean) || null;
       const decoFallback = bundle.decoCaches.find(Boolean) || null;
       const ringFallback = bundle.ringCaches.find(Boolean) || null;
+      const floatFallback = bundle.floatCaches.find(Boolean) || null;
       for (let i = 0; i < bundle.bigCaches.length; i++) if (!bundle.bigCaches[i]) bundle.bigCaches[i] = bigFallback;
       for (let i = 0; i < bundle.decoCaches.length; i++) if (!bundle.decoCaches[i]) bundle.decoCaches[i] = decoFallback;
       for (let i = 0; i < bundle.ringCaches.length; i++) if (!bundle.ringCaches[i]) bundle.ringCaches[i] = ringFallback;
+      for (let i = 0; i < bundle.floatCaches.length; i++) if (!bundle.floatCaches[i]) bundle.floatCaches[i] = floatFallback;
       /* 路面低层直接引用无点缀素件的缓存，绘制时再压矮拉宽。 */
       for (const vi of cfg.lowVariants) bundle.lowCaches.push(bundle.decoCaches[vi] || decoFallback);
       buildStrips(bundle, cfg);
@@ -630,6 +704,22 @@ export function createCorridor(host, opts = {}) {
     s.flip = hash(seedA, seedB + 3) > 0.5;
     /* 根部下沉 4%~8%：让根部穿插进地面/后方丛簇，避免底边排成直线。 */
     s.sink = 0.04 + hash(seedA, seedB + 9) * 0.04;
+  }
+
+  /** 浮空碎石（云海）：散布两侧云通道，悬浮高度锚点 + 正弦上下浮动参数。 */
+  function jitterRock(s, seedA) {
+    const fl = T.floaters;
+    const side = hash(seedA, 61) > 0.5 ? 1 : -1;
+    s.x = side * (PATH_HALF + 46 + hash(seedA, 62) * 190);
+    s.variant = Math.floor(hash(seedA, 63) * fl.images.length) % fl.images.length;
+    s.flip = hash(seedA, 64) > 0.5;
+    const size = 40 + hash(seedA, 65) * 44;
+    s.baseW = size;
+    s.baseH = size;
+    s.alt = fl.alt[0] + hash(seedA, 66) * fl.alt[1];   // 悬浮高度（世界单位，不贴地）
+    s.bobPhase = hash(seedA, 67) * Math.PI * 2;
+    s.bobAmp = 2.5 + hash(seedA, 68) * 3.5;            // 上下浮动幅度
+    s.bobSpeed = 0.5 + hash(seedA, 69) * 0.5;          // 浮动角速度（rad/s）
   }
 
   /** 岩环切片（洞穴）：中心跟随道路，尺寸/变体/镜像随机微调。 */
@@ -675,6 +765,17 @@ export function createCorridor(host, opts = {}) {
         const s = { id: spriteId++, kind: "ring", z: Z_NEAR + 40 + i * spacing };
         s.zSpan = count * spacing;
         jitterRing(s, seed);
+        sprites.push(s);
+        seed++;
+      }
+    }
+    /* 浮空碎石：散布两侧云通道的悬浮件，随精灵一起画家排序。 */
+    if (T.floaters) {
+      const FLOAT_FAR = FOG_END + 40;
+      for (let i = 0; i < T.floaters.count; i++) {
+        const s = { id: spriteId++, kind: "rock", z: Z_NEAR + hash(seed, 77) * (FLOAT_FAR - Z_NEAR) };
+        s.zSpan = FLOAT_FAR - Z_EXIT;
+        jitterRock(s, seed);
         sprites.push(s);
         seed++;
       }
@@ -824,10 +925,17 @@ export function createCorridor(host, opts = {}) {
     return [1, 3, 5].map((i) => Math.round(parseInt(hex.slice(i, i + 2), 16) * s));
   }
 
-  /** 剪影按雾霾色染色（懒烘焙，换天气/亮度时才重建）。 */
+  /** 剪影染色（懒烘焙）：按 (缓存, 颜色) 键控——同一位图可能同帧
+   *  被雾霾色（远景/云）与主题压暗色 dimColor（云海亮雾）各染一份，
+   *  单槽缓存会来回重烘，故用 Map；换天气渐变时旧色条目会缓慢累积，
+   *  超过 8 份即清空重来（重烘只有几毫秒级、且极少发生）。 */
   function tintedSil(cache, color) {
-    if (cache._tintColor !== color) {
-      const c = document.createElement("canvas");
+    let tints = cache._tints;
+    if (!tints) tints = cache._tints = new Map();
+    let c = tints.get(color);
+    if (!c) {
+      if (tints.size > 8) tints.clear();
+      c = document.createElement("canvas");
       c.width = cache.sil.width;
       c.height = cache.sil.height;
       const g = c.getContext("2d");
@@ -835,10 +943,9 @@ export function createCorridor(host, opts = {}) {
       g.globalCompositeOperation = "source-in";
       g.fillStyle = color;
       g.fillRect(0, 0, c.width, c.height);
-      cache._tint = c;
-      cache._tintColor = color;
+      tints.set(color, c);
     }
-    return cache._tint;
+    return c;
   }
 
   function bakeSilhouette(c) {
@@ -942,6 +1049,18 @@ export function createCorridor(host, opts = {}) {
           recycleSeed++;
           jitterRing(s, recycleSeed);
         }
+      } else if (s.kind === "rock") {
+        while (s.z - camZ < Z_EXIT) {
+          s.z += s.zSpan;
+          recycleSeed++;
+          jitterRock(s, recycleSeed);
+          d?.recycles.push({ id: s.id, kind: s.kind, zRel: s.z - camZ, camZ });
+        }
+        while (s.z - camZ > Z_EXIT + s.zSpan) {
+          s.z -= s.zSpan;
+          recycleSeed++;
+          jitterRock(s, recycleSeed);
+        }
       } else if (s.kind === "grassRow") {
         while (s.z - camZ < Z_EXIT) {
           s.z += s.zSpan;
@@ -1030,13 +1149,27 @@ export function createCorridor(host, opts = {}) {
     const [hr, hg, hb] = hazeRGB();
     const hazeColor = `rgb(${hr},${hg},${hb})`;
     for (let i = 0; i < T.farLayers.length; i++) {
+      const layer = T.farLayers[i];
       const cache = A.farCaches[i];
       if (!cache) continue;
-      const dim = Math.min(T.farLayers[i].dim, dimCap);
-      const drawH = i === 0 ? H * 0.24 : H * 0.34;
-      const bottomY = hy + (i === 0 ? 2 : 4);
+      const dim = Math.min(layer.dim, dimCap);
+      const drawH = H * (layer.h ?? (i === 0 ? 0.24 : 0.34));
       const drawW = cache.img.width * (drawH / cache.img.height);
       const sil = tintedSil(cache, hazeColor);
+      /* 单件远景（云海浮空仙山）：只画一座，悬在地平线上方 lift 处，
+       * 底部被雾带亮雾自然吞没，读作"悬于云海之上"。 */
+      if (layer.single) {
+        const dx = W * (layer.x ?? 0.5) - drawW * 0.5;
+        const by = hy - H * (layer.lift ?? 0);
+        ctx.drawImage(cache.img, dx, by - drawH, drawW, drawH);
+        if (dim > 0.004) {
+          ctx.globalAlpha = dim;
+          ctx.drawImage(sil, dx, by - drawH, drawW, drawH);
+          ctx.globalAlpha = 1;
+        }
+        continue;
+      }
+      const bottomY = hy + (i === 0 ? 2 : 4);
       for (let k = 0; k * drawW < W; k++) {
         const x = k * drawW;
         const flip = (k & 1) === 1;
@@ -1175,38 +1308,45 @@ export function createCorridor(host, opts = {}) {
      * 向上延伸随天气收缩（fogUp）：天越亮雾带越矮，山峰露出雾外。
      * 地平线以上是"大气雾霾"：上端为透明的亮雾霾色，越靠近地平线
      * 颜色越压向黑（暗红/暗紫/深灰随预设色相走），衔接通道内部的纯黑；
-     * 地平线以下保持黑色——隧道尽头的黑暗只属于通道内部。
-     * 洞穴主题：雾霾色为主题登记的暗紫，远处岩环便逐层没入黑暗。 */
+     * 地平线以下融向主题压暗色 dimColor：黑主题（森林/洞穴）保持
+     * "尽头黑暗只属于通道内部"；亮主题（云海）整条雾带压向雾金亮色——
+     * 云上世界的远方是亮雾而非黑暗。 */
     const up = H * 0.44 * (1 - P.skyBright * (1 - curSky().fogUp));
     const down = H * 0.55;
     const total = up + down;
     const pivot = up / total;
     const ease = (k) => k * k * (3 - 2 * k);
     const [hr, hg, hb] = hazeRGB();
-    const DEEP = 0.8; // 地平线处雾霾色被压暗的比例（1=纯黑）
+    const dimHex = T.dimColor || "#000000";
+    const [dr, dg, db] = [1, 3, 5].map((i) => parseInt(dimHex.slice(i, i + 2), 16));
+    const DEEP = 0.8; // 地平线处雾霾色被压向 dimColor 的比例（1=纯 dimColor）
     const grad = ctx.createLinearGradient(0, hy - up, 0, hy + down);
     const STEPS = 6;
     for (let i = 0; i <= STEPS; i++) {
       const k = i / STEPS;
       const a = ease(k);
-      const m = 1 - DEEP * a; // 不透明度越高颜色越暗
+      const m = DEEP * a; // 不透明度越高越贴近 dimColor
       grad.addColorStop(
         pivot * k,
-        `rgba(${Math.round(hr * m)},${Math.round(hg * m)},${Math.round(hb * m)},${a.toFixed(4)})`
+        `rgba(${Math.round(hr + (dr - hr) * m)},${Math.round(hg + (dg - hg) * m)},${Math.round(hb + (db - hb) * m)},${a.toFixed(4)})`
       );
     }
     for (let i = 1; i <= STEPS; i++) {
       const k = i / STEPS;
-      grad.addColorStop(pivot + (1 - pivot) * k, `rgba(0,0,0,${ease(1 - k).toFixed(4)})`);
+      grad.addColorStop(pivot + (1 - pivot) * k, `rgba(${dr},${dg},${db},${ease(1 - k).toFixed(4)})`);
     }
     ctx.globalAlpha = 1;
     ctx.fillStyle = grad;
     ctx.fillRect(0, Math.floor(hy - up), W, Math.ceil(total));
   }
 
+  /** 本帧压暗剪影目标色（null = 传统黑，走 cache.sil 快路径）。 */
+  let dimC = null;
+
   function draw() {
     if (!ready) return;
     const t0 = performance.now();
+    dimC = T.dimColor && T.dimColor !== "#000000" ? T.dimColor : null;
     /* 行走镜头起伏：垂直颠簸（每步一次）+ 半频左右摇摆（步伐交替），
      * 幅度随速度渐入渐出，起步/停步不跳变。 */
     const bobK = bobEnv * P.bob;
@@ -1275,6 +1415,7 @@ export function createCorridor(host, opts = {}) {
       }
       const cache = s.kind === "tree" ? A.bigCaches[s.variant]
         : s.kind === "ring" ? A.ringCaches[s.variant]
+        : s.kind === "rock" ? A.floatCaches[s.variant]
         : s.low ? A.lowCaches[s.variant]
         : A.decoCaches[s.variant];
       if (!cache) continue;
@@ -1287,6 +1428,10 @@ export function createCorridor(host, opts = {}) {
       /* 统一地面锚点：所有精灵内容底边 = hy + CAM_H*scale；散件再随机下沉。 */
       let sy = hy + CAM_H * scale;
       if (s.kind === "grass") sy += h * s.sink;
+      /* 浮空碎石：锚在悬浮高度上（不贴地），叠加小幅正弦上下浮动。 */
+      else if (s.kind === "rock") {
+        sy -= (s.alt + Math.sin(t0 / 1000 * s.bobSpeed + s.bobPhase) * s.bobAmp) * scale;
+      }
       if (sy - h > H) continue;
       /* 深度压暗：连续 smoothstep，远端到 1（纯黑，融入黑背景）。 */
       const dark = darknessAt(z);
@@ -1304,9 +1449,11 @@ export function createCorridor(host, opts = {}) {
       ctx.globalAlpha = fade;
       drawClipped(cache.img, dx, dy, dw, dh);
       if (dark > 0.004) {
-        /* 第二笔黑剪影：alpha 为浮点连续值，压暗永远平滑。 */
+        /* 第二笔剪影：alpha 为浮点连续值，压暗永远平滑。
+         * 黑主题用预烘黑剪影，亮主题（云海）用 dimColor 染色变体——
+         * 远方精灵融进亮雾而非黑暗。 */
         ctx.globalAlpha = fade * dark;
-        drawClipped(cache.sil, dx, dy, dw, dh);
+        drawClipped(dimC ? tintedSil(cache, dimC) : cache.sil, dx, dy, dw, dh);
       }
       if (s.flip) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (frameRec) {
@@ -1373,8 +1520,24 @@ export function createCorridor(host, opts = {}) {
     const sy = hy + CAM_H * scale + s.sink * scale;
     const pathCx = cx + (bend - camEff) * scale;
     const phw = PATH_HALF * scale;
+    /* 云海条带整体极慢横向漂移（挂在云风上），层叠云面缓缓流动。 */
+    const u = s.uShift + (T.seaDrift ? seaDrift : 0);
+    /* 全宽模式（云海）：层叠云海铺满整幅、不为道路让口——实心云块
+     * 被路缘区段裁剪会切出笔直硬边；路面低层条带同理跳过。 */
+    if (T.fullWidthStrips) {
+      tileStrip(cache, u, scale, sy, h, fade, dark, cx, bend - camEff, [[0, W]]);
+      if (frameRec) {
+        frameRec.sprites.push({
+          id: s.id, kind: "grassRow", z: Math.round(z * 10) / 10,
+          dark: Math.round(dark * 1000) / 1000,
+          fade: Math.round(fade * 1000) / 1000,
+          x: 0, y: Math.round(sy - h), w: W, h: Math.round(h),
+        });
+      }
+      return;
+    }
     /* 高层：路缘之外（左右两段） */
-    tileStrip(cache, s.uShift, scale, sy, h, fade, dark, cx, bend - camEff,
+    tileStrip(cache, u, scale, sy, h, fade, dark, cx, bend - camEff,
       [[0, pathCx - phw * 0.92], [pathCx + phw * 0.92, W]]);
     /* 低层：路面之内（与高层边界重叠约 13%）。
      * 条带世界高只有 30、盖不满行距 54，同一行画两遍（错半个行距），
@@ -1397,7 +1560,7 @@ export function createCorridor(host, opts = {}) {
         const sy2 = hy + CAM_H * sc2 + s.sink * sc2 * 0.6;
         const pcx2 = cx + (bend2 - camEff) * sc2;
         const phw2 = PATH_HALF * sc2;
-        tileStrip(lowCache, s.uShift + du, sc2, sy2, lh, fade2, dark2, cx, bend2 - camEff,
+        tileStrip(lowCache, u + du, sc2, sy2, lh, fade2, dark2, cx, bend2 - camEff,
           [[pcx2 - phw2 * 1.05, pcx2 + phw2 * 1.05]]);
       }
     }
@@ -1431,7 +1594,7 @@ export function createCorridor(host, opts = {}) {
         drawClipped(cache.img, rx, dy, rw, dh, b0, b1);
         if (dark > 0.004) {
           ctx.globalAlpha = fade * dark;
-          drawClipped(cache.sil, rx, dy, rw, dh, b0, b1);
+          drawClipped(dimC ? tintedSil(cache, dimC) : cache.sil, rx, dy, rw, dh, b0, b1);
         }
       }
     }
@@ -1573,6 +1736,11 @@ export function createCorridor(host, opts = {}) {
           s.x += windAcc;
           if (s.x > CLOUD_X_WRAP) s.x -= CLOUD_X_WRAP * 2;
           else if (s.x < -CLOUD_X_WRAP) s.x += CLOUD_X_WRAP * 2;
+        }
+        /* 云海条带漂移：比高空云慢得多（层叠云面只微微流动），
+         * 条带平铺按周期卷绕，不会跳变。 */
+        if (T.seaDrift) {
+          seaDrift = (seaDrift + windAcc * 0.35) % STRIP_WORLD_W;
         }
         windAcc = 0;
         dirty = true;

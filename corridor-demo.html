@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>走廊通道 · 纸片走廊</title>
-  <link rel="stylesheet" href="css/corridor.css?v=canvas26" />
+  <link rel="stylesheet" href="css/corridor.css?v=canvas27" />
   <style>
     html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: "Noto Serif SC", "Source Han Serif SC", serif; color: #e8efe8; }
     .demo-root { position: fixed; inset: 0; }
@@ -54,17 +54,18 @@
         <button data-mode="-1" class="on">自动轮换</button>
         <button data-mode="0">森林</button>
         <button data-mode="1">洞穴</button>
+        <button data-mode="2">云海</button>
       </div>
       <p class="help">
         默认沿轨道自动向前。<kbd>W</kbd> 加速，<kbd>S</kbd> 后退，<kbd>A</kbd><kbd>D</kbd> 左右平移，
-        <kbd>空格</kbd> 开关自动前进。单张 canvas 针孔投影，远处压暗成隧道尽头的黑；
-        主题按推进分段轮换（森林→洞穴→…），段落边界处全黑过渡。
+        <kbd>空格</kbd> 开关自动前进。单张 canvas 针孔投影，远处压暗成隧道尽头的黑（云海压向亮雾）；
+        主题按推进分段轮换（森林→洞穴→云海→…），段落边界处全黑过渡。
       </p>
       <p class="status" id="status">加载精灵…</p>
     </div>
   </div>
   <script type="module">
-    import { createCorridor } from "./js/corridor.js?v=canvas26";
+    import { createCorridor } from "./js/corridor.js?v=canvas27";
 
     const statusEl = document.getElementById("status");
     createCorridor(document.getElementById("corridor-host"), {
@@ -74,7 +75,7 @@
     });
     statusEl.textContent = "已进入走廊通道。按住 W 沿轨道向前。";
 
-    /* 主题切换入口：写 themeMode（-1 自动 / 0 森林 / 1 洞穴），
+    /* 主题切换入口：写 themeMode（-1 自动 / 0 森林 / 1 洞穴 / 2 云海），
      * 渲染器在下一帧走黑幕过渡换主题。 */
     const themesEl = document.getElementById("themes");
     try {

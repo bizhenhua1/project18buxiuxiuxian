@@ -1,0 +1,19 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(10); return 'types:' + [...document.querySelectorAll('#player-slots .slot')].map(s=>s.className.match(/st-(\\w+)/)[1]).join(','); })()"},
+  {"shot": "dao_slots_base.png"},
+  {"eval": "(() => { const slot = document.querySelector('#player-slots .slot.usable:not(.occupied)'); const r = slot.getBoundingClientRect(); slot.dispatchEvent(new MouseEvent('pointermove', {bubbles:true, clientX: r.left + r.width/2, clientY: r.top + r.height/2})); return 'hover:' + slot.className; })()"},
+  {"wait": 250},
+  {"shot": "dao_slots_tip_fabao.png"},
+  {"eval": "(() => { const slot = document.querySelector('#player-slots .slot.locked'); const r = slot.getBoundingClientRect(); slot.dispatchEvent(new MouseEvent('pointermove', {bubbles:true, clientX: r.left + r.width/2, clientY: r.top + r.height/2})); return 'hover locked'; })()"},
+  {"wait": 250},
+  {"shot": "dao_slots_tip_locked.png"},
+  {"eval": "(() => { document.getElementById('btn-talents').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b1','b2','f1','f2','y1','y2'].forEach(click); document.getElementById('talent-close').click(); return 'types:' + [...document.querySelectorAll('#player-slots .slot')].map(s=>s.className.match(/st-(\\w+)/)[1]).join(','); })()"},
+  {"wait": 300},
+  {"shot": "dao_slots_typed.png"},
+  {"eval": "(() => { const p = window.__dao; p.clear(); ['daotong','taomu-jian','qingfeng-jian','lihuo-shu'].forEach(id=>p.place(id)); return 'types:' + [...document.querySelectorAll('#player-slots .slot')].map(s=>s.className.match(/st-(\\w+)/)[1] + (s.classList.contains('occupied')?'*':'')).join(','); })()"},
+  {"wait": 300},
+  {"eval": "(() => { const slot = document.querySelector('#player-slots .slot.st-weapon:not(.occupied)'); if (!slot) return 'no empty weapon slot'; const r = slot.getBoundingClientRect(); slot.dispatchEvent(new MouseEvent('pointermove', {bubbles:true, clientX: r.left + r.width/2, clientY: r.top + r.height/2})); return 'hover weapon'; })()"},
+  {"wait": 250},
+  {"shot": "dao_slots_placed.png"}
+]

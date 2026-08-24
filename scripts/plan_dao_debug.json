@@ -1,0 +1,6 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({stage: s.unlockStage, enemies: s.enemyQueue.length, slots: window.__dao.slots(), talents: localStorage.getItem('dao-talents-v1'), progress: localStorage.getItem('dao-progress-v1')}); })()"},
+  {"eval": "(() => { window.__dao.setStage(10); const s = window.__dao.state; return JSON.stringify({stage: s.unlockStage, enemies: s.enemyQueue.length}); })()"},
+  {"eval": "(() => { const src = performance.getEntriesByType('resource').filter(r=>r.name.includes('main.js')).map(r=>r.name); return JSON.stringify(src); })()"}
+]

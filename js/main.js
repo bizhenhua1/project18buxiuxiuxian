@@ -25,7 +25,7 @@ import {
 import { equipMods, addItem, rarityById } from "./equipment.js?v=dao1";
 import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao1";
 import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao2";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao1";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao2";
 import {
   buildLanes,
   buildPool,
@@ -54,7 +54,7 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao1";
+} from "./ui.js?v=dao2";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
@@ -568,6 +568,11 @@ function updateCardTip(e) {
       showCardTip(formatUnitTip(unit, battleElapsedSec(state)), e.clientX, e.clientY);
       return;
     }
+  }
+  const slotEl = e.target?.closest?.(".slot");
+  if (slotEl?.dataset.tipHtml) {
+    showCardTip(slotEl.dataset.tipHtml, e.clientX, e.clientY);
+    return;
   }
   hideCardTip();
 }

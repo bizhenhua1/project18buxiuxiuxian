@@ -98,10 +98,120 @@ function laneAlign(side) {
   return side === "enemy" ? "start" : "end";
 }
 
-function renderSlots(slotRoot, layerEl, side) {
+// ==== 类型化格位：美术框 + 悬浮说明 ====
+
+const SLOT_ART = {
+  char: "assets/slots/slot-char.png",
+  fabao: "assets/slots/slot-fabao.png",
+  weapon: "assets/slots/slot-weapon.png",
+  spell: "assets/slots/slot-spell.png",
+  beast: "assets/slots/slot-beast.png",
+  monster: "assets/slots/slot-monster.png",
+  locked: "assets/slots/slot-locked.png",
+  plain: "assets/slots/slot-plain.png",
+};
+
+const SLOT_TAGS = {
+  char: "本体",
+  fabao: "法宝",
+  weapon: "手持",
+  spell: "识海",
+  beast: "兽栏",
+  monster: "妖兽",
+  locked: "封印",
+  plain: "空位",
+};
+
+function currentModsUi() {
+  return mergeMods(talentMods(), equipMods());
+}
+
+function laneCapacity(state, slots) {
+  return Math.min(
+    capAt(state.unlockStage),
+    1 + slots.fabao + slots.hand + slots.mind + slots.beast,
+  );
+}
+
+/**
+ * 排出一条队列的 10 个格位类型：
+ * - 已占用位按占用者类型（卡牌覆盖其上，仅作衬底）
+ * - 空位按「剩余容量」依次排类型（本体→法宝→手持→识海→兽栏）
+ * - 容量之外一律封印
+ */
+function slotPlan(state, side, slots, capacity) {
+  const plan = [];
+  if (side === "enemy") {
+    // 敌方规模纯关卡驱动（见 main.enemyCount），格位即当前队列规模
+    const q = state.enemyQueue;
+    for (let i = 0; i < SLOT_COUNT; i++) {
+      plan.push(i < q.length ? "monster" : "locked");
+    }
+    return plan;
+  }
+  const q = state.playerQueue;
+  const cnt = (t) => q.filter((u) => u.cardType === t).length;
+  for (const u of q) plan.push(u.cardType in SLOT_ART ? u.cardType : "fabao");
+  const rest = [];
+  if (cnt("char") < 1) rest.push("char");
+  for (let i = cnt("fabao"); i < slots.fabao; i++) rest.push("fabao");
+  for (let i = cnt("weapon"); i < slots.hand; i++) rest.push("weapon");
+  for (let i = cnt("spell"); i < slots.mind; i++) rest.push("spell");
+  for (let i = cnt("beast"); i < slots.beast; i++) rest.push("beast");
+  while (plan.length < SLOT_COUNT) plan.push(rest.length ? rest.shift() : "locked");
+  return plan.slice(0, SLOT_COUNT);
+}
+
+/** 封印格提示：列出还能通过哪些道途开格。 */
+function lockedTipHtml(state, slots, capacity) {
+  const ways = [];
+  if (slots.hand <= 0) ways.push("体修「两手蛮力」开手持格");
+  if (slots.mind <= 0) ways.push("法修「识海开窍」开识海格");
+  if (slots.beast <= 0) ways.push("御兽「兽栏」开兽栏格");
+  ways.push("器道「多宝／万宝归宗」扩法宝格");
+  const capMax = capAt(state.unlockStage);
+  const capNote = capacity >= capMax
+    ? `位置上限 ${capMax} 已全部开启（随关卡解锁，封顶 10）`
+    : `已开格位 ${capacity}/${capMax}（上限随关卡解锁提升）`;
+  return `<strong>🔒 封印之位</strong><span class="tip-stats">${capNote}</span><span class="tip-desc">修习道途天赋可解开封印：${ways.join("；")}。</span>`;
+}
+
+function slotTipHtml(type, state, slots, capacity) {
+  const q = state.playerQueue;
+  const cnt = (t) => q.filter((u) => u.cardType === t).length;
+  if (type === "char") {
+    return `<strong>🧘 本体格</strong><span class="tip-stats">全队仅此一位</span><span class="tip-desc">道童本尊之位。手持武器与识海法术皆系于他一身：道童若阵亡，武器与法术随之消散。</span>`;
+  }
+  if (type === "fabao") {
+    return `<strong>☯ 法宝格 ${cnt("fabao")}/${slots.fabao}</strong><span class="tip-stats">可放入：法宝（幡、剑等子类）</span><span class="tip-desc">法宝有独立血量、自走出手。幡类吞魂叠层、剑类可入剑阵。修「器道·多宝／万宝归宗」扩容。</span>`;
+  }
+  if (type === "weapon") {
+    const used = q.filter((u) => u.cardType === "weapon").reduce((s, u) => s + (u.weight || 0), 0);
+    return `<strong>✊ 手持格 ${cnt("weapon")}/${slots.hand}</strong><span class="tip-stats">重量 ${used}/${slots.weight} · 只能放武器</span><span class="tip-desc">武器捏在道童手中：不占承伤位、不会被集火，但受力量预算（重量）约束。体修天赋可增手增力，「法宝合身」可把武器血量并入道童。</span>`;
+  }
+  if (type === "spell") {
+    return `<strong>👁 识海格 ${cnt("spell")}/${slots.mind}</strong><span class="tip-stats">只能放法术</span><span class="tip-desc">识海中温养的法术：无血量、不可被攻击，按冷却自动施放。法修天赋可拓识海、增法术强度。</span>`;
+  }
+  if (type === "beast") {
+    return `<strong>🐾 兽栏格 ${cnt("beast")}/${slots.beast}</strong><span class="tip-stats">只能放收服的妖兽</span><span class="tip-desc">战斗胜利时有概率收服被击杀的妖兽（基础10%+天赋/气运）。收服后从卡池「御兽」分区上阵。</span>`;
+  }
+  if (type === "monster") {
+    return `<strong>👹 妖兽格</strong><span class="tip-stats">敌方出战 ${state.enemyQueue.length} 只</span><span class="tip-desc">妖兽规模随路程增长：第 1 关 5 只，每推进 2 关多 1 只，最多 10 只。</span>`;
+  }
+  return lockedTipHtml(state, slots, capacity);
+}
+
+function renderSlots(slotRoot, layerEl, side, state) {
   if (!slotRoot || !layerEl) return;
   const box = layerEl.getBoundingClientRect();
-  const sig = `${Math.round(box.width)}x${Math.round(box.height)}`;
+  const slots = slotTable(currentModsUi());
+  const capacity = laneCapacity(state, slots);
+  const plan = slotPlan(state, side, slots, capacity);
+  const occupied = side === "enemy" ? state.enemyQueue.length : state.playerQueue.length;
+  const wUsed = state.playerQueue
+    .filter((u) => u.cardType === "weapon")
+    .reduce((s, u) => s + (u.weight || 0), 0);
+  const sig = `${Math.round(box.width)}x${Math.round(box.height)}|${plan.join(",")}|${occupied}|${state.unlockStage}|${wUsed}`;
   if (slotRoot.dataset.sig === sig && slotRoot.childElementCount === SLOT_COUNT) return;
   slotRoot.dataset.sig = sig;
   const m = measureCardSize(box.width, box.height, laneAlign(side));
@@ -113,11 +223,18 @@ function renderSlots(slotRoot, layerEl, side) {
   slotRoot.style.width = `${m.packW}px`;
   slotRoot.style.height = `${m.cardH}px`;
   for (let i = 0; i < SLOT_COUNT; i++) {
+    const type = plan[i] || "locked";
+    const isOccupied = i < occupied;
     const slot = document.createElement("div");
-    slot.className = "slot";
+    slot.className = `slot st-${type}${isOccupied ? " occupied" : type === "locked" ? " locked" : " usable"}`;
     slot.style.width = `${m.cardW}px`;
     slot.style.height = `${m.cardH}px`;
     slot.style.marginRight = i < SLOT_COUNT - 1 ? `${m.gap}px` : "0";
+    slot.innerHTML = `
+      <img class="slot-art" src="${SLOT_ART[type]}" alt="" draggable="false" />
+      ${isOccupied ? "" : `<span class="slot-tag">${SLOT_TAGS[type]}</span>`}
+    `;
+    if (!isOccupied) slot.dataset.tipHtml = slotTipHtml(type, state, slots, capacity);
     slotRoot.appendChild(slot);
   }
 }
@@ -372,8 +489,8 @@ export function renderBoards(state, lanes) {
   const cap = capAt(state.unlockStage);
   const eFocus = leftmostTargetable(state.enemyQueue);
   const pFocus = leftmostTargetable(state.playerQueue);
-  renderSlots(lanes.enemySlots, lanes.enemyCards, "enemy");
-  renderSlots(lanes.playerSlots, lanes.playerCards, "player");
+  renderSlots(lanes.enemySlots, lanes.enemyCards, "enemy", state);
+  renderSlots(lanes.playerSlots, lanes.playerCards, "player", state);
   const skin = state.cardSkin === "skin2" ? "skin2" : "skin1";
   if (lanes.enemyCards) lanes.enemyCards.dataset.skin = skin;
   if (lanes.playerCards) lanes.playerCards.dataset.skin = skin;

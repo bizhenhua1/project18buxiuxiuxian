@@ -60,7 +60,7 @@ import {
   nodeIndexOf,
   regionOf,
 } from "./map.js?v=dao6";
-import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas25";
+import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas26";
 
 const PROGRESS_KEY = "dao-progress-v1";
 

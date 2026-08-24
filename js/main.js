@@ -307,15 +307,10 @@ function fillQueue(queue, side, ids) {
   }
 }
 
-/** 我方格位总容量：道童 + 各类型格位之和（上限仍受 cap 约束）。 */
-function totalCapacity() {
-  const s = currentSlots();
-  return Math.min(cap(), 1 + s.fabao + s.hand + s.mind + s.beast);
-}
-
-/** 敌方出战数与我方格位容量对称：天赋开格子，敌人同步变多。 */
+/** 敌方出战数：纯关卡驱动——第 0 关 5 只，每 2 关 +1，受 capAt 封顶（后期 10），与玩家天赋/装备无关。 */
 function enemyCount() {
-  return totalCapacity();
+  const stage = enemyStage();
+  return Math.min(capAt(stage), 5 + Math.floor(stage / 2));
 }
 
 function fillEnemyPreset() {
@@ -717,8 +712,6 @@ function onMetaChange() {
   }
   for (const u of over) removeUnit(state.playerQueue, u);
   if (over.length) setStatus(`格位变动：${over.map((u) => u.name).join("、")} 已回到卡池`, "warn");
-  // 敌我对称：格位容量变化时同步刷新敌方出战数
-  if (canEdit()) fillEnemyPreset();
   restatQueues();
   syncMetaButtons();
   paint();

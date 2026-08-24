@@ -1,0 +1,18 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { localStorage.clear(); location.reload(); return 'reset'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(0); return JSON.stringify({stage: 0, enemies: window.__dao.state.enemyQueue.length}); })()"},
+  {"shot": "enemy_scale_stage0.png"},
+  {"eval": "(() => { window.__dao.setStage(6); return JSON.stringify({stage: 6, enemies: window.__dao.state.enemyQueue.length}); })()"},
+  {"shot": "enemy_scale_stage6.png"},
+  {"eval": "(() => { window.__dao.setStage(10); return JSON.stringify({stage: 10, enemies: window.__dao.state.enemyQueue.length}); })()"},
+  {"shot": "enemy_scale_stage10.png"},
+  {"eval": "(() => { window.__dao.setStage(6); return JSON.stringify({stage: 6, enemiesBeforeTalent: window.__dao.state.enemyQueue.length, slots: window.__dao.slots()}); })()"},
+  {"eval": "(() => { document.getElementById('btn-talents').click(); return 'talents-open'; })()"},
+  {"wait": 600},
+  {"eval": "(() => { for (const id of ['f1', 'f2']) { const el = document.querySelector('.tnode[data-id=\"' + id + '\"]'); if (el) el.dispatchEvent(new MouseEvent('click', {bubbles: true})); } return JSON.stringify({slotsAfterTalent: window.__dao.slots(), enemiesAfterTalent: window.__dao.state.enemyQueue.length}); })()"},
+  {"shot": "enemy_scale_talent_panel.png"},
+  {"eval": "(() => { document.getElementById('talent-close')?.click(); return JSON.stringify({enemiesFinal: window.__dao.state.enemyQueue.length, slotsFinal: window.__dao.slots()}); })()"},
+  {"shot": "enemy_scale_after_talent.png"}
+]

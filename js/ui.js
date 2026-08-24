@@ -118,14 +118,14 @@ const SLOT_FRAME_ART = {
 };
 
 const SLOT_EMBLEM_ART = {
-  char: "assets/slots/emblem-char.png",
-  fabao: "assets/slots/emblem-fabao.png",
-  weapon: "assets/slots/emblem-weapon.png",
-  spell: "assets/slots/emblem-spell.png",
-  beast: "assets/slots/emblem-beast.png",
-  monster: "assets/slots/emblem-monster.png",
-  locked: "assets/slots/emblem-locked.png",
-  plain: "assets/slots/emblem-plain.png",
+  char: "assets/slots/emblem-char.png?v=2",
+  fabao: "assets/slots/emblem-fabao.png?v=2",
+  weapon: "assets/slots/emblem-weapon.png?v=2",
+  spell: "assets/slots/emblem-spell.png?v=2",
+  beast: "assets/slots/emblem-beast.png?v=2",
+  monster: "assets/slots/emblem-monster.png?v=2",
+  locked: "assets/slots/emblem-locked.png?v=2",
+  plain: "assets/slots/emblem-plain.png?v=2",
 };
 
 const SLOT_TAGS = {

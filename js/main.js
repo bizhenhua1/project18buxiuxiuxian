@@ -54,7 +54,7 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao3";
+} from "./ui.js?v=dao4";
 import {
   NODES_PER_REGION,
   nodeIndexOf,

@@ -1,0 +1,8 @@
+model: cursor GenerateImage (aspect 3:4)
+reference: assets/corridor/forest/raw/cloud-strip-raw.png (style only)
+
+Use the attached magenta-background auspicious scroll-cloud band image as art-style reference only (Dunhuang mural mineral-pigment flat-color style: flat unblended color blocks, dark ink outline spirals on cloud puffs, grainy mineral pigment, paper-cutout silhouette). Keep the same scroll-cloud drawing language but use a BRIGHTER daylight palette. Do not copy the layout.
+
+Single isolated 2D game cloud mountain cutout, side view, one towering billowing cloud pillar as a paper theater prop: stacked auspicious scroll-cloud puffs (祥云) piled into a tall rounded hill shape, wider rolling base, domed crest, a few curled spiral tips. Flat pale moon-white and light celadon-green puffs with muted pale-gold rims, clean dark ink outlines and spiral curls. Full cloud tower from soft rounded base to crest inside the frame with generous magenta margin. One cloud tower only.
+
+Background is 100% solid flat magenta #FF00FF. No ground plane, no shadow, no birds, no text. Not photoreal, not PBR, not 3D, not pixel art.

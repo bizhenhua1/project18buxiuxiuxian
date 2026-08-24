@@ -1,0 +1,8 @@
+model: cursor GenerateImage (aspect 16:9)
+reference: assets/corridor/cloudsea/raw/wall-a-raw.png (style only)
+
+Use the attached magenta-background cloud tower image as art-style reference only (Dunhuang mural mineral-pigment flat-color style: flat unblended mineral color blocks, clean dark ink outlines, grainy mineral pigment). Do not copy the cloud.
+
+Wide 2D game distant-background strip of ONE floating immortal mountain island (浮空仙山), hovering in mid-air: a majestic peak in muted distant blue-green and soft ink-teal flat tones with thin ink ridge outlines, a faint tiny pavilion and pagoda silhouette on its ridge in darker ink, the mountain base narrowing into an inverted hanging rock root beneath, wrapped by two or three flat horizontal scroll-cloud bands (pale moon-white with ink spiral curls) that partly cover the base and root. Optionally one much smaller floating islet far to one side. Muted hazy distant palette, low contrast. All content in the middle 70% height of the frame, the strip's far left and right ends fade out to nothing (empty magenta) so the strip can be mirror-tiled horizontally.
+
+Background is 100% solid flat magenta #FF00FF. No ground, no water, no birds, no sun, no text. Not photoreal, not 3D, not pixel art.

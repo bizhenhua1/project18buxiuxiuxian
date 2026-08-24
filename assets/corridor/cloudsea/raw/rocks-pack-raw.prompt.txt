@@ -1,0 +1,8 @@
+model: cursor GenerateImage (aspect 1:1)
+reference: assets/corridor/cloudsea/raw/wall-a-raw.png (style only)
+
+Use the attached magenta-background cloud tower image as art-style reference only (Dunhuang mural mineral-pigment flat-color style: flat unblended color blocks, clean dark ink outlines, grainy mineral pigment, bright daylight palette). Do not copy the cloud.
+
+A 2x2 sprite sheet grid (2 rows, 2 columns, 4 equal invisible cells) of four DIFFERENT small floating rock islet game props, each hovering in mid-air. Top-left: a chunk of blue-grey craggy rock with a mossy green top and three thin dry roots hanging beneath its pointed underside. Top-right: a cracked ochre-and-grey boulder wrapped by one thin flat scroll-cloud wisp, tapering underside. Bottom-left: two stacked slate slabs forming a tiny islet with a few hanging vines and one tiny grass tuft on top. Bottom-right: a dark stone shard cluster with a few tiny pale-teal crystal chips and one short hanging root, inverted-cone underside. All undersides taper to hanging points (floating islands), none touching a ground line.
+
+Each prop centered in its own cell, occupying only the central 65% of the cell, generous magenta padding around each, nothing touching cell edges or image edges, consistent scale across cells. Background must be one uniform solid magenta #FF00FF everywhere, no ground line, no shadows, no visible grid lines or borders, no text. Not photoreal, not 3D, not pixel art.

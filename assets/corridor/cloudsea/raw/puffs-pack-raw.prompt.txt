@@ -1,0 +1,8 @@
+model: cursor GenerateImage (aspect 1:1)
+reference: assets/corridor/cloudsea/raw/wall-a-raw.png (style + palette)
+
+Use the attached magenta-background cloud tower image as art-style and palette reference (Dunhuang mural mineral-pigment flat-color style: flat pale moon-white and light celadon scroll-cloud puffs with muted pale-gold rims, clean dark ink outlines and spiral curls, grainy mineral pigment). Do not copy the tower shape.
+
+A 2x2 sprite sheet grid (2 rows, 2 columns, 4 equal invisible cells) of four DIFFERENT single low cloud puff game props for tiling a sea of clouds. Top-left: one plain wide flat-topped scroll-cloud puff, pale moon-white, soft rolling silhouette with two small ink spiral curls, irregular fluffy underside. Top-right: one plain rounded celadon-tinted puff cluster of three lobes, one ink spiral, irregular underside. Bottom-left: one scroll-cloud puff with a muted pale-gold rim band and a curled gold tail tip. Bottom-right: one thin wispy trailing cloud streak with two spiral curls, longer and flatter than the others.
+
+Each puff centered in its own cell, occupying only the central 65% of the cell, generous magenta padding around each, nothing touching cell edges or image edges, consistent scale across cells. Background must be one uniform solid magenta #FF00FF everywhere, no ground line, no shadows, no visible grid lines or borders, no text. Not photoreal, not 3D, not pixel art.

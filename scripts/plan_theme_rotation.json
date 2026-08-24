@@ -1,0 +1,13 @@
+[
+  { "wait": 2600 },
+  { "eval": "window.__corridorSet('themeMode', -1)" },
+  { "eval": "window.__corridorSet('themeSegment', 2)" },
+  { "shot": "rot-1-forest.png" },
+  { "wait_until": 7000 },
+  { "shot": "rot-2-cave.png" },
+  { "wait_until": 9200 },
+  { "shot": "rot-3-fade.png" },
+  { "wait_until": 10600 },
+  { "shot": "rot-4-cloudsea.png" },
+  { "eval": "window.__corridorDrawMs" }
+]

@@ -1,0 +1,18 @@
+[
+  { "wait": 2600 },
+  { "eval": "window.__corridorSetTheme('cloudsea')" },
+  { "key": "Space", "down": true },
+  { "key": "Space", "down": false },
+  { "wait": 900 },
+  { "shot": "cs-1-still.png" },
+  { "eval": "window.__corridorSetHour(8)" },
+  { "wait": 400 },
+  { "shot": "cs-2-sun.png" },
+  { "key": "Space", "down": true },
+  { "key": "Space", "down": false },
+  { "wait": 1600 },
+  { "shot": "cs-3-move1.png" },
+  { "wait": 1800 },
+  { "shot": "cs-4-move2.png" },
+  { "eval": "window.__corridorDrawMs" }
+]

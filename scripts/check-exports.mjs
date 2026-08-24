@@ -16,6 +16,7 @@ const files = [
   "js/loot.js",
   "js/talent-ui.js",
   "js/bag-ui.js",
+  "js/corridor.js",
 ];
 
 function exportsOf(src) {

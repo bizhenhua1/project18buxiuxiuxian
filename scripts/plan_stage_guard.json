@@ -1,0 +1,18 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) localStorage.removeItem(k); } localStorage.setItem('dao-progress-v1', JSON.stringify({ unlockStage: 62, wins: 3 })); location.reload(); return 'seeded-polluted-62'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; const e = p.state.enemyQueue.find(u => u.cardId === 'huoli'); return JSON.stringify({ clampedStage: p.state.unlockStage, cleared: p.state.clearedStage, huoliHp: e && e.maxHp, ls: localStorage.getItem('dao-progress-v1') }); })()"},
+  {"eval": "(() => { const p = window.__dao; const btn = document.getElementById('btn-next'); const before = p.state.unlockStage; for (let i = 0; i < 10; i++) btn.click(); const e = p.state.enemyQueue.find(u => u.cardId === 'huoli'); return JSON.stringify({ btnDisabled: btn.disabled, spam10_stage: p.state.unlockStage, stable: p.state.unlockStage === before, huoliHp: e && e.maxHp }); })()"},
+  {"eval": "(async () => { const p = window.__dao; document.getElementById('btn-player-fill').click(); p.start(); for (const u of p.state.enemyQueue) { if (u && u.status !== 'corpse') p.hit(u.uid, 9e9, 'phys'); } const pre = p.state.unlockStage; const t0 = Date.now(); while (p.state.unlockStage === pre && Date.now() - t0 < 25000) await new Promise(r => setTimeout(r, 200)); return JSON.stringify({ afterWin_stage: p.state.unlockStage, cleared: p.state.clearedStage, ls: localStorage.getItem('dao-progress-v1') }); })()"},
+  {"eval": "(() => { location.reload(); return 'reload-after-win'; })()"},
+  {"wait": 3000},
+  {"eval": "(() => { const p = window.__dao; return JSON.stringify({ persistedStage: p.state.unlockStage, cleared: p.state.clearedStage }); })()"},
+  {"eval": "(() => { localStorage.setItem('dao-progress-v1', JSON.stringify({ unlockStage: 62, wins: 62 })); location.reload(); return 'seeded-legit-62'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; const e = p.state.enemyQueue.find(u => u.cardId === 'huoli'); return JSON.stringify({ legitStageKept: p.state.unlockStage, huoliHp: e && e.maxHp }); })()"},
+  {"eval": "(() => { const p = window.__dao; p.setStage(12); location.reload(); return 'setStage12-reload'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; const e = p.state.enemyQueue.find(u => u.cardId === 'huoli'); return JSON.stringify({ debugJumpKept: p.state.unlockStage, cleared: p.state.clearedStage, huoliHp: e && e.maxHp }); })()"},
+  {"shot": "stage_guard.png"}
+]

@@ -72,16 +72,16 @@ def main():
         print("b1 at:", rect)
         click_at(ws, rect["x"], rect["y"])
         time.sleep(0.5)
-        print("after real click b1:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao7'); return JSON.stringify({ alloc: [...m.allocatedIds()], b1: m.allocatedIds().has('b1') }); })()"))
+        print("after real click b1:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao8'); return JSON.stringify({ alloc: [...m.allocatedIds()], b1: m.allocatedIds().has('b1') }); })()"))
         # 真实点击 b2（依赖 b1 相邻）
         rect2 = ev(ws, "(() => { const c = document.querySelector('.tnode[data-id=\"b2\"] circle'); const r = c.getBoundingClientRect(); return { x: r.x + r.width/2, y: r.y + r.height/2 }; })()")
         click_at(ws, rect2["x"], rect2["y"])
         time.sleep(0.3)
-        print("after real click b2:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao7'); return JSON.stringify([...m.allocatedIds()]); })()"))
+        print("after real click b2:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao8'); return JSON.stringify([...m.allocatedIds()]); })()"))
         # 再点一次 b2 = 退点
         click_at(ws, rect2["x"], rect2["y"])
         time.sleep(0.3)
-        print("after dealloc b2:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao7'); return JSON.stringify([...m.allocatedIds()]); })()"))
+        print("after dealloc b2:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao8'); return JSON.stringify([...m.allocatedIds()]); })()"))
         # 真实拖拽：从空白处拖 60px，viewBox 应平移且不误加点
         vb0 = ev(ws, "document.getElementById('talent-svg').getAttribute('viewBox')")
         drag(ws, rect["x"] + 120, rect["y"] + 120, 60, 40)
@@ -91,9 +91,9 @@ def main():
         # 拖拽落点若在节点上也不应误加点（suppressClick）
         drag(ws, rect["x"] + 40, rect["y"] + 40, -40, -40)
         time.sleep(0.3)
-        print("after drag-onto-node:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao7'); return JSON.stringify([...m.allocatedIds()]); })()"))
+        print("after drag-onto-node:", ev(ws, "(async () => { const m = await import('./js/talents.js?v=dao8'); return JSON.stringify([...m.allocatedIds()]); })()"))
         # 洗髓按钮
-        print("respec:", ev(ws, "(async () => { document.getElementById('talent-respec').click(); const m = await import('./js/talents.js?v=dao7'); return JSON.stringify([...m.allocatedIds()]); })()"))
+        print("respec:", ev(ws, "(async () => { document.getElementById('talent-respec').click(); const m = await import('./js/talents.js?v=dao8'); return JSON.stringify([...m.allocatedIds()]); })()"))
         ws.close()
     finally:
         proc.kill()

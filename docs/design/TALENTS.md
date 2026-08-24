@@ -1,7 +1,7 @@
 # 道途天赋系统（v3 · dao6）
 
 > 代码：`js/talents.js`（数据+逻辑）、`js/talent-ui.js`（SVG 放射树面板）。
-> 存档键：`dao-talents-v1`（已点节点）、`dao-progress-v1`（关卡进度/胜场）。
+> 存档键：`dao-talents-v1`（已点节点）、`dao-progress-v1`（关卡进度/胜场/已打赢路点 clearedStage；加载时钳制 unlockStage ≤ clearedStage+1，清洗免战推关灌大的旧档）。
 
 ## 1. 设计立意
 

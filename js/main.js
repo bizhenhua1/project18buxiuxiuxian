@@ -8,10 +8,10 @@ import {
   moveUnit,
   clearQueue,
   findUnitByUid,
-} from "./grid.js?v=dao7";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao7";
-import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao7";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao7";
+} from "./grid.js?v=dao8";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao8";
+import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao8";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao8";
 import {
   talentMods,
   talentPoints,
@@ -21,11 +21,11 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao7";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao7";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao7";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao7";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao7";
+} from "./talents.js?v=dao8";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao8";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao8";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao8";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao8";
 import {
   buildLanes,
   buildPool,
@@ -54,12 +54,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao7";
+} from "./ui.js?v=dao8";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao7";
+} from "./map.js?v=dao8";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas27";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -68,10 +68,17 @@ function loadProgress() {
   try {
     const raw = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "null");
     if (raw && Number.isFinite(raw.unlockStage)) {
-      return { unlockStage: Math.max(0, Math.floor(raw.unlockStage)), wins: Math.max(0, raw.wins | 0) };
+      const wins = Math.max(0, raw.wins | 0);
+      // 旧档无 clearedStage：合法进度每推一关恰有一胜，用胜场推导已打赢的最高路点
+      const clearedRaw = Number.isFinite(raw.clearedStage) ? Math.floor(raw.clearedStage) : wins - 1;
+      // 合法性钳制：前沿关卡最多为「已打赢路点 + 1」。免战连点「下一关」灌大的
+      // unlockStage（敌方成长按指数曲线放大到几万血）在这里被清洗回合法进度。
+      const unlockStage = Math.max(0, Math.min(Math.floor(raw.unlockStage), clearedRaw + 1));
+      const clearedStage = Math.max(-1, Math.min(clearedRaw, unlockStage));
+      return { unlockStage, wins, clearedStage };
     }
   } catch { /* 损坏则从头开始 */ }
-  return { unlockStage: 0, wins: 0 };
+  return { unlockStage: 0, wins: 0, clearedStage: -1 };
 }
 
 const progress = loadProgress();
@@ -88,6 +95,7 @@ const state = {
   unlockStage: progress.unlockStage,
   focusStage: progress.unlockStage,
   wins: progress.wins,
+  clearedStage: progress.clearedStage,
   cardSkin: "skin2",
   killedEnemies: [],
   bloodPact: false,
@@ -95,9 +103,16 @@ const state = {
 
 function saveProgress() {
   try {
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify({ unlockStage: state.unlockStage, wins: state.wins }));
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+      unlockStage: state.unlockStage,
+      wins: state.wins,
+      clearedStage: state.clearedStage,
+    }));
   } catch { /* 静默 */ }
 }
+
+// 清理性迁移：钳制后的进度立即回写，污染存档（unlockStage 远超胜场）只清洗这一次
+saveProgress();
 
 // 天赋+装备聚合修正（变更时刷新缓存）
 let mods = mergeMods(talentMods(), equipMods());
@@ -243,6 +258,7 @@ function finishIfNeeded() {
   const kind = state.winner === "player" ? "win" : state.winner === "enemy" ? "lose" : "draw";
   if (state.winner === "player") {
     state.wins += 1;
+    state.clearedStage = Math.max(state.clearedStage, state.unlockStage);
     const { items, caught } = settleVictory();
     const bits = [];
     if (items.length) bits.push(`掉落 ${items.map((it) => it.name).join("、")}`);
@@ -555,8 +571,17 @@ function queueTravelThenNextStage() {
   });
 }
 
+/** 手动推关须先打赢当前路点：免战连点会把指数成长的敌方数值灌爆并永久入档。 */
+function canAdvanceStage() {
+  return state.unlockStage <= state.clearedStage;
+}
+
 function nextStage() {
   if (!canEdit()) return;
+  if (!canAdvanceStage()) {
+    setStatus("需先打赢当前路点才能推进（战败可原地重整再战）", "warn");
+    return;
+  }
   queueTravelThenNextStage();
 }
 
@@ -583,7 +608,7 @@ function syncButtons() {
     ["btn-enemy-random", editing],
     ["btn-player-fill", editing],
     ["btn-player-clear", editing],
-    ["btn-next", editing],
+    ["btn-next", editing && canAdvanceStage()],
   ];
   for (const [id, on] of ids) {
     const el = document.getElementById(id);
@@ -869,10 +894,13 @@ window.__dao = {
   setStage(n) {
     state.unlockStage = Math.max(0, Math.floor(n));
     state.focusStage = state.unlockStage;
+    // 调试跳关同步已打赢进度，否则加载钳制会把跳关后的存档清洗回去
+    state.clearedStage = Math.max(state.clearedStage, state.unlockStage - 1);
     saveProgress();
     fillEnemyPreset();
     restatQueues();
     syncMetaButtons();
+    syncButtons();
     paint();
   },
   place(id, mode = null) {

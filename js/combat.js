@@ -5,9 +5,9 @@ import {
   markCorpse,
   queueNeighbors,
   unitsBehind,
-} from "./grid.js?v=dao8";
-import { ACTIVE_SKILLS } from "./unit.js?v=dao8";
-import { defReduction } from "./balance.js?v=dao8";
+} from "./grid.js?v=dao9";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao9";
+import { defReduction } from "./balance.js?v=dao9";
 
 const RANGED_IDS = new Set(["tongjing", "yewu", "huangfeng"]);
 
@@ -382,6 +382,13 @@ export function hasPendingRevive(queue) {
 export function checkWinner(state) {
   const pAlive = livingUnits(state.playerQueue).length;
   const eAlive = livingUnits(state.enemyQueue).length;
+  // 主角阵亡即战败：道童一倒直接判负（敌方同刻恰好全灭则算平局），
+  // 不再等其余存活单位或重聚中的法宝；无道童的阵容仍走「全灭才判负」旧规则。
+  const char = state.playerQueue.find((u) => u && u.cardType === "char");
+  if (char && char.status === "corpse") {
+    state.winner = eAlive === 0 ? "draw" : "enemy";
+    return;
+  }
   if (pAlive === 0 && hasPendingRevive(state.playerQueue)) {
     state.winner = null;
     return;

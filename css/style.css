@@ -204,6 +204,20 @@ button, select { font-family: inherit; }
   border-radius: 6px;
   background: rgba(20, 16, 12, 0.18);
 }
+/* 拖动悬停预览：高亮将落入的格位；不合法用警示色 */
+.slot-row.tight .slot.drop-hint {
+  border: 2px solid #7fe3ff;
+  background: rgba(90, 180, 230, 0.2);
+  box-shadow: 0 0 12px rgba(127, 227, 255, 0.55), inset 0 0 10px rgba(127, 227, 255, 0.25);
+}
+.slot-row.tight .slot.drop-bad {
+  border: 2px solid #c4453c;
+  background: rgba(196, 69, 60, 0.18);
+  box-shadow: 0 0 12px rgba(196, 69, 60, 0.55), inset 0 0 10px rgba(196, 69, 60, 0.22);
+}
+/* 落点格位已被占用时连带高亮其上的卡牌 */
+.unit-card.drop-hint { outline: 2px dashed #7fe3ff; box-shadow: 0 0 14px rgba(127, 227, 255, 0.5); }
+.unit-card.drop-bad { outline: 2px dashed #c4453c; box-shadow: 0 0 14px rgba(196, 69, 60, 0.5); }
 .card-layer {
   position: absolute;
   inset: 0;
@@ -395,6 +409,26 @@ button, select { font-family: inherit; }
 .focus-badge { color: #1a1208; background: var(--gold); }
 .corpse-badge { color: #ececec; background: #5a5a5a; }
 .corpse-badge.reviving { color: #eaf6ff; background: #3a6ea8; }
+/* 法宝重聚进度条：卡面底部青蓝细条，0 → 满即满血归位（与血条样式/位置区分） */
+.revive-track {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 3px;
+  height: 4px;
+  border-radius: 3px;
+  background: rgba(14, 32, 46, 0.9);
+  box-shadow: 0 0 0 1px rgba(90, 170, 220, 0.4);
+  overflow: hidden;
+  z-index: 4;
+  pointer-events: none;
+}
+.revive-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #2f86c8, #7fe3ff);
+  box-shadow: 0 0 6px rgba(127, 227, 255, 0.7);
+}
 /* 手持（held）法宝角标：明显的“持”字小标 */
 .held-badge {
   position: absolute;

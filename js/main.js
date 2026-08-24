@@ -8,10 +8,11 @@ import {
   moveUnit,
   clearQueue,
   findUnitByUid,
-} from "./grid.js?v=dao8";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao8";
-import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao8";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao8";
+  reindex,
+} from "./grid.js?v=dao9";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao9";
+import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao9";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao9";
 import {
   talentMods,
   talentPoints,
@@ -21,11 +22,11 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao8";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao8";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao8";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao8";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao8";
+} from "./talents.js?v=dao9";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao9";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao9";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao9";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao9";
 import {
   buildLanes,
   buildPool,
@@ -54,12 +55,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao8";
+} from "./ui.js?v=dao9";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao8";
+} from "./map.js?v=dao9";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas27";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -157,7 +158,23 @@ function makeUnit(id, side, index = 0, mode = "station") {
   return unit;
 }
 
+/** 队列排型序：本体 → 法宝(操控) → 手持 → 识海 → 兽栏，与格位底纹顺序一致。 */
+function typeRank(u) {
+  if (u.cardType === "char") return 0;
+  if (u.cardType === "fabao") return u.mode === "held" ? 2 : 1;
+  if (u.cardType === "spell") return 3;
+  if (u.cardType === "beast") return 4;
+  return 5;
+}
+
+/** 自动归位：按格位排型稳定排序（同类保持相对顺序），拖放不依赖精确插入位置。 */
+function sortPlayerQueue() {
+  state.playerQueue.sort((a, b) => typeRank(a) - typeRank(b));
+  reindex(state.playerQueue);
+}
+
 function restatQueues() {
+  sortPlayerQueue();
   for (const u of state.playerQueue) {
     applyEffectiveStats(u, playerStage());
     applyPlayerMods(u, mods);
@@ -252,9 +269,11 @@ function finishIfNeeded() {
   state.running = false;
   // 战斗结束清除未完成的重聚计时
   for (const u of state.playerQueue) u.reviveLeft = 0;
+  const charFell = state.playerQueue.some((u) => u.cardType === "char" && u.status === "corpse");
   let msg =
     state.winner === "player" ? "胜利：敌方无存活（只剩尸体也算输）" :
-    state.winner === "enemy" ? "失败：我方无存活" : "平局：双方均无存活";
+    state.winner === "enemy" ? (charFell ? "失败：道童陨落即战败（其余单位随之收兵）" : "失败：我方无存活") :
+    "平局：双方均无存活";
   const kind = state.winner === "player" ? "win" : state.winner === "enemy" ? "lose" : "draw";
   if (state.winner === "player") {
     state.wins += 1;
@@ -452,10 +471,6 @@ function resolvePlacement(card, ignoreUid = null, wantMode = null) {
   return { mode: "" };
 }
 
-function placeError(card, ignoreUid = null) {
-  return resolvePlacement(card, ignoreUid).error || null;
-}
-
 /** 布阵期双击场上法宝：held ↔ station 切换（校验目标格位余量与重量预算）。 */
 function toggleFabaoMode(unit) {
   if (!canEdit() || !unit || unit.cardType !== "fabao") return;
@@ -622,6 +637,70 @@ function laneFromPoint(x, y) {
   return lane || null;
 }
 
+const SLOT_TYPE_NAMES = {
+  char: "本体格",
+  fabao: "法宝格",
+  weapon: "手持格",
+  spell: "识海格",
+  beast: "兽栏格",
+  monster: "妖兽格",
+  locked: "封印之位",
+};
+
+/** 指针落点 → 我方格位（格位行不收指针事件，按横向最近的格位几何判定）。 */
+function slotDropTarget(clientX) {
+  const els = [...(lanes.playerSlots?.querySelectorAll(".slot") || [])];
+  let best = null;
+  let bestDist = Infinity;
+  let bestIndex = -1;
+  els.forEach((el, i) => {
+    const r = el.getBoundingClientRect();
+    const d = clientX < r.left ? r.left - clientX : clientX > r.right ? clientX - r.right : 0;
+    if (d < bestDist) {
+      bestDist = d;
+      best = el;
+      bestIndex = i;
+    }
+  });
+  if (!best) return null;
+  const type = (best.className.match(/st-(\w+)/) || [])[1] || "locked";
+  return { el: best, type, index: bestIndex };
+}
+
+/** 落点即意图：卡牌类型 × 落点格位类型 → 入阵模式（法宝格=station、手持格=held）或错误。 */
+function dropIntent(card, slotType) {
+  const type = fieldCardType(card, "player");
+  if (!slotType || slotType === "locked") return { error: "落点是封印之位，修习对应道途可解锁" };
+  if (type === "fabao") {
+    if (slotType === "fabao") return { mode: "station" };
+    if (slotType === "weapon") return { mode: "held" };
+    return { error: `法宝请拖到法宝格或手持格（落点是${SLOT_TYPE_NAMES[slotType] || slotType}）` };
+  }
+  const wantSlot = { char: "char", spell: "spell", beast: "beast" }[type];
+  if (!wantSlot || slotType !== wantSlot) {
+    return {
+      error: `${CARD_TYPE_NAMES[type] || "该卡"}请拖到${SLOT_TYPE_NAMES[wantSlot] || "对应格位"}（落点是${SLOT_TYPE_NAMES[slotType] || slotType}）`,
+    };
+  }
+  return { mode: "" };
+}
+
+function clearDropHint() {
+  document.querySelectorAll(".drop-hint, .drop-bad").forEach((el) => el.classList.remove("drop-hint", "drop-bad"));
+}
+
+/** 悬停预览：高亮将落入的格位（占用位连带高亮其上的卡），不合法用警示色。 */
+function showDropHint(hit, ok) {
+  clearDropHint();
+  if (!hit) return;
+  const cls = ok ? "drop-hint" : "drop-bad";
+  hit.el.classList.add(cls);
+  const unit = state.playerQueue[hit.index];
+  if (unit) {
+    lanes.playerCards?.querySelector(`.unit-card[data-uid="${unit.uid}"]`)?.classList.add(cls);
+  }
+}
+
 function updateCardTip(e) {
   if (drag) {
     hideCardTip();
@@ -706,11 +785,29 @@ function moveGhost(e) {
 function onPointerMove(e) {
   moveGhost(e);
   hideInsertCaret(lanes);
+  clearDropHint();
   const lane = laneFromPoint(e.clientX, e.clientY);
   if (!lane || lane.dataset.side !== "player" || !canEdit()) return;
+  const hit = slotDropTarget(e.clientX);
+  if (drag.kind === "new") {
+    // 新卡：落点即意图——预览将落入的格位与合法性，不再显示插入光标
+    const card = getCard(drag.cardId);
+    const intent = hit ? dropIntent(card, hit.type) : { error: "no-slot" };
+    const ok = !intent.error && !resolvePlacement(card, null, intent.mode || null).error;
+    showDropHint(hit, ok);
+    drag.ok = ok;
+    return;
+  }
+  // 场上移动：保留插入光标（同类内定序），法宝落到异模式格位时预览切换合法性
   const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
-  const ok = drag.kind === "move" || !placeError(getCard(drag.cardId));
+  const unit = findUnitByUid([state.playerQueue], drag.uid);
+  let ok = true;
+  if (unit && unit.cardType === "fabao" && hit && (hit.type === "fabao" || hit.type === "weapon")) {
+    const want = hit.type === "weapon" ? "held" : "station";
+    if (want !== unit.mode) ok = !resolvePlacement(getCard(unit.cardId), unit.uid, want).error;
+  }
   showInsertCaret(lanes, "player", index, state.playerQueue, ok);
+  showDropHint(hit, ok);
   drag.insertAt = index;
   drag.ok = ok;
 }
@@ -718,23 +815,39 @@ function onPointerMove(e) {
 function onPointerUp(e) {
   window.removeEventListener("pointermove", onPointerMove);
   hideInsertCaret(lanes);
+  clearDropHint();
   const lane = laneFromPoint(e.clientX, e.clientY);
   if (drag?.ghost) drag.ghost.remove();
   setCardsPickable(true);
 
   if (canEdit() && lane && lane.dataset.side === "player") {
-    const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
+    const hit = slotDropTarget(e.clientX);
     if (drag.kind === "new") {
-      const res = resolvePlacement(getCard(drag.cardId));
+      const card = getCard(drag.cardId);
+      const intent = hit ? dropIntent(card, hit.type) : { error: "请拖到我方格位区域" };
+      const res = intent.error ? intent : resolvePlacement(card, null, intent.mode || null);
       if (res.error) {
-        setStatus(res.error, "warn");
+        setStatus(`未入阵：${res.error}，卡牌已回卡池`, "warn");
       } else {
-        insertUnit(state.playerQueue, makeUnit(drag.cardId, "player", 0, res.mode), index, cap());
+        // 插到队首再经 restatQueues 排型：自动归位到正确格位（同类中靠左）
+        insertUnit(state.playerQueue, makeUnit(drag.cardId, "player", 0, res.mode), 0, cap());
         restatQueues();
       }
     } else if (drag.kind === "move") {
       const unit = findUnitByUid([state.playerQueue], drag.uid);
-      if (unit) moveUnit(state.playerQueue, unit, index);
+      if (unit) {
+        moveUnit(state.playerQueue, unit, hitInsertIndex(lane, state.playerQueue, e.clientX));
+        // 场上法宝拖到异模式格位 = held↔station 切换（与双击同一套校验）
+        if (unit.cardType === "fabao" && hit && (hit.type === "fabao" || hit.type === "weapon")) {
+          const want = hit.type === "weapon" ? "held" : "station";
+          if (want !== unit.mode) {
+            const res = resolvePlacement(getCard(unit.cardId), unit.uid, want);
+            if (res.error) setStatus(`切换失败：${res.error}`, "warn");
+            else unit.mode = want;
+          }
+        }
+        restatQueues();
+      }
     }
   } else if (drag?.kind === "move") {
     const unit = findUnitByUid([state.playerQueue], drag.uid);

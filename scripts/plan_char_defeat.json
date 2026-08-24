@@ -1,0 +1,10 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) localStorage.removeItem(k); } location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(async () => { const p = window.__dao; p.setStage(0); p.clear(); p.place('daotong'); p.place('taomu-jian'); p.place('xiaohulu'); p.start(); await new Promise(r => setTimeout(r, 300)); const char = p.state.playerQueue.find(u => u.cardType === 'char'); const aliveBefore = p.state.playerQueue.filter(u => u.status === 'alive').length; p.hit(char.uid, 9e9, 'phys'); const t0 = Date.now(); while (!p.state.winner && Date.now() - t0 < 5000) await new Promise(r => setTimeout(r, 100)); const others = p.state.playerQueue.filter(u => u.cardType !== 'char' && u.status === 'alive').length; return JSON.stringify({ aliveBefore, winner: p.state.winner, charDead: char.status === 'corpse', othersAliveAtDefeat: others, instantLoseWithOthersAlive: p.state.winner === 'enemy' && others > 0, running: p.state.running, outcome: document.getElementById('outcome')?.textContent }); })()"},
+  {"shot": "cd01_char_dead_instant_lose.png"},
+  {"wait": 2200},
+  {"eval": "(() => { const p = window.__dao; const char = p.state.playerQueue.find(u => u.cardType === 'char'); return JSON.stringify({ revivedAfterDefeat: char.status === 'alive' && char.hp === char.maxHp, winner: p.state.winner, enemies: p.state.enemyQueue.filter(u => u.status === 'alive').length, outcome: document.getElementById('outcome')?.textContent }); })()"},
+  {"shot": "cd02_auto_revive_ready.png"}
+]

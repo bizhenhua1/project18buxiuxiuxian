@@ -1,0 +1,16 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) localStorage.removeItem(k); } location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; p.setStage(0); p.clear(); p.place('daotong'); p.place('taomu-jian'); p.state.enemyQueue.splice(1); p.start(); const e = p.state.enemyQueue[0]; e.maxHp = 999999; e.hp = 999999; const char = p.state.playerQueue.find(u => u.cardType === 'char'); char.maxHp = 999999; char.hp = 999999; const fb = p.state.playerQueue.find(u => u.cardId === 'taomu-jian'); p.hit(fb.uid, 9e9, 'phys'); return JSON.stringify({ running: p.state.running, fbDead: fb.status === 'corpse', reviveLeft: fb.reviveLeft, reviveMs: fb.reviveMs }); })()"},
+  {"wait": 1200},
+  {"eval": "(() => { const fb = window.__dao.state.playerQueue.find(u => u.cardId === 'taomu-jian'); const bar = document.querySelector('.unit-card.corpse .revive-fill'); return JSON.stringify({ t: 'mid1', reviveLeft: Math.round(fb.reviveLeft), barVisible: !!bar, width: bar && bar.style.width }); })()"},
+  {"shot": "rb01_bar_early.png"},
+  {"wait": 2000},
+  {"eval": "(() => { const fb = window.__dao.state.playerQueue.find(u => u.cardId === 'taomu-jian'); const bar = document.querySelector('.unit-card.corpse .revive-fill'); return JSON.stringify({ t: 'mid2', reviveLeft: Math.round(fb.reviveLeft), barVisible: !!bar, width: bar && bar.style.width }); })()"},
+  {"shot": "rb02_bar_late.png"},
+  {"eval": "(async () => { const p = window.__dao; const fb = p.state.playerQueue.find(u => u.cardId === 'taomu-jian'); const t0 = Date.now(); while (fb.status === 'corpse' && Date.now() - t0 < 8000) await new Promise(r => setTimeout(r, 150)); await new Promise(r => setTimeout(r, 200)); return JSON.stringify({ revived: fb.status === 'alive', fullHp: fb.hp === fb.maxHp, barGone: !document.querySelector('.revive-track') }); })()"},
+  {"shot": "rb03_revived_bar_gone.png"},
+  {"eval": "(async () => { const p = window.__dao; const fb = p.state.playerQueue.find(u => u.cardId === 'taomu-jian'); p.hit(fb.uid, 9e9, 'phys'); await new Promise(r => setTimeout(r, 400)); const barMid = !!document.querySelector('.revive-track'); const e = p.state.enemyQueue[0]; e.maxHp = 100; e.hp = 100; p.hit(e.uid, 9e9, 'phys'); const t0 = Date.now(); while (!p.state.winner && Date.now() - t0 < 5000) await new Promise(r => setTimeout(r, 100)); await new Promise(r => setTimeout(r, 200)); return JSON.stringify({ barDuringSecondDeath: barMid, winner: p.state.winner, corpseStays: fb.status === 'corpse', barClearedOnBattleEnd: !document.querySelector('.revive-track') }); })()"},
+  {"shot": "rb04_bar_cleared_on_victory.png"}
+]

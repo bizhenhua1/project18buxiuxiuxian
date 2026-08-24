@@ -1,6 +1,6 @@
 /** 关卡/大区进度。中段场景是纸片走廊，不再把路点画进地图。 */
 
-import { fmtMult, monsterMult } from "./balance.js?v=dao8";
+import { fmtMult, monsterMult } from "./balance.js?v=dao9";
 
 export const NODES_PER_REGION = 8;
 

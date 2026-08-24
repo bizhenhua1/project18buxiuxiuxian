@@ -1,6 +1,6 @@
 [
   {"wait": 3200},
-  {"eval": "(() => { window.__dao.setStage(0); document.getElementById('btn-player-fill').click(); window.__dao.start(); return JSON.stringify({ running: window.__dao.state.running, playerCount: window.__dao.state.playerQueue.length, enemies: window.__dao.state.enemyQueue.length }); })()"},
+  {"eval": "(() => { window.__dao.setStage(0); document.getElementById('btn-player-fill').click(); window.__dao.start(); const c = window.__dao.state.playerQueue.find(u => u.cardType === 'char'); c.maxHp = 9999; c.hp = 9999; return JSON.stringify({ running: window.__dao.state.running, playerCount: window.__dao.state.playerQueue.length, enemies: window.__dao.state.enemyQueue.length }); })()"},
   {"wait": 12000},
   {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({ running: s.running, winner: s.winner, unlockStage: s.unlockStage, outcome: document.getElementById('outcome')?.textContent, lootLines: [...document.querySelectorAll('#loot-log .loot-line')].slice(0, 3).map(l => l.textContent) }); })()"},
   {"shot": "it20_victory.png"},

@@ -1,11 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao8";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao8";
-import { collectTargetPairs } from "./combat.js?v=dao8";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao8";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao8";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao8";
-import { equipMods } from "./equipment.js?v=dao8";
-import { ownedBeasts } from "./loot.js?v=dao8";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao9";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao9";
+import { collectTargetPairs } from "./combat.js?v=dao9";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao9";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao9";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao9";
+import { equipMods } from "./equipment.js?v=dao9";
+import { ownedBeasts } from "./loot.js?v=dao9";
 
 let sceneCorridor = null;
 
@@ -286,6 +286,11 @@ function cardInnerHtml(unit, i, dead, isFocus, skin) {
   if (!dead && unit.cardType === "fabao" && unit.mode === "held") {
     badge += `<div class="held-badge">持</div>`;
   }
+  // 重聚进度条：0 → 满即满血归位（青蓝细条，与血条区分；每帧由 patchCardStats 推进）
+  if (reviving && (unit.reviveMs || 0) > 0) {
+    const pct = Math.max(0, Math.min(100, 100 * (1 - unit.reviveLeft / unit.reviveMs)));
+    badge += `<div class="revive-track"><span class="revive-fill" style="width:${pct.toFixed(1)}%"></span></div>`;
+  }
   if (skin === "skin2") {
     const chargePct = dead ? 0 : Math.max(0, Math.min(100, 100 * (1 - unit.cdLeft / unit.cd)));
     const hp = dead ? 0 : Math.max(0, Math.round(unit.hp));
@@ -358,6 +363,12 @@ function cardClassName(unit, i, pos, selectedUid, focusUid, skinId) {
 }
 
 function patchCardStats(card, unit, dead, skinId) {
+  // 重聚进度条每帧推进（战斗结束/复位时 reviveLeft 归零触发重建，进度条随之移除）
+  const reviveFill = card.querySelector(".revive-fill");
+  if (reviveFill && (unit.reviveMs || 0) > 0) {
+    const pct = Math.max(0, Math.min(100, 100 * (1 - (unit.reviveLeft || 0) / unit.reviveMs)));
+    reviveFill.style.width = `${pct.toFixed(1)}%`;
+  }
   const hpPct = dead ? 0 : (100 * unit.hp) / unit.maxHp;
   const fillRatio = dead ? 0 : Math.max(0, Math.min(1, unit.hp / unit.maxHp));
   const chargeLeft = dead ? 100 : Math.max(0, Math.min(100, (100 * unit.cdLeft) / unit.cd));
@@ -1019,7 +1030,7 @@ export function createDragGhost(icon, face = 1, art = "") {
   const vis = art
     ? `<img class="ghost-art" src="${art}" alt="" draggable="false" />`
     : `<span>${icon}</span>`;
-  g.innerHTML = `${vis}<small>插入队列</small>`;
+  g.innerHTML = `${vis}<small>拖至格位</small>`;
   document.body.appendChild(g);
   return g;
 }

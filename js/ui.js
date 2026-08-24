@@ -1,11 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao6";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao6";
-import { collectTargetPairs } from "./combat.js?v=dao6";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao6";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao6";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao6";
-import { equipMods } from "./equipment.js?v=dao6";
-import { ownedBeasts } from "./loot.js?v=dao6";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao7";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao7";
+import { collectTargetPairs } from "./combat.js?v=dao7";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao7";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao7";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao7";
+import { equipMods } from "./equipment.js?v=dao7";
+import { ownedBeasts } from "./loot.js?v=dao7";
 
 let sceneCorridor = null;
 

@@ -1,4 +1,4 @@
-import { applyEffectiveStats } from "./balance.js?v=dao6";
+import { applyEffectiveStats } from "./balance.js?v=dao7";
 
 let uidSeq = 1;
 

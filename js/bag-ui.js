@@ -10,7 +10,7 @@ import {
   unequipSlot,
   discardItem,
   itemLines,
-} from "./equipment.js?v=dao6";
+} from "./equipment.js?v=dao7";
 
 let overlay = null;
 let hooks = { onChange: () => {} };

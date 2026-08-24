@@ -11,7 +11,7 @@ import {
   deallocate,
   respec,
   getNode,
-} from "./talents.js?v=dao6";
+} from "./talents.js?v=dao7";
 
 const BRANCH_COLORS = {
   root: "#e6c46a",
@@ -118,15 +118,20 @@ function bindViewControls(svg) {
       unitsPerPx: 1 / ctm.a,
       moved: false,
     };
-    try {
-      svg.setPointerCapture(e.pointerId);
-    } catch { /* 合成事件的 pointerId 未注册时会抛错，忽略 */ }
+    // 不能在 pointerdown 就 setPointerCapture：指针被 svg 捕获后，浏览器把后续
+    // pointerup 与合成的 click 都重定向到捕获元素（svg），节点上的 click 监听
+    // 永远收不到——表现为"点天赋节点没反应"。改为拖拽真正启动（≥5px）时再捕获。
   });
   svg.addEventListener("pointermove", (e) => {
     if (!drag || e.pointerId !== drag.id) return;
     const dx = e.clientX - drag.cx;
     const dy = e.clientY - drag.cy;
     if (!drag.moved && Math.hypot(dx, dy) < 5) return;
+    if (!drag.moved) {
+      try {
+        svg.setPointerCapture(e.pointerId);
+      } catch { /* 合成事件的 pointerId 未注册时会抛错，忽略 */ }
+    }
     drag.moved = true;
     svg.classList.add("dragging");
     view.x = drag.vx - dx * drag.unitsPerPx;

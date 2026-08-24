@@ -4,12 +4,12 @@
  * 装备穿在道童身上、数值全队生效（全队本就是修士的持有物）。
  */
 
-import { emptyMods, mergeMods } from "./talents.js?v=dao6";
+import { emptyMods, mergeMods } from "./talents.js?v=dao7";
 
 const BAG_KEY = "dao-bag-v1";
 
 /**
- * 主属性归属（dao6 重梳）：
+ * 主属性归属（dao7 重梳）：
  * 帽=生命 / 衣=外防 / 鞋=全冷却（稀有强力）/ 腕=攻击 / 戒=暴击 / 链=法伤 / 玉=法防。
  * 气运从玉佩主属性移入词条池与仙品专属。
  */
@@ -72,7 +72,7 @@ export function fmtStat(stat, val) {
 }
 
 /** 词条池：favored 部位权重×3，形成部位主题偏向。 */
-// dao6：普通词条池撤下全队 cdPct（保留为鞋主属性 + 仙品·踏虚的"全冷却"稀有词条），
+// dao7：普通词条池撤下全队 cdPct（保留为鞋主属性 + 仙品·踏虚的"全冷却"稀有词条），
 // 换成方向性更强的攻速/技能冷却；并加入外伤/法伤/外防/法防。
 const AFFIX_POOL = [
   { stat: "atkPct", base: 3, favored: ["bracer", "ring"] },

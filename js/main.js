@@ -24,7 +24,7 @@ import {
 } from "./talents.js?v=dao1";
 import { equipMods, addItem, rarityById } from "./equipment.js?v=dao1";
 import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao1";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao1";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao2";
 import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao1";
 import {
   buildLanes,

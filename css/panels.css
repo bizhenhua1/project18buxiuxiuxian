@@ -82,7 +82,16 @@
 /* ========== 天赋树 ========== */
 
 .talent-body { display: flex; }
-#talent-svg { width: 100%; height: 100%; }
+#talent-svg {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+#talent-svg.dragging,
+#talent-svg.dragging .tnode circle { cursor: grabbing; }
+
+.dao-view-reset { padding: 4px 10px; font-size: 12px; }
 
 .tedge {
   stroke: #4a3d24;

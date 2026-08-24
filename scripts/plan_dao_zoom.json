@@ -1,0 +1,18 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(5); document.getElementById('btn-talents').click(); document.getElementById('talent-respec').click(); return document.getElementById('talent-points').textContent; })()"},
+  {"wait": 500},
+  {"shot": "talent_zoom_default.png"},
+  {"eval": "(() => { const svg = document.getElementById('talent-svg'); const r = svg.getBoundingClientRect(); const cx = r.left + r.width * 0.3, cy = r.top + r.height * 0.3; for (let i = 0; i < 6; i++) svg.dispatchEvent(new WheelEvent('wheel', {bubbles: true, cancelable: true, clientX: cx, clientY: cy, deltaY: -120})); return svg.getAttribute('viewBox'); })()"},
+  {"wait": 300},
+  {"shot": "talent_zoom_in.png"},
+  {"eval": "(() => { const svg = document.getElementById('talent-svg'); const r = svg.getBoundingClientRect(); const sx = r.left + r.width * 0.5, sy = r.top + r.height * 0.5; const opts = (x, y, extra) => Object.assign({bubbles: true, cancelable: true, pointerId: 7, pointerType: 'mouse', isPrimary: true, button: 0, buttons: 1, clientX: x, clientY: y}, extra || {}); svg.dispatchEvent(new PointerEvent('pointerdown', opts(sx, sy))); for (let i = 1; i <= 6; i++) svg.dispatchEvent(new PointerEvent('pointermove', opts(sx + i * 20, sy + i * 12))); svg.dispatchEvent(new PointerEvent('pointerup', opts(sx + 120, sy + 72, {buttons: 0}))); svg.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, clientX: sx + 120, clientY: sy + 72})); return JSON.stringify({viewBox: svg.getAttribute('viewBox'), allocAfterDragClick: document.querySelectorAll('.tnode.on').length}); })()"},
+  {"wait": 300},
+  {"shot": "talent_pan.png"},
+  {"eval": "(() => { const svg = document.getElementById('talent-svg'); const before = svg.getAttribute('viewBox'); document.querySelector('.tnode[data-id=\"b1\"]').dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true})); const after = svg.getAttribute('viewBox'); const on = document.querySelector('.tnode[data-id=\"b1\"]').classList.contains('on'); return JSON.stringify({before, after, sameView: before === after, b1on: on, points: document.getElementById('talent-points').textContent, info: document.getElementById('talent-info').textContent}); })()"},
+  {"wait": 300},
+  {"shot": "talent_alloc_keep_view.png"},
+  {"eval": "(() => { document.getElementById('talent-view-reset').click(); return document.getElementById('talent-svg').getAttribute('viewBox'); })()"},
+  {"wait": 300},
+  {"shot": "talent_view_reset.png"}
+]

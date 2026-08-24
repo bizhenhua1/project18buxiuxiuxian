@@ -1,0 +1,11 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(20); window.__dao.clear(); const r = window.__dao.place('daotong'); window.__dao.start(); return JSON.stringify({ place: r, running: window.__dao.state.running, enemies: window.__dao.state.enemyQueue.length }); })()"},
+  {"shot": "it10_defeat_start.png"},
+  {"wait": 18000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({ running: s.running, winner: s.winner, player: s.playerQueue.map(u => ({ status: u.status, full: u.hp === u.maxHp })), enemies: s.enemyQueue.length, enemyAlive: s.enemyQueue.filter(u => u.status === 'alive').length, outcome: document.getElementById('outcome')?.textContent }); })()"},
+  {"shot": "it11_revived.png"},
+  {"eval": "(() => { window.__dao.start(); return JSON.stringify({ runningAgain: window.__dao.state.running }); })()"},
+  {"wait": 800},
+  {"shot": "it12_restart.png"}
+]

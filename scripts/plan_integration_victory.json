@@ -1,0 +1,10 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(0); document.getElementById('btn-player-fill').click(); window.__dao.start(); return JSON.stringify({ running: window.__dao.state.running, playerCount: window.__dao.state.playerQueue.length, enemies: window.__dao.state.enemyQueue.length }); })()"},
+  {"wait": 12000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({ running: s.running, winner: s.winner, unlockStage: s.unlockStage, outcome: document.getElementById('outcome')?.textContent, lootLines: [...document.querySelectorAll('#loot-log .loot-line')].slice(0, 3).map(l => l.textContent) }); })()"},
+  {"shot": "it20_victory.png"},
+  {"wait": 9000},
+  {"eval": "(() => { const s = window.__dao.state; return JSON.stringify({ unlockStage: s.unlockStage, enemies: s.enemyQueue.length, running: s.running, outcome: document.getElementById('outcome')?.textContent }); })()"},
+  {"shot": "it21_next_stage.png"}
+]

@@ -1,0 +1,9 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); localStorage.setItem('dao-bag-v1', JSON.stringify({ items: [], equipped: { ring: { id: 't1', slot: 'ring', rarity: 'fan', stage: 0, name: 'crit-test-ring', main: { stat: 'critPct', val: 100 }, affixes: [] } } })); location.reload(); return 'seeded'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { const p = window.__dao; p.clear(); p.place('taomu-jian'); const u = p.state.playerQueue.find(x=>x.cardId==='taomu-jian'); return JSON.stringify({ type: u.cardType, mode: u.mode, critChance: u.critChance, critDmg: u.critDmg, fullCrit: u.critChance === 1 }); })()"},
+  {"eval": "(() => { const p = window.__dao; p.setStage(0); p.state.enemyQueue.splice(2); p.start(); return JSON.stringify({ running: p.state.running, enemies: p.state.enemyQueue.length }); })()"},
+  {"eval": "(async () => { const t0 = Date.now(); while (Date.now() - t0 < 8000) { const el = document.querySelector('.float-num.crit'); if (el) return JSON.stringify({ critFloatSeen: true, text: el.textContent, classes: el.className }); await new Promise(r=>setTimeout(r,60)); } return JSON.stringify({ critFloatSeen: false }); })()"},
+  {"shot": "at30_crit_nonchar.png"}
+]

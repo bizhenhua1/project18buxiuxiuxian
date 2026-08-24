@@ -32,6 +32,19 @@ export const BALANCE = {
   cdHaste: 0.035,
   /** 绝对地板（毫秒），防止表配错把 CD 打到 0 */
   cdHardMinMs: 500,
+  /** 防御递减公式常数：减伤率 = def / (def + defBase + defPerStage×关卡)，随关卡抬升防止防御白值碾压 */
+  defBase: 60,
+  defPerStage: 4,
+  /** 防御减伤封顶 */
+  defCap: 0.75,
+  /** 敌方双防成长：每关 +defGrowthPerStage 点（外防法防各加） */
+  defGrowthPerStage: 0.8,
+  /** 敌方双伤成长：每关 +0.8%，封顶 +10%（温和曲线，既有数值 ±15% 内） */
+  dmgGrowthPerStage: 0.008,
+  dmgGrowthCap: 0.10,
+  /** 敌方精英暴击：stage≥critBossStage 的 Boss 带基础暴击 */
+  critBossStage: 5,
+  bossCritChance: 0.10,
 };
 
 export function clampStage(stage) {
@@ -118,9 +131,18 @@ export function effectiveStats(unit, stage, side = "player") {
   };
 }
 
-/** 把有效攻/血/CD 快照到单位上；布阵与开战前调用。 */
+/** 防御递减：减伤率 = def / (def + 60 + 4×关卡)，封顶 75%。与百分比减伤（dmgReduce）相乘叠加。 */
+export function defReduction(def, stage) {
+  const d = Math.max(0, def || 0);
+  if (d <= 0) return 0;
+  const s = clampStage(stage);
+  return Math.min(BALANCE.defCap, d / (d + BALANCE.defBase + BALANCE.defPerStage * s));
+}
+
+/** 把有效攻/血/CD/双防快照到单位上；布阵与开战前调用。 */
 export function applyEffectiveStats(unit, stage) {
   if (!unit) return unit;
+  const s = clampStage(stage);
   const e = effectiveStats(unit, stage, unit.side);
   unit.atk = e.atk;
   unit.maxHp = e.hp;
@@ -130,7 +152,20 @@ export function applyEffectiveStats(unit, stage) {
   unit.atkMult = e.mult.atk;
   unit.hpMult = e.mult.hp;
   unit.cdMult = e.mult.cd;
-  unit.stageSnap = clampStage(stage);
+  unit.stageSnap = s;
+  // 双防：白板基础值；敌方随关卡温和成长（我方成长走天赋/装备 mods，在 applyPlayerMods 中叠加）
+  const enemy = unit.side === "enemy";
+  const defAdd = enemy ? Math.round(s * BALANCE.defGrowthPerStage) : 0;
+  unit.physDef = (unit.basePhysDef || 0) + defAdd;
+  unit.spellDef = (unit.baseSpellDef || 0) + defAdd;
+  if (enemy) {
+    // 敌方双伤成长（外/法各随自身 dmgType 生效，直接折入攻击）
+    const grow = Math.min(BALANCE.dmgGrowthCap, s * BALANCE.dmgGrowthPerStage);
+    if (grow > 0) unit.atk = Math.max(1, Math.round(unit.atk * (1 + grow)));
+    // 精英暴击：stage≥5 的 Boss 带 10% 基础暴击
+    unit.critChance = s >= BALANCE.critBossStage && isBossStage(s) ? BALANCE.bossCritChance : 0;
+    unit.critDmg = 1.5;
+  }
   return unit;
 }
 

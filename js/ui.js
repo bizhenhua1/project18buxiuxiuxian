@@ -1,11 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao5";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao5";
-import { collectTargetPairs } from "./combat.js?v=dao5";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao5";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao5";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao5";
-import { equipMods } from "./equipment.js?v=dao5";
-import { ownedBeasts } from "./loot.js?v=dao5";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao6";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao6";
+import { collectTargetPairs } from "./combat.js?v=dao6";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao6";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao6";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao6";
+import { equipMods } from "./equipment.js?v=dao6";
+import { ownedBeasts } from "./loot.js?v=dao6";
 
 let sceneCorridor = null;
 
@@ -614,7 +614,12 @@ export function formatCardTip(card, stage = 0) {
     card.cardType === "fabao"
       ? `<span class="tip-desc">法宝格＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。手持格＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童。</span>`
       : "";
-  return `<strong>${card.name} · ${typeName}${wt}</strong><span class="tip-stats">白板 攻 ${card.atk}　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s</span>${now}<span class="tip-desc">${card.skillText}</span>${modeNote}`;
+  const dtName = card.dmgType === "spell" ? "法伤" : "外伤";
+  const defLine =
+    (card.physDef || 0) > 0 || (card.spellDef || 0) > 0
+      ? `　外防 ${card.physDef || 0}　法防 ${card.spellDef || 0}`
+      : "";
+  return `<strong>${card.name} · ${typeName}${wt}</strong><span class="tip-stats">白板 攻 ${card.atk}（${dtName}）　血 ${card.hp}　CD ${(card.cd / 1000).toFixed(1)}s${defLine}</span>${now}<span class="tip-desc">${card.skillText}</span>${modeNote}`;
 }
 
 export function formatUnitTip(unit, elapsedSec = 0) {
@@ -636,7 +641,14 @@ export function formatUnitTip(unit, elapsedSec = 0) {
     unit.atkMult != null
       ? `<span class="tip-stats">关卡 攻×${fmtMult(unit.atkMult)}　血×${fmtMult(unit.hpMult)}</span>`
       : "";
-  return `<strong>${unit.name}${dead ? (reviving ? " · 重聚中" : " · 尸体") : ""}</strong><span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${modeLine}${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
+  // 属性行：伤害类型 / 双防 / 暴击暴伤
+  const dtName = unit.dmgType === "spell" ? "法伤" : "外伤";
+  const critNote =
+    (unit.critChance || 0) > 0
+      ? `　暴击 ${Math.round(unit.critChance * 100)}%/暴伤 ${Math.round((unit.critDmg || 1.5) * 100)}%`
+      : "";
+  const attrLine = `<span class="tip-stats">${dtName}攻击　外防 ${unit.physDef || 0}　法防 ${unit.spellDef || 0}${critNote}</span>`;
+  return `<strong>${unit.name}${dead ? (reviving ? " · 重聚中" : " · 尸体") : ""}</strong><span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${attrLine}${modeLine}${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
 }
 
 export function hideCardTip() {

@@ -11,7 +11,7 @@ import {
   deallocate,
   respec,
   getNode,
-} from "./talents.js?v=dao5";
+} from "./talents.js?v=dao6";
 
 const BRANCH_COLORS = {
   root: "#e6c46a",

@@ -9,6 +9,8 @@
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
  */
 
+import { ACTIVE_SKILLS } from "./unit.js?v=dao6";
+
 const STORE_KEY = "dao-talents-v1";
 
 // ---------------------------------------------------------------------------
@@ -47,17 +49,21 @@ export const TREE_NODES = [
   node("b8", "三头六臂", "keystone", "体修", pos(TI, 262), "道果：手持格再+2（共6），力量+4——六臂各持凶兵", { handSlots: 2, weightAdd: 4 }),
   node("b9", "法宝合身", "keystone", "体修", pos(TI, 322), "道果：手持法宝血量继承比例+30%（基础30%→60%），且道童金刚护体（受伤-30%）——全队一根粗血条", { mergeHeldHpPct: 30, dmgReducePct: 30 }),
   node("b10", "猿臂", "small", "体修", pos(TI, 280, 84), "攻速+6%：降低道童与手持法宝的等效冷却", { atkSpeedPct: 6 }),
-  node("b11", "锐目", "small", "体修", pos(TI, 345, 88), "暴击+5%：道童与手持法宝出手可暴击（暴伤150%）", { critPct: 5 }),
+  node("b11", "锐目", "small", "体修", pos(TI, 345, 88), "暴击+5%：全队出手可暴击（基础暴伤150%）", { critPct: 5 }),
+  node("b12", "刚劲", "small", "体修", pos(TI, 150, -62), "外伤+8%：全队外伤类攻击增伤", { physPct: 8 }),
+  node("b13", "铁骨", "small", "体修", pos(TI, 345, -92), "外防+6：全队外伤防御点数（递减减伤）", { physDef: 6 }),
 
-  // ---- 法修（右上）：识海格 / 法术强度 / CD ----
-  node("f1", "凝神", "small", "法修", pos(FA, 70), "法术强度+8%", { spellPct: 8 }),
+  // ---- 法修（右上）：识海格 / 法伤 / 技能冷却 ----
+  node("f1", "凝神", "small", "法修", pos(FA, 70), "法伤+8%：全队法伤类攻击增伤（含法术治疗强度）", { spellPct: 8 }),
   node("f2", "识海开窍", "notable", "法修", pos(FA, 135), "开启识海格×2：法术无血量、不占承伤位，按 CD 自动施放", { mindSlots: 2 }),
   node("f3", "静心", "small", "法修", pos(FA, 150, -62), "全队冷却-3%", { cdPct: 3 }),
   node("f4", "神识", "small", "法修", pos(FA, 215, -78), "识海格+1", { mindSlots: 1 }),
-  node("f5", "灵台清明", "notable", "法修", pos(FA, 200), "识海格再+2，法术强度+8%", { mindSlots: 2, spellPct: 8 }),
-  node("f6", "咒力", "small", "法修", pos(FA, 215, 78), "法术强度+10%", { spellPct: 10 }),
+  node("f5", "灵台清明", "notable", "法修", pos(FA, 200), "识海格再+2，法伤+8%", { mindSlots: 2, spellPct: 8 }),
+  node("f6", "咒力", "small", "法修", pos(FA, 215, 78), "法伤+10%", { spellPct: 10 }),
   node("f7", "玄妙", "small", "法修", pos(FA, 280, 84), "全队冷却-4%", { cdPct: 4 }),
-  node("f8", "万法周天", "keystone", "法修", pos(FA, 262), "道果：识海格再+3（共8），法术强度+20%，但全队生命-10%", { mindSlots: 3, spellPct: 20, hpPct: -10 }),
+  node("f8", "万法周天", "keystone", "法修", pos(FA, 262), "道果：识海格再+3（共8），法伤+20%，但全队生命-10%", { mindSlots: 3, spellPct: 20, hpPct: -10 }),
+  node("f9", "凝息", "small", "法修", pos(FA, 280, -84), "技能冷却-8%：只压缩主动技与识海法术的等效 CD", { skillCdrPct: 8 }),
+  node("f10", "玄盾", "small", "法修", pos(FA, 345, -88), "法防+6：全队法伤防御点数（递减减伤）", { spellDef: 6 }),
 
   // ---- 器道（左下）：法宝格 / 剑阵 / 幡 ----
   node("q1", "御器", "small", "器道", pos(QI, 70), "法宝攻击+6%", { fabaoAtkPct: 6 }),
@@ -65,6 +71,7 @@ export const TREE_NODES = [
   node("q3", "炼器", "small", "器道", pos(QI, 150, -62), "法宝生命+8%", { fabaoHpPct: 8 }),
   node("q4", "剑心", "notable", "器道", pos(QI, 215, 78), "剑阵解锁：任一剑类出手时，其余存活剑类各追击 30% 伤害", { swordEchoPct: 30 }),
   node("q5", "剑意", "small", "器道", pos(QI, 280, 84), "剑阵追击伤害+12%", { swordEchoPct: 12 }),
+  node("q9", "淬锋", "small", "器道", pos(QI, 345, 92), "暴伤+20%：全队暴击伤害倍率提高", { critDmgPct: 20 }),
   node("q6", "幡道", "notable", "器道", pos(QI, 215, -78), "幡类每层魂力加成 8%→12%", { fanPerStackPct: 12 }),
   node("q7", "器灵", "small", "器道", pos(QI, 200), "法宝攻击+8%", { fabaoAtkPct: 8 }),
   node("q8", "万宝归宗", "keystone", "器道", pos(QI, 262), "道果：法宝格再+3（共9），法宝攻血各+10%", { fabaoSlots: 3, fabaoAtkPct: 10, fabaoHpPct: 10 }),
@@ -84,10 +91,13 @@ export const TREE_EDGES = [
   ["root", "b1"], ["b1", "b2"], ["b2", "b5"], ["b5", "b8"], ["b8", "b9"],
   ["b2", "b3"], ["b3", "b4"], ["b5", "b6"], ["b6", "b7"],
   ["b4", "b10"], ["b10", "b11"],
+  ["b2", "b12"], ["b12", "b6"], ["b7", "b13"],
   ["root", "f1"], ["f1", "f2"], ["f2", "f5"], ["f5", "f8"],
   ["f2", "f3"], ["f2", "f4"], ["f5", "f6"], ["f6", "f7"],
+  ["f4", "f9"], ["f9", "f10"],
   ["root", "q1"], ["q1", "q2"], ["q2", "q7"], ["q7", "q8"],
   ["q2", "q3"], ["q1", "q4"], ["q4", "q5"], ["q2", "q6"],
+  ["q5", "q9"],
   ["root", "y1"], ["y1", "y2"], ["y2", "y5"], ["y5", "y8"],
   ["y2", "y3"], ["y3", "y4"], ["y5", "y6"], ["y1", "y7"],
   // 交叉小路：跨道途 build 的走位
@@ -198,7 +208,8 @@ export function reconcile(unlockStage) {
 export function emptyMods() {
   return {
     atkPct: 0, hpPct: 0, cdPct: 0, dmgReducePct: 0, thornsPct: 0,
-    splashDmgPct: 0, splashN: 0, healPct: 0, shieldPct: 0, spellPct: 0,
+    splashDmgPct: 0, splashN: 0, healPct: 0, shieldPct: 0,
+    physPct: 0, spellPct: 0, physDef: 0, spellDef: 0, skillCdrPct: 0,
     capturePct: 0, luckPct: 0, weightAdd: 0, mindSlotAdd: 0,
     fabaoAtkPct: 0, fabaoHpPct: 0, beastAtkPct: 0, beastHpPct: 0,
     swordEchoPct: 0, fanPerStackPct: 0,
@@ -265,9 +276,8 @@ export function applyPlayerMods(unit, mods) {
     atkPct += mods.beastAtkPct;
     hpPct += mods.beastHpPct;
   }
-  if (unit.cardType === "spell") {
-    atkPct += mods.spellPct;
-  }
+  // 伤害二元化：外伤%/法伤% 只增益对应 dmgType（识海法术默认法伤，故 spellPct 兼容旧「法术强度」语义）
+  atkPct += unit.dmgType === "spell" ? mods.spellPct : mods.physPct;
   unit.atk = Math.max(1, Math.round(unit.atk * (1 + atkPct / 100)));
   if (isHeld(unit)) {
     unit.atk = Math.max(1, Math.round(unit.atk * (1 + (unit.weight || 0) * HELD_WEIGHT_ATK_STEP)));
@@ -279,15 +289,19 @@ export function applyPlayerMods(unit, mods) {
   if ((unit.cardType === "char" || isHeld(unit)) && mods.atkSpeedPct > 0) {
     unit.cd = Math.max(400, Math.round(unit.cd / (1 + mods.atkSpeedPct / 100)));
   }
-  unit.cdLeft = Math.min(unit.cdLeft, unit.cd);
-  // 暴击只属于主角与手持法宝（手持继承主角暴击）
-  if (unit.cardType === "char" || isHeld(unit)) {
-    unit.critChance = Math.max(0, Math.min(1, mods.critPct / 100));
-    unit.critDmg = 1.5 + Math.max(0, mods.critDmgPct) / 100;
-  } else {
-    unit.critChance = 0;
-    unit.critDmg = 1.5;
+  // 技能冷却只压缩主动技（heal/shield/haste，held 封印时不吃）与识海法术的等效 CD
+  const hasActiveSkill =
+    unit.cardType === "spell" || (ACTIVE_SKILLS.has(unit.skill) && !isHeld(unit));
+  if (hasActiveSkill && mods.skillCdrPct > 0) {
+    unit.cd = Math.max(400, Math.round(unit.cd / (1 + mods.skillCdrPct / 100)));
   }
+  unit.cdLeft = Math.min(unit.cdLeft, unit.cd);
+  // 暴击/暴伤：全队通用属性（每单位生效）
+  unit.critChance = Math.max(0, Math.min(1, mods.critPct / 100));
+  unit.critDmg = 1.5 + Math.max(0, mods.critDmgPct) / 100;
+  // 防御二元化：白板 + 天赋/词条点数
+  unit.physDef = (unit.basePhysDef || 0) + Math.max(0, mods.physDef || 0);
+  unit.spellDef = (unit.baseSpellDef || 0) + Math.max(0, mods.spellDef || 0);
   // 重聚时间是法宝自身属性，仅天赋/词条「重聚缩减%」可修改
   if (unit.cardType === "fabao") {
     const cdr = Math.max(0, Math.min(80, mods.reviveCdrPct || 0));

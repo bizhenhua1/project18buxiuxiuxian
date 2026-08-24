@@ -5,8 +5,9 @@ import {
   markCorpse,
   queueNeighbors,
   unitsBehind,
-} from "./grid.js?v=dao5";
-import { ACTIVE_SKILLS } from "./unit.js?v=dao5";
+} from "./grid.js?v=dao6";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao6";
+import { defReduction } from "./balance.js?v=dao6";
 
 const RANGED_IDS = new Set(["tongjing", "yewu", "huangfeng"]);
 
@@ -15,7 +16,7 @@ function skillSealed(unit) {
   return unit.cardType === "fabao" && unit.mode === "held" && ACTIVE_SKILLS.has(unit.skill);
 }
 
-/** 暴击掷点：只有主角与手持法宝拥有 critChance（见 talents.applyPlayerMods）。 */
+/** 暴击掷点：全队通用属性（critChance 每单位生效，敌方精英 Boss 也可带）。 */
 function rollCrit(unit) {
   return (unit.critChance || 0) > 0 && Math.random() < unit.critChance;
 }
@@ -48,10 +49,16 @@ function attackAmount(unit) {
   return a;
 }
 
-export function applyDamage(target, amount) {
+/**
+ * 伤害结算：先按 dmgType 走对应防御的递减公式，再乘 dmgReduce（相乘叠加），最后过护盾。
+ * dmgType: "phys"（外伤→外防）| "spell"（法伤→法防）| null（无类型，如真实伤害，不吃防御）。
+ */
+export function applyDamage(target, amount, dmgType = null) {
   const events = [];
   if (!target || target.status === "corpse" || target.hp <= 0) return events;
-  let rest = Math.max(0, Math.round(amount * (1 - (target.dmgReduce || 0))));
+  const def = dmgType === "spell" ? target.spellDef : dmgType === "phys" ? target.physDef : 0;
+  const defRed = defReduction(def, target.stageSnap || 0);
+  let rest = Math.max(0, Math.round(amount * (1 - defRed) * (1 - (target.dmgReduce || 0))));
   if (rest <= 0) return events;
   let dealt = 0;
   if (target.shield > 0) {
@@ -65,7 +72,7 @@ export function applyDamage(target, amount) {
     target.hp -= rest;
     dealt += hpHit;
   }
-  events.push({ type: "damage", unit: target, amount: Math.round(amount), dealt });
+  events.push({ type: "damage", unit: target, amount: Math.round(amount), dealt, dmgType });
   if (target.hp <= 0) {
     markCorpse(target);
     events.push({ type: "death", unit: target });
@@ -117,25 +124,29 @@ function castSpell(attacker, foes, allies) {
   if (!target) return events;
   attacker.lastTargetUid = target.uid;
 
+  // 全队暴击：识海法术施放同样掷点（一次施放共享一次掷点）
+  const crit = rollCrit(attacker);
+  const critMult = crit ? attacker.critDmg || 1.5 : 1;
+
   if (attacker.spellKind === "fireball") {
     const all = livingUnits(foes).filter(isTargetable);
     all.forEach((foe, i) => {
-      events.push({ type: "shot", style: "beam", from: attacker, to: foe, amount: power, secondary: i > 0 });
+      events.push({ type: "shot", style: "beam", from: attacker, to: foe, amount: power * critMult, crit, secondary: i > 0 });
     });
     return events;
   }
   if (attacker.spellKind === "bind") {
     target.cdLeft += 1400;
     events.push({ type: "buff", unit: target, amount: 0 });
-    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 0.4, secondary: false });
+    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 0.4 * critMult, crit, secondary: false });
     return events;
   }
   if (attacker.spellKind === "bolt") {
-    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 2.2, secondary: false });
+    events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * 2.2 * critMult, crit, secondary: false });
     return events;
   }
   // mend 落空或未知法术：普通一击
-  events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power, secondary: false });
+  events.push({ type: "shot", style: "beam", from: attacker, to: target, amount: power * critMult, crit, secondary: false });
   return events;
 }
 
@@ -242,7 +253,9 @@ export function resolveShot(shot) {
     events.push(...heals);
     return events;
   }
-  const hits = applyDamage(shot.to, shot.amount);
+  // 伤害类型取自出手者（外伤/法伤各走对应防御）
+  const dmgType = shot.dmgType || (shot.from && shot.from.dmgType) || "phys";
+  const hits = applyDamage(shot.to, shot.amount, dmgType);
   const dealt = hits.reduce((s, ev) => s + (ev.type === "damage" ? (ev.dealt || 0) : 0), 0);
   if (shot.from) shot.from.damageDealt = (shot.from.damageDealt || 0) + dealt;
   if (shot.crit) {
@@ -262,7 +275,8 @@ export function resolveShot(shot) {
   ) {
     const reflect = Math.round(dealt * shot.to.thorns);
     if (reflect > 0) {
-      const back = applyDamage(shot.from, reflect);
+      // 反伤定为外伤
+      const back = applyDamage(shot.from, reflect, "phys");
       const rDealt = back.reduce((s, ev) => s + (ev.type === "damage" ? (ev.dealt || 0) : 0), 0);
       shot.to.damageDealt = (shot.to.damageDealt || 0) + rDealt;
       events.push(...back);

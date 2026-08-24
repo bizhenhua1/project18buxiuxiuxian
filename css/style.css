@@ -804,7 +804,8 @@ button, select { font-family: inherit; }
   will-change: transform, opacity;
   pointer-events: none;
 }
-.float-num.dmg { color: #ff4d45; }
+.float-num.dmg { color: #ff4d45; } /* 外伤：暖色 */
+.float-num.dmg.spell { color: #b57aff; text-shadow: 0 0 5px rgba(140, 80, 255, 0.55); } /* 法伤：冷紫 */
 .float-num.heal { color: #3dff7a; }
 .float-num.buff { color: #9dd6ff; font-size: 18px; }
 /* 暴击跳字：更大字号 + “暴”标 */

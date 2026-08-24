@@ -1,4 +1,4 @@
-import { applyEffectiveStats } from "./balance.js?v=dao5";
+import { applyEffectiveStats } from "./balance.js?v=dao6";
 
 let uidSeq = 1;
 
@@ -31,6 +31,11 @@ function card(spec) {
     cardType: spec.cardType || (spec.pool === "enemy" ? "monster" : "fabao"),
     weight: spec.weight || 0,
     reviveMs: spec.reviveMs || 0,
+    // 伤害二元化：外伤 phys / 法伤 spell（识海法术默认法伤）；治疗/护盾无类型
+    dmgType: spec.dmgType || (spec.cardType === "spell" ? "spell" : "phys"),
+    // 防御二元化：外防/法防白板（多数 0~小值，坦克型给防御）
+    physDef: spec.physDef || 0,
+    spellDef: spec.spellDef || 0,
     tags: spec.tags || [],
     ...spec,
   };
@@ -80,8 +85,11 @@ export const PLAYER_LIBRARY = [
     hp: 48,
     atk: 10,
     cd: 1400,
+    dmgType: "phys",
+    physDef: 2,
+    spellDef: 2,
     skill: "none",
-    skillText: "主角，攻守均衡，单体攻击最左存活。手持武器与识海法术都系于他一身",
+    skillText: "主角，攻守均衡，单体攻击最左存活（外伤）。手持法宝与识海法术都系于他一身",
   }),
   fabao({
     id: "taomu-jian",
@@ -107,8 +115,11 @@ export const PLAYER_LIBRARY = [
     weight: 3,
     reviveMs: 7000,
     base: { hp: 24, atk: 3.9, cd: 1250 },
+    dmgType: "spell",
+    physDef: 6,
+    spellDef: 6,
     skill: "shield",
-    skillText: "主动技：行动时获得护盾再攻击最左（手持时封印，退化为普攻）",
+    skillText: "主动技：行动时获得护盾再攻击最左（法伤；手持时封印，退化为普攻）。印身厚重，自带双防",
   }),
   fabao({
     id: "masuo",
@@ -133,10 +144,11 @@ export const PLAYER_LIBRARY = [
     weight: 2,
     reviveMs: 5500,
     base: { hp: 17.33, atk: 5.88, cd: 1209.7 },
+    dmgType: "spell",
     ranged: true,
     atkType: "beam",
     skill: "splash",
-    skillText: "光线，打最左并溅射其身后 2 张（攻击形态，两种模式都生效）",
+    skillText: "镜光法伤，打最左并溅射其身后 2 张（攻击形态，两种模式都生效）",
   }),
   fabao({
     id: "xiaohulu",
@@ -148,8 +160,9 @@ export const PLAYER_LIBRARY = [
     weight: 2,
     reviveMs: 5500,
     base: { hp: 21.33, atk: 3.68, cd: 1209.7 },
+    dmgType: "spell",
     skill: "heal",
-    skillText: "主动技：优先治疗伤员，全满则打对方最左（手持时封印，退化为普攻）",
+    skillText: "主动技：优先治疗伤员，全满则以灵气打对方最左（法伤；手持时封印，退化为普攻）",
   }),
   fabao({
     id: "juhun-fan",
@@ -162,8 +175,9 @@ export const PLAYER_LIBRARY = [
     weight: 2,
     reviveMs: 6000,
     base: { hp: 20, atk: 4.41, cd: 1209.7 },
+    dmgType: "spell",
     skill: "none",
-    skillText: "被动：敌我任意单位死亡时幡叠 1 层魂力，每层攻击+8%（手持照常叠层）。克送死复活流",
+    skillText: "被动：敌我任意单位死亡时幡叠 1 层魂力，每层攻击+8%（手持照常叠层）。魂噬为法伤，克送死复活流",
   }),
   fabao({
     id: "qingfeng-jian",
@@ -277,7 +291,9 @@ export const ENEMY_LIBRARY = [
     hp: 18,
     atk: 8,
     cd: 850,
-    skillText: "脆皮，冷却极快",
+    dmgType: "spell",
+    spellDef: 2,
+    skillText: "妖火扑咬（法伤），脆皮，冷却极快",
   }),
   card({
     id: "caoshe",
@@ -303,7 +319,8 @@ export const ENEMY_LIBRARY = [
     cd: 1100,
     ranged: true,
     atkType: "beam",
-    skillText: "光线啄击最左",
+    dmgType: "spell",
+    skillText: "妖光啄击最左（法伤）",
   }),
   card({
     id: "jinchan",
@@ -315,7 +332,9 @@ export const ENEMY_LIBRARY = [
     hp: 36,
     atk: 5,
     cd: 1600,
-    skillText: "皮厚攻低",
+    physDef: 8,
+    spellDef: 2,
+    skillText: "皮厚攻低，外防高",
   }),
   card({
     id: "shujing",
@@ -339,7 +358,8 @@ export const ENEMY_LIBRARY = [
     hp: 32,
     atk: 9,
     cd: 1500,
-    skillText: "冲撞最左",
+    physDef: 4,
+    skillText: "冲撞最左（外伤），糙皮带外防",
   }),
   card({
     id: "xiaoqiao",
@@ -352,8 +372,10 @@ export const ENEMY_LIBRARY = [
     atk: 8,
     cd: 1600,
     atkType: "beam",
+    dmgType: "spell",
+    spellDef: 4,
     skill: "splash",
-    skillText: "光线打最左，并溅射其身后 2 张",
+    skillText: "蛟息法伤打最左，并溅射其身后 2 张；有灵性带法防",
   }),
   card({
     id: "shanyang",
@@ -365,7 +387,9 @@ export const ENEMY_LIBRARY = [
     hp: 28,
     atk: 8,
     cd: 1400,
-    skillText: "均衡低级怪",
+    physDef: 3,
+    spellDef: 3,
+    skillText: "均衡低级怪，双防各有一点",
   }),
   card({
     id: "huangfeng",
@@ -391,8 +415,10 @@ export const ENEMY_LIBRARY = [
     hp: 44,
     atk: 5,
     cd: 1900,
+    physDef: 12,
+    spellDef: 6,
     skill: "shield",
-    skillText: "最肉，行动时叠一层护盾",
+    skillText: "最肉，双防最高，行动时叠一层护盾",
   }),
 ];
 
@@ -442,6 +468,12 @@ export function createUnit(cardId, side, index = 0, stage = 0, mode = "station")
     reviveLeft: 0,
     critChance: 0,
     critDmg: 1.5,
+    // 伤害类型与双防（applyEffectiveStats 依据 base 值快照，敌方随关卡成长，我方由 mods 叠加）
+    dmgType: card.dmgType || "phys",
+    basePhysDef: card.physDef || 0,
+    baseSpellDef: card.spellDef || 0,
+    physDef: card.physDef || 0,
+    spellDef: card.spellDef || 0,
     tags: card.tags || [],
     spellKind: card.spellKind || "",
     face: card.face,
@@ -500,7 +532,8 @@ export function unitDesc(unit) {
     `${unit.icon} ${unit.name}（${unit.side === "player" ? "我方" : "敌方"} · ${typeName}）${dead ? " · 尸体" : ""}`,
     `队列第 ${unit.index + 1} 位${role}${holdNote}`,
     `状态 ${dead ? "尸体" : "存活"}    生命 ${unit.hp}/${unit.maxHp}${baseHp}    护盾 ${unit.shield}`,
-    `攻击 ${unit.atk}${baseAtk}    冷却 ${cdSec}s    ${dead ? "冷却已停" : `剩余 ${left}s`}`,
+    `攻击 ${unit.atk}${baseAtk}（${unit.dmgType === "spell" ? "法伤" : "外伤"}）    冷却 ${cdSec}s    ${dead ? "冷却已停" : `剩余 ${left}s`}`,
+    `外防 ${unit.physDef || 0}    法防 ${unit.spellDef || 0}${unit.critChance > 0 ? `    暴击 ${Math.round(unit.critChance * 100)}% / 暴伤 ${Math.round((unit.critDmg || 1.5) * 100)}%` : ""}`,
     `技能：${unit.skillText}`,
   ].join("\n");
 }

@@ -8,10 +8,10 @@ import {
   moveUnit,
   clearQueue,
   findUnitByUid,
-} from "./grid.js?v=dao5";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao5";
-import { tick, resolveShot, checkWinner, processDeaths } from "./combat.js?v=dao5";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao5";
+} from "./grid.js?v=dao6";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao6";
+import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao6";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao6";
 import {
   talentMods,
   talentPoints,
@@ -21,11 +21,11 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao5";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao5";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao5";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao5";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao5";
+} from "./talents.js?v=dao6";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao6";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao6";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao6";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao6";
 import {
   buildLanes,
   buildPool,
@@ -54,12 +54,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao5";
+} from "./ui.js?v=dao6";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao5";
+} from "./map.js?v=dao6";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas25";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -161,7 +161,11 @@ function paint() {
 
 function applyImpact(events, at = null) {
   for (const ev of events) {
-    if (ev.type === "damage") spawnFloat(ev.unit, `-${ev.amount}`, ev.crit ? "dmg crit" : "dmg", at);
+    // 跳字按伤害类型分色：外伤暖色、法伤冷紫；暴击加大字带「暴」标
+    if (ev.type === "damage") {
+      const kind = `dmg${ev.dmgType === "spell" ? " spell" : ""}${ev.crit ? " crit" : ""}`;
+      spawnFloat(ev.unit, `-${ev.amount}`, kind, at);
+    }
     if (ev.type === "heal") spawnFloat(ev.unit, `+${ev.amount}`, "heal", at);
     if (ev.type === "buff") spawnFloat(ev.unit, ev.amount ? "▲" : "▲0", "buff", at);
     if (ev.type === "revive") spawnFloat(ev.unit, "重聚", "revive");
@@ -885,6 +889,16 @@ window.__dao = {
     const unit = findUnitByUid([state.playerQueue], uid);
     if (unit) toggleFabaoMode(unit);
     return unit ? unit.mode : "not found";
+  },
+  /** 定向打一发：验证外/法伤按防御结算与 dmgReduce 乘算叠加（验收用） */
+  hit(uid, amount, dmgType = "phys") {
+    const unit = findUnitByUid([state.playerQueue, state.enemyQueue], uid);
+    if (!unit) return "not found";
+    const before = unit.hp + (unit.shield || 0);
+    const events = applyDamage(unit, amount, dmgType);
+    settle(events);
+    paint();
+    return { dealt: before - (unit.hp + (unit.shield || 0)), hp: unit.hp, shield: unit.shield, status: unit.status };
   },
   clear() {
     clearQueue(state.playerQueue);

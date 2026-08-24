@@ -4,18 +4,23 @@
  * 装备穿在道童身上、数值全队生效（全队本就是修士的持有物）。
  */
 
-import { emptyMods, mergeMods } from "./talents.js?v=dao5";
+import { emptyMods, mergeMods } from "./talents.js?v=dao6";
 
 const BAG_KEY = "dao-bag-v1";
 
+/**
+ * 主属性归属（dao6 重梳）：
+ * 帽=生命 / 衣=外防 / 鞋=全冷却（稀有强力）/ 腕=攻击 / 戒=暴击 / 链=法伤 / 玉=法防。
+ * 气运从玉佩主属性移入词条池与仙品专属。
+ */
 export const EQUIP_SLOTS = [
   { id: "hat", name: "束发冠", icon: "👑", main: "hpPct", mainBase: 6, art: "assets/equipment/equip-hat.png" },
-  { id: "robe", name: "法衣", icon: "🥋", main: "dmgReducePct", mainBase: 3, art: "assets/equipment/equip-robe.png" },
+  { id: "robe", name: "法衣", icon: "🥋", main: "physDef", mainBase: 8, art: "assets/equipment/equip-robe.png" },
   { id: "boots", name: "云履", icon: "👞", main: "cdPct", mainBase: 3, art: "assets/equipment/equip-boots.png" },
   { id: "bracer", name: "护腕", icon: "🥊", main: "atkPct", mainBase: 4, art: "assets/equipment/equip-bracer.png" },
-  { id: "ring", name: "戒指", icon: "💍", main: "atkPct", mainBase: 5, art: "assets/equipment/equip-ring.png" },
+  { id: "ring", name: "戒指", icon: "💍", main: "critPct", mainBase: 4, art: "assets/equipment/equip-ring.png" },
   { id: "amulet", name: "项链", icon: "📿", main: "spellPct", mainBase: 6, art: "assets/equipment/equip-amulet.png" },
-  { id: "jade", name: "玉佩", icon: "🪬", main: "luckPct", mainBase: 5, art: "assets/equipment/equip-jade.png" },
+  { id: "jade", name: "玉佩", icon: "🪬", main: "spellDef", mainBase: 8, art: "assets/equipment/equip-jade.png" },
 ];
 
 export const RARITIES = [
@@ -28,13 +33,18 @@ export const RARITIES = [
 export const STAT_NAMES = {
   atkPct: "攻击",
   hpPct: "生命",
-  cdPct: "冷却缩减",
+  cdPct: "全冷却",
   dmgReducePct: "受伤减免",
   thornsPct: "反伤",
   splashDmgPct: "溅射伤害",
   healPct: "治疗强化",
   shieldPct: "护盾强化",
-  spellPct: "法术强度",
+  physPct: "外伤",
+  spellPct: "法伤",
+  physDef: "外防",
+  spellDef: "法防",
+  skillCdrPct: "技能冷却",
+  dualDef: "阴阳护体·双防",
   capturePct: "收服概率",
   luckPct: "气运",
   weightAdd: "力量预算",
@@ -49,27 +59,34 @@ export const STAT_NAMES = {
   reviveCdrPct: "重聚缩减",
 };
 
-/** 词条是否为非百分比的固定值 */
+/** 词条是否为非百分比的固定值（不随关卡放大） */
 const FLAT_STATS = new Set(["weightAdd", "mindSlotAdd"]);
+/** 防御点数：显示为整数点，但数值随关卡放大（公式常数也随关卡抬升） */
+const DEF_STATS = new Set(["physDef", "spellDef", "dualDef"]);
 
 export function fmtStat(stat, val) {
   const name = STAT_NAMES[stat] || stat;
-  if (FLAT_STATS.has(stat)) return `${name}+${val}`;
-  if (stat === "cdPct" || stat === "dmgReducePct" || stat === "reviveCdrPct") return `${name} ${val}%`;
+  if (FLAT_STATS.has(stat) || DEF_STATS.has(stat)) return `${name}+${val}`;
+  if (stat === "cdPct" || stat === "dmgReducePct" || stat === "reviveCdrPct" || stat === "skillCdrPct") return `${name} ${val}%`;
   return `${name}+${val}%`;
 }
 
 /** 词条池：favored 部位权重×3，形成部位主题偏向。 */
+// dao6：普通词条池撤下全队 cdPct（保留为鞋主属性 + 仙品·踏虚的"全冷却"稀有词条），
+// 换成方向性更强的攻速/技能冷却；并加入外伤/法伤/外防/法防。
 const AFFIX_POOL = [
   { stat: "atkPct", base: 3, favored: ["bracer", "ring"] },
   { stat: "hpPct", base: 4, favored: ["hat", "robe"] },
-  { stat: "cdPct", base: 2, favored: ["boots"] },
   { stat: "dmgReducePct", base: 2, favored: ["robe"] },
   { stat: "thornsPct", base: 5, favored: ["robe", "bracer"] },
   { stat: "splashDmgPct", base: 6, favored: ["ring"] },
   { stat: "healPct", base: 6, favored: ["amulet"] },
   { stat: "shieldPct", base: 6, favored: ["hat"] },
+  { stat: "physPct", base: 4, favored: ["bracer", "ring"] },
   { stat: "spellPct", base: 4, favored: ["amulet", "ring"] },
+  { stat: "physDef", base: 5, favored: ["robe", "hat"] },
+  { stat: "spellDef", base: 5, favored: ["jade", "amulet"] },
+  { stat: "skillCdrPct", base: 3, favored: ["boots", "amulet"] },
   { stat: "capturePct", base: 4, favored: ["jade"] },
   { stat: "luckPct", base: 3, favored: ["jade"] },
   { stat: "fabaoAtkPct", base: 4, favored: ["bracer"] },
@@ -82,7 +99,8 @@ const AFFIX_POOL = [
 /** 仙品专属强词条（每部位一条，必然附加）。 */
 const XIAN_EXCLUSIVE = {
   hat: { stat: "hpPct", base: 10 },
-  robe: { stat: "thornsPct", base: 12 },
+  robe: { stat: "dualDef", base: 8 }, // 阴阳护体：外防/法防各+N（跨防御仙品专属）
+
   boots: { stat: "cdPct", base: 6 },
   bracer: { stat: "weightAdd", base: 2 },
   ring: { stat: "splashDmgPct", base: 15 },
@@ -238,7 +256,10 @@ export function equipMods() {
     const put = (stat, val) => {
       if (stat === "weightAdd") out.weightAdd += val;
       else if (stat === "mindSlotAdd") out.mindSlotAdd += val;
-      else if (stat in out) out[stat] += val;
+      else if (stat === "dualDef") {
+        out.physDef += val;
+        out.spellDef += val;
+      } else if (stat in out) out[stat] += val;
     };
     put(item.main.stat, item.main.val);
     for (const a of item.affixes) put(a.stat, a.val);

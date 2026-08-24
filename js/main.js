@@ -122,6 +122,7 @@ let lastTs = 0;
 let drag = null;
 let inflight = 0;
 let corridorTraveling = false;
+let pendingReviveTimer = 0;
 
 function cap() {
   return capAt(state.unlockStage);
@@ -204,6 +205,26 @@ function settleVictory() {
   return { items, caught };
 }
 
+function clearPendingRevive() {
+  if (pendingReviveTimer) {
+    clearTimeout(pendingReviveTimer);
+    pendingReviveTimer = 0;
+  }
+}
+
+/** 战败/平局后原地复位：我方满血复活、敌方按当前关卡重填，可直接再战。 */
+function reviveAfterDefeat() {
+  pendingReviveTimer = 0;
+  if (state.running || corridorTraveling) return;
+  for (const u of state.playerQueue) resetCombatState(u);
+  fillEnemyPreset();
+  restatQueues();
+  state.winner = null;
+  setStatus("战败：已在当前路点原地休整，可调整阵容/天赋/装备后重新开战", "lose");
+  syncButtons();
+  paint();
+}
+
 function finishIfNeeded() {
   if (inflight > 0 || !state.running) return false;
   checkWinner(state);
@@ -226,7 +247,11 @@ function finishIfNeeded() {
   setStatus(msg, kind);
   syncButtons();
   if (state.winner === "player") queueTravelThenNextStage();
-  else corridor?.setMoving?.(false);
+  else {
+    corridor?.setMoving?.(false);
+    clearPendingRevive();
+    pendingReviveTimer = setTimeout(reviveAfterDefeat, 1200);
+  }
   return true;
 }
 
@@ -401,6 +426,7 @@ function startBattle() {
     setStatus("手持武器与识海法术系于道童一身：请先上道童", "warn");
     return;
   }
+  clearPendingRevive();
   if (livingUnits(state.enemyQueue).length === 0) fillEnemyPreset();
   state.killedEnemies = [];
   restatQueues();
@@ -421,6 +447,7 @@ function startBattle() {
 }
 
 function resetBattle() {
+  clearPendingRevive();
   corridor?.setMoving?.(false);
   corridorTraveling = false;
   state.running = false;
@@ -441,6 +468,7 @@ function resetBattle() {
 }
 
 function applyNextStageSpawn() {
+  clearPendingRevive();
   const atCap = state.unlockStage >= MAX_STAGE;
   state.unlockStage += 1;
   state.focusStage = state.unlockStage;

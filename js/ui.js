@@ -1,12 +1,12 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao11";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao11";
-import { collectTargetPairs } from "./combat.js?v=dao11";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao11";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao11";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao11";
-import { equipMods } from "./equipment.js?v=dao11";
-import { ownedBeasts } from "./loot.js?v=dao11";
-import { realmState, realmTitle } from "./realm.js?v=dao11";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao12";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao12";
+import { collectTargetPairs } from "./combat.js?v=dao12";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao12";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao12";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao12";
+import { equipMods } from "./equipment.js?v=dao12";
+import { ownedBeasts } from "./loot.js?v=dao12";
+import { realmState, realmTitle } from "./realm.js?v=dao12";
 
 let sceneCorridor = null;
 
@@ -149,7 +149,8 @@ function laneCapacity(state, slots) {
 
 /**
  * 排出一条队列的 10 个格位类型：
- * - 已占用位按占用者类型（卡牌覆盖其上，仅作衬底）
+ * - 已占用位按占用者类型（卡牌覆盖其上，仅作衬底）——格位类型跟着占位单位走，
+ *   可承伤区自由排序后不再假设本体格在最左
  * - 空位按「剩余容量」依次排类型（本体→法宝→手持→识海→兽栏）
  * - 容量之外一律封印
  */

@@ -9,10 +9,10 @@ import {
   clearQueue,
   findUnitByUid,
   reindex,
-} from "./grid.js?v=dao11";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao11";
-import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao11";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao11";
+} from "./grid.js?v=dao12";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao12";
+import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao12";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao12";
 import {
   talentMods,
   talentPoints,
@@ -22,10 +22,10 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao11";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao11";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao11";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao11";
+} from "./talents.js?v=dao12";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao12";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao12";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao12";
 import {
   addExp,
   breakthrough,
@@ -37,8 +37,8 @@ import {
   resetRealm,
   LAYER_GAIN_PCT,
   BREAK_GAIN_PCT,
-} from "./realm.js?v=dao11";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao11";
+} from "./realm.js?v=dao12";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao12";
 import {
   buildLanes,
   buildPool,
@@ -67,12 +67,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao11";
+} from "./ui.js?v=dao12";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao11";
+} from "./map.js?v=dao12";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas27";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -170,24 +170,35 @@ function makeUnit(id, side, index = 0, mode = "station") {
   return unit;
 }
 
-/** 队列排型序：本体 → 法宝(操控) → 手持 → 识海 → 兽栏，与格位底纹顺序一致。 */
+/**
+ * 队列排型序（dao12）：可承伤单位（道童/操控法宝/妖兽）同组自由排序——承伤顺序即队列顺序，
+ * 玩家可把法宝拖到道童前面当肉盾；不可承伤的手持法宝与识海法术自动靠右分组（手持→识海）。
+ */
 function typeRank(u) {
-  if (u.cardType === "char") return 0;
-  if (u.cardType === "fabao") return u.mode === "held" ? 2 : 1;
-  if (u.cardType === "spell") return 3;
-  if (u.cardType === "beast") return 4;
-  return 5;
+  if (u.cardType === "fabao" && u.mode === "held") return 1;
+  if (u.cardType === "spell") return 2;
+  return 0;
 }
 
-/** 自动归位：按格位排型稳定排序（同类保持相对顺序），拖放不依赖精确插入位置。 */
+/** 自动归位：稳定排序只把不可承伤单位归到右侧分组，可承伤区与各组内的相对顺序尊重玩家拖放。 */
 function sortPlayerQueue() {
   state.playerQueue.sort((a, b) => typeRank(a) - typeRank(b));
   reindex(state.playerQueue);
 }
 
 /**
+ * 新卡默认落位：道童插到可承伤区最前（保持「主角默认最左」的初始体验），
+ * station 法宝/妖兽插到可承伤区末尾；held/识海插到组头，经排型自动归位到右侧分组。
+ */
+function defaultInsertIndex(unit) {
+  if (unit.cardType === "char") return 0;
+  if (typeRank(unit) !== 0) return 0;
+  return state.playerQueue.filter((u) => typeRank(u) === 0).length;
+}
+
+/**
  * 道童默认上阵：各自动入口（进页面 / 清空我方 / 重置布阵 / 战败复位 / 推关刷新）
- * 若阵上没有道童则自动放入本体格。玩家手动拖出后到下一个自动入口前保持缺位。
+ * 若阵上没有道童则自动补到最前。只在缺位时补位，绝不重排玩家已摆好的顺序。
  */
 function ensureCharFielded() {
   if (state.playerQueue.some((u) => u.cardType === "char")) return;
@@ -706,6 +717,13 @@ function slotDropTarget(clientX) {
   return { el: best, type, index: bestIndex, inside: bestDist === 0 };
 }
 
+/** 场上法宝的落点模式意图：可承伤区格位（本体/法宝/兽栏）=station，手持格=held，其余无意图。 */
+function fabaoDropMode(slotType) {
+  if (slotType === "weapon") return "held";
+  if (slotType === "char" || slotType === "fabao" || slotType === "beast") return "station";
+  return null;
+}
+
 /** 落点即意图：卡牌类型 × 落点格位类型 → 入阵模式（法宝格=station、手持格=held）或错误。 */
 function dropIntent(card, slotType) {
   const type = fieldCardType(card, "player");
@@ -852,13 +870,13 @@ function onPointerMove(e) {
     drag.ok = ok;
     return;
   }
-  // 场上移动：保留插入光标（同类内定序），法宝正压在异模式格位上时才预览切换
+  // 场上移动：保留插入光标（可承伤区内自由定序），法宝正压在异模式格位上时才预览切换
   const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
   const unit = findUnitByUid([state.playerQueue], drag.uid);
   let ok = true;
   let switching = false;
-  if (unit && unit.cardType === "fabao" && hit?.inside && (hit.type === "fabao" || hit.type === "weapon")) {
-    const want = hit.type === "weapon" ? "held" : "station";
+  if (unit && unit.cardType === "fabao" && hit?.inside && fabaoDropMode(hit.type)) {
+    const want = fabaoDropMode(hit.type);
     if (want !== unit.mode) {
       switching = true;
       ok = !resolvePlacement(getCard(unit.cardId), unit.uid, want).error;
@@ -887,18 +905,20 @@ function onPointerUp(e) {
       if (res.error) {
         setStatus(`未入阵：${res.error}，卡牌已回卡池`, "warn");
       } else {
-        // 插到队首再经 restatQueues 排型：自动归位到正确格位（同类中靠左）
-        insertUnit(state.playerQueue, makeUnit(drag.cardId, "player", 0, res.mode), 0, cap());
+        // 新卡按默认落位入队（道童最前 / station 法宝妖兽入可承伤区末尾），再经排型把 held/识海归右
+        const unit = makeUnit(drag.cardId, "player", 0, res.mode);
+        insertUnit(state.playerQueue, unit, defaultInsertIndex(unit), cap());
         restatQueues();
       }
     } else if (drag.kind === "move") {
       const unit = findUnitByUid([state.playerQueue], drag.uid);
       if (unit) {
         moveUnit(state.playerQueue, unit, hitInsertIndex(lane, state.playerQueue, e.clientX));
-        // 场上法宝正压在异模式格位上松手 = held↔station 切换（与双击同一套校验）；
-        // 只是同组内调序（落在卡缝/组间空隙）不触发切换
-        if (unit.cardType === "fabao" && hit?.inside && (hit.type === "fabao" || hit.type === "weapon")) {
-          const want = hit.type === "weapon" ? "held" : "station";
+        // 场上法宝正压在异模式格位上松手 = held↔station 切换（与双击同一套校验）：
+        // 可承伤区任意格位（本体/法宝/兽栏）=station 且落在该位置，手持格=held；
+        // 只是组内调序（落在卡缝/组间空隙/识海封印格）不触发切换
+        if (unit.cardType === "fabao" && hit?.inside && fabaoDropMode(hit.type)) {
+          const want = fabaoDropMode(hit.type);
           if (want !== unit.mode) {
             const res = resolvePlacement(getCard(unit.cardId), unit.uid, want);
             if (res.error) setStatus(`切换失败：${res.error}`, "warn");
@@ -1118,7 +1138,8 @@ window.__dao = {
     if (!card) return "unknown card";
     const res = resolvePlacement(card, null, mode);
     if (res.error) return res.error;
-    insertUnit(state.playerQueue, makeUnit(id, "player", 0, res.mode), state.playerQueue.length, cap());
+    const unit = makeUnit(id, "player", 0, res.mode);
+    insertUnit(state.playerQueue, unit, defaultInsertIndex(unit), cap());
     restatQueues();
     paint();
     return "ok";

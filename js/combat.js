@@ -5,9 +5,9 @@ import {
   markCorpse,
   queueNeighbors,
   unitsBehind,
-} from "./grid.js?v=dao11";
-import { ACTIVE_SKILLS } from "./unit.js?v=dao11";
-import { defReduction } from "./balance.js?v=dao11";
+} from "./grid.js?v=dao12";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao12";
+import { defReduction } from "./balance.js?v=dao12";
 
 const RANGED_IDS = new Set(["tongjing", "yewu", "huangfeng"]);
 

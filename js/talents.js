@@ -9,8 +9,8 @@
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
  */
 
-import { ACTIVE_SKILLS } from "./unit.js?v=dao11";
-import { breakthroughCount, LAYER_GAIN_PCT, BREAK_GAIN_PCT } from "./realm.js?v=dao11";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao12";
+import { breakthroughCount, LAYER_GAIN_PCT, BREAK_GAIN_PCT } from "./realm.js?v=dao12";
 
 const STORE_KEY = "dao-talents-v1";
 

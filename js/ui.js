@@ -1,11 +1,12 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao10";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao10";
-import { collectTargetPairs } from "./combat.js?v=dao10";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao10";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao10";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao10";
-import { equipMods } from "./equipment.js?v=dao10";
-import { ownedBeasts } from "./loot.js?v=dao10";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao11";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao11";
+import { collectTargetPairs } from "./combat.js?v=dao11";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao11";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao11";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao11";
+import { equipMods } from "./equipment.js?v=dao11";
+import { ownedBeasts } from "./loot.js?v=dao11";
+import { realmState, realmTitle } from "./realm.js?v=dao11";
 
 let sceneCorridor = null;
 
@@ -572,7 +573,22 @@ export function renderBoards(state, lanes) {
     pCount.textContent = `${livingUnits(state.playerQueue).length} 存活 / ${corpses(state.playerQueue).length} 尸体`;
   }
   renderUnlock(state);
+  renderRealm();
   renderMap(state, sceneCorridor);
+}
+
+/** 境界显示：称号 + 修为进度条（金色细条）；圆满时出现突破按钮。 */
+export function renderRealm() {
+  const title = document.getElementById("realm-title");
+  if (!title) return;
+  const r = realmState();
+  const num = document.getElementById("realm-exp-num");
+  const bar = document.getElementById("realm-bar");
+  const btn = document.getElementById("btn-breakthrough");
+  title.textContent = r.title;
+  if (num) num.textContent = r.full ? "圆满" : `${r.exp}/${r.need}`;
+  if (bar) bar.style.width = `${Math.min(100, (100 * r.exp) / Math.max(1, r.need)).toFixed(1)}%`;
+  if (btn) btn.hidden = !r.canBreak;
 }
 
 export function hitInsertIndex(laneEl, queue, clientX) {
@@ -685,7 +701,11 @@ export function formatUnitTip(unit, elapsedSec = 0) {
       ? `　暴击 ${Math.round(unit.critChance * 100)}%/暴伤 ${Math.round((unit.critDmg || 1.5) * 100)}%`
       : "";
   const attrLine = `<span class="tip-stats">${dtName}攻击　外防 ${unit.physDef || 0}　法防 ${unit.spellDef || 0}${critNote}</span>`;
-  return `<strong>${unit.name}${dead ? (reviving ? " · 重聚中" : " · 尸体") : ""}</strong><span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${attrLine}${modeLine}${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
+  // 道童卡面 tip 显示当前境界称号
+  const realmLine = unit.cardType === "char" && unit.side === "player"
+    ? `<span class="tip-stats">境界 ${realmTitle()}（修为 ${realmState().full ? "圆满" : `${realmState().exp}/${realmState().need}`}）</span>`
+    : "";
+  return `<strong>${unit.name}${dead ? (reviving ? " · 重聚中" : " · 尸体") : ""}</strong>${realmLine}<span class="tip-stats">攻 ${unit.atk}　血 ${unit.hp}/${unit.maxHp}${unit.shield ? `　盾 ${unit.shield}` : ""}　${cd}</span>${attrLine}${modeLine}${mult}${out}<span class="tip-desc">${unit.skillText}</span>`;
 }
 
 export function hideCardTip() {

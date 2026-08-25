@@ -9,10 +9,10 @@ import {
   clearQueue,
   findUnitByUid,
   reindex,
-} from "./grid.js?v=dao10";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao10";
-import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao10";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao10";
+} from "./grid.js?v=dao11";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao11";
+import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao11";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao11";
 import {
   talentMods,
   talentPoints,
@@ -22,11 +22,23 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao10";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao10";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao10";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao10";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao10";
+} from "./talents.js?v=dao11";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao11";
+import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao11";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao11";
+import {
+  addExp,
+  breakthrough,
+  canBreakthrough,
+  killExp,
+  realmMods,
+  realmState,
+  realmTitle,
+  resetRealm,
+  LAYER_GAIN_PCT,
+  BREAK_GAIN_PCT,
+} from "./realm.js?v=dao11";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao11";
 import {
   buildLanes,
   buildPool,
@@ -55,12 +67,12 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao10";
+} from "./ui.js?v=dao11";
 import {
   NODES_PER_REGION,
   nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao10";
+} from "./map.js?v=dao11";
 import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas27";
 
 const PROGRESS_KEY = "dao-progress-v1";
@@ -115,12 +127,12 @@ function saveProgress() {
 // 清理性迁移：钳制后的进度立即回写，污染存档（unlockStage 远超胜场）只清洗这一次
 saveProgress();
 
-// 天赋+装备聚合修正（变更时刷新缓存）
-let mods = mergeMods(talentMods(), equipMods());
+// 天赋+装备+境界聚合修正（变更时刷新缓存）
+let mods = mergeMods(talentMods(), equipMods(), realmMods());
 reconcile(state.unlockStage);
 
 function refreshMods() {
-  mods = mergeMods(talentMods(), equipMods());
+  mods = mergeMods(talentMods(), equipMods(), realmMods());
 }
 
 function currentSlots() {
@@ -232,7 +244,13 @@ function pushLootLog(html) {
   while (box.childElementCount > LOOT_LOG_MAX) box.lastElementChild.remove();
 }
 
-/** 胜利结算：掉落装备 + 收服御兽。 */
+/** 击杀修为预估：本关敌方全灭时的入账总额（有效血量÷10 向上取整求和，Boss 关 ×3）。 */
+function expForCurrentEnemies() {
+  const base = state.enemyQueue.reduce((s, u) => s + killExp(u.maxHp), 0);
+  return base * (isBossStage(enemyStage()) ? 3 : 1);
+}
+
+/** 胜利结算：掉落装备 + 收服御兽 + 修为入账（升层/圆满弹提示）。 */
 function settleVictory() {
   const boss = isBossStage(enemyStage());
   const items = rollLoot(enemyStage(), boss, mods.luckPct);
@@ -246,6 +264,12 @@ function settleVictory() {
     const card = getCard(id);
     pushLootLog(`收服 <b class="loot-beast">${card ? card.name : id}</b>（共 ${beastCount(id)} 只）`);
   }
+  // 修为入账：击杀全部敌方单位的灵气（Boss 关 ×3）；升层提示走 loot-log
+  const expGain = expForCurrentEnemies();
+  const grew = addExp(expGain);
+  const levelNote = grew.levels > 0 ? `，境界提升至 <b class="loot-realm">${realmTitle()}</b>` : "";
+  const fullNote = grew.full ? "（圆满，可突破）" : "";
+  pushLootLog(`修为 +${grew.gained}${grew.gained < expGain ? `（圆满溢出 ${expGain - grew.gained}）` : ""}${levelNote}${fullNote}`);
   if (caught.length) buildPool(poolRoot);
   refreshMods();
   syncMetaButtons();
@@ -1021,6 +1045,42 @@ document.getElementById("btn-bag")?.addEventListener("click", () => {
   openBagPanel();
 });
 
+// ==== 境界：突破按钮 + 修为悬浮提示 ====
+
+/** 修为悬浮详情：当前/需求、总修为、下一层（或突破）收益。 */
+function realmTipHtml() {
+  const r = realmState();
+  const nextNote = r.canBreak
+    ? `突破可入「${r.title.slice(0, 2)}」下一大境界：道童攻/血额外 ×${(1 + BREAK_GAIN_PCT / 100).toFixed(2)}，并得 1 点悟性`
+    : r.full
+      ? "已达当前体系巅峰"
+      : `升 1 层：道童攻/血 ×${(1 + LAYER_GAIN_PCT / 100).toFixed(2)}（复利）`;
+  const expLine = r.full ? "圆满（修为已停止累积）" : `${r.exp} / ${r.need}`;
+  return `<strong>境界 ${r.title}</strong><span class="tip-stats">层内修为 ${expLine}　总修为 ${r.totalExp}</span><span class="tip-desc">击杀妖兽获取修为（约其血量十分之一，Boss 关三倍），胜利结算入账。${nextNote}。</span>`;
+}
+
+function onBreakthrough() {
+  if (!canEdit() || !canBreakthrough()) return;
+  breakthrough();
+  refreshMods();
+  restatQueues();
+  syncMetaButtons();
+  syncButtons();
+  setStatus(`✨ 突破成功！晋入「${realmTitle()}」：道童攻血 +${BREAK_GAIN_PCT}%，悟性 +1`, "win");
+  const box = document.getElementById("realm-box");
+  if (box) {
+    box.classList.remove("flash");
+    void box.offsetWidth;
+    box.classList.add("flash");
+  }
+  paint();
+}
+
+document.getElementById("btn-breakthrough")?.addEventListener("click", onBreakthrough);
+const realmBox = document.getElementById("realm-box");
+realmBox?.addEventListener("pointermove", (e) => showCardTip(realmTipHtml(), e.clientX, e.clientY));
+realmBox?.addEventListener("pointerleave", hideCardTip);
+
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 document.addEventListener("selectstart", (e) => e.preventDefault());
 document.addEventListener("dragstart", (e) => e.preventDefault());
@@ -1083,4 +1143,28 @@ window.__dao = {
     paint();
   },
   start: () => startBattle(),
+  // ==== 境界调试钩子（验收用）====
+  realm: () => realmState(),
+  /** 灌修为并即时刷新收益（胜利结算走 settleVictory 同一条 addExp 链路） */
+  addExp(n) {
+    const r = addExp(n);
+    refreshMods();
+    restatQueues();
+    syncMetaButtons();
+    paint();
+    return { ...r, ...realmState() };
+  },
+  breakthrough: () => {
+    onBreakthrough();
+    return realmState();
+  },
+  resetRealm: () => {
+    resetRealm();
+    refreshMods();
+    restatQueues();
+    syncMetaButtons();
+    paint();
+    return realmState();
+  },
+  expPreview: () => expForCurrentEnemies(),
 };

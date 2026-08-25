@@ -9,7 +9,8 @@
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
  */
 
-import { ACTIVE_SKILLS } from "./unit.js?v=dao10";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao11";
+import { breakthroughCount, LAYER_GAIN_PCT, BREAK_GAIN_PCT } from "./realm.js?v=dao11";
 
 const STORE_KEY = "dao-talents-v1";
 
@@ -143,10 +144,10 @@ export function allocatedIds() {
   return new Set(alloc);
 }
 
-/** 悟性总点数：每路点 1 点，每过一个 Boss（第 8 路点）额外 1 点。 */
-export function talentPoints(unlockStage) {
+/** 悟性总点数：每路点 1 点，每过一个 Boss（第 8 路点）额外 1 点，每次境界突破再 +1。 */
+export function talentPoints(unlockStage, breakthroughs = breakthroughCount()) {
   const s = Math.max(0, Math.floor(unlockStage || 0));
-  return s + Math.floor(s / 8);
+  return s + Math.floor(s / 8) + Math.max(0, Math.floor(breakthroughs || 0));
 }
 
 export function spentPoints() {
@@ -214,6 +215,7 @@ export function emptyMods() {
     fabaoAtkPct: 0, fabaoHpPct: 0, beastAtkPct: 0, beastHpPct: 0,
     swordEchoPct: 0, fanPerStackPct: 0,
     atkSpeedPct: 0, critPct: 0, critDmgPct: 0, mergeHeldHpPct: 0, reviveCdrPct: 0,
+    realmLayers: 0, realmBreaks: 0,
     handSlots: 0, mindSlots: 0, beastSlots: 0, fabaoSlots: 0,
     beastResonance: false, bloodPact: false,
   };
@@ -283,6 +285,12 @@ export function applyPlayerMods(unit, mods) {
     unit.atk = Math.max(1, Math.round(unit.atk * (1 + (unit.weight || 0) * HELD_WEIGHT_ATK_STEP)));
   }
   unit.maxHp = Math.max(1, Math.round(unit.maxHp * (1 + hpPct / 100)));
+  // 境界收益只落在道童：每层攻/血 ×(1+2%) 复利，每次大境界突破额外 ×(1+10%) 复利
+  if (unit.cardType === "char" && ((mods.realmLayers || 0) > 0 || (mods.realmBreaks || 0) > 0)) {
+    const m = (1 + LAYER_GAIN_PCT / 100) ** (mods.realmLayers || 0) * (1 + BREAK_GAIN_PCT / 100) ** (mods.realmBreaks || 0);
+    unit.atk = Math.max(1, Math.round(unit.atk * m));
+    unit.maxHp = Math.max(1, Math.round(unit.maxHp * m));
+  }
   unit.hp = unit.maxHp;
   unit.cd = Math.max(400, Math.round(unit.cd * Math.max(0.5, 1 - mods.cdPct / 100)));
   // 攻速只作用于主角与手持法宝（与全队 cdPct 区分开）：等效 CD = CD / (1 + 攻速%)

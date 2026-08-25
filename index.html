@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=dao10" />
+  <link rel="stylesheet" href="css/style.css?v=dao11" />
   <link rel="stylesheet" href="css/corridor.css?v=canvas27" />
-  <link rel="stylesheet" href="css/panels.css?v=dao10" />
+  <link rel="stylesheet" href="css/panels.css?v=dao11" />
 </head>
 <body>
   <div class="app">
@@ -110,7 +110,12 @@
       </section>
       <section class="panel">
         <h2>修行</h2>
+        <div class="realm-box" id="realm-box">
+          <div class="realm-line"><span id="realm-title">炼气一层</span><span id="realm-exp-num">0/30</span></div>
+          <div class="realm-track"><span id="realm-bar"></span></div>
+        </div>
         <div class="controls">
+          <button type="button" id="btn-breakthrough" class="btn gold breakthrough" hidden>突破境界</button>
           <button type="button" id="btn-talents" class="btn gold">道途天赋</button>
           <button type="button" id="btn-bag" class="btn">行囊</button>
         </div>
@@ -129,6 +134,6 @@
   </div>
   <div id="float-layer" class="float-layer"></div>
   <div id="card-tip" class="card-tip" hidden></div>
-  <script type="module" src="js/main.js?v=dao10"></script>
+  <script type="module" src="js/main.js?v=dao11"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@ const files = [
   "js/balance.js",
   "js/map.js",
   "js/talents.js",
+  "js/realm.js",
   "js/equipment.js",
   "js/loot.js",
   "js/talent-ui.js",

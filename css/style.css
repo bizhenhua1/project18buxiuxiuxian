@@ -816,6 +816,57 @@ button, select { font-family: inherit; }
   border-color: var(--gold);
 }
 
+/* ==== 境界系统（dao11）：称号 + 金色修为细条 + 突破按钮 ==== */
+.realm-box { margin-bottom: 8px; cursor: help; }
+.realm-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+#realm-title {
+  font-family: var(--font-title);
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-shadow: 0 0 6px rgba(212, 160, 23, 0.35);
+}
+#realm-exp-num { font-size: 11px; color: var(--muted); }
+.realm-track {
+  margin-top: 4px;
+  height: 5px;
+  background: #0c0a08;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(138, 106, 34, 0.4);
+}
+#realm-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #8a6a22, #f0c14b 60%, #ffe7a0);
+  box-shadow: 0 0 6px rgba(240, 193, 75, 0.6);
+  transition: width 0.25s ease-out;
+}
+.btn.breakthrough {
+  background: #4a3510;
+  color: #ffe7a0;
+  border-color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  animation: breakthrough-breath 1.6s ease-in-out infinite;
+}
+@keyframes breakthrough-breath {
+  0%, 100% { box-shadow: 0 0 4px rgba(240, 193, 75, 0.35); }
+  50% { box-shadow: 0 0 16px rgba(240, 193, 75, 0.9); }
+}
+/* 突破成功的简单闪光 */
+.realm-box.flash { animation: realm-flash 900ms ease-out; }
+@keyframes realm-flash {
+  0% { filter: brightness(2.4) drop-shadow(0 0 12px rgba(255, 231, 160, 0.9)); }
+  100% { filter: brightness(1); }
+}
+.loot-realm { color: #f0c14b; }
+
 .outcome {
   min-height: 40px;
   font-size: 14px;

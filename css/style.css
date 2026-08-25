@@ -316,6 +316,35 @@ button, select { font-family: inherit; }
   45% { filter: brightness(1.35) saturate(1.12); }
   100% { filter: brightness(1); }
 }
+
+/* ==== 双模式 idle 形态（dao10）====
+   station 法宝（神识操控）：缓慢正弦上下悬浮 + 极轻微摆动，相位由 --float-delay（uid 散列的负延迟）错开；
+   held 法宝 / 道童 / 妖兽：idle 静止（无动画）；尸体（含重聚中）不浮动；hover 暂停浮动以免与抬升位移打架。 */
+.unit-card.stationed:not(.corpse) {
+  animation: fabao-float 3.4s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+.unit-card.stationed:not(.corpse):hover { animation: none; }
+@keyframes fabao-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(0.4deg); }
+  50% { transform: translateY(-5px) rotate(0deg); }
+  75% { transform: translateY(-3px) rotate(-0.4deg); }
+}
+/* 战斗动画通道优先于悬浮（同为 3 类选择器，靠书写顺序覆盖；animation 简写把 delay 归零） */
+.unit-card.stationed.atk-anim { animation: card-atk 200ms ease-out; }
+.unit-card.stationed.hit-anim { animation: card-hit 200ms ease-out; }
+.unit-card.stationed.hit-dead { animation: card-hit-dead 240ms ease-out; }
+.unit-card.stationed.heal-anim { animation: card-heal 200ms ease-out; }
+
+/* held 法宝攻击：更强打击感——前突位移约为普通单位 2.6 倍 + 顶帧短停 + 快速回弹 */
+.unit-card.held.atk-anim { animation: card-atk-held 380ms ease-out; }
+@keyframes card-atk-held {
+  0% { transform: translate(0, 0) scale(1); animation-timing-function: cubic-bezier(0.16, 0.85, 0.25, 1); }
+  30% { transform: translate(calc(var(--atk-x, 0px) * 2.6), calc(var(--atk-y, -8px) * 2.6)) scale(1.18); animation-timing-function: steps(1, end); }
+  52% { transform: translate(calc(var(--atk-x, 0px) * 2.6), calc(var(--atk-y, -8px) * 2.6)) scale(1.18); animation-timing-function: cubic-bezier(0.6, 0, 0.75, 0.5); }
+  100% { transform: translate(0, 0) scale(1); }
+}
 .unit-card .portrait {
   position: absolute;
   inset: 0 0 10px 0;
@@ -689,6 +718,18 @@ button, select { font-family: inherit; }
   pointer-events: none;
 }
 .s2-sh-mark[hidden] { display: none; }
+/* held 法宝血槽 → 拳头底纹：血量已并入道童，无独立血量数字；CD 蓄力环保留，尺寸同原血槽 */
+.s2-disk-held {
+  background: radial-gradient(circle at 50% 42%, #241c12, #0c0906 72%);
+}
+.s2-fist {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8));
+  pointer-events: none;
+}
 .unit-card.skin-2.corpse .s2-disk {
   background: radial-gradient(circle at 50% 42%, #2a2424, #121010 72%);
 }

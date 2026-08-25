@@ -111,7 +111,9 @@ export function moveUnit(queue, unit, index) {
   const from = queue.findIndex((u) => u && u.uid === unit.uid);
   if (from < 0) return false;
   queue.splice(from, 1);
-  const i = Math.max(0, Math.min(queue.length, index));
+  // index 是原队列语义的插入点：先删后插时向右移动要回退一位，否则会越过落点一格
+  const target = from < index ? index - 1 : index;
+  const i = Math.max(0, Math.min(queue.length, target));
   queue.splice(i, 0, unit);
   reindex(queue);
   return true;

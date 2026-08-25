@@ -1,11 +1,11 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao9";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao9";
-import { collectTargetPairs } from "./combat.js?v=dao9";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao9";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao9";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao9";
-import { equipMods } from "./equipment.js?v=dao9";
-import { ownedBeasts } from "./loot.js?v=dao9";
+import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao10";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao10";
+import { collectTargetPairs } from "./combat.js?v=dao10";
+import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao10";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao10";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao10";
+import { equipMods } from "./equipment.js?v=dao10";
+import { ownedBeasts } from "./loot.js?v=dao10";
 
 let sceneCorridor = null;
 
@@ -293,6 +293,25 @@ function cardInnerHtml(unit, i, dead, isFocus, skin) {
   }
   if (skin === "skin2") {
     const chargePct = dead ? 0 : Math.max(0, Math.min(100, 100 * (1 - unit.cdLeft / unit.cd)));
+    // held 法宝：血量已并入道童，不显示独立血量圆——改为拳头底纹（CD 蓄力环保留），悬浮见继承提示
+    if (!dead && unit.cardType === "fabao" && unit.mode === "held") {
+      return `
+        <div class="s2-lv">${unit.lv || unit.face || 1}级</div>
+        ${badge}
+        <div class="s2-art">${artHtml(unit, dead)}</div>
+        <div class="s2-name">${unit.name}</div>
+        <div class="s2-orb held-orb">
+          <svg class="s2-ring" viewBox="0 0 36 36" aria-hidden="true">
+            <circle class="s2-track" cx="18" cy="18" r="15.6" pathLength="100" />
+            <circle class="s2-fill" cx="18" cy="18" r="15.6" pathLength="100"
+              stroke-dasharray="${chargePct.toFixed(1)} 100" transform="rotate(-90 18 18)" />
+          </svg>
+          <div class="s2-disk s2-disk-held">
+            <img class="s2-fist" src="assets/style-e/style-e-ui-fist.png" alt="血量已并入道童" draggable="false" />
+          </div>
+        </div>
+      `;
+    }
     const hp = dead ? 0 : Math.max(0, Math.round(unit.hp));
     const fillRatio = dead ? 0 : Math.max(0, Math.min(1, unit.hp / unit.maxHp));
     const shOn = !dead && unit.shield > 0;
@@ -351,7 +370,7 @@ function cardClassName(unit, i, pos, selectedUid, focusUid, skinId) {
     `face-${unit.face}`,
     `job-${job}`,
     `kind-${artKind(unit)}`,
-    unit.cardType === "fabao" && unit.mode === "held" ? "held" : "",
+    unit.cardType === "fabao" ? (unit.mode === "held" ? "held" : "stationed") : "",
     pos.stacked ? "stacked" : "",
     unit.actingUntil > performance.now() ? "acting" : "",
     unit.uid === selectedUid ? "selected" : "",
@@ -473,6 +492,10 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
     if (isFocus) z = 55;
     if (unit.uid === selectedUid) z = 70;
     card.style.zIndex = String(z);
+    // station 法宝 idle 悬浮的相位错开：uid 散列成负 animation-delay，各卡不齐步
+    if (unit.cardType === "fabao" && unit.mode !== "held") {
+      card.style.setProperty("--float-delay", `-${(((unit.uid * 997) % 3400) / 1000).toFixed(3)}s`);
+    }
     if (rebuild) card.innerHTML = cardInnerHtml(unit, i, dead, isFocus, skinId);
     patchCardStats(card, unit, dead, skinId);
   });
@@ -555,7 +578,10 @@ export function renderBoards(state, lanes) {
 export function hitInsertIndex(laneEl, queue, clientX) {
   if (!laneEl) return 0;
   if (!queue.length) return 0;
-  const cards = [...laneEl.querySelectorAll(".unit-card")];
+  // 卡片 DOM 节点按 uid 复用：队列排型后 DOM 顺序与队列顺序脱节，
+  // 必须按队列下标（即视觉左→右）排序后再扫描，否则落点判定错乱。
+  const cards = [...laneEl.querySelectorAll(".unit-card")]
+    .sort((a, b) => Number(a.dataset.index) - Number(b.dataset.index));
   for (const card of cards) {
     const r = card.getBoundingClientRect();
     if (clientX < r.left + r.width / 2) return Number(card.dataset.index);
@@ -836,7 +862,9 @@ export function playCardAnim(uid, kind, towardUid = null) {
   else if (kind === "heal") el.classList.add("heal-anim");
   else el.classList.add("hit-anim");
   clearTimeout(el._animTimer);
-  el._animTimer = setTimeout(() => el.classList.remove(...CARD_ANIMS), kind === "dead" ? 260 : 220);
+  // held 法宝的攻击动画更长（大前突+顶帧短停+快速回弹），移除类的时机随之延后
+  const holdMs = kind === "dead" ? 260 : kind === "atk" && el.classList.contains("held") ? 400 : 220;
+  el._animTimer = setTimeout(() => el.classList.remove(...CARD_ANIMS), holdMs);
 }
 
 export function clearProjectiles() {

@@ -1,0 +1,19 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "JSON.stringify({ loadHasChar: window.__dao.state.playerQueue.some(u => u.cardType === 'char'), queue: window.__dao.state.playerQueue.map(u => u.cardId) })"},
+  {"shot": "c10_load_char.png"},
+  {"eval": "(() => { document.getElementById('btn-player-clear').click(); return JSON.stringify({ clearHasChar: window.__dao.state.playerQueue.some(u => u.cardType === 'char'), len: window.__dao.state.playerQueue.length }); })()"},
+  {"shot": "c11_clear_char.png"},
+  {"eval": "(() => { window.__dao.setStage(20); window.__dao.start(); return JSON.stringify({ running: window.__dao.state.running, enemies: window.__dao.state.enemyQueue.length }); })()"},
+  {"wait": 15000},
+  {"eval": "JSON.stringify({ outcome: document.getElementById('outcome')?.textContent, defeatHasChar: window.__dao.state.playerQueue.some(u => u.cardType === 'char' && u.status === 'alive'), running: window.__dao.state.running })"},
+  {"shot": "c12_defeat_revive_char.png"},
+  {"eval": "(() => { const s = window.__dao.state; s.clearedStage = s.unlockStage; window.__dao.clear(); const btn = document.getElementById('btn-next'); btn.disabled = false; btn.click(); return JSON.stringify({ clearedBeforeNext: s.playerQueue.length, stage: s.unlockStage }); })()"},
+  {"wait": 8000},
+  {"eval": "JSON.stringify({ stage: window.__dao.state.unlockStage, nextHasChar: window.__dao.state.playerQueue.some(u => u.cardType === 'char'), queue: window.__dao.state.playerQueue.map(u => u.cardId) })"},
+  {"shot": "c13_next_stage_char.png"},
+  {"eval": "(() => { window.__dao.clear(); document.getElementById('btn-player-fill').click(); return JSON.stringify({ fillHasChar: window.__dao.state.playerQueue.some(u => u.cardType === 'char'), len: window.__dao.state.playerQueue.length }); })()"},
+  {"shot": "c14_fill_char.png"}
+]

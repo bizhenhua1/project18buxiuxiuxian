@@ -9,7 +9,7 @@
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
  */
 
-import { ACTIVE_SKILLS } from "./unit.js?v=dao9";
+import { ACTIVE_SKILLS } from "./unit.js?v=dao10";
 
 const STORE_KEY = "dao-talents-v1";
 

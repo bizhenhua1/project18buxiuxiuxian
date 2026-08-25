@@ -4,7 +4,7 @@
  * 装备穿在道童身上、数值全队生效（全队本就是修士的持有物）。
  */
 
-import { emptyMods, mergeMods } from "./talents.js?v=dao9";
+import { emptyMods, mergeMods } from "./talents.js?v=dao10";
 
 const BAG_KEY = "dao-bag-v1";
 

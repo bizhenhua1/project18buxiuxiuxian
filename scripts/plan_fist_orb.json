@@ -1,0 +1,13 @@
+[
+  {"wait": 3200},
+  {"eval": "(() => { const ks = []; for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k && k.startsWith('dao-')) ks.push(k); } ks.forEach(k => localStorage.removeItem(k)); location.reload(); return 'cleared'; })()"},
+  {"wait": 3200},
+  {"eval": "(() => { window.__dao.setStage(12); document.getElementById('btn-talents').click(); const click = id => document.querySelector(`.tnode[data-id=\"${id}\"]`).dispatchEvent(new MouseEvent('click',{bubbles:true})); ['b1','b2'].forEach(click); document.getElementById('talent-close').click(); window.__dao.clear(); window.__dao.place('daotong'); window.__dao.place('taomu-jian', 'held'); window.__dao.place('tongjing', 'station'); const q = window.__dao.state.playerQueue; return JSON.stringify({ modes: q.map(u => [u.cardId, u.mode]), fistShown: !!document.querySelector('.unit-card.held .s2-fist'), heldHpNumGone: !document.querySelector('.unit-card.held .s2-hp-num'), heldLiquidGone: !document.querySelector('.unit-card.held .s2-liquid'), stationHpNum: !!document.querySelector('.unit-card.stationed .s2-hp-num') }); })()"},
+  {"shot": "f10_fist_orb.png"},
+  {"eval": "(() => { const orb = document.querySelector('.unit-card.held .held-orb'); const r = orb.getBoundingClientRect(); const x = r.left + r.width / 2, y = r.top + r.height / 2; orb.dispatchEvent(new MouseEvent('pointermove', { bubbles: true, clientX: x, clientY: y })); const tip = document.getElementById('card-tip'); const held = window.__dao.state.playerQueue.find(u => u.mode === 'held'); return JSON.stringify({ tipShown: !tip.hidden, heldMaxHp: held.maxHp, text: tip.textContent.replace(/\\s+/g, ' ').slice(0, 140) }); })()"},
+  {"shot": "f11_fist_tooltip.png"},
+  {"eval": "(() => { const held = window.__dao.state.playerQueue.find(u => u.mode === 'held'); window.__dao.toggleMode(held.uid); const el = document.querySelector(`.unit-card[data-uid=\"${held.uid}\"]`); return JSON.stringify({ modeNow: held.mode, fistGone: !el.querySelector('.s2-fist'), hpNumBack: !!el.querySelector('.s2-hp-num'), liquidBack: !!el.querySelector('.s2-liquid'), stationedClass: el.classList.contains('stationed') }); })()"},
+  {"shot": "f12_back_to_station.png"},
+  {"eval": "(() => { const u = window.__dao.state.playerQueue.find(x => x.cardId === 'taomu-jian'); window.__dao.toggleMode(u.uid); const el = document.querySelector(`.unit-card[data-uid=\"${u.uid}\"]`); return JSON.stringify({ modeNow: u.mode, fistBack: !!el.querySelector('.s2-fist'), heldClass: el.classList.contains('held') }); })()"},
+  {"shot": "f13_back_to_held.png"}
+]

@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=dao12" />
+  <link rel="stylesheet" href="css/style.css?v=dao20" />
   <link rel="stylesheet" href="css/corridor.css?v=canvas27" />
-  <link rel="stylesheet" href="css/panels.css?v=dao12" />
+  <link rel="stylesheet" href="css/panels.css?v=dao14" />
 </head>
 <body>
   <div class="app">
@@ -18,20 +18,20 @@
       <div class="brand">
         <h1>巴扎乱斗</h1>
         <p>一排队列 · 打最左存活 · 死亡留尸</p>
+        <button type="button" id="btn-saves" class="btn gold brand-save">档案</button>
       </div>
-      <section class="panel">
-        <h2>解锁进度</h2>
+      <section class="panel quest-panel">
+        <h2>区域任务</h2>
         <div class="unlock-nums">
           <strong id="unlock-label">可携带 0/8</strong>
-          <span id="unlock-stage">关卡 1 / 9</span>
+          <span id="unlock-stage">青金仙途 · 普通 1/4</span>
         </div>
-        <div class="unlock-track"><span id="unlock-bar"></span></div>
+        <p class="quest-title" id="quest-title">击杀火狸 0/8</p>
+        <div class="unlock-track"><span id="quest-bar"></span></div>
+        <p class="hint" id="quest-reward">完成：修为 32 · 灵石 14</p>
+        <p class="hint" id="idle-rate">挂机 修为 10/分 · 灵石 6/分</p>
         <p class="hint" id="slot-summary"></p>
         <p class="hint" id="unlock-hint"></p>
-      </section>
-      <section class="panel inspect-panel">
-        <h2>单位详情</h2>
-        <div id="inspect" class="inspect">点选或悬停卡牌查看属性</div>
       </section>
       <section class="panel pool-panel">
         <h2>卡牌库</h2>
@@ -85,7 +85,7 @@
         <div class="controls">
           <button type="button" id="btn-start" class="btn primary">开始战斗</button>
           <button type="button" id="btn-reset" class="btn">重置布阵</button>
-          <button type="button" id="btn-next" class="btn gold">下一关解锁</button>
+          <button type="button" id="btn-next" class="btn gold" disabled title="完成精英任务后自动换区">完成精英后换区</button>
           <label class="speed">
             速度
             <select id="speed-select">
@@ -113,11 +113,13 @@
         <div class="realm-box" id="realm-box">
           <div class="realm-line"><span id="realm-title">炼气一层</span><span id="realm-exp-num">0/30</span></div>
           <div class="realm-track"><span id="realm-bar"></span></div>
+          <div class="coin-line" id="coin-line">灵石 <b id="coin-num">0</b></div>
         </div>
         <div class="controls">
           <button type="button" id="btn-breakthrough" class="btn gold breakthrough" hidden>突破境界</button>
           <button type="button" id="btn-talents" class="btn gold">道途天赋</button>
           <button type="button" id="btn-bag" class="btn">行囊</button>
+          <button type="button" id="btn-saves-rail" class="btn">档案</button>
         </div>
         <div id="loot-log" class="loot-log"></div>
       </section>
@@ -134,6 +136,9 @@
   </div>
   <div id="float-layer" class="float-layer"></div>
   <div id="card-tip" class="card-tip" hidden></div>
-  <script type="module" src="js/main.js?v=dao12"></script>
+  <div id="game-notice" class="game-notice" hidden aria-live="polite">
+    <span class="game-notice-text"></span>
+  </div>
+  <script type="module" src="js/main.js?v=dao25"></script>
 </body>
 </html>

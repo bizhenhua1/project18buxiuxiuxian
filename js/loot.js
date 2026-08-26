@@ -5,7 +5,7 @@
  * - 收服：本场每击杀 1 只敌方妖兽，独立掷收服（基础 10% + 天赋/词条）
  */
 
-import { makeItem } from "./equipment.js?v=dao12";
+import { makeItem } from "./equipment.js?v=dao19";
 
 const BEAST_KEY = "dao-beasts-v1";
 
@@ -17,6 +17,24 @@ export function rollLoot(stage, boss, luckPct = 0) {
   } else if (Math.random() < 0.6 + luckPct / 250) {
     items.push(makeItem({ stage, luckPct }));
   }
+  return items;
+}
+
+/** 挂机/离线按次数掷保底掉落（不是每分钟一件）。 */
+export function rollIdleLoot(stage, rolls, luckPct = 0) {
+  const items = [];
+  const n = Math.max(0, Math.floor(Number(rolls) || 0));
+  for (let i = 0; i < n; i++) {
+    if (Math.random() < 0.45 + luckPct / 250) items.push(makeItem({ stage, luckPct }));
+  }
+  return items;
+}
+
+/** 任务完成奖励：按件数保底掉落。 */
+export function rollQuestLoot(stage, count, minTier = 0, luckPct = 0) {
+  const items = [];
+  const n = Math.max(0, Math.floor(Number(count) || 0));
+  for (let i = 0; i < n; i++) items.push(makeItem({ stage, luckPct, minTier }));
   return items;
 }
 

@@ -24,5 +24,14 @@
 | `monster-shanyang` | 怪物 | 山羊 | 山山羊精 |
 | `monster-huangfeng` | 怪物 | 黄蜂 | 单只黄风蜂，非蜂群 |
 | `monster-shitoujing` | 怪物 | 石头精 | 矮石精，非夜叉金刚 |
+| `proj-sword` | 飞行道具 | 剑气 | 桃木剑 / 青锋剑（青锋用色相偏移） |
+| `proj-heavysword` | 飞行道具 | 重剑 | 玄铁重剑 |
+| `proj-axe` | 飞行道具 | 开山 | 开山斧 |
+| `proj-seal` | 飞行道具 | 印玺 | 瓦瓷印，飞行时自转 |
+| `proj-rope` | 飞行道具 | 麻索 | 麻索 |
+| `proj-mirror` | 飞行道具 | 镜光 | 铜镜光束上的飞盘 |
+| `proj-gourd` | 飞行道具 | 葫芦 | 小葫芦 |
+| `proj-fan` | 飞行道具 | 魂幡 | 聚魂幡 |
 
 卡面方案 2 只引用本目录成品，不要用 `raw/` 或 `style-e-adapt-*.png` 整图。
+飞行道具由 `js/projectiles.js` 按法宝类型引用 `style-e-proj-*.png`。

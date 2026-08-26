@@ -4,7 +4,8 @@
  * 装备穿在道童身上、数值全队生效（全队本就是修士的持有物）。
  */
 
-import { emptyMods, mergeMods } from "./talents.js?v=dao12";
+import { emptyMods, mergeMods } from "./talents.js?v=dao20";
+import { assetUrl } from "./assets.js?v=dao12";
 
 const BAG_KEY = "dao-bag-v1";
 
@@ -14,13 +15,13 @@ const BAG_KEY = "dao-bag-v1";
  * 气运从玉佩主属性移入词条池与仙品专属。
  */
 export const EQUIP_SLOTS = [
-  { id: "hat", name: "束发冠", icon: "👑", main: "hpPct", mainBase: 6, art: "assets/equipment/equip-hat.png" },
-  { id: "robe", name: "法衣", icon: "🥋", main: "physDef", mainBase: 8, art: "assets/equipment/equip-robe.png" },
-  { id: "boots", name: "云履", icon: "👞", main: "cdPct", mainBase: 3, art: "assets/equipment/equip-boots.png" },
-  { id: "bracer", name: "护腕", icon: "🥊", main: "atkPct", mainBase: 4, art: "assets/equipment/equip-bracer.png" },
-  { id: "ring", name: "戒指", icon: "💍", main: "critPct", mainBase: 4, art: "assets/equipment/equip-ring.png" },
-  { id: "amulet", name: "项链", icon: "📿", main: "spellPct", mainBase: 6, art: "assets/equipment/equip-amulet.png" },
-  { id: "jade", name: "玉佩", icon: "🪬", main: "spellDef", mainBase: 8, art: "assets/equipment/equip-jade.png" },
+  { id: "hat", name: "束发冠", icon: "👑", main: "hpPct", mainBase: 6, art: assetUrl("assets/equipment/equip-hat.png") },
+  { id: "robe", name: "法衣", icon: "🥋", main: "physDef", mainBase: 8, art: assetUrl("assets/equipment/equip-robe.png") },
+  { id: "boots", name: "云履", icon: "👞", main: "cdPct", mainBase: 3, art: assetUrl("assets/equipment/equip-boots.png") },
+  { id: "bracer", name: "护腕", icon: "🥊", main: "atkPct", mainBase: 4, art: assetUrl("assets/equipment/equip-bracer.png") },
+  { id: "ring", name: "戒指", icon: "💍", main: "critPct", mainBase: 4, art: assetUrl("assets/equipment/equip-ring.png") },
+  { id: "amulet", name: "项链", icon: "📿", main: "spellPct", mainBase: 6, art: assetUrl("assets/equipment/equip-amulet.png") },
+  { id: "jade", name: "玉佩", icon: "🪬", main: "spellDef", mainBase: 8, art: assetUrl("assets/equipment/equip-jade.png") },
 ];
 
 export const RARITIES = [
@@ -48,7 +49,7 @@ export const STAT_NAMES = {
   capturePct: "收服概率",
   luckPct: "气运",
   weightAdd: "力量预算",
-  mindSlotAdd: "识海格",
+  mindSlotAdd: "法术上限",
   fabaoAtkPct: "法宝攻击",
   fabaoHpPct: "法宝生命",
   beastAtkPct: "御兽攻击",

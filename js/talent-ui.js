@@ -11,7 +11,7 @@ import {
   deallocate,
   respec,
   getNode,
-} from "./talents.js?v=dao12";
+} from "./talents.js?v=dao21";
 
 const BRANCH_COLORS = {
   root: "#e6c46a",
@@ -55,7 +55,7 @@ function buildOverlay() {
       <div class="dao-body talent-body">
         <svg id="talent-svg" viewBox="-360 -352 720 704" preserveAspectRatio="xMidYMid meet"></svg>
       </div>
-      <footer class="dao-foot" id="talent-info">悬停节点查看说明；点击加点，再点已点的末梢节点可退点。滚轮缩放，拖拽平移。</footer>
+      <footer class="dao-foot" id="talent-info">白板已有手持 2 / 识海 1 / 兽栏 1 格。悬停节点查看说明；点击加点，再点已点的末梢节点可退点。滚轮缩放，拖拽平移。</footer>
     </div>
   `;
   document.body.appendChild(overlay);
@@ -173,7 +173,7 @@ function render() {
   const left = total - spentPoints();
 
   const pointsEl = overlay.querySelector("#talent-points");
-  pointsEl.textContent = `悟性 剩余 ${left} / 共 ${total}（每路点+1，Boss 额外+1）`;
+  pointsEl.textContent = `悟性 剩余 ${left} / 共 ${total}（完成任务 +1，突破 +1）`;
 
   const nodeById = new Map(TREE_NODES.map((n) => [n.id, n]));
   const edges = TREE_EDGES.map(([a, b]) => {
@@ -216,7 +216,7 @@ function render() {
           return;
         }
       } else if (!allocate(id, hooks.getStage())) {
-        const reason = talentPoints(hooks.getStage()) - spentPoints() <= 0 ? "悟性不足（推关获得）" : "需与已点节点相邻";
+        const reason = talentPoints() - spentPoints() <= 0 ? "悟性不足（完成任务或突破获得）" : "需与已点节点相邻";
         setInfo(`「${node.name}」无法点亮：${reason}`, true);
         return;
       }

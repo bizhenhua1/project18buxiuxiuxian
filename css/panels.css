@@ -337,3 +337,120 @@
   border-color: #f0c14b;
   box-shadow: 0 0 8px rgba(240, 193, 75, 0.35);
 }
+
+/* ========== 档案管理 ========== */
+
+.save-frame {
+  width: min(620px, 94vw);
+  height: min(560px, 88vh);
+}
+
+.save-body { overflow: auto; }
+
+.save-list {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.save-slot {
+  padding: 10px 12px;
+  border: 1px solid #4a3d24;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.save-slot.active {
+  border-color: #f0c14b;
+  box-shadow: 0 0 10px rgba(240, 193, 75, 0.22);
+  background: rgba(61, 46, 16, 0.35);
+}
+
+.save-slot-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-slot-name {
+  font-family: var(--font-title, serif);
+  font-size: 16px;
+  color: #f0c14b;
+}
+
+.save-badge {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #1a140c;
+  background: #f0c14b;
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+
+.save-slot-time {
+  margin-left: auto;
+  font-size: 11px;
+  color: #8f7c50;
+}
+
+.save-slot-preview {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #d8c9a0;
+  line-height: 1.45;
+}
+
+.save-slot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.save-slot-actions .btn {
+  width: auto;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.save-frame input {
+  background: #140f0c;
+  color: #f3e6c8;
+  border: 1px solid #6b5a34;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 13px;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.save-frame input:focus {
+  outline: none;
+  border-color: #f0c14b;
+}
+
+.save-rename-input { flex: 1; min-width: 120px; }
+
+.save-new-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.save-new-row input { flex: 1; min-width: 0; }
+.save-new-row .btn { width: auto; flex: 0 0 auto; padding: 5px 12px; }
+
+.save-hint {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #8f7c50;
+}
+
+.save-confirm p { margin: 0 0 8px; }
+.save-confirm.warn p { color: #e8a07a; }
+.save-confirm-btns { display: flex; gap: 8px; justify-content: flex-end; }
+.save-confirm-btns .btn { width: auto; padding: 4px 12px; }
+
+.save-foot { min-height: 72px; }

@@ -55,6 +55,11 @@ button, select { font-family: inherit; }
   color: var(--gold);
 }
 .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+.brand-save {
+  margin-top: 8px;
+  width: 100%;
+  font-size: 13px;
+}
 
 .panel {
   background: var(--panel);
@@ -76,18 +81,23 @@ button, select { font-family: inherit; }
 .unlock-nums span { color: var(--muted); font-size: 12px; }
 .unlock-track { margin-top: 6px; height: 6px; background: #0c0a08; border-radius: 3px; overflow: hidden; }
 .unlock-track span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #8a6a22, var(--gold)); }
-
-.inspect-panel { flex: 0 0 auto; }
-.inspect {
-  min-height: 92px;
-  font-size: 13px;
-  line-height: 1.45;
-  white-space: pre-wrap;
-  background: #140f0c;
-  border: 1px solid #3a3228;
-  border-radius: 6px;
-  padding: 8px;
+.quest-title {
+  margin: 6px 0 0;
+  font-family: var(--font-title);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #fff4d2;
 }
+.coin-line {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.coin-line b {
+  color: var(--gold);
+  font-weight: 700;
+}
+
 .pool-panel { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .pool {
   flex: 1;
@@ -324,12 +334,158 @@ button, select { font-family: inherit; }
   animation: fabao-float 3.4s ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
 }
-.unit-card.stationed:not(.corpse):hover { animation: none; }
+.unit-card.stationed:not(.corpse):hover:not(.mode-lift):not(.mode-settle) { animation: none; }
 @keyframes fabao-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   25% { transform: translateY(-3px) rotate(0.4deg); }
   50% { transform: translateY(-5px) rotate(0deg); }
   75% { transform: translateY(-3px) rotate(-0.4deg); }
+}
+/* 手持切换：落地收束 / 离地起飞。关掉 transform 过渡，避免与关键帧打架 */
+.unit-card.mode-settle,
+.unit-card.mode-lift,
+.unit-card.hp-pulse {
+  z-index: 74;
+  transition: box-shadow 0.18s ease;
+}
+.unit-card.mode-settle:hover,
+.unit-card.mode-lift:hover {
+  transform: none;
+}
+@keyframes fabao-settle {
+  0% { transform: translateY(-7px) scale(1.05); filter: brightness(1.14); }
+  38% { transform: translateY(3px) scale(0.955); filter: brightness(1.04); }
+  62% { transform: translateY(-1.5px) scale(1.02); filter: brightness(1.06); }
+  100% { transform: translateY(0) scale(1); filter: brightness(1); }
+}
+.unit-card.mode-settle {
+  animation: fabao-settle 560ms cubic-bezier(0.22, 0.78, 0.18, 1) both;
+}
+.unit-card.mode-settle .held-orb {
+  animation: held-orb-in 480ms cubic-bezier(0.22, 0.82, 0.2, 1) both;
+}
+@keyframes held-orb-in {
+  0% { transform: translateX(-50%) scale(0.7); opacity: 0.28; filter: brightness(1.45); }
+  58% { transform: translateX(-50%) scale(1.08); opacity: 1; filter: brightness(1.12); }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; filter: brightness(1); }
+}
+@keyframes fabao-lift {
+  0% { transform: translateY(0) scale(0.97) rotate(0deg); }
+  30% { transform: translateY(-16px) scale(1.08) rotate(-0.55deg); }
+  62% { transform: translateY(-8px) scale(1.025) rotate(0.28deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+.unit-card.stationed.mode-lift,
+.unit-card.mode-lift {
+  animation: fabao-lift 700ms cubic-bezier(0.16, 0.7, 0.2, 1) both;
+}
+.unit-card.mode-lift .s2-orb:not(.held-orb) {
+  animation: station-orb-in 520ms ease-out both;
+}
+@keyframes station-orb-in {
+  0% { transform: translateX(-50%) scale(0.82); opacity: 0.4; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+@keyframes char-hp-pulse {
+  0% { filter: brightness(1); }
+  32% { filter: brightness(1.2) saturate(1.18); box-shadow: 0 0 16px rgba(224, 138, 60, 0.5), 0 0 7px rgba(180, 56, 40, 0.32); }
+  100% { filter: brightness(1); }
+}
+.unit-card.kind-char.hp-pulse {
+  animation: char-hp-pulse 640ms ease-out;
+}
+.s2-hp-num.hp-rolling {
+  transform: scale(1.12);
+  transform-origin: center;
+}
+
+/* 道童手持容量：一格一拳印，立绘右侧竖排（躯干/臂旁，避开脸与底血珠）；布阵阶段显示；占用半透明 */
+.hand-pips,
+.hand-pips-right {
+  position: absolute;
+  top: 24%;
+  right: 5px;
+  left: auto;
+  transform: none;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3px;
+  width: max-content;
+  pointer-events: none;
+}
+.hand-pips[hidden] { display: none; }
+.unit-card.skin1 .hand-pips,
+.unit-card.skin-1 .hand-pips {
+  top: 22%;
+  right: 4px;
+}
+.unit-card.skin2 .hand-pips,
+.unit-card.skin-2 .hand-pips {
+  /* 立绘区 .s2-art 右侧：躯干/臂旁，低于「集火」标、高于姓名与血珠 */
+  top: 23%;
+  right: 4px;
+}
+.hand-pip {
+  display: block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #4a3418, #140e08 72%);
+  box-shadow: 0 0 0 1px rgba(232, 194, 90, 0.55), 0 0 5px rgba(232, 194, 90, 0.35);
+  box-sizing: border-box;
+  padding: 1px;
+}
+.hand-pips[data-cap="4"] .hand-pip {
+  width: 13px;
+  height: 13px;
+}
+.hand-pips[data-cap="5"] .hand-pip,
+.hand-pips[data-cap="6"] .hand-pip,
+.hand-pips[data-cap="7"] .hand-pip,
+.hand-pips[data-cap="8"] .hand-pip {
+  width: 11px;
+  height: 11px;
+}
+.hand-pip-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: brightness(1.18);
+}
+.hand-pip.occupied {
+  opacity: 0.32;
+  box-shadow: 0 0 0 1px rgba(90, 78, 52, 0.35);
+  background: radial-gradient(circle at 50% 38%, #2a2218, #0c0a08 72%);
+}
+.hand-pip.occupied .hand-pip-img {
+  filter: grayscale(0.45) brightness(0.7);
+}
+.hand-pip.pip-occupy {
+  animation: hand-pip-occupy 480ms cubic-bezier(0.22, 0.82, 0.2, 1) both;
+}
+.hand-pip.pip-release {
+  animation: hand-pip-release 440ms cubic-bezier(0.22, 0.78, 0.18, 1) both;
+}
+@keyframes hand-pip-occupy {
+  0% { opacity: 1; transform: scale(1.2); filter: brightness(1.4); }
+  40% { opacity: 0.55; transform: scale(0.8); filter: brightness(0.9); }
+  70% { opacity: 0.28; transform: scale(1.08); }
+  100% { opacity: 0.32; transform: scale(1); filter: brightness(1); }
+}
+@keyframes hand-pip-release {
+  0% { opacity: 0.32; transform: scale(0.82); filter: brightness(0.75); }
+  48% { opacity: 1; transform: scale(1.18); filter: brightness(1.35); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
 }
 /* 战斗动画通道优先于悬浮（同为 3 类选择器，靠书写顺序覆盖；animation 简写把 delay 归零） */
 .unit-card.stationed.atk-anim { animation: card-atk 200ms ease-out; }
@@ -702,6 +858,7 @@ button, select { font-family: inherit; }
   font-size: 22px;
   line-height: 1;
   text-shadow: 0 1px 2px #000;
+  transition: transform 0.22s ease-out;
 }
 .unit-card.face-2 .s2-hp-num { font-size: 24px; }
 .unit-card.face-3 .s2-hp-num { font-size: 25px; }
@@ -779,6 +936,65 @@ button, select { font-family: inherit; }
   opacity: 0.9;
 }
 .battle-status { font-family: var(--font-title); font-size: 13px; color: var(--gold); }
+.game-notice {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+}
+.game-notice[hidden] { display: none !important; }
+.game-notice.is-on { opacity: 1; }
+.game-notice.is-out { opacity: 0; transition: opacity 0.32s ease; }
+.game-notice-text {
+  font-family: var(--font-title);
+  font-size: clamp(18px, 2.15vw, 26px);
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  color: #c43c3c;
+  text-align: center;
+  max-width: 78%;
+  padding: 0.75em 1.8em;
+  background: radial-gradient(ellipse at center, rgba(28, 6, 6, 0.58) 0%, rgba(12, 4, 4, 0) 72%);
+  text-shadow:
+    0 0 1px #3a0808,
+    0 1px 2px #000,
+    0 0 10px rgba(0, 0, 0, 0.92),
+    0 0 14px rgba(139, 30, 30, 0.85),
+    0 0 26px rgba(196, 60, 60, 0.45);
+}
+.game-notice.is-on .game-notice-text {
+  animation: notice-pop 280ms cubic-bezier(0.18, 0.9, 0.28, 1.12) both;
+}
+.game-notice[data-kind="warn"] .game-notice-text { color: #b42828; }
+.game-notice[data-kind="error"] .game-notice-text { color: #d44848; }
+@keyframes notice-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+    filter: brightness(1.55);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.06) translateX(-3px);
+    filter: brightness(1.35);
+  }
+  62% {
+    transform: scale(1.02) translateX(3px);
+  }
+  78% {
+    transform: scale(0.99) translateX(-1px);
+    filter: brightness(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
 .link-layer {
   display: none;
   position: absolute;
@@ -1036,6 +1252,38 @@ button, select { font-family: inherit; }
 .bullet.secondary {
   opacity: 0.55;
 }
+.bullet.sprite {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+.bullet.sprite img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
+}
+.bullet.sprite.qingfeng-jian img {
+  filter: hue-rotate(92deg) saturate(0.85) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
+}
+.beam-spark.sprite {
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  margin-left: -14px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.beam-spark.sprite img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(255, 224, 138, 0.7));
+}
 
 .card-tip {
   position: fixed;
@@ -1099,7 +1347,6 @@ button, select { font-family: inherit; }
 
 @media (max-height: 720px) {
   .brand h1 { font-size: 16px; }
-  .inspect { min-height: 72px; font-size: 11px; }
   .pool-card .meta { display: none; }
   .unit-card.skin-1 .icon { font-size: 22px; }
   .unit-card.skin-2 .s2-art .icon { font-size: 28px; }

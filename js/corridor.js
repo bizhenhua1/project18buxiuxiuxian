@@ -6,11 +6,14 @@
  * 静止时零重绘。
  *
  * 主题体系：THEMES 登记每个主题的资产清单/图层开关/氛围参数（森林 forest、
- * 洞穴 cave、云海 cloudsea……），按推进关数分段自动轮换（P.themeSegment 关一段），
- * 段落边界处做全黑淡入淡出过渡，主题资产懒加载、在黑幕下完成替换。
+ * 洞穴 cave、云海 cloudsea……）。对局内主题跟区域走（换区才切图），不跟
+ * camZ 推进次数挂钩；键盘演示仍按 P.themeSegment 分段轮换。段落边界处做
+ * 全黑淡入淡出过渡，主题资产懒加载、在黑幕下完成替换。
  */
 
-export const CORRIDOR_VERSION = "canvas27";
+import { assetUrl } from "./assets.js?v=dao12";
+
+export const CORRIDOR_VERSION = "canvas28";
 /** @deprecated 兼容保留：基线森林主题目录。运行时以 THEMES[*].base 为准。 */
 export const CORRIDOR_BASE = "assets/corridor/forest/";
 export const STAGE_STEP = 420;
@@ -350,10 +353,10 @@ export const THEMES = {
     farLayers: [
       { name: "island-far.png", dim: 0.5, single: true, h: 0.32, lift: 0.16, x: 0.54 },
     ],
-    /* 天空全套复用森林素材：祥云条带 + 日月（同 style-e 画风）。 */
-    cloud: "../forest/cloud-strip.png",
-    sun: "../forest/sun.png",
-    moon: "../forest/moon.png",
+    /* 天空全套复用森林素材：祥云条带 + 日月（同 style-e 画风；绝对路径，勿用 ../forest）。 */
+    cloud: "assets/corridor/forest/cloud-strip.png",
+    sun: "assets/corridor/forest/sun.png",
+    moon: "assets/corridor/forest/moon.png",
     /* 无 Mode-7 地面：脚下就是云海，条带层层铺满；垫底用亮雾渐变。 */
     ground: null,
     groundFallback: [[0, "#e8d9b9"], [0.45, "#cdd2d6"], [1, "#a9bac9"]],
@@ -420,8 +423,10 @@ function fract(n) {
 function hash(i, salt) {
   return fract(Math.sin(i * 127.1 + salt * 311.7) * 43758.5453);
 }
-function asset(cfg, name) {
-  return `${cfg.base}${name}?v=${CORRIDOR_VERSION}`;
+function themeAsset(cfg, name) {
+  /* 主题内相对名 → 绝对 assets/corridor/<theme>/…；已是 assets/ 开头则直接用 */
+  const rel = name.startsWith("assets/") ? name : `${cfg.base}${name}`;
+  return assetUrl(rel, CORRIDOR_VERSION);
 }
 function loadImage(src) {
   return new Promise((resolve) => {
@@ -569,6 +574,8 @@ export function createCorridor(host, opts = {}) {
   let traveling = false;
   let travelGoal = 0;
   let travelResolve = null;
+  let themeResolve = null;
+  let areaThemeIndex = 0;  // 对局换区下标；主题跟区域走，不跟 camZ
   let camX = 0;
   let camZ = 0;
   let speed = 0;
@@ -604,8 +611,25 @@ export function createCorridor(host, opts = {}) {
   function curStage() {
     return Math.floor(camZ / STAGE_STEP + 1e-6);
   }
+  function themeForArea(idx) {
+    const i = Math.max(0, Math.floor(Number(idx) || 0));
+    return THEME_ORDER[i % THEME_ORDER.length];
+  }
+  /** 对局：区域主题；键盘演示：camZ 分段；编辑器锁定 themeMode 优先。 */
+  function desiredTheme() {
+    if (P.themeMode >= 0) {
+      return THEME_ORDER[Math.min(THEME_ORDER.length - 1, Math.round(P.themeMode))];
+    }
+    if (keyboard) return themeForStage(curStage());
+    return themeForArea(areaThemeIndex);
+  }
+  function notifyThemeSettled(ok) {
+    const resolve = themeResolve;
+    themeResolve = null;
+    if (resolve) resolve(ok);
+  }
 
-  let themeId = themeForStage(curStage());
+  let themeId = desiredTheme();
   let T = THEMES[themeId];   // 当前主题配置
   let A = null;              // 当前主题资产 bundle（loadTheme 产出）
   CURVE_MUL = T.curveMul;
@@ -621,23 +645,24 @@ export function createCorridor(host, opts = {}) {
     if (themeLoading.has(id)) return themeLoading.get(id);
     const cfg = THEMES[id];
     const job = (async () => {
+      try {
       const [bigImgs, decoImgs, farImgs, ringImgs, floatImgs, cloudImg, groundImg, sunI, moonI] = await Promise.all([
-        Promise.all(cfg.bigs.map((t) => loadImage(asset(cfg, t.name)))),
-        Promise.all(cfg.deco.map((g) => loadImage(asset(cfg, g.name)))),
-        Promise.all(cfg.farLayers.map((s) => loadImage(asset(cfg, s.name)))),
-        Promise.all((cfg.rings ? cfg.rings.images : []).map((n) => loadImage(asset(cfg, n)))),
-        Promise.all((cfg.floaters ? cfg.floaters.images : []).map((n) => loadImage(asset(cfg, n)))),
-        cfg.cloud ? loadImage(asset(cfg, cfg.cloud)) : null,
-        cfg.ground ? loadImage(asset(cfg, cfg.ground)) : null,
-        cfg.sun ? loadImage(asset(cfg, cfg.sun)) : null,
-        cfg.moon ? loadImage(asset(cfg, cfg.moon)) : null,
+        Promise.all(cfg.bigs.map((t) => loadImage(themeAsset(cfg, t.name)))),
+        Promise.all(cfg.deco.map((g) => loadImage(themeAsset(cfg, g.name)))),
+        Promise.all(cfg.farLayers.map((s) => loadImage(themeAsset(cfg, s.name)))),
+        Promise.all((cfg.rings ? cfg.rings.images : []).map((n) => loadImage(themeAsset(cfg, n)))),
+        Promise.all((cfg.floaters ? cfg.floaters.images : []).map((n) => loadImage(themeAsset(cfg, n)))),
+        cfg.cloud ? loadImage(themeAsset(cfg, cfg.cloud)) : null,
+        cfg.ground ? loadImage(themeAsset(cfg, cfg.ground)) : null,
+        cfg.sun ? loadImage(themeAsset(cfg, cfg.sun)) : null,
+        cfg.moon ? loadImage(themeAsset(cfg, cfg.moon)) : null,
       ]);
       const bundle = {
         bigCaches: bigImgs.map((img, i) => (img ? buildSpriteCache(img, cfg.bigs[i].cache) : null)),
         decoCaches: decoImgs.map((img, i) => (img ? buildSpriteCache(img, cfg.deco[i].cache) : null)),
         farCaches: farImgs.map((img) => (img ? buildSkyCache(img) : null)),
-        ringCaches: ringImgs.map((img) => (img ? buildSpriteCache(img, cfg.rings.cache) : null)),
-        floatCaches: floatImgs.map((img) => (img ? buildSpriteCache(img, cfg.floaters.cache) : null)),
+        ringCaches: ringImgs.map((img) => (img && cfg.rings ? buildSpriteCache(img, cfg.rings.cache) : null)),
+        floatCaches: floatImgs.map((img) => (img && cfg.floaters ? buildSpriteCache(img, cfg.floaters.cache) : null)),
         cloudCaches: [],
         lowCaches: [],
         stripCaches: [],
@@ -669,6 +694,11 @@ export function createCorridor(host, opts = {}) {
       themeBundles.set(id, bundle);
       themeLoading.delete(id);
       return bundle;
+      } catch (err) {
+        themeLoading.delete(id);
+        console.error(`[corridor] loadTheme(${id}) failed`, err);
+        throw err;
+      }
     })();
     themeLoading.set(id, job);
     return job;
@@ -1639,14 +1669,18 @@ export function createCorridor(host, opts = {}) {
   /** 推进/参数变化后驱动主题过渡状态机（在 tick 中每帧调用）。 */
   function stepTheme(dt) {
     if (!ready) return;
-    const want = themeForStage(curStage());
+    const want = desiredTheme();
     if (!transition && want !== themeId) {
       transition = { target: want, phase: "out", alpha: 0 };
-      loadTheme(want);
+      loadTheme(want).catch(() => {
+        /* 加载失败时取消过渡，避免全黑幕永久卡住 */
+        if (transition?.target === want) transition = null;
+        notifyThemeSettled(false);
+      });
     }
-    /* 预载下一段主题：临近段落边界提前拉资产，黑幕不用等加载。 */
+    /* 预载下一主题：对局按下一区域，键盘演示按下一 camZ 段。 */
     if (P.themeMode < 0) {
-      const next = themeForStage(curStage() + 1);
+      const next = keyboard ? themeForStage(curStage() + 1) : themeForArea(areaThemeIndex + 1);
       if (next !== themeId && !themeBundles.has(next)) loadTheme(next);
     }
     if (!transition) return;
@@ -1659,7 +1693,10 @@ export function createCorridor(host, opts = {}) {
       }
     } else {
       transition.alpha = Math.max(0, transition.alpha - dt / TRANS_IN_S);
-      if (transition.alpha <= 0) transition = null;
+      if (transition.alpha <= 0) {
+        transition = null;
+        notifyThemeSettled(true);
+      }
     }
     dirty = true;
   }
@@ -1995,6 +2032,32 @@ export function createCorridor(host, opts = {}) {
     });
   }
 
+  /** 换区切主题。对局前进不改主题；immediate 用于读档/调试，跳过黑幕。 */
+  function setAreaTheme(idx, { immediate = false } = {}) {
+    areaThemeIndex = Math.max(0, Math.floor(Number(idx) || 0));
+    const want = desiredTheme();
+    if (immediate || !ready) {
+      notifyThemeSettled(false);
+      if (want === themeId) {
+        requestRedraw();
+        return Promise.resolve(false);
+      }
+      return loadTheme(want).then(() => {
+        transition = null;
+        if (want !== themeId) swapTheme(want);
+        requestRedraw();
+        return true;
+      }).catch(() => false);
+    }
+    if (want === themeId && !transition) return Promise.resolve(false);
+    requestRedraw();
+    return new Promise((resolve) => {
+      const prev = themeResolve;
+      themeResolve = resolve;
+      if (prev) prev(false);
+    });
+  }
+
   if (keyboard) {
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("keyup", onKeyUp);
@@ -2024,6 +2087,7 @@ export function createCorridor(host, opts = {}) {
     P.dayStart = h - (camZ / STAGE_STEP) * 2;
     applyParamChange();
   };
+  window.__corridorSnap = () => ({ camZ, themeId, traveling, areaThemeIndex });
   /** 立即切主题（无黑幕过渡，等资产就绪后返回）——自动化验收专用。 */
   window.__corridorSetTheme = async (id) => {
     if (!THEMES[id]) return false;
@@ -2039,6 +2103,7 @@ export function createCorridor(host, opts = {}) {
   return {
     setMoving,
     travelForward,
+    setAreaTheme,
     syncFromState() {
       /* 位移由 travelForward / setMoving 驱动，不跟关卡号缓漂 */
     },
@@ -2047,6 +2112,7 @@ export function createCorridor(host, opts = {}) {
       cancelAnimationFrame(raf);
       raf = 0;
       finishTravel(false);
+      notifyThemeSettled(false);
       ro?.disconnect();
       window.removeEventListener("resize", onResize);
       if (keyboard) {

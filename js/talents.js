@@ -2,15 +2,17 @@
  * 道途天赋树：数据、点数经济、分配/洗髓、修正聚合。
  *
  * 设计要点：
- * - 悟性点 = 已通过路点数 + 已通过 Boss 数（每 8 路点 1 个 Boss）
+ * - 悟性点 = 已完成任务数（普通+精英）+ 境界突破次数
  * - 树为放射状：中心「道基」免费，四条主干 = 体修 / 法修 / 器道 / 御兽
  * - 节点效果分两类：
- *   1) 格位类（handSlots/mindSlots/beastSlots/fabaoSlots/weightAdd）→ 改变可上阵的卡牌构成
+ *   1) 数量上限类（handSlots/mindSlots/beastSlots/fabaoSlots/weightAdd）→ 在白板基线上 +N，不锁物理格子
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
+ * 白板即可上阵道童 / 法宝 / 法术 / 御兽（有收服时）；天赋只加对应数量上限或力量预算。
  */
 
-import { ACTIVE_SKILLS } from "./unit.js?v=dao12";
+import { ACTIVE_SKILLS, PLAYER_LIBRARY } from "./unit.js?v=dao12";
 import { breakthroughCount, LAYER_GAIN_PCT, BREAK_GAIN_PCT } from "./realm.js?v=dao12";
+import { completedQuests } from "./quest.js?v=dao19";
 
 const STORE_KEY = "dao-talents-v1";
 
@@ -39,53 +41,53 @@ function node(id, name, kind, branch, at, desc, fx) {
 export const TREE_NODES = [
   node("root", "道基", "root", "root", { x: 0, y: 0 }, "修行之始：全队攻+2%、生命+2%（免费）", { atkPct: 2, hpPct: 2 }),
 
-  // ---- 体修（左上）：力量 / 手持格 / 反伤 / 减伤 ----
+  // ---- 体修（左上）：力量 / 手持上限 / 反伤 / 减伤 ----
   node("b1", "蛮力", "small", "体修", pos(TI, 70), "力量预算+3（手持武器总重量上限）", { weightAdd: 3 }),
-  node("b2", "两手蛮力", "notable", "体修", pos(TI, 135), "开启手持格×2：武器捏在手里，不占承伤位；力量+2", { handSlots: 2, weightAdd: 2 }),
+  node("b2", "两手蛮力", "notable", "体修", pos(TI, 135), "手持上限+2：武器捏在手里，不占承伤位；力量+2", { handSlots: 2, weightAdd: 2 }),
   node("b3", "筋骨", "small", "体修", pos(TI, 150, 62), "全队生命+6%", { hpPct: 6 }),
   node("b4", "罡体", "small", "体修", pos(TI, 215, 78), "反伤+10%：我方单位被近战命中时反弹伤害", { thornsPct: 10 }),
-  node("b5", "四臂罗汉", "notable", "体修", pos(TI, 200), "手持格再+2（共4），力量+3", { handSlots: 2, weightAdd: 3 }),
+  node("b5", "四臂罗汉", "notable", "体修", pos(TI, 200), "手持上限再+2（共6），力量+3", { handSlots: 2, weightAdd: 3 }),
   node("b6", "铁布衫", "small", "体修", pos(TI, 215, -78), "全队受到伤害-5%", { dmgReducePct: 5 }),
   node("b7", "体魄", "small", "体修", pos(TI, 280, -84), "全队生命+8%", { hpPct: 8 }),
-  node("b8", "三头六臂", "keystone", "体修", pos(TI, 262), "道果：手持格再+2（共6），力量+4——六臂各持凶兵", { handSlots: 2, weightAdd: 4 }),
+  node("b8", "三头六臂", "keystone", "体修", pos(TI, 262), "道果：手持上限再+2（共8），力量+4——六臂各持凶兵", { handSlots: 2, weightAdd: 4 }),
   node("b9", "法宝合身", "keystone", "体修", pos(TI, 322), "道果：手持法宝血量继承比例+30%（基础30%→60%），且道童金刚护体（受伤-30%）——全队一根粗血条", { mergeHeldHpPct: 30, dmgReducePct: 30 }),
   node("b10", "猿臂", "small", "体修", pos(TI, 280, 84), "攻速+6%：降低道童与手持法宝的等效冷却", { atkSpeedPct: 6 }),
   node("b11", "锐目", "small", "体修", pos(TI, 345, 88), "暴击+5%：全队出手可暴击（基础暴伤150%）", { critPct: 5 }),
   node("b12", "刚劲", "small", "体修", pos(TI, 150, -62), "外伤+8%：全队外伤类攻击增伤", { physPct: 8 }),
   node("b13", "铁骨", "small", "体修", pos(TI, 345, -92), "外防+6：全队外伤防御点数（递减减伤）", { physDef: 6 }),
 
-  // ---- 法修（右上）：识海格 / 法伤 / 技能冷却 ----
+  // ---- 法修（右上）：法术上限 / 法伤 / 技能冷却 ----
   node("f1", "凝神", "small", "法修", pos(FA, 70), "法伤+8%：全队法伤类攻击增伤（含法术治疗强度）", { spellPct: 8 }),
-  node("f2", "识海开窍", "notable", "法修", pos(FA, 135), "开启识海格×2：法术无血量、不占承伤位，按 CD 自动施放", { mindSlots: 2 }),
+  node("f2", "识海开窍", "notable", "法修", pos(FA, 135), "法术可上阵+2：无血量、不占承伤位，按 CD 自动施放", { mindSlots: 2 }),
   node("f3", "静心", "small", "法修", pos(FA, 150, -62), "全队冷却-3%", { cdPct: 3 }),
-  node("f4", "神识", "small", "法修", pos(FA, 215, -78), "识海格+1", { mindSlots: 1 }),
-  node("f5", "灵台清明", "notable", "法修", pos(FA, 200), "识海格再+2，法伤+8%", { mindSlots: 2, spellPct: 8 }),
+  node("f4", "神识", "small", "法修", pos(FA, 215, -78), "法术可上阵+1", { mindSlots: 1 }),
+  node("f5", "灵台清明", "notable", "法修", pos(FA, 200), "法术可上阵再+2，法伤+8%", { mindSlots: 2, spellPct: 8 }),
   node("f6", "咒力", "small", "法修", pos(FA, 215, 78), "法伤+10%", { spellPct: 10 }),
   node("f7", "玄妙", "small", "法修", pos(FA, 280, 84), "全队冷却-4%", { cdPct: 4 }),
-  node("f8", "万法周天", "keystone", "法修", pos(FA, 262), "道果：识海格再+3（共8），法伤+20%，但全队生命-10%", { mindSlots: 3, spellPct: 20, hpPct: -10 }),
+  node("f8", "万法周天", "keystone", "法修", pos(FA, 262), "道果：法术可上阵再+3（共9），法伤+20%，但全队生命-10%", { mindSlots: 3, spellPct: 20, hpPct: -10 }),
   node("f9", "凝息", "small", "法修", pos(FA, 280, -84), "技能冷却-8%：只压缩主动技与识海法术的等效 CD", { skillCdrPct: 8 }),
   node("f10", "玄盾", "small", "法修", pos(FA, 345, -88), "法防+6：全队法伤防御点数（递减减伤）", { spellDef: 6 }),
 
-  // ---- 器道（左下）：法宝格 / 剑阵 / 幡 ----
+  // ---- 器道（左下）：法宝上限 / 剑阵 / 幡 ----
   node("q1", "御器", "small", "器道", pos(QI, 70), "法宝攻击+6%", { fabaoAtkPct: 6 }),
-  node("q2", "多宝", "notable", "器道", pos(QI, 135), "法宝格+2（基础4）", { fabaoSlots: 2 }),
+  node("q2", "多宝", "notable", "器道", pos(QI, 135), "法宝可上阵+2（基础4）", { fabaoSlots: 2 }),
   node("q3", "炼器", "small", "器道", pos(QI, 150, -62), "法宝生命+8%", { fabaoHpPct: 8 }),
   node("q4", "剑心", "notable", "器道", pos(QI, 215, 78), "剑阵解锁：任一剑类出手时，其余存活剑类各追击 30% 伤害", { swordEchoPct: 30 }),
   node("q5", "剑意", "small", "器道", pos(QI, 280, 84), "剑阵追击伤害+12%", { swordEchoPct: 12 }),
   node("q9", "淬锋", "small", "器道", pos(QI, 345, 92), "暴伤+20%：全队暴击伤害倍率提高", { critDmgPct: 20 }),
   node("q6", "幡道", "notable", "器道", pos(QI, 215, -78), "幡类每层魂力加成 8%→12%", { fanPerStackPct: 12 }),
   node("q7", "器灵", "small", "器道", pos(QI, 200), "法宝攻击+8%", { fabaoAtkPct: 8 }),
-  node("q8", "万宝归宗", "keystone", "器道", pos(QI, 262), "道果：法宝格再+3（共9），法宝攻血各+10%", { fabaoSlots: 3, fabaoAtkPct: 10, fabaoHpPct: 10 }),
+  node("q8", "万宝归宗", "keystone", "器道", pos(QI, 262), "道果：法宝可上阵再+3（共9），法宝攻血各+10%", { fabaoSlots: 3, fabaoAtkPct: 10, fabaoHpPct: 10 }),
 
-  // ---- 御兽（右下）：捕获 / 兽栏格 / 共鸣 ----
+  // ---- 御兽（右下）：捕获 / 御兽上限 / 共鸣 ----
   node("y1", "驭心", "small", "御兽", pos(YU, 70), "收服概率+10%（基础10%）", { capturePct: 10 }),
-  node("y2", "兽栏", "notable", "御兽", pos(YU, 135), "开启兽栏格×2：可上阵炼化的妖兽", { beastSlots: 2 }),
+  node("y2", "兽栏", "notable", "御兽", pos(YU, 135), "御兽可上阵+2：可上阵更多炼化的妖兽", { beastSlots: 2 }),
   node("y3", "兽性", "small", "御兽", pos(YU, 215, -78), "御兽攻击+8%", { beastAtkPct: 8 }),
   node("y4", "血食", "small", "御兽", pos(YU, 280, -84), "御兽生命+10%", { beastHpPct: 10 }),
-  node("y5", "扩栏", "notable", "御兽", pos(YU, 200), "兽栏格再+2", { beastSlots: 2 }),
+  node("y5", "扩栏", "notable", "御兽", pos(YU, 200), "御兽可上阵再+2", { beastSlots: 2 }),
   node("y6", "共鸣", "notable", "御兽", pos(YU, 215, 78), "兽魂共鸣：场上每有一种不同御兽，全队攻+2%", { beastResonance: true }),
   node("y7", "灵契", "small", "御兽", pos(YU, 150, 62), "收服概率+12%", { capturePct: 12 }),
-  node("y8", "万兽山河", "keystone", "御兽", pos(YU, 262), "道果：兽栏格再+2（共6），御兽攻血各+12%；兽王血契：御兽死亡时道童回其最大生命 20% 的血", { beastSlots: 2, beastAtkPct: 12, beastHpPct: 12, bloodPact: true }),
+  node("y8", "万兽山河", "keystone", "御兽", pos(YU, 262), "道果：御兽可上阵再+2（共7），御兽攻血各+12%；兽王血契：御兽死亡时道童回其最大生命 20% 的血", { beastSlots: 2, beastAtkPct: 12, beastHpPct: 12, bloodPact: true }),
 ];
 
 export const TREE_EDGES = [
@@ -144,10 +146,9 @@ export function allocatedIds() {
   return new Set(alloc);
 }
 
-/** 悟性总点数：每路点 1 点，每过一个 Boss（第 8 路点）额外 1 点，每次境界突破再 +1。 */
-export function talentPoints(unlockStage, breakthroughs = breakthroughCount()) {
-  const s = Math.max(0, Math.floor(unlockStage || 0));
-  return s + Math.floor(s / 8) + Math.max(0, Math.floor(breakthroughs || 0));
+/** 悟性总点数：每完成 1 个任务 +1，每次境界突破再 +1。首参保留兼容（旧调用传 unlockStage，已忽略）。 */
+export function talentPoints(_legacyStage, breakthroughs = breakthroughCount()) {
+  return completedQuests() + Math.max(0, Math.floor(breakthroughs || 0));
 }
 
 export function spentPoints() {
@@ -198,8 +199,8 @@ export function respec() {
 }
 
 /** 进度回档（如清档）后点数不足时自动洗髓。 */
-export function reconcile(unlockStage) {
-  if (spentPoints() > talentPoints(unlockStage)) respec();
+export function reconcile(_legacyStage) {
+  if (spentPoints() > talentPoints()) respec();
 }
 
 // ---------------------------------------------------------------------------
@@ -242,14 +243,32 @@ export function talentMods() {
   return mergeMods(...parts);
 }
 
-/** 格位表：天赋（+装备词条）决定各类型卡的可上阵数量与重量预算。 */
+function maxLibraryFabaoWeight() {
+  let w = 4;
+  for (const c of PLAYER_LIBRARY) {
+    if (c.cardType === "fabao") w = Math.max(w, Number(c.weight) || 0);
+  }
+  return w;
+}
+
+/** 白板数量上限：新档即可上阵各卡种；天赋/词条只在此基础上 +N，不预画专用格。力量至少能单独握住库内最重法宝。 */
+export const BASE_SLOTS = {
+  fabao: 4,
+  hand: 2,
+  mind: 1,
+  beast: 1,
+  weight: maxLibraryFabaoWeight(),
+};
+
+/** 各卡种可上阵数量 + 手持重量预算：白板基线 + 天赋（+装备词条）。不是物理格子表。 */
 export function slotTable(mods) {
+  const m = mods || {};
   return {
-    fabao: 4 + (mods.fabaoSlots || 0),
-    hand: mods.handSlots || 0,
-    mind: (mods.mindSlots || 0) + (mods.mindSlotAdd || 0),
-    beast: mods.beastSlots || 0,
-    weight: mods.weightAdd || 0,
+    fabao: BASE_SLOTS.fabao + (m.fabaoSlots || 0),
+    hand: BASE_SLOTS.hand + (m.handSlots || 0),
+    mind: BASE_SLOTS.mind + (m.mindSlots || 0) + (m.mindSlotAdd || 0),
+    beast: BASE_SLOTS.beast + (m.beastSlots || 0),
+    weight: BASE_SLOTS.weight + (m.weightAdd || 0),
   };
 }
 

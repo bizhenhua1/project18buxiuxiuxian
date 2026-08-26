@@ -1,5 +1,13 @@
 import {
-  MAX_STAGE,
+  flushActive,
+  activeSlot,
+  listSlots,
+  createSlot,
+  switchSlot,
+  deleteSlot,
+  renameSlot,
+} from "./saves.js?v=dao17";
+import {
   capAt,
   createEmptyQueue,
   livingUnits,
@@ -10,9 +18,9 @@ import {
   findUnitByUid,
   reindex,
 } from "./grid.js?v=dao12";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao12";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, HELD_HP_MERGE_BASE, fieldCardType, createUnit, getCard, resetCombatState } from "./unit.js?v=dao12";
 import { tick, resolveShot, checkWinner, processDeaths, applyDamage } from "./combat.js?v=dao12";
-import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao12";
+import { applyEffectiveStats, fmtMult, playerMult, monsterMult, isBossStage } from "./balance.js?v=dao13";
 import {
   talentMods,
   talentPoints,
@@ -22,10 +30,10 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao12";
-import { equipMods, addItem, rarityById } from "./equipment.js?v=dao12";
-import { rollLoot, rollCaptures, addBeast, beastCount } from "./loot.js?v=dao12";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao12";
+} from "./talents.js?v=dao21";
+import { equipMods, addItem, rarityById } from "./equipment.js?v=dao19";
+import { rollLoot, rollCaptures, addBeast, beastCount, rollIdleLoot, rollQuestLoot } from "./loot.js?v=dao19";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao20";
 import {
   addExp,
   breakthrough,
@@ -38,12 +46,12 @@ import {
   LAYER_GAIN_PCT,
   BREAK_GAIN_PCT,
 } from "./realm.js?v=dao12";
-import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao12";
+import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao18";
+import { initSaveUI, openSavePanel, syncSaveButtons } from "./save-ui.js?v=dao17";
 import {
   buildLanes,
   buildPool,
   renderBoards,
-  renderInspect,
   renderLinks,
   renderDps,
   battleElapsedSec,
@@ -67,13 +75,33 @@ import {
   formatCardTip,
   formatUnitTip,
   bindCorridor,
-} from "./ui.js?v=dao12";
+  playFabaoModeAnim,
+  playCharHpPulse,
+  rollDisplayedHp,
+} from "./ui.js?v=dao25";
 import {
   NODES_PER_REGION,
-  nodeIndexOf,
   regionOf,
-} from "./map.js?v=dao12";
-import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas27";
+} from "./map.js?v=dao19";
+import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas28";
+import {
+  migrateAreaFromStage,
+  areaIndex,
+  areaStage,
+  eliteStage,
+  currentQuest,
+  isEliteQuest,
+  questSnapshot,
+  applyKills,
+  rollNextQuest,
+  enterNextArea,
+  setAreaIndex,
+  areaGrowth,
+  completedQuests,
+  completeCurrentQuest,
+} from "./quest.js?v=dao19";
+import { claimIdle, idleRates, touchIdle } from "./idle.js?v=dao13";
+import { addCoins, coinBalance, renderCoins } from "./economy.js?v=dao13";
 
 const PROGRESS_KEY = "dao-progress-v1";
 
@@ -82,12 +110,9 @@ function loadProgress() {
     const raw = JSON.parse(localStorage.getItem(PROGRESS_KEY) || "null");
     if (raw && Number.isFinite(raw.unlockStage)) {
       const wins = Math.max(0, raw.wins | 0);
-      // 旧档无 clearedStage：合法进度每推一关恰有一胜，用胜场推导已打赢的最高路点
       const clearedRaw = Number.isFinite(raw.clearedStage) ? Math.floor(raw.clearedStage) : wins - 1;
-      // 合法性钳制：前沿关卡最多为「已打赢路点 + 1」。免战连点「下一关」灌大的
-      // unlockStage（敌方成长按指数曲线放大到几万血）在这里被清洗回合法进度。
-      const unlockStage = Math.max(0, Math.min(Math.floor(raw.unlockStage), clearedRaw + 1));
-      const clearedStage = Math.max(-1, Math.min(clearedRaw, unlockStage));
+      const unlockStage = Math.max(0, Math.floor(raw.unlockStage));
+      const clearedStage = Math.max(-1, Math.floor(clearedRaw));
       return { unlockStage, wins, clearedStage };
     }
   } catch { /* 损坏则从头开始 */ }
@@ -95,6 +120,7 @@ function loadProgress() {
 }
 
 const progress = loadProgress();
+migrateAreaFromStage(progress.unlockStage);
 
 const state = {
   playerQueue: createEmptyQueue(),
@@ -105,14 +131,19 @@ const state = {
   speed: 1,
   winner: null,
   selectedUid: null,
-  unlockStage: progress.unlockStage,
-  focusStage: progress.unlockStage,
+  unlockStage: areaStage(),
+  focusStage: areaStage(),
   wins: progress.wins,
-  clearedStage: progress.clearedStage,
+  clearedStage: Math.max(progress.clearedStage, areaStage() - 1),
   cardSkin: "skin2",
   killedEnemies: [],
   bloodPact: false,
 };
+
+function syncAreaStages() {
+  state.unlockStage = areaStage();
+  state.focusStage = isEliteQuest() ? eliteStage() : areaStage();
+}
 
 function saveProgress() {
   try {
@@ -120,12 +151,15 @@ function saveProgress() {
       unlockStage: state.unlockStage,
       wins: state.wins,
       clearedStage: state.clearedStage,
+      areaIndex: areaIndex(),
     }));
   } catch { /* 静默 */ }
 }
 
-// 清理性迁移：钳制后的进度立即回写，污染存档（unlockStage 远超胜场）只清洗这一次
+recoverCompletedQuest();
+syncAreaStages();
 saveProgress();
+flushActive();
 
 // 天赋+装备+境界聚合修正（变更时刷新缓存）
 let mods = mergeMods(talentMods(), equipMods(), realmMods());
@@ -143,6 +177,7 @@ const lanes = buildLanes();
 const poolRoot = document.getElementById("card-pool");
 buildPool(poolRoot);
 const corridor = createCorridor(document.getElementById("corridor-host"), { band: true });
+corridor?.setAreaTheme?.(areaIndex(), { immediate: true });
 bindCorridor(corridor);
 
 let raf = 0;
@@ -157,11 +192,15 @@ function cap() {
 }
 
 function playerStage() {
-  return state.unlockStage;
+  return areaStage();
 }
 
 function enemyStage() {
-  return Number.isFinite(state.focusStage) ? state.focusStage : state.unlockStage;
+  return isEliteQuest() ? eliteStage() : areaStage();
+}
+
+function questTargetId() {
+  return currentQuest()?.targetId || null;
 }
 
 function makeUnit(id, side, index = 0, mode = "station") {
@@ -171,24 +210,23 @@ function makeUnit(id, side, index = 0, mode = "station") {
 }
 
 /**
- * 队列排型序（dao12）：可承伤单位（道童/操控法宝/妖兽）同组自由排序——承伤顺序即队列顺序，
- * 玩家可把法宝拖到道童前面当肉盾；不可承伤的手持法宝与识海法术自动靠右分组（手持→识海）。
+ * 队列排型：只把识海法术归到最右。道童 / 操控法宝 / 手持法宝 / 妖兽同组，
+ * 相对顺序完全尊重玩家摆放——切换手持不改下标，绝不把武器自动抽到最右侧。
  */
 function typeRank(u) {
-  if (u.cardType === "fabao" && u.mode === "held") return 1;
-  if (u.cardType === "spell") return 2;
+  if (u.cardType === "spell") return 1;
   return 0;
 }
 
-/** 自动归位：稳定排序只把不可承伤单位归到右侧分组，可承伤区与各组内的相对顺序尊重玩家拖放。 */
+/** 稳定排序仅归位识海法术；手持法宝不参与自动抽位。 */
 function sortPlayerQueue() {
   state.playerQueue.sort((a, b) => typeRank(a) - typeRank(b));
   reindex(state.playerQueue);
 }
 
 /**
- * 新卡默认落位：道童插到可承伤区最前（保持「主角默认最左」的初始体验），
- * station 法宝/妖兽插到可承伤区末尾；held/识海插到组头，经排型自动归位到右侧分组。
+ * 新卡默认落位：道童插到最前；station/held 法宝与妖兽插到当前非识海区末尾
+ *（手持不另开右侧分组）；识海法术仍插组头，经排型归到最右。
  */
 function defaultInsertIndex(unit) {
   if (unit.cardType === "char") return 0;
@@ -219,7 +257,6 @@ function restatQueues() {
 
 function paint() {
   renderBoards(state, lanes);
-  renderInspect(state);
   renderDps(state);
   renderLinks(state);
 }
@@ -281,10 +318,74 @@ function settleVictory() {
   const levelNote = grew.levels > 0 ? `，境界提升至 <b class="loot-realm">${realmTitle()}</b>` : "";
   const fullNote = grew.full ? "（圆满，可突破）" : "";
   pushLootLog(`修为 +${grew.gained}${grew.gained < expGain ? `（圆满溢出 ${expGain - grew.gained}）` : ""}${levelNote}${fullNote}`);
+  const farmCoins = addCoins(Math.max(1, Math.round((boss ? 8 : 3) * areaGrowth())));
+  if (farmCoins) pushLootLog(`灵石 +${farmCoins}`);
   if (caught.length) buildPool(poolRoot);
   refreshMods();
+  renderCoins();
   syncMetaButtons();
-  return { items, caught };
+  return { items, caught, coins: farmCoins };
+}
+
+function grantQuestRewards(quest) {
+  const r = quest?.rewards || {};
+  const bits = [];
+  if (r.exp > 0) {
+    const grew = addExp(r.exp);
+    const levelNote = grew.levels > 0 ? `，境界提升至 <b class="loot-realm">${realmTitle()}</b>` : "";
+    pushLootLog(`任务修为 +${grew.gained}${levelNote}`);
+    bits.push(`修为 +${grew.gained}`);
+  }
+  if (r.coins > 0) {
+    const n = addCoins(r.coins);
+    if (n) {
+      pushLootLog(`任务灵石 +${n}`);
+      bits.push(`灵石 +${n}`);
+    }
+  }
+  const items = rollQuestLoot(playerStage(), r.loot || 0, r.minTier || 0, mods.luckPct);
+  for (const item of items) {
+    addItem(item);
+    pushLootLog(`任务掉落 <b style="color:${rarityById(item.rarity).color}">${item.name}</b>`);
+  }
+  if (items.length) bits.push(`装备 ${items.map((it) => it.name).join("、")}`);
+  refreshMods();
+  renderCoins();
+  syncMetaButtons();
+  if (items.length) buildPool(poolRoot);
+  return { bits, items };
+}
+
+function applyIdleGrant(preview, label = "挂机") {
+  if (!preview) return null;
+  const bits = [];
+  if (preview.exp > 0) {
+    const grew = addExp(preview.exp);
+    if (grew.gained > 0) {
+      const levelNote = grew.levels > 0 ? `，境界提升至 <b class="loot-realm">${realmTitle()}</b>` : "";
+      pushLootLog(`${label}修为 +${grew.gained}${levelNote}`);
+      bits.push(`修为 +${grew.gained}`);
+    }
+  }
+  if (preview.coins > 0) {
+    const n = addCoins(preview.coins);
+    if (n) {
+      pushLootLog(`${label}灵石 +${n}`);
+      bits.push(`灵石 +${n}`);
+    }
+  }
+  const items = rollIdleLoot(playerStage(), preview.lootRolls, mods.luckPct);
+  for (const item of items) {
+    addItem(item);
+    pushLootLog(`${label}掉落 <b style="color:${rarityById(item.rarity).color}">${item.name}</b>`);
+  }
+  if (items.length) bits.push(`装备 ${items.map((it) => it.name).join("、")}`);
+  if (!bits.length) return null;
+  refreshMods();
+  renderCoins();
+  syncMetaButtons();
+  if (items.length) buildPool(poolRoot);
+  return { bits, items, capped: preview.capped, minutes: preview.minutes };
 }
 
 function clearPendingRevive() {
@@ -321,21 +422,46 @@ function finishIfNeeded() {
     state.winner === "enemy" ? (charFell ? "失败：道童陨落即战败（其余单位随之收兵）" : "失败：我方无存活") :
     "平局：双方均无存活";
   const kind = state.winner === "player" ? "win" : state.winner === "enemy" ? "lose" : "draw";
+  let areaComplete = false;
   if (state.winner === "player") {
     state.wins += 1;
     state.clearedStage = Math.max(state.clearedStage, state.unlockStage);
-    const { items, caught } = settleVictory();
+    const { items, caught, coins } = settleVictory();
     const bits = [];
     if (items.length) bits.push(`掉落 ${items.map((it) => it.name).join("、")}`);
     if (caught.length) bits.push(`收服 ${caught.map((id) => getCard(id)?.name || id).join("、")}`);
+    if (coins) bits.push(`灵石 +${coins}`);
+
+    const killResult = applyKills(state.killedEnemies);
+    const questDone = killResult.completed || currentQuest().have >= currentQuest().need;
+    if (killResult.progressed && !questDone) {
+      const snap = questSnapshot();
+      bits.push(`任务 ${snap.targetName} ${snap.have}/${snap.need}`);
+    }
+    if (questDone) {
+      const reward = grantQuestRewards(killResult.quest || currentQuest());
+      if (reward.bits.length) bits.push(`任务完成 ${reward.bits.join(" ")}`);
+      const next = rollNextQuest();
+      bits.push("悟性 +1");
+      pushLootLog("悟性 +1");
+      areaComplete = !!next.areaComplete;
+      if (areaComplete) bits.push("精英已除，即将换区");
+      else {
+        const nq = questSnapshot();
+        bits.push(`下一任务：${nq.title} ${nq.have}/${nq.need}`);
+      }
+      syncMetaButtons();
+    }
     if (bits.length) msg += ` · ${bits.join("；")}`;
     saveProgress();
   }
   state.battleEndTs = performance.now();
   setStatus(msg, kind);
   syncButtons();
-  if (state.winner === "player") queueTravelThenNextStage();
-  else {
+  if (state.winner === "player") {
+    if (areaComplete) queueTravelThenNextArea();
+    else queueTravelThenRefill(msg, kind);
+  } else {
     corridor?.setMoving?.(false);
     clearPendingRevive();
     pendingReviveTimer = setTimeout(reviveAfterDefeat, 1200);
@@ -426,25 +552,44 @@ function enemyCount() {
   return Math.min(capAt(stage), 5 + Math.floor(stage / 2));
 }
 
-function fillEnemyPreset() {
+function fillEnemyWish(n) {
   const roster = ENEMY_LIBRARY.map((c) => c.id);
+  const target = questTargetId();
+  const others = roster.filter((id) => id !== target);
   const wish = [];
-  const n = enemyCount();
-  for (let i = 0; i < n; i++) wish.push(roster[i % roster.length]);
-  fillQueue(state.enemyQueue, "enemy", wish);
+  const targetCount = target ? Math.max(1, Math.ceil(n * 0.55)) : 0;
+  for (let i = 0; i < targetCount && i < n; i++) wish.push(target);
+  for (let i = wish.length; i < n; i++) {
+    wish.push(others.length ? others[(i - targetCount) % others.length] : roster[i % roster.length]);
+  }
+  for (let i = wish.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [wish[i], wish[j]] = [wish[j], wish[i]];
+  }
+  return wish;
+}
+
+function fillEnemyPreset() {
+  fillQueue(state.enemyQueue, "enemy", fillEnemyWish(enemyCount()));
 }
 
 function fillEnemyRandom() {
   clearQueue(state.enemyQueue);
   const n = enemyCount();
+  const target = questTargetId();
+  const others = ENEMY_LIBRARY.filter((c) => !target || c.id !== target);
+  const targetCard = target ? ENEMY_LIBRARY.find((c) => c.id === target) : null;
+  const targetCount = target ? Math.max(1, Math.ceil(n * 0.55)) : 0;
   for (let i = 0; i < n; i++) {
-    const card = ENEMY_LIBRARY[Math.floor(Math.random() * ENEMY_LIBRARY.length)];
+    const card = i < targetCount && targetCard
+      ? targetCard
+      : (others[Math.floor(Math.random() * Math.max(1, others.length))] || ENEMY_LIBRARY[0]);
     insertUnit(state.enemyQueue, makeUnit(card.id, "enemy", i), i, n);
   }
 }
 
 function fillPlayerDemo() {
-  // 一键布阵尊重格位：道童 + 法宝填满法宝格；有手持格则从重到轻持法宝（重量预算内）；再补法术
+  // 一键布阵尊重数量上限：道童 + 法宝填满操控额度；再按重量预算手持；再补法术
   const slots = currentSlots();
   clearQueue(state.playerQueue);
   const put = (id, mode = null) => {
@@ -470,9 +615,9 @@ function fillPlayerDemo() {
 }
 
 /**
- * 上阵校验 + 入位模式：位置上限 + 格位类型 + 重量预算 + 御兽持有数。
- * 法宝默认入法宝格（station）；法宝格满且手持格有余（含重量预算）则自动入手持（held）。
- * wantMode 可强制指定（双击切换/一键布阵/调试钩子用）。返回 { mode } 或 { error }。
+ * 上阵校验 + 入位模式：位置上限 + 各卡种数量上限 + 重量预算 + 御兽持有数。
+ * 拖入空位的法宝默认操控（station）；手持只能右键/双击指定（wantMode="held"）。
+ * 数量上限来自 slotTable，不绑定物理格子。返回 { mode } 或 { error }。
  */
 function resolvePlacement(card, ignoreUid = null, wantMode = null) {
   const q = state.playerQueue.filter((u) => u && u.uid !== ignoreUid);
@@ -489,35 +634,31 @@ function resolvePlacement(card, ignoreUid = null, wantMode = null) {
     const station = cnt("fabao") - heldUnits.length;
     const wUsed = heldUnits.reduce((s, u) => s + (u.weight || 0), 0);
     const heldError =
-      slots.hand <= 0
-        ? "手持格未开：先修「体修·两手蛮力」"
-        : heldUnits.length >= slots.hand
-          ? `手持格已满（${slots.hand}）`
-          : wUsed + (card.weight || 0) > slots.weight
-            ? `重量超限：${wUsed}+${card.weight} > ${slots.weight}（力量预算）`
-            : null;
+      heldUnits.length >= slots.hand
+        ? `手持已满（${slots.hand}），可修体修「两手蛮力」提高手持上限`
+        : wUsed + (card.weight || 0) > slots.weight
+          ? `重量超限：${wUsed}+${card.weight} > ${slots.weight}（力量预算）`
+          : null;
     const stationError =
-      station >= slots.fabao ? `法宝格已满（${slots.fabao}），可修「器道·多宝」扩容` : null;
+      station >= slots.fabao ? `法宝上阵已满（${slots.fabao}），可修「器道·多宝」扩容` : null;
     if (wantMode === "held") return heldError ? { error: heldError } : { mode: "held" };
     if (wantMode === "station") return stationError ? { error: stationError } : { mode: "station" };
     if (!stationError) return { mode: "station" };
-    if (!heldError) return { mode: "held" };
+    if (!heldError) return { error: `${stationError}。可对卡池或场上法宝右键改为手持` };
     return { error: `${stationError}；${heldError}` };
   }
   if (type === "spell") {
-    if (slots.mind <= 0) return { error: "识海格未开：先修「法修·识海开窍」" };
-    if (cnt("spell") >= slots.mind) return { error: `识海格已满（${slots.mind}）` };
+    if (cnt("spell") >= slots.mind) return { error: `法术上阵已满（${slots.mind}），可修法修「识海开窍」提高法术上限` };
   }
   if (type === "beast") {
-    if (slots.beast <= 0) return { error: "兽栏格未开：先修「御兽·兽栏」" };
-    if (cnt("beast") >= slots.beast) return { error: `兽栏格已满（${slots.beast}）` };
+    if (cnt("beast") >= slots.beast) return { error: `御兽上阵已满（${slots.beast}），可修御兽「兽栏」提高御兽上限` };
     const fielded = q.filter((u) => u.cardId === card.id && u.cardType === "beast").length;
     if (fielded >= beastCount(card.id)) return { error: `「${card.name}」仅收服了 ${beastCount(card.id)} 只` };
   }
   return { mode: "" };
 }
 
-/** 布阵期双击场上法宝：held ↔ station 切换（校验目标格位余量与重量预算）。 */
+/** 布阵期右键（或双击）场上法宝：held ↔ station 切换（校验手持上限与重量预算）。下标不变。 */
 function toggleFabaoMode(unit) {
   if (!canEdit() || !unit || unit.cardType !== "fabao") return;
   const want = unit.mode === "held" ? "station" : "held";
@@ -526,6 +667,8 @@ function toggleFabaoMode(unit) {
     setStatus(`切换失败：${res.error}`, "warn");
     return;
   }
+  const char = state.playerQueue.find((u) => u.cardType === "char");
+  const hpBefore = char ? char.maxHp : 0;
   unit.mode = want;
   restatQueues();
   setStatus(
@@ -533,6 +676,11 @@ function toggleFabaoMode(unit) {
     "idle",
   );
   paint();
+  playFabaoModeAnim(unit.uid, want);
+  if (char && hpBefore !== char.maxHp) {
+    rollDisplayedHp(char.uid, hpBefore, char.maxHp);
+    playCharHpPulse(char.uid);
+  }
 }
 
 function startBattle() {
@@ -591,61 +739,88 @@ function resetBattle() {
   paint();
 }
 
-function applyNextStageSpawn() {
+function refillInPlace(statusMsg, statusKind = "idle") {
   clearPendingRevive();
-  const atCap = state.unlockStage >= MAX_STAGE;
-  state.unlockStage += 1;
-  state.focusStage = state.unlockStage;
-  state.winner = null;
-  saveProgress();
-  syncMetaButtons();
+  for (const u of state.playerQueue) resetCombatState(u);
+  syncAreaStages();
   fillEnemyPreset();
   ensureCharFielded();
   restatQueues();
+  state.winner = null;
+  corridor?.setMoving?.(false);
+  if (statusMsg) setStatus(statusMsg, statusKind);
+  syncButtons();
+  paint();
+}
+
+function applyNextAreaSpawn() {
+  clearPendingRevive();
+  enterNextArea();
+  syncAreaStages();
+  reconcile(state.unlockStage);
+  refreshMods();
+  state.clearedStage = Math.max(state.clearedStage, state.unlockStage - 1);
+  state.winner = null;
+  saveProgress();
+  syncMetaButtons();
+  for (const u of state.playerQueue) resetCombatState(u);
+  fillEnemyPreset();
+  ensureCharFielded();
+  restatQueues();
+  corridor?.setAreaTheme?.(areaIndex(), { immediate: true });
   corridor?.setMoving?.(false);
   const region = regionOf(state.unlockStage);
-  const node = nodeIndexOf(state.unlockStage);
-  const capNote = atCap ? "携带已满" : `可携带 ${cap()} 张`;
-  const rolled = node === 0 ? `进入 ${region.name}` : region.name;
   const pm = playerMult(playerStage());
   const mm = monsterMult(enemyStage());
-  const boss = mm.boss ? " · Boss" : "";
+  const rates = idleRates(areaIndex());
   setStatus(
-    `${rolled} · 路点 ${node + 1}/${NODES_PER_REGION}${boss} · ${capNote} · 我攻×${fmtMult(pm.atk)} 怪血×${fmtMult(mm.hp)}`,
-    "idle",
+    `进入 ${region.name} · 区域跃升 · 我攻×${fmtMult(pm.atk)} 怪血×${fmtMult(mm.hp)} · 挂机 修为${rates.expPerMin}/分 灵石${rates.coinsPerMin}/分`,
+    "win",
   );
   syncButtons();
   paint();
 }
 
-function queueTravelThenNextStage() {
-  if (corridorTraveling) return;
+function queueTravelThenRefill(statusMsg, statusKind = "idle") {
+  if (corridorTraveling) {
+    refillInPlace(statusMsg, statusKind);
+    return;
+  }
   corridorTraveling = true;
-  setStatus("赶路中：走廊向前推进", "idle");
   syncButtons();
   const run = corridor?.travelForward?.(STAGE_STEP);
-  Promise.resolve(run).then((ok) => {
+  Promise.resolve(run).then(() => {
     corridorTraveling = false;
-    if (ok) applyNextStageSpawn();
-    else {
-      corridor?.setMoving?.(false);
-      syncButtons();
-    }
+    refillInPlace(statusMsg, statusKind);
   });
 }
 
-/** 手动推关须先打赢当前路点：免战连点会把指数成长的敌方数值灌爆并永久入档。 */
-function canAdvanceStage() {
-  return state.unlockStage <= state.clearedStage;
+function queueTravelThenNextArea() {
+  if (corridorTraveling) return;
+  corridorTraveling = true;
+  setStatus("赶路中：精英已除，即将换区", "idle");
+  syncButtons();
+  const next = areaIndex() + 1;
+  Promise.resolve(corridor?.travelForward?.(STAGE_STEP))
+    .then(() => corridor?.setAreaTheme?.(next) ?? false)
+    .then(() => {
+      corridorTraveling = false;
+      applyNextAreaSpawn();
+    });
+}
+
+function recoverCompletedQuest() {
+  const q = currentQuest();
+  if (!q || q.have < q.need) return;
+  const next = rollNextQuest();
+  if (next.areaComplete) enterNextArea();
+  syncAreaStages();
+  saveProgress();
+  reconcile(state.unlockStage);
 }
 
 function nextStage() {
-  if (!canEdit()) return;
-  if (!canAdvanceStage()) {
-    setStatus("需先打赢当前路点才能推进（战败可原地重整再战）", "warn");
-    return;
-  }
-  queueTravelThenNextStage();
+  setStatus("换区需完成当前区域的精英击杀任务，无法手动跳关", "warn");
 }
 
 function syncSkinButtons() {
@@ -671,7 +846,7 @@ function syncButtons() {
     ["btn-enemy-random", editing],
     ["btn-player-fill", editing],
     ["btn-player-clear", editing],
-    ["btn-next", editing && canAdvanceStage()],
+    ["btn-next", false],
   ];
   for (const [id, on] of ids) {
     const el = document.getElementById(id);
@@ -684,16 +859,6 @@ function laneFromPoint(x, y) {
   const lane = el?.closest?.(".lane");
   return lane || null;
 }
-
-const SLOT_TYPE_NAMES = {
-  char: "本体格",
-  fabao: "法宝格",
-  weapon: "手持格",
-  spell: "识海格",
-  beast: "兽栏格",
-  monster: "妖兽格",
-  locked: "封印之位",
-};
 
 /** 指针落点 → 我方格位（格位行不收指针事件，按横向最近的格位几何判定）。 */
 function slotDropTarget(clientX) {
@@ -712,33 +877,14 @@ function slotDropTarget(clientX) {
   });
   if (!best) return null;
   const type = (best.className.match(/st-(\w+)/) || [])[1] || "locked";
-  // inside：指针横向正压在格位上（bestDist=0）。场上调序拖放只在 inside 时才视为切换模式的意图，
-  // 否则在组间空隙松手会被「最近格位」误判成切换。
   return { el: best, type, index: bestIndex, inside: bestDist === 0 };
 }
 
-/** 场上法宝的落点模式意图：可承伤区格位（本体/法宝/兽栏）=station，手持格=held，其余无意图。 */
-function fabaoDropMode(slotType) {
-  if (slotType === "weapon") return "held";
-  if (slotType === "char" || slotType === "fabao" || slotType === "beast") return "station";
-  return null;
-}
-
-/** 落点即意图：卡牌类型 × 落点格位类型 → 入阵模式（法宝格=station、手持格=held）或错误。 */
+/** 空位通用：只拦封印位。法宝拖入默认操控；手持不靠格子，由右键指定。 */
 function dropIntent(card, slotType) {
+  if (!slotType || slotType === "locked") return { error: "落点是封印之位（位置尚未解锁）" };
   const type = fieldCardType(card, "player");
-  if (!slotType || slotType === "locked") return { error: "落点是封印之位，修习对应道途可解锁" };
-  if (type === "fabao") {
-    if (slotType === "fabao") return { mode: "station" };
-    if (slotType === "weapon") return { mode: "held" };
-    return { error: `法宝请拖到法宝格或手持格（落点是${SLOT_TYPE_NAMES[slotType] || slotType}）` };
-  }
-  const wantSlot = { char: "char", spell: "spell", beast: "beast" }[type];
-  if (!wantSlot || slotType !== wantSlot) {
-    return {
-      error: `${CARD_TYPE_NAMES[type] || "该卡"}请拖到${SLOT_TYPE_NAMES[wantSlot] || "对应格位"}（落点是${SLOT_TYPE_NAMES[slotType] || slotType}）`,
-    };
-  }
+  if (type === "fabao") return { mode: "station" };
   return { mode: "" };
 }
 
@@ -800,6 +946,7 @@ function updateCardTip(e) {
 }
 
 function onPointerDownPool(e) {
+  if (e.button !== 0) return;
   hideCardTip();
   const cardEl = e.target.closest(".pool-card");
   if (!cardEl || !canEdit()) return;
@@ -811,6 +958,7 @@ let lastTapUid = 0;
 let lastTapTs = 0;
 
 function onPointerDownLane(e) {
+  if (e.button !== 0) return;
   hideCardTip();
   const card = e.target.closest(".unit-card");
   if (card) {
@@ -862,7 +1010,6 @@ function onPointerMove(e) {
   if (!lane || lane.dataset.side !== "player" || !canEdit()) return;
   const hit = slotDropTarget(e.clientX);
   if (drag.kind === "new") {
-    // 新卡：落点即意图——预览将落入的格位与合法性，不再显示插入光标
     const card = getCard(drag.cardId);
     const intent = hit ? dropIntent(card, hit.type) : { error: "no-slot" };
     const ok = !intent.error && !resolvePlacement(card, null, intent.mode || null).error;
@@ -870,22 +1017,10 @@ function onPointerMove(e) {
     drag.ok = ok;
     return;
   }
-  // 场上移动：保留插入光标（可承伤区内自由定序），法宝正压在异模式格位上时才预览切换
   const index = hitInsertIndex(lane, state.playerQueue, e.clientX);
-  const unit = findUnitByUid([state.playerQueue], drag.uid);
-  let ok = true;
-  let switching = false;
-  if (unit && unit.cardType === "fabao" && hit?.inside && fabaoDropMode(hit.type)) {
-    const want = fabaoDropMode(hit.type);
-    if (want !== unit.mode) {
-      switching = true;
-      ok = !resolvePlacement(getCard(unit.cardId), unit.uid, want).error;
-    }
-  }
-  showInsertCaret(lanes, "player", index, state.playerQueue, ok);
-  if (switching) showDropHint(hit, ok);
+  showInsertCaret(lanes, "player", index, state.playerQueue, true);
   drag.insertAt = index;
-  drag.ok = ok;
+  drag.ok = true;
 }
 
 function onPointerUp(e) {
@@ -905,26 +1040,14 @@ function onPointerUp(e) {
       if (res.error) {
         setStatus(`未入阵：${res.error}，卡牌已回卡池`, "warn");
       } else {
-        // 新卡按默认落位入队（道童最前 / station 法宝妖兽入可承伤区末尾），再经排型把 held/识海归右
         const unit = makeUnit(drag.cardId, "player", 0, res.mode);
-        insertUnit(state.playerQueue, unit, defaultInsertIndex(unit), cap());
+        insertUnit(state.playerQueue, unit, hit.index, cap());
         restatQueues();
       }
     } else if (drag.kind === "move") {
       const unit = findUnitByUid([state.playerQueue], drag.uid);
       if (unit) {
         moveUnit(state.playerQueue, unit, hitInsertIndex(lane, state.playerQueue, e.clientX));
-        // 场上法宝正压在异模式格位上松手 = held↔station 切换（与双击同一套校验）：
-        // 可承伤区任意格位（本体/法宝/兽栏）=station 且落在该位置，手持格=held；
-        // 只是组内调序（落在卡缝/组间空隙/识海封印格）不触发切换
-        if (unit.cardType === "fabao" && hit?.inside && fabaoDropMode(hit.type)) {
-          const want = fabaoDropMode(hit.type);
-          if (want !== unit.mode) {
-            const res = resolvePlacement(getCard(unit.cardId), unit.uid, want);
-            if (res.error) setStatus(`切换失败：${res.error}`, "warn");
-            else unit.mode = want;
-          }
-        }
         restatQueues();
       }
     }
@@ -950,15 +1073,8 @@ poolRoot.addEventListener("pointermove", updateCardTip);
 poolRoot.addEventListener("pointerleave", hideCardTip);
 
 for (const lane of [lanes.enemyLane, lanes.playerLane]) {
-  lane.addEventListener("pointerover", (e) => {
-    const card = e.target.closest(".unit-card");
-    if (card) renderInspect(state, Number(card.dataset.uid));
-  });
   lane.addEventListener("pointermove", updateCardTip);
-  lane.addEventListener("pointerleave", () => {
-    hideCardTip();
-    renderInspect(state);
-  });
+  lane.addEventListener("pointerleave", hideCardTip);
 }
 
 document.getElementById("btn-start").addEventListener("click", startBattle);
@@ -996,7 +1112,7 @@ document.getElementById("btn-skin2")?.addEventListener("click", () => setCardSki
 function syncMetaButtons() {
   const btn = document.getElementById("btn-talents");
   if (btn) {
-    const left = talentPoints(state.unlockStage) - spentPoints();
+    const left = talentPoints() - spentPoints();
     btn.textContent = `道途天赋${left > 0 ? ` · 悟性余 ${left}` : ""}`;
     btn.classList.toggle("has-points", left > 0);
   }
@@ -1005,7 +1121,7 @@ function syncMetaButtons() {
 /** 天赋/装备变更后的统一刷新：重聚合 → 重算队列 → 重绘。 */
 function onMetaChange() {
   refreshMods();
-  // 格位收缩后可能出现超编（如洗髓掉手持格）：超编 held 优先转 station（法宝格有空），转不了才退回卡池
+  // 数量上限收缩后可能超编（如洗髓掉手持额度）：超编 held 优先转操控，转不了才退回卡池
   const slots = currentSlots();
   const removed = [];
   const converted = [];
@@ -1048,7 +1164,7 @@ function onMetaChange() {
   const notes = [];
   if (converted.length) notes.push(`${converted.map((u) => u.name).join("、")} 转为法术操控`);
   if (removed.length) notes.push(`${removed.map((u) => u.name).join("、")} 已回到卡池`);
-  if (notes.length) setStatus(`格位变动：${notes.join("；")}`, "warn");
+  if (notes.length) setStatus(`上阵变动：${notes.join("；")}`, "warn");
   restatQueues();
   syncMetaButtons();
   paint();
@@ -1056,6 +1172,7 @@ function onMetaChange() {
 
 initTalentUI({ getStage: () => state.unlockStage, onChange: onMetaChange });
 initBagUI({ onChange: onMetaChange });
+initSaveUI({ canOpen: () => canEdit() });
 document.getElementById("btn-talents")?.addEventListener("click", () => {
   if (state.running) return;
   openTalentPanel();
@@ -1064,6 +1181,15 @@ document.getElementById("btn-bag")?.addEventListener("click", () => {
   if (state.running) return;
   openBagPanel();
 });
+document.getElementById("btn-saves")?.addEventListener("click", () => {
+  if (!canEdit()) return;
+  openSavePanel();
+});
+document.getElementById("btn-saves-rail")?.addEventListener("click", () => {
+  if (!canEdit()) return;
+  openSavePanel();
+});
+syncSaveButtons();
 
 // ==== 境界：突破按钮 + 修为悬浮提示 ====
 
@@ -1101,11 +1227,66 @@ const realmBox = document.getElementById("realm-box");
 realmBox?.addEventListener("pointermove", (e) => showCardTip(realmTipHtml(), e.clientX, e.clientY));
 realmBox?.addEventListener("pointerleave", hideCardTip);
 
-document.addEventListener("contextmenu", (e) => e.preventDefault());
-document.addEventListener("selectstart", (e) => e.preventDefault());
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  const unitEl = e.target?.closest?.(".unit-card");
+  if (unitEl) {
+    e.stopPropagation();
+    if (!canEdit() || unitEl.dataset.side !== "player") return;
+    const unit = findUnitByUid([state.playerQueue], Number(unitEl.dataset.uid));
+    if (unit?.cardType === "fabao") toggleFabaoMode(unit);
+    return;
+  }
+  const poolEl = e.target?.closest?.(".pool-card");
+  if (!poolEl || !canEdit()) return;
+  const card = getCard(poolEl.dataset.cardId);
+  if (!card || fieldCardType(card, "player") !== "fabao") return;
+  e.stopPropagation();
+  const res = resolvePlacement(card, null, "held");
+  if (res.error) {
+    setStatus(`未能手持：${res.error}`, "warn");
+    return;
+  }
+  const unit = makeUnit(card.id, "player", 0, "held");
+  insertUnit(state.playerQueue, unit, defaultInsertIndex(unit), cap());
+  restatQueues();
+  setStatus(`${card.name} 已手持上场`, "idle");
+  paint();
+});
+document.addEventListener("selectstart", (e) => {
+  if (e.target?.closest?.("input, textarea")) return;
+  e.preventDefault();
+});
 document.addEventListener("dragstart", (e) => e.preventDefault());
 
 window.addEventListener("resize", () => paint());
+
+function claimAndGrantIdle(force, label) {
+  const preview = claimIdle(Date.now(), areaIndex(), force);
+  const granted = applyIdleGrant(preview, label);
+  if (granted) {
+    if (!state.running) {
+      const capNote = granted.capped ? "（已按 8 小时封顶）" : "";
+      setStatus(`${label}：${granted.bits.join(" · ")}${capNote}`, "idle");
+    }
+    paint();
+  }
+  return granted;
+}
+
+function bindIdleLoop() {
+  claimAndGrantIdle(true, "离线补领");
+  setInterval(() => {
+    if (document.hidden) return;
+    claimAndGrantIdle(false, "挂机");
+  }, 15000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) touchIdle();
+    else claimAndGrantIdle(true, "离线补领");
+  });
+  window.addEventListener("beforeunload", () => touchIdle());
+  window.addEventListener("pagehide", () => touchIdle());
+}
 
 fillEnemyPreset();
 ensureCharFielded();
@@ -1115,23 +1296,74 @@ syncSkinButtons();
 syncMetaButtons();
 paint();
 requestAnimationFrame(() => paint());
+bindIdleLoop();
 
 // 调试钩子（与走廊 __corridorSet 同类，供自动化验收）
 window.__dao = {
+  saves: {
+    list: () => listSlots(),
+    active: () => activeSlot(),
+    flush: () => flushActive(),
+    create: (name) => createSlot(name),
+    switch: (id) => switchSlot(id),
+    delete: (id) => deleteSlot(id),
+    rename: (id, name) => renameSlot(id, name),
+  },
   state,
   mods: () => mods,
   slots: () => currentSlots(),
-  setStage(n) {
-    state.unlockStage = Math.max(0, Math.floor(n));
-    state.focusStage = state.unlockStage;
-    // 调试跳关同步已打赢进度，否则加载钳制会把跳关后的存档清洗回去
+  setArea(n) {
+    setAreaIndex(n);
+    syncAreaStages();
     state.clearedStage = Math.max(state.clearedStage, state.unlockStage - 1);
     saveProgress();
+    reconcile(state.unlockStage);
+    refreshMods();
     fillEnemyPreset();
     restatQueues();
+    corridor?.setAreaTheme?.(areaIndex(), { immediate: true });
     syncMetaButtons();
     syncButtons();
     paint();
+    return questSnapshot();
+  },
+  setStage(n) {
+    const area = Math.floor(Math.max(0, Math.floor(n)) / NODES_PER_REGION);
+    return this.setArea(area);
+  },
+  quest: () => questSnapshot(),
+  completedQuests: () => completedQuests(),
+  talentPoints: () => talentPoints(),
+  /** 立刻完成当前任务并 +1 悟性（验收用，不播赶路）。 */
+  completeQuest() {
+    const next = completeCurrentQuest();
+    if (next.areaComplete) {
+      enterNextArea();
+      syncAreaStages();
+      reconcile(state.unlockStage);
+      refreshMods();
+      fillEnemyPreset();
+      corridor?.setAreaTheme?.(areaIndex(), { immediate: true });
+    } else {
+      syncAreaStages();
+    }
+    saveProgress();
+    syncMetaButtons();
+    syncButtons();
+    paint();
+    return {
+      areaComplete: !!next.areaComplete,
+      quest: questSnapshot(),
+      completed: completedQuests(),
+      talentPoints: talentPoints(),
+      left: talentPoints() - spentPoints(),
+    };
+  },
+  claimIdle: (force = true) => claimAndGrantIdle(!!force, "挂机"),
+  addCoins(n) {
+    addCoins(n);
+    renderCoins();
+    return coinBalance();
   },
   place(id, mode = null) {
     const card = getCard(id);

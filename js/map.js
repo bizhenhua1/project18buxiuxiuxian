@@ -1,6 +1,7 @@
 /** 关卡/大区进度。中段场景是纸片走廊，不再把路点画进地图。 */
 
-import { fmtMult, monsterMult } from "./balance.js?v=dao12";
+import { monsterMult } from "./balance.js?v=dao13";
+import { questSnapshot } from "./quest.js?v=dao19";
 
 export const NODES_PER_REGION = 8;
 
@@ -62,17 +63,14 @@ export function setMapNodesPickable() {
 export function renderMap(state, corridor) {
   const title = document.getElementById("map-region-label");
   const region = regionOf(state.unlockStage);
-  const frontier = nodeIndexOf(state.unlockStage);
-  const focusStage = Number.isFinite(state.focusStage) ? state.focusStage : state.unlockStage;
-  const sameRegion = regionIndexOf(focusStage) === regionIndexOf(state.unlockStage);
-  const focusNode = sameRegion ? nodeIndexOf(focusStage) : frontier;
+  const quest = questSnapshot();
   const loop = Math.floor(Math.max(0, state.unlockStage) / NODES_PER_REGION);
   const loopTag = loop >= REGIONS.length ? ` · 循环 ${Math.floor(loop / REGIONS.length) + 1}` : "";
-  const mm = monsterMult(focusStage);
-  const boss = mm.boss ? " · Boss" : "";
+  const mm = monsterMult(Number.isFinite(state.focusStage) ? state.focusStage : state.unlockStage);
+  const elite = quest.kind === "elite" || mm.boss ? " · 精英" : "";
 
   if (title) {
-    title.textContent = `${region.name} · 路点 ${focusNode + 1}/${NODES_PER_REGION}${boss}${loopTag}`;
+    title.textContent = `${region.name} · 任务 ${quest.slot}/${quest.total}${elite}${loopTag}`;
   }
 
   corridor?.syncFromState?.(state);

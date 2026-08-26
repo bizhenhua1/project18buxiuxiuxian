@@ -1,0 +1,6 @@
+[
+  { "wait": 2800 },
+  { "eval": "(async () => { const out = { href: location.href, cave: null, cloudsea: null, errs: [] }; const orig = window.onerror; window.addEventListener('error', (e) => { if (e.target && e.target.src) out.errs.push(e.target.src); }, true); try { out.cave = await window.__corridorSetTheme('cave'); out.caveLabel = document.getElementById('status') && document.getElementById('status').textContent; } catch (e) { out.cave = String(e && e.stack || e); } try { out.cloudsea = await window.__corridorSetTheme('cloudsea'); out.csLabel = document.getElementById('status') && document.getElementById('status').textContent; } catch (e) { out.cloudsea = String(e && e.stack || e); } const urls = ['assets/equipment/equip-hat.png','assets/corridor/cave/arch-a.png','assets/corridor/cloudsea/wall-a.png','assets/corridor/cloudsea/../forest/cloud-strip.png']; out.http = []; for (const u of urls) { try { const r = await fetch(u); out.http.push({ u, ok: r.ok, status: r.status, type: r.headers.get('content-type'), len: r.headers.get('content-length') }); } catch (e) { out.http.push({ u, err: String(e) }); } } return out; })()" },
+  { "wait": 400 },
+  { "shot": "diag-cloudsea.png" }
+]

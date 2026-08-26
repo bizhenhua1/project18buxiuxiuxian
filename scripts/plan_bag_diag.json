@@ -1,0 +1,6 @@
+[
+  { "wait": 3000 },
+  { "eval": "(async () => { const mod = await import('./js/equipment.js?v=dao12'); mod.addItem(mod.makeItem({ slotId: 'hat', rarityId: 'bao' })); mod.addItem(mod.makeItem({ slotId: 'robe', rarityId: 'ling' })); document.getElementById('btn-bag').click(); await new Promise(r => setTimeout(r, 500)); const arts = [...document.querySelectorAll('.chip-art')]; return { count: arts.length, ok: arts.filter(i => i.complete && i.naturalWidth > 0).length, srcs: arts.map(i => i.src.split('/').slice(-2).join('/')) }; })()" },
+  { "wait": 300 },
+  { "shot": "bag-equip.png" }
+]

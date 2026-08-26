@@ -1,0 +1,12 @@
+[
+  { "wait": 3500 },
+  { "eval": "window.__corridorSet('themeMode', -1); window.__corridorSet('themeSegment', 10); window.__corridorSetTheme('forest')" },
+  { "wait": 500 },
+  { "eval": "(async () => { const out = []; for (let stage = 0; stage <= 25; stage += 10) { window.__dao.setStage(stage + 1); await window.__corridorSetTheme(stage < 10 ? 'forest' : stage < 20 ? 'cave' : 'cloudsea'); await new Promise(r => setTimeout(r, 300)); const cv = document.querySelector('.corridor-canvas'); const ctx = cv.getContext('2d'); const d = ctx.getImageData(Math.floor(cv.width*0.5), Math.floor(cv.height*0.55), 1, 1).data; out.push({ stage, rgb: [d[0],d[1],d[2],d[3]] }); } return out; })()" },
+  { "eval": "window.__corridorSetTheme('cave')" },
+  { "wait": 800 },
+  { "shot": "index-cave.png" },
+  { "eval": "window.__corridorSetTheme('cloudsea')" },
+  { "wait": 800 },
+  { "shot": "index-cloudsea.png" }
+]

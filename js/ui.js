@@ -1,12 +1,16 @@
-import { SLOT_COUNT, MAX_STAGE, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao12";
-import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES, unitDesc } from "./unit.js?v=dao12";
+import { SLOT_COUNT, capAt, livingUnits, leftmostTargetable, corpses, computeLaneLayout, measureCardSize } from "./grid.js?v=dao12";
+import { PLAYER_LIBRARY, ENEMY_LIBRARY, CARD_TYPE_NAMES } from "./unit.js?v=dao12";
 import { collectTargetPairs } from "./combat.js?v=dao12";
-import { NODES_PER_REGION, nodeIndexOf, regionOf, renderMap } from "./map.js?v=dao12";
-import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao12";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao12";
-import { equipMods } from "./equipment.js?v=dao12";
-import { ownedBeasts } from "./loot.js?v=dao12";
+import { regionOf, renderMap } from "./map.js?v=dao19";
+import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v=dao13";
+import { questSnapshot } from "./quest.js?v=dao19";
+import { idleRates } from "./idle.js?v=dao13";
+import { renderCoins } from "./economy.js?v=dao13";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao21";
+import { equipMods } from "./equipment.js?v=dao19";
+import { ownedBeasts } from "./loot.js?v=dao19";
 import { realmState, realmTitle } from "./realm.js?v=dao12";
+import { projForCard } from "./projectiles.js?v=dao13";
 
 let sceneCorridor = null;
 
@@ -60,10 +64,10 @@ export function buildPool(root) {
   const chars = PLAYER_LIBRARY.filter((c) => c.cardType === "char" || c.cardType === "fabao");
   const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell");
 
-  poolSection(root, "主角 · 法宝", "默认入法宝格，体修开手持格后可持");
+  poolSection(root, "主角 · 法宝", "拖入任意空位；右键可手持（需手持上限与力量预算）");
   for (const card of chars) root.appendChild(poolCardEl(card));
 
-  poolSection(root, "法术", "法修开识海格后可挂");
+  poolSection(root, "法术", "拖入任意空位即可施放（受法术数量上限限制）");
   for (const card of spells) root.appendChild(poolCardEl(card));
 
   const owned = ownedBeasts();
@@ -95,7 +99,7 @@ function laneAlign(side) {
   return side === "enemy" ? "start" : "end";
 }
 
-// ==== 类型化格位：中央底纹 + 悬浮说明（边框层预留） ====
+// ==== 格位底纹：占用位跟卡种，空位通用；边框层预留 ====
 
 /**
  * 边框系统开关：当前按美术要求只显示中央底纹（emblem 层）。
@@ -140,21 +144,86 @@ function currentModsUi() {
   return mergeMods(talentMods(), equipMods());
 }
 
-function laneCapacity(state, slots) {
-  return Math.min(
-    capAt(state.unlockStage),
-    1 + slots.fabao + slots.hand + slots.mind + slots.beast,
-  );
+const HAND_PIP_SRC = "assets/style-e/style-e-ui-fist.png";
+const HAND_PIP_ANIM_MS = 480;
+
+function handSlotInfo(queue) {
+  const slots = slotTable(currentModsUi());
+  const used = (queue || []).filter((u) => u.cardType === "fabao" && u.mode === "held").length;
+  return { cap: slots.hand, used };
+}
+
+function isPlayerChar(unit) {
+  return !!(unit && unit.cardType === "char" && unit.side === "player");
+}
+
+function handPipsHtml(unit, dead, ctx) {
+  if (!isPlayerChar(unit) || dead) return "";
+  const cap = Math.max(0, ctx?.handCap | 0);
+  const used = Math.max(0, Math.min(cap, ctx?.handUsed | 0));
+  let pips = "";
+  for (let i = 0; i < cap; i++) {
+    pips += `<span class="hand-pip${i < used ? " occupied" : ""}"><img class="hand-pip-img" src="${HAND_PIP_SRC}" alt="" draggable="false" /></span>`;
+  }
+  return `<div class="hand-pips hand-pips-right" data-cap="${cap}" data-used="${used}" title="手持栏"${ctx?.prep ? "" : " hidden"}>${pips}</div>`;
+}
+
+function bumpPipAnim(pip, kind) {
+  pip.classList.remove("pip-occupy", "pip-release");
+  void pip.offsetWidth;
+  pip.classList.add(kind);
+  clearTimeout(pip._pipTimer);
+  pip._pipTimer = setTimeout(() => pip.classList.remove(kind), HAND_PIP_ANIM_MS + 40);
+}
+
+function syncHandPips(card, unit, dead, ctx) {
+  if (!isPlayerChar(unit)) return;
+  const show = !!(ctx && ctx.prep && !dead);
+  let row = card.querySelector(".hand-pips");
+  if (!show) {
+    if (row) row.hidden = true;
+    return;
+  }
+  const cap = Math.max(0, ctx.handCap | 0);
+  const used = Math.max(0, Math.min(cap, ctx.handUsed | 0));
+  if (!row) {
+    row = document.createElement("div");
+    row.className = "hand-pips hand-pips-right";
+    row.title = "手持栏";
+    card.appendChild(row);
+  }
+  row.hidden = false;
+  const prevUsed = row.dataset.used === undefined || row.dataset.used === "" ? null : Number(row.dataset.used);
+  const prevCap = Number(row.dataset.cap || 0);
+  const fresh = prevUsed == null || prevCap !== cap;
+  while (row.children.length > cap) row.lastElementChild.remove();
+  while (row.children.length < cap) {
+    const pip = document.createElement("span");
+    pip.className = "hand-pip";
+    pip.innerHTML = `<img class="hand-pip-img" src="${HAND_PIP_SRC}" alt="" draggable="false" />`;
+    row.appendChild(pip);
+  }
+  [...row.children].forEach((pip, i) => {
+    const occ = i < used;
+    const was = pip.classList.contains("occupied");
+    pip.classList.toggle("occupied", occ);
+    if (!fresh && was !== occ) bumpPipAnim(pip, occ ? "pip-occupy" : "pip-release");
+  });
+  row.dataset.cap = String(cap);
+  row.dataset.used = String(used);
+}
+
+function laneCapacity(state) {
+  return capAt(state.unlockStage);
 }
 
 /**
- * 排出一条队列的 10 个格位类型：
- * - 已占用位按占用者类型（卡牌覆盖其上，仅作衬底）——格位类型跟着占位单位走，
- *   可承伤区自由排序后不再假设本体格在最左
- * - 空位按「剩余容量」依次排类型（本体→法宝→手持→识海→兽栏）
- * - 容量之外一律封印
+ * 排出一条队列的 10 个格位外观：
+ * - 已占用位按占用者类型画衬底（卡牌自己的种类，不是预分配坑）
+ * - 我方空位一律通用「空位」，不预标法宝/手持/识海/兽栏
+ * - capAt 之外一律封印
  */
-function slotPlan(state, side, slots, capacity) {
+function slotPlan(state, side, capacity) {
   const plan = [];
   if (side === "enemy") {
     // 敌方规模纯关卡驱动（见 main.enemyCount），格位即当前队列规模
@@ -165,70 +234,47 @@ function slotPlan(state, side, slots, capacity) {
     return plan;
   }
   const q = state.playerQueue;
-  const cnt = (t) => q.filter((u) => u.cardType === t).length;
-  const heldCnt = q.filter((u) => u.cardType === "fabao" && u.mode === "held").length;
-  const stationCnt = cnt("fabao") - heldCnt;
-  // held 法宝对应手持格底纹，station 法宝对应法宝格底纹
   for (const u of q) {
     if (u.cardType === "fabao") plan.push(u.mode === "held" ? "weapon" : "fabao");
-    else plan.push(u.cardType in SLOT_EMBLEM_ART ? u.cardType : "fabao");
+    else plan.push(u.cardType in SLOT_EMBLEM_ART ? u.cardType : "plain");
   }
-  const rest = [];
-  if (cnt("char") < 1) rest.push("char");
-  for (let i = stationCnt; i < slots.fabao; i++) rest.push("fabao");
-  for (let i = heldCnt; i < slots.hand; i++) rest.push("weapon");
-  for (let i = cnt("spell"); i < slots.mind; i++) rest.push("spell");
-  for (let i = cnt("beast"); i < slots.beast; i++) rest.push("beast");
-  while (plan.length < SLOT_COUNT) plan.push(rest.length ? rest.shift() : "locked");
+  const usableEmpty = Math.max(0, capacity - q.length);
+  for (let i = 0; i < usableEmpty; i++) plan.push("plain");
+  while (plan.length < SLOT_COUNT) plan.push("locked");
   return plan.slice(0, SLOT_COUNT);
 }
 
-/** 封印格提示：列出还能通过哪些道途开格。 */
-function lockedTipHtml(state, slots, capacity) {
-  const ways = [];
-  if (slots.hand <= 0) ways.push("体修「两手蛮力」开手持格");
-  if (slots.mind <= 0) ways.push("法修「识海开窍」开识海格");
-  if (slots.beast <= 0) ways.push("御兽「兽栏」开兽栏格");
-  ways.push("器道「多宝／万宝归宗」扩法宝格");
+/** 封印格提示：位置尚未解锁。 */
+function lockedTipHtml(state, capacity) {
   const capMax = capAt(state.unlockStage);
   const capNote = capacity >= capMax
     ? `位置上限 ${capMax} 已全部开启（随关卡解锁，封顶 10）`
-    : `已开格位 ${capacity}/${capMax}（上限随关卡解锁提升）`;
-  return `<strong>🔒 封印之位</strong><span class="tip-stats">${capNote}</span><span class="tip-desc">修习道途天赋可解开封印：${ways.join("；")}。</span>`;
+    : `已开位置 ${capacity}/${capMax}（上限随关卡解锁提升）`;
+  return `<strong>🔒 封印之位</strong><span class="tip-stats">${capNote}</span><span class="tip-desc">空位不绑定卡种。天赋只提高可上阵数量：体修加手持与力量，法修加法术上限，御兽加御兽上限，器道加法宝上限。</span>`;
 }
 
-function slotTipHtml(type, state, slots, capacity) {
+function emptySlotTipHtml(state, slots, capacity) {
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
   const held = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
-  if (type === "char") {
-    return `<strong>🧘 本体格</strong><span class="tip-stats">全队仅此一位</span><span class="tip-desc">道童本尊之位。手持法宝与识海法术皆系于他一身：道童若阵亡，手持法宝与法术随之消散。</span>`;
-  }
-  if (type === "fabao") {
-    return `<strong>☯ 法宝格 ${cnt("fabao") - held.length}/${slots.fabao}</strong><span class="tip-stats">法术操控：独立血条、自走出手</span><span class="tip-desc">操控的法宝可被集火，但被击毁后经过自身重聚时间原位满血复活。幡类吞魂叠层、剑类可入剑阵，主动技正常施放。布阵期双击可与手持切换。修「器道·多宝／万宝归宗」扩容。</span>`;
-  }
-  if (type === "weapon") {
-    const used = held.reduce((s, u) => s + (u.weight || 0), 0);
-    return `<strong>✊ 手持格 ${held.length}/${slots.hand}</strong><span class="tip-stats">重量 ${used}/${slots.weight} · 手持法宝</span><span class="tip-desc">法宝捏在道童手中：不占承伤位、继承道童攻速与暴击，重量越大手持攻击加成越高；主动技封印（退化为普攻），被动照常。血量 30% 并入道童（「法宝合身」提至 60%）。布阵期双击可切回操控。</span>`;
-  }
-  if (type === "spell") {
-    return `<strong>👁 识海格 ${cnt("spell")}/${slots.mind}</strong><span class="tip-stats">只能放法术</span><span class="tip-desc">识海中温养的法术：无血量、不可被攻击，按冷却自动施放。法修天赋可拓识海、增法术强度。</span>`;
-  }
-  if (type === "beast") {
-    return `<strong>🐾 兽栏格 ${cnt("beast")}/${slots.beast}</strong><span class="tip-stats">只能放收服的妖兽</span><span class="tip-desc">战斗胜利时有概率收服被击杀的妖兽（基础10%+天赋/气运）。收服后从卡池「御兽」分区上阵。</span>`;
-  }
+  const used = held.reduce((s, u) => s + (u.weight || 0), 0);
+  return `<strong>空位</strong><span class="tip-stats">可放入任意卡牌 · 位置 ${q.length}/${capacity}</span><span class="tip-desc">数量上限（非格子绑定）：法宝 ${cnt("fabao") - held.length}/${slots.fabao} · 手持 ${held.length}/${slots.hand}（重 ${used}/${slots.weight}）· 法术 ${cnt("spell")}/${slots.mind} · 御兽 ${cnt("beast")}/${slots.beast}。手持是法宝的模式，右键切换，不占专用格。</span>`;
+}
+
+function slotTipHtml(type, state, slots, capacity) {
   if (type === "monster") {
-    return `<strong>👹 妖兽格</strong><span class="tip-stats">敌方出战 ${state.enemyQueue.length} 只</span><span class="tip-desc">妖兽规模随路程增长：第 1 关 5 只，每推进 2 关多 1 只，最多 10 只。</span>`;
+    return `<strong>👹 妖兽</strong><span class="tip-stats">敌方出战 ${state.enemyQueue.length} 只</span><span class="tip-desc">妖兽规模随路程增长：第 1 关 5 只，每推进 2 关多 1 只，最多 10 只。</span>`;
   }
-  return lockedTipHtml(state, slots, capacity);
+  if (type === "locked") return lockedTipHtml(state, capacity);
+  return emptySlotTipHtml(state, slots, capacity);
 }
 
 function renderSlots(slotRoot, layerEl, side, state) {
   if (!slotRoot || !layerEl) return;
   const box = layerEl.getBoundingClientRect();
   const slots = slotTable(currentModsUi());
-  const capacity = laneCapacity(state, slots);
-  const plan = slotPlan(state, side, slots, capacity);
+  const capacity = laneCapacity(state);
+  const plan = slotPlan(state, side, capacity);
   const occupied = side === "enemy" ? state.enemyQueue.length : state.playerQueue.length;
   const wUsed = state.playerQueue
     .filter((u) => u.cardType === "fabao" && u.mode === "held")
@@ -257,7 +303,11 @@ function renderSlots(slotRoot, layerEl, side, state) {
       ${SHOW_SLOT_FRAMES ? `<img class="slot-art" src="${SLOT_FRAME_ART[type]}" alt="" draggable="false" />` : ""}
       ${isOccupied ? "" : `<span class="slot-tag">${SLOT_TAGS[type]}</span>`}
     `;
-    if (!isOccupied) slot.dataset.tipHtml = slotTipHtml(type, state, slots, capacity);
+    if (!isOccupied) {
+      slot.dataset.tipHtml = side === "enemy"
+        ? `<strong>🔒 未出战</strong><span class="tip-stats">敌方出战 ${state.enemyQueue.length} 只</span><span class="tip-desc">妖兽规模随路程增长：第 1 关 5 只，每推进 2 关多 1 只，最多 10 只。</span>`
+        : slotTipHtml(type, state, slots, capacity);
+    }
     slotRoot.appendChild(slot);
   }
 }
@@ -276,7 +326,7 @@ function artHtml(unit, dead) {
   return `<div class="icon">${dead ? "🪦" : unit.icon}</div>`;
 }
 
-function cardInnerHtml(unit, i, dead, isFocus, skin) {
+function cardInnerHtml(unit, i, dead, isFocus, skin, ctx) {
   const hpPct = dead ? 0 : (100 * unit.hp) / unit.maxHp;
   const chargeLeft = dead ? 100 : Math.max(0, Math.min(100, (100 * unit.cdLeft) / unit.cd));
   const reviving = dead && (unit.reviveLeft || 0) > 0;
@@ -321,11 +371,13 @@ function cardInnerHtml(unit, i, dead, isFocus, skin) {
     const sh = shOn ? Math.round(unit.shield) : 0;
     const lv = unit.lv || unit.face || 1;
     const liquidLow = fillRatio > 0 && fillRatio <= 0.3 ? " low" : "";
+    const handPips = handPipsHtml(unit, dead, ctx);
     return `
       <div class="s2-lv">${lv}级</div>
       ${badge}
       <div class="s2-art">${artHtml(unit, dead)}</div>
       <div class="s2-name">${unit.name}</div>
+      ${handPips}
       <div class="s2-orb">
         <svg class="s2-ring" viewBox="0 0 36 36" aria-hidden="true">
           <circle class="s2-track" cx="18" cy="18" r="15.6" pathLength="100" />
@@ -346,6 +398,7 @@ function cardInnerHtml(unit, i, dead, isFocus, skin) {
   }
 
   const shPct = !dead && unit.shield > 0 ? Math.min(100, (100 * unit.shield) / unit.maxHp) : 0;
+  const handPips = handPipsHtml(unit, dead, ctx);
   return `
     <div class="charge-mask" style="height:${chargeLeft}%"></div>
     ${badge}
@@ -353,6 +406,7 @@ function cardInnerHtml(unit, i, dead, isFocus, skin) {
       <div class="art-win">${artHtml(unit, dead)}</div>
       <div class="name">${unit.name}</div>
     </div>
+    ${handPips}
     <div class="idx">#${i + 1}</div>
     <div class="hp-track${hpPct > 0 && hpPct <= 30 ? " low" : ""}">
       <span class="hp-fill" style="width:${hpPct}%"></span>
@@ -383,7 +437,8 @@ function cardClassName(unit, i, pos, selectedUid, focusUid, skinId) {
     .join(" ");
 }
 
-function patchCardStats(card, unit, dead, skinId) {
+function patchCardStats(card, unit, dead, skinId, ctx) {
+  syncHandPips(card, unit, dead, ctx);
   // 重聚进度条每帧推进（战斗结束/复位时 reviveLeft 归零触发重建，进度条随之移除）
   const reviveFill = card.querySelector(".revive-fill");
   if (reviveFill && (unit.reviveMs || 0) > 0) {
@@ -411,7 +466,7 @@ function patchCardStats(card, unit, dead, skinId) {
       shield.style.setProperty("--sh", shRatio.toFixed(3));
       shield.hidden = !shOn;
     }
-    if (num) num.textContent = String(dead ? 0 : Math.max(0, Math.round(unit.hp)));
+    if (num && !hpRollActive(unit.uid)) num.textContent = String(dead ? 0 : Math.max(0, Math.round(unit.hp)));
     if (shNum) {
       shNum.textContent = shOn ? String(Math.round(unit.shield)) : "";
       shNum.hidden = !shOn;
@@ -436,12 +491,14 @@ function patchCardStats(card, unit, dead, skinId) {
   if (mask) mask.style.height = `${chargeLeft}%`;
 }
 
-function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
+function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin, prep) {
   if (!layer) return [];
   const box = layer.getBoundingClientRect();
   const items = computeLaneLayout(queue.length, box.width, box.height, laneAlign(side));
   layoutCache[side] = items;
   const skinId = skin === "skin2" ? "skin2" : "skin1";
+  const hand = side === "player" ? handSlotInfo(queue) : { cap: 0, used: 0 };
+  const ctx = { prep: !!prep, handCap: hand.cap, handUsed: hand.used };
   const keep = new Set();
 
   queue.forEach((unit, i) => {
@@ -483,7 +540,7 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
     card.dataset.mode = String(unit.mode || "");
     card.dataset.reviving = String(reviving);
     card.dataset.shield = String(unit.shield || 0);
-    const keepAnim = ["atk-anim", "hit-anim", "hit-dead", "heal-anim"].filter((c) => card.classList.contains(c));
+    const keepAnim = ["atk-anim", "hit-anim", "hit-dead", "heal-anim", "mode-settle", "mode-lift", "hp-pulse"].filter((c) => card.classList.contains(c));
     card.className = cardClassName(unit, i, pos, selectedUid, focusUid, skinId);
     for (const c of keepAnim) card.classList.add(c);
     card.style.left = `${pos.left}px`;
@@ -498,8 +555,8 @@ function renderCardLayer(layer, queue, side, selectedUid, focusUid, skin) {
     if (unit.cardType === "fabao" && unit.mode !== "held") {
       card.style.setProperty("--float-delay", `-${(((unit.uid * 997) % 3400) / 1000).toFixed(3)}s`);
     }
-    if (rebuild) card.innerHTML = cardInnerHtml(unit, i, dead, isFocus, skinId);
-    patchCardStats(card, unit, dead, skinId);
+    if (rebuild) card.innerHTML = cardInnerHtml(unit, i, dead, isFocus, skinId, ctx);
+    patchCardStats(card, unit, dead, skinId, ctx);
   });
 
   for (const el of [...layer.querySelectorAll(".unit-card")]) {
@@ -512,30 +569,45 @@ export function renderUnlock(state) {
   const cap = capAt(state.unlockStage);
   const label = document.getElementById("unlock-label");
   const stage = document.getElementById("unlock-stage");
-  const bar = document.getElementById("unlock-bar");
+  const bar = document.getElementById("quest-bar") || document.getElementById("unlock-bar");
   const hint = document.getElementById("unlock-hint");
+  const title = document.getElementById("quest-title");
+  const reward = document.getElementById("quest-reward");
+  const idleEl = document.getElementById("idle-rate");
   if (label) label.textContent = `可携带 ${state.playerQueue.length}/${cap}`;
   const region = regionOf(state.unlockStage);
-  const node = nodeIndexOf(state.unlockStage);
+  const quest = questSnapshot();
   const focus = Number.isFinite(state.focusStage) ? state.focusStage : state.unlockStage;
   const pm = playerMult(state.unlockStage);
   const mm = monsterMult(focus);
   if (stage) {
-    stage.textContent = `关卡 ${state.unlockStage + 1} · ${region.name} ${node + 1}/${NODES_PER_REGION}`;
+    const kind = quest.kind === "elite" ? "精英" : "普通";
+    stage.textContent = `${region.name} · ${kind} ${quest.slot}/${quest.total}`;
   }
-  if (bar) bar.style.width = `${(100 * cap) / capAt(MAX_STAGE)}%`;
+  if (title) title.textContent = `${quest.title} ${quest.have}/${quest.need}`;
+  if (bar) bar.style.width = `${Math.min(100, 100 * quest.ratio).toFixed(1)}%`;
+  if (reward) {
+    const r = quest.rewards;
+    const loot = r.loot > 0 ? ` · 装备×${r.loot}` : "";
+    reward.textContent = `完成：修为 ${r.exp} · 灵石 ${r.coins}${loot}`;
+  }
+  if (idleEl) {
+    const rates = idleRates(quest.areaIndex);
+    idleEl.textContent = `挂机 修为 ${rates.expPerMin}/分 · 灵石 ${rates.coinsPerMin}/分`;
+  }
   if (hint) {
-    const boss = mm.boss ? "Boss " : "";
+    const boss = mm.boss ? "精英 " : "";
     hint.textContent =
-      `我方攻×${fmtMult(pm.atk)} 血×${fmtMult(pm.hp)}　${boss}敌军攻×${fmtMult(mm.atk)} 血×${fmtMult(mm.hp)}。回打旧路点只削弱敌军。携带上限仍到 ${MAX_STAGE + 1} 关封顶。`;
+      `我方攻×${fmtMult(pm.atk)} 血×${fmtMult(pm.hp)}　${boss}敌军攻×${fmtMult(mm.atk)} 血×${fmtMult(mm.hp)}。本区可重复刷取；完成精英后换区，数值与挂机收益上台阶。`;
   }
   const wins = document.getElementById("win-count");
   if (wins) wins.textContent = `胜利 ${state.wins} 次`;
+  renderCoins();
   renderSlotSummary(state);
   refreshPoolStats(state.unlockStage);
 }
 
-/** 左栏格位摘要：天赋+装备决定各类型格位数量。 */
+/** 左栏上阵摘要：天赋+装备决定各卡种数量上限（不是专用格）。 */
 export function renderSlotSummary(state) {
   const el = document.getElementById("slot-summary");
   if (!el) return;
@@ -546,11 +618,11 @@ export function renderSlotSummary(state) {
   const wUsed = held.reduce((s, u) => s + (u.weight || 0), 0);
   const parts = [
     `法宝 ${cnt("fabao") - held.length}/${slots.fabao}`,
-    slots.hand > 0 ? `手持 ${held.length}/${slots.hand}（重 ${wUsed}/${slots.weight}）` : "手持 未开",
-    slots.mind > 0 ? `识海 ${cnt("spell")}/${slots.mind}` : "识海 未开",
-    slots.beast > 0 ? `兽栏 ${cnt("beast")}/${slots.beast}` : "兽栏 未开",
+    `手持 ${held.length}/${slots.hand}（重 ${wUsed}/${slots.weight}）`,
+    `法术 ${cnt("spell")}/${slots.mind}`,
+    `御兽 ${cnt("beast")}/${slots.beast}`,
   ];
-  el.textContent = `格位：${parts.join(" · ")}`;
+  el.textContent = `上阵：${parts.join(" · ")}`;
 }
 
 export function renderBoards(state, lanes) {
@@ -562,8 +634,9 @@ export function renderBoards(state, lanes) {
   const skin = state.cardSkin === "skin2" ? "skin2" : "skin1";
   if (lanes.enemyCards) lanes.enemyCards.dataset.skin = skin;
   if (lanes.playerCards) lanes.playerCards.dataset.skin = skin;
-  renderCardLayer(lanes.enemyCards, state.enemyQueue, "enemy", state.selectedUid, eFocus?.uid, skin);
-  renderCardLayer(lanes.playerCards, state.playerQueue, "player", state.selectedUid, pFocus?.uid, skin);
+  const prep = !state.running;
+  renderCardLayer(lanes.enemyCards, state.enemyQueue, "enemy", state.selectedUid, eFocus?.uid, skin, prep);
+  renderCardLayer(lanes.playerCards, state.playerQueue, "player", state.selectedUid, pFocus?.uid, skin, prep);
 
   const eCount = document.getElementById("enemy-count");
   const pCount = document.getElementById("player-count");
@@ -666,7 +739,7 @@ export function formatCardTip(card, stage = 0) {
   const wt = card.cardType === "fabao" ? `（重量 ${card.weight} · 重聚 ${(card.reviveMs / 1000).toFixed(1)}s）` : "";
   const modeNote =
     card.cardType === "fabao"
-      ? `<span class="tip-desc">法宝格＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。手持格＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童。</span>`
+      ? `<span class="tip-desc">拖入空位＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。右键＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童（需手持上限与力量预算）。</span>`
       : "";
   const dtName = card.dmgType === "spell" ? "法伤" : "外伤";
   const defLine =
@@ -682,7 +755,7 @@ export function formatUnitTip(unit, elapsedSec = 0) {
   const reviving = dead && (unit.reviveLeft || 0) > 0;
   const modeLine =
     unit.cardType === "fabao"
-      ? `<span class="tip-stats">${unit.mode === "held" ? "手持：不占承伤位，主动技封印，继承攻速暴击" : `法术操控：独立血条，重聚 ${(unit.reviveMs / 1000).toFixed(1)}s`}　重量 ${unit.weight}${reviving ? `　重聚中 剩 ${(unit.reviveLeft / 1000).toFixed(1)}s` : ""}</span>`
+      ? `<span class="tip-stats">${unit.mode === "held" ? "手持：不占承伤位，主动技封印，继承攻速暴击" : `法术操控：独立血条，重聚 ${(unit.reviveMs / 1000).toFixed(1)}s`}　重量 ${unit.weight}${reviving ? `　重聚中 剩 ${(unit.reviveLeft / 1000).toFixed(1)}s` : ""}　右键切换</span>`
       : "";
   const cd = dead ? "冷却已停" : `CD ${(Math.max(0, unit.cdLeft) / 1000).toFixed(2)}s / ${(unit.cd / 1000).toFixed(1)}s`;
   const dealt = Math.round(unit.damageDealt || 0);
@@ -767,15 +840,6 @@ export function renderDps(state) {
   `;
 }
 
-export function renderInspect(state, hoverUid = null) {
-  const box = document.getElementById("inspect");
-  if (!box) return;
-  const all = [...state.playerQueue, ...state.enemyQueue];
-  const uid = hoverUid ?? state.selectedUid;
-  const unit = all.find((u) => u.uid === uid) || null;
-  box.textContent = unitDesc(unit);
-}
-
 export function setStatus(text, kind = "") {
   const mid = document.getElementById("battle-status");
   const out = document.getElementById("outcome");
@@ -784,6 +848,36 @@ export function setStatus(text, kind = "") {
     out.textContent = text;
     out.className = `outcome ${kind}`;
   }
+  if (kind === "warn" || kind === "error") showNotice(text, kind);
+}
+
+const NOTICE_HOLD_MS = 1900;
+const NOTICE_FADE_MS = 380;
+let noticeHideTimer = 0;
+let noticeClearTimer = 0;
+
+/** 视口中央警示：挂在 body，压过卡牌提示。新消息直接替换并重播弹出。 */
+export function showNotice(text, kind = "warn") {
+  const host = document.getElementById("game-notice");
+  if (!host) return;
+  if (host.parentNode !== document.body) document.body.appendChild(host);
+  const line = host.querySelector(".game-notice-text") || host;
+  line.textContent = text;
+  host.dataset.kind = kind || "warn";
+  host.hidden = false;
+  host.classList.remove("is-out", "is-on");
+  void host.offsetWidth;
+  host.classList.add("is-on");
+  clearTimeout(noticeHideTimer);
+  clearTimeout(noticeClearTimer);
+  noticeHideTimer = setTimeout(() => {
+    host.classList.remove("is-on");
+    host.classList.add("is-out");
+    noticeClearTimer = setTimeout(() => {
+      host.hidden = true;
+      host.classList.remove("is-out");
+    }, NOTICE_FADE_MS);
+  }, NOTICE_HOLD_MS);
 }
 
 export function cardCenter(uid) {
@@ -860,6 +954,84 @@ export function spawnFloat(unit, text, kind, at = null) {
 }
 
 const CARD_ANIMS = ["atk-anim", "hit-anim", "hit-dead", "heal-anim"];
+const MODE_ANIMS = ["mode-settle", "mode-lift"];
+const HP_ROLL_MS = 580;
+const hpRolls = new Map();
+let hpRollRaf = 0;
+
+function easeOutCubic(t) {
+  return 1 - (1 - t) ** 3;
+}
+
+function hpRollActive(uid) {
+  const roll = hpRolls.get(uid);
+  return !!(roll && performance.now() < roll.start + roll.dur);
+}
+
+function applyHpRollFrame(card, roll, t) {
+  const shown = Math.round(roll.from + (roll.to - roll.from) * easeOutCubic(t));
+  const num = card.querySelector(".s2-hp-num");
+  if (num) {
+    num.textContent = String(shown);
+    num.classList.toggle("hp-rolling", t < 1);
+  }
+}
+
+function tickHpRolls(now) {
+  hpRollRaf = 0;
+  for (const [uid, roll] of hpRolls) {
+    const t = Math.min(1, (now - roll.start) / roll.dur);
+    const card = document.querySelector(`.unit-card[data-uid="${uid}"]`);
+    if (!card) {
+      hpRolls.delete(uid);
+      continue;
+    }
+    applyHpRollFrame(card, roll, t);
+    if (t >= 1) hpRolls.delete(uid);
+  }
+  if (hpRolls.size) hpRollRaf = requestAnimationFrame(tickHpRolls);
+}
+
+/** 道童血量数字从旧上限滚到新上限（仅改显示，不改真实 hp）。 */
+export function rollDisplayedHp(uid, fromHp, toHp, ms = HP_ROLL_MS) {
+  if (fromHp === toHp) return;
+  const card = document.querySelector(`.unit-card[data-uid="${uid}"]`);
+  if (!card) return;
+  let from = fromHp;
+  const existing = hpRolls.get(uid);
+  if (existing) {
+    const t = Math.min(1, (performance.now() - existing.start) / existing.dur);
+    from = Math.round(existing.from + (existing.to - existing.from) * easeOutCubic(t));
+  }
+  const roll = { from, to: toHp, start: performance.now(), dur: ms };
+  hpRolls.set(uid, roll);
+  applyHpRollFrame(card, roll, 0);
+  if (!hpRollRaf) hpRollRaf = requestAnimationFrame(tickHpRolls);
+}
+
+/** 手持切换：落地收束 / 离地起飞。须在 paint 之后调用，靠重加 class 重启动画。 */
+export function playFabaoModeAnim(uid, toMode) {
+  const el = document.querySelector(`.unit-card[data-uid="${uid}"]`);
+  if (!el) return;
+  el.classList.remove(...MODE_ANIMS);
+  void el.offsetWidth;
+  const cls = toMode === "held" ? "mode-settle" : "mode-lift";
+  el.classList.add(cls);
+  clearTimeout(el._modeAnimTimer);
+  const holdMs = toMode === "held" ? 580 : 720;
+  el._modeAnimTimer = setTimeout(() => el.classList.remove(cls), holdMs);
+}
+
+/** 道童合身血量变化时的浅金/朱砂脉动，不是全屏闪。 */
+export function playCharHpPulse(uid) {
+  const el = document.querySelector(`.unit-card[data-uid="${uid}"]`);
+  if (!el) return;
+  el.classList.remove("hp-pulse");
+  void el.offsetWidth;
+  el.classList.add("hp-pulse");
+  clearTimeout(el._hpPulseTimer);
+  el._hpPulseTimer = setTimeout(() => el.classList.remove("hp-pulse"), 680);
+}
 
 export function playCardAnim(uid, kind, towardUid = null) {
   const el = document.querySelector(`.unit-card[data-uid="${uid}"]`);
@@ -931,9 +1103,10 @@ export function spawnBullet({ fromUid, toUid, style, flavor = "", secondary = fa
     return;
   }
 
+  const spec = projForCard(flavor);
   const el = document.createElement("div");
-  el.className = `bullet ${style}${flavor ? ` ${flavor}` : ""}${secondary ? " secondary" : ""}`;
-  if (style === "ranged") {
+  el.className = `bullet ${style}${flavor ? ` ${flavor}` : ""}${secondary ? " secondary" : ""}${spec ? " sprite" : ""}`;
+  if (style === "ranged" && !spec) {
     const trail = document.createElement("span");
     trail.className = "bullet-trail";
     el.appendChild(trail);
@@ -942,9 +1115,24 @@ export function spawnBullet({ fromUid, toUid, style, flavor = "", secondary = fa
     const ray = document.createElement("div");
     ray.className = "beam-ray";
     const spark = document.createElement("span");
-    spark.className = "beam-spark";
+    spark.className = spec ? "beam-spark sprite" : "beam-spark";
+    if (spec) {
+      const img = document.createElement("img");
+      img.src = spec.art;
+      img.alt = "";
+      img.draggable = false;
+      spark.appendChild(img);
+    }
     el.appendChild(ray);
     el.appendChild(spark);
+  } else if (spec) {
+    el.style.width = `${spec.size}px`;
+    el.style.height = `${spec.size}px`;
+    const img = document.createElement("img");
+    img.src = spec.art;
+    img.alt = "";
+    img.draggable = false;
+    el.appendChild(img);
   }
   layer.appendChild(el);
 
@@ -960,6 +1148,7 @@ export function spawnBullet({ fromUid, toUid, style, flavor = "", secondary = fa
     fromUid,
     toUid,
     style,
+    spec,
     secondary,
     arc,
     len,
@@ -1002,7 +1191,10 @@ function tickBullets(now) {
       b.el.style.opacity = String(Math.max(0, flash));
       b.el.style.transform = `rotate(${ang}rad)${b.secondary ? " scaleY(0.7)" : ""}`;
       const spark = b.el.querySelector(".beam-spark");
-      if (spark) spark.style.left = `${Math.min(1, t) * 100}%`;
+      if (spark) {
+        spark.style.left = `${Math.min(1, t) * 100}%`;
+        if (b.spec?.spin) spark.style.transform = `rotate(${t * 360}deg)`;
+      }
       if (t >= 0.68 && !b.hitDone) {
         b.hitDone = true;
         b.onArrive?.({ x: b.to.x, y: b.to.y });
@@ -1023,11 +1215,10 @@ function tickBullets(now) {
       y = lerp(b.from.y, b.to.y, e);
     }
     const scale = b.secondary ? 0.72 : 1;
-    if (b.style === "ranged") {
-      b.el.style.transform = `translate(-50%, -50%) rotate(${ang}rad) scale(${scale})`;
-    } else {
-      b.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
-    }
+    let rot = 0;
+    if (b.spec?.rotate || (!b.spec && b.style === "ranged")) rot = ang;
+    if (b.spec?.spin) rot += t * Math.PI * 2;
+    b.el.style.transform = `translate(-50%, -50%) rotate(${rot}rad) scale(${scale})`;
     b.el.style.left = `${x}px`;
     b.el.style.top = `${y}px`;
     if (t < 1) continue;

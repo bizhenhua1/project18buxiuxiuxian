@@ -9,7 +9,7 @@ import {
   deleteSlot,
   renameSlot,
   flushActive,
-} from "./saves.js?v=dao17";
+} from "./saves.js?v=dao18";
 
 let overlay = null;
 let hooks = { canOpen: () => true };

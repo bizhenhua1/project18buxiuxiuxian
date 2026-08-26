@@ -1,0 +1,5 @@
+[
+  {"wait": 4200},
+  {"eval": "(async () => { try { const ok = await window.__corridorSetTheme('cloudsea'); window.__corridorFork(2); const t0 = Date.now(); while (Date.now() - t0 < 12000) { const s = window.__corridorSnap(); if (s && s.fork === 'choosing') return s; await new Promise((r) => setTimeout(r, 80)); } return { timeout: true, ok, snap: window.__corridorSnap() }; } catch (e) { return { err: String(e && e.stack || e) }; } })()"},
+  {"shot": "fork-verify-cloudsea.png"}
+]

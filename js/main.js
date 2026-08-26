@@ -6,7 +6,9 @@ import {
   switchSlot,
   deleteSlot,
   renameSlot,
-} from "./saves.js?v=dao17";
+  persistPlayerLineup,
+  loadPlayerLineup,
+} from "./saves.js?v=dao18";
 import {
   capAt,
   createEmptyQueue,
@@ -47,7 +49,7 @@ import {
   BREAK_GAIN_PCT,
 } from "./realm.js?v=dao12";
 import { initBagUI, openBagPanel } from "./bag-ui.js?v=dao18";
-import { initSaveUI, openSavePanel, syncSaveButtons } from "./save-ui.js?v=dao17";
+import { initSaveUI, openSavePanel, syncSaveButtons } from "./save-ui.js?v=dao18";
 import {
   buildLanes,
   buildPool,
@@ -83,7 +85,7 @@ import {
   NODES_PER_REGION,
   regionOf,
 } from "./map.js?v=dao19";
-import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas28";
+import { createCorridor, STAGE_STEP } from "./corridor.js?v=canvas42";
 import {
   migrateAreaFromStage,
   areaIndex,
@@ -186,6 +188,7 @@ let drag = null;
 let inflight = 0;
 let corridorTraveling = false;
 let pendingReviveTimer = 0;
+let farmTravels = 0;
 
 function cap() {
   return capAt(state.unlockStage);
@@ -253,6 +256,41 @@ function restatQueues() {
   applyQueueEffects(state.playerQueue, mods);
   state.bloodPact = !!mods.bloodPact;
   for (const u of state.enemyQueue) applyEffectiveStats(u, enemyStage());
+  persistPlayerLineup(state.playerQueue);
+}
+
+/**
+ * 从当前档工作副本还原上阵：按保存下标插入，走 resolvePlacement 校验上限与收服数。
+ * 空档/损坏回退为只上道童。敌方队列不读档，仍由任务预设填充。
+ */
+function hydrateLineup() {
+  const entries = loadPlayerLineup();
+  clearQueue(state.playerQueue);
+  const skipped = [];
+  for (const entry of entries) {
+    const card = getCard(entry.cardId);
+    if (!card) {
+      skipped.push(`${entry.cardId}（未知卡牌）`);
+      continue;
+    }
+    const type = fieldCardType(card, "player");
+    const wantMode = type === "fabao" ? (entry.mode === "held" ? "held" : "station") : null;
+    const res = resolvePlacement(card, null, wantMode);
+    if (res.error) {
+      skipped.push(`${card.name}（${res.error}）`);
+      continue;
+    }
+    const unit = makeUnit(entry.cardId, "player", state.playerQueue.length, res.mode);
+    if (!insertUnit(state.playerQueue, unit, state.playerQueue.length, cap())) {
+      skipped.push(`${card.name}（已达上限 ${cap()} 位）`);
+    }
+  }
+  if (skipped.length) {
+    console.warn(`[lineup] 跳过非法上阵：${skipped.join("；")}`);
+  }
+  ensureCharFielded();
+  restatQueues();
+  return skipped;
 }
 
 function paint() {
@@ -788,7 +826,9 @@ function queueTravelThenRefill(statusMsg, statusKind = "idle") {
   }
   corridorTraveling = true;
   syncButtons();
-  const run = corridor?.travelForward?.(STAGE_STEP);
+  farmTravels += 1;
+  const fork = farmTravels % 3 === 0;
+  const run = corridor?.travelForward?.(STAGE_STEP, fork ? { fork: true } : undefined);
   Promise.resolve(run).then(() => {
     corridorTraveling = false;
     refillInPlace(statusMsg, statusKind);
@@ -847,6 +887,7 @@ function syncButtons() {
     ["btn-player-fill", editing],
     ["btn-player-clear", editing],
     ["btn-next", false],
+    ["btn-advance", editing && !corridorTraveling],
   ];
   for (const [id, on] of ids) {
     const el = document.getElementById(id);
@@ -1080,6 +1121,20 @@ for (const lane of [lanes.enemyLane, lanes.playerLane]) {
 document.getElementById("btn-start").addEventListener("click", startBattle);
 document.getElementById("btn-reset").addEventListener("click", resetBattle);
 document.getElementById("btn-next").addEventListener("click", nextStage);
+/* 测试用：不战斗直接赶路一程，沿用与战斗相同的岔路节奏（每 3 程一岔）。 */
+document.getElementById("btn-advance")?.addEventListener("click", () => {
+  if (corridorTraveling || !canEdit()) return;
+  corridorTraveling = true;
+  syncButtons();
+  farmTravels += 1;
+  const fork = farmTravels % 3 === 0;
+  setStatus(fork ? "赶路中：前方似有岔路" : "赶路中……", "idle");
+  Promise.resolve(corridor?.travelForward?.(STAGE_STEP, fork ? { fork: true } : undefined)).then(() => {
+    corridorTraveling = false;
+    syncButtons();
+    setStatus("已前进一程", "idle");
+  });
+});
 document.getElementById("btn-enemy-preset").addEventListener("click", () => {
   if (!canEdit()) return;
   fillEnemyPreset();
@@ -1289,8 +1344,12 @@ function bindIdleLoop() {
 }
 
 fillEnemyPreset();
-ensureCharFielded();
+const lineupSkipped = hydrateLineup();
 setStatus("布阵中：拖到我方一排插入", "idle");
+if (lineupSkipped.length) {
+  setStatus(`上阵还原：跳过 ${lineupSkipped.join("；")}`, "warn");
+}
+flushActive();
 syncButtons();
 syncSkinButtons();
 syncMetaButtons();
@@ -1308,7 +1367,9 @@ window.__dao = {
     switch: (id) => switchSlot(id),
     delete: (id) => deleteSlot(id),
     rename: (id, name) => renameSlot(id, name),
+    lineup: () => loadPlayerLineup(),
   },
+  lineup: () => state.playerQueue.map((u) => ({ cardId: u.cardId, mode: u.mode || "station", index: u.index })),
   state,
   mods: () => mods,
   slots: () => currentSlots(),
@@ -1393,9 +1454,21 @@ window.__dao = {
   },
   clear() {
     clearQueue(state.playerQueue);
+    persistPlayerLineup(state.playerQueue);
     paint();
   },
   start: () => startBattle(),
+  /** 立刻播一段岔路口赶路（2 或 3 洞口，可省略）。 */
+  fork(n) {
+    if (corridorTraveling) return corridor?.beginFork?.(n);
+    corridorTraveling = true;
+    syncButtons();
+    return Promise.resolve(corridor?.beginFork?.(n)).then((ok) => {
+      corridorTraveling = false;
+      syncButtons();
+      return ok;
+    });
+  },
   // ==== 境界调试钩子（验收用）====
   realm: () => realmState(),
   /** 灌修为并即时刷新收益（胜利结算走 settleVictory 同一条 addExp 链路） */

@@ -1,0 +1,7 @@
+[
+  {"wait": 3500},
+  {"eval": "__corridorFork(3); 'ok'"},
+  {"wait": 9000},
+  {"shot": "demo-quick-fork.png"},
+  {"eval": "JSON.stringify(__corridorSnap())"}
+]

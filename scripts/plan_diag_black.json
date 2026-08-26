@@ -1,0 +1,14 @@
+[
+  {"wait": 3000},
+  {"eval": "window.__errs=[];window.addEventListener('error',function(e){__errs.push(String((e.error&&e.error.stack)||e.message));});'hooked'"},
+  {"wait": 2500},
+  {"shot": "diag-index-initial.png"},
+  {"eval": "JSON.stringify({errs:(window.__errs||[]).slice(0,4),dao:typeof __dao,fork:(typeof __dao!=='undefined'&&__dao&&typeof __dao.fork)})"},
+  {"eval": "try{__dao.fork(3);'fork-called'}catch(e){'fork-error: '+e.message}"},
+  {"wait": 6000},
+  {"shot": "diag-index-fork.png"},
+  {"eval": "JSON.stringify({errs:(window.__errs||[]).slice(0,6)})"},
+  {"wait": 6000},
+  {"shot": "diag-index-fork2.png"},
+  {"eval": "JSON.stringify({errs:(window.__errs||[]).slice(0,8),snap:(typeof __corridorSnap!=='undefined')?String(JSON.stringify(__corridorSnap&&__corridorSnap.call?__corridorSnap():null)).slice(0,300):'none'})"}
+]

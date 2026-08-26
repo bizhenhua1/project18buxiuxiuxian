@@ -17,6 +17,7 @@ const LEGACY_KEYS = {
   talents: "dao-talents-v1",
   bag: "dao-bag-v1",
   beasts: "dao-beasts-v1",
+  lineup: "dao-lineup-v1",
 };
 
 const REGION_NAMES = ["青金仙途", "丹砂夜岭"];
@@ -76,6 +77,7 @@ function emptySnapshot() {
     talents: { nodes: ["root"] },
     bag: { items: [], equipped: {} },
     beasts: {},
+    lineup: { units: [] },
   };
 }
 
@@ -115,6 +117,45 @@ function applySnapshotToLegacy(snap) {
   for (const [field, key] of Object.entries(LEGACY_KEYS)) {
     writeJson(key, data[field] == null ? null : data[field]);
   }
+}
+
+/** 上阵快照：只留 cardId / 手持或操控 / 队列下标，不写战斗态。 */
+export function snapshotPlayerLineup(queue) {
+  const units = [];
+  const list = Array.isArray(queue) ? queue : [];
+  for (let i = 0; i < list.length; i++) {
+    const u = list[i];
+    const cardId = String(u?.cardId || "").trim();
+    if (!cardId) continue;
+    units.push({
+      cardId,
+      mode: u.mode === "held" ? "held" : "station",
+      index: Number.isFinite(u.index) ? Math.max(0, u.index | 0) : i,
+    });
+  }
+  return { units };
+}
+
+export function persistPlayerLineup(queue) {
+  return writeJson(LEGACY_KEYS.lineup, snapshotPlayerLineup(queue));
+}
+
+/** 读工作副本；损坏或空档返回 []，由调用方回退到只上道童。 */
+export function loadPlayerLineup() {
+  const raw = readJson(LEGACY_KEYS.lineup);
+  if (raw == null) return [];
+  const list = Array.isArray(raw) ? raw : raw && typeof raw === "object" && Array.isArray(raw.units) ? raw.units : null;
+  if (!list) return [];
+  return list
+    .map((e, i) => {
+      if (!e || typeof e !== "object") return null;
+      const cardId = String(e.cardId || "").trim();
+      if (!cardId) return null;
+      const index = Number.isFinite(Number(e.index)) ? Math.max(0, Math.floor(Number(e.index))) : i;
+      return { cardId, mode: e.mode === "held" ? "held" : "station", index };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.index - b.index);
 }
 
 function readBlob(id) {

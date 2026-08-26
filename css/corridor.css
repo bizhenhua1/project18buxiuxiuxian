@@ -114,3 +114,56 @@
   font-size: 11px;
   cursor: pointer;
 }
+
+/* ---- 岔路口事件选择（软暂停时弹出） ---- */
+.corridor-fork-panel {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  bottom: auto;
+  transform: translateX(-50%);
+  z-index: 45;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 248px;
+  padding: 4px 10px 6px;
+  background: rgba(12, 14, 9, 0.9);
+  border: 1px solid #5a5234;
+  border-radius: 10px;
+  color: #e8d9a0;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+}
+.corridor-fork-panel[hidden] {
+  display: none;
+}
+.corridor-fork-panel .cf-title {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: #ffe9a8;
+}
+.corridor-fork-panel .cf-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
+.corridor-fork-panel .cf-btns button {
+  background: #2c2f22;
+  color: #e8d9a0;
+  border: 1px solid #6a5c38;
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.corridor-fork-panel .cf-btns button:hover {
+  background: #4a4630;
+  color: #ffe9a8;
+  border-color: #b8a45c;
+}

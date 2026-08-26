@@ -13,7 +13,7 @@
 
 import { assetUrl } from "./assets.js?v=dao12";
 
-export const CORRIDOR_VERSION = "canvas28";
+export const CORRIDOR_VERSION = "canvas42";
 /** @deprecated 兼容保留：基线森林主题目录。运行时以 THEMES[*].base 为准。 */
 export const CORRIDOR_BASE = "assets/corridor/forest/";
 export const STAGE_STEP = 420;
@@ -565,6 +565,16 @@ export function createCorridor(host, opts = {}) {
   const canvas = document.createElement("canvas");
   canvas.className = "corridor-canvas";
   viewport.appendChild(canvas);
+  const forkPanel = document.createElement("div");
+  forkPanel.className = "corridor-fork-panel";
+  forkPanel.hidden = true;
+  const forkTitle = document.createElement("div");
+  forkTitle.className = "cf-title";
+  forkTitle.textContent = "前方岔路";
+  const forkBtns = document.createElement("div");
+  forkBtns.className = "cf-btns";
+  forkPanel.append(forkTitle, forkBtns);
+  viewport.appendChild(forkPanel);
   host.appendChild(viewport);
   const ctx = canvas.getContext("2d");
 
@@ -580,6 +590,13 @@ export function createCorridor(host, opts = {}) {
   let camZ = 0;
   let speed = 0;
   let bobPhase = 0;
+  /* 对局昼夜时钟与相机距离解耦：岔路赶路一次实际推进 ~6 个步长，
+   * 若时钟仍挂 camZ 会一次快进 ~13 小时，世界大半时间陷入黑夜。
+   * clockZ 每次 travelForward 只平滑推进恰好一个 STAGE_STEP（=2h），
+   * 与实际行进距离无关；键盘演示模式仍按 camZ 走。 */
+  let clockZ = 0;
+  let clockBase = 0;      // 本次行程起点的时钟值
+  let travelStartZ = 0;   // 本次行程起点的 camZ
   let bobEnv = 0;          // 镜头起伏包络（随速度渐入，到站后缓出不弹跳）
   let windAcc = 0;         // 云横向风的位移累积（静止时节流重绘）
   let seaDrift = 0;        // 云海条带横向漂移累积（云海主题，挂在云风上）
@@ -588,6 +605,39 @@ export function createCorridor(host, opts = {}) {
   let alive = true;
   let dirty = true;
   let recycleSeed = 9000;
+
+  /* ---- 岔路口：多中心线世界几何 ----
+   * 普通走廊 = 单中心线两侧生成墙体精灵；岔路 = 同一系统的推广：
+   * 自 joinZ 起，单中心线在世界空间分裂为 N 条支路中心线（横向偏移
+   * 随 z 平滑张开到 fork.xs[i]），沿每条支路照常生成主题墙体精灵；
+   * 相邻支路之间的空档由同一批墙体精灵密植成天然的分隔楔（树丛/
+   * 岩柱丛/云墙丛）。不画任何洞口卡片、拱形剪影或黑色色块——
+   * 每条支路远端的"洞"就是它自己的消失点，靠既有的距离雾/压暗
+   * （森林=雾青灰、洞穴=黑暗、云海=亮雾）读出纵深，与普通走廊的
+   * 尽头完全同一套管线。
+   * 选择后：相机横向平滑贴上所选支路中心线前行；并回段
+   * （mergeStartZ→mergeEndZ）内该支路的偏移经 S 曲线收回 0，
+   * 读作"所选通道拐回主走廊"；未选支路的精灵只是世界物件，
+   * 自然滑出画外/落到身后被剔除，全程无淡出黑幕。 */
+  const FORK_LABELS_2 = ["左侧幽径", "右侧险道"];
+  const FORK_LABELS_3 = ["左侧幽径", "中道直进", "右侧险道"];
+  const FORK_TRAVEL = 1150;   // 触发→停步行程：岔路精灵全部生成在淡入区之外，从雾中自然浮现
+  const FORK_RAMP = 430;      // 支路张开段长度（joinZ 起偏移 0→xs[i]）
+  const FORK_SPAN = 1250;     // 支路墙体沿中心线铺设的纵深（远端没入雾中）
+  const FORK_MERGE_LEN = 400; // 选定支路并回主中心线的 S 段长度
+  const fork = {
+    phase: "hidden",   // hidden | approaching | choosing | committing
+    branches: 2,
+    chosen: -1,
+    xs: [],            // 各支路最大横向偏移（世界单位，张开段末端达到）
+    clearW: 65,        // 单侧通道净空（随投影比例放大，见 applyForkLayout）
+    joinZ: 0,          // 分岔顶点：单中心线在此开始分裂
+    pauseZ: 0,         // 停步抉择点（joinZ 在其前方可见地面近端）
+    spanEndZ: 0,       // 支路墙体远端（= joinZ + FORK_SPAN）
+    mergeStartZ: 0,    // 并回段（选择后设定，放在中远景雾中）
+    mergeEndZ: 0,
+    mergeBlend: 0,     // 选择后 0→1：并回几何渐次生效（在雾距离完成）
+  };
 
   /* ---- 主题状态 ----
    * 每个主题的位图缓存打包成 bundle 懒加载（Map 缓存，只加载一次）；
@@ -1032,13 +1082,375 @@ export function createCorridor(host, opts = {}) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, W, H);
+    if (fork.phase !== "hidden") {
+      applyForkLayout(fork.branches);
+      spawnForkSprites();
+    }
   }
 
   function finishTravel(ok) {
+    if (fork.phase !== "hidden") dismantleFork(true);
     traveling = false;
+    clockZ = clockBase + STAGE_STEP;  // 每次行程恰好推进 2 小时
+    clockBase = clockZ;
+    travelStartZ = camZ;
     const resolve = travelResolve;
     travelResolve = null;
     if (resolve) resolve(ok);
+  }
+
+  function clamp01(t) {
+    return t < 0 ? 0 : t > 1 ? 1 : t;
+  }
+  function smooth01(t) {
+    const k = clamp01(t);
+    return k * k * (3 - 2 * k);
+  }
+  /** 画幅底边对应的世界深度：比这更近的地面已经在画布下方。 */
+  function visibleNearZ() {
+    return (CAM_H * focal) / Math.max(12, H - horizonY);
+  }
+  /** 支路张开比 0→1：joinZ 起经 FORK_RAMP 段平滑张到全开（世界几何，
+   *  不随相机/时间变——接近时分岔"长大"纯粹是透视逼近的结果）。 */
+  function branchRise(z) {
+    return smooth01((z - fork.joinZ) / FORK_RAMP);
+  }
+  /** 支路 i 在世界 z 处的中心线横向偏移（相对主中心线，尚未叠加
+   *  pathOffset 弯道）。选定支路在并回段随 mergeBlend×S 曲线收回 0：
+   *  远处几何先弯好，镜头驶入时读作"通道自然拐回主走廊"。 */
+  function branchWorldX(i, z) {
+    let x = (fork.xs[i] || 0) * branchRise(z);
+    if (i === fork.chosen && fork.mergeBlend > 0) {
+      x *= 1 - fork.mergeBlend
+        * smooth01((z - fork.mergeStartZ) / Math.max(1, fork.mergeEndZ - fork.mergeStartZ));
+    }
+    return x;
+  }
+  /** 支路在世界 z 处是否在铺设范围内（选定支路并回后延续为主路）。 */
+  function branchActiveAt(i, z) {
+    if (z < fork.joinZ) return false;
+    if (i === fork.chosen) return true;
+    return z <= fork.spanEndZ;
+  }
+  /** 墙体让路系数（连续 alpha，无跳变）。
+   *  岔路精灵按静态几何生成在净空之外，只对"并回中的选定支路"
+   *  扫掠让位（该扫掠发生在中远景雾里）。
+   *  普通精灵在抉择期对整个岔口扇区让位（|x| < 最外支路偏移 + 边距）：
+   *  原侧墙是固定 x 的树排，随深度会斜扫过支路开口的视线，只按
+   *  逐路净空让位时开口仍被近处树排遮死（窄带尤甚）——扇区内的
+   *  结构全部交给岔路自己的外墙与分隔楔，开口后方才露得出雾霭。
+   *  选择后随 mergeBlend 平滑退回逐路净空（世界渐渐长回来）。 */
+  function forkClearAlpha(worldX, z, isFork) {
+    if (fork.phase === "hidden" || z < fork.joinZ - 20) return 1;
+    if (isFork) {
+      if (fork.chosen < 0 || fork.mergeBlend <= 0) return 1;
+      const d = Math.abs(worldX - branchWorldX(fork.chosen, z));
+      return d >= 68 ? 1 : smooth01((d - 48) / 20);
+    }
+    let fan = -1;
+    let aPath = 1;
+    for (let i = 0; i < fork.xs.length; i++) {
+      if (!branchActiveAt(i, z)) continue;
+      const bx = branchWorldX(i, z);
+      const abx = Math.abs(bx);
+      if (abx > fan) fan = abx;
+      /* 选定支路的清除半宽随并回因子（与 branchWorldX 同一条 S 曲线）
+       * 逐 z 收回惰性值（46 < 大件最小生成偏移 90−羽化 24）：并回段
+       * 之外该支路就是普通主路，不再清除任何树——拆除岔路瞬间视野内
+       * 没有任何被压 alpha 的普通精灵，到站/拆除零跳变。 */
+      let cw = fork.clearW;
+      if (i === fork.chosen && fork.mergeBlend > 0) {
+        const mf = 1 - fork.mergeBlend
+          * smooth01((z - fork.mergeStartZ) / Math.max(1, fork.mergeEndZ - fork.mergeStartZ));
+        cw = cw * mf + 46 * (1 - mf);
+      }
+      const d = Math.abs(worldX - bx);
+      if (d < cw + 24) aPath = Math.min(aPath, smooth01((d - cw) / 24));
+    }
+    if (fan < 0) return 1;
+    const aFan = smooth01((Math.abs(worldX) - (fan + fork.clearW * 0.7)) / 44);
+    const relax = fork.chosen >= 0 ? fork.mergeBlend : 0;
+    return Math.min(aPath, aFan + (1 - aFan) * relax);
+  }
+  /** 岩环让路系数：任一支路偏移拉开处整圈淡出——岔路段读作
+   *  "隧道张开成洞窟大厅"，并回完成后岩环在前方从黑暗中恢复。 */
+  function ringForkAlpha(z) {
+    if (fork.phase === "hidden" || z < fork.joinZ) return 1;
+    let m = 0;
+    for (let i = 0; i < fork.xs.length; i++) {
+      if (!branchActiveAt(i, z)) continue;
+      m = Math.max(m, smooth01((Math.abs(branchWorldX(i, z)) - 26) / 30));
+      if (m >= 1) break;
+    }
+    return 1 - m;
+  }
+  function mergeSpans(spans) {
+    if (spans.length < 2) return spans;
+    const a = spans.map((s) => s.slice()).sort((p, q) => p[0] - q[0]);
+    const out = [a[0]];
+    for (let i = 1; i < a.length; i++) {
+      const last = out[out.length - 1];
+      if (a[i][0] <= last[1] + 0.5) last[1] = Math.max(last[1], a[i][1]);
+      else out.push(a[i]);
+    }
+    return out;
+  }
+  function invertSpans(gaps, x0, x1) {
+    const spans = [];
+    let x = x0;
+    for (const [a, b] of gaps) {
+      if (a > x) spans.push([x, a]);
+      x = Math.max(x, b);
+    }
+    if (x < x1) spans.push([x, x1]);
+    return spans;
+  }
+  /** 条带路面开缝：普通走廊 = 单条路缝；岔路段 = 每条在铺支路
+   *  沿自己的中心线开一条缝（joinZ 附近各缝重合自然并为一条，
+   *  张开后地面路径跟着分岔——地面纹理本身连续，Mode-7 全幅铺满）。 */
+  function forkRoadGaps(zWorld, pathCx, scale, phw) {
+    if (fork.phase === "hidden" || zWorld < fork.joinZ) {
+      return [[pathCx - phw, pathCx + phw]];
+    }
+    const gaps = [];
+    for (let i = 0; i < fork.xs.length; i++) {
+      if (!branchActiveAt(i, zWorld)) continue;
+      const cx = pathCx + branchWorldX(i, zWorld) * scale;
+      gaps.push([cx - phw, cx + phw]);
+    }
+    return gaps.length ? mergeSpans(gaps) : [[pathCx - phw, pathCx + phw]];
+  }
+
+  function clearForkSprites() {
+    for (let i = sprites.length - 1; i >= 0; i--) {
+      if (sprites[i].fork) sprites.splice(i, 1);
+    }
+  }
+
+  /** 相邻支路中心间距（世界单位）：按停步构图从真实投影反推
+   *  （画幅宽 W、焦距 focal、停步距离），演示页与对局窄带各得其所。
+   *  平行支路的消失点在屏幕上重合——远端"洞"要在窄带里拉开，
+   *  横向间距必须随 W/focal 比例放大（超宽低焦距的窄带需要 600+），
+   *  分隔楔则按列数自适应铺满任意宽度的分隔区（见 spawnForkSprites）。 */
+  function forkSeparation(n) {
+    const zRef = Math.max(200, (fork.joinZ - fork.pauseZ) + FORK_RAMP * 0.8);
+    /* 三岔相邻中心占 36% 画宽（两楔三口需要比双岔更大的角距，
+     * 否则窄带里挤在中央读不开）；双岔 44%。 */
+    const s = (W * (n === 3 ? 0.36 : 0.44)) * zRef / Math.max(60, focal);
+    return Math.max(170, Math.min(n === 3 ? 680 : 420, s));
+  }
+  function applyForkLayout(n) {
+    const sep = forkSeparation(n);
+    fork.xs = n === 3 ? [-sep, 0, sep] : [-sep * 0.5, sep * 0.5];
+    /* 通道净空也随投影比例放大：窄带可视区几乎全是树冠层，
+     * 各开口必须占到与主路相当的角宽（参照图每缝约占画幅 15%），
+     * 否则树冠横向桥接会把侧通道糊成一面墙。 */
+    fork.clearW = Math.max(65, sep * 0.30);
+  }
+
+  function spawnForkSprites() {
+    clearForkSprites();
+    if (!T || fork.phase === "hidden") return;
+    const xs = fork.xs;
+    const n = xs.length;
+    let seed = 47000 + ((fork.joinZ | 0) % 997);
+    /* 1) 最外两支路的外侧墙：沿支路中心线照常放主题车道墙
+     *    （s.x 为相对支路中心线的车道坐标，绘制时叠加支路偏移）。
+     *    从"偏移离开原墙线"处才起铺——近处仍由普通走廊墙充当，
+     *    两组墙在 joinZ 附近无缝衔接、随支路一起张开。 */
+    for (const [bi, side] of [[0, -1], [n - 1, 1]]) {
+      for (let lane = 0; lane < T.lanes.length; lane++) {
+        const cfg = T.lanes[lane];
+        const step = cfg.step / Math.max(0.1, P.treeDensity);
+        for (let z = fork.joinZ + ((lane * 29) % step); z < fork.spanEndZ; z += step) {
+          if (branchRise(z) * Math.abs(xs[bi]) < 34) continue;
+          const s = {
+            id: spriteId++,
+            kind: "tree",
+            fork: true,
+            branch: bi,
+            side,
+            lane,
+            z: z + (hash(seed, 1) - 0.5) * step * 0.6,
+          };
+          jitterBig(s, seed, 11);
+          /* 车道随净空整体外推：树干（含树冠悬垂）让出放大后的通道口。 */
+          s.x += side * (fork.clearW - 65);
+          sprites.push(s);
+          seed++;
+        }
+      }
+    }
+    /* 2) 相邻支路之间的分隔楔：同一批主题大件（树/岩柱/云墙）沿
+     *    两路之间的中缝密植（绝对世界坐标 branch=-1），只落在两条
+     *    路面净空之外的空档里。空档随张开渐宽，体型随空档长大——
+     *    楔体便从中景一撮小丛长成隔开两路的成排树丛（参照图构图），
+     *    没有任何专用"隔柱"道具。 */
+    /* 楔体纵深短于支路墙（joinZ+~750 收尾）：缝隙后方露出远处
+     * 没入雾中的暗色林墙/雾带——每条通道的"洞"由雾霭衬出，
+     * 树冠不会一路铺到雾距把开口糊死（参照图：丛间见雾）。 */
+    const divEndZ = Math.min(fork.spanEndZ, fork.joinZ + 760);
+    const divStep = Math.max(14, 22 / Math.max(0.1, P.treeDensity));
+    for (let pi = 0; pi < n - 1; pi++) {
+      for (let z = fork.joinZ + 40; z < divEndZ; z += divStep) {
+        const rise = branchRise(z);
+        const gap = (xs[pi + 1] - xs[pi]) * rise;
+        /* 树干净空留在通道之外（净空随投影缩放），树冠允许少量悬垂。 */
+        const zoneW = gap - 2 * fork.clearW;
+        if (zoneW < 12) continue;
+        const mid = (xs[pi] + xs[pi + 1]) * 0.5 * rise;
+        /* 列数随分隔区宽度自适应（每 ~85 世界单位一列，均匀铺满），
+         * 楔体在任何间距下都读成实心树丛墙，而不是稀疏散树。 */
+        const cols = Math.min(7, 1 + Math.floor(zoneW / 85));
+        for (let c = 0; c < cols; c++) {
+          let u = cols > 1 ? ((c + 0.5) / cols - 0.5) * 1.7 : 0;
+          u += (hash(seed, 3) - 0.5) * (0.9 / cols);
+          if (u > 0.86) u = 0.86;
+          else if (u < -0.86) u = -0.86;
+          /* 楔体用中等体型：树冠顶留在雾带之下（缝隙上方看得见雾霭/
+           * 远山），但要够高读成"树丛墙"而非灌木墩。 */
+          const size = (150 + hash(seed, 7) * 55) * P.treeSize
+            * Math.min(1.0, Math.max(0.62, 0.55 + zoneW / 200));
+          sprites.push({
+            id: spriteId++,
+            kind: "tree",
+            fork: true,
+            branch: -1,
+            z: z + (hash(seed, 1) - 0.5) * divStep * 0.7,
+            x: mid + u * zoneW * 0.5,
+            variant: Math.floor(hash(seed, 9) * T.bigs.length) % T.bigs.length,
+            flip: hash(seed, 13) > 0.5,
+            baseW: size,
+            baseH: size,
+          });
+          seed++;
+        }
+      }
+    }
+  }
+
+  function hideForkUI() {
+    forkPanel.hidden = true;
+    forkBtns.innerHTML = "";
+  }
+
+  function showForkUI() {
+    const labels = fork.branches === 3 ? FORK_LABELS_3 : FORK_LABELS_2;
+    forkBtns.innerHTML = "";
+    labels.forEach((name, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = name;
+      b.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        chooseFork(i);
+      });
+      forkBtns.appendChild(b);
+    });
+    forkPanel.hidden = false;
+  }
+
+  function enterChoosing() {
+    if (fork.phase !== "approaching") return;
+    fork.phase = "choosing";
+    if (camZ > fork.pauseZ + 8) camZ = fork.pauseZ + 8;
+    speed = 0;
+    /* 岔路行程分两段计时：走到路口算一段（+2h），抉择期时钟冻结，
+     * 选路后走完剩余段再算一段（见 finishTravel）。 */
+    if (!keyboard) {
+      clockZ = clockBase + STAGE_STEP;
+      clockBase = clockZ;
+      travelStartZ = camZ;
+    }
+    showForkUI();
+    dirty = true;
+  }
+
+  function chooseFork(i) {
+    if (fork.phase !== "choosing") return;
+    fork.chosen = i;
+    fork.phase = "committing";
+    fork.mergeBlend = 0;
+    /* 并回段放在中远景雾里：镜头驶入之前几何已经弯好。 */
+    fork.mergeStartZ = Math.max(fork.joinZ + FORK_RAMP + 60, camZ + 720);
+    fork.mergeEndZ = Math.min(fork.spanEndZ - 60, fork.mergeStartZ + FORK_MERGE_LEN);
+    hideForkUI();
+    travelGoal = Math.max(travelGoal, fork.spanEndZ + 120);
+    if (!keyboard && !traveling) {
+      traveling = true;
+      if (!travelResolve) {
+        travelResolve = () => {};
+      }
+    }
+    requestRedraw();
+  }
+
+  function armFork(mouths, z0) {
+    const n = mouths === 3 ? 3 : 2;
+    fork.phase = "approaching";
+    fork.branches = n;
+    fork.chosen = -1;
+    fork.mergeBlend = 0;
+    fork.pauseZ = z0 + FORK_TRAVEL;
+    fork.joinZ = fork.pauseZ + Math.max(130, visibleNearZ() * 1.05);
+    fork.spanEndZ = fork.joinZ + FORK_SPAN;
+    fork.mergeStartZ = fork.spanEndZ;
+    fork.mergeEndZ = fork.spanEndZ + FORK_MERGE_LEN;
+    applyForkLayout(n);
+    spawnForkSprites();
+    dirty = true;
+    requestRedraw();
+  }
+
+  function dismantleFork(snap) {
+    hideForkUI();
+    clearForkSprites();
+    fork.phase = "hidden";
+    fork.chosen = -1;
+    fork.mergeBlend = 0;
+    fork.xs = [];
+    /* 自然拆除时 camX 已随并回收敛到 ~0，残差交给隐藏态缓动收回
+     * （stepFork），不硬归零——到站瞬间镜头零跳变；snap 仅用于
+     * 读档/中断等显式重置。 */
+    if (snap) camX = 0;
+    dirty = true;
+  }
+
+  function beginFork(mouths) {
+    if (fork.phase !== "hidden") return Promise.resolve(false);
+    const n = mouths === 3 || mouths === 2 ? mouths : (Math.random() < 0.42 ? 3 : 2);
+    armFork(n, camZ);
+    if (keyboard) return Promise.resolve(true);
+    if (traveling) {
+      travelGoal = Math.max(travelGoal, fork.pauseZ + 40);
+      return Promise.resolve(true);
+    }
+    return travelForward(fork.pauseZ + 40 - camZ, {});
+  }
+
+  function stepFork(dt) {
+    if (fork.phase === "hidden") {
+      if (!keyboard && Math.abs(camX) > 0.15) {
+        camX += (0 - camX) * Math.min(1, dt * 3.2);
+        dirty = true;
+      }
+      return;
+    }
+    if (fork.phase === "approaching" && camZ >= fork.pauseZ) {
+      enterChoosing();
+    }
+    if (fork.phase === "committing") {
+      /* 并回权重推满后，世界几何 = "所选通道经 S 弯拐回主走廊"。 */
+      fork.mergeBlend = Math.min(1, fork.mergeBlend + dt * 0.9);
+      /* 相机横向贴上所选支路中心线（看向脚下略前方），未选支路的
+       * 精灵作为世界物件自然滑向画外/落到身后。 */
+      const targetX = branchWorldX(fork.chosen, camZ + P.curveLook * 2);
+      camX += (targetX - camX) * Math.min(1, dt * 2.6);
+      /* 全部岔路精灵都已落在身后（spanEnd 之外由普通走廊接管）才拆除。 */
+      if (camZ > fork.spanEndZ + 40) dismantleFork(false);
+      dirty = true;
+    }
   }
 
   /* 诊断仪器（默认关闭）：window.__corridorDebugOn = true 时收集每帧
@@ -1054,6 +1466,7 @@ export function createCorridor(host, opts = {}) {
   function recycle() {
     const d = dbg();
     for (const s of sprites) {
+      if (s.fork) continue;
       if (s.kind === "tree") {
         while (s.z - camZ < Z_EXIT) {
           s.z += Z_FAR - Z_EXIT;
@@ -1132,10 +1545,13 @@ export function createCorridor(host, opts = {}) {
     }
   }
 
-  /** 当前时刻（小时，0~24）：时钟挂在 camZ 上，一个 STAGE_STEP = 2 小时。
-   *  洞穴等封闭主题里时钟照走（地下不见天日），回到地面时天色已自然推移。 */
+  /** 当前时刻（小时，0~24）：一个行程 = 2 小时。键盘演示挂 camZ；
+   *  对局挂 clockZ（每次赶路平滑 +1 STAGE_STEP，与实际距离无关，
+   *  岔路长途不会把时钟快进大半天）。洞穴等封闭主题里时钟照走
+   *  （地下不见天日），回到地面时天色已自然推移。 */
   function dayHour() {
-    const h = (P.dayStart + (camZ / STAGE_STEP) * 2) % 24;
+    const z = keyboard ? camZ : clockZ;
+    const h = (P.dayStart + (z / STAGE_STEP) * 2) % 24;
     return h < 0 ? h + 24 : h;
   }
 
@@ -1420,7 +1836,9 @@ export function createCorridor(host, opts = {}) {
     /* 3. Mode-7 扫描带地面：纹理 v 随 camZ 滚动。 */
     drawGround(hy);
 
-    /* 4. 氛围雾带垫底：画在全部精灵之前，只影响地面/天空/远景。 */
+    /* 4. 氛围雾带垫底：画在全部精灵之前，只影响地面/天空/远景。
+     * 岔路口不再单独画路面/隔柱色块——地面就是 Mode-7 主题石板，
+     * 隔柱由主题岩柱精灵（spawnForkSprites）在精灵管线里画。 */
     drawFogBand(hy);
 
     /* 5. 精灵严格全局画家排序：按相机相对深度远→近，等深用 id 稳定。 */
@@ -1450,7 +1868,10 @@ export function createCorridor(host, opts = {}) {
         : A.decoCaches[s.variant];
       if (!cache) continue;
       const scale = focal / z;
-      const sx = cx + (s.x + pathOffset(s.z) - camEff) * scale;
+      /* 岔路精灵：branch>=0 = 相对支路中心线（外侧墙，随支路张开/并回），
+       * branch<0 = 分隔楔（静态世界坐标）；普通精灵 = 相对主中心线。 */
+      const worldX = s.fork && s.branch >= 0 ? s.x + branchWorldX(s.branch, s.z) : s.x;
+      const sx = cx + (worldX + pathOffset(s.z) - camEff) * scale;
       /* 世界尺寸 × 内容占比 = 裁剪后内容的绘制尺寸；内容底边即落地点。 */
       const w = s.baseW * cache.wFrac * scale;
       const h = s.baseH * cache.hFrac * scale;
@@ -1469,6 +1890,12 @@ export function createCorridor(host, opts = {}) {
       let fade = 1;
       if (z > FADE_START) {
         fade = 1 - (z - FADE_START) / (FOG_END - FADE_START);
+        if (fade <= 0.01) continue;
+      }
+      /* 岔路让路：支路路面扫过处的大件/岩环连续淡出（见 forkClearAlpha）。 */
+      if (fork.phase !== "hidden") {
+        if (s.kind === "tree") fade *= forkClearAlpha(worldX, s.z, !!s.fork);
+        else if (s.kind === "ring") fade *= ringForkAlpha(s.z);
         if (fade <= 0.01) continue;
       }
       const dy = Math.round(sy - h);
@@ -1566,9 +1993,9 @@ export function createCorridor(host, opts = {}) {
       }
       return;
     }
-    /* 高层：路缘之外（左右两段） */
-    tileStrip(cache, u, scale, sy, h, fade, dark, cx, bend - camEff,
-      [[0, pathCx - phw * 0.92], [pathCx + phw * 0.92, W]]);
+    /* 高层：路缘之外（左右两段；岔路时按 2~3 个洞口开缝）。 */
+    const highSpans = invertSpans(forkRoadGaps(s.z, pathCx, scale, phw * 0.92), 0, W);
+    tileStrip(cache, u, scale, sy, h, fade, dark, cx, bend - camEff, highSpans);
     /* 低层：路面之内（与高层边界重叠约 13%）。
      * 条带世界高只有 30、盖不满行距 54，同一行画两遍（错半个行距），
      * 近处不再叠成高墙，行间也不露黑地。颜色与两侧同一套压暗曲线。 */
@@ -1591,7 +2018,7 @@ export function createCorridor(host, opts = {}) {
         const pcx2 = cx + (bend2 - camEff) * sc2;
         const phw2 = PATH_HALF * sc2;
         tileStrip(lowCache, u + du, sc2, sy2, lh, fade2, dark2, cx, bend2 - camEff,
-          [[pcx2 - phw2 * 1.05, pcx2 + phw2 * 1.05]]);
+          forkRoadGaps(s.z - dz, pcx2, sc2, phw2 * 1.05));
       }
     }
     if (frameRec) {
@@ -1705,6 +2132,7 @@ export function createCorridor(host, opts = {}) {
   function loopNeeded() {
     if (keyboard) return true;
     return traveling || dirty || !!transition || Math.abs(speed) > 0.5
+      || fork.phase !== "hidden"
       || (ready && !!T.cloud && Math.abs(P.cloudWind) > 0.01);
   }
 
@@ -1723,35 +2151,62 @@ export function createCorridor(host, opts = {}) {
 
     let targetSpeed = 0;
     if (keyboard) {
-      targetSpeed =
-        (autoForward ? 220 : 0) +
-        (keys.KeyW || keys.ArrowUp ? 260 : 0) -
-        (keys.KeyS || keys.ArrowDown ? 280 : 0);
-    } else if (traveling) {
-      const gap = travelGoal - camZ;
-      if (gap <= 1.5) {
-        camZ = travelGoal;
-        speed = 0;
-        finishTravel(true);
+      if (fork.phase === "choosing") {
+        targetSpeed = 0;
       } else {
-        targetSpeed = Math.min(340, Math.max(110, gap * 1.2));
+        targetSpeed =
+          (autoForward ? 220 : 0) +
+          (keys.KeyW || keys.ArrowUp ? 260 : 0) -
+          (keys.KeyS || keys.ArrowDown ? 280 : 0);
+        if (fork.phase === "approaching" && camZ > fork.pauseZ - 90) {
+          const ahead = fork.pauseZ - camZ;
+          targetSpeed = Math.min(targetSpeed, 28 + Math.max(0, ahead) * 1.7);
+        }
+      }
+    } else if (traveling) {
+      if (fork.phase === "choosing") {
+        targetSpeed = 0;
+        if (camZ > fork.pauseZ + 10) camZ = fork.pauseZ + 10;
+      } else {
+        const gap = travelGoal - camZ;
+        if (gap <= 1.5) {
+          camZ = travelGoal;
+          speed = 0;
+          finishTravel(true);
+        } else {
+          targetSpeed = Math.min(340, Math.max(110, gap * 1.2));
+          if (fork.phase === "approaching" && camZ > fork.pauseZ - 100) {
+            const ahead = fork.pauseZ - camZ;
+            targetSpeed = Math.min(targetSpeed, 34 + Math.max(0, ahead) * 1.85);
+          }
+        }
       }
     }
 
     speed += (targetSpeed - speed) * Math.min(1, dt * 3.1);
-    if (!keyboard && !traveling) speed = 0;
+    if (!keyboard && !traveling && fork.phase !== "choosing") speed = 0;
+    if (fork.phase === "choosing") speed = 0;
 
     const prevZ = camZ;
     const prevX = camX;
-    camZ += speed * dt;
+    if (fork.phase !== "choosing") camZ += speed * dt;
 
-    if (keyboard) {
+    /* 对局时钟随本次行程进度平滑走满 2 小时（岔路中途扩展 travelGoal
+     * 会拉低进度比，取 max 保证时间不倒流）。 */
+    if (!keyboard && traveling) {
+      const span = Math.max(1, travelGoal - travelStartZ);
+      clockZ = Math.max(clockZ, clockBase + clamp01((camZ - travelStartZ) / span) * STAGE_STEP);
+    }
+
+    if (keyboard && fork.phase !== "committing") {
       const strafe = (keys.KeyD || keys.ArrowRight ? 1 : 0) - (keys.KeyA || keys.ArrowLeft ? 1 : 0);
       camX += strafe * 160 * dt;
       if (camX > 70) camX = 70;
       if (camX < -70) camX = -70;
       if (!strafe) camX += (0 - camX) * dt * 1.2;
     }
+
+    stepFork(dt);
 
     const moved = Math.abs(camZ - prevZ) > 0.001 || Math.abs(camX - prevX) > 0.001;
     if (moved) bobPhase += dt * (3.8 + Math.abs(speed) * 0.017);
@@ -1791,11 +2246,14 @@ export function createCorridor(host, opts = {}) {
     }
 
     if (onStatus) {
-      const mode = keyboard
-        ? (autoForward ? "自动前进中" : "手动")
-        : traveling
-          ? "赶路中"
-          : "驻足";
+      const mode = fork.phase === "choosing" ? "岔路抉择"
+        : fork.phase === "committing" ? "转入岔道"
+        : fork.phase === "approaching" ? "岔路逼近"
+        : keyboard
+          ? (autoForward ? "自动前进中" : "手动")
+          : traveling
+            ? "赶路中"
+            : "驻足";
       onStatus(`${mode} · ${T.label} · 深度 ${Math.abs(camZ | 0)} · canvas 画家算法`);
     }
 
@@ -1819,6 +2277,7 @@ export function createCorridor(host, opts = {}) {
     clouds.length = 0;
     spriteId = 0;
     buildScene();
+    if (fork.phase !== "hidden") spawnForkSprites();
     if (ready) recycle();
   }
 
@@ -2001,6 +2460,10 @@ export function createCorridor(host, opts = {}) {
       e.preventDefault();
       autoForward = !autoForward;
     }
+    if (e.code === "KeyF") {
+      e.preventDefault();
+      beginFork();
+    }
     requestRedraw();
   }
   function onKeyUp(e) {
@@ -2012,6 +2475,8 @@ export function createCorridor(host, opts = {}) {
       if (keyboard) return;
       traveling = true;
       travelGoal = camZ + STAGE_STEP;
+      clockBase = clockZ;
+      travelStartZ = camZ;
       requestRedraw();
       return;
     }
@@ -2021,11 +2486,18 @@ export function createCorridor(host, opts = {}) {
     travelGoal = camZ;
   }
 
-  function travelForward(distance = STAGE_STEP) {
+  function travelForward(distance = STAGE_STEP, opts = {}) {
     if (keyboard) return Promise.resolve(false);
     if (traveling) return Promise.resolve(false);
+    if (opts && (opts.fork === true || opts.fork === 2 || opts.fork === 3)) {
+      const n = opts.fork === true ? (Math.random() < 0.42 ? 3 : 2) : opts.fork;
+      armFork(n, camZ);
+      distance = Math.max(distance, fork.pauseZ + 40 - camZ);
+    }
     traveling = true;
     travelGoal = camZ + Math.max(80, distance);
+    clockBase = clockZ;
+    travelStartZ = camZ;
     requestRedraw();
     return new Promise((resolve) => {
       travelResolve = resolve;
@@ -2082,12 +2554,21 @@ export function createCorridor(host, opts = {}) {
   requestRedraw();
 
   /* 调试钩子：截图脚本用（设置参数 / 直接指定当前时刻 / 立即切主题）。 */
-  window.__corridorSet = (k, v) => { P[k] = v; applyParamChange(); };
+  window.__corridorSet = (k, v) => {
+    if (k === "fork") { beginFork(v); return; }
+    P[k] = v; applyParamChange();
+  };
+  window.__corridorFork = (n) => beginFork(n);
   window.__corridorSetHour = (h) => {
-    P.dayStart = h - (camZ / STAGE_STEP) * 2;
+    P.dayStart = h - ((keyboard ? camZ : clockZ) / STAGE_STEP) * 2;
     applyParamChange();
   };
-  window.__corridorSnap = () => ({ camZ, themeId, traveling, areaThemeIndex });
+  window.__corridorSnap = () => ({
+    camZ, themeId, traveling, areaThemeIndex, hour: Math.round(dayHour() * 10) / 10,
+    fork: fork.phase, mouths: fork.branches, chosen: fork.chosen,
+    mergeBlend: fork.mergeBlend, joinZ: fork.joinZ, pauseZ: fork.pauseZ, camX,
+    xs: fork.xs.slice(), vw: W, vh: H,
+  });
   /** 立即切主题（无黑幕过渡，等资产就绪后返回）——自动化验收专用。 */
   window.__corridorSetTheme = async (id) => {
     if (!THEMES[id]) return false;
@@ -2103,6 +2584,7 @@ export function createCorridor(host, opts = {}) {
   return {
     setMoving,
     travelForward,
+    beginFork,
     setAreaTheme,
     syncFromState() {
       /* 位移由 travelForward / setMoving 驱动，不跟关卡号缓漂 */
@@ -2111,6 +2593,7 @@ export function createCorridor(host, opts = {}) {
       alive = false;
       cancelAnimationFrame(raf);
       raf = 0;
+      hideForkUI();
       finishTravel(false);
       notifyThemeSettled(false);
       ro?.disconnect();

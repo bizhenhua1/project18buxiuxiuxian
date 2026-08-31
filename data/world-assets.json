@@ -1,0 +1,78 @@
+{
+  "theme": "forest",
+  "version": "world23",
+  "setting": {
+    "world": "floating-islands",
+    "note": "一个区域对应一座相连的浮空岛；不铺天空/云海底图；未开格用阴影预览"
+  },
+  "projection": { "mode": "iso-height", "tileW": 112, "faceHRatio": 0.5, "drawScale": 1.06, "step": 22, "heights": [-1, 0, 1], "adjacentDelta": [-1, 0, 1], "light": "upper-left" },
+  "sky": {
+    "sky": "assets/world/sky/sky.png",
+    "cloudSea": "assets/world/sky/cloud_sea.png",
+    "cloudPuff": "assets/world/sky/cloud_puff.png",
+    "shroud": "assets/world/sky/shroud_base.png",
+    "farIslands": [
+      "assets/world/sky/island_far_1.png",
+      "assets/world/sky/island_far_2.png"
+    ]
+  },
+  "fog": {
+    "version": 1,
+    "levels": ["hidden", "rumor", "memory", "sight"],
+    "vision": { "baseRadius": 2, "highGroundBonus": 1, "forestPenalty": 1, "los": "ridge-or-taller-blocks" },
+    "persist": ["explored", "lastSeen"],
+    "note": "未开格用阴影预览岛形；邻接已开格给出箭头，点击后寻路自动走过去开格"
+  },
+  "bases": [
+    { "id": "grass_1", "src": "assets/world/forest/base/grass_1.png", "kind": "grass", "weight": 4 },
+    { "id": "grass_2", "src": "assets/world/forest/base/grass_2.png", "kind": "grass", "weight": 3 },
+    { "id": "grass_3", "src": "assets/world/forest/base/grass_3.png", "kind": "grass", "weight": 2 },
+    { "id": "leaf_1", "src": "assets/world/forest/base/leaf_1.png", "kind": "leaf", "weight": 2 },
+    { "id": "leaf_2", "src": "assets/world/forest/base/leaf_2.png", "kind": "leaf", "weight": 2 },
+    { "id": "rock_1", "src": "assets/world/forest/base/rock_1.png", "kind": "rock", "weight": 1 },
+    { "id": "water_1", "src": "assets/world/forest/base/water_1.png", "kind": "water", "weight": 1, "feature": false }
+  ],
+  "unused": {
+    "note": "正视方砖与垫层叠块不参与拼装",
+    "orthoTiles": [
+      "assets/world/forest/tile/grass_1.png",
+      "assets/world/forest/tile/grass_2.png",
+      "assets/world/forest/tile/leaf_1.png",
+      "assets/world/forest/tile/rock_1.png",
+      "assets/world/forest/tile/water_1.png"
+    ],
+    "cores": [
+      "assets/world/forest/base/soil_core.png",
+      "assets/world/forest/base/rock_core.png"
+    ]
+  },
+  "rivers": {
+    "mode": "full-water-cells",
+    "note": "河流用连续完整水面地台模拟，方向 autotile 件不参与拼装",
+    "tile": "assets/world/forest/base/water_1.png",
+    "unusedDirectional": [
+      { "id": "river_ew", "src": "assets/world/forest/base/river_ew.png", "connect": ["+r", "-r"] },
+      { "id": "river_ns", "src": "assets/world/forest/base/river_ns.png", "connect": ["+c", "-c"] },
+      { "id": "river_ne", "src": "assets/world/forest/base/river_ne.png", "connect": ["+c", "-r"] },
+      { "id": "river_nw", "src": "assets/world/forest/base/river_nw.png", "connect": ["-c", "-r"] },
+      { "id": "river_se", "src": "assets/world/forest/base/river_se.png", "connect": ["+c", "+r"] },
+      { "id": "river_sw", "src": "assets/world/forest/base/river_sw.png", "connect": ["-c", "+r"] },
+      { "id": "river_source", "src": "assets/world/forest/base/river_source.png", "connect": ["end"] },
+      { "id": "river_mouth", "src": "assets/world/forest/base/river_mouth.png", "connect": ["mouth"] }
+    ]
+  },
+  "features": [
+    { "id": "giant_tree_1", "src": "assets/world/forest/feature/giant_tree_1.png", "kind": "event", "scale": 0.95 },
+    { "id": "mountain_1", "src": "assets/world/forest/feature/mountain_1.png", "kind": "block", "scale": 0.92 },
+    { "id": "cave_1", "src": "assets/world/forest/feature/cave_1.png", "kind": "cave", "scale": 0.88 },
+    { "id": "grove_1", "src": "assets/world/forest/feature/grove_1.png", "kind": "forest", "scale": 0.72 },
+    { "id": "rockpile_1", "src": "assets/world/forest/feature/rockpile_1.png", "kind": "deco", "scale": 0.48 },
+    { "id": "flower_1", "src": "assets/world/forest/feature/flower_1.png", "kind": "deco", "scale": 0.42 },
+    { "id": "shrub_1", "src": "assets/world/forest/feature/shrub_1.png", "kind": "deco", "scale": 0.48 }
+  ],
+  "links": [
+    { "id": "mountain_mid", "src": "assets/world/forest/link/mountain_mid.png", "kind": "ridge-mid", "scale": 1.05 },
+    { "id": "mountain_end_l", "src": "assets/world/forest/link/mountain_end_l.png", "kind": "ridge-end", "scale": 0.9 },
+    { "id": "mountain_end_r", "src": "assets/world/forest/link/mountain_end_r.png", "kind": "ridge-end", "scale": 0.9 }
+  ]
+}

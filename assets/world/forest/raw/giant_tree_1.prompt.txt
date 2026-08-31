@@ -1,0 +1,1 @@
+Use tree-c as style lock. Isolated isometric giant tree, 3/4 view, feet-anchor roots, cloud canopy, no ground/tile/shadow. Solid #FF00FF background.

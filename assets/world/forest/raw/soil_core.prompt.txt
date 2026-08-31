@@ -1,0 +1,1 @@
+Geometry-locked to grass_1. Isolated isometric soil core cube, ochre earth top matching the tile sides. Solid #FF00FF, no grass, no props.

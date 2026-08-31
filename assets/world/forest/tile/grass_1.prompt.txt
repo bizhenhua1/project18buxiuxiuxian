@@ -1,0 +1,7 @@
+Use the visible forest isometric grass tile as the visual style lock: Dunhuang mural mineral-pigment flat color, dark ink outlines, malachite greens, ochre soil, vermilion five-petal flowers. NO realistic gradients, NO pixel art.
+
+A SINGLE square top-down RPG ground TILE that fills the ENTIRE image edge to edge. Straight-down orthogonal view. NOT isometric. NO diamond. NO cube sides. NO 3D thickness.
+
+Full-bleed grassy forest floor: malachite grass clumps, red and yellow flowers, grey pebbles, ochre soil patches. Content reaches all four edges. Edge colors stay grassy green so neighboring tiles can abut.
+
+NO trees, NO characters, NO border, NO frame, NO magenta, NO empty margin.

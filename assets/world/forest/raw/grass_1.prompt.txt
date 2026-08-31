@@ -1,0 +1,8 @@
+Use the two visible forest reference images immediately above as the visual style lock: Dunhuang mural mineral-pigment flat color (敦煌矿物平涂), dark ink outlines, malachite/viridian greens, ochre-tan soil, vermilion-red five-petal flowers, subtle grain, NO realistic gradients, NO pixel art.
+
+ONE isolated isometric map tile platform, Taiwu / Guigubahuang block-world style.
+Exact geometry: a single diamond top face (true 2:1 isometric diamond, width twice height), plus two visible extruded sides. Left side darker, right side slightly lighter. Light from upper-left.
+The TOP FACE ONLY is a grassy forest floor matching the ground-tile reference: malachite grass clumps, small red five-petal flowers, tiny grey pebbles, ochre soil patches. Sides are a short earth-cut bank with the same ochre-tan soil and dark outline. NO trees, NO rocks standing up, NO buildings, NO characters, NO shadows on the magenta, NO second tile.
+Center the block in the frame with generous padding. The entire block must stay inside the image. Nothing touches any image edge.
+Background is one uniform solid flat magenta #FF00FF, no gradients, no other colors in the background, no ground plane beyond the block itself.
+Single object, game sprite, clean HD 2D game asset.

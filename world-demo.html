@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>世界地块拼装预览 · 云海浮空岛</title>
+  <style>
+    :root { --bg: #2a241c; --ink: #f3e6c8; --muted: #b8a888; }
+    html, body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 "Microsoft YaHei", sans-serif; }
+    header { padding: 12px 18px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; background: #231e18; }
+    h1 { margin: 0; font-size: 16px; font-weight: 600; }
+    button { background: #3a2f22; color: var(--ink); border: 1px solid #6a5438; padding: 4px 10px; cursor: pointer; }
+    button:hover { background: #4a3c2c; }
+    #stage { width: 100%; height: calc(100vh - 56px); display: block; background: #2a241c; }
+    .hint { color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>云海浮空岛 · 森林区域</h1>
+    <button type="button" id="reroll">重掷一屏</button>
+    <span class="hint">未开格是阴影预览 · 迷雾在闪的格子可以点过去开图</span>
+  </header>
+  <canvas id="stage"></canvas>
+  <script type="module">
+    import {
+      createFog, cellKey, computeSight, levelOf, remember,
+      visionRadius, isAdjacentToSet, fogStyle,
+    } from "./js/world-fog.js?v=world36";
+
+    const TILE_W = 112;
+    const LAND = [
+      "assets/world/forest/base/grass_1.png",
+      "assets/world/forest/base/grass_2.png",
+      "assets/world/forest/base/leaf_1.png",
+    ];
+    const ROCK = "assets/world/forest/base/rock_1.png";
+    const WATER = "assets/world/forest/base/water_1.png";
+    const FEATURES = [
+      { src: "assets/world/forest/feature/giant_tree_1.png", w: 0.95, kind: "event" },
+      { src: "assets/world/forest/feature/cave_1.png", w: 0.88, kind: "cave" },
+      { src: "assets/world/forest/feature/grove_1.png", w: 0.72, kind: "forest" },
+      { src: "assets/world/forest/feature/rockpile_1.png", w: 0.48, kind: "deco" },
+      { src: "assets/world/forest/feature/flower_1.png", w: 0.42, kind: "deco" },
+      { src: "assets/world/forest/feature/shrub_1.png", w: 0.48, kind: "deco" },
+    ];
+    const MTN = {
+      peak: { src: "assets/world/forest/feature/mountain_1.png", w: 0.92 },
+      mid: { src: "assets/world/forest/link/mountain_mid.png", w: 1.05 },
+      endL: { src: "assets/world/forest/link/mountain_end_l.png", w: 0.9 },
+      endR: { src: "assets/world/forest/link/mountain_end_r.png", w: 0.9 },
+    };
+    const SHROUD = "assets/world/sky/shroud_base.png";
+    const THEME = { land: () => pick(LAND), water: true, ridge: true, feat: 0.16 };
+
+    const load = (src) => new Promise((res, rej) => {
+      const im = new Image();
+      im.onload = () => res(im);
+      im.onerror = () => rej(src);
+      im.src = src + "?v=world23";
+    });
+    const pick = (arr) => arr[(Math.random() * arr.length) | 0];
+    const key = (c, r) => `${c},${r}`;
+
+    /* 资产角度不严格，格距按 2:1。所有地台锁同一落格尺寸，避免按原图比例各拉各的。 */
+    const FACE_H_RATIO = 0.5;
+    const REF_ASPECT = 320 / 420;
+    const REF_EQ = 129 / 320;
+    const TILE_H = TILE_W * FACE_H_RATIO;
+    const DRAW_SCALE = 1.06;
+    /* 台阶低于地台自身厚度，高格沉进低格，侧面互相遮挡。 */
+    const STEP = 22;
+
+    function measure(img) {
+      const c = document.createElement("canvas");
+      c.width = img.width;
+      c.height = img.height;
+      const g = c.getContext("2d", { willReadFrequently: true });
+      g.drawImage(img, 0, 0);
+      const data = g.getImageData(0, 0, c.width, c.height).data;
+      let minX = img.width;
+      let maxX = 0;
+      let minY = img.height;
+      let maxY = 0;
+      let maxSpan = 0;
+      let eqY = img.height * REF_EQ;
+      for (let y = 0; y < img.height; y += 2) {
+        let lo = img.width;
+        let hi = -1;
+        const row = y * img.width;
+        for (let x = 0; x < img.width; x++) {
+          if (data[(row + x) * 4 + 3] > 10) {
+            if (x < lo) lo = x;
+            if (x > hi) hi = x;
+          }
+        }
+        if (hi >= 0) {
+          if (lo < minX) minX = lo;
+          if (hi > maxX) maxX = hi;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+          if (hi - lo > maxSpan) {
+            maxSpan = hi - lo;
+            eqY = y;
+          }
+        }
+      }
+      return {
+        contentW: Math.max(1, maxX - minX + 1),
+        contentH: Math.max(1, maxY - minY + 1),
+        eqY,
+      };
+    }
+
+    const NBS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+
+    function walkPrefer(len, cols, rows, avoid, scoreFn) {
+      const seeds = [];
+      for (let r = 1; r < rows - 1; r++) {
+        for (let c = 1; c < cols - 1; c++) {
+          if (avoid.has(key(c, r))) continue;
+          seeds.push({ c, r, s: scoreFn(c, r) });
+        }
+      }
+      if (!seeds.length) return [];
+      seeds.sort((a, b) => b.s - a.s);
+      const top = seeds.filter((p) => p.s === seeds[0].s);
+      let { c, r } = pick(top);
+      const path = [{ c, r }];
+      const used = new Set([key(c, r)]);
+      for (let i = 1; i < len; i++) {
+        const opts = NBS
+          .map(([dc, dr]) => ({ c: c + dc, r: r + dr }))
+          .filter((p) => p.c >= 0 && p.r >= 0 && p.c < cols && p.r < rows)
+          .filter((p) => !used.has(key(p.c, p.r)) && !avoid.has(key(p.c, p.r)));
+        if (!opts.length) break;
+        const best = Math.max(...opts.map((p) => scoreFn(p.c, p.r)));
+        const next = pick(opts.filter((p) => scoreFn(p.c, p.r) === best));
+        path.push(next);
+        used.add(key(next.c, next.r));
+        c = next.c;
+        r = next.r;
+      }
+      return path;
+    }
+
+    function expandBlob(start, extra, cols, rows, avoid, allowFn) {
+      const out = [...start];
+      const used = new Set(start.map((p) => key(p.c, p.r)));
+      for (let n = 0; n < extra; n++) {
+        const opts = out.flatMap((p) => NBS.map(([dc, dr]) => ({ c: p.c + dc, r: p.r + dr })))
+          .filter((p) => p.c >= 0 && p.r >= 0 && p.c < cols && p.r < rows)
+          .filter((p) => !used.has(key(p.c, p.r)) && !avoid.has(key(p.c, p.r)))
+          .filter((p) => !allowFn || allowFn(p.c, p.r));
+        if (!opts.length) break;
+        const add = pick(opts);
+        out.push(add);
+        used.add(key(add.c, add.r));
+      }
+      return out;
+    }
+
+    function fitGrid(cw, ch) {
+      const cols = Math.max(18, Math.round(cw / TILE_W) + 8);
+      const rows = Math.max(16, Math.round(ch / TILE_H) + 8);
+      return { cols, rows };
+    }
+
+    /* 填满曼哈顿菱形，四邻全连，再沿边长出几格，保证一座岛是一块。 */
+    function filledDiamond(cols, rows, seed, radius) {
+      const cells = [];
+      for (let r = 1; r < rows - 1; r++) {
+        for (let c = 1; c < cols - 1; c++) {
+          if (Math.abs(c - seed.c) + Math.abs(r - seed.r) <= radius) {
+            cells.push({ c, r });
+          }
+        }
+      }
+      return cells;
+    }
+
+    function growConnectedRim(cells, cols, rows, extra) {
+      const used = new Set(cells.map((p) => key(p.c, p.r)));
+      const out = cells.slice();
+      for (let n = 0; n < extra; n++) {
+        const opts = [];
+        const seen = new Set();
+        for (const p of out) {
+          for (const [dc, dr] of NBS) {
+            const c = p.c + dc;
+            const r = p.r + dr;
+            const k = key(c, r);
+            if (c < 1 || r < 1 || c >= cols - 1 || r >= rows - 1) continue;
+            if (used.has(k) || seen.has(k)) continue;
+            seen.add(k);
+            opts.push({ c, r });
+          }
+        }
+        if (!opts.length) break;
+        const add = pick(opts);
+        used.add(key(add.c, add.r));
+        out.push(add);
+      }
+      return out;
+    }
+
+    function touches(h, c, r, cols, rows, value) {
+      for (const [dc, dr] of NBS) {
+        const nc = c + dc;
+        const nr = r + dr;
+        if (nc < 0 || nr < 0 || nc >= cols || nr >= rows) continue;
+        if (h[nr][nc] === value) return true;
+      }
+      return false;
+    }
+
+    function growPlateau(h, cols, rows, value, count, forbid, allowed) {
+      const seeds = [];
+      for (let r = 2; r < rows - 2; r++) {
+        for (let c = 2; c < cols - 2; c++) {
+          if (allowed && !allowed.has(key(c, r))) continue;
+          if (h[r][c] !== 0) continue;
+          if (forbid != null && touches(h, c, r, cols, rows, forbid)) continue;
+          seeds.push({ c, r });
+        }
+      }
+      if (!seeds.length) return;
+      let best = [];
+      let bestD = -1;
+      for (const s of seeds) {
+        let d = 99;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            if (h[r][c] === 0) continue;
+            const md = Math.abs(s.c - c) + Math.abs(s.r - r);
+            if (md < d) d = md;
+          }
+        }
+        if (d > bestD) {
+          bestD = d;
+          best = [s];
+        } else if (d === bestD) best.push(s);
+      }
+      const start = pick(best.length ? best : seeds);
+      const frontier = [start];
+      const used = new Set([key(start.c, start.r)]);
+      h[start.r][start.c] = value;
+      let painted = 1;
+      while (frontier.length && painted < count) {
+        const idx = (Math.random() * frontier.length) | 0;
+        const cur = frontier[idx];
+        const opts = NBS
+          .map(([dc, dr]) => ({ c: cur.c + dc, r: cur.r + dr }))
+          .filter((p) => p.c >= 1 && p.r >= 1 && p.c < cols - 1 && p.r < rows - 1)
+          .filter((p) => !used.has(key(p.c, p.r)))
+          .filter((p) => !allowed || allowed.has(key(p.c, p.r)))
+          .filter((p) => h[p.r][p.c] === 0)
+          .filter((p) => forbid == null || !touches(h, p.c, p.r, cols, rows, forbid));
+        if (!opts.length) {
+          frontier.splice(idx, 1);
+          continue;
+        }
+        const next = pick(opts);
+        used.add(key(next.c, next.r));
+        h[next.r][next.c] = value;
+        painted += 1;
+        frontier.push(next);
+      }
+    }
+
+    /* 邻格只允许差 0 或 ±1。+1 与 -1 相贴时改成中间的 0，避免单向拉平整张图。 */
+    function clampAdjacent(h, cols, rows) {
+      const conflicts = [];
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (h[r][c] > 1) h[r][c] = 1;
+          if (h[r][c] < -1) h[r][c] = -1;
+          if (h[r][c] === 1 && touches(h, c, r, cols, rows, -1)) conflicts.push([c, r]);
+          if (h[r][c] === -1 && touches(h, c, r, cols, rows, 1)) conflicts.push([c, r]);
+        }
+      }
+      for (const [c, r] of conflicts) h[r][c] = 0;
+      let changed = true;
+      let guard = 0;
+      while (changed && guard++ < cols * rows) {
+        changed = false;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            for (const [dc, dr] of NBS) {
+              const nc = c + dc;
+              const nr = r + dr;
+              if (nc < 0 || nr < 0 || nc >= cols || nr >= rows) continue;
+              const d = h[r][c] - h[nr][nc];
+              if (d > 1 || d < -1) {
+                h[r][c] = 0;
+                changed = true;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    function buildHeights(cols, rows, allowed, hills, basins) {
+      const h = [];
+      for (let r = 0; r < rows; r++) {
+        h[r] = [];
+        for (let c = 0; c < cols; c++) h[r][c] = 0;
+      }
+      for (let i = 0; i < hills; i++) {
+        growPlateau(h, cols, rows, 1, 6 + ((Math.random() * 10) | 0), -1, allowed);
+      }
+      for (let i = 0; i < basins; i++) {
+        growPlateau(h, cols, rows, -1, 5 + ((Math.random() * 8) | 0), 1, allowed);
+      }
+      clampAdjacent(h, cols, rows);
+      return h;
+    }
+
+    function placeIsland(cols, rows) {
+      const seed = { c: ((cols * 0.5) | 0), r: ((rows * 0.5) | 0) };
+      const radius = 3;
+      const core = filledDiamond(cols, rows, seed, radius);
+      const cells = growConnectedRim(core, cols, rows, (Math.random() * 4) | 0);
+      return { id: "home", theme: "forest", cells, hills: 1, basins: 1 };
+    }
+
+    function dressIsland(isle, cols, rows, cells) {
+      const theme = THEME;
+      const allowed = new Set(isle.cells.map((p) => key(p.c, p.r)));
+      const avoid = new Set();
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (!allowed.has(key(c, r))) avoid.add(key(c, r));
+        }
+      }
+      const landAt = (c, r) => {
+        const k = key(c, r);
+        if (!cells.has(k)) {
+          cells.set(k, {
+            c, r, island: isle.id, theme: isle.theme,
+            base: theme.land(), feat: null, layer: "land", h: 0,
+          });
+        }
+        return cells.get(k);
+      };
+      for (const p of isle.cells) landAt(p.c, p.r);
+      const heights = buildHeights(cols, rows, allowed, isle.hills, isle.basins);
+      const reserved = new Set(avoid);
+      if (theme.water) {
+        const river = walkPrefer(
+          Math.max(3, (isle.cells.length / 8) | 0),
+          cols, rows, reserved,
+          (c, r) => (heights[r][c] === -1 ? 2 : heights[r][c] === 0 ? 1 : 0)
+        );
+        const waterCells = expandBlob(river, 1 + ((Math.random() * 3) | 0), cols, rows, reserved, (c, r) => allowed.has(key(c, r)) && heights[r][c] <= 0);
+        for (const p of waterCells) {
+          const cell = landAt(p.c, p.r);
+          cell.base = WATER;
+          cell.layer = "water";
+          cell.feat = null;
+          reserved.add(key(p.c, p.r));
+          heights[p.r][p.c] = Math.min(heights[p.r][p.c], 0);
+        }
+      }
+      if (theme.ridge) {
+        const ridge = walkPrefer(Math.min(5, Math.max(2, (isle.cells.length / 16) | 0)), cols, rows, reserved, (c, r) => (heights[r][c] === 1 ? 2 : 0))
+          .filter((p, i, arr) => {
+            if (i === 0) return true;
+            const prev = arr[i - 1];
+            return Math.abs(p.c - prev.c) + Math.abs(p.r - prev.r) === 1;
+          });
+        ridge.forEach((p, i) => {
+          const cell = landAt(p.c, p.r);
+          cell.base = ROCK;
+          cell.layer = "ridge";
+          reserved.add(key(p.c, p.r));
+          heights[p.r][p.c] = 1;
+          if (ridge.length === 1) cell.feat = MTN.peak;
+          else if (i === 0) cell.feat = MTN.endL;
+          else if (i === ridge.length - 1) cell.feat = MTN.endR;
+          else cell.feat = MTN.mid;
+        });
+      }
+      clampAdjacent(heights, cols, rows);
+      for (const p of isle.cells) {
+        const cell = landAt(p.c, p.r);
+        cell.h = heights[p.r][p.c];
+        if (cell.layer === "land" && Math.random() < theme.feat) cell.feat = pick(FEATURES);
+      }
+    }
+
+    function plan(cols, rows) {
+      const isle = placeIsland(cols, rows);
+      const cells = new Map();
+      dressIsland(isle, cols, rows, cells);
+      return { grid: [...cells.values()], islands: [isle] };
+    }
+
+    const canvas = document.getElementById("stage");
+    const ctx = canvas.getContext("2d");
+    const images = {};
+    const geom = {};
+    const allSrc = [
+      ...LAND, ROCK, WATER, SHROUD,
+      ...FEATURES.map((f) => f.src),
+      MTN.peak.src, MTN.mid.src, MTN.endL.src, MTN.endR.src,
+    ];
+
+    let world = null;
+    let fog = createFog();
+    let player = { c: 0, r: 0 };
+    let walkTimer = 0;
+    let walking = false;
+    let hoveredKey = "";
+    let hintPulse = 0;
+
+    function placePlayer(grid, cols, rows) {
+      const cx = (cols / 2) | 0;
+      const cy = (rows / 2) | 0;
+      const ranked = grid
+        .filter((cell) => cell.layer === "land" && cell.island === "home")
+        .slice()
+        .sort((a, b) => (Math.abs(a.c - cx) + Math.abs(a.r - cy)) - (Math.abs(b.c - cx) + Math.abs(b.r - cy)));
+      const start = ranked[0] || grid[0];
+      player = { c: start.c, r: start.r };
+    }
+
+    function resetWorld() {
+      const { cols, rows } = fitGrid(canvas.clientWidth || 1200, canvas.clientHeight || 700);
+      const planned = plan(cols, rows);
+      world = {
+        grid: planned.grid,
+        islands: planned.islands,
+        cols,
+        rows,
+        lookup: new Map(planned.grid.map((cell) => [cellKey(cell.c, cell.r), cell])),
+      };
+      fog = createFog();
+      placePlayer(planned.grid, cols, rows);
+      const here = world.lookup.get(cellKey(player.c, player.r));
+      if (here) remember(fog, here);
+    }
+
+    async function boot() {
+      await Promise.all(allSrc.map(async (src) => { images[src] = await load(src); }));
+      for (const src of [...LAND, ROCK, WATER, SHROUD]) geom[src] = measure(images[src]);
+      resetWorld();
+      draw();
+    }
+
+    function iso(c, r, h, ox, oy) {
+      return {
+        x: ox + (c - r) * (TILE_W / 2),
+        y: oy + (c + r) * (TILE_H / 2) - (h || 0) * STEP,
+      };
+    }
+
+    function drawBase(cell, ox, oy, src) {
+      const p = iso(cell.c, cell.r, cell.h, ox, oy);
+      const base = images[src || cell.base];
+      const g = geom[src || cell.base];
+      const bw = TILE_W * DRAW_SCALE;
+      const scale = bw / (g ? g.contentW : base.width);
+      const dw = base.width * scale;
+      const dh = base.height * scale;
+      const eq = g ? g.eqY * scale : dh * REF_EQ;
+      ctx.drawImage(base, p.x - dw / 2, p.y - eq, dw, dh);
+    }
+
+    function drawFeat(cell, ox, oy) {
+      if (!cell.feat) return;
+      const p = iso(cell.c, cell.r, cell.h, ox, oy);
+      const feat = images[cell.feat.src];
+      const fw = TILE_W * cell.feat.w;
+      const fh = fw * (feat.height / feat.width);
+      ctx.drawImage(feat, p.x - fw / 2, p.y - fh + TILE_H * 0.42, fw, fh);
+    }
+
+    function drawPlayer(ox, oy) {
+      const here = world.lookup.get(cellKey(player.c, player.r));
+      if (!here) return;
+      const p = iso(here.c, here.r, here.h, ox, oy);
+      ctx.save();
+      ctx.fillStyle = "#f3d27a";
+      ctx.strokeStyle = "#5a3c14";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y - 10, 7, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function pickCell(mx, my, ox, oy) {
+      const cx = mx - ox;
+      const cy = my - oy;
+      const c = Math.round((cx / (TILE_W / 2) + cy / (TILE_H / 2)) / 2);
+      const r = Math.round((cy / (TILE_H / 2) - cx / (TILE_W / 2)) / 2);
+      return world.lookup.get(cellKey(c, r)) || null;
+    }
+
+    function inDiamond(mx, my, p, scale) {
+      const dx = Math.abs(mx - p.x) / (TILE_W * scale);
+      const dy = Math.abs(my - p.y) / (TILE_H * scale);
+      return dx + dy <= 1;
+    }
+
+    function pickTarget(mx, my, ox, oy) {
+      let best = null;
+      let bestScore = 1e9;
+      for (const cell of world.grid) {
+        if (!canVisit(cell)) continue;
+        const p = iso(cell.c, cell.r, cell.h, ox, oy);
+        if (!inDiamond(mx, my, p, 0.82)) continue;
+        const score = Math.abs(mx - p.x) + Math.abs(my - p.y) - (cell.c + cell.r) * 0.02;
+        if (score < bestScore) {
+          bestScore = score;
+          best = cell;
+        }
+      }
+      return best;
+    }
+
+    function tryMove(dc, dr) {
+      if (walking) return;
+      const dest = world.lookup.get(cellKey(player.c + dc, player.r + dr));
+      if (!dest) return;
+      goTo(dest);
+    }
+
+    function reachableFrontier() {
+      const out = [];
+      for (const cell of world.grid) {
+        const k = cellKey(cell.c, cell.r);
+        if (fog.explored.has(k)) continue;
+        if (isAdjacentToSet(cell.c, cell.r, fog.explored)) out.push(cell);
+      }
+      return out;
+    }
+
+    function canVisit(cell) {
+      if (!cell) return false;
+      const k = cellKey(cell.c, cell.r);
+      if (fog.explored.has(k)) return true;
+      return isAdjacentToSet(cell.c, cell.r, fog.explored);
+    }
+
+    function findPath(dest) {
+      if (!canVisit(dest)) return null;
+      const startK = cellKey(player.c, player.r);
+      const destK = cellKey(dest.c, dest.r);
+      if (startK === destK) return [];
+      const q = [{ c: player.c, r: player.r }];
+      const prev = new Map([[startK, null]]);
+      const passable = (c, r) => {
+        const k = cellKey(c, r);
+        if (!world.lookup.has(k)) return false;
+        if (fog.explored.has(k)) return true;
+        return k === destK;
+      };
+      for (let i = 0; i < q.length; i++) {
+        const cur = q[i];
+        for (const [dc, dr] of NBS) {
+          const n = { c: cur.c + dc, r: cur.r + dr };
+          const k = cellKey(n.c, n.r);
+          if (prev.has(k) || !passable(n.c, n.r)) continue;
+          prev.set(k, cur);
+          if (k === destK) {
+            const path = [n];
+            let p = cur;
+            while (p && cellKey(p.c, p.r) !== startK) {
+              path.push(p);
+              p = prev.get(cellKey(p.c, p.r));
+            }
+            return path.reverse();
+          }
+          q.push(n);
+        }
+      }
+      return null;
+    }
+
+    function goTo(dest) {
+      const path = findPath(dest);
+      if (!path || !path.length) return;
+      walking = true;
+      clearTimeout(walkTimer);
+      const step = () => {
+        const next = path.shift();
+        if (!next) {
+          walking = false;
+          draw();
+          return;
+        }
+        const cell = world.lookup.get(cellKey(next.c, next.r));
+        player = { c: next.c, r: next.r };
+        if (cell) remember(fog, cell);
+        draw();
+        walkTimer = setTimeout(step, 200);
+      };
+      step();
+    }
+
+    function fogBlink(cell) {
+      const hot = hoveredKey === cellKey(cell.c, cell.r);
+      const t = 0.5 + 0.5 * Math.sin(hintPulse * 2.8);
+      return { hot, flash: t * t };
+    }
+
+    function origin() {
+      const sample = world.grid;
+      let sc = 0;
+      let sr = 0;
+      for (const cell of sample) {
+        sc += cell.c;
+        sr += cell.r;
+      }
+      const n = sample.length || 1;
+      const cc = sc / n;
+      const cr = sr / n;
+      return {
+        ox: canvas.clientWidth / 2 - (cc - cr) * (TILE_W / 2),
+        oy: canvas.clientHeight * 0.36 - (cc + cr) * (TILE_H / 2) + STEP,
+      };
+    }
+
+    function ensureCanvas() {
+      const dpr = devicePixelRatio || 1;
+      const w = Math.max(1, canvas.clientWidth);
+      const h = Math.max(1, canvas.clientHeight);
+      if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.imageSmoothingEnabled = true;
+    }
+
+    function draw() {
+      if (!world) return;
+      ensureCanvas();
+      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+      const { ox, oy } = origin();
+      const here = world.lookup.get(cellKey(player.c, player.r));
+      const sight = computeSight(world.lookup, player, world.cols, world.rows);
+      const radius = here ? visionRadius(here) : 2;
+      const order = world.grid.slice().sort((a, b) => (a.c + a.r) - (b.c + b.r) || a.h - b.h || a.c - b.c);
+      const frontierKeys = new Set(reachableFrontier().map((cell) => cellKey(cell.c, cell.r)));
+
+      for (const cell of order) {
+        const k = cellKey(cell.c, cell.r);
+        const lv = levelOf(cell.c, cell.r, fog, sight);
+        const dist = Math.abs(cell.c - player.c) + Math.abs(cell.r - player.r);
+        const style = fogStyle(lv, dist, radius, isAdjacentToSet(cell.c, cell.r, sight));
+        if (!style.draw) continue;
+        const go = frontierKeys.has(k);
+        const { hot, flash } = go ? fogBlink(cell) : { hot: false, flash: 0 };
+        const bright = go ? 0.68 + flash * (hot ? 0.7 : 0.52) + (hot ? 0.1 : 0) : style.bright;
+        const sat = go ? 0.3 + flash * 0.25 : style.sat;
+        ctx.save();
+        ctx.filter = `brightness(${bright}) saturate(${sat})`;
+        drawBase(cell, ox, oy, style.shroud ? SHROUD : cell.base);
+        if (style.feat) drawFeat(cell, ox, oy);
+        if (go && flash > 0.12) {
+          ctx.globalAlpha = flash * (hot ? 0.5 : 0.34);
+          ctx.filter = `brightness(${1.25 + flash * 0.4}) saturate(0.6)`;
+          drawBase(cell, ox, oy, SHROUD);
+        }
+        ctx.restore();
+      }
+
+      drawPlayer(ox, oy);
+    }
+
+    function reroll() {
+      resetWorld();
+      draw();
+    }
+
+    document.getElementById("reroll").onclick = () => {
+      walking = false;
+      clearTimeout(walkTimer);
+      reroll();
+    };
+    canvas.addEventListener("click", (ev) => {
+      if (!world || walking) return;
+      const rect = canvas.getBoundingClientRect();
+      const { ox, oy } = origin();
+      const cell = pickTarget(ev.clientX - rect.left, ev.clientY - rect.top, ox, oy);
+      if (!cell) return;
+      goTo(cell);
+    });
+    canvas.addEventListener("mousemove", (ev) => {
+      if (!world) return;
+      const rect = canvas.getBoundingClientRect();
+      const { ox, oy } = origin();
+      const cell = pickTarget(ev.clientX - rect.left, ev.clientY - rect.top, ox, oy);
+      const next = cell && canVisit(cell) && !fog.explored.has(cellKey(cell.c, cell.r))
+        ? cellKey(cell.c, cell.r)
+        : "";
+      canvas.style.cursor = cell && canVisit(cell) ? "pointer" : "default";
+      if (next === hoveredKey) return;
+      hoveredKey = next;
+      draw();
+    });
+    addEventListener("keydown", (ev) => {
+      const map = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0], w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0] };
+      const step = map[ev.key];
+      if (!step) return;
+      ev.preventDefault();
+      tryMove(step[0], step[1]);
+    });
+    addEventListener("resize", () => draw());
+    function tick(now) {
+      hintPulse = now / 1000;
+      if (world && reachableFrontier().length) draw();
+      requestAnimationFrame(tick);
+    }
+    boot()
+      .then(() => requestAnimationFrame(tick))
+      .catch((e) => { document.querySelector(".hint").textContent = "加载失败: " + e; });
+  </script>
+</body>
+</html>

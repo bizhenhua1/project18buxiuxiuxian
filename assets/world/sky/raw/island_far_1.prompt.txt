@@ -1,0 +1,6 @@
+Clean HD 2D game prop, Dunhuang mural mineral-pigment flat color, dark ink outlines, NOT photorealistic, NO pixel art.
+
+ONE small distant floating island silhouette for a cultivation world, seen from a high three-quarter / isometric-like angle matching Taiwu block-world. Irregular compact rocky islet, about 6-8 diamond-like land masses fused into one small island, ochre-tan rock sides, muted slate-green top, a tiny peak. Soft cloud wreath clinging under the island. Very little detail: this is FAR scenery, not a playable map. No readable paths, no buildings, no characters.
+
+Center the island with generous padding. Entire island and its under-clouds stay inside the image. Nothing touches any image edge.
+Background is one uniform solid flat magenta #FF00FF, no gradients. Single object only.

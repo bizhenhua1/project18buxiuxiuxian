@@ -32,10 +32,10 @@ import {
   applyPlayerMods,
   applyQueueEffects,
   reconcile,
-} from "./talents.js?v=dao21";
+} from "./talents.js?v=dao22";
 import { equipMods, addItem, rarityById } from "./equipment.js?v=dao19";
 import { rollLoot, rollCaptures, addBeast, beastCount, rollIdleLoot, rollQuestLoot } from "./loot.js?v=dao19";
-import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao20";
+import { initTalentUI, openTalentPanel } from "./talent-ui.js?v=dao21";
 import {
   addExp,
   breakthrough,
@@ -80,7 +80,7 @@ import {
   playFabaoModeAnim,
   playCharHpPulse,
   rollDisplayedHp,
-} from "./ui.js?v=dao25";
+} from "./ui.js?v=dao26";
 import {
   NODES_PER_REGION,
   regionOf,
@@ -260,7 +260,7 @@ function restatQueues() {
 }
 
 /**
- * 从当前档工作副本还原上阵：按保存下标插入，走 resolvePlacement 校验上限与收服数。
+ * 从当前档工作副本还原上阵：按保存下标插入，走 resolvePlacement 校验空位与收服数。
  * 空档/损坏回退为只上道童。敌方队列不读档，仍由任务预设填充。
  */
 function hydrateLineup() {
@@ -627,8 +627,7 @@ function fillEnemyRandom() {
 }
 
 function fillPlayerDemo() {
-  // 一键布阵尊重数量上限：道童 + 法宝填满操控额度；再按重量预算手持；再补法术
-  const slots = currentSlots();
+  // 一键布阵：道童 + 法宝填满已开空位（法宝不另限额，只受位置上限）
   clearQueue(state.playerQueue);
   const put = (id, mode = null) => {
     if (state.playerQueue.length >= cap()) return false;
@@ -641,21 +640,16 @@ function fillPlayerDemo() {
   };
   put("daotong");
   const fabaos = PLAYER_LIBRARY.filter((c) => c.cardType === "fabao");
-  for (let i = 0; i < slots.fabao; i++) put(fabaos[i % fabaos.length].id, "station");
-  if (slots.hand > 0) {
-    const heavyFirst = [...fabaos].sort((a, b) => (b.weight || 0) - (a.weight || 0));
-    for (const c of heavyFirst) put(c.id, "held");
-  }
-  if (slots.mind > 0) {
-    for (const c of PLAYER_LIBRARY.filter((cc) => cc.cardType === "spell")) put(c.id);
+  for (let i = 0; state.playerQueue.length < cap() && fabaos.length; i++) {
+    if (!put(fabaos[i % fabaos.length].id, "station")) break;
   }
   restatQueues();
 }
 
 /**
- * 上阵校验 + 入位模式：位置上限 + 各卡种数量上限 + 重量预算 + 御兽持有数。
- * 拖入空位的法宝默认操控（station）；手持只能右键/双击指定（wantMode="held"）。
- * 数量上限来自 slotTable，不绑定物理格子。返回 { mode } 或 { error }。
+ * 上阵校验 + 入位模式：位置上限 + 法术/御兽数量上限 + 御兽持有数。
+ * 法宝不另限额，有已开空位即可上阵；重量只影响战斗数值，不拦放置。
+ * 拖入空位默认操控（station）；手持只能右键/双击指定（wantMode="held"）。
  */
 function resolvePlacement(card, ignoreUid = null, wantMode = null) {
   const q = state.playerQueue.filter((u) => u && u.uid !== ignoreUid);
@@ -668,22 +662,14 @@ function resolvePlacement(card, ignoreUid = null, wantMode = null) {
     return { mode: "" };
   }
   if (type === "fabao") {
-    const heldUnits = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
-    const station = cnt("fabao") - heldUnits.length;
-    const wUsed = heldUnits.reduce((s, u) => s + (u.weight || 0), 0);
-    const heldError =
-      heldUnits.length >= slots.hand
-        ? `手持已满（${slots.hand}），可修体修「两手蛮力」提高手持上限`
-        : wUsed + (card.weight || 0) > slots.weight
-          ? `重量超限：${wUsed}+${card.weight} > ${slots.weight}（力量预算）`
-          : null;
-    const stationError =
-      station >= slots.fabao ? `法宝上阵已满（${slots.fabao}），可修「器道·多宝」扩容` : null;
-    if (wantMode === "held") return heldError ? { error: heldError } : { mode: "held" };
-    if (wantMode === "station") return stationError ? { error: stationError } : { mode: "station" };
-    if (!stationError) return { mode: "station" };
-    if (!heldError) return { error: `${stationError}。可对卡池或场上法宝右键改为手持` };
-    return { error: `${stationError}；${heldError}` };
+    if (wantMode === "held") {
+      const heldUnits = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
+      if (heldUnits.length >= slots.hand) {
+        return { error: `手持已满（${slots.hand}），可修体修「两手蛮力」提高手持上限` };
+      }
+      return { mode: "held" };
+    }
+    return { mode: "station" };
   }
   if (type === "spell") {
     if (cnt("spell") >= slots.mind) return { error: `法术上阵已满（${slots.mind}），可修法修「识海开窍」提高法术上限` };
@@ -696,7 +682,7 @@ function resolvePlacement(card, ignoreUid = null, wantMode = null) {
   return { mode: "" };
 }
 
-/** 布阵期右键（或双击）场上法宝：held ↔ station 切换（校验手持上限与重量预算）。下标不变。 */
+/** 布阵期右键（或双击）场上法宝：held ↔ station 切换（校验手持上限）。下标不变。 */
 function toggleFabaoMode(unit) {
   if (!canEdit() || !unit || unit.cardType !== "fabao") return;
   const want = unit.mode === "held" ? "station" : "held";
@@ -1176,35 +1162,18 @@ function syncMetaButtons() {
 /** 天赋/装备变更后的统一刷新：重聚合 → 重算队列 → 重绘。 */
 function onMetaChange() {
   refreshMods();
-  // 数量上限收缩后可能超编（如洗髓掉手持额度）：超编 held 优先转操控，转不了才退回卡池
+  // 数量上限收缩后可能超编（如洗髓掉手持额度）：超编 held 转操控。法宝上阵不另限额。
   const slots = currentSlots();
   const removed = [];
   const converted = [];
-  let station = 0;
-  for (const u of [...state.playerQueue]) {
-    if (u.cardType === "fabao" && u.mode === "station" && ++station > slots.fabao) {
-      station -= 1;
-      removeUnit(state.playerQueue, u);
-      removed.push(u);
-    }
-  }
   let held = 0;
-  let weight = 0;
   for (const u of [...state.playerQueue]) {
     if (u.cardType !== "fabao" || u.mode !== "held") continue;
     held += 1;
-    weight += u.weight || 0;
-    if (held <= slots.hand && weight <= slots.weight) continue;
+    if (held <= slots.hand) continue;
     held -= 1;
-    weight -= u.weight || 0;
-    if (station < slots.fabao) {
-      station += 1;
-      u.mode = "station";
-      converted.push(u);
-    } else {
-      removeUnit(state.playerQueue, u);
-      removed.push(u);
-    }
+    u.mode = "station";
+    converted.push(u);
   }
   const cnt = { spell: 0, beast: 0 };
   for (const u of [...state.playerQueue]) {

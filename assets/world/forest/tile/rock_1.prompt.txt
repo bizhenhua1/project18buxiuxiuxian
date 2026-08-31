@@ -1,0 +1,1 @@
+Use the visible forest isometric rock-ground tile as the style lock. Square top-down full-bleed rocky dry ground: grey flagstones, sandy tan soil, sparse dry grass. NOT isometric. NO cube sides. Edges stay sandy tan / grey stone.

@@ -1,0 +1,5 @@
+Use the visible isometric grass tile immediately above as the geometry lock only. Same camera, same single block, same true 2:1 diamond top face, same two extruded sides, same thickness, same upper-left light, same dark ink outlines, same Dunhuang mineral-pigment flat color style. NOT photorealistic, NO pixel art.
+
+Change ONLY the materials: this is an UNREVEALED floating-island slab wrapped in mist. The diamond top is pale ink-wash grey, paper-white fog, and muted slate, with soft cloud-like swirls and a few darker troughs. NO grass, NO flowers, NO trees, NO pebbles, NO readable terrain. Sides are short ochre-tan earth-cut banks like the reference, but cooler and slightly faded, as if seen through haze.
+
+ONE isolated isometric map tile platform, centered with generous padding. The entire block stays inside the image. Nothing touches any image edge. Background is one uniform solid flat magenta #FF00FF, no gradients, no other colors in the background, no ground plane beyond the block itself. No characters, no second tile, no text.

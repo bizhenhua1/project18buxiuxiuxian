@@ -1,0 +1,1 @@
+Use the visible forest isometric water tile as the style lock. Square top-down full-bleed pond water: teal water to EVERY edge, stylized lily pads, ripple arcs. NOT isometric. NO cube sides. NO shore. All four edges must be the same teal so neighboring water tiles form one pond.

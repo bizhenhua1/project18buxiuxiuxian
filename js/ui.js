@@ -6,7 +6,7 @@ import { effectiveStats, fmtMult, monsterMult, playerMult } from "./balance.js?v
 import { questSnapshot } from "./quest.js?v=dao19";
 import { idleRates } from "./idle.js?v=dao13";
 import { renderCoins } from "./economy.js?v=dao13";
-import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao21";
+import { talentMods, slotTable, mergeMods } from "./talents.js?v=dao22";
 import { equipMods } from "./equipment.js?v=dao19";
 import { ownedBeasts } from "./loot.js?v=dao19";
 import { realmState, realmTitle } from "./realm.js?v=dao12";
@@ -64,7 +64,7 @@ export function buildPool(root) {
   const chars = PLAYER_LIBRARY.filter((c) => c.cardType === "char" || c.cardType === "fabao");
   const spells = PLAYER_LIBRARY.filter((c) => c.cardType === "spell");
 
-  poolSection(root, "主角 · 法宝", "拖入任意空位；右键可手持（需手持上限与力量预算）");
+  poolSection(root, "主角 · 法宝", "拖入任意已开空位即可上阵；右键可手持（受手持上限限制）");
   for (const card of chars) root.appendChild(poolCardEl(card));
 
   poolSection(root, "法术", "拖入任意空位即可施放（受法术数量上限限制）");
@@ -250,15 +250,15 @@ function lockedTipHtml(state, capacity) {
   const capNote = capacity >= capMax
     ? `位置上限 ${capMax} 已全部开启（随关卡解锁，封顶 10）`
     : `已开位置 ${capacity}/${capMax}（上限随关卡解锁提升）`;
-  return `<strong>🔒 封印之位</strong><span class="tip-stats">${capNote}</span><span class="tip-desc">空位不绑定卡种。天赋只提高可上阵数量：体修加手持与力量，法修加法术上限，御兽加御兽上限，器道加法宝上限。</span>`;
+  return `<strong>🔒 封印之位</strong><span class="tip-stats">${capNote}</span><span class="tip-desc">空位不绑定卡种。法宝可填满已开空位；天赋提高其它上限：体修加手持，法修加法术，御兽加御兽。</span>`;
 }
 
 function emptySlotTipHtml(state, slots, capacity) {
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
   const held = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
-  const used = held.reduce((s, u) => s + (u.weight || 0), 0);
-  return `<strong>空位</strong><span class="tip-stats">可放入任意卡牌 · 位置 ${q.length}/${capacity}</span><span class="tip-desc">数量上限（非格子绑定）：法宝 ${cnt("fabao") - held.length}/${slots.fabao} · 手持 ${held.length}/${slots.hand}（重 ${used}/${slots.weight}）· 法术 ${cnt("spell")}/${slots.mind} · 御兽 ${cnt("beast")}/${slots.beast}。手持是法宝的模式，右键切换，不占专用格。</span>`;
+  const fabaoN = cnt("fabao") - held.length;
+  return `<strong>空位</strong><span class="tip-stats">可放入任意卡牌 · 位置 ${q.length}/${capacity}</span><span class="tip-desc">法宝 ${fabaoN}（不限额，受已开空位限制）· 手持 ${held.length}/${slots.hand} · 法术 ${cnt("spell")}/${slots.mind} · 御兽 ${cnt("beast")}/${slots.beast}。手持是法宝的模式，右键切换，不占专用格。</span>`;
 }
 
 function slotTipHtml(type, state, slots, capacity) {
@@ -607,7 +607,7 @@ export function renderUnlock(state) {
   refreshPoolStats(state.unlockStage);
 }
 
-/** 左栏上阵摘要：天赋+装备决定各卡种数量上限（不是专用格）。 */
+/** 左栏上阵摘要：法宝不限额；手持/法术/御兽仍受天赋+装备上限。 */
 export function renderSlotSummary(state) {
   const el = document.getElementById("slot-summary");
   if (!el) return;
@@ -615,10 +615,9 @@ export function renderSlotSummary(state) {
   const q = state.playerQueue;
   const cnt = (t) => q.filter((u) => u.cardType === t).length;
   const held = q.filter((u) => u.cardType === "fabao" && u.mode === "held");
-  const wUsed = held.reduce((s, u) => s + (u.weight || 0), 0);
   const parts = [
-    `法宝 ${cnt("fabao") - held.length}/${slots.fabao}`,
-    `手持 ${held.length}/${slots.hand}（重 ${wUsed}/${slots.weight}）`,
+    `法宝 ${cnt("fabao") - held.length}`,
+    `手持 ${held.length}/${slots.hand}`,
     `法术 ${cnt("spell")}/${slots.mind}`,
     `御兽 ${cnt("beast")}/${slots.beast}`,
   ];
@@ -739,7 +738,7 @@ export function formatCardTip(card, stage = 0) {
   const wt = card.cardType === "fabao" ? `（重量 ${card.weight} · 重聚 ${(card.reviveMs / 1000).toFixed(1)}s）` : "";
   const modeNote =
     card.cardType === "fabao"
-      ? `<span class="tip-desc">拖入空位＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。右键＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童（需手持上限与力量预算）。</span>`
+      ? `<span class="tip-desc">拖入空位＝法术操控：独立血条可被集火，主动技生效，被击毁后 ${(card.reviveMs / 1000).toFixed(1)}s 原位满血重聚。右键＝手持：不占承伤位，继承道童攻速暴击，重量加攻（+${Math.round(card.weight * 6)}%），主动技封印、被动照常，血量 30% 并入道童（受手持上限限制）。</span>`
       : "";
   const dtName = card.dmgType === "spell" ? "法伤" : "外伤";
   const defLine =

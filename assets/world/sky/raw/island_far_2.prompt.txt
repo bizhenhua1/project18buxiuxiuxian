@@ -1,0 +1,6 @@
+Clean HD 2D game prop, Dunhuang mural mineral-pigment flat color, dark ink outlines, NOT photorealistic, NO pixel art.
+
+ONE medium distant floating island for a cultivation world, high three-quarter / isometric-like angle. Longer irregular island than a tiny rock, forest-mass silhouette: muted malachite canopy blobs, ochre earth sides, a low ridge. Soft cream cloud sea clinging under the whole island. Far scenery, low detail, no readable terrain tiles, no buildings, no characters, no text.
+
+Center with generous padding. Entire island and under-clouds stay inside the image. Nothing touches any image edge.
+Background is one uniform solid flat magenta #FF00FF, no gradients. Single object only.

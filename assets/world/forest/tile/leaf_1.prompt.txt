@@ -1,0 +1,1 @@
+Use the visible forest isometric leaf-floor tile as the style lock. Square top-down full-bleed autumn leaf floor: orange and golden fallen leaves, dark brown soil, moss, twigs. NOT isometric. NO cube sides. Edges stay brown/orange so tiles can abut.

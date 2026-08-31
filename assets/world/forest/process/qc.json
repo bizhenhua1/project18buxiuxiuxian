@@ -1,0 +1,26 @@
+[
+  {
+    "size": [
+      420,
+      343
+    ],
+    "opaque": 85143,
+    "residual_magenta": 0,
+    "edge_touch": 0,
+    "ok": true,
+    "src": "assets\\world\\forest\\raw\\soil_core-raw.png",
+    "dest": "assets\\world\\forest\\base\\soil_core.png"
+  },
+  {
+    "size": [
+      420,
+      324
+    ],
+    "opaque": 78688,
+    "residual_magenta": 0,
+    "edge_touch": 7,
+    "ok": true,
+    "src": "assets\\world\\forest\\raw\\rock_core-raw.png",
+    "dest": "assets\\world\\forest\\base\\rock_core.png"
+  }
+]

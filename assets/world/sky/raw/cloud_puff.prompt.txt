@@ -1,0 +1,6 @@
+Clean HD 2D game prop, Dunhuang mural mineral-pigment flat color, dark ink outlines, NOT photorealistic, NO pixel art.
+
+ONE isolated soft cloud cluster, cream / paper-white / pale gold with ink-wash grey undersides, scalloped mineral-paint shapes, thin dark outlines, subtle grain. Side-or-three-quarter view of a floating cloud bank that can sit under or beside a floating island. No land, no island, no characters, no sun, no text.
+
+Center with generous padding. Entire cloud stays inside the image. Nothing touches any image edge.
+Background is one uniform solid flat magenta #FF00FF, no gradients. Single object only.

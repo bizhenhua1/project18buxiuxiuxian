@@ -1,0 +1,1 @@
+Geometry-locked to grass_1 isometric pad. Teal river band left-vertex to right-vertex. Solid #FF00FF, no splash outside the block.

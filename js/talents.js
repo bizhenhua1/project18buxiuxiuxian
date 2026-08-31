@@ -5,9 +5,10 @@
  * - 悟性点 = 已完成任务数（普通+精英）+ 境界突破次数
  * - 树为放射状：中心「道基」免费，四条主干 = 体修 / 法修 / 器道 / 御兽
  * - 节点效果分两类：
- *   1) 数量上限类（handSlots/mindSlots/beastSlots/fabaoSlots/weightAdd）→ 在白板基线上 +N，不锁物理格子
+ *   1) 数量上限类（handSlots/mindSlots/beastSlots/weightAdd）→ 在白板基线上 +N，不锁物理格子
  *   2) 数值类（各种 Pct）→ 与装备词条走同一条 mods 聚合管线
- * 白板即可上阵道童 / 法宝 / 法术 / 御兽（有收服时）；天赋只加对应数量上限或力量预算。
+ * 白板即可上阵道童 / 法宝 / 法术 / 御兽（有收服时）。法宝不另限额（受已开空位限制）；
+ * 天赋只加法术/御兽/手持上限或力量相关数值。
  */
 
 import { ACTIVE_SKILLS, PLAYER_LIBRARY } from "./unit.js?v=dao12";
@@ -70,14 +71,14 @@ export const TREE_NODES = [
 
   // ---- 器道（左下）：法宝上限 / 剑阵 / 幡 ----
   node("q1", "御器", "small", "器道", pos(QI, 70), "法宝攻击+6%", { fabaoAtkPct: 6 }),
-  node("q2", "多宝", "notable", "器道", pos(QI, 135), "法宝可上阵+2（基础4）", { fabaoSlots: 2 }),
+  node("q2", "多宝", "notable", "器道", pos(QI, 135), "法宝攻击+8%、生命+6%", { fabaoAtkPct: 8, fabaoHpPct: 6 }),
   node("q3", "炼器", "small", "器道", pos(QI, 150, -62), "法宝生命+8%", { fabaoHpPct: 8 }),
   node("q4", "剑心", "notable", "器道", pos(QI, 215, 78), "剑阵解锁：任一剑类出手时，其余存活剑类各追击 30% 伤害", { swordEchoPct: 30 }),
   node("q5", "剑意", "small", "器道", pos(QI, 280, 84), "剑阵追击伤害+12%", { swordEchoPct: 12 }),
   node("q9", "淬锋", "small", "器道", pos(QI, 345, 92), "暴伤+20%：全队暴击伤害倍率提高", { critDmgPct: 20 }),
   node("q6", "幡道", "notable", "器道", pos(QI, 215, -78), "幡类每层魂力加成 8%→12%", { fanPerStackPct: 12 }),
   node("q7", "器灵", "small", "器道", pos(QI, 200), "法宝攻击+8%", { fabaoAtkPct: 8 }),
-  node("q8", "万宝归宗", "keystone", "器道", pos(QI, 262), "道果：法宝可上阵再+3（共9），法宝攻血各+10%", { fabaoSlots: 3, fabaoAtkPct: 10, fabaoHpPct: 10 }),
+  node("q8", "万宝归宗", "keystone", "器道", pos(QI, 262), "道果：法宝攻血各+10%", { fabaoAtkPct: 10, fabaoHpPct: 10 }),
 
   // ---- 御兽（右下）：捕获 / 御兽上限 / 共鸣 ----
   node("y1", "驭心", "small", "御兽", pos(YU, 70), "收服概率+10%（基础10%）", { capturePct: 10 }),
@@ -251,7 +252,7 @@ function maxLibraryFabaoWeight() {
   return w;
 }
 
-/** 白板数量上限：新档即可上阵各卡种；天赋/词条只在此基础上 +N，不预画专用格。力量至少能单独握住库内最重法宝。 */
+/** 白板数量上限：新档即可上阵各卡种；天赋/词条只在此基础上 +N，不预画专用格。法宝不走此表限额。 */
 export const BASE_SLOTS = {
   fabao: 4,
   hand: 2,

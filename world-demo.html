@@ -18,7 +18,7 @@
   <header>
     <h1>云海浮空岛 · 森林区域</h1>
     <button type="button" id="reroll">重掷一屏</button>
-    <span class="hint">未开格是阴影预览 · 迷雾在闪的格子可以点过去开图</span>
+    <span class="hint">未开格是阴影预览 · 点闪雾格子会走过去开图 · 左右方向键或 A/D 旋转岛屿</span>
   </header>
   <canvas id="stage"></canvas>
   <script type="module">
@@ -50,6 +50,11 @@
       endR: { src: "assets/world/forest/link/mountain_end_r.png", w: 0.9 },
     };
     const SHROUD = "assets/world/sky/shroud_base.png";
+    const HERO = "assets/style-e/style-e-char-daotong.png";
+    const HERO_H = 64;
+    const STEP_MS = 360;
+    const SPIN_MS = 300;
+    const SLAB = 0.88;
     const THEME = { land: () => pick(LAND), water: true, ridge: true, feat: 0.16 };
 
     const load = (src) => new Promise((res, rej) => {
@@ -404,13 +409,17 @@
       ...LAND, ROCK, WATER, SHROUD,
       ...FEATURES.map((f) => f.src),
       MTN.peak.src, MTN.mid.src, MTN.endL.src, MTN.endR.src,
+      HERO,
     ];
 
     let world = null;
     let fog = createFog();
     let player = { c: 0, r: 0 };
-    let walkTimer = 0;
-    let walking = false;
+    let walk = { active: false, path: [], from: null, to: null, t: 1 };
+    let heading = 0;
+    let spin = { active: false, dir: 0, t: 0 };
+    let spinQueue = 0;
+    let lastTick = 0;
     let hoveredKey = "";
     let hintPulse = 0;
 
@@ -423,6 +432,10 @@
         .sort((a, b) => (Math.abs(a.c - cx) + Math.abs(a.r - cy)) - (Math.abs(b.c - cx) + Math.abs(b.r - cy)));
       const start = ranked[0] || grid[0];
       player = { c: start.c, r: start.r };
+      walk = { active: false, path: [], from: null, to: null, t: 1 };
+      heading = 0;
+      spin = { active: false, dir: 0, t: 0 };
+      spinQueue = 0;
     }
 
     function resetWorld() {
@@ -448,23 +461,210 @@
       draw();
     }
 
-    function iso(c, r, h, ox, oy) {
+    function wxz(c, r) {
+      return { x: (c - r) / 2, z: (c + r) / 2 };
+    }
+
+    function islandPivot() {
+      let sc = 0;
+      let sr = 0;
+      for (const cell of world.grid) {
+        sc += cell.c;
+        sr += cell.r;
+      }
+      const n = world.grid.length || 1;
+      return wxz(sc / n, sr / n);
+    }
+
+    function easeIsland(t) {
+      return 0.5 - 0.5 * Math.cos(Math.PI * Math.min(1, Math.max(0, t)));
+    }
+
+    function easeLocal(t) {
+      const a = 0.4;
+      const b = 0.6;
+      if (t <= a) return 0;
+      if (t >= b) return 1;
+      return 0.5 - 0.5 * Math.cos(Math.PI * ((t - a) / (b - a)));
+    }
+
+    function currentAngles() {
+      const base = heading * Math.PI / 4;
+      if (!spin.active) return { island: base, local: base };
+      const step = spin.dir * (Math.PI / 4);
       return {
-        x: ox + (c - r) * (TILE_W / 2),
-        y: oy + (c + r) * (TILE_H / 2) - (h || 0) * STEP,
+        island: base + step * easeIsland(spin.t),
+        local: base + step * easeLocal(spin.t),
       };
     }
 
-    function drawBase(cell, ox, oy, src) {
-      const p = iso(cell.c, cell.r, cell.h, ox, oy);
-      const base = images[src || cell.base];
-      const g = geom[src || cell.base];
-      const bw = TILE_W * DRAW_SCALE;
-      const scale = bw / (g ? g.contentW : base.width);
-      const dw = base.width * scale;
-      const dh = base.height * scale;
-      const eq = g ? g.eqY * scale : dh * REF_EQ;
-      ctx.drawImage(base, p.x - dw / 2, p.y - eq, dw, dh);
+    function rotateAround(x, z, px, pz, ang) {
+      const d = x - px;
+      const e = z - pz;
+      const c = Math.cos(ang);
+      const s = Math.sin(ang);
+      return { x: px + d * c - e * s, z: pz + d * s + e * c };
+    }
+
+    function project(x, y, z, ox, oy) {
+      return {
+        x: ox + x * TILE_W,
+        y: oy + z * TILE_H - y * STEP,
+        depth: z,
+      };
+    }
+
+    function cellCenter(c, r, h, ox, oy) {
+      const { island } = currentAngles();
+      const p = islandPivot();
+      const w = wxz(c, r);
+      const rxz = rotateAround(w.x, w.z, p.x, p.z, island);
+      const out = project(rxz.x, h || 0, rxz.z, ox, oy);
+      out.depth = rxz.z;
+      return out;
+    }
+
+    function iso(c, r, h, ox, oy) {
+      return cellCenter(c, r, h, ox, oy);
+    }
+
+    function localCorners(ang) {
+      const raw = [[0.5, 0], [0, 0.5], [-0.5, 0], [0, -0.5]];
+      const c = Math.cos(ang);
+      const s = Math.sin(ang);
+      return raw.map(([x, z]) => ({ x: x * c - z * s, z: x * s + z * c }));
+    }
+
+    function slabGeometry(cell, ox, oy) {
+      const { island, local } = currentAngles();
+      const p = islandPivot();
+      const w = wxz(cell.c, cell.r);
+      const cen = rotateAround(w.x, w.z, p.x, p.z, island);
+      const h = cell.h || 0;
+      const top = [];
+      const bot = [];
+      for (const off of localCorners(local)) {
+        top.push(project(cen.x + off.x, h, cen.z + off.z, ox, oy));
+        bot.push(project(cen.x + off.x, h - SLAB, cen.z + off.z, ox, oy));
+      }
+      return { top, bot, cen, depth: cen.z + h * 0.02 };
+    }
+
+    function sideColors(src) {
+      if (src === WATER) return ["#24525c", "#163840"];
+      if (src === ROCK) return ["#4a4640", "#2e2c28"];
+      if (src === SHROUD) return ["#3c3e44", "#26282c"];
+      return ["#5a3f2c", "#3a281c"];
+    }
+
+    function faceSign(a, b, c) {
+      return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+    }
+
+    function affineImage(img, s0, s1, s2, d0, d1, d2) {
+      const a11 = s1.x - s0.x;
+      const a12 = s2.x - s0.x;
+      const a21 = s1.y - s0.y;
+      const a22 = s2.y - s0.y;
+      const det = a11 * a22 - a12 * a21;
+      if (Math.abs(det) < 1e-4) return;
+      const inv = 1 / det;
+      const b11 = d1.x - d0.x;
+      const b12 = d2.x - d0.x;
+      const b21 = d1.y - d0.y;
+      const b22 = d2.y - d0.y;
+      const A = (b11 * a22 - b12 * a21) * inv;
+      const C = (a11 * b12 - a12 * b11) * inv;
+      const B = (b21 * a22 - b22 * a21) * inv;
+      const D = (a11 * b22 - a12 * b21) * inv;
+      const E = d0.x - A * s0.x - C * s0.y;
+      const F = d0.y - B * s0.x - D * s0.y;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(d0.x, d0.y);
+      ctx.lineTo(d1.x, d1.y);
+      ctx.lineTo(d2.x, d2.y);
+      ctx.closePath();
+      ctx.clip();
+      ctx.transform(A, B, C, D, E, F);
+      ctx.drawImage(img, 0, 0);
+      ctx.restore();
+    }
+
+    function srcDiamond(img, src) {
+      const g = geom[src];
+      const midX = img.width / 2;
+      const eq = g ? g.eqY : img.height * REF_EQ;
+      const halfW = (g ? g.contentW : img.width) / 2;
+      const halfH = halfW * FACE_H_RATIO;
+      return [
+        { x: midX, y: eq - halfH },
+        { x: midX + halfW, y: eq },
+        { x: midX, y: eq + halfH },
+        { x: midX - halfW, y: eq },
+      ];
+    }
+
+    function drawTopTexture(img, src, top) {
+      const s = srcDiamond(img, src);
+      affineImage(img, s[0], s[1], s[2], top[0], top[1], top[2]);
+      affineImage(img, s[0], s[2], s[3], top[0], top[2], top[3]);
+    }
+
+    function drawSlab(cell, ox, oy, src) {
+      const img = images[src || cell.base];
+      const { top, bot } = slabGeometry(cell, ox, oy);
+      const tones = sideColors(src || cell.base);
+      const prevFilter = ctx.filter;
+      ctx.filter = "none";
+      const faces = [];
+      for (let i = 0; i < 4; i++) {
+        const n = (i + 1) % 4;
+        const area = faceSign(top[i], top[n], bot[n]);
+        if (Math.abs(area) < 0.8) continue;
+        faces.push({
+          i,
+          n,
+          area,
+          depth: ((top[i].depth || 0) + (top[n].depth || 0)) * 0.5,
+        });
+      }
+      faces.sort((a, b) => a.depth - b.depth);
+      for (const face of faces) {
+        ctx.beginPath();
+        if (face.area > 0) {
+          ctx.moveTo(top[face.i].x, top[face.i].y);
+          ctx.lineTo(top[face.n].x, top[face.n].y);
+          ctx.lineTo(bot[face.n].x, bot[face.n].y);
+          ctx.lineTo(bot[face.i].x, bot[face.i].y);
+        } else {
+          ctx.moveTo(top[face.n].x, top[face.n].y);
+          ctx.lineTo(top[face.i].x, top[face.i].y);
+          ctx.lineTo(bot[face.i].x, bot[face.i].y);
+          ctx.lineTo(bot[face.n].x, bot[face.n].y);
+        }
+        ctx.closePath();
+        ctx.fillStyle = tones[face.i % 2];
+        ctx.fill();
+      }
+      ctx.beginPath();
+      ctx.moveTo(top[0].x, top[0].y);
+      for (let i = 1; i < 4; i++) ctx.lineTo(top[i].x, top[i].y);
+      ctx.closePath();
+      ctx.fillStyle = tones[0];
+      ctx.fill();
+      ctx.filter = prevFilter;
+      if (img) drawTopTexture(img, src || cell.base, top);
+      ctx.filter = "none";
+      ctx.beginPath();
+      ctx.moveTo(top[0].x, top[0].y);
+      for (let i = 1; i < 4; i++) ctx.lineTo(top[i].x, top[i].y);
+      ctx.closePath();
+      ctx.strokeStyle = tones[1];
+      ctx.lineJoin = "round";
+      ctx.lineWidth = 1.25;
+      ctx.stroke();
+      ctx.filter = prevFilter;
     }
 
     function drawFeat(cell, ox, oy) {
@@ -476,18 +676,40 @@
       ctx.drawImage(feat, p.x - fw / 2, p.y - fh + TILE_H * 0.42, fw, fh);
     }
 
-    function drawPlayer(ox, oy) {
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) ** 2) / 2;
+    }
+
+    function avatarPose(ox, oy) {
+      if (walk.active && walk.from && walk.to && walk.t < 1) {
+        const u = easeInOut(Math.min(1, Math.max(0, walk.t)));
+        const c = walk.from.c + (walk.to.c - walk.from.c) * u;
+        const r = walk.from.r + (walk.to.r - walk.from.r) * u;
+        const h = walk.from.h + (walk.to.h - walk.from.h) * u;
+        const p = iso(c, r, h, ox, oy);
+        p.y -= Math.sin(u * Math.PI) * 4;
+        p.depth = c + r;
+        return p;
+      }
       const here = world.lookup.get(cellKey(player.c, player.r));
-      if (!here) return;
-      const p = iso(here.c, here.r, here.h, ox, oy);
+      const p = iso(player.c, player.r, here ? here.h : 0, ox, oy);
+      p.depth = player.c + player.r;
+      return p;
+    }
+
+    function drawPlayer(ox, oy, pose) {
+      const art = images[HERO];
+      if (!art) return;
+      const p = pose || avatarPose(ox, oy);
+      const dh = HERO_H;
+      const dw = dh * (art.width / art.height);
       ctx.save();
-      ctx.fillStyle = "#f3d27a";
-      ctx.strokeStyle = "#5a3c14";
-      ctx.lineWidth = 2;
+      ctx.fillStyle = "rgba(20, 14, 8, 0.3)";
       ctx.beginPath();
-      ctx.arc(p.x, p.y - 10, 7, 0, Math.PI * 2);
+      ctx.ellipse(p.x, p.y + 3, 11, 4.5, 0, 0, Math.PI * 2);
       ctx.fill();
-      ctx.stroke();
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(art, p.x - dw / 2, p.y - dh + 8, dw, dh);
       ctx.restore();
     }
 
@@ -499,33 +721,28 @@
       return world.lookup.get(cellKey(c, r)) || null;
     }
 
-    function inDiamond(mx, my, p, scale) {
-      const dx = Math.abs(mx - p.x) / (TILE_W * scale);
-      const dy = Math.abs(my - p.y) / (TILE_H * scale);
-      return dx + dy <= 1;
+    function inTri(mx, my, a, b, c) {
+      const s1 = faceSign(a, b, { x: mx, y: my });
+      const s2 = faceSign(b, c, { x: mx, y: my });
+      const s3 = faceSign(c, a, { x: mx, y: my });
+      const hasNeg = s1 < 0 || s2 < 0 || s3 < 0;
+      const hasPos = s1 > 0 || s2 > 0 || s3 > 0;
+      return !(hasNeg && hasPos);
     }
 
     function pickTarget(mx, my, ox, oy) {
       let best = null;
-      let bestScore = 1e9;
+      let bestDepth = -1e9;
       for (const cell of world.grid) {
         if (!canVisit(cell)) continue;
-        const p = iso(cell.c, cell.r, cell.h, ox, oy);
-        if (!inDiamond(mx, my, p, 0.82)) continue;
-        const score = Math.abs(mx - p.x) + Math.abs(my - p.y) - (cell.c + cell.r) * 0.02;
-        if (score < bestScore) {
-          bestScore = score;
+        const { top, depth } = slabGeometry(cell, ox, oy);
+        if (!inTri(mx, my, top[0], top[1], top[2]) && !inTri(mx, my, top[0], top[2], top[3])) continue;
+        if (depth >= bestDepth) {
+          bestDepth = depth;
           best = cell;
         }
       }
       return best;
-    }
-
-    function tryMove(dc, dr) {
-      if (walking) return;
-      const dest = world.lookup.get(cellKey(player.c + dc, player.r + dr));
-      if (!dest) return;
-      goTo(dest);
     }
 
     function reachableFrontier() {
@@ -580,25 +797,37 @@
       return null;
     }
 
+    function beginStep() {
+      const next = walk.path.shift();
+      if (!next) {
+        walk.active = false;
+        walk.to = null;
+        return;
+      }
+      const here = world.lookup.get(cellKey(player.c, player.r));
+      const dest = world.lookup.get(cellKey(next.c, next.r));
+      walk.from = { c: player.c, r: player.r, h: here ? here.h : 0 };
+      walk.to = { c: next.c, r: next.r, h: dest ? dest.h : 0 };
+      walk.t = 0;
+    }
+
+    function finishStep() {
+      player = { c: walk.to.c, r: walk.to.r };
+      const cell = world.lookup.get(cellKey(player.c, player.r));
+      if (cell) remember(fog, cell);
+      if (walk.path.length) beginStep();
+      else {
+        walk.active = false;
+        walk.to = null;
+      }
+    }
+
     function goTo(dest) {
       const path = findPath(dest);
       if (!path || !path.length) return;
-      walking = true;
-      clearTimeout(walkTimer);
-      const step = () => {
-        const next = path.shift();
-        if (!next) {
-          walking = false;
-          draw();
-          return;
-        }
-        const cell = world.lookup.get(cellKey(next.c, next.r));
-        player = { c: next.c, r: next.r };
-        if (cell) remember(fog, cell);
-        draw();
-        walkTimer = setTimeout(step, 200);
-      };
-      step();
+      walk.path = path;
+      walk.active = true;
+      beginStep();
     }
 
     function fogBlink(cell) {
@@ -644,10 +873,21 @@
       const here = world.lookup.get(cellKey(player.c, player.r));
       const sight = computeSight(world.lookup, player, world.cols, world.rows);
       const radius = here ? visionRadius(here) : 2;
-      const order = world.grid.slice().sort((a, b) => (a.c + a.r) - (b.c + b.r) || a.h - b.h || a.c - b.c);
+      const order = world.grid.slice().sort((a, b) => {
+        const da = slabGeometry(a, ox, oy).depth;
+        const db = slabGeometry(b, ox, oy).depth;
+        return da - db || a.h - b.h || a.c - b.c;
+      });
       const frontierKeys = new Set(reachableFrontier().map((cell) => cellKey(cell.c, cell.r)));
+      const pose = avatarPose(ox, oy);
+      let heroDrawn = false;
 
       for (const cell of order) {
+        const slab = slabGeometry(cell, ox, oy);
+        if (!heroDrawn && slab.depth > pose.depth + 0.01) {
+          drawPlayer(ox, oy, pose);
+          heroDrawn = true;
+        }
         const k = cellKey(cell.c, cell.r);
         const lv = levelOf(cell.c, cell.r, fog, sight);
         const dist = Math.abs(cell.c - player.c) + Math.abs(cell.r - player.r);
@@ -659,17 +899,16 @@
         const sat = go ? 0.3 + flash * 0.25 : style.sat;
         ctx.save();
         ctx.filter = `brightness(${bright}) saturate(${sat})`;
-        drawBase(cell, ox, oy, style.shroud ? SHROUD : cell.base);
+        drawSlab(cell, ox, oy, style.shroud ? SHROUD : cell.base);
         if (style.feat) drawFeat(cell, ox, oy);
         if (go && flash > 0.12) {
           ctx.globalAlpha = flash * (hot ? 0.5 : 0.34);
           ctx.filter = `brightness(${1.25 + flash * 0.4}) saturate(0.6)`;
-          drawBase(cell, ox, oy, SHROUD);
+          drawSlab(cell, ox, oy, SHROUD);
         }
         ctx.restore();
       }
-
-      drawPlayer(ox, oy);
+      if (!heroDrawn) drawPlayer(ox, oy, pose);
     }
 
     function reroll() {
@@ -678,12 +917,14 @@
     }
 
     document.getElementById("reroll").onclick = () => {
-      walking = false;
-      clearTimeout(walkTimer);
+      walk.active = false;
+      walk.path = [];
+      spin.active = false;
+      spinQueue = 0;
       reroll();
     };
     canvas.addEventListener("click", (ev) => {
-      if (!world || walking) return;
+      if (!world || walk.active || spin.active) return;
       const rect = canvas.getBoundingClientRect();
       const { ox, oy } = origin();
       const cell = pickTarget(ev.clientX - rect.left, ev.clientY - rect.top, ox, oy);
@@ -703,21 +944,61 @@
       hoveredKey = next;
       draw();
     });
+    function startSpin(dir) {
+      if (!world || walk.active) return;
+      if (spin.active) {
+        if (spin.dir === dir) spinQueue = dir;
+        return;
+      }
+      spin = { active: true, dir, t: 0 };
+      spinQueue = 0;
+    }
+
     addEventListener("keydown", (ev) => {
-      const map = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0], w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0] };
-      const step = map[ev.key];
-      if (!step) return;
+      const left = ev.key === "ArrowLeft" || ev.key === "a" || ev.key === "A";
+      const right = ev.key === "ArrowRight" || ev.key === "d" || ev.key === "D";
+      if (!left && !right) return;
       ev.preventDefault();
-      tryMove(step[0], step[1]);
+      startSpin(left ? 1 : -1);
     });
     addEventListener("resize", () => draw());
-    function tick(now) {
+    function stepWalk(now) {
       hintPulse = now / 1000;
-      if (world && reachableFrontier().length) draw();
+      const dt = lastTick ? Math.min(48, now - lastTick) : 16;
+      lastTick = now;
+      if (walk.active && walk.to) {
+        walk.t += dt / STEP_MS;
+        if (walk.t >= 1) {
+          const extra = walk.t - 1;
+          finishStep();
+          if (walk.active) walk.t = extra;
+        }
+      }
+      if (spin.active) {
+        spin.t += dt / SPIN_MS;
+        if (spin.t >= 1) {
+          heading = ((heading + spin.dir) % 8 + 8) % 8;
+          const queued = spinQueue;
+          spin = { active: false, dir: 0, t: 0 };
+          spinQueue = 0;
+          if (queued) startSpin(queued);
+        }
+      }
+    }
+
+    function tick(now) {
+      stepWalk(now);
+      if (world) draw();
       requestAnimationFrame(tick);
     }
     boot()
-      .then(() => requestAnimationFrame(tick))
+      .then(() => {
+        requestAnimationFrame(tick);
+        setInterval(() => {
+          stepWalk(performance.now());
+          if (world) draw();
+        }, 33);
+      })
       .catch((e) => { document.querySelector(".hint").textContent = "加载失败: " + e; });
   </script>
 </body>

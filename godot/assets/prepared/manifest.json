@@ -1,0 +1,27 @@
+{
+	"inputs": {
+		"res://assets/forest/cloud-strip.png": "f2d710ef05a2910c73f3a75fbd483c1a841ebd7f6e085247cd6303ff36ca058d",
+		"res://assets/forest/foliage.png": "de029f9542b9fce5f248b396eb79ea0d2f084c5da8dfc961f62bdb354aa7d84d",
+		"res://assets/forest/grass-1.png": "bed0ac722c3c05d7a2085dbfa1bb560859b5fe614eedd9fc3f83977a1b97d990",
+		"res://assets/forest/grass-2.png": "a7bba668703387942323dcfdb8db00ceaefd691e5279ebb6854c8a03bf310946",
+		"res://assets/forest/grass-3.png": "9effe59db2bdf6f5bcb773c202a2b82802caff45d7b29bd8cbb3f83df22f4c29",
+		"res://assets/forest/grass-4.png": "d4bee0787d543c24f0e9a5443b6bf309bc164e95749606f2786bc618b2bb8051",
+		"res://assets/forest/ground-tile.png": "4835ae7267e860c87b7b2b7ec92c628ec80bc57dd3227ae0e92639c15ec23b6f",
+		"res://assets/forest/moon.png": "68383f3bbb65c9b911c7d2c5a7b0692d5f5b206e909e2284d3356ca057b76ed2",
+		"res://assets/forest/mtn-far.png": "7d211e4f83be0735ec848dce6290cf8114c57f50a4efd8edd987d08b78566261",
+		"res://assets/forest/mtn-near.png": "04faccb5d79a1ac2711d9b289b288791080094476a03a72d24b6a2d9ec686707",
+		"res://assets/forest/sun.png": "ddaf23c7b614311241ef99a4d8f7c15408d4ce07a2f679cb1f9ef8c8c175b4b4",
+		"res://assets/forest/tree-b.png": "7989d11164acd949e3e7e3a3d232d432831dd191f6bf0a1064c28efe24e82837",
+		"res://assets/forest/tree-c.png": "52dbdc4a6298249b6a90ca03c478b1d107238a4450094cee70e126d63dcffc86",
+		"res://assets/forest/tree-side.png": "d4ec1b647dcceac22cda02c996894ea7e6ee3d49f33526297eb65cb355f9372a",
+		"res://assets/landmarks/island-far.png": "a105740330c2c2dfd92e247124f5b8ce819077e997ea9d621e2a7e80296c0582",
+		"res://profiles/forest.tres": "c8bf4669ac469e2863acd246126571ab3d47fd03b319cd4abeab93e86928bba3",
+		"res://scripts/art_library.gd": "212588fca7b45c6c91988b580f789b1c090b40bed0c9af73948a1885b90bc381",
+		"res://scripts/forest_world.gd": "3cd3bc9135dc67b434a14ab0cb98ad371ee7659f5524af0a5635ba5bb8d2e353",
+		"res://scripts/route.gd": "8ad91babb5464f505f6793f8a934b8843ac3999227c82b9f7e9d47c5e4d8bc5f",
+		"res://scripts/spaces/route_plan.gd": "6fa72239ba70f76b44dd531265533d9cf0c71fff8beee3adb08d723144d7825d",
+		"res://scripts/spaces/space_assets.gd": "3a4898d434f6fdb2229b2bc44f5c344320c135b1a022e93f0452f7e25379fe9c",
+		"res://spaces/types/forest.tres": "2339307ecfc3ade4379b4029c2cc40629dda5c143682505c643b9b095eebfd09"
+	},
+	"output_sha256": "995ab8f66c11cdca56e62a3d2389336bef2ce3858baef0cf7980c0f8465a6eed"
+}

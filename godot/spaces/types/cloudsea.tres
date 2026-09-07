@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpaceType" load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/spaces/space_type.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/spaces/layouts/cloudsea_layout.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/atmosphere_profile.gd" id="3"]
+
+[sub_resource type="Resource" id="Atmosphere"]
+script = ExtResource("3")
+haze_color = Color(0.65, 0.72, 0.75, 1)
+depth_color = Color(0.91, 0.85, 0.72, 1)
+horizon_strength = 0.94
+
+[resource]
+script = ExtResource("1")
+key = &"cloudsea"
+title = "云海"
+layout = ExtResource("2")
+atmosphere = SubResource("Atmosphere")
+ceiling_enabled = false
+sky_enabled = true
+ground_tint = Color(1, 1, 1, 1)
+far_ridge_enabled = false

@@ -18,7 +18,7 @@
   <header>
     <h1>云海浮空岛 · 森林区域</h1>
     <button type="button" id="reroll">重掷一屏</button>
-    <span class="hint">未开格是阴影预览 · 点闪雾格子会走过去开图 · 左右方向键或 A/D 旋转岛屿</span>
+    <span class="hint">未开格是阴影预览 · 点闪雾格子会走过去开图 · 左右方向键或 A/D 旋转 · 滚轮拉远推近</span>
   </header>
   <canvas id="stage"></canvas>
   <script type="module">
@@ -51,7 +51,7 @@
     };
     const SHROUD = "assets/world/sky/shroud_base.png";
     const HERO = "assets/style-e/style-e-char-daotong.png";
-    const HERO_H = 64;
+    const HERO_H = 96;
     const STEP_MS = 360;
     const SPIN_MS = 300;
     const SLAB = 0.88;
@@ -79,6 +79,8 @@
     const DRAW_SCALE = 1.06;
     /* 台阶低于地台自身厚度，高格沉进低格，侧面互相遮挡。 */
     const STEP = 22;
+    const ZOOM_MIN = 0.42;
+    const ZOOM_MAX = 2.4;
 
     function measure(img) {
       const c = document.createElement("canvas");
@@ -410,6 +412,7 @@
     const ctx = canvas.getContext("2d");
     const images = {};
     const geom = {};
+    let heroSprite = null;
     const allSrc = [
       ...LAND, ROCK, WATER, SHROUD,
       ...FEATURES.map((f) => f.src),
@@ -427,6 +430,8 @@
     let lastTick = 0;
     let hoveredKey = "";
     let hintPulse = 0;
+    let viewZoom = 1;
+    let zoomGoal = 1;
     const xrayLayer = { c: null, g: null };
     const occLayer = { c: null, g: null };
     const tintLayer = { c: null, g: null };
@@ -463,9 +468,50 @@
       if (here) remember(fog, here);
     }
 
+    function downscaleImage(img, w, h) {
+      let src = img;
+      let sw = img.width;
+      let sh = img.height;
+      while (sw > w * 1.8 && sh > h * 1.8) {
+        const nw = Math.max(w, Math.round(sw * 0.5));
+        const nh = Math.max(h, Math.round(sh * 0.5));
+        const c = document.createElement("canvas");
+        c.width = nw;
+        c.height = nh;
+        const g = c.getContext("2d");
+        g.imageSmoothingEnabled = true;
+        g.imageSmoothingQuality = "high";
+        g.drawImage(src, 0, 0, nw, nh);
+        src = c;
+        sw = nw;
+        sh = nh;
+      }
+      const out = document.createElement("canvas");
+      out.width = w;
+      out.height = h;
+      const g = out.getContext("2d");
+      g.imageSmoothingEnabled = true;
+      g.imageSmoothingQuality = "high";
+      g.drawImage(src, 0, 0, w, h);
+      return out;
+    }
+
+    function heroArt() {
+      const art = images[HERO];
+      if (!art) return null;
+      const dpr = devicePixelRatio || 1;
+      const destH = Math.max(1, Math.round(HERO_H * ZOOM_MAX * dpr));
+      const destW = Math.max(1, Math.round(destH * (art.width / art.height)));
+      if (!heroSprite || heroSprite.width !== destW || heroSprite.height !== destH) {
+        heroSprite = downscaleImage(art, destW, destH);
+      }
+      return heroSprite;
+    }
+
     async function boot() {
       await Promise.all(allSrc.map(async (src) => { images[src] = await load(src); }));
       for (const src of [...LAND, ROCK, WATER, SHROUD]) geom[src] = measure(images[src]);
+      heroArt();
       resetWorld();
       draw();
     }
@@ -515,10 +561,15 @@
       return { x: px + d * c - e * s, z: pz + d * s + e * c };
     }
 
+    function tw() { return TILE_W * viewZoom; }
+    function th() { return TILE_H * viewZoom; }
+    function st() { return STEP * viewZoom; }
+    function hh() { return HERO_H * viewZoom; }
+
     function project(x, y, z, ox, oy) {
       return {
-        x: ox + x * TILE_W,
-        y: oy + z * TILE_H - y * STEP,
+        x: ox + x * tw(),
+        y: oy + z * th() - y * st(),
         depth: z,
       };
     }
@@ -754,9 +805,9 @@
       const feat = images[cell.feat.src];
       if (!feat) return;
       const p = iso(cell.c, cell.r, cell.h, ox, oy);
-      const fw = TILE_W * cell.feat.w;
+      const fw = tw() * cell.feat.w;
       const fh = fw * (feat.height / feat.width);
-      g.drawImage(feat, p.x - fw / 2, p.y - fh + TILE_H * 0.42, fw, fh);
+      g.drawImage(feat, p.x - fw / 2, p.y - fh + th() * 0.42, fw, fh);
     }
 
     function paintCellMask(g, cell, ox, oy, withFeat) {
@@ -782,11 +833,13 @@
     }
 
     function paintPlayerOn(g, pose) {
-      const art = images[HERO];
+      const art = heroArt();
       if (!art || !pose) return;
-      const dh = HERO_H;
+      const dh = hh();
       const dw = dh * (art.width / art.height);
-      g.drawImage(art, pose.x - dw / 2, pose.y - dh + 8, dw, dh);
+      g.imageSmoothingEnabled = true;
+      g.imageSmoothingQuality = "high";
+      g.drawImage(art, pose.x - dw / 2, pose.y - dh + 8 * viewZoom, dw, dh);
     }
 
     function drawHoverXray(cell, ox, oy, order, pose, featKeys) {
@@ -844,9 +897,9 @@
       if (!cell.feat) return;
       const p = iso(cell.c, cell.r, cell.h, ox, oy);
       const feat = images[cell.feat.src];
-      const fw = TILE_W * cell.feat.w;
+      const fw = tw() * cell.feat.w;
       const fh = fw * (feat.height / feat.width);
-      ctx.drawImage(feat, p.x - fw / 2, p.y - fh + TILE_H * 0.42, fw, fh);
+      ctx.drawImage(feat, p.x - fw / 2, p.y - fh + th() * 0.42, fw, fh);
     }
 
     function easeInOut(t) {
@@ -860,7 +913,7 @@
         const r = walk.from.r + (walk.to.r - walk.from.r) * u;
         const h = walk.from.h + (walk.to.h - walk.from.h) * u;
         const p = iso(c, r, h, ox, oy);
-        p.y -= Math.sin(u * Math.PI) * 4;
+        p.y -= Math.sin(u * Math.PI) * 4 * viewZoom;
         return p;
       }
       const here = world.lookup.get(cellKey(player.c, player.r));
@@ -881,26 +934,27 @@
     }
 
     function drawPlayer(ox, oy, pose) {
-      const art = images[HERO];
+      const art = heroArt();
       if (!art) return;
       const p = pose || avatarPose(ox, oy);
-      const dh = HERO_H;
+      const dh = hh();
       const dw = dh * (art.width / art.height);
       ctx.save();
       ctx.fillStyle = "rgba(20, 14, 8, 0.3)";
       ctx.beginPath();
-      ctx.ellipse(p.x, p.y + 3, 11, 4.5, 0, 0, Math.PI * 2);
+      ctx.ellipse(p.x, p.y + 3 * viewZoom, 14 * viewZoom, 5.5 * viewZoom, 0, 0, Math.PI * 2);
       ctx.fill();
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(art, p.x - dw / 2, p.y - dh + 8, dw, dh);
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(art, p.x - dw / 2, p.y - dh + 8 * viewZoom, dw, dh);
       ctx.restore();
     }
 
     function pickCell(mx, my, ox, oy) {
       const cx = mx - ox;
       const cy = my - oy;
-      const c = Math.round((cx / (TILE_W / 2) + cy / (TILE_H / 2)) / 2);
-      const r = Math.round((cy / (TILE_H / 2) - cx / (TILE_W / 2)) / 2);
+      const c = Math.round((cx / (tw() / 2) + cy / (th() / 2)) / 2);
+      const r = Math.round((cy / (th() / 2) - cx / (tw() / 2)) / 2);
       return world.lookup.get(cellKey(c, r)) || null;
     }
 
@@ -1039,8 +1093,8 @@
       const cc = sc / n;
       const cr = sr / n;
       return {
-        ox: canvas.clientWidth / 2 - (cc - cr) * (TILE_W / 2),
-        oy: canvas.clientHeight * 0.36 - (cc + cr) * (TILE_H / 2) + STEP,
+        ox: canvas.clientWidth / 2 - (cc - cr) * (tw() / 2),
+        oy: canvas.clientHeight * 0.36 - (cc + cr) * (th() / 2) + st(),
       };
     }
 
@@ -1054,6 +1108,7 @@
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
     }
 
     function draw() {
@@ -1172,6 +1227,11 @@
     canvas.addEventListener("mouseleave", () => {
       hoveredKey = "";
     });
+    canvas.addEventListener("wheel", (ev) => {
+      ev.preventDefault();
+      const factor = ev.deltaY > 0 ? 1 / 1.14 : 1.14;
+      zoomGoal = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, zoomGoal * factor));
+    }, { passive: false });
     function startSpin(dir) {
       if (!world || walk.active) return;
       if (spin.active) {
@@ -1194,6 +1254,11 @@
       hintPulse = now / 1000;
       const dt = lastTick ? Math.min(48, now - lastTick) : 16;
       lastTick = now;
+      if (Math.abs(zoomGoal - viewZoom) > 0.0008) {
+        viewZoom += (zoomGoal - viewZoom) * Math.min(1, dt / 70);
+      } else {
+        viewZoom = zoomGoal;
+      }
       if (walk.active && walk.to) {
         walk.t += dt / STEP_MS;
         if (walk.t >= 1) {

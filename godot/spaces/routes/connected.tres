@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="RoutePlan" load_steps=11 format=3]
+[ext_resource type="Script" path="res://scripts/spaces/route_plan.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/spaces/route_region.gd" id="2"]
+[ext_resource type="Resource" path="res://spaces/types/forest.tres" id="3"]
+[ext_resource type="Resource" path="res://spaces/types/cave.tres" id="4"]
+[ext_resource type="Resource" path="res://spaces/types/cloudsea.tres" id="5"]
+
+[sub_resource type="Resource" id="R0"]
+script = ExtResource("2")
+key = &"connected_0_0"
+branch = 0
+start = -400.0
+end = 700.0
+space = ExtResource("3")
+
+[sub_resource type="Resource" id="R1"]
+script = ExtResource("2")
+key = &"connected_-1_1"
+branch = -1
+start = 700.0
+end = 1900.0
+space = ExtResource("3")
+
+[sub_resource type="Resource" id="R2"]
+script = ExtResource("2")
+key = &"connected_-1_2"
+branch = -1
+start = 1900.0
+end = 6000.0
+space = ExtResource("4")
+
+[sub_resource type="Resource" id="R3"]
+script = ExtResource("2")
+key = &"connected_1_3"
+branch = 1
+start = 700.0
+end = 1900.0
+space = ExtResource("3")
+
+[sub_resource type="Resource" id="R4"]
+script = ExtResource("2")
+key = &"connected_1_4"
+branch = 1
+start = 1900.0
+end = 6000.0
+space = ExtResource("5")
+
+[resource]
+script = ExtResource("1")
+title = "林中岔路 · 左入洞穴，右赴云海"
+regions = Array[ExtResource("2")]([SubResource("R0"), SubResource("R1"), SubResource("R2"), SubResource("R3"), SubResource("R4")])

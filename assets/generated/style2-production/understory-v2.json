@@ -1,0 +1,16 @@
+{
+  "source": "assets\\generated\\style2-production\\understory-v2.png",
+  "prompt": "understory-v2.prompt.txt",
+  "assets": [
+    "short-grass",
+    "clover",
+    "stump",
+    "litter"
+  ],
+  "roles": {
+    "short-grass": "trampled billboard",
+    "clover": "low groundcover billboard",
+    "stump": "understory landmark billboard",
+    "litter": "three-quarter grounded billboard"
+  }
+}

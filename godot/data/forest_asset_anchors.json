@@ -1,0 +1,4 @@
+{
+  "tree-a": {"ground_anchor": [0.52, 0.995], "trunk_half_width": 0.085, "note": "Regenerated compact contact edge; no foreground root plane."},
+  "tree-b": {"ground_anchor": [0.5, 0.995], "trunk_half_width": 0.075, "note": "Regenerated front-elevation narrow trunk contact."}
+}

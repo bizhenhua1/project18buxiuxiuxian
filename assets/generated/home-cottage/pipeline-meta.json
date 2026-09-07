@@ -1,0 +1,64 @@
+{
+  "target": "asset",
+  "mode": "single",
+  "prompt": "Create a SINGLE isolated 2D game building sprite, a humble Chinese cultivation hermit's cottage for this game's home floating island. The reference screenshot is STYLE REFERENCE ONLY; do not reproduce its UI, island, character or clouds. Match its hand-painted antique Chinese mineral-pigment illustration, fine dark ink contours, muted jade green and ochre gold, subtle paper grain, restrained flat shading. Small one-room cottage, elegant curved jade tiled roof, warm ochre wooden walls and columns, one dark open doorway, tiny clay urn and low stone steps attached at the entrance. Three-quarter orthographic view suitable for an isometric diamond ground tile with 2:1 ground perspective. Readable compact silhouette, no huge floor slab, no terrain island, no trees, no person, no text, no shadow outside object. Entire cottage fits centrally in 75 percent of image with generous empty border, bottom feet intact. Background must be perfectly flat solid #FF00FF magenta, no gradients, no purple tones inside cottage. One sprite only, square canvas, refined game-ready painted art. This is a new asset matching the reference style.\n",
+  "role": "",
+  "input": "assets/generated/home-cottage/raw-sheet.png",
+  "threshold": 100,
+  "edge_threshold": 150,
+  "duration": 200,
+  "rows": 1,
+  "cols": 1,
+  "cell_size": 512,
+  "fit_scale": 0.88,
+  "trim_border": 4,
+  "edge_clean_depth": 3,
+  "align": "bottom",
+  "shared_scale": false,
+  "component_mode": "largest",
+  "component_padding": 0,
+  "min_component_area": 1,
+  "edge_touch_margin": 0,
+  "frame_labels": [
+    "single-1"
+  ],
+  "frames": [
+    {
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "component_mode": "largest",
+      "component_count": 1,
+      "selected_component_area": 552792,
+      "selected_component_bbox": [
+        153,
+        136,
+        1127,
+        1077
+      ],
+      "crop_bbox": [
+        153,
+        136,
+        1127,
+        1077
+      ],
+      "edge_touch": false,
+      "output_size": [
+        450,
+        435
+      ],
+      "paste_position": [
+        31,
+        47
+      ]
+    }
+  ],
+  "edge_touch_frames": []
+}

@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "assets": [
+    {
+      "asset": "corner",
+      "size": [
+        219,
+        225
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 1224,
+      "alpha_bbox": [
+        4,
+        4,
+        215,
+        221
+      ]
+    },
+    {
+      "asset": "ring",
+      "size": [
+        225,
+        224
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 2671,
+      "alpha_bbox": [
+        4,
+        4,
+        221,
+        220
+      ]
+    },
+    {
+      "asset": "seal",
+      "size": [
+        194,
+        225
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 1190,
+      "alpha_bbox": [
+        4,
+        4,
+        190,
+        221
+      ]
+    },
+    {
+      "asset": "crest",
+      "size": [
+        225,
+        127
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 1422,
+      "alpha_bbox": [
+        4,
+        4,
+        221,
+        123
+      ]
+    },
+    {
+      "asset": "endcap",
+      "size": [
+        225,
+        171
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 912,
+      "alpha_bbox": [
+        4,
+        4,
+        221,
+        167
+      ]
+    },
+    {
+      "asset": "pouch",
+      "size": [
+        188,
+        225
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "despilled_pixels": 1735,
+      "alpha_bbox": [
+        4,
+        4,
+        184,
+        221
+      ]
+    },
+    {
+      "asset": "spark-static",
+      "size": [
+        60,
+        52
+      ],
+      "pink_pixels": 0,
+      "border_pixels": 0,
+      "alpha_bbox": [
+        4,
+        4,
+        56,
+        48
+      ]
+    }
+  ],
+  "legacy_derivatives": 25
+}

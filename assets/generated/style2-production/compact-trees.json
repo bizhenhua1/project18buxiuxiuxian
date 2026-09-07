@@ -1,0 +1,15 @@
+{
+  "sources": {
+    "tree-a": "exec-c0beb55e-d1ad-4ef2-8e6a-1ab7c7578100.png",
+    "tree-b": "exec-65b862a4-7a8d-4ae7-ab76-eb01846d03fc.png"
+  },
+  "runtime_names": [
+    "tree-a",
+    "tree-b"
+  ],
+  "projection": "upright billboard, compact horizontal contact edge; no baked ground plane",
+  "prompts": [
+    "tree-a-compact.prompt.txt",
+    "tree-b-compact.prompt.txt"
+  ]
+}

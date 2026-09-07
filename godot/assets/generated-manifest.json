@@ -1,0 +1,65 @@
+{
+  "files": [
+    {
+      "source": "assets/generated/home-cottage/single-1.png",
+      "processing": "generate2dsprite single 512 bottom, magenta cleanup",
+      "reference": "assets/generated/home-cottage/style-reference.png",
+      "generator": "built-in image_gen",
+      "prompt": "assets/generated/home-cottage/cottage.prompt.txt",
+      "destination": "godot/assets/home/cottage.png",
+      "sha256": "bf68e88ba31baf5eae32b8593b076a9fe1285373d2b725ad59fb3804d0a374d7",
+      "runtime": {
+        "world_width": 1.25,
+        "footprint": [
+          1,
+          1
+        ],
+        "anchor": "bottom",
+        "role": "permanent home landmark"
+      }
+    },
+    {
+      "source": "assets/generated/adventure-ui/corner-final.png",
+      "destination": "godot/assets/ui/adventure/corner.png",
+      "sha256": "c9731d624deadbd5b04b26373066625ea0d09dc789b108dd53401d10bb4f84aa",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/adventure-ui/ring-final.png",
+      "destination": "godot/assets/ui/adventure/ring.png",
+      "sha256": "83df503ca9d09d23cba77e6ffdae4d40b1516fea05f18e7c34d2df9d20fc1240",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/adventure-ui/seal-final.png",
+      "destination": "godot/assets/ui/adventure/seal.png",
+      "sha256": "7ff1590065403577cc7f8d69f36de8685a2fce2cdffa622de13608f415c86854",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/adventure-ui/crest-final.png",
+      "destination": "godot/assets/ui/adventure/crest.png",
+      "sha256": "b1a196a0197f75da9c0e6d639fef8b814dc464feb0d650f8b688ac24fdcc7296",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/adventure-ui/endcap-final.png",
+      "destination": "godot/assets/ui/adventure/endcap.png",
+      "sha256": "82d1f2d45914e2dab7c71c4161d42428460e1e2f39d485f66f03d4e3dc4de68c",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/adventure-ui/pouch-final.png",
+      "destination": "godot/assets/ui/adventure/pouch.png",
+      "sha256": "871493b6b35f18cd6e315e3f4686a7be68655d1bbe646127eb910fe856788a77",
+      "prompt": "assets/generated/adventure-ui/prompt-used.txt"
+    },
+    {
+      "source": "assets/generated/impact-gold/spark-stamp.png",
+      "destination": "godot/assets/fx/particles/spark.png",
+      "sha256": "239ecff6a5ab3dd29b559075f8b1a0e33abd60998bcdd183ca5f2b3068ac9276",
+      "prompt": "assets/generated/impact-gold/prompt-used.txt",
+      "runtime": "Single static particle stamp; no frame animation"
+    }
+  ]
+}

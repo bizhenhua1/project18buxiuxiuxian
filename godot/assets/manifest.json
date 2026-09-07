@@ -1,0 +1,637 @@
+{
+  "schema": 1,
+  "source": "existing browser demo final PNGs",
+  "pixel_changes": false,
+  "files": [
+    {
+      "source": "assets/corridor/forest/tree-side.png",
+      "destination": "godot/assets/forest/tree-side.png",
+      "sha256": "d4ec1b647dcceac22cda02c996894ea7e6ee3d49f33526297eb65cb355f9372a",
+      "bytes": 566018
+    },
+    {
+      "source": "assets/corridor/forest/tree-b.png",
+      "destination": "godot/assets/forest/tree-b.png",
+      "sha256": "7989d11164acd949e3e7e3a3d232d432831dd191f6bf0a1064c28efe24e82837",
+      "bytes": 713296
+    },
+    {
+      "source": "assets/corridor/forest/tree-c.png",
+      "destination": "godot/assets/forest/tree-c.png",
+      "sha256": "52dbdc4a6298249b6a90ca03c478b1d107238a4450094cee70e126d63dcffc86",
+      "bytes": 822863
+    },
+    {
+      "source": "assets/corridor/forest/grass-1.png",
+      "destination": "godot/assets/forest/grass-1.png",
+      "sha256": "bed0ac722c3c05d7a2085dbfa1bb560859b5fe614eedd9fc3f83977a1b97d990",
+      "bytes": 119783
+    },
+    {
+      "source": "assets/corridor/forest/grass-2.png",
+      "destination": "godot/assets/forest/grass-2.png",
+      "sha256": "a7bba668703387942323dcfdb8db00ceaefd691e5279ebb6854c8a03bf310946",
+      "bytes": 151802
+    },
+    {
+      "source": "assets/corridor/forest/grass-3.png",
+      "destination": "godot/assets/forest/grass-3.png",
+      "sha256": "9effe59db2bdf6f5bcb773c202a2b82802caff45d7b29bd8cbb3f83df22f4c29",
+      "bytes": 152705
+    },
+    {
+      "source": "assets/corridor/forest/grass-4.png",
+      "destination": "godot/assets/forest/grass-4.png",
+      "sha256": "d4bee0787d543c24f0e9a5443b6bf309bc164e95749606f2786bc618b2bb8051",
+      "bytes": 135657
+    },
+    {
+      "source": "assets/corridor/forest/foliage.png",
+      "destination": "godot/assets/forest/foliage.png",
+      "sha256": "de029f9542b9fce5f248b396eb79ea0d2f084c5da8dfc961f62bdb354aa7d84d",
+      "bytes": 216078
+    },
+    {
+      "source": "assets/corridor/forest/mtn-far.png",
+      "destination": "godot/assets/forest/mtn-far.png",
+      "sha256": "7d211e4f83be0735ec848dce6290cf8114c57f50a4efd8edd987d08b78566261",
+      "bytes": 275091
+    },
+    {
+      "source": "assets/corridor/forest/mtn-near.png",
+      "destination": "godot/assets/forest/mtn-near.png",
+      "sha256": "04faccb5d79a1ac2711d9b289b288791080094476a03a72d24b6a2d9ec686707",
+      "bytes": 584692
+    },
+    {
+      "source": "assets/corridor/forest/sun.png",
+      "destination": "godot/assets/forest/sun.png",
+      "sha256": "ddaf23c7b614311241ef99a4d8f7c15408d4ce07a2f679cb1f9ef8c8c175b4b4",
+      "bytes": 331205
+    },
+    {
+      "source": "assets/corridor/forest/moon.png",
+      "destination": "godot/assets/forest/moon.png",
+      "sha256": "68383f3bbb65c9b911c7d2c5a7b0692d5f5b206e909e2284d3356ca057b76ed2",
+      "bytes": 416443
+    },
+    {
+      "source": "assets/corridor/forest/cloud-strip.png",
+      "destination": "godot/assets/forest/cloud-strip.png",
+      "sha256": "f2d710ef05a2910c73f3a75fbd483c1a841ebd7f6e085247cd6303ff36ca058d",
+      "bytes": 1374465
+    },
+    {
+      "source": "assets/corridor/forest/ground-tile.png",
+      "destination": "godot/assets/forest/ground-tile.png",
+      "sha256": "4835ae7267e860c87b7b2b7ec92c628ec80bc57dd3227ae0e92639c15ec23b6f",
+      "bytes": 485800
+    },
+    {
+      "source": "assets/corridor/cloudsea/island-far.png",
+      "destination": "godot/assets/landmarks/island-far.png",
+      "sha256": "a105740330c2c2dfd92e247124f5b8ce819077e997ea9d621e2a7e80296c0582",
+      "bytes": 700549
+    },
+    {
+      "source": "assets/corridor/cave/arch-a.png",
+      "destination": "godot/assets/cave/arch-a.png",
+      "sha256": "e2ac3e07ad3d70f10728a00bbbcc8d853bb184a3ca1e41a5e0e2a354c1f2690f",
+      "bytes": 903881
+    },
+    {
+      "source": "assets/corridor/cave/arch-b.png",
+      "destination": "godot/assets/cave/arch-b.png",
+      "sha256": "716568754046b8f45af4e792d888819aabe8bb6aa469a2af46eceeab231964d8",
+      "bytes": 640565
+    },
+    {
+      "source": "assets/corridor/cave/deco-bones.png",
+      "destination": "godot/assets/cave/deco-bones.png",
+      "sha256": "0b2858c0bf49674dd5e249d99b5799d3431565c6a41e68f3d85156b7ed6ec11b",
+      "bytes": 77548
+    },
+    {
+      "source": "assets/corridor/cave/deco-crystal-a.png",
+      "destination": "godot/assets/cave/deco-crystal-a.png",
+      "sha256": "71e80a9889d7405e42bb4e401a62326659e0e885e252ca0a80dbf6e5787efd0a",
+      "bytes": 87359
+    },
+    {
+      "source": "assets/corridor/cave/deco-crystal-b.png",
+      "destination": "godot/assets/cave/deco-crystal-b.png",
+      "sha256": "21e6b9fbc434045970aca6858907c934eecc394c717a49ac329c65d963bbff51",
+      "bytes": 84774
+    },
+    {
+      "source": "assets/corridor/cave/deco-lantern.png",
+      "destination": "godot/assets/cave/deco-lantern.png",
+      "sha256": "2eb93a90abb41dd670fb412513ef80f15b79ffd575627cb20886c6fd07996a8c",
+      "bytes": 98777
+    },
+    {
+      "source": "assets/corridor/cave/deco-mushroom.png",
+      "destination": "godot/assets/cave/deco-mushroom.png",
+      "sha256": "9316bcce2e17c87381cddc2cf99dc9d84fdbd3a0c82caf0b1097813d8a09aa8a",
+      "bytes": 74922
+    },
+    {
+      "source": "assets/corridor/cave/deco-rubble-1.png",
+      "destination": "godot/assets/cave/deco-rubble-1.png",
+      "sha256": "b3a4093e7325c53ce79a148ecf136958577ce24bc55f07f2af432fdca1e0284a",
+      "bytes": 66080
+    },
+    {
+      "source": "assets/corridor/cave/deco-rubble-2.png",
+      "destination": "godot/assets/cave/deco-rubble-2.png",
+      "sha256": "216a2b4983f9ac795e836deb25afe7917e6eb245d53c1dd788805e4552ed33e2",
+      "bytes": 60172
+    },
+    {
+      "source": "assets/corridor/cave/deco-stalag-1.png",
+      "destination": "godot/assets/cave/deco-stalag-1.png",
+      "sha256": "5878fc8e49dc84a22b3c4cc1b719fc338cd7d88e6cff9dc814e14c978281e53c",
+      "bytes": 50799
+    },
+    {
+      "source": "assets/corridor/cave/deco-stalag-2.png",
+      "destination": "godot/assets/cave/deco-stalag-2.png",
+      "sha256": "ec31c16cde91f5e46330cef667c189984732a24da9d9cc061087c0b970ea3900",
+      "bytes": 88126
+    },
+    {
+      "source": "assets/corridor/cave/ground-tile.png",
+      "destination": "godot/assets/cave/ground-tile.png",
+      "sha256": "3dd10c415f83aa2a7afb9912251a63ec7ff0c1b938fe3b2908422520e402904c",
+      "bytes": 498643
+    },
+    {
+      "source": "assets/corridor/cave/pillar-a.png",
+      "destination": "godot/assets/cave/pillar-a.png",
+      "sha256": "2d862dc137bc6771e4d3748e10dc1227ebcab6f830edb0839170ae4170cc0732",
+      "bytes": 609261
+    },
+    {
+      "source": "assets/corridor/cave/pillar-b.png",
+      "destination": "godot/assets/cave/pillar-b.png",
+      "sha256": "00f5962c6cf692fdf1d8d22c6b0806062791ec35a791becb84cdc441fd382b8e",
+      "bytes": 561599
+    },
+    {
+      "source": "assets/corridor/cave/pillar-c.png",
+      "destination": "godot/assets/cave/pillar-c.png",
+      "sha256": "f8966f9ff54ced659bcfc024a1dafbcca9e87a71ed7f7a8bdf1e13a4809fa171",
+      "bytes": 567761
+    },
+    {
+      "source": "assets/corridor/cloudsea/island-far.png",
+      "destination": "godot/assets/cloudsea/island-far.png",
+      "sha256": "a105740330c2c2dfd92e247124f5b8ce819077e997ea9d621e2a7e80296c0582",
+      "bytes": 700549
+    },
+    {
+      "source": "assets/corridor/cloudsea/puff-1.png",
+      "destination": "godot/assets/cloudsea/puff-1.png",
+      "sha256": "7eb595b210b11324c084acfcd423b899108117280f0aaaab1f4fec2523513ca2",
+      "bytes": 50857
+    },
+    {
+      "source": "assets/corridor/cloudsea/puff-2.png",
+      "destination": "godot/assets/cloudsea/puff-2.png",
+      "sha256": "166032082f2b7874b7a9b8211c6d5043511cded220e92478fd5e5f23c4429b3b",
+      "bytes": 77581
+    },
+    {
+      "source": "assets/corridor/cloudsea/puff-3.png",
+      "destination": "godot/assets/cloudsea/puff-3.png",
+      "sha256": "922c0d7a84fb173d0c28c5d482dd38866941517fbd50ec02db6bc0e1c4a1229b",
+      "bytes": 55387
+    },
+    {
+      "source": "assets/corridor/cloudsea/puff-4.png",
+      "destination": "godot/assets/cloudsea/puff-4.png",
+      "sha256": "567fae90eea150dcda5f79709cd328ecb5b3710159f056037a0818e9c7f2fb58",
+      "bytes": 29388
+    },
+    {
+      "source": "assets/corridor/cloudsea/rock-1.png",
+      "destination": "godot/assets/cloudsea/rock-1.png",
+      "sha256": "ea5cc9acbc9fd308dd339f48c62ecd5707b91bd0c1eee19611de79e8663dd5d2",
+      "bytes": 78690
+    },
+    {
+      "source": "assets/corridor/cloudsea/rock-2.png",
+      "destination": "godot/assets/cloudsea/rock-2.png",
+      "sha256": "68a6c547ccb189b570f92f3a8c000cfb74011c67cc38890979350975dd470e3e",
+      "bytes": 82834
+    },
+    {
+      "source": "assets/corridor/cloudsea/rock-3.png",
+      "destination": "godot/assets/cloudsea/rock-3.png",
+      "sha256": "21894eaa035cbf9453c55fc57c22c67b86e979f45a4dc3568deec96ecf8fa2e0",
+      "bytes": 94176
+    },
+    {
+      "source": "assets/corridor/cloudsea/rock-4.png",
+      "destination": "godot/assets/cloudsea/rock-4.png",
+      "sha256": "09106f8586ff61b6e34f1003ce800f0e1cbee5484ba217a2409d66b4dbc4ae9e",
+      "bytes": 50616
+    },
+    {
+      "source": "assets/corridor/cloudsea/wall-a.png",
+      "destination": "godot/assets/cloudsea/wall-a.png",
+      "sha256": "16815bb6b1fb54b4fa235f4b2348ec3d9d68e796d30b08d5fee439f787eac442",
+      "bytes": 909728
+    },
+    {
+      "source": "assets/corridor/cloudsea/wall-b.png",
+      "destination": "godot/assets/cloudsea/wall-b.png",
+      "sha256": "1fa3ecbe4ae832960953e9f7c861b0cdeb5c2c6e5795eb9cce834bc7f4a167a2",
+      "bytes": 792905
+    },
+    {
+      "source": "assets/corridor/cloudsea/wall-c.png",
+      "destination": "godot/assets/cloudsea/wall-c.png",
+      "sha256": "81fcf36aad58c9181a48954f587562f499206f3d014f84dd344113a0011eed97",
+      "bytes": 751928
+    },
+    {
+      "source": "assets/style-e/style-e-artifact-masuo.png",
+      "destination": "godot/assets/style-e/style-e-artifact-masuo.png",
+      "sha256": "339fce27cfe51fb97db827d2ccc6b01b634a380726643ebfcdad7b0cdd6262e6",
+      "bytes": 447178
+    },
+    {
+      "source": "assets/style-e/style-e-artifact-taomu-jian.png",
+      "destination": "godot/assets/style-e/style-e-artifact-taomu-jian.png",
+      "sha256": "9faec8000bf4763777962e4ed67640c8137f6308ad7ed61b1da583fcad8e3fb0",
+      "bytes": 161628
+    },
+    {
+      "source": "assets/style-e/style-e-artifact-tongjing.png",
+      "destination": "godot/assets/style-e/style-e-artifact-tongjing.png",
+      "sha256": "f8d569db17b305350d55ce546775f0946d4e4342c4f096f167fdfb74d9148aef",
+      "bytes": 899273
+    },
+    {
+      "source": "assets/style-e/style-e-artifact-waci-yin.png",
+      "destination": "godot/assets/style-e/style-e-artifact-waci-yin.png",
+      "sha256": "2f32db2dd59b76c5e42b63791e4e92fa4c6c5390922d4c4f7a2aea031618f9d0",
+      "bytes": 826089
+    },
+    {
+      "source": "assets/style-e/style-e-artifact-xiaohulu.png",
+      "destination": "godot/assets/style-e/style-e-artifact-xiaohulu.png",
+      "sha256": "8fb2e99f82244341dbb87f44fd19a1e86bbb35f3de00bcb755ecfffbc0dbd7c6",
+      "bytes": 404158
+    },
+    {
+      "source": "assets/style-e/style-e-char-daotong.png",
+      "destination": "godot/assets/style-e/style-e-char-daotong.png",
+      "sha256": "95858e578afeda2ab3f59ca5719df98aeba89e9c722d5b984b740c8c81c58b21",
+      "bytes": 263195
+    },
+    {
+      "source": "assets/style-e/style-e-monster-caoshe.png",
+      "destination": "godot/assets/style-e/style-e-monster-caoshe.png",
+      "sha256": "f8bf5181ee1978a4b6d72a698f6986819f2c52544f5049c024f7897181be6eae",
+      "bytes": 562320
+    },
+    {
+      "source": "assets/style-e/style-e-monster-huangfeng.png",
+      "destination": "godot/assets/style-e/style-e-monster-huangfeng.png",
+      "sha256": "c753c1c75ad896d16ecef06c293af8222f10c22092c6d4db8c4f50d7225114e6",
+      "bytes": 406992
+    },
+    {
+      "source": "assets/style-e/style-e-monster-huoli.png",
+      "destination": "godot/assets/style-e/style-e-monster-huoli.png",
+      "sha256": "66ca3de734021e5421d61f4c569cc6d7049b673013f2518aaa0a2a8de55d4161",
+      "bytes": 462982
+    },
+    {
+      "source": "assets/style-e/style-e-monster-jinchan.png",
+      "destination": "godot/assets/style-e/style-e-monster-jinchan.png",
+      "sha256": "27faac3e5beedbc999aa70417971d4e930f3ed4e624164b103c19d421bedff84",
+      "bytes": 555814
+    },
+    {
+      "source": "assets/style-e/style-e-monster-shanyang.png",
+      "destination": "godot/assets/style-e/style-e-monster-shanyang.png",
+      "sha256": "5741b44da17468249fdeea9753016adadf129e81a9e0ccc85c41747e66a05073",
+      "bytes": 414044
+    },
+    {
+      "source": "assets/style-e/style-e-monster-shitoujing.png",
+      "destination": "godot/assets/style-e/style-e-monster-shitoujing.png",
+      "sha256": "ce2e0cd7c9c61fd8aadba4e1a8a8408d4a7688e56cc79c6883b1fc3457232021",
+      "bytes": 672262
+    },
+    {
+      "source": "assets/style-e/style-e-monster-shujing.png",
+      "destination": "godot/assets/style-e/style-e-monster-shujing.png",
+      "sha256": "125e0776621a95436dc78f13e5b1ca904bf754f9411e11c83aa8932406eef2a5",
+      "bytes": 396596
+    },
+    {
+      "source": "assets/style-e/style-e-monster-xiaoqiao.png",
+      "destination": "godot/assets/style-e/style-e-monster-xiaoqiao.png",
+      "sha256": "fe959236c08c5eb386fa24d42d5eb5b6eea854dde8863b2c4b1f7a99c12e37aa",
+      "bytes": 614468
+    },
+    {
+      "source": "assets/style-e/style-e-monster-yewu.png",
+      "destination": "godot/assets/style-e/style-e-monster-yewu.png",
+      "sha256": "e68f99cd988d99b204c4427bf792cea9bfc745f8e9012bf4720eb8b0a30679ab",
+      "bytes": 443843
+    },
+    {
+      "source": "assets/style-e/style-e-monster-yezhu.png",
+      "destination": "godot/assets/style-e/style-e-monster-yezhu.png",
+      "sha256": "80bfd5b9ba2fc3150cb37e8518ef48b2a57127098ca021d1fcfbb96a00b5ab9d",
+      "bytes": 494383
+    },
+    {
+      "source": "assets/style-e/style-e-proj-axe.png",
+      "destination": "godot/assets/style-e/style-e-proj-axe.png",
+      "sha256": "4f3fb9f1210518e813a08bc5251a77c7a09345f427ea6199315a416802ecee8e",
+      "bytes": 114372
+    },
+    {
+      "source": "assets/style-e/style-e-proj-fan.png",
+      "destination": "godot/assets/style-e/style-e-proj-fan.png",
+      "sha256": "682ce9cf5a69d0bae091bcdfcad053e1ad4fdbb83df8e961478c82ad250da2c8",
+      "bytes": 80663
+    },
+    {
+      "source": "assets/style-e/style-e-proj-gourd.png",
+      "destination": "godot/assets/style-e/style-e-proj-gourd.png",
+      "sha256": "f5820c57396fc991b67721efd02a4a91521cb9fcdd38f81a307f5ff0b7cbc6a1",
+      "bytes": 165705
+    },
+    {
+      "source": "assets/style-e/style-e-proj-heavysword.png",
+      "destination": "godot/assets/style-e/style-e-proj-heavysword.png",
+      "sha256": "3a63e6ee854123bd9bc3733a7950a20edac28e6fca3c22337210ea543565078b",
+      "bytes": 43021
+    },
+    {
+      "source": "assets/style-e/style-e-proj-mirror.png",
+      "destination": "godot/assets/style-e/style-e-proj-mirror.png",
+      "sha256": "4d4117c6e4fcb58e3ccd1625977c33f2bdc59474cc1f99bf85dd6b2912aa43b8",
+      "bytes": 260406
+    },
+    {
+      "source": "assets/style-e/style-e-proj-rope.png",
+      "destination": "godot/assets/style-e/style-e-proj-rope.png",
+      "sha256": "22f87ea16a0fde0e33676dc80a456b7873416f0468bf12bcf1dbb5874a39fb78",
+      "bytes": 77972
+    },
+    {
+      "source": "assets/style-e/style-e-proj-seal.png",
+      "destination": "godot/assets/style-e/style-e-proj-seal.png",
+      "sha256": "fc282cacaf3ebc57c43cfc8530b24f73bedb9e2a4c65e1ae0fb33ab46694b024",
+      "bytes": 224828
+    },
+    {
+      "source": "assets/style-e/style-e-proj-sword.png",
+      "destination": "godot/assets/style-e/style-e-proj-sword.png",
+      "sha256": "c0185c69f22dd7a635e4248dcb3f94c988e9380678604b95d7c8d7ce25121e3f",
+      "bytes": 52464
+    },
+    {
+      "source": "assets/style-e/style-e-ui-fist.png",
+      "destination": "godot/assets/style-e/style-e-ui-fist.png",
+      "sha256": "8d2371514d932c38e5176033c0b24e9ef9f7ae4e9577cc27e5f42f149e019770",
+      "bytes": 17747
+    },
+    {
+      "source": "assets/world/forest/base/grass_1.png",
+      "destination": "godot/assets/world/forest/base/grass_1.png",
+      "sha256": "897fdd3731bef365a4fc454ede6b0faa85aba90441bf558bd8f9305a064eefdb",
+      "bytes": 216313
+    },
+    {
+      "source": "assets/world/forest/base/grass_2.png",
+      "destination": "godot/assets/world/forest/base/grass_2.png",
+      "sha256": "6ffbf84a4632341df39f7d3575f4672b3d4fba0de559f6905567ea15973b0f16",
+      "bytes": 223010
+    },
+    {
+      "source": "assets/world/forest/base/grass_3.png",
+      "destination": "godot/assets/world/forest/base/grass_3.png",
+      "sha256": "ef2d46c46fa3e084f9b7c65873538e809b24b2687d6a38402cd9b32f18584b10",
+      "bytes": 226675
+    },
+    {
+      "source": "assets/world/forest/base/leaf_1.png",
+      "destination": "godot/assets/world/forest/base/leaf_1.png",
+      "sha256": "85a851b5ada1925659848b7239b695339a124307c91c2254e6feb2977f6f9c46",
+      "bytes": 208163
+    },
+    {
+      "source": "assets/world/forest/base/leaf_2.png",
+      "destination": "godot/assets/world/forest/base/leaf_2.png",
+      "sha256": "27406922210530779ecfa5183b689b2d4eadebb9284953e90a3be8b52ff2c7c9",
+      "bytes": 222958
+    },
+    {
+      "source": "assets/world/forest/base/river_ew.png",
+      "destination": "godot/assets/world/forest/base/river_ew.png",
+      "sha256": "a9b3f5ca08df5ce408714d3c6d176b304ce317e02ee8f153e2975e5eb0065211",
+      "bytes": 219876
+    },
+    {
+      "source": "assets/world/forest/base/river_mouth.png",
+      "destination": "godot/assets/world/forest/base/river_mouth.png",
+      "sha256": "9c47535aa1f21b30b2a22e662c941d6e71087f59a3bd91d5bfb709fba5aca100",
+      "bytes": 216181
+    },
+    {
+      "source": "assets/world/forest/base/river_ne.png",
+      "destination": "godot/assets/world/forest/base/river_ne.png",
+      "sha256": "1b4e542882649aa4fc42e39026e856a8a9d10c18723cecb8e0e0a12fcb0e9618",
+      "bytes": 212479
+    },
+    {
+      "source": "assets/world/forest/base/river_ns.png",
+      "destination": "godot/assets/world/forest/base/river_ns.png",
+      "sha256": "24486fc9257604e125f747a2b5caeff36155fe4f2b67114713b1a618855ad731",
+      "bytes": 231259
+    },
+    {
+      "source": "assets/world/forest/base/river_nw.png",
+      "destination": "godot/assets/world/forest/base/river_nw.png",
+      "sha256": "b35e7a359ffe9519f536ad2068210b1657acc60ec8f7a13428ef18a556241add",
+      "bytes": 212236
+    },
+    {
+      "source": "assets/world/forest/base/river_se.png",
+      "destination": "godot/assets/world/forest/base/river_se.png",
+      "sha256": "c72babef3c6dcc045a57b565bb972ca69ad5ec75a4fe9b6d22c500bfe3c29cc9",
+      "bytes": 215656
+    },
+    {
+      "source": "assets/world/forest/base/river_source.png",
+      "destination": "godot/assets/world/forest/base/river_source.png",
+      "sha256": "e02f1761bd93f8571e55243df3c447370a679536f32b7ba3566f8a1471a2594a",
+      "bytes": 221433
+    },
+    {
+      "source": "assets/world/forest/base/river_sw.png",
+      "destination": "godot/assets/world/forest/base/river_sw.png",
+      "sha256": "880d97a7d9f25d499eeb207c97923794f7263815d79eb0b7109667fa8a9b5918",
+      "bytes": 216229
+    },
+    {
+      "source": "assets/world/forest/base/rock_1.png",
+      "destination": "godot/assets/world/forest/base/rock_1.png",
+      "sha256": "a32e4838b31dac4612f2237f0c1b2e797e3f10a499972b4e9386fd38cc94bca5",
+      "bytes": 215147
+    },
+    {
+      "source": "assets/world/forest/base/rock_core.png",
+      "destination": "godot/assets/world/forest/base/rock_core.png",
+      "sha256": "6a244d24e47bbb97ae79a35c8600cf0eb4989ef577acb35ce06dca23d599cd2c",
+      "bytes": 225034
+    },
+    {
+      "source": "assets/world/forest/base/soil_core.png",
+      "destination": "godot/assets/world/forest/base/soil_core.png",
+      "sha256": "5f5330891b3e0d3d4c1a0a357536d0ea4833357883ae6cbbd8c068fd7cf192ae",
+      "bytes": 226676
+    },
+    {
+      "source": "assets/world/forest/base/water_1.png",
+      "destination": "godot/assets/world/forest/base/water_1.png",
+      "sha256": "22b2762038fd287a955a1d7859f8f00ce76cd96401860025467a5a0b45b929d6",
+      "bytes": 182299
+    },
+    {
+      "source": "assets/world/forest/feature/cave_1.png",
+      "destination": "godot/assets/world/forest/feature/cave_1.png",
+      "sha256": "9e0629f7b62b5c0227a68a8224c5954f137cc6a95e596cc2fefa4dd2164e877e",
+      "bytes": 354938
+    },
+    {
+      "source": "assets/world/forest/feature/flower_1.png",
+      "destination": "godot/assets/world/forest/feature/flower_1.png",
+      "sha256": "ed874d31cb972a47be73687fd43387b10ad4c94f7fc6efbc3baea152b5f28e40",
+      "bytes": 95788
+    },
+    {
+      "source": "assets/world/forest/feature/giant_tree_1.png",
+      "destination": "godot/assets/world/forest/feature/giant_tree_1.png",
+      "sha256": "91e77864710a7c83bf641b1664fdb5c98d3c0245df60601a65abd3a1197933b4",
+      "bytes": 430041
+    },
+    {
+      "source": "assets/world/forest/feature/grove_1.png",
+      "destination": "godot/assets/world/forest/feature/grove_1.png",
+      "sha256": "97348e34c9d0aa614050f72fc21f9f6529720d9dc7ce5dc4062ac75f1868df16",
+      "bytes": 111695
+    },
+    {
+      "source": "assets/world/forest/feature/mountain_1.png",
+      "destination": "godot/assets/world/forest/feature/mountain_1.png",
+      "sha256": "5db66cd577f6dbf512a79f8a71a15f050bcecc5b8f679e1e328f9842ac22b17f",
+      "bytes": 275217
+    },
+    {
+      "source": "assets/world/forest/feature/rockpile_1.png",
+      "destination": "godot/assets/world/forest/feature/rockpile_1.png",
+      "sha256": "a682d06c01777c64e2eb58544557154d069355ab00c966201dcc3e4c53a164d0",
+      "bytes": 92295
+    },
+    {
+      "source": "assets/world/forest/feature/shrub_1.png",
+      "destination": "godot/assets/world/forest/feature/shrub_1.png",
+      "sha256": "b57bc79696efc9da7631fdadf699cd36c8e6420f45985ffa8c70e0f9fae3225d",
+      "bytes": 106798
+    },
+    {
+      "source": "assets/world/forest/link/mountain_end_l.png",
+      "destination": "godot/assets/world/forest/link/mountain_end_l.png",
+      "sha256": "74a6670df1c0850e44883113839a9633e48671e4d847b773c9004fcb75e33792",
+      "bytes": 188926
+    },
+    {
+      "source": "assets/world/forest/link/mountain_end_r.png",
+      "destination": "godot/assets/world/forest/link/mountain_end_r.png",
+      "sha256": "5dc0e1ee51311d643f29e86eb42b8c9b23168830fa76712a93348a6fb96ff22b",
+      "bytes": 188087
+    },
+    {
+      "source": "assets/world/forest/link/mountain_mid.png",
+      "destination": "godot/assets/world/forest/link/mountain_mid.png",
+      "sha256": "d00c28a227aec9e72516256db09c7bfa95a2d3f1da9b0d7646fecd7256bfde6e",
+      "bytes": 225771
+    },
+    {
+      "source": "assets/world/forest/tile/grass_1.png",
+      "destination": "godot/assets/world/forest/tile/grass_1.png",
+      "sha256": "79e6af102782d3a6da7fa86049dc8536568c88a23422892fd10e771386aab02b",
+      "bytes": 38280
+    },
+    {
+      "source": "assets/world/forest/tile/grass_2.png",
+      "destination": "godot/assets/world/forest/tile/grass_2.png",
+      "sha256": "03cb091ed09ecdc96010b7912371261334c52246888c0846a5398c7e5cb5f807",
+      "bytes": 38149
+    },
+    {
+      "source": "assets/world/forest/tile/leaf_1.png",
+      "destination": "godot/assets/world/forest/tile/leaf_1.png",
+      "sha256": "94bd58286faaab58596dabc7df1c61f1e331e08afd705a7dc31e60845bff6c06",
+      "bytes": 37051
+    },
+    {
+      "source": "assets/world/forest/tile/rock_1.png",
+      "destination": "godot/assets/world/forest/tile/rock_1.png",
+      "sha256": "8a8c23c1bb1e9d9b8ef540d8a0b1f99d621708ea3e512a5f263059ab31d51dff",
+      "bytes": 35032
+    },
+    {
+      "source": "assets/world/forest/tile/water_1.png",
+      "destination": "godot/assets/world/forest/tile/water_1.png",
+      "sha256": "d3e2272f0285483cfabe2b1f9f6ab547b93c30a99c67c75f3174000d8a50a36a",
+      "bytes": 26772
+    },
+    {
+      "source": "assets/world/sky/cloud_puff.png",
+      "destination": "godot/assets/world/sky/cloud_puff.png",
+      "sha256": "d8322d39058e6475728f9b76ed30fc1e7622348fa6376a5984d83ea13fe0ed6a",
+      "bytes": 107498
+    },
+    {
+      "source": "assets/world/sky/cloud_sea.png",
+      "destination": "godot/assets/world/sky/cloud_sea.png",
+      "sha256": "c6906f0127bdedc5b1e830d0b61acc52e1bd52a1e751837f3282336922a0a12a",
+      "bytes": 2951535
+    },
+    {
+      "source": "assets/world/sky/island_far_1.png",
+      "destination": "godot/assets/world/sky/island_far_1.png",
+      "sha256": "1f04ed6bce40ccfd1c8ae3851dc99b8a34f1bd84c1ea1b2c215645d9e94e4338",
+      "bytes": 431706
+    },
+    {
+      "source": "assets/world/sky/island_far_2.png",
+      "destination": "godot/assets/world/sky/island_far_2.png",
+      "sha256": "d718cb78a3135dfdc58045c2b96bfdfd2c350303e89c338ad112022ce4f4de08",
+      "bytes": 398831
+    },
+    {
+      "source": "assets/world/sky/shroud_base.png",
+      "destination": "godot/assets/world/sky/shroud_base.png",
+      "sha256": "361e360f36f2458957d471f90a5887674dee6cc10e7f9dc4c9b64cd493741aec",
+      "bytes": 155777
+    },
+    {
+      "source": "assets/world/sky/sky.png",
+      "destination": "godot/assets/world/sky/sky.png",
+      "sha256": "47186fe0f1008c430572ecb5c9a2b76ef73156e732bdcfb8d1d3dd0e7168871c",
+      "bytes": 2918563
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "file": "agent.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 106091
+  },
+  {
+    "file": "bell.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 193322
+  },
+  {
+    "file": "book.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 161244
+  },
+  {
+    "file": "clover.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 74939
+  },
+  {
+    "file": "fern.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 261469
+  },
+  {
+    "file": "hound.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 308634
+  },
+  {
+    "file": "lantern.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 64083
+  },
+  {
+    "file": "litter.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 73346
+  },
+  {
+    "file": "mask.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 180988
+  },
+  {
+    "file": "medium.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 79386
+  },
+  {
+    "file": "mist.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 60392
+  },
+  {
+    "file": "moth.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 221771
+  },
+  {
+    "file": "reeds.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 300488
+  },
+  {
+    "file": "rocks.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 163840
+  },
+  {
+    "file": "short-grass.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 91173
+  },
+  {
+    "file": "shrub.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 305775
+  },
+  {
+    "file": "stump.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 102820
+  },
+  {
+    "file": "tower.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 149740
+  },
+  {
+    "file": "tree-a.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 541860
+  },
+  {
+    "file": "tree-b.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 378324
+  },
+  {
+    "file": "warden.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 90148
+  },
+  {
+    "file": "watch.png",
+    "opaque_magenta_pixels": 0,
+    "transparent_pixels": 172382
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "engine": "F:\\GitHub\\Godot_v4.7.1-stable_win64.exe\\Godot_v4.7.1-stable_win64_console.exe",
+  "checks": [
+    {
+      "name": "test_routes",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.188
+    },
+    {
+      "name": "test_sky",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.187
+    },
+    {
+      "name": "test_interaction",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.954
+    },
+    {
+      "name": "test_spaces",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 18.312
+    },
+    {
+      "name": "test_battle",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.297
+    },
+    {
+      "name": "test_world",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 0.375
+    },
+    {
+      "name": "test_battle_ui",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 2.031
+    },
+    {
+      "name": "test_navigation",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 6.219
+    },
+    {
+      "name": "capture_modules",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 8.266
+    }
+  ],
+  "assets": 105,
+  "source_hashes": {
+    "world-demo.html": "29490d12e91c941218f8b371fe8853a16950a85dd1c7898173002840bed3e106",
+    "js/corridor.js": "a3c6d080ddb5ec6a6a82468e6aa3803e616b9d39c441c2ad25eebdea1a678558",
+    "js/world-fog.js": "7abc15ccc3ba13950f12fa9bf23da77f09082b04bcab357973a3849c25de2c53"
+  },
+  "import_passed": true,
+  "passed": true
+}

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SpaceType" load_steps=6 format=3]
+[ext_resource type="Script" path="res://scripts/spaces/space_type.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/spaces/layouts/cave_layout.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/atmosphere_profile.gd" id="3"]
+[ext_resource type="Texture2D" path="res://assets/cave/ground-tile.png" id="4"]
+
+[sub_resource type="Resource" id="Atmosphere"]
+script = ExtResource("3")
+haze_color = Color(0.14, 0.08, 0.20, 1)
+depth_color = Color(0.008, 0.004, 0.014, 1)
+horizon_strength = 0.94
+
+[resource]
+script = ExtResource("1")
+key = &"cave"
+title = "洞穴"
+layout = ExtResource("2")
+atmosphere = SubResource("Atmosphere")
+ceiling_enabled = true
+sky_enabled = false
+ground_tint = Color(0.62, 0.58, 0.72, 1)
+ground_texture = ExtResource("4")
+top_color = Color(0.018, 0.011, 0.029, 1)
+ambient = Color(0.8, 0.75, 0.91, 1)
+far_ridge_enabled = false

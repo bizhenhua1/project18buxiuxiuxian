@@ -1,0 +1,8 @@
+[
+ {"wait":1200},
+ {"eval":"(()=>{if(!document.querySelector('#large svg image').getAttribute('href').startsWith('data:image/'))throw Error('Art not embedded');return {title:document.title,controls:document.querySelectorAll('[data-key]').length}})()"},
+ {"shot":"default.png"},
+ {"eval":"(()=>{s.mask='ellipse';s.fade=false;s.orbX=25;s.ringX=75;s.showName=false;update();const g=geometry();if(g.cx===g.rx||Array.from(document.querySelectorAll('#actual svg text')).some(t=>t.textContent===s.name))throw Error('Independent settings');return {orb:g.cx,ring:g.rx,fade:s.fade};})()"},
+ {"shot":"independent.png"},
+ {"eval":"(()=>{s.showName=true;s.fade=true;s.clipCard=false;s.artScale=180;update();const b=bundle();restore(b);return {saveSchema:b.schema,exportEmbedsArt:svgMarkup(false).includes('data:image/'),frame:frame()};})()"}
+]

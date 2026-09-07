@@ -1,0 +1,5 @@
+[
+  {"wait": 2000},
+  {"eval": "({title:document.title,hint:document.querySelector('.hint')?.textContent,canvas:!!document.querySelector('canvas'),failed:performance.getEntriesByType('resource').filter(r=>r.responseStatus>=400).map(r=>r.name)})"},
+  {"shot": "original-world.png"}
+]

@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "geometry": "A",
+  "source": "built-in image_gen; prompts.json",
+  "approval": "用户：都很不错 全都入库",
+  "production_notes": [
+    "原图保留，运行时按区域独立生成缩略层，避免跨材质串色",
+    "美术已认可；无缝变体、跨地表过渡、动态水岸待制作",
+    "不随机混用三套画风，不自动替换正式地图"
+  ],
+  "sets": [
+    {
+      "id": "mineral",
+      "name": "暖土矿彩",
+      "atlas": "assets/material-studies/01-mineral.png",
+      "sha256": "c6ce0b84c6a6f425d79d24aec2eda65ac26b4f30b14a4eb5ef23a89e4768bc43",
+      "status": "art_approved",
+      "suggested_theme": "温和林地、暖土",
+      "materials": [
+        {
+          "id": "mineral_grass",
+          "row": 0,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "mineral_leaf",
+          "row": 1,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "mineral_rock",
+          "row": 2,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "mineral_water_bank",
+          "row": 3,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moss",
+      "name": "青苔岩层",
+      "atlas": "assets/material-studies/02-moss.png",
+      "sha256": "c0df2d39d91175e979c19b8bdf922601dca68ae20ea76e45eb3587b9c22ee6ec",
+      "status": "art_approved",
+      "suggested_theme": "深林、湿谷",
+      "materials": [
+        {
+          "id": "moss_grass",
+          "row": 0,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "moss_leaf",
+          "row": 1,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "moss_rock",
+          "row": 2,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "moss_water_bank",
+          "row": 3,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ink",
+      "name": "简笔矿色",
+      "atlas": "assets/material-studies/03-ink.png",
+      "sha256": "d6b1fef4bbe2f31536081ab8023341e7774f0e3e67666d2e035c338f25bce862",
+      "status": "art_approved",
+      "suggested_theme": "主岛、清雅山林",
+      "materials": [
+        {
+          "id": "ink_grass",
+          "row": 0,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "ink_leaf",
+          "row": 1,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "ink_rock",
+          "row": 2,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        },
+        {
+          "id": "ink_water_bank",
+          "row": 3,
+          "surfaces": [
+            "top",
+            "cliff"
+          ]
+        }
+      ]
+    }
+  ]
+}

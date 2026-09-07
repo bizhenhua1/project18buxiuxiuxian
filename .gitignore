@@ -10,3 +10,7 @@ __pycache__/
 # 系统文件
 Thumbs.db
 .DS_Store
+
+# Godot local import cache and generated visual checks
+godot/.godot/
+godot/captures/

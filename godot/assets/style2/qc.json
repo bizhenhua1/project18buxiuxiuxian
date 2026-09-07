@@ -1,0 +1,218 @@
+[
+  {
+    "id": "agent",
+    "size": [
+      311,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\agent.png"
+  },
+  {
+    "id": "warden",
+    "size": [
+      296,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\warden.png"
+  },
+  {
+    "id": "tree-a",
+    "size": [
+      712,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\tree-a.png"
+  },
+  {
+    "id": "tree-b",
+    "size": [
+      663,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\tree-b.png"
+  },
+  {
+    "id": "tower",
+    "size": [
+      363,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\tower.png"
+  },
+  {
+    "id": "fern",
+    "size": [
+      721,
+      606
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\fern-cell.png"
+  },
+  {
+    "id": "rocks",
+    "size": [
+      721,
+      532
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\rocks-cell.png"
+  },
+  {
+    "id": "reeds",
+    "size": [
+      668,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\reeds-cell.png"
+  },
+  {
+    "id": "shrub",
+    "size": [
+      721,
+      646
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\shrub-cell.png"
+  },
+  {
+    "id": "watch",
+    "size": [
+      594,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\watch-cell.png"
+  },
+  {
+    "id": "book",
+    "size": [
+      634,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\book-cell.png"
+  },
+  {
+    "id": "lantern",
+    "size": [
+      316,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\lantern-cell.png"
+  },
+  {
+    "id": "mask",
+    "size": [
+      721,
+      692
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\mask-cell.png"
+  },
+  {
+    "id": "hound",
+    "size": [
+      721,
+      695
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\hound.png"
+  },
+  {
+    "id": "bell",
+    "size": [
+      428,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\bell.png"
+  },
+  {
+    "id": "moth",
+    "size": [
+      721,
+      551
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\moth.png"
+  },
+  {
+    "id": "mist",
+    "size": [
+      721,
+      226
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\mist.png"
+  },
+  {
+    "id": "medium",
+    "size": [
+      269,
+      721
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "source": "assets\\generated\\style2-production\\medium-clean.png"
+  }
+]

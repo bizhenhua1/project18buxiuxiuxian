@@ -2,6 +2,7 @@ class_name RoutePlan
 extends Resource
 @export var title: String
 @export var straight := false
+@export var exits := 2
 @export var regions: Array[RouteRegion] = []
 
 func at(s: float, branch: int) -> RouteRegion:
@@ -19,11 +20,11 @@ func validate() -> PackedStringArray:
 		if region.key in ids: errors.append("Duplicate region id: " + str(region.key))
 		ids[region.key] = true
 		if region.space: types[region.space.get_instance_id()] = true
-		if region.branch not in [-1, 0, 1]: errors.append("Unknown study route branch")
+		if region.branch not in [-1, 0, 1, 2]: errors.append("Unknown study route branch")
 		if not region.space or not region.space.layout or not region.space.atmosphere: errors.append("Missing type strategy/profile")
 		if region.end <= region.start: errors.append("Invalid interval")
 		if region.blend_length < 0 or region.blend_length > region.end - region.start: errors.append("Invalid blend length")
-	for branch in ([0] if straight else [-1, 0, 1]):
+	for branch in ([0] if straight else [-1, 0, 1, 2] if exits == 3 else [-1, 0, 1]):
 		var ordered: Array[RouteRegion] = []
 		for region in regions:
 			if region.branch == branch: ordered.append(region)
@@ -40,8 +41,8 @@ static func coordinate(position: Vector2) -> Vector2:
 	var best := INF
 	var result := Vector2(position.y, 0)
 	for branch in [-1, 0, 1]:
-		var finish := 700.0 if branch == 0 else 6000.0
-		var begin := -400.0 if branch == 0 else 700.0
+		var finish := ForestRoute.JUNCTION if branch == 0 else 6000.0
+		var begin := -400.0 if branch == 0 else ForestRoute.JUNCTION
 		var s := begin
 		while s < finish:
 			var next := minf(s + 80, finish)
@@ -61,6 +62,7 @@ func copy_for_editing() -> RoutePlan:
 	var copy := RoutePlan.new()
 	copy.title = title
 	copy.straight = straight
+	copy.exits = exits
 	var types := {}
 	for region in regions:
 		var source_id := region.space.get_instance_id()

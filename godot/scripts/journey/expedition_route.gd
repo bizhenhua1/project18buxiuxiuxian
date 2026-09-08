@@ -658,6 +658,7 @@ func open_camera_settings() -> void:
 		var values:Dictionary=ForestSettings.CAMERA_PRESETS[presets.get_item_text(index)]
 		for key in values:fields[key].value=values[key])
 	panel.add_child(StudyUI.button("保存镜头",func():ForestSettings.save();dialog.queue_free()))
+	panel.add_child(StudyUI.button("异域场景目录",func():get_tree().change_scene_to_file("res://scenes/biome_hub.tscn")))
 	panel.add_child(StudyUI.button("关闭 · 保留本次预览",func():dialog.queue_free()))
 	dialog.close_requested.connect(dialog.queue_free)
 	dialog.popup_centered()

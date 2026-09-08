@@ -7,6 +7,7 @@ static func profile(zone: Dictionary) -> Dictionary:
 	if zone.get("route_kind","") == "fork": key = "fork"
 	var result: Dictionary = catalog[key].duplicate(true)
 	result.theme = zone.get("theme","forest")
+	result.exits = int(zone.get("exits",2))
 	return result
 static func entries(zone: Dictionary, direction: int) -> Array:
 	var spec := profile(zone)
@@ -18,9 +19,13 @@ static func plan(zone: Dictionary) -> RoutePlan:
 	var result := RoutePlan.new()
 	result.title = zone.get("title","地块探索")
 	result.straight = not spec.fork
-	var space := load("res://spaces/types/%s.tres" % spec.theme) as SpaceType
-	space = StyleLibrary.space(space)
-	for branch in ([0] if result.straight else [0,-1,1]):
+	ForestRoute.configure(spec.fork)
+	result.exits = spec.exits
+	var catalog=preload("res://scripts/spaces/biome_catalog.gd")
+	var space:SpaceType
+	if spec.theme in catalog.TITLES:space=catalog.make_space(spec.theme)
+	else:space=StyleLibrary.space(load("res://spaces/types/%s.tres" % spec.theme) as SpaceType)
+	for branch in ([0] if result.straight else [0,-1,1,2] if result.exits == 3 else [0,-1,1]):
 		var region := RouteRegion.new()
 		region.key = StringName("%s_%d" % [spec.theme,branch])
 		region.branch = branch

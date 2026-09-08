@@ -37,7 +37,10 @@ void vertex(){
     if(z<=10.0 || z>=1700.0){VERTEX=vec2(-10000);tint.a=0.0;}
     tint.a*=1.0-smoothstep(1400.0,1700.0,z);
     depth=z;
-    mist_patch=step(64.0,INSTANCE_CUSTOM.w);
+    mist_patch=floor(INSTANCE_CUSTOM.w/64.0);
+    // Complete the fade before the hard near plane, including luminous props and shells.
+    if(mist_patch==6.0 || mist_patch==3.0 || mist_patch==0.0)tint.a*=smoothstep(16.0,70.0,z);
+    if(mist_patch==8.0)tint.a*=smoothstep(18.0,95.0,z);
     mist_seed=sin(p.x*.3+p.y*.11)*10.0;
     vec4 region=atlas_regions[int(mod(INSTANCE_CUSTOM.w,64.0))];
     art_uv=vec2(UV.x,1.0-UV.y);
@@ -48,7 +51,22 @@ float fog_hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float fog_noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(fog_hash(i),fog_hash(i+vec2(1,0)),f.x),mix(fog_hash(i+vec2(0,1)),fog_hash(i+vec2(1,1)),f.x),f.y);}
 void fragment(){
     vec4 tex=texture(TEXTURE,UV);
-    if(mist_patch>.5){
+    if(mist_patch>6.5 && mist_patch<7.5){
+        float edge=1.0-smoothstep(.22,.5,abs(art_uv.x-.5));
+        float falling=art_uv.y*8.0-atmosphere_time*3.2;
+        float stream=pow(.5+.5*sin(art_uv.x*29.0+.65*sin(falling)),3.0);
+        stream*=.65+.35*fog_noise(vec2(art_uv.x*8.0,falling));
+        vec3 water=mix(vec3(.10,.20,.11),vec3(.30,.43,.27),stream);
+        water=lantern_atmosphere(water,lighting_point,depth);
+        COLOR=vec4(water,edge*.86*tint.a*(1.0-smoothstep(.9,1.0,art_uv.y))*(edge_only?0.0:1.0));
+    }else if(mist_patch>3.5 && mist_patch<4.5){
+        float shape=(1.0-smoothstep(.1,.5,abs(art_uv.x-.5)))*sin(art_uv.y*3.14159);
+        vec3 drop=biome_kind==4?vec3(.53,.18,.20):biome_kind==3?vec3(.30,.46,.26):vec3(.42,.61,.64);
+        COLOR=vec4(drop,shape*tint.a*(edge_only?0.0:1.0));
+    }else if(mist_patch>1.5 && mist_patch<2.5){
+        float d=length(art_uv-.5)*2.0;
+        COLOR=vec4(.48,.78,1.0,(exp(-d*d*10.0)+.4*exp(-d*d*3.0))*tint.a*(edge_only?0.0:1.0));
+    }else if(mist_patch>.5 && mist_patch<1.5){
         vec2 q=art_uv*2.0-1.0;
         float shape=1.0-smoothstep(.20,1.0,dot(q,q));
         float cloud=.65*fog_noise(art_uv*vec2(5,3)+vec2(atmosphere_time*.07,mist_seed))+.35*fog_noise(art_uv*vec2(11,7)-vec2(atmosphere_time*.06,mist_seed));
@@ -57,7 +75,8 @@ void fragment(){
         vec3 e=lighting_point-enemy_light_position;
         float warm=exp(-dot(d,d)/11025.0);
         float cold=exp(-dot(e,e)/10000.0)*enemy_light_strength;
-        vec3 mist_color=vec3(.24,.31,.33)+vec3(.42,.25,.075)*warm+vec3(.16,.27,.32)*cold;
+        vec3 mist_color=environment_mist(vec3(.24,.31,.33))+vec3(.24,.17,.075)*warm+vec3(.08,.12,.16)*cold;
+        if(biome_kind<2)mist_color=vec3(.24,.31,.33)+vec3(.42,.25,.075)*warm+vec3(.16,.27,.32)*cold;
         COLOR=vec4(mist_color,density*tint.a);
     }else if(edge_only){
         vec2 pixel=vec2(length(dFdx(UV)),length(dFdy(UV)))*2.2;
@@ -66,8 +85,23 @@ void fragment(){
         float fade=1.0-smoothstep(.48,.96,art_uv.y);
         COLOR=vec4(.82,.035,.065,clamp(rim*flow*fade*1.4,0.0,.8)*tint.a);
     }else{
-    vec3 shaded=mix(tex.rgb*tint.rgb,fog_color.rgb,smoothstep(fog_range.x,fog_range.y,depth)*.94);
+    vec3 surface=tex.rgb*tint.rgb;
+    if(mist_patch<.5 || (mist_patch>2.5 && mist_patch<3.5) || mist_patch==6.0 || mist_patch==8.0)surface=environment_surface(surface,lighting_point,art_uv);
+    vec3 shaded=mix(surface,fog_color.rgb,smoothstep(fog_range.x,fog_range.y,depth)*.94);
     if(lantern_enabled)shaded=lantern_atmosphere(shaded,lighting_point,depth);
-    COLOR=vec4(shaded,tex.a*tint.a);
+    if(mist_patch>2.5 && mist_patch<3.5){
+        float bright=max(tex.r,max(tex.g,tex.b));
+        shaded=mix(shaded,tex.rgb*1.3,smoothstep(.38,.85,bright)*.85);
+    }
+    float seam=1.0;
+    if(mist_patch==8.0 && biome_kind==1){
+        // Fixed in asset coordinates: irregular rock edges do not swim with time/camera.
+        float grain=fog_noise(art_uv*vec2(32.0,26.0));
+        float edge=min(art_uv.x,1.0-art_uv.x);
+        seam=smoothstep(.006+grain*.018,.065+grain*.025,edge);
+        seam*=smoothstep(.003,.035+grain*.025,art_uv.y);
+        seam*=1.0-smoothstep(.965-grain*.018,1.0,art_uv.y);
+    }
+    COLOR=vec4(shaded,tex.a*tint.a*seam);
     }
 }

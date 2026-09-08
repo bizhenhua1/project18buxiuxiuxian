@@ -34,6 +34,7 @@ var auto_branch := 1
 var frame_times: Array[float] = []
 
 func _ready() -> void:
+	ForestRoute.configure(false)
 	font = SystemFont.new()
 	font.font_names = PackedStringArray(["Microsoft YaHei", "Noto Sans CJK SC", "sans-serif"])
 	font.allow_system_fallback = true

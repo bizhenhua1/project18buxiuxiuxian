@@ -1,23 +1,64 @@
 {
   "version": 2,
   "description": "地块主题独立于路线拓扑；事件长度和奖励尚非最终平衡。",
-  "short_battle": {"fork": false, "end": 1100, "events": [
-    {"distance": 340, "kind": "battle", "reward": 2},
-    {"distance": 850, "kind": "battle", "reward": 2}
-  ]},
-  "short_social": {"fork": false, "end": 1100, "events": [
-    {"distance": 320, "kind": "social", "event": "merchant"},
-    {"distance": 850, "kind": "battle", "reward": 2}
-  ]},
-  "fork": {"fork": true, "end": 3400,
+  "short_battle": {
+    "fork": false,
+    "end": 1100,
+    "events": [
+      {
+        "distance": 340,
+        "kind": "battle",
+        "reward": 2
+      },
+      {
+        "distance": 850,
+        "kind": "battle",
+        "reward": 2
+      }
+    ]
+  },
+  "short_social": {
+    "fork": false,
+    "end": 1100,
+    "events": [
+      {
+        "distance": 320,
+        "kind": "social",
+        "event": "merchant"
+      },
+      {
+        "distance": 850,
+        "kind": "battle",
+        "reward": 2
+      }
+    ]
+  },
+  "fork": {
+    "fork": true,
+    "end": 1100,
     "left": [
-      {"distance": 1300, "kind": "social", "event": "traveler"},
-      {"distance": 2200, "kind": "battle", "reward": 2},
-      {"distance": 3050, "kind": "battle", "reward": 2}
+      {
+        "distance": 340,
+        "kind": "social",
+        "event": "traveler"
+      },
+      {
+        "distance": 850,
+        "kind": "battle",
+        "reward": 2
+      }
     ],
     "right": [
-      {"distance": 1350, "kind": "battle", "reward": 2},
-      {"distance": 2800, "kind": "battle", "reward": 2}
+      {
+        "distance": 340,
+        "kind": "battle",
+        "reward": 2
+      },
+      {
+        "distance": 850,
+        "kind": "battle",
+        "reward": 2
+      }
     ]
   }
 }

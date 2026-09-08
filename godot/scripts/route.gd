@@ -1,14 +1,21 @@
 class_name ForestRoute
 extends RefCounted
 ## Arc-length paths in a persistent XZ world. No merge back to the old axis.
-const JUNCTION := 700.0
-const TURN_LENGTH := 420.0
+static var JUNCTION := 700.0
+static var TURN_LENGTH := 420.0
 const TURN_ANGLE := 0.50
-const PAUSE_AT := 460.0
+static var PAUSE_AT := 460.0
 const END_AT := 3650.0
-const APPROACH_SECONDS := 1.8
+static var APPROACH_SECONDS := 1.8
+
+static func configure(compact:bool) -> void:
+	JUNCTION=120.0 if compact else 700.0
+	TURN_LENGTH=120.0 if compact else 420.0
+	PAUSE_AT=100.0 if compact else 460.0
+	APPROACH_SECONDS=.7 if compact else 1.8
 
 static func pose(distance: float, branch: int) -> Dictionary:
+	if branch == 2: branch = 0 # The third exit continues along the trunk axis.
 	if distance <= JUNCTION or branch == 0:
 		return {"position": Vector2(0.0, distance), "heading": 0.0}
 	var travel := distance - JUNCTION
@@ -29,8 +36,9 @@ static func to_camera(point: Vector2, camera: Vector2, heading: float) -> Vector
 	var d := point - camera
 	return Vector2(d.x * cos(heading) - d.y * sin(heading), d.x * sin(heading) + d.y * cos(heading))
 
-static func road_distance(point: Vector2) -> float:
+static func road_distance(point: Vector2, three_way := false) -> float:
 	var closest := absf(point.x) if point.y <= JUNCTION else INF
+	if three_way: closest = absf(point.x)
 	for branch in [-1, 1]:
 		var radius := TURN_LENGTH / TURN_ANGLE
 		var center := Vector2(branch * radius, JUNCTION)

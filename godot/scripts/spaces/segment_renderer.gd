@@ -13,6 +13,22 @@ func set_battle_camera(mix:float,enabled:bool=true) -> void:
 	shoulder_lift=lerpf(15.0,10.0,mix) if enabled else 0.0
 	battle_frame_shift=.19*mix if enabled else 0.0
 var battle_actors:Array[Dictionary]=[]
+var biome_light_cache:=PackedVector4Array()
+var biome_light_clock:=-1.0
+func bind_biome(material:ShaderMaterial) -> void:
+	var scene:=world as SegmentWorld
+	var key:=str(scene.camera_region.space.key)
+	var catalog=preload("res://scripts/spaces/biome_catalog.gd")
+	var active:bool=key in catalog.CONFIG
+	material.set_shader_parameter("biome_kind",catalog.TITLES.keys().find(key)+1 if active else 0)
+	if not active:return
+	if absf(elapsed-biome_light_clock)>.2 or biome_light_cache.is_empty():
+		biome_light_clock=elapsed
+		var nearby:Array=scene.biome_lights.filter(func(p):return Vector2(p.x,p.z).distance_squared_to(camera_world)<360000)
+		nearby.sort_custom(func(a,b):return Vector2(a.x,a.z).distance_squared_to(camera_world)<Vector2(b.x,b.z).distance_squared_to(camera_world))
+		biome_light_cache=PackedVector4Array(nearby.slice(0,4));biome_light_cache.resize(4)
+	material.set_shader_parameter("biome_lights",biome_light_cache)
+	material.set_shader_parameter("biome_glow_color",catalog.CONFIG[key].color)
 
 func lantern_position() -> Vector3:
 	var progress:=clampf(battle_frame_shift/.19,0,1)
@@ -56,7 +72,7 @@ func _draw() -> void:
 	world.atmosphere = scene.fields[environment.b.get_instance_id()]
 	if closed < 1:
 		super._draw_distance(cx, hy, f)
-	if closed > 0:
+	if closed > 0 and scene.camera_region.space.key!=&"crystal":
 		var color: Color = environment.b.top_color if not environment.b.sky_enabled else environment.a.top_color
 		draw_rect(Rect2(0, 0, view_size.x, hy + 1), Color(color, closed))
 	for pair in [[environment.a, 1.0 - environment.weight], [environment.b, environment.weight]]:
@@ -78,7 +94,7 @@ func _draw() -> void:
 			points.append(foot + Vector2(cos(angle) * w, -sin(angle) * h))
 		points.append(foot + Vector2(w, 0))
 		draw_colored_polygon(points, region.space.atmosphere.depth_color)
-	if StyleLibrary.active and scene.plan.regions.all(func(region):return region.space.key==&"forest"):
+	if StyleLibrary.active and scene.plan.regions.all(func(region):return region.space.key in [&"forest",&"crystal",&"swamp",&"sewer",&"whale",&"palace"]):
 		if forest_batch==null:
 			forest_batch=ForestBatch.new();add_child(forest_batch)
 			forest_batch.setup(world.sprites)

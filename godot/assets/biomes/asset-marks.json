@@ -1,0 +1,802 @@
+[
+  {
+    "biome": "crystal",
+    "asset": "prop-0",
+    "source_cell": 0,
+    "alpha_bounds": [
+      49,
+      48,
+      370,
+      375
+    ],
+    "edge_touch": false,
+    "size": [
+      321,
+      327
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-1",
+    "source_cell": 1,
+    "alpha_bounds": [
+      38,
+      61,
+      374,
+      374
+    ],
+    "edge_touch": false,
+    "size": [
+      336,
+      313
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-2",
+    "source_cell": 2,
+    "alpha_bounds": [
+      38,
+      41,
+      384,
+      375
+    ],
+    "edge_touch": false,
+    "size": [
+      346,
+      334
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-3",
+    "source_cell": 3,
+    "alpha_bounds": [
+      40,
+      45,
+      368,
+      373
+    ],
+    "edge_touch": false,
+    "size": [
+      328,
+      328
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-4",
+    "source_cell": 4,
+    "alpha_bounds": [
+      22,
+      68,
+      396,
+      366
+    ],
+    "edge_touch": false,
+    "size": [
+      374,
+      298
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-5",
+    "source_cell": 5,
+    "alpha_bounds": [
+      31,
+      83,
+      384,
+      366
+    ],
+    "edge_touch": false,
+    "size": [
+      353,
+      283
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-6",
+    "source_cell": 6,
+    "alpha_bounds": [
+      38,
+      104,
+      367,
+      330
+    ],
+    "edge_touch": false,
+    "size": [
+      329,
+      226
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-7",
+    "source_cell": 7,
+    "alpha_bounds": [
+      30,
+      71,
+      358,
+      348
+    ],
+    "edge_touch": false,
+    "size": [
+      328,
+      277
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-8",
+    "source_cell": 8,
+    "alpha_bounds": [
+      41,
+      39,
+      358,
+      372
+    ],
+    "edge_touch": false,
+    "size": [
+      317,
+      333
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-0",
+    "source_cell": 0,
+    "alpha_bounds": [
+      25,
+      41,
+      407,
+      413
+    ],
+    "edge_touch": false,
+    "size": [
+      382,
+      372
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-1",
+    "source_cell": 1,
+    "alpha_bounds": [
+      77,
+      18,
+      360,
+      414
+    ],
+    "edge_touch": false,
+    "size": [
+      274,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-2",
+    "source_cell": 2,
+    "alpha_bounds": [
+      49,
+      26,
+      382,
+      410
+    ],
+    "edge_touch": false,
+    "size": [
+      333,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-3",
+    "source_cell": 3,
+    "alpha_bounds": [
+      30,
+      22,
+      389,
+      406
+    ],
+    "edge_touch": false,
+    "size": [
+      359,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-4",
+    "source_cell": 4,
+    "alpha_bounds": [
+      71,
+      36,
+      361,
+      398
+    ],
+    "edge_touch": false,
+    "size": [
+      290,
+      362
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-5",
+    "source_cell": 5,
+    "alpha_bounds": [
+      64,
+      16,
+      351,
+      403
+    ],
+    "edge_touch": false,
+    "size": [
+      285,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-6",
+    "source_cell": 6,
+    "alpha_bounds": [
+      33,
+      10,
+      390,
+      384
+    ],
+    "edge_touch": false,
+    "size": [
+      357,
+      374
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-7",
+    "source_cell": 7,
+    "alpha_bounds": [
+      43,
+      30,
+      372,
+      375
+    ],
+    "edge_touch": false,
+    "size": [
+      329,
+      345
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-8",
+    "source_cell": 8,
+    "alpha_bounds": [
+      21,
+      55,
+      397,
+      357
+    ],
+    "edge_touch": false,
+    "size": [
+      376,
+      302
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-0",
+    "source_cell": 0,
+    "alpha_bounds": [
+      56,
+      104,
+      417,
+      388
+    ],
+    "edge_touch": false,
+    "size": [
+      361,
+      284
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-1",
+    "source_cell": 1,
+    "alpha_bounds": [
+      75,
+      81,
+      321,
+      397
+    ],
+    "edge_touch": false,
+    "size": [
+      246,
+      316
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-2",
+    "source_cell": 2,
+    "alpha_bounds": [
+      68,
+      363,
+      351,
+      383
+    ],
+    "edge_touch": false,
+    "size": [
+      283,
+      20
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-3",
+    "source_cell": 3,
+    "alpha_bounds": [
+      78,
+      59,
+      385,
+      368
+    ],
+    "edge_touch": false,
+    "size": [
+      307,
+      309
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-4",
+    "source_cell": 4,
+    "alpha_bounds": [
+      117,
+      44,
+      293,
+      378
+    ],
+    "edge_touch": false,
+    "size": [
+      176,
+      334
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-5",
+    "source_cell": 5,
+    "alpha_bounds": [
+      44,
+      80,
+      278,
+      366
+    ],
+    "edge_touch": false,
+    "size": [
+      234,
+      286
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-6",
+    "source_cell": 6,
+    "alpha_bounds": [
+      64,
+      32,
+      411,
+      336
+    ],
+    "edge_touch": false,
+    "size": [
+      347,
+      304
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-7",
+    "source_cell": 7,
+    "alpha_bounds": [
+      38,
+      69,
+      343,
+      329
+    ],
+    "edge_touch": false,
+    "size": [
+      305,
+      260
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-8",
+    "source_cell": 8,
+    "alpha_bounds": [
+      237,
+      294,
+      340,
+      333
+    ],
+    "edge_touch": false,
+    "size": [
+      103,
+      39
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-0",
+    "source_cell": 0,
+    "alpha_bounds": [
+      22,
+      32,
+      402,
+      405
+    ],
+    "edge_touch": false,
+    "size": [
+      380,
+      373
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-1",
+    "source_cell": 1,
+    "alpha_bounds": [
+      59,
+      13,
+      374,
+      406
+    ],
+    "edge_touch": false,
+    "size": [
+      308,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-2",
+    "source_cell": 2,
+    "alpha_bounds": [
+      47,
+      18,
+      393,
+      406
+    ],
+    "edge_touch": false,
+    "size": [
+      342,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-3",
+    "source_cell": 3,
+    "alpha_bounds": [
+      28,
+      24,
+      399,
+      384
+    ],
+    "edge_touch": false,
+    "size": [
+      371,
+      360
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-4",
+    "source_cell": 4,
+    "alpha_bounds": [
+      62,
+      8,
+      352,
+      396
+    ],
+    "edge_touch": false,
+    "size": [
+      287,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-5",
+    "source_cell": 5,
+    "alpha_bounds": [
+      10,
+      12,
+      395,
+      390
+    ],
+    "edge_touch": false,
+    "size": [
+      384,
+      377
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-6",
+    "source_cell": 6,
+    "alpha_bounds": [
+      24,
+      8,
+      386,
+      391
+    ],
+    "edge_touch": false,
+    "size": [
+      362,
+      383
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-7",
+    "source_cell": 7,
+    "alpha_bounds": [
+      16,
+      29,
+      402,
+      381
+    ],
+    "edge_touch": false,
+    "size": [
+      384,
+      350
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-8",
+    "source_cell": 8,
+    "alpha_bounds": [
+      21,
+      8,
+      398,
+      406
+    ],
+    "edge_touch": false,
+    "size": [
+      364,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "shell",
+    "source_cell": 0,
+    "alpha_bounds": [
+      47,
+      37,
+      1039,
+      351
+    ],
+    "edge_touch": false,
+    "size": [
+      992,
+      314
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "shell",
+    "source_cell": 1,
+    "alpha_bounds": [
+      74,
+      24,
+      1009,
+      348
+    ],
+    "edge_touch": false,
+    "size": [
+      935,
+      324
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "shell",
+    "source_cell": 2,
+    "alpha_bounds": [
+      47,
+      14,
+      1038,
+      354
+    ],
+    "edge_touch": false,
+    "size": [
+      991,
+      340
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "shell",
+    "source_cell": 3,
+    "alpha_bounds": [
+      30,
+      15,
+      1056,
+      340
+    ],
+    "edge_touch": false,
+    "size": [
+      1000,
+      317
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  }
+]

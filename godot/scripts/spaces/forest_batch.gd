@@ -41,13 +41,13 @@ func setup(sprites:Array[Dictionary]) -> void:
 			textures[key]=images.size()
 			images.append(texture.get_image())
 	var sheet:=Image.create(4096,8192,false,Image.FORMAT_RGBA8)
-	var x:=2;var y:=2;var row_h:=0
+	var x:=16;var y:=16;var row_h:=0
 	for im in images:
-		if x+im.get_width()+2>4096:x=2;y+=row_h+4;row_h=0
+		if x+im.get_width()+16>4096:x=16;y+=row_h+32;row_h=0
 		assert(y+im.get_height()<8192)
 		sheet.blit_rect(im,Rect2i(0,0,im.get_width(),im.get_height()),Vector2i(x,y))
 		regions.append(Vector4(x/4096.0,y/8192.0,im.get_width()/4096.0,im.get_height()/8192.0))
-		x+=im.get_width()+4;row_h=maxi(row_h,im.get_height())
+		x+=im.get_width()+32;row_h=maxi(row_h,im.get_height())
 	sheet.generate_mipmaps()
 	atlas=ImageTexture.create_from_image(sheet)
 	var shader:=ShaderMaterial.new();shader.shader=load("res://shaders/forest_batch.gdshader")
@@ -87,8 +87,15 @@ func sync(renderer:SegmentRenderer) -> void:
 	var ready_result:=worker_result
 	worker_result={}
 	worker_lock.unlock()
-	if not ready_result.is_empty():apply_order(ready_result);worker_busy=false
-	if not worker_busy and (not is_equal_approx(last_heading,renderer.heading) or last_camera.distance_squared_to(renderer.camera_world)>16384 or last_lens!=Vector2(renderer.view_size.x,renderer.focal())):
+	if not ready_result.is_empty():
+		# A sort for an older camera angle must not replace the current turning order.
+		if absf(angle_difference(float(ready_result.angle),renderer.heading))<.0001:apply_order(ready_result)
+		worker_busy=false
+	var turning:=initialized and absf(angle_difference(last_heading,renderer.heading))>.0001
+	if turning:
+		last_heading=renderer.heading;last_camera=renderer.camera_world;last_lens=Vector2(renderer.view_size.x,renderer.focal())
+		apply_order(build_order(last_camera,last_heading,renderer.view_size.x,renderer.focal()))
+	elif not worker_busy and (not initialized or last_camera.distance_squared_to(renderer.camera_world)>16384 or last_lens!=Vector2(renderer.view_size.x,renderer.focal())):
 		last_heading=renderer.heading;last_camera=renderer.camera_world;last_lens=Vector2(renderer.view_size.x,renderer.focal())
 		if not initialized:
 			apply_order(build_order(last_camera,last_heading,renderer.view_size.x,renderer.focal()));initialized=true
@@ -125,6 +132,8 @@ func sync(renderer:SegmentRenderer) -> void:
 	for key in params:
 		material.set_shader_parameter(key,params[key])
 		edge_pass.material.set_shader_parameter(key,params[key])
+	renderer.bind_biome(material)
+	renderer.bind_biome(edge_pass.material)
 	var highlighted:Array=actors.filter(func(a):return a.get("edge_strength",0.0)>0 and not a.get("hidden",false))
 	if highlighted.size()>edge_pass.multimesh.instance_count:edge_pass.multimesh.instance_count=highlighted.size()
 	edge_pass.multimesh.visible_instance_count=highlighted.size()
@@ -163,7 +172,8 @@ func write_instance(i:int,renderer:SegmentRenderer,entry:Dictionary,target:Multi
 	if not textures.has(tex.get_instance_id()):
 		var im:=tex.get_image();im.clear_mipmaps()
 		textures[tex.get_instance_id()]=image_keys[hash(im.get_data())]
-	target.set_instance_custom_data(i,Color(sprite.position.x,sprite.position.y,sprite.altitude,textures[tex.get_instance_id()]+(64 if sprite.get("mist",false) else 0)))
+	var category:=8 if sprite.get("shell",false) else 7 if sprite.get("outflow",false) else 4 if sprite.get("drip",false) else 2 if sprite.get("firefly",false) else 1 if sprite.get("mist",false) else 3 if sprite.get("emissive",false) else 5 if sprite.get("actor",false) else 6 if sprite.get("biome_prop",false) else 0
+	target.set_instance_custom_data(i,Color(sprite.position.x,sprite.position.y,sprite.altitude,textures[tex.get_instance_id()]+64*category))
 
 func build_order(camera:Vector2,angle:float,viewport_width:float,lens:float) -> Dictionary:
 	var order:Array[Vector2]=[]
@@ -209,12 +219,22 @@ func _exit_tree() -> void:
 		stopping=true;worker_signal.post();ordering.wait_to_finish()
 
 func world_mist(renderer:SegmentRenderer) -> Array[Dictionary]:
+	var result:Array[Dictionary]=[]
+	var branches:Array[int]=[0]
+	if not renderer.world.plan.straight:
+		branches.append_array([-1,1])
+		if renderer.world.plan.exits==3:branches.append(2)
+	for path in branches:result.append_array(mist_for_branch(renderer,path))
+	return result
+
+func mist_for_branch(renderer:SegmentRenderer,path:int) -> Array[Dictionary]:
 	var patches:Array[Dictionary]=[]
 	var first:=maxi(0,floori((renderer.world.camera_s-90)/80))
 	for cell in range(first,first+10):
 		var seed_value:=sin(cell*127.1+43.7)
 		var route_s:=cell*80.0+seed_value*19.0
-		var branch:int=0 if renderer.world.plan.straight or route_s<ForestRoute.JUNCTION else renderer.world.camera_branch
+		if not renderer.world.plan.straight and ((path==0) != (route_s<ForestRoute.JUNCTION)):continue
+		var branch:int=path
 		for layer in range(4):
 			var lateral:float=seed_value*17+sin(renderer.elapsed*.13+cell)*3 if layer<2 else (-1.0 if layer==2 else 1.0)*(48+seed_value*14)
 			var anchor:=ForestRoute.point_at(route_s+layer*13,branch,lateral)
@@ -223,4 +243,17 @@ func world_mist(renderer:SegmentRenderer) -> Array[Dictionary]:
 			if z<12 or z>650:continue
 			var side_fade:=1.0 if layer<2 else .85*(1-smoothstep(180,350,z))
 			patches.append({"mist":true,"actor":true,"born_at":-100.0,"position":anchor,"texture":source[0].texture,"w":70.0+seed_value*15,"h":18.0+(layer%2)*7,"altitude":2.0+(layer%2)*5,"ground_anchor":Vector2(.5,1),"flip":false,"id":300000+cell*4+layer,"region":renderer.world.camera_region,"ecology_tint":Color(1,1,1,side_fade*smoothstep(12,45,z)*(1-smoothstep(450,650,z)))})
+	if str(renderer.world.camera_region.space.key)=="swamp":
+		for cell in range(int(floor(renderer.world.camera_s/40))-1,int(floor(renderer.world.camera_s/40))+12):
+			if not renderer.world.plan.straight and ((path==0) != (cell*40.0<ForestRoute.JUNCTION)):continue
+			for j in range(3):
+				var phase:=float(cell*11+j*7)
+				var anchor:=ForestRoute.point_at(cell*40.0+j*9,path,sin(phase)*110+sin(renderer.elapsed*.7+phase)*7)
+				patches.append({"firefly":true,"actor":true,"position":anchor,"texture":source[0].texture,"w":2.5,"h":2.5,"altitude":10+sin(phase)*6+sin(renderer.elapsed+phase)*3,"ground_anchor":Vector2(.5,.5),"flip":false,"id":400000+cell*3+j,"region":renderer.world.camera_region,"ecology_tint":Color(1,1,1,.6+.4*sin(renderer.elapsed*1.3+phase))})
+	if str(renderer.world.camera_region.space.key) in ["crystal","sewer","whale"]:
+		for cell in range(int(floor(renderer.world.camera_s/65)),int(floor(renderer.world.camera_s/65))+8):
+			if not renderer.world.plan.straight and ((path==0) != (cell*65.0<ForestRoute.JUNCTION)):continue
+			var anchor:=ForestRoute.point_at(cell*65.0,path,sin(cell*8.1)*100)
+			patches.append({"drip":true,"actor":true,"position":anchor,"texture":source[0].texture,"w":.5,"h":4.0,"altitude":90-fposmod(renderer.elapsed*47+cell*31,88),"ground_anchor":Vector2(.5,.5),"flip":false,"id":500000+cell,"region":renderer.world.camera_region,"ecology_tint":Color(1,1,1,.42)})
+	for patch in patches:patch.id+=(path+1)*1000000
 	return patches

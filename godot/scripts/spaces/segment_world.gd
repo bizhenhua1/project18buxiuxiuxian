@@ -7,9 +7,10 @@ var fields := {}
 var camera_s := 0.0
 var camera_branch := 0
 var camera_region: RouteRegion
+var biome_lights:Array[Vector4]=[]
 
 func _init(art: ForestArt, route_plan: RoutePlan) -> void:
-	super(art,route_plan.straight)
+	super(art,route_plan.straight,route_plan.regions.all(func(r):return r.space.key in ["crystal","swamp","sewer","whale","palace"]))
 	plan = route_plan
 	assert(plan.validate().is_empty(), str(plan.validate()))
 	forest_source = sprites

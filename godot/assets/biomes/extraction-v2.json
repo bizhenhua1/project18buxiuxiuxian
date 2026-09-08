@@ -1,0 +1,650 @@
+[
+  {
+    "biome": "crystal",
+    "asset": "prop-0",
+    "bounds": [
+      49,
+      48,
+      370,
+      375
+    ],
+    "size": [
+      321,
+      327
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-1",
+    "bounds": [
+      456,
+      61,
+      792,
+      374
+    ],
+    "size": [
+      336,
+      313
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-2",
+    "bounds": [
+      874,
+      41,
+      1220,
+      375
+    ],
+    "size": [
+      346,
+      334
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-3",
+    "bounds": [
+      40,
+      463,
+      359,
+      791
+    ],
+    "size": [
+      319,
+      328
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-4",
+    "bounds": [
+      440,
+      486,
+      814,
+      784
+    ],
+    "size": [
+      374,
+      298
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-5",
+    "bounds": [
+      867,
+      501,
+      1220,
+      784
+    ],
+    "size": [
+      353,
+      283
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-6",
+    "bounds": [
+      38,
+      940,
+      367,
+      1166
+    ],
+    "size": [
+      329,
+      226
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-7",
+    "bounds": [
+      448,
+      907,
+      776,
+      1184
+    ],
+    "size": [
+      328,
+      277
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "crystal",
+    "asset": "prop-8",
+    "bounds": [
+      877,
+      875,
+      1194,
+      1208
+    ],
+    "size": [
+      317,
+      333
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-0",
+    "bounds": [
+      25,
+      41,
+      407,
+      413
+    ],
+    "size": [
+      382,
+      372
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-1",
+    "bounds": [
+      495,
+      18,
+      778,
+      414
+    ],
+    "size": [
+      283,
+      396
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-2",
+    "bounds": [
+      885,
+      26,
+      1218,
+      410
+    ],
+    "size": [
+      333,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-3",
+    "bounds": [
+      30,
+      440,
+      389,
+      824
+    ],
+    "size": [
+      359,
+      384
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-4",
+    "bounds": [
+      489,
+      454,
+      779,
+      816
+    ],
+    "size": [
+      290,
+      362
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-5",
+    "bounds": [
+      900,
+      434,
+      1187,
+      821
+    ],
+    "size": [
+      287,
+      387
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-6",
+    "bounds": [
+      33,
+      846,
+      390,
+      1220
+    ],
+    "size": [
+      357,
+      374
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-7",
+    "bounds": [
+      461,
+      866,
+      790,
+      1211
+    ],
+    "size": [
+      329,
+      345
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "swamp",
+    "asset": "prop-8",
+    "bounds": [
+      857,
+      891,
+      1233,
+      1193
+    ],
+    "size": [
+      376,
+      302
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-0",
+    "bounds": [
+      56,
+      104,
+      417,
+      388
+    ],
+    "size": [
+      361,
+      284
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-1",
+    "bounds": [
+      493,
+      81,
+      739,
+      397
+    ],
+    "size": [
+      246,
+      316
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-2",
+    "bounds": [
+      832,
+      93,
+      1204,
+      398
+    ],
+    "size": [
+      372,
+      305
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-3",
+    "bounds": [
+      78,
+      477,
+      385,
+      786
+    ],
+    "size": [
+      307,
+      309
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-4",
+    "bounds": [
+      535,
+      462,
+      711,
+      796
+    ],
+    "size": [
+      176,
+      334
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-5",
+    "bounds": [
+      880,
+      498,
+      1114,
+      784
+    ],
+    "size": [
+      234,
+      286
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-6",
+    "bounds": [
+      64,
+      868,
+      411,
+      1168
+    ],
+    "size": [
+      347,
+      300
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-7",
+    "bounds": [
+      456,
+      905,
+      761,
+      1165
+    ],
+    "size": [
+      305,
+      260
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "sewer",
+    "asset": "prop-8",
+    "bounds": [
+      820,
+      903,
+      1189,
+      1170
+    ],
+    "size": [
+      369,
+      267
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-0",
+    "bounds": [
+      22,
+      32,
+      402,
+      405
+    ],
+    "size": [
+      380,
+      373
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-1",
+    "bounds": [
+      477,
+      13,
+      792,
+      406
+    ],
+    "size": [
+      315,
+      393
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-2",
+    "bounds": [
+      883,
+      18,
+      1229,
+      406
+    ],
+    "size": [
+      346,
+      388
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-3",
+    "bounds": [
+      28,
+      442,
+      399,
+      802
+    ],
+    "size": [
+      371,
+      360
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-4",
+    "bounds": [
+      480,
+      426,
+      770,
+      814
+    ],
+    "size": [
+      290,
+      388
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-5",
+    "bounds": [
+      846,
+      430,
+      1231,
+      808
+    ],
+    "size": [
+      385,
+      378
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-6",
+    "bounds": [
+      24,
+      834,
+      386,
+      1217
+    ],
+    "size": [
+      362,
+      383
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-7",
+    "bounds": [
+      434,
+      855,
+      820,
+      1207
+    ],
+    "size": [
+      386,
+      352
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  },
+  {
+    "biome": "whale",
+    "asset": "prop-8",
+    "bounds": [
+      857,
+      834,
+      1234,
+      1232
+    ],
+    "size": [
+      377,
+      398
+    ],
+    "anchor": [
+      0.5,
+      1
+    ]
+  }
+]

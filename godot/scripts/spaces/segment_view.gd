@@ -14,6 +14,11 @@ func setup(art: ForestArt, world: ForestWorld, mode: int, font: Font) -> void:
 	add_child(ground)
 	var scene := world as SegmentWorld
 	ground_material.set_shader_parameter("straight_route",scene.plan.straight)
+	ground_material.set_shader_parameter("three_way",scene.plan.exits == 3)
+	ground_material.set_shader_parameter("junction",ForestRoute.JUNCTION)
+	ground_material.set_shader_parameter("turn_length",ForestRoute.TURN_LENGTH)
+	if scene.plan.regions[0].space.key==&"crystal":
+		ground_material.set_shader_parameter("ceiling_texture",load("res://assets/biomes/crystal/shell.png"))
 	var types: Array[SpaceType] = []
 	var regions := PackedVector4Array()
 	var blends := PackedFloat32Array()
@@ -58,3 +63,4 @@ func sync(camera: Vector2, heading: float, elapsed: float, movement: float, bran
 	ground_material.set_shader_parameter("enemy_light_position",renderer.enemy_light_position())
 	ground_material.set_shader_parameter("enemy_light_strength",renderer.enemy_light_strength())
 	ground_material.set_shader_parameter("atmosphere_time",elapsed)
+	renderer.bind_biome(ground_material)

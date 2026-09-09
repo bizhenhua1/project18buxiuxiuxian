@@ -13,7 +13,7 @@ var arena: BattleArena
 func setup(value: BattleArena) -> void:
 	arena = value
 	for kind in durations: materials[kind] = make_material(kind)
-	var texture: Texture2D = load("res://assets/fx/particles/spark.png")
+	var texture: Texture2D = load("res://assets/fx/epic-toon/sparkle.png")
 	for i in range(POOL_SIZE):
 		var emitter := GPUParticles2D.new()
 		emitter.emitting = false
@@ -44,6 +44,10 @@ func make_material(kind: String) -> ParticleProcessMaterial:
 	material.angle_max = 180
 	material.scale_min = .13
 	material.scale_max = .27 if kind == "critical" else .20
+	# Preserve prior pixel footprint when using the larger source stamp.
+	if kind != "death" or not StyleLibrary.active:
+		material.scale_min *= 60.0/256.0
+		material.scale_max *= 60.0/256.0
 	if gentle:
 		material.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
 		material.emission_box_extents = Vector3(22,12,0)
@@ -71,7 +75,7 @@ func burst(event: Dictionary) -> void:
 		emitter.position = arena.anchor(slot.uid)
 		emitter.lifetime = durations[kind]
 		if StyleLibrary.active:
-			emitter.texture = StyleLibrary.texture("mist") if kind == "death" else load("res://assets/fx/particles/spark.png")
+			emitter.texture = StyleLibrary.texture("mist") if kind == "death" else load("res://assets/fx/epic-toon/sparkle.png")
 		emitter.process_material = materials[kind]
 		emitter.amount_ratio = 1.0 if kind == "critical" else .66 if kind in ["heal","buff"] else .5
 		emitter.speed_scale = 0 if arena.model.paused else arena.owner_app.speed

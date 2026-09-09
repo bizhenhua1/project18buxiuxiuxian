@@ -1,18 +1,35 @@
 class_name SegmentRenderer
 extends CorridorRenderer
+## Empty during gameplay; the standalone traditional editor supplies effective projection values.
+var editor_camera:Dictionary={}
+var runtime_camera:Dictionary={}
 var environment: Dictionary
 var projection_ms:=0.0
 var forest_batch:ForestBatch
 var combat_lens:=1.0
+var presentation_blend:float=-1.0
 var lantern_enabled:=false
+var travel_eye_offset:=15.0
+var travel_lateral:=0.0
 var shoulder_lift:=0.0
 var battle_frame_shift:=0.0
 
 func set_battle_camera(mix:float,enabled:bool=true) -> void:
+	if presentation_blend>=0 and enabled:mix=presentation_blend
 	combat_lens=lerpf(1.0,.92,mix) if enabled else 1.0
-	shoulder_lift=lerpf(15.0,10.0,mix) if enabled else 0.0
+	shoulder_lift=lerpf(travel_eye_offset,10.0,mix) if enabled else 0.0
 	battle_frame_shift=.19*mix if enabled else 0.0
 var battle_actors:Array[Dictionary]=[]
+var combat_lights:Array[Dictionary]=[]
+func bind_combat_lights(shader:ShaderMaterial) -> void:
+	var positions:=PackedVector4Array();positions.resize(4)
+	var colors:=PackedColorArray();colors.resize(4);colors.fill(Color(0,0,0,0))
+	for i in range(mini(4,combat_lights.size())):
+		var light:Dictionary=combat_lights[i]
+		positions[i]=Vector4(light.position.x,light.position.y,light.position.z,light.radius)
+		colors[i]=Color(light.color,light.energy)
+	shader.set_shader_parameter("combat_light_positions",positions)
+	shader.set_shader_parameter("combat_light_colors",colors)
 var biome_light_cache:=PackedVector4Array()
 var biome_light_clock:=-1.0
 func bind_biome(material:ShaderMaterial) -> void:
@@ -32,7 +49,7 @@ func bind_biome(material:ShaderMaterial) -> void:
 
 func lantern_position() -> Vector3:
 	var progress:=clampf(battle_frame_shift/.19,0,1)
-	var anchor:=camera_world+Vector2(sin(heading),cos(heading))*(24+16*progress)+Vector2(cos(heading),-sin(heading))*lerpf(-12,-28,progress)
+	var anchor:=camera_world+Vector2(sin(heading),cos(heading))*(40+16*progress)+Vector2(cos(heading),-sin(heading))*lerpf(2,-10,progress)
 	return Vector3(anchor.x,16+sin(elapsed*6.4)*.6,anchor.y)
 
 func enemy_light_position() -> Vector3:
@@ -44,12 +61,18 @@ func enemy_light_strength() -> float:
 	return smoothstep(.1,.8,clampf(battle_frame_shift/.19,0,1))
 
 func camera_height() -> float:
+	if not editor_camera.is_empty():return float(editor_camera.height)
+	if not runtime_camera.is_empty():return float(runtime_camera.height)
 	return float(ForestSettings.values.get("camera_height",58.0))+shoulder_lift if StyleLibrary.active else 58.0
 
 func focal() -> float:
+	if not editor_camera.is_empty():return super()*float(editor_camera.lens)
+	if not runtime_camera.is_empty():return super()*float(runtime_camera.lens)
 	return super()*combat_lens*float(ForestSettings.values.get("camera_lens",1.0)) if StyleLibrary.active else super()
 
 func horizon_y() -> float:
+	if not editor_camera.is_empty():return view_size.y*float(editor_camera.horizon)
+	if not runtime_camera.is_empty():return view_size.y*float(runtime_camera.horizon)
 	# Lens shift preserves upright cutout sprites; this is not a pitched 3D camera.
 	return super()+view_size.y*(float(ForestSettings.values.get("camera_horizon",.48))-.48-battle_frame_shift) if StyleLibrary.active else super()
 

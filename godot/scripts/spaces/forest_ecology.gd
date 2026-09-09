@@ -16,8 +16,8 @@ static func populate(world: ForestWorld, straight: bool) -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = world.seed_value
 	for branch in ([0] if straight else [0,-1,1]):
-		var begin := -400.0 if branch == 0 else ForestRoute.JUNCTION
-		var end := ForestRoute.JUNCTION if branch == 0 and not straight else ForestRoute.END_AT+1800.0
+		var begin := ForestRoute.origin_s-400.0 if branch == 0 else ForestRoute.JUNCTION
+		var end := ForestRoute.JUNCTION if branch == 0 and not straight else ForestRoute.origin_s+ForestRoute.END_AT+1800.0
 		# Irregular tree groves, never fixed parallel lanes or mirrored pairs.
 		var s := begin
 		# Sample an area, not parallel lanes. Small trees mix among old trees.
@@ -57,26 +57,43 @@ static func populate(world: ForestWorld, straight: bool) -> void:
 				# This art is already three-quarter view, not an overhead ground decal.
 				place(world,s+rng.randf_range(-8,8),branch,offset+rng.randf_range(-25,25),"litter",rng.randf_range(5,9),3)
 				world.sprites.back()["ground_anchor"]=Vector2(.5,.82)
-	_filter_root_backscatter(world)
+	_exclude_trunk_overlap(world)
 
-static func _filter_root_backscatter(world: ForestWorld) -> void:
-	var buckets: Dictionary={}
+static func _exclude_trunk_overlap(world: ForestWorld) -> void:
+	# Index only the cells touched by each small trunk footprint. Grass queries
+	# one cell; facing and bounds are computed once per tree, not per pair.
+	const CELL_SIZE=32.0
+	var buckets:Dictionary={}
 	for tree in world.sprites:
 		if tree.kind!=0:continue
-		var cell:=Vector2i(floor(tree.position.x/128),floor(tree.position.y/128))
-		if not buckets.has(cell):buckets[cell]=[]
-		buckets[cell].append(tree)
-	var kept: Array[Dictionary]=[]
+		var heading:float=ForestRoute.pose(tree.route_s,tree.route_branch).heading
+		var right:=Vector2(cos(heading),-sin(heading))
+		var forward:=Vector2(sin(heading),cos(heading))
+		var radius:=float(tree.trunk_radius)+8
+		var low:=Vector2(INF,INF);var high:=Vector2(-INF,-INF)
+		for x in [-radius,radius]:
+			for z in [-3.0,18.0]:
+				var corner:Vector2=tree.position+right*x+forward*z
+				low=low.min(corner);high=high.max(corner)
+		var footprint:Dictionary={"position":tree.position,"right":right,"forward":forward,"radius":radius}
+		var first:=Vector2i(floor(low.x/CELL_SIZE),floor(low.y/CELL_SIZE))
+		var last:=Vector2i(floor(high.x/CELL_SIZE),floor(high.y/CELL_SIZE))
+		for x in range(first.x,last.x+1):
+			for z in range(first.y,last.y+1):
+				var cell:=Vector2i(x,z)
+				if not buckets.has(cell):buckets[cell]=[]
+				buckets[cell].append(footprint)
+	var kept:Array[Dictionary]=[]
 	for sprite in world.sprites:
 		var blocked:=false
 		if sprite.kind==1:
-			var cell:=Vector2i(floor(sprite.position.x/128),floor(sprite.position.y/128))
-			for dx in range(-2,3):
-				for dz in range(-2,3):
-					for tree in buckets.get(cell+Vector2i(dx,dz),[]):
-						var delta:=ForestRoute.to_camera(sprite.position,tree.position,float(ForestRoute.pose(tree.route_s,tree.route_branch).heading))
-						if absf(delta.x)<float(tree.trunk_radius)+8 and delta.y>=-3 and delta.y<18:
-							blocked=true
+			var cell:=Vector2i(floor(sprite.position.x/CELL_SIZE),floor(sprite.position.y/CELL_SIZE))
+			for footprint in buckets.get(cell,[]):
+				var delta:Vector2=sprite.position-footprint.position
+				var depth:=delta.dot(footprint.forward)
+				if depth>=-3 and depth<18 and absf(delta.dot(footprint.right))<footprint.radius:
+					blocked=true
+					break
 		if not blocked:kept.append(sprite)
 	world.sprites=kept
 

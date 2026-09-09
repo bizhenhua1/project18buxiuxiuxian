@@ -1,9 +1,19 @@
 extends "res://scripts/spaces/space_study.gd"
+var live_template=preload("res://scripts/traditional/live_template.gd").new()
 var arena: BattleArena
 var model: BattleModel
 var speed := 1.0
+
+var presentation_camera=preload("res://scripts/journey/journey_camera.gd").new()
+var presented_travel_distance:=0.0
+var camera_trace=preload("res://scripts/journey/camera_trace.gd").new()
 var accumulator := 0.0
 var encounter_step := 0
+const EXIT_ADVANCE := TravelPace.EXIT_DISTANCE
+var travel_leg_origin:=0.0
+var travel_leg_fork:=false
+var opening_leg:=true
+var travel_reveal := 1.0
 var clearing_time := 0.0
 var event_box: VBoxContainer
 var event_title: Label
@@ -41,12 +51,19 @@ var road_actor: Control
 var reward_notice: Label
 var notice_left := 0.0
 var final_reward := 0
+var event_previews:Dictionary={}
+var discovery_actor:Node
 var scene_actor: Dictionary = {}
 var entrance_time := 0.0
 var launch_rect := Rect2()
 var companions: Array[Dictionary] = []
 var pack_time := 0.0
-const ENTRANCE_SECONDS := .95
+var branch_chosen_at := -INF
+var fork_transit_time := 3.0
+var fork_transit_from := 0.0
+var fork_transit_to := 0.0
+const FORK_TRANSIT_SECONDS := 3.0
+const ENTRANCE_SECONDS := 1.15
 
 func _ready() -> void:
 	Journey.resume()
@@ -63,14 +80,28 @@ func _ready() -> void:
 	super()
 	labels = false
 	if not route_spec.fork: phase = "travel"
+	if route_spec.get("before_fork",false):phase="travel"
 	var saved := int(Journey.state.route_choices.get(Journey.state.pending,0))
 	if saved != 0 and route_spec.fork:
+		phase="choose"
+		distance=ForestRoute.PAUSE_AT
 		choose(saved)
 	if encounter_step > 0:
+		fork_transit_time=FORK_TRANSIT_SECONDS
 		distance = stops()[mini(encounter_step-1,stops().size()-1)]+1
 		camera = ForestRoute.pose(distance,branch).position
 		heading = ForestRoute.pose(distance,branch).heading
+	# Restore the starting pose before the first frame, not as camera travel from origin.
+	camera=ForestRoute.pose(distance,branch).position
+	heading=ForestRoute.pose(distance,branch).heading
+	if arena.scene_mode and not has_meta("traditional_editor"):live_template.advance(self,0)
+	presentation_camera.reset(camera,heading,arena.battle_mix)
+	presentation_camera.reference_origin=ForestRoute.pose(distance,branch).position
+	presentation_camera.reference_ready=true
+	presented_travel_distance=0
+	RenderingServer.frame_post_draw.connect(_record_camera_snapshot)
 	model.finished.connect(finish_battle)
+	_ensure_event_preview()
 	_update_ui()
 func stops() -> Array:
 	return LocalRouteSpec.entries(route_zone,branch).map(func(entry):return float(entry.distance))
@@ -115,6 +146,7 @@ func _build_ui() -> void:
 	view.setup(art,world,1,font)
 	views.append(view)
 	arena.setup(model,self,view)
+	arena.set_process(false) # The route owns the only presentation tick.
 	arena.enemies_visible = false
 	road_actor = load("res://scripts/journey/road_encounter.gd").new()
 	add_child(road_actor)
@@ -242,7 +274,7 @@ func _layout_ui() -> void:
 	arena.position = Vector2(24,88)
 	arena.size = Vector2(canvas_size.x-48,canvas_size.y-170)
 	arena.equipment_open = kit_panel != null and kit_panel.visible
-	arena._process(0)
+	arena.scenery.size=arena.size
 	progress.position = Vector2(42,canvas_size.y-77)
 	progress.size = Vector2(canvas_size.x-84,3)
 	footer_panel.position = Vector2(16,canvas_size.y-67)
@@ -348,43 +380,63 @@ func _refresh_kit() -> void:
 		kit_items.add_child(button)
 func choose(direction: int) -> void:
 	if not route_spec.get("fork",false): return
-	if phase not in ["approach","choose"]: return
+	if phase != "choose": return
 	var saved := int(Journey.state.route_choices.get(Journey.state.pending,0))
 	if saved != 0 and direction != saved: return
 	super(direction)
+	travel_leg_origin=distance;travel_leg_fork=true;opening_leg=false
+	branch_chosen_at=distance
+	moving_envelope=0.0
+	fork_transit_from=distance
+	fork_transit_to=float(stops()[encounter_step]) if encounter_step<stops().size() else float(route_spec.end)
+	fork_transit_time=0.0
+	_sync_event_previews()
 	Journey.state.route_choices[Journey.state.pending] = direction
 	Journey.save()
 func _process(delta: float) -> void:
 	if not arena: return
 	playback_speed = speed
 	model.paused = paused
-	var dt := minf(delta,.05)*speed
+	var dt := maxf(delta,0.0)*speed
 	if not paused:
 		elapsed += dt
 		if phase == "entering":
 			entrance_time = minf(ENTRANCE_SECONDS,entrance_time+dt)
 			var t := entrance_time/ENTRANCE_SECONDS
-			arena.battle_mix = smoothstep(0.0,1.0,t)
+			arena.battle_mix = maxf(arena.battle_mix,smoothstep(0,.65,t))
 			arena.entrance_progress = t
 			scene_actor.hidden = arena.scene_mode or t >= .18
 			for actor in companions: actor.hidden = arena.scene_mode or t >= .18
 			road_actor.flight_t = t
 			road_actor.queue_redraw()
-			if entrance_time >= ENTRANCE_SECONDS:
+			if entrance_time >= ENTRANCE_SECONDS and (not arena.scene_mode or (arena.formation_ready and presentation_camera.blend>.98)):
 				if model.start():
 					phase = "battle"
 					Journey.fighting = true
 					accumulator = 0
+		elif phase=="reviving":
+			entrance_time+=dt
+			if entrance_time>=.65 and model.start():
+				phase="battle";Journey.fighting=true;accumulator=0
+		elif phase in ["encounter","sighting"]:
+			arena.battle_mix=move_toward(arena.battle_mix,1,dt*1.5)
 		elif phase not in ["battle","clearing","defeat"]:
 			arena.battle_mix = move_toward(arena.battle_mix,0,dt*1.4)
 		if notice_left > 0: notice_left = maxf(0,notice_left-dt)
 		if phase == "approach":
 			phase_time += dt
-			distance = ForestRoute.PAUSE_AT*smoothstep(0.0,1.0,minf(phase_time/ForestRoute.APPROACH_SECONDS,1))
-			if phase_time >= ForestRoute.APPROACH_SECONDS: phase = "choose"
+			moving_envelope=move_toward(moving_envelope,travel_envelope(),dt*2.5)
+			distance=minf(ForestRoute.PAUSE_AT,distance+route_travel_speed()*moving_envelope*dt)
+			if ForestRoute.PAUSE_AT-distance<.02:distance=ForestRoute.PAUSE_AT;phase="choose"
 		elif phase == "travel":
-			moving_envelope = move_toward(moving_envelope,1,dt*2)
-			distance = minf(distance+145*moving_envelope*dt,route_spec.end)
+			moving_envelope = move_toward(moving_envelope,travel_envelope(),dt*2.5)
+			if fork_transit_time<FORK_TRANSIT_SECONDS:
+				distance=minf(fork_transit_to,distance+route_travel_speed()*moving_envelope*dt)
+				if fork_transit_to-distance<.02:distance=fork_transit_to;fork_transit_time=FORK_TRANSIT_SECONDS
+			else:distance = minf(distance+route_travel_speed()*moving_envelope*dt,route_spec.end)
+			if route_spec.fork and branch==0 and distance>=ForestRoute.PAUSE_AT-.02:
+				distance=ForestRoute.PAUSE_AT
+				phase="choose"
 		elif phase == "sighting":
 			sighting_time += dt
 			if sighting_time >= .18: start_battle()
@@ -396,27 +448,29 @@ func _process(delta: float) -> void:
 		elif phase == "clearing":
 			clearing_time += dt
 			arena.enemy_opacity = 1-smoothstep(.3,.85,clearing_time)
-			if arena.scene_mode:arena.battle_mix=1-smoothstep(.75,1.35,clearing_time)
+			if arena.scene_mode:arena.battle_mix=1-smoothstep(.12,1.35,clearing_time)
 			if clearing_time >= (1.4 if arena.scene_mode else 1.0):
-				if arena.scene_mode:distance+=36
+				if arena.scene_mode:
+					distance+=EXIT_ADVANCE
+					travel_reveal=1.0
 				model.enemy.clear()
 				arena.effects.clear()
 				arena.particles.clear()
 				arena.enemies_visible = false
-				arena.rebuild()
 				Journey.fighting = false
+				travel_leg_origin=distance;travel_leg_fork=false;opening_leg=false
 				phase = "travel"
 				phase_time = 0
 				travel_time = 0
-				model.reset()
-				Journey.save()
+				# Release the battle edit lock without resetting health, poses or resources.
+				model.phase="prepare"
+	if not paused and phase in ["travel","approach"]:travel_reveal=minf(1.0,travel_reveal+dt/.55)
 	camera = ForestRoute.pose(distance,branch).position
 	var target_heading: float = ForestRoute.pose(distance+75,branch).heading
-	heading = lerp_angle(heading,target_heading,1-exp(-dt*4.5)) if not paused else heading
-	if phase != "travel": moving_envelope = move_toward(moving_envelope,0,dt*5)
-	if phase == "travel" and encounter_step < stops().size() and not is_social() and prepared_step != encounter_step:
-		prepare_encounter()
-	if not arena.scene_mode and not paused and prepared_step == encounter_step and encounter_step < stops().size() and phase in ["travel","sighting","encounter"] and not companions.is_empty() and distance >= stops()[encounter_step]-200:
+	heading = target_heading if not paused else heading
+	if phase not in ["travel","approach"]: moving_envelope = move_toward(moving_envelope,0,dt*5)
+	_ensure_event_preview()
+	if not arena.scene_mode and not paused and prepared_step == encounter_step and encounter_step < stops().size() and phase in ["travel","sighting","encounter"] and not companions.is_empty() and distance >= stops()[encounter_step]-.02-200:
 		pack_time += dt
 		var lead_motion := CreatureMotion.sample(model.enemy[0].cardId,clampf(pack_time/.28,0,1))
 		scene_actor.altitude = lead_motion.altitude
@@ -436,28 +490,67 @@ func _process(delta: float) -> void:
 						if elapsed-float(grass.get("rustle_started",-10)) > .2:
 							grass.rustle_started = elapsed
 							grass.rustle_strength = motion.grass_strength
-	if phase == "travel" and encounter_step < stops().size() and distance >= stops()[encounter_step]:
+	if phase == "travel" and encounter_step < stops().size() and distance >= stops()[encounter_step]-.02 and (branch==0 or distance>=route_spec.junction+route_spec.fork_clearance):
 		distance = stops()[encounter_step]
 		camera = ForestRoute.pose(distance,branch).position
 		phase = "encounter"
+		arena.world_anchor=ForestRoute.pose(distance,branch).position
+		arena.world_facing=ForestRoute.pose(distance,branch).heading
 		if not arena.scene_mode:moving_envelope = 0
 		for view in views: view.sync(camera,heading,elapsed,0,branch,labels,bob,distance)
 		if not is_social():
 			if prepared_step != encounter_step: prepare_encounter()
 			phase = "encounter" if LocalRouteSpec.entries(route_zone,branch)[encounter_step].choice else "sighting"
 			sighting_time = 0
-	if phase == "travel" and encounter_step >= stops().size() and distance >= route_spec.end: phase = "arrived"
+	if phase == "travel" and encounter_step >= stops().size() and distance >= route_spec.end-.02: phase = "arrived"
+	if arena.scene_mode and phase=="travel" and encounter_step<stops().size():
+		var event_distance:float=stops()[encounter_step]
+		if absf(next_travel_target()-event_distance)<.1:
+			var anticipation:=1-smoothstep(0,route_travel_speed()*.55,event_distance-distance)
+			arena.battle_mix=maxf(arena.battle_mix,anticipation)
 	if arena.scene_mode:
 		arena.scenery.renderer.set_battle_camera(arena.battle_mix)
-		camera-=Vector2(sin(heading),cos(heading))*16*arena.battle_mix
-		if phase=="clearing":camera+=Vector2(sin(heading),cos(heading))*36*(1-arena.battle_mix)
+		if phase=="clearing":
+			var exit_distance:=distance+EXIT_ADVANCE*smoothstep(0,1.4,clearing_time)
+			camera=ForestRoute.pose(exit_distance,branch).position
+			heading=ForestRoute.pose(exit_distance,branch).heading
+	if arena.scene_mode and phase in ["encounter","sighting","entering","battle","defeat","reviving"]:
+		# Battle camera belongs to the encounter center, never to a party member.
+		camera=ForestRoute.pose(distance,branch).position
+		heading=ForestRoute.pose(distance,branch).heading
+	if arena.scene_mode and not has_meta("traditional_editor"):
+		live_template.advance(self,delta)
+	var previous_camera:Vector2=presentation_camera.position
+	var was_initialized:bool=presentation_camera.initialized
+	if arena.scene_mode and not live_template.data.is_empty() and not has_meta("traditional_editor"):
+		var reference_distance:float=distance+EXIT_ADVANCE*smoothstep(0,1.4,clearing_time) if phase=="clearing" else distance
+		presentation_camera.advance_reference(ForestRoute.pose(reference_distance,branch).position)
+	presentation_camera.advance(camera,heading,arena.battle_mix,delta,paused or phase in ["defeat","reviving"])
+	presentation_camera.advance_walk(moving_envelope,delta,paused or phase in ["defeat","reviving"])
+	for view in views:view.renderer.presentation_bob=presentation_camera.walk_offset
+	camera=presentation_camera.position;heading=presentation_camera.angle
+	if was_initialized and not paused and phase in ["travel","approach"]:
+		presented_travel_distance+=camera.distance_to(previous_camera)
+	if arena.scenery.renderer is SegmentRenderer:
+		arena.scenery.renderer.presentation_blend=presentation_camera.blend if arena.scene_mode else -1.0
+		arena.scenery.renderer.set_battle_camera(arena.battle_mix,arena.scene_mode)
+	# Layout first, then publish one camera state, then advance actors exactly once.
+	_update_ui()
 	for view in views: view.sync(camera,heading,elapsed,moving_envelope,branch,labels,bob,distance)
+	if discovery_actor:discovery_actor.advance(minf(delta,.05),"travel",paused,speed,true)
+	arena._process(minf(delta,.05))
+	for view in views:view.sync_projection()
 	if phase == "arrived" and not route_complete:
 		var before := Journey.state.stones
 		route_complete = Journey.state.finish_local()
 		final_reward = Journey.state.stones-before
 		Journey.save()
-	_update_ui()
+func _ensure_event_preview() -> void:
+	_sync_event_previews()
+	if phase not in ["travel","approach"] or encounter_step>=stops().size() or is_social() or prepared_step==encounter_step:return
+	var entry:Dictionary=LocalRouteSpec.entries(route_zone,branch)[encounter_step]
+	if route_spec.fork and branch==0 and entry.branch!=0:return
+	prepare_encounter()
 func prepare_encounter() -> void:
 	for actor in companions: world.sprites.erase(actor)
 	companions.clear()
@@ -468,7 +561,6 @@ func prepare_encounter() -> void:
 	prepared_step = encounter_step
 	arena.enemies_visible = false
 	arena.enemy_opacity = 1
-	arena.rebuild()
 	var ranked := model.enemy.duplicate()
 	ranked.sort_custom(func(a,b):return a.maxHp*maxf(a.atk,1) > b.maxHp*maxf(b.atk,1))
 	if not ranked.is_empty():
@@ -476,18 +568,23 @@ func prepare_encounter() -> void:
 		model.enemy.erase(ranked[0])
 		model.enemy.push_front(ranked[0])
 		for i in range(model.enemy.size()): model.enemy[i].index = i
+		if arena.enemy_actor and arena.scene_mode:model.enemy[0].name="失控梦游者"
 		arena.rebuild()
 		road_actor.art = arena.art_for(ranked[0])
 		road_actor.caption = ranked[0].name+" · 拦路"
-		if not scene_actor.is_empty(): world.sprites.erase(scene_actor)
-		var position_value := ForestRoute.point_at(stops()[encounter_step]+180,branch)
-		var region: RouteRegion = world.plan.at(stops()[encounter_step],0 if world.plan.straight or stops()[encounter_step] < ForestRoute.JUNCTION else branch)
-		scene_actor = {"actor":true,"born_at":elapsed,"hidden":false,"position":position_value,"texture":road_actor.art,"w":54.0*road_actor.art.get_width()/road_actor.art.get_height(),"h":54.0,"flip":false,"kind":0,"id":100000,"region":region,"route_s":stops()[encounter_step]+180,"route_branch":branch,"altitude":0.0,"motion":"static","silhouette":world.assets.silhouette(road_actor.art,region.space.atmosphere.depth_color)}
-		world.sprites.append(scene_actor)
+		var entry:Dictionary=LocalRouteSpec.entries(route_zone,branch)[encounter_step]
+		var event_branch:int=entry.branch
+		var region: RouteRegion = world.plan.at(entry.visual_distance,event_branch)
+		var preview_key:String="%d:%d" % [event_branch,encounter_step]
+		scene_actor=event_previews[preview_key]
+		scene_actor.hidden=false
+
 		if not LocalRouteSpec.entries(route_zone,branch)[encounter_step].choice:
 			for i in range(1,model.enemy.size()):
 				var texture := arena.art_for(model.enemy[i])
 				var actor := scene_actor.duplicate()
+				actor.erase("live_discovery")
+				actor.erase("ground_anchor")
 				actor.texture = texture
 				actor.card_id = model.enemy[i].cardId
 				actor.w = 54.0*texture.get_width()/texture.get_height()
@@ -502,12 +599,21 @@ func prepare_encounter() -> void:
 				actor.hidden=arena.scene_mode
 				companions.append(actor)
 				world.sprites.append(actor)
+		if arena.enemy_actor and arena.scene_mode:arena.enemy_actor.bind_unit(model.enemy[0])
+
 func start_battle() -> void:
 	if phase not in ["sighting","encounter","defeat"] or is_social(): return
 	if phase == "defeat":
-		prepare_encounter()
-		phase = "sighting"
-		sighting_time = 0
+		# Reset the existing units in place: no new spawn, layout, camera or entrance.
+		model.reset()
+		arena.effects.clear();arena.particles.clear()
+		arena.enemy_opacity=1;arena.enemies_visible=true
+		arena.scene_enemy_sources.clear()
+		arena.battle_mix=1;arena.entrance_progress=1
+		phase="reviving";entrance_time=0
+		if arena.seer:arena.seer.trigger("revive")
+		if arena.companion_actor:arena.companion_actor.trigger("revive")
+		if arena.enemy_actor:arena.enemy_actor.trigger("revive")
 		return
 	if arena.scene_mode:
 		arena.scene_enemy_sources.clear()
@@ -515,6 +621,8 @@ func start_battle() -> void:
 		for i in range(mini(originals.size(),model.enemy.size())):
 			arena.scene_enemy_sources[model.enemy[i].uid]=originals[i].duplicate()
 			originals[i].hidden=true
+	arena.world_anchor=ForestRoute.pose(distance,branch).position
+	arena.world_facing=ForestRoute.pose(distance,branch).heading
 	_capture_launch()
 	for i in range(companions.size()):
 		var actor := companions[i]
@@ -549,6 +657,7 @@ func finish_battle(result: String) -> void:
 		Journey.save()
 		phase = "clearing"
 		clearing_time = 0
+		_sync_event_previews()
 	else:
 		phase = "defeat"
 		Journey.fighting = false
@@ -561,7 +670,9 @@ func resolve(option: String) -> void:
 		encounter_step += 1
 		Journey.state.local_steps[Journey.state.pending] = encounter_step
 		Journey.save()
-		phase = "travel"
+		phase = "clearing" if arena.scene_mode else "travel"
+		clearing_time=0
+		_sync_event_previews()
 func show_detail(unit: Dictionary) -> void:
 	selected_unit = unit
 	detail.text = "%s · 攻 %.0f · 生命 %d/%d" % [unit.name,unit.atk,unit.hp,unit.maxHp]
@@ -573,9 +684,9 @@ func note(value: String) -> void:
 	if kit_panel and kit_panel.visible: _refresh_kit.call_deferred()
 func _update_ui() -> void:
 	if not status or not arena: return
-	arena.formation_locked = phase == "entering"
+	arena.formation_locked = phase in ["entering","reviving"]
 	_layout_ui()
-	var choosing := phase in ["approach","choose"]
+	var choosing := phase == "choose"
 	var encounter := phase in ["encounter","defeat"]
 	left_button.disabled = not choosing
 	right_button.disabled = not choosing
@@ -583,7 +694,7 @@ func _update_ui() -> void:
 	right_button.visible = choosing
 	pause_button.text = "启程" if paused else "暂歇"
 	pace_button.text = "行速 · "+{0.5:"半速",1.0:"一倍",2.0:"二倍",4.0:"四倍"}.get(speed,"一倍")
-	leave_button.disabled = phase in ["battle","clearing","entering"]
+	leave_button.disabled = phase in ["battle","clearing","entering","reviving"]
 	formation_button.disabled = phase in ["battle","clearing","defeat","sighting","entering"]
 	formation_button.text = "整备完毕" if kit_panel.visible else "随行整备"
 	pause_button.disabled = kit_panel.visible
@@ -619,7 +730,15 @@ func _update_ui() -> void:
 	road_actor.visible = not arena.scene_mode and phase == "entering" and scene_actor.get("hidden",false)
 	if StyleLibrary.active:
 		for label in [title_label,status,bag_label,event_title,event_text,reward_notice,detail]: label.text = StyleLibrary.words(label.text);label.add_theme_color_override("font_color",Color("d2cbc0"))
+func _record_camera_snapshot() -> void:
+	camera_trace.sample(self)
 func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_F8:
+		var path:String=camera_trace.save(self)
+		reward_notice.text="镜头记录已保存" if not path.is_empty() else "镜头记录保存失败"
+		notice_left=4.0
+		get_viewport().set_input_as_handled()
+		return
 	if kit_panel and kit_panel.visible:
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: close_kit()
 		return
@@ -651,7 +770,9 @@ func open_camera_settings() -> void:
 		row.add_child(label)
 		var spin:=SpinBox.new();spin.min_value=entry[2];spin.max_value=entry[3];spin.step=entry[4]
 		spin.value=ForestSettings.values.get(entry[0],ForestSettings.CAMERA_PRESETS["原版视角"][entry[0]])
-		spin.value_changed.connect(func(value):ForestSettings.values[entry[0]]=value)
+		spin.value_changed.connect(func(value):
+			ForestSettings.values[entry[0]]=value
+			if arena.seer:arena.seer.world_scale_calibrated=false)
 		fields[entry[0]]=spin;row.add_child(spin);panel.add_child(row)
 	presets.item_selected.connect(func(index):
 		if index==0:return
@@ -662,3 +783,48 @@ func open_camera_settings() -> void:
 	panel.add_child(StudyUI.button("关闭 · 保留本次预览",func():dialog.queue_free()))
 	dialog.close_requested.connect(dialog.queue_free)
 	dialog.popup_centered()
+
+func route_travel_speed() -> float:
+	return TravelPace.RUN if opening_leg else TravelPace.mixed_speed(maxf(0,distance-travel_leg_origin),travel_leg_fork)
+func next_travel_target() -> float:
+	var target:float=route_spec.end
+	if encounter_step<stops().size():target=float(stops()[encounter_step])
+	if route_spec.fork and branch==0:target=minf(target,ForestRoute.PAUSE_AT)
+	return target
+func travel_envelope() -> float:
+	var remaining:=maxf(0,next_travel_target()-distance)
+	# Physical braking before the event, rather than stopping and relocating the camera.
+	return minf(1.0,sqrt(2.0*remaining/(route_travel_speed()*TravelPace.BRAKE_SECONDS)))
+
+func _sync_event_previews() -> void:
+	if not world or not arena:return
+	if arena.scene_mode and not discovery_actor:
+		discovery_actor=preload("res://scripts/battle/enemy_actor.gd").new();add_child(discovery_actor)
+	# Resources may be warm, but only the next reachable event owns a world body.
+	# An unchosen branch is not part of the player's linear event sequence yet.
+	var entries:Array=LocalRouteSpec.entries(route_zone,branch)
+	var key:=""
+	if encounter_step<entries.size():
+		var entry:Dictionary=entries[encounter_step]
+		if entry.kind=="battle" and (entry.branch==0 or branch!=0):
+			key="%d:%d" % [entry.branch,encounter_step]
+			if not event_previews.has(key):
+				var texture:Texture2D=discovery_actor.texture() if discovery_actor else StyleLibrary.texture("hound")
+				var actor:Dictionary={"actor":true,"born_at":elapsed,"edge_strength":0.0,"hidden":false,"position":ForestRoute.point_at(entry.spawn_distance,entry.branch),"texture":texture,"w":70.0*texture.get_width()/float(texture.get_height()),"h":70.0,"flip":false,"kind":0,"id":110000+event_previews.size(),"region":world.plan.at(entry.visual_distance,entry.branch),"route_s":entry.spawn_distance,"wait_s":entry.visual_distance,"spawn_s":entry.spawn_distance,"route_branch":entry.branch,"altitude":0.0,"motion":"static","event_index":encounter_step}
+				if discovery_actor:actor.live_discovery=true;actor.ground_anchor=Vector2(.5,discovery_actor.ground_uv())
+				event_previews[key]=actor;world.sprites.append(actor)
+	for preview_key in event_previews:
+		var actor:Dictionary=event_previews[preview_key]
+		var in_battle:bool=int(actor.event_index)==encounter_step and phase in ["entering","battle","defeat","reviving"]
+		actor.hidden=preview_key!=key or in_battle
+		actor.edge_strength=0.0
+		if not actor.hidden:
+			# Fixed world path, sampled from activation time; never chase the camera.
+			var duration:=TravelPace.MONSTER_APPROACH_SECONDS
+			var t:=clampf((elapsed-float(actor.born_at))/duration,0,1)
+			var progress:=t+t*t-t*t*t
+			actor.route_s=lerpf(actor.spawn_s,actor.wait_s,progress)
+			actor.position=ForestRoute.point_at(actor.route_s,actor.route_branch)
+			if discovery_actor:
+				var next_animation:="walk" if t<1 else "idle"
+				if discovery_actor.state!=next_animation:discovery_actor.play(next_animation)

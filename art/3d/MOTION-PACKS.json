@@ -1,0 +1,92 @@
+{
+  "source": "Current packs 04-10",
+  "packs": [
+    {
+      "id": "4",
+      "label": "武士",
+      "count": 98
+    },
+    {
+      "id": "5",
+      "label": "战士",
+      "count": 96
+    },
+    {
+      "id": "6",
+      "label": "制作采集",
+      "count": 45
+    },
+    {
+      "id": "7",
+      "label": "剑盾",
+      "count": 124
+    },
+    {
+      "id": "8",
+      "label": "长矛",
+      "count": 35
+    },
+    {
+      "id": "9",
+      "label": "邪恶法师",
+      "count": 9
+    },
+    {
+      "id": "10",
+      "label": "女性交互",
+      "count": 35
+    }
+  ],
+  "excluded": [
+    {
+      "name": "4_Anim_ARPGSamurai_A_Bindpose",
+      "reason": "empty animation"
+    },
+    {
+      "name": "5_ARPG_Warrior_Anim_rig_A_Bindpose",
+      "reason": "empty animation"
+    }
+  ],
+  "empty_source_files": [
+    {
+      "pack": "10",
+      "group": "女性 · 交互",
+      "source": "tempassets\\10-Female Interaction Animation Pack\\Female Interaction Animation Pack\\FemInteractAnimSet\\Animations\\Anim_Fem_TauntA1.uasset"
+    },
+    {
+      "pack": "10",
+      "group": "女性 · 交互",
+      "source": "tempassets\\10-Female Interaction Animation Pack\\Female Interaction Animation Pack\\FemInteractAnimSet\\Animations\\Anim_Fem_TauntA2.uasset"
+    },
+    {
+      "pack": "10",
+      "group": "女性 · 交互",
+      "source": "tempassets\\10-Female Interaction Animation Pack\\Female Interaction Animation Pack\\FemInteractAnimSet\\Animations\\Anim_Fem_TauntA6.uasset"
+    },
+    {
+      "pack": "5",
+      "group": "战士 · 大剑",
+      "source": "tempassets\\5-ARPG Warrior 4.26\\Content\\ARPG_Warrior\\Animations\\b.uasset"
+    },
+    {
+      "pack": "6",
+      "group": "制作 · 采集",
+      "source": "tempassets\\6-Crafting Animations 4.27\\Crafting Animations\\Content\\CraftingAnimations\\Animations\\Blacksmith_Forge.uasset"
+    },
+    {
+      "pack": "7",
+      "group": "剑盾",
+      "source": "tempassets\\7-Essential Sword Shieldnanami Animations\\data\\Content\\EssentialSwordShieldAnimations\\Animation\\BlendSpace\\Brake_Forward_.uasset"
+    },
+    {
+      "pack": "7",
+      "group": "剑盾",
+      "source": "tempassets\\7-Essential Sword Shieldnanami Animations\\data\\Content\\EssentialSwordShieldAnimations\\Animation\\BlendSpace\\Brake_Forward_1.uasset"
+    },
+    {
+      "pack": "7",
+      "group": "剑盾",
+      "source": "tempassets\\7-Essential Sword Shieldnanami Animations\\data\\Content\\EssentialSwordShieldAnimations\\Animation\\BlendSpace\\Brake_Forward_2.uasset"
+    }
+  ]
+}

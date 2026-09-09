@@ -7,6 +7,7 @@ var player: Array = []
 var enemy: Array = []
 var shots: Array[Dictionary] = []
 var mods: Dictionary = {}
+var health_multiplier:=1.0
 var stage := 0
 var phase := "prepare"
 var paused := false
@@ -40,6 +41,7 @@ func restat() -> void:
 		rules.player_mods(unit,mods)
 		BattleRules.reset(unit)
 	rules.queue_effects(player,mods)
+	for unit in player:scale_health(unit)
 	for i in range(player.size()): player[i].index = i
 func reset() -> void:
 	phase = "prepare"
@@ -51,6 +53,7 @@ func reset() -> void:
 	restat()
 	for unit in enemy:
 		rules.stats(unit,stage)
+		scale_health(unit)
 		BattleRules.reset(unit)
 func start() -> bool:
 	if phase != "prepare" or player.is_empty() or enemy.is_empty(): return false
@@ -253,3 +256,7 @@ func check_winner() -> void:
 	if result == "victory": wins += 1
 	finished.emit(result)
 
+
+func scale_health(unit:Dictionary) -> void:
+	unit.maxHp*=health_multiplier
+	unit.hp=unit.maxHp

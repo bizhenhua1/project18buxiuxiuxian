@@ -9,10 +9,15 @@ var camera_branch := 0
 var camera_region: RouteRegion
 var biome_lights:Array[Vector4]=[]
 
-func _init(art: ForestArt, route_plan: RoutePlan) -> void:
-	super(art,route_plan.straight,route_plan.regions.all(func(r):return r.space.key in ["crystal","swamp","sewer","whale","palace"]))
+func _init(art: ForestArt, route_plan: RoutePlan, empty:=false) -> void:
+	super(art,route_plan.straight,empty or route_plan.regions.all(func(r):return r.space.key in ["crystal","swamp","sewer","whale","palace"]))
 	plan = route_plan
 	assert(plan.validate().is_empty(), str(plan.validate()))
+	if empty:
+		camera_region=plan.regions[0]
+		for region in plan.regions:
+			fields[region.space.get_instance_id()]=SkyField.new(region.space.atmosphere)
+		return
 	forest_source = sprites
 	for i in range(forest_source.size()):
 		var sprite := forest_source[i]

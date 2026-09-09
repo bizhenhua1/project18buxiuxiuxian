@@ -10,5 +10,5 @@ func populate(world, region: RouteRegion) -> void:
 			value.route_branch=2
 			if ForestRoute.road_distance(value.position,true)>65:world.place_existing(value,region)
 		if region.contains(sprite.route_s, sprite.route_branch):
-			if world.plan.exits==3 and absf(sprite.position.x)<65 and sprite.position.y>700:continue
+			if world.plan.exits==3 and absf(ForestRoute.local_point(sprite.position).x)<65 and sprite.route_s>ForestRoute.JUNCTION:continue
 			world.place_existing(sprite, region)

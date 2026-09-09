@@ -1,4 +1,4 @@
-param([switch]$Editor, [switch]$Spaces, [switch]$Battle, [switch]$World, [switch]$Forest, [switch]$Adventure, [switch]$Style2, [switch]$ForestLab, [switch]$Endless, [switch]$Biomes)
+param([switch]$Editor, [switch]$Spaces, [switch]$Battle, [switch]$World, [switch]$Forest, [switch]$Adventure, [switch]$Style2, [switch]$ForestLab, [switch]$Endless, [switch]$Biomes, [switch]$Shaders)
 $ErrorActionPreference = 'Stop'
 $forkEngineCommand = Get-Command godot.exe -ErrorAction SilentlyContinue
 if (-not $forkEngineCommand) {
@@ -10,7 +10,8 @@ if (-not $forkEngineCommand) {
 }
 $forkLaunchArgs = @('--path', ('"' + $PSScriptRoot + '"'))
 if ($Editor) { $forkLaunchArgs += '--editor' }
-if ($Biomes) { $forkLaunchArgs += @('res://scenes/biome_hub.tscn','--','--style2') }
+if ($Shaders) { $forkLaunchArgs += "res://scenes/shader_browser.tscn" }
+elseif ($Biomes) { $forkLaunchArgs += @('res://scenes/biome_hub.tscn','--','--style2') }
 elseif ($Endless) { $forkLaunchArgs += @('res://scenes/endless_forest.tscn','--','--style2') }
 elseif ($ForestLab) { $forkLaunchArgs += @('res://scenes/forest_lab.tscn','--','--style2') }
 elseif ($Style2) { $forkLaunchArgs += @('res://scenes/style2_preview.tscn','--','--style2') }

@@ -10,7 +10,7 @@ var viewport: SubViewport
 var world: Node3D
 var camera: Camera3D
 var tiles := {}
-var hero: MeshInstance3D
+var hero: Node
 var outline: MeshInstance3D
 var ghost_body: MeshInstance3D
 var ghost_prop: MeshInstance3D
@@ -30,6 +30,9 @@ func setup(state: IslandModel, library: IslandAssets) -> void:
 	env.environment = Environment.new()
 	env.environment.background_mode = Environment.BG_COLOR
 	env.environment.background_color = Color("2a241c")
+	env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	env.environment.ambient_light_color=Color("99adbb")
+	env.environment.ambient_light_energy=.45
 	world.add_child(env)
 	camera = Camera3D.new()
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
@@ -47,6 +50,10 @@ func setup(state: IslandModel, library: IslandAssets) -> void:
 	selection_union.material.shader = preload("res://shaders/island_selection_union.gdshader")
 	add_child(selection_union)
 	selection_union.visible = false
+	var selector:=OptionButton.new();selector.position=Vector2(12,12);selector.custom_minimum_size=Vector2(230,36)
+	for entry in preload("res://scripts/spaces/character_library.gd").MODELS:selector.add_item("主角 · "+entry.name)
+	selector.select(hero.selected_model);selector.item_selected.connect(func(index):hero.select_model(index,true))
+	add_child(selector)
 	mouse_exited.connect(func():model.hover = Vector2i(-999,-999))
 func surface(path: String, color := Color.WHITE) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
@@ -120,7 +127,7 @@ func rebuild() -> void:
 			waterfall.material_override.set_shader_parameter("surface_height",float(cell.h)*HEIGHT)
 			root.add_child(waterfall)
 		var prop: MeshInstance3D = null
-		if cell.feat != null: prop = billboard(cell.feat.src,cell.feat.w,23.52/112)
+		if cell.feat != null: prop = billboard(cell.feat.src,cell.feat.w,0)
 		var fog := MeshInstance3D.new()
 		fog.mesh = QuadMesh.new()
 		fog.position.y = 0.006
@@ -138,8 +145,8 @@ func rebuild() -> void:
 		root.add_child(wisp)
 		var known: bool = model.style(IslandModel.key(cell)).known
 		tiles[IslandModel.key(cell)] = {"root":root,"body":body,"top":top,"prop":prop,"path":cell.base,"cell":cell,"fog":fog,"wisp":wisp,"was_known":known,"clear_t":CLEAR_SECONDS if known else 0.0,"waterfall":waterfall}
-	var texture := assets.texture(IslandAssets.HERO)
-	hero = billboard(IslandAssets.HERO,96.0/112*texture.get_width()/texture.get_height(),8.0/112)
+	hero=preload("res://scripts/world/island_hero.gd").new()
+	world.add_child(hero)
 	outline = MeshInstance3D.new()
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -228,10 +235,10 @@ func _process(_dt: float) -> void:
 		if event_visible and tile.get("event_actor") == null:
 			var event_texture := assets.texture(model.blocked[position_value].art)
 			var event_width := minf(.72,1.0*event_texture.get_width()/event_texture.get_height()) if StyleLibrary.active else .72
-			tile.event_actor = billboard(model.blocked[position_value].art,event_width,0.04)
+			tile.event_actor = billboard(model.blocked[position_value].art,event_width,0)
 		if tile.get("event_actor") != null:
 			tile.event_actor.visible=event_visible
-			tile.event_actor.position=world_position(cell.c,cell.r,cell.h)+camera.basis.z*0.44
+			tile.event_actor.position=world_position(cell.c,cell.r,cell.h)+camera.basis.z*.015
 		if style.known and not tile.was_known and not model.preview_all:
 			tile.clear_t = 0.0
 			fog_burst(tile.root)
@@ -282,15 +289,12 @@ func _process(_dt: float) -> void:
 			tile.prop.material_override.set_shader_parameter("fog_cover",0.0)
 			tile.prop.material_override.set_shader_parameter("fog_origin",IslandModel.wxz(cell.c,cell.r))
 			tile.prop.material_override.set_shader_parameter("reveal",smoothstep(0.0,0.75,clearing))
-			# Offset along the viewing ray preserves screen anchoring while lifting
-			# the illustrated feet above the solid top (original sprites overhang 23.52px).
-			tile.prop.position = tile.root.position+camera.basis.z*(23.52/112*sqrt(3.0)+.015)
+			# Center the sprite foot on the tile; a tiny depth bias avoids z fighting.
+			tile.prop.position = tile.root.position+camera.basis.z*.015
 		tile.body.visible = style.known
 		tile.body.material_override.set_shader_parameter("fog_reveal",1.0)
 		if tile.fog.visible: update_fog_union(tile)
-	var pose := model.avatar()
-	hero.position = world_position(pose.x,pose.z,pose.y)+camera.basis.z*(8.0/112*sqrt(3.0)+.015)
-	if model.walking: hero.position += camera.basis.y*sin(IslandModel.ease_walk(clampf(model.walk_t,0,1))*PI)*4*model.zoom/(112*model.zoom)
+	hero.update_world(self,_dt)
 	outline.visible = tiles.has(model.hover)
 	ghost_body.visible = outline.visible
 	ghost_prop.visible = false

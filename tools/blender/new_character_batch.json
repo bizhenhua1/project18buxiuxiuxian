@@ -1,0 +1,87 @@
+[
+  {
+    "key": "scarlet-banquet",
+    "name": "赤宴",
+    "source": "tempassets/赤宴_by_c卡萨_ca70a42f748ef6777f063f1928208ae2/赤宴_调整.pmx"
+  },
+  {
+    "key": "geisha-thirteen",
+    "name": "红蝶 · 十三娘",
+    "source": "tempassets/红蝶-十三娘_by_c卡萨_6f604f4d18d84488eb583e4f26b958fe/红蝶-十三娘.pmx"
+  },
+  {
+    "key": "mary-kuromi",
+    "name": "红夫人 · 悦乐酷洛米",
+    "source": "tempassets/红夫人-悦乐酷洛米_by_c卡萨_5ed6a1315b8c48d46894bb8ab7aec474/悦乐酷洛米_调整.pmx"
+  },
+  {
+    "key": "batter-helmsman",
+    "name": "击球手 · 冠军舵手",
+    "source": "tempassets/击球手冠军舵手MMD_by_c卡萨_03884c9d13e26c89b5da66316f36f3f6/击球手_调整.pmx"
+  },
+  {
+    "key": "cheerleader-melody",
+    "name": "拉拉队员 · 奇趣美乐蒂",
+    "source": "tempassets/拉拉队员-奇趣美乐蒂_by_c卡萨_76ab031585e61896e679be47ea6a5ea4/奇趣美乐蒂_调整.pmx"
+  },
+  {
+    "key": "prisoner",
+    "name": "囚徒",
+    "source": "tempassets/囚徒_by_Vesper012_3cf90c19c2724240666840fe10f55547/囚徒/囚徒_原皮.pmx"
+  },
+  {
+    "key": "joseph-cinnamoroll",
+    "name": "摄影师 · 梦境大耳狗",
+    "source": "tempassets/摄影师-梦境大耳狗_by_c卡萨_e1c8b623f636863bbb8e8e2346b8e1a8/约瑟夫-大耳狗.pmx"
+  },
+  {
+    "key": "joseph-necromancer-old",
+    "name": "摄影师 · 亡灵之主（老态）",
+    "source": "tempassets/摄影师-亡灵之主_by_c卡萨_ab24e976b836805a54579f8cd0ed413a/约瑟夫 老态.pmx"
+  },
+  {
+    "key": "joseph-necromancer-young",
+    "name": "摄影师 · 亡灵之主（幼态）",
+    "source": "tempassets/摄影师-亡灵之主_by_c卡萨_ab24e976b836805a54579f8cd0ed413a/约瑟夫 幼态.pmx"
+  },
+  {
+    "key": "antiquarian",
+    "name": "古董商 · 填海平",
+    "source": "tempassets/填海平模型_by_c卡萨_6dbebf0eff923785b3270d887e601daf/古董商_调整.pmx"
+  },
+  {
+    "key": "lucky-egg",
+    "name": "幸运儿 · 蛋小黄的好朋友",
+    "source": "tempassets/幸运儿-蛋小黄的好朋友_by_c卡萨_3af611977d91993422b69d54f72b2ebc/蛋小黄的好朋友_调整.pmx"
+  },
+  {
+    "key": "hermit",
+    "name": "隐士",
+    "source": "tempassets/隐士原皮_by_Vesper012_57ac027046b3788109e83eeb560f94a6/隐士原皮/隐士_原皮.pmx"
+  },
+  {
+    "key": "fools-gold",
+    "name": "愚人金",
+    "source": "tempassets/愚人金MMD模型_by_c卡萨_53e8c5f2b77c70d3dcbac57a698ba351/愚人金.pmx"
+  },
+  {
+    "key": "gardener-kitty",
+    "name": "园丁 · 异想Hello Kitty",
+    "source": "tempassets/园丁-异想Hello Kitty_by_c卡萨_622e15a59d6ccb6fa9c97bf7924f92a2/园丁-HELLO KITTY.pmx"
+  },
+  {
+    "key": "gardener-kitty-dada",
+    "name": "园丁 · Hello Kitty（達答）",
+    "source": "tempassets/hellokitty园丁_by_達答_790cebe596130908585c48df70f62a93/hellokitty园丁/hello园丁0.5.pmx"
+  },
+  {
+    "key": "king-h1",
+    "name": "KING-h1",
+    "source": "tempassets/KING-h1_by_叶尔克_dfc9b20edece7878d9d96d3ed20845a8/KING-h1/KING-h1.pmx"
+  },
+  {
+    "key": "rook",
+    "name": "ROOK",
+    "source": "tempassets/KING-h1_by_叶尔克_dfc9b20edece7878d9d96d3ed20845a8/ROOK/ROOK.pmx"
+  }
+]

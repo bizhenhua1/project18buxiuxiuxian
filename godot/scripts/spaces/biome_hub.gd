@@ -31,6 +31,13 @@ func _ready() -> void:
   else:get_tree().set_meta("tour_exits",i+1))
  get_tree().remove_meta("tour_exits")
  seeds.add_child(topology)
+ var events:=OptionButton.new()
+ for label in ["事件：前后交替","先遇事再选路","选路后遇事"]:events.add_item(label)
+ events.item_selected.connect(func(i):
+  if i==0:get_tree().remove_meta("tour_event_placement")
+  else:get_tree().set_meta("tour_event_placement","before" if i==1 else "after"))
+ get_tree().remove_meta("tour_event_placement")
+ seeds.add_child(events)
  seeds.add_child(StudyUI.label("地形种子",16))
  var seed_box:=SpinBox.new();seed_box.min_value=1;seed_box.max_value=999999;seed_box.value=Catalog.seed_value;seeds.add_child(seed_box)
  seed_box.value_changed.connect(func(v):Catalog.seed_value=int(v))

@@ -4,7 +4,6 @@ render_mode unshaded;
 uniform sampler2D floor0 : repeat_enable, filter_linear_mipmap;
 uniform sampler2D floor1 : repeat_enable, filter_linear_mipmap;
 uniform sampler2D floor2 : repeat_enable, filter_linear_mipmap;
-uniform sampler2D ceiling_texture : repeat_enable, filter_linear_mipmap;
 uniform vec4 floor_tints[3];
 uniform vec4 depth_colors[3];
 uniform bool textured[3];
@@ -18,6 +17,13 @@ uniform bool straight_route = false;
 uniform bool three_way = false;
 uniform float junction=700.0;
 uniform float turn_length=420.0;
+uniform vec2 route_origin=vec2(0.0);
+uniform float route_origin_s=0.0;
+uniform float route_origin_heading=0.0;
+vec2 route_local(vec2 p){
+ vec2 d=p-route_origin;float c=cos(route_origin_heading);float s=sin(route_origin_heading);
+ return vec2(d.x*c-d.y*s,d.x*s+d.y*c+route_origin_s);
+}
 uniform bool ecology = false;
 uniform float terrain_amplitude = 1.0;
 uniform float focal;
@@ -31,6 +37,7 @@ float terrain_height(vec2 p) {
 }
 // Same circular transition and tangent as ForestRoute; floor and props share lanes.
 float lane_distance(vec2 p) {
+    p=route_local(p);
     if(straight_route)return abs(p.x);
     float radius=turn_length/.5;
     float best=p.y<=junction || three_way?abs(p.x):length(p-vec2(0,junction));
@@ -47,6 +54,7 @@ float lane_distance(vec2 p) {
 }
 
 vec2 route_coordinate(vec2 world) {
+    world=route_local(world);
     if (straight_route) return vec2(world.y,0.0);
     float branch = world.x < 0.0 ? -1.0 : 1.0;
     float s = world.y;
@@ -92,16 +100,16 @@ void fragment() {
         COLOR = mix(sky_top, sky_bottom, smoothstep(0.0, horizon, y));
         if(lantern_enabled)COLOR.rgb*=vec3(.28,.35,.44);
         if(biome_kind==1){
-            // Continuous world-space ceiling behind the layered rock silhouettes.
-            // Use the opaque rock band of the existing shell, never its transparent mouth.
-            float roof_height=245.0;
-            float z=min(1700.0,(roof_height-camera_height)*focal/max(.2,(horizon-y)*resolution.y));
+            // A continuous horizontal cave ceiling, projected in the same world as the floor.
+            // It exists on every route; arch silhouettes are its foreground relief.
+            float ray=max(.2,(horizon-y)*resolution.y)/focal;
+            float z=(280.0-camera_height-terrain_height(camera_world))/ray;
             float x=(UV.x-.5)*resolution.x*z/focal;
             vec2 world=camera_world+vec2(cos(heading)*x+sin(heading)*z,-sin(heading)*x+cos(heading)*z);
-            vec2 rock_uv=vec2(fract(world.x/72.0)*.16,fract(world.y/72.0)*.12);
-            vec3 rock=texture(ceiling_texture,rock_uv).rgb*.48;
-            COLOR=vec4(lantern_atmosphere(rock,vec3(world.x,roof_height,world.y),z),1.0);
+            vec3 roof=texture(floor0,world*.004).rgb*vec3(.19,.27,.35);
+            COLOR=vec4(mix(roof,sky_bottom.rgb*.18,smoothstep(350.0,1500.0,z)),1.0);
         }
+
     }
     else {
         float z = camera_height*focal/max(0.2, (y-horizon)*resolution.y);

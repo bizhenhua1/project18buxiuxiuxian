@@ -17,8 +17,6 @@ func setup(art: ForestArt, world: ForestWorld, mode: int, font: Font) -> void:
 	ground_material.set_shader_parameter("three_way",scene.plan.exits == 3)
 	ground_material.set_shader_parameter("junction",ForestRoute.JUNCTION)
 	ground_material.set_shader_parameter("turn_length",ForestRoute.TURN_LENGTH)
-	if scene.plan.regions[0].space.key==&"crystal":
-		ground_material.set_shader_parameter("ceiling_texture",load("res://assets/biomes/crystal/shell.png"))
 	var types: Array[SpaceType] = []
 	var regions := PackedVector4Array()
 	var blends := PackedFloat32Array()
@@ -60,7 +58,16 @@ func sync(camera: Vector2, heading: float, elapsed: float, movement: float, bran
 	super(camera, heading, elapsed, movement, branch, labels, bob, route_distance)
 	ground_material.set_shader_parameter("lantern_enabled",renderer.lantern_enabled)
 	ground_material.set_shader_parameter("lantern_position",renderer.lantern_position())
+	ground_material.set_shader_parameter("lantern_forward",Vector2(sin(renderer.heading),cos(renderer.heading)))
 	ground_material.set_shader_parameter("enemy_light_position",renderer.enemy_light_position())
 	ground_material.set_shader_parameter("enemy_light_strength",renderer.enemy_light_strength())
 	ground_material.set_shader_parameter("atmosphere_time",elapsed)
 	renderer.bind_biome(ground_material)
+
+func sync_projection() -> void:
+	ground_material.set_shader_parameter("route_origin",ForestRoute.origin)
+	ground_material.set_shader_parameter("route_origin_s",ForestRoute.origin_s)
+	ground_material.set_shader_parameter("route_origin_heading",ForestRoute.origin_heading)
+	super()
+	ground_material.set_shader_parameter("camera_height",renderer.camera_height())
+	renderer.bind_combat_lights(ground_material)

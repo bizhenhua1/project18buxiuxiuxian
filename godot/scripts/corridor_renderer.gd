@@ -12,6 +12,8 @@ var movement := 0.0
 var selected := 0
 var show_landmarks := true
 var bob_enabled := true
+# Optional final camera offset, supplied by the journey rather than simulation time.
+var presentation_bob:=NAN
 var last_draw_ms := 0.0
 var visible_count := 0
 var font: Font
@@ -24,7 +26,7 @@ func focal() -> float:
 	return maxf(minimum_focal,minf(view_size.y * 0.86, view_size.x * 0.72))
 
 func horizon_y() -> float:
-	return view_size.y * horizon_ratio + (sin(elapsed * 8.2) * 3.0 * movement if bob_enabled else 0.0)
+	return view_size.y * horizon_ratio + ((sin(elapsed * 8.2) * 3.0 * movement if is_nan(presentation_bob) else presentation_bob) if bob_enabled else 0.0)
 
 func landmark_position(branch: int) -> Vector2:
 	if study_mode == 0:

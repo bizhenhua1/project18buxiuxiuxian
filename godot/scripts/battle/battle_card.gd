@@ -26,6 +26,7 @@ func _ready() -> void:
 	mouse_entered.connect(func():hovered = true)
 	mouse_exited.connect(func():hovered = false)
 func _get_tooltip(_position: Vector2) -> String:
+	if arena.scene_mode and not arena.equipment_open:return ""
 	if unit.is_empty(): return "准备阶段可将卡牌拖到此处"
 	return "%s · 攻击 %.1f · 间隔 %.2fs\n%s\n%s" % [unit.name,unit.atk,unit.cd/1000.0,unit.skillText,"手持：不独立承伤，血量按比例并入道童" if unit.mode == "held" else "生命 %d / %d · 护盾 %d" % [unit.hp,unit.maxHp,unit.shield]]
 func text_at(value: String, point: Vector2, font_size: int, color := Color("d8d6bd"), width := -1.0) -> void:

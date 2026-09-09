@@ -1,0 +1,56 @@
+{
+  "source": "Epic Toon FX 1.4.unitypackage",
+  "implementation": "Godot native adaptation; static textures only; not a Unity prefab conversion",
+  "textures": [
+    {
+      "guid": "13bee3ac63c3c1448bc99393d73936cc",
+      "path": "Assets/Epic Toon FX/Textures/shield_magic.png",
+      "file": "tempassets\\work\\epic-toon\\13bee3ac63c3c1448bc99393d73936cc.png"
+    },
+    {
+      "guid": "42c6cbafef4b45440b6e298646aa1ec5",
+      "path": "Assets/Epic Toon FX/Textures/sparkle.png",
+      "file": "tempassets\\work\\epic-toon\\42c6cbafef4b45440b6e298646aa1ec5.png"
+    },
+    {
+      "guid": "4f390ac040be34146a7ef5ea5ca3a776",
+      "path": "Assets/Epic Toon FX/Textures/magic_runecircle.png",
+      "file": "tempassets\\work\\epic-toon\\4f390ac040be34146a7ef5ea5ca3a776.png"
+    },
+    {
+      "guid": "715728caec68884488831ab9fd9836b4",
+      "path": "Assets/Epic Toon FX/Textures/bubble.png",
+      "file": "tempassets\\work\\epic-toon\\715728caec68884488831ab9fd9836b4.png"
+    },
+    {
+      "guid": "75c822b01a637d547abc69e6f1f590b4",
+      "path": "Assets/Epic Toon FX/Textures/glow.png",
+      "file": "tempassets\\work\\epic-toon\\75c822b01a637d547abc69e6f1f590b4.png"
+    },
+    {
+      "guid": "961576313dba37442bae2709c1321841",
+      "path": "Assets/Epic Toon FX/Textures/lightning1.png",
+      "file": "tempassets\\work\\epic-toon\\961576313dba37442bae2709c1321841.png"
+    },
+    {
+      "guid": "9cecc83887ca4cc45be4bf93b2f50c30",
+      "path": "Assets/Epic Toon FX/Textures/cloud_soft.png",
+      "file": "tempassets\\work\\epic-toon\\9cecc83887ca4cc45be4bf93b2f50c30.png"
+    },
+    {
+      "guid": "a4280d58393322842afb10bcbcfc2a83",
+      "path": "Assets/Epic Toon FX/Textures/ring.png",
+      "file": "tempassets\\work\\epic-toon\\a4280d58393322842afb10bcbcfc2a83.png"
+    },
+    {
+      "guid": "ad2eaf8182c154b40a086d794c8d8ed1",
+      "path": "Assets/Epic Toon FX/Textures/slash.png",
+      "file": "tempassets\\work\\epic-toon\\ad2eaf8182c154b40a086d794c8d8ed1.png"
+    },
+    {
+      "guid": "cc3d94d2188f94d40b9aa4774f0895b1",
+      "path": "Assets/Epic Toon FX/Textures/evil_spirit.png",
+      "file": "tempassets\\work\\epic-toon\\cc3d94d2188f94d40b9aa4774f0895b1.png"
+    }
+  ]
+}

@@ -35,9 +35,13 @@ func sync(camera: Vector2, heading: float, elapsed: float, movement: float, bran
 	renderer.selected = branch
 	renderer.show_landmarks = labels
 	renderer.bob_enabled = bob
-	ground_material.set_shader_parameter("resolution", size)
-	ground_material.set_shader_parameter("camera_world", camera)
-	ground_material.set_shader_parameter("heading", heading)
-	ground_material.set_shader_parameter("focal", renderer.focal())
-	ground_material.set_shader_parameter("horizon", renderer.horizon_y() / maxf(size.y, 1))
+	sync_projection()
+func sync_projection() -> void:
+	# Ground and vegetation consume the very same finalized projection values.
+	renderer.view_size=size
+	ground_material.set_shader_parameter("resolution",size)
+	ground_material.set_shader_parameter("camera_world",renderer.camera_world)
+	ground_material.set_shader_parameter("heading",renderer.heading)
+	ground_material.set_shader_parameter("focal",renderer.focal())
+	ground_material.set_shader_parameter("horizon",renderer.horizon_y()/maxf(size.y,1))
 	renderer.queue_redraw()

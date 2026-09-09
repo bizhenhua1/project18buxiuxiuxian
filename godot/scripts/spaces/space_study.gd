@@ -3,6 +3,7 @@ var preset := "connected"
 var scene_note: Label
 
 func _ready() -> void:
+	ForestRoute.reset_frame()
 	ForestRoute.configure(false)
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--space="): preset = arg.trim_prefix("--space=")

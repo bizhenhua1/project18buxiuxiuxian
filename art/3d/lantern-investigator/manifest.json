@@ -1,0 +1,18 @@
+{
+  "height": 3.3,
+  "head_height": 0.6,
+  "heads": 5.5,
+  "vertices": 3665,
+  "triangles": 6601,
+  "bones": 20,
+  "clips": {
+    "Idle": 72,
+    "Walk": 32,
+    "Run": 24,
+    "Attack": 36,
+    "Hit": 24,
+    "Defeat": 60
+  },
+  "fps": 24,
+  "source": "Original meshes authored procedurally through Blender MCP; no external model service."
+}

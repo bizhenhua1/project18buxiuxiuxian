@@ -6,6 +6,10 @@ static func color_for(unit: Dictionary) -> Color:
 	if id in ["masuo","lihuo-shu","taomu-jian"]: return Color("dc725a")
 	if id in ["waci-yin","tongjing"]: return Color("e6c884")
 	return Color("91d3d5") if unit.get("side","") == "player" else Color("b19bbd")
+static func glow(canvas:CanvasItem,at:Vector2,radius:float,color:Color,energy:float) -> void:
+	for i in range(8,0,-1):
+		var r:float=radius*i/8.0
+		canvas.draw_circle(at,r,Color(color,energy*.035*(1-i/10.0)))
 static func sigil(canvas: CanvasItem, center: Vector2, radius: float, color: Color, rotation: float) -> void:
 	canvas.draw_arc(center,radius,rotation,rotation+TAU*.86,48,color,1.4,true)
 	for i in range(6):
@@ -19,6 +23,8 @@ static func shot(canvas: CanvasItem, shot: Dictionary, start: Vector2, finish: V
 	var delta := finish-start
 	var normal := delta.normalized().orthogonal()
 	var envelope := smoothstep(0,.12,t)*(1-smoothstep(.72,1,t))
+	glow(canvas,start.lerp(finish,t),30,color,envelope)
+	glow(canvas,start,22,color,envelope*.8)
 	var id: String = shot.from.cardId
 	if id == "qingfeng-jian" or shot.style == "melee":
 		var points := PackedVector2Array()
@@ -53,4 +59,5 @@ static func impact(canvas: CanvasItem, event: Dictionary, at: Vector2) -> void:
 	var t: float = clampf(event.age/.38,0,1)
 	if t >= 1: return
 	var color := Color("94d8ca") if event.type in ["heal","buff","revive"] else Color("ddb98a")
+	glow(canvas,at,44+20*t,color,pow(1-t,2)*1.6)
 	sigil(canvas,at,8+t*35,Color(color,pow(1-t,2)),t*.7)

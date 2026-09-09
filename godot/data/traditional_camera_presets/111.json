@@ -1,0 +1,228 @@
+{
+  "battle_slots": [
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 31.0,
+        "height": 38.0,
+        "x": -28.5
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 46.0,
+        "height": 10.0,
+        "x": -42.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 35.5,
+        "height": 38.0,
+        "x": -23.0
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 45.0,
+        "height": 10.0,
+        "x": -29.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 29.5558794863764,
+        "height": 38.0,
+        "x": -11.3110016567551
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 43.5,
+        "height": 10.0,
+        "x": -17.5
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 36.5,
+        "height": 38.0,
+        "x": -5.0
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 42.0,
+        "height": 10.0,
+        "x": -6.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 26.5,
+        "height": 38.0,
+        "x": 4.5
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 40.0,
+        "height": 10.0,
+        "x": 6.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 30.0,
+        "height": 38.0,
+        "x": 13.0
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 42.0,
+        "height": 10.0,
+        "x": 17.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 32.0,
+        "height": 38.0,
+        "x": 21.5
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 43.0,
+        "height": 10.0,
+        "x": 27.0
+      }
+    },
+    {
+      "character": {
+        "clearance": 0.0,
+        "depth": 31.0,
+        "height": 38.0,
+        "x": 28.0
+      },
+      "preview_kind": "prop",
+      "prop": {
+        "clearance": 7.0,
+        "depth": 45.0,
+        "height": 10.0,
+        "x": 40.0
+      }
+    }
+  ],
+  "battle_units": [
+    {
+      "card_id": "waci-yin",
+      "clearance": 7.0,
+      "depth": 46.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": -42.0
+    },
+    {
+      "card_id": "masuo",
+      "clearance": 7.0,
+      "depth": 45.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": -29.0
+    },
+    {
+      "card_id": "daotong",
+      "clearance": 0.0,
+      "depth": 29.5558794863764,
+      "height": 38.0,
+      "kind": "character",
+      "occurrence": 0.0,
+      "x": -11.3110016567551
+    },
+    {
+      "card_id": "taomu-jian",
+      "clearance": 7.0,
+      "depth": 42.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": -6.0
+    },
+    {
+      "card_id": "tongjing",
+      "clearance": 7.0,
+      "depth": 40.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": 6.0
+    },
+    {
+      "card_id": "xiaohulu",
+      "clearance": 7.0,
+      "depth": 42.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": 17.0
+    },
+    {
+      "card_id": "qingfeng-jian",
+      "clearance": 7.0,
+      "depth": 43.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": 27.0
+    },
+    {
+      "card_id": "lihuo-shu",
+      "clearance": 7.0,
+      "depth": 45.0,
+      "height": 10.0,
+      "kind": "prop",
+      "occurrence": 0.0,
+      "x": 40.0
+    }
+  ],
+  "coordinates": "route units; lateral=right, forward=ahead relative to encounter stop; horizon is normalized screen Y",
+  "frames": {
+    "battle": {
+      "forward": 0.5,
+      "height": 38.0,
+      "horizon": 0.235,
+      "lateral": 0.0,
+      "lens": 0.9,
+      "yaw": 0.0
+    },
+    "event": {
+      "forward": 0.0,
+      "height": 40.0,
+      "horizon": 0.29,
+      "lateral": 0.0,
+      "lens": 0.92,
+      "yaw": 0.0
+    },
+    "travel": {
+      "forward": 8.0,
+      "height": 23.0,
+      "horizon": 0.48,
+      "lateral": 0.0,
+      "lens": 1.0,
+      "yaw": 0.0
+    }
+  },
+  "mode": "traditional_2_5d",
+  "name": "111",
+  "version": 3
+}

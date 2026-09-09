@@ -5,6 +5,7 @@ var owner_app: Control
 var cards: Array[BattleCard] = []
 var textures := {}
 var effects: Array[Dictionary] = []
+var light_flashes:Array[Dictionary]=[]
 var selected_uid := -1
 var scenery: CorridorView
 var vfx: Node2D
@@ -12,6 +13,12 @@ var sigil_font: SystemFont
 var external_scenery := false
 var equipment_open := false
 var scene_enemy_sources:Dictionary={}
+var formation_motion=preload("res://scripts/battle/formation_motion.gd").new()
+var formation_ready:=false
+var world_slots:Dictionary={}
+var world_lineup:Array=[]
+var world_anchor:=Vector2.ZERO
+var world_facing:=0.0
 var battle_mix := 0.0
 var entrance_progress := 1.0
 var formation_locked := false
@@ -22,6 +29,9 @@ var art_textures := {}
 var particles: BattleParticles
 var show_card_names := false
 var card_scale := 1.0
+var companion_actor:Node
+var enemy_actor:Node
+var seer:Node
 var scene_mode:=true
 var relic_reverse:=true
 var enemy_backdrop: AdventurePanel
@@ -70,6 +80,18 @@ func setup(state: BattleModel, app: Control, route_view: CorridorView = null) ->
 	particles.z_index = 190
 	add_child(particles)
 	particles.setup(self)
+	if StyleLibrary.active:
+		var selection=ConfigFile.new();var hero_index:=0
+		if selection.load("user://world-hero.cfg")==OK:hero_index=clampi(int(selection.get_value("hero","index",0)),0,preload("res://scripts/spaces/character_library.gd").MODELS.size()-1)
+		if hero_index==0:seer=preload("res://scripts/battle/seer_actor.gd").new()
+		else:
+			seer=preload("res://scripts/battle/selected_hero_actor.gd").new()
+			seer.model_scene=load("res://assets/characters3d/"+preload("res://scripts/spaces/character_library.gd").MODELS[hero_index].file)
+			seer.ally=true
+		add_child(seer)
+		companion_actor=preload("res://scripts/battle/enemy_actor.gd").new()
+		companion_actor.model_scene=preload("res://assets/characters3d/isabella.glb");companion_actor.ally=true;add_child(companion_actor)
+		enemy_actor=preload("res://scripts/battle/enemy_actor.gd").new();add_child(enemy_actor)
 	rebuild()
 func clean_path(path: String) -> String:
 	path = StyleLibrary.path(path)
@@ -99,6 +121,13 @@ func texture_for(path: String) -> Texture2D:
 	if not textures.has(path): textures[path] = load("res://"+path)
 	return textures[path]
 func rebuild() -> void:
+	var lineup:Array=model.player.map(func(unit):return unit.uid)
+	if lineup!=world_lineup:
+		world_slots.clear()
+		world_lineup=lineup
+	var living_ids:Array=lineup+model.enemy.map(func(unit):return unit.uid)
+	for uid in world_slots.keys():
+		if uid not in living_ids:world_slots.erase(uid)
 	var previous := cards.duplicate()
 	cards.clear()
 	for side in ["enemy","player"]:
@@ -143,6 +172,32 @@ func anchor(uid: int) -> Vector2:
 	return size/2
 func _process(dt: float) -> void:
 	if not model: return
+	if scenery.renderer is SegmentRenderer:
+		scenery.renderer.combat_lights.clear()
+		for light in light_flashes:
+			if not model.paused:light.age+=dt*owner_app.speed
+			if light.age>=light.duration:continue
+			var pulse:Dictionary=light.duplicate()
+			pulse.energy=light.strength*smoothstep(0,.035,light.age)*pow(1-light.age/light.duration,2)
+			scenery.renderer.combat_lights.append(pulse)
+		light_flashes=light_flashes.filter(func(light):return light.age<light.duration)
+	if seer:
+		var heroes=model.player.filter(func(u):return u.cardId=="daotong")
+		if not heroes.is_empty() and float(heroes[0].hp)>0 and seer.defeated:seer.trigger("revive")
+		seer.opening_run=external_scenery and owner_app.route_travel_speed()>TravelPace.WALK*1.1 and str(owner_app.get("phase")) in ["travel","approach"]
+		var walk_input:float=float(owner_app.get("moving_envelope")) if external_scenery else 0.0
+		if str(owner_app.get("phase")) in ["entering","clearing","encounter"] and not heroes.is_empty():walk_input=clampf(formation_motion.speed_of(heroes[0].uid)/TravelPace.WALK,0,1)
+		seer.opening_run=seer.opening_run or (str(owner_app.get("phase")) in ["entering","clearing"] and not heroes.is_empty() and formation_motion.speed_of(heroes[0].uid)>TravelPace.WALK*1.1)
+		seer.sync(dt,str(owner_app.get("phase")),walk_input,model.paused,owner_app.speed,scene_mode and not equipment_open,float(owner_app.get("presented_travel_distance")) if external_scenery else 0.0)
+	if companion_actor:
+		var candidates=model.player.filter(func(u):return u.cardId!="daotong" and (u.get("portrait_kind","")=="person" or u.cardType=="char"))
+		if not candidates.is_empty():companion_actor.bind_unit(candidates[0])
+		var companion_phase:=str(owner_app.get("phase"))
+		if companion_phase in ["entering","clearing"] and not candidates.is_empty() and formation_motion.speed_of(candidates[0].uid)<.5:companion_phase="battle"
+		companion_actor.advance(dt,companion_phase,model.paused,owner_app.speed,scene_mode and not equipment_open and not candidates.is_empty())
+	if enemy_actor:
+		if not model.enemy.is_empty():enemy_actor.bind_unit(model.enemy[0])
+		enemy_actor.advance(dt,str(owner_app.get("phase")),model.paused,owner_app.speed,scene_mode and not model.enemy.is_empty(),entrance_progress)
 	particles.advance(dt,owner_app.speed,model.paused)
 	if not model.paused: visual_time += dt*owner_app.speed
 	var player_count := model.cap() if equipment_open else maxi(1,model.player.size())
@@ -183,7 +238,9 @@ func _process(dt: float) -> void:
 	scenery.size = size
 	scenery.renderer.horizon_ratio = .48 if scene_mode else lerpf(.48,.43,battle_mix)
 	if scenery.renderer is SegmentRenderer:scenery.renderer.set_battle_camera(battle_mix,scene_mode)
-	if scene_mode and not equipment_open:layout_scene_units()
+	scenery.renderer.view_size=size
+	scenery.renderer.minimum_focal=size.x*.15
+	if scene_mode and not equipment_open and size.x>1 and size.y>1:layout_scene_units(0.0 if model.paused else dt*owner_app.speed)
 	if equipment_open:
 		var extra := maxf(0,216-scenery.position.y)
 		scenery.position.y += extra
@@ -212,7 +269,26 @@ func aim_motion(card:BattleCard,other_uid:int,recoil:bool=false) -> void:
 	var depth:float=ForestRoute.to_camera(card.scene_rest_position,renderer.camera_world,renderer.heading).y
 	card.motion_distance=minf(line.length()*.12,clampf(depth*.055,1.5,10))*(.65 if recoil else 1.0)
 
+func flash_light(unit:Dictionary,color:Color,strength:float,radius:float) -> void:
+	if not scene_mode or not scenery.renderer is SegmentRenderer:return
+	for card in cards:
+		if card.unit.get("uid",-1)!=unit.get("uid",-2):continue
+		var point:Vector2=card.scene_rest_position
+		var altitude:float=22.0 if card.side=="player" else 28.0
+		light_flashes.append({"position":Vector3(point.x,altitude,point.y),"color":color,"radius":radius,"strength":strength,"age":0.0,"duration":.42})
+		while light_flashes.size()>4:light_flashes.pop_front()
+		break
 func on_event(event: Dictionary) -> void:
+	if companion_actor:
+		var unit:Dictionary=event.get("from",event.get("unit",{}))
+		if int(unit.get("uid",-2))==companion_actor.uid:companion_actor.trigger(event.type)
+	if enemy_actor:
+		var unit:Dictionary=event.get("from",event.get("unit",{}))
+		if int(unit.get("uid",-2))==enemy_actor.uid:enemy_actor.trigger(event.type)
+	# Generic combat events do not emit light; future luminous skills opt in explicitly.
+	if seer:
+		var unit:Dictionary=event.get("from",event.get("unit",{}))
+		if unit.get("cardId","")=="daotong" and unit.get("side","")=="player":seer.trigger(event.type)
 	if event.type in ["shot","cast"]:
 		for card in cards:
 			if card.unit.get("uid",-1) == event.from.uid:
@@ -324,5 +400,5 @@ func scene_art(unit:Dictionary,side:String) -> Texture2D:
 	if ResourceLoader.exists(path):return texture_for(path)
 	return art_for(unit)
 
-func layout_scene_units() -> void:
-	SceneFormation.update(self)
+func layout_scene_units(dt:float=0.0) -> void:
+	SceneFormation.update(self,dt)

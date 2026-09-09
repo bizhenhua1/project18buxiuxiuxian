@@ -1,6 +1,6 @@
 class_name SpaceAssets
 extends RefCounted
-var textures := {}
+static var textures := {}
 func texture(path: String) -> Texture2D:
 	if path not in textures:
 		var source: Texture2D = load(StyleLibrary.path(path))
@@ -24,4 +24,5 @@ func silhouette(texture_value: Texture2D, color: Color) -> Texture2D:
 				source.set_pixel(x, y, Color(color, source.get_pixel(x,y).a))
 		source.generate_mipmaps()
 		silhouettes[key] = ImageTexture.create_from_image(source)
+	shared_silhouettes[key]=silhouettes[key]
 	return silhouettes[key]

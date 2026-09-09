@@ -1,0 +1,256 @@
+[
+  {
+    "name": "不持武器",
+    "file": "",
+    "length": 1,
+    "pack": "7"
+  },
+  {
+    "name": "箭 A",
+    "file": "arrow_A.gltf",
+    "length": 0.65,
+    "scale": 4.8683245931673165,
+    "kind": "arrow",
+    "pack": "7"
+  },
+  {
+    "name": "箭 B",
+    "file": "arrow_B.gltf",
+    "length": 0.65,
+    "scale": 4.38260912199747,
+    "kind": "arrow",
+    "pack": "7"
+  },
+  {
+    "name": "战斧 A",
+    "file": "axe_A.gltf",
+    "length": 0.8,
+    "scale": 0.6884355109992925,
+    "kind": "axe",
+    "pack": "7"
+  },
+  {
+    "name": "战斧 B",
+    "file": "axe_B.gltf",
+    "length": 0.8,
+    "scale": 0.4815618309827496,
+    "kind": "axe",
+    "pack": "7"
+  },
+  {
+    "name": "战斧 C",
+    "file": "axe_C.gltf",
+    "length": 0.8,
+    "scale": 0.5918374610968977,
+    "kind": "axe",
+    "pack": "7"
+  },
+  {
+    "name": "弓 A",
+    "file": "bow_A.gltf",
+    "length": 1.05,
+    "scale": 11.457991462561989,
+    "kind": "bow",
+    "pack": "7"
+  },
+  {
+    "name": "弓 A_withString",
+    "file": "bow_A_withString.gltf",
+    "length": 1.05,
+    "scale": 11.457991462561989,
+    "kind": "bow",
+    "pack": "7"
+  },
+  {
+    "name": "弓 B",
+    "file": "bow_B.gltf",
+    "length": 1.05,
+    "scale": 6.303799909617659,
+    "kind": "bow",
+    "pack": "7"
+  },
+  {
+    "name": "弓 B_withString",
+    "file": "bow_B_withString.gltf",
+    "length": 1.05,
+    "scale": 6.303799909617659,
+    "kind": "bow",
+    "pack": "7"
+  },
+  {
+    "name": "匕首 A",
+    "file": "dagger_A.gltf",
+    "length": 0.42,
+    "scale": 0.32601282281902144,
+    "kind": "dagger",
+    "pack": "7"
+  },
+  {
+    "name": "匕首 B",
+    "file": "dagger_B.gltf",
+    "length": 0.42,
+    "scale": 0.30899320350784515,
+    "kind": "dagger",
+    "pack": "7"
+  },
+  {
+    "name": "拳刃 A",
+    "file": "fistweapon_A.gltf",
+    "length": 0.32,
+    "scale": 3.725475791986237,
+    "kind": "fistweapon",
+    "pack": "7"
+  },
+  {
+    "name": "拳刃 A_stacked",
+    "file": "fistweapon_A_stacked.gltf",
+    "length": 0.32,
+    "scale": 1.9670673756162762,
+    "kind": "fistweapon",
+    "pack": "7"
+  },
+  {
+    "name": "拳刃 B",
+    "file": "fistweapon_B.gltf",
+    "length": 0.32,
+    "scale": 1.8145196543336974,
+    "kind": "fistweapon",
+    "pack": "7"
+  },
+  {
+    "name": "拳刃 B_stacked",
+    "file": "fistweapon_B_stacked.gltf",
+    "length": 0.32,
+    "scale": 1.3428052984983747,
+    "kind": "fistweapon",
+    "pack": "7"
+  },
+  {
+    "name": "长戟 ",
+    "file": "halberd.gltf",
+    "length": 1.9,
+    "scale": 0.6917166198509045,
+    "kind": "halberd",
+    "pack": "8"
+  },
+  {
+    "name": "战锤 A",
+    "file": "hammer_A.gltf",
+    "length": 0.85,
+    "scale": 0.7463416153160917,
+    "kind": "hammer",
+    "pack": "7"
+  },
+  {
+    "name": "战锤 B",
+    "file": "hammer_B.gltf",
+    "length": 0.85,
+    "scale": 0.5631159191720526,
+    "kind": "hammer",
+    "pack": "7"
+  },
+  {
+    "name": "战锤 C",
+    "file": "hammer_C.gltf",
+    "length": 0.85,
+    "scale": 0.6113053500666094,
+    "kind": "hammer",
+    "pack": "7"
+  },
+  {
+    "name": "盾牌 A",
+    "file": "shield_A.gltf",
+    "length": 0.62,
+    "scale": 0.6327273021460038,
+    "kind": "shield",
+    "pack": "7"
+  },
+  {
+    "name": "盾牌 B",
+    "file": "shield_B.gltf",
+    "length": 0.62,
+    "scale": 0.46879475203107046,
+    "kind": "shield",
+    "pack": "7"
+  },
+  {
+    "name": "盾牌 C",
+    "file": "shield_C.gltf",
+    "length": 0.62,
+    "scale": 0.4658923819446553,
+    "kind": "shield",
+    "pack": "7"
+  },
+  {
+    "name": "长枪 A",
+    "file": "spear_A.gltf",
+    "length": 1.95,
+    "scale": 0.6212695744448931,
+    "kind": "spear",
+    "pack": "8"
+  },
+  {
+    "name": "法杖 A",
+    "file": "staff_A.gltf",
+    "length": 1.65,
+    "scale": 0.7676639255386353,
+    "kind": "staff",
+    "pack": "9"
+  },
+  {
+    "name": "法杖 B",
+    "file": "staff_B.gltf",
+    "length": 1.65,
+    "scale": 0.7124557555951804,
+    "kind": "staff",
+    "pack": "9"
+  },
+  {
+    "name": "长剑 A",
+    "file": "sword_A.gltf",
+    "length": 0.95,
+    "scale": 0.5355564332702836,
+    "kind": "sword",
+    "pack": "7"
+  },
+  {
+    "name": "长剑 B",
+    "file": "sword_B.gltf",
+    "length": 0.95,
+    "scale": 0.5320377244995275,
+    "kind": "sword",
+    "pack": "7"
+  },
+  {
+    "name": "长剑 C",
+    "file": "sword_C.gltf",
+    "length": 0.95,
+    "scale": 0.4461833980335698,
+    "kind": "sword",
+    "pack": "7"
+  },
+  {
+    "name": "长剑 D",
+    "file": "sword_D.gltf",
+    "length": 0.95,
+    "scale": 0.46611124492152434,
+    "kind": "sword",
+    "pack": "7"
+  },
+  {
+    "name": "长剑 E",
+    "file": "sword_E.gltf",
+    "length": 0.95,
+    "scale": 0.29215607385595205,
+    "kind": "sword",
+    "pack": "7"
+  },
+  {
+    "name": "短杖 A",
+    "file": "wand_A.gltf",
+    "length": 0.5,
+    "scale": 0.432431384716803,
+    "kind": "wand",
+    "pack": "9"
+  }
+]

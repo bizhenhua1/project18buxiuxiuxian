@@ -1,0 +1,206 @@
+{
+  "materials": [
+    {
+      "material": "上牙",
+      "texture": "hair.png"
+    },
+    {
+      "material": "下牙",
+      "texture": "hair.png"
+    },
+    {
+      "material": "舌头",
+      "texture": "hair.png"
+    },
+    {
+      "material": "口腔",
+      "texture": "hair.png"
+    },
+    {
+      "material": "眼",
+      "texture": "hair.png"
+    },
+    {
+      "material": "脸",
+      "texture": "hair.png"
+    },
+    {
+      "material": "兜帽",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "毛衣",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "眼罩",
+      "texture": "hair.png"
+    },
+    {
+      "material": "后发",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片1o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片2o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片3o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片4o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片5o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片6（碎）",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片7o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片8o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片9o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片10o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "前发片11o",
+      "texture": "hair.png"
+    },
+    {
+      "material": "裤子",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "外衣",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "衣服金属",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "鞋子",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "书",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "书金属",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "望远镜",
+      "texture": "33.png"
+    },
+    {
+      "material": "望远镜镜片",
+      "texture": "33.png"
+    },
+    {
+      "material": "望远镜背带",
+      "texture": "33.png"
+    },
+    {
+      "material": "下衣",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "裤带",
+      "texture": "cloth2.png"
+    },
+    {
+      "material": "项链挂坠",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "背带金属",
+      "texture": "33.png"
+    },
+    {
+      "material": "项链吊环",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "项链",
+      "texture": "cloth1.png"
+    },
+    {
+      "material": "后领",
+      "texture": "cloth3.png"
+    }
+  ],
+  "bones": 414,
+  "vertices": 20265,
+  "triangles": 22442,
+  "clips": [
+    {
+      "name": "EM_Attack01",
+      "frames": 40,
+      "fps": 30
+    },
+    {
+      "name": "EM_Attack02",
+      "frames": 49,
+      "fps": 30
+    },
+    {
+      "name": "EM_Attack03",
+      "frames": 81,
+      "fps": 30
+    },
+    {
+      "name": "EM_Death",
+      "frames": 90,
+      "fps": 30
+    },
+    {
+      "name": "EM_Idle",
+      "frames": 154,
+      "fps": 30
+    },
+    {
+      "name": "EM_RangeAttack",
+      "frames": 70,
+      "fps": 30
+    },
+    {
+      "name": "EM_Run",
+      "frames": 26,
+      "fps": 30
+    },
+    {
+      "name": "EM_Special",
+      "frames": 87,
+      "fps": 30
+    },
+    {
+      "name": "EM_Walk",
+      "frames": 41,
+      "fps": 30
+    }
+  ]
+}

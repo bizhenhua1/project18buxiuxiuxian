@@ -5,7 +5,7 @@ signal map_changed
 signal arrived(cell: Dictionary)
 signal event_requested(position: Vector2i)
 const NBS := [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
-const STEP_SECONDS := 0.36
+const STEP_SECONDS := 0.5625
 const SPIN_SECONDS := 0.30
 var samples: Array
 var map_index := 0
@@ -35,7 +35,7 @@ var reveal_range := 0
 var blocked := {}
 var rebounding := false
 var approach_event := Vector2i(-999,-999)
-const REBOUND_SECONDS := 0.24
+const REBOUND_SECONDS := 0.375
 func reveal_near(position: Vector2i) -> void:
 	var radius := (reveal_range+1)/2
 	for cell in cells:
@@ -184,9 +184,9 @@ func advance(dt: float) -> void:
 	zoom = lerpf(zoom,zoom_goal,minf(1,dt/0.07))
 	if absf(zoom-zoom_goal) < 0.0008: zoom = zoom_goal
 	if walking:
-		walk_t += dt/(REBOUND_SECONDS if rebounding else STEP_SECONDS)
+		walk_t += dt/step_seconds()
 		while walking and walk_t >= 1:
-			var extra := walk_t-1
+			var extra := (walk_t-1)*step_seconds()
 			if rebounding:
 				walking=false
 				rebounding=false
@@ -214,7 +214,7 @@ func advance(dt: float) -> void:
 				approach_event=Vector2i(-999,-999)
 			else:
 				begin_step()
-				walk_t = extra
+				walk_t = extra/step_seconds()
 	if spin_direction != 0:
 		spin_t += dt/SPIN_SECONDS
 		if spin_t >= 1:
@@ -228,8 +228,25 @@ func advance(dt: float) -> void:
 static func ease_walk(t: float) -> float: return 2*t*t if t < 0.5 else 1-pow(-2*t+2,2)/2
 func avatar() -> Vector3:
 	if not walking: return Vector3(player.x,lookup[player].h,player.y)
-	var weight := ease_walk(clampf(walk_t,0,1))
-	return Vector3(lerpf(walk_from.x,walk_to.x,weight),lerpf(lookup[walk_from].h,lookup[walk_to].h,weight),lerpf(walk_from.y,walk_to.y,weight))
+	var weight := clampf(walk_t,0,1)
+	var height:float=lookup[walk_from].h
+	if has_height_step():
+		var start:=jump_start()
+		var end:=.82
+		var destination:float=lookup[walk_to].h
+		if weight>=end:height=destination
+		elif weight>start:
+			# Upward jumps clear the vertical face before crossing the shared edge (.5).
+			# Downward jumps step off the lip, with a small lift followed by a longer fall.
+			var peak_at:=.49 if destination>height else .54
+			var peak:=maxf(height,destination)+(.35 if destination>height else .10)
+			if weight<peak_at:
+				var rise:float=(weight-start)/(peak_at-start)
+				height=lerpf(height,peak,1-pow(1-rise,2))
+			else:
+				var fall:float=(weight-peak_at)/(end-peak_at)
+				height=lerpf(peak,destination,fall*fall)
+	return Vector3(lerpf(walk_from.x,walk_to.x,weight),height,lerpf(walk_from.y,walk_to.y,weight))
 func style(position: Vector2i) -> Dictionary:
 	var lv := level(position)
 	var distance := absi(position.x-player.x)+absi(position.y-player.y)
@@ -296,3 +313,17 @@ func restore(data: Dictionary) -> bool:
 	update_sight()
 	changed.emit()
 	return true
+
+
+func has_height_step() -> bool:
+	return walking and lookup[walk_from].h!=lookup[walk_to].h
+func jump_start() -> float:
+	# Centers are one unit apart; the shared edge is halfway between them.
+	return 1.0/3.0 if lookup[walk_to].h>lookup[walk_from].h else .46
+func is_jumping() -> bool:
+	return has_height_step() and walk_t>=jump_start() and walk_t<.82
+func jump_progress() -> float:
+	return clampf((walk_t-jump_start())/(.82-jump_start()),0,1)
+func step_seconds() -> float:
+	if rebounding:return REBOUND_SECONDS
+	return .875 if has_height_step() else STEP_SECONDS

@@ -2,10 +2,11 @@ class_name SceneFormation
 extends RefCounted
 const SpatialMarks = preload("res://scripts/battle/asset_spatial_marks.gd")
 ## World-space battle feet use the same projection and painter order as vegetation.
-static func update(arena:BattleArena) -> void:
+static func update(arena:BattleArena,dt:float=0.0) -> void:
 	var renderer:=arena.scenery.renderer as SegmentRenderer
 	if not renderer:return
 	renderer.battle_actors.clear()
+	arena.formation_ready=true
 	arena.enemy_backdrop.visible=false;arena.player_backdrop.visible=false
 	var people:Array=[];var props:Array=[]
 	for card in arena.cards:
@@ -19,99 +20,119 @@ static func update(arena:BattleArena) -> void:
 	var player_order:Array=arena.cards.filter(func(c):return c.side=="player" and not c.unit.is_empty())
 	player_order.sort_custom(func(a,b):return a.index<b.index)
 	var lane_centers:Dictionary={}
-	var total:=0.0
-	for view in player_order:total+=3.0 if view in people else 1.0
-	var cursor:=0.0
-	for view in player_order:
-		var weight:=3.0 if view in people else 1.0
-		var lane:=.05+.9*(cursor+weight*.5)/maxf(total,1)
-		# Monotone remapping leaves a central sightline without changing card order.
-		lane_centers[view.unit.uid]=remap(lane,.05,.5,.05,.36) if lane<=.5 else remap(lane,.5,.95,.64,.95)
-		cursor+=weight
-	# Divide each free interval among its consecutive props, preserving card order.
-	var run:Array=[]
-	var left_edge:=.10
-	for i in range(player_order.size()+1):
-		var view=player_order[i] if i<player_order.size() else null
-		if view!=null and view not in people:
-			run.append(view);continue
-		var right_edge:float=maxf(left_edge+.02,lane_centers[view.unit.uid]-.08) if view!=null else .90
-		for j in range(run.size()):lane_centers[run[j].unit.uid]=lerpf(left_edge,right_edge,(j+.5)/run.size())
-		run.clear()
-		if view!=null:left_edge=lane_centers[view.unit.uid]+.14
-	var deployed:=arena.battle_mix
+	# Every card receives one equal angular sector, irrespective of character or prop.
+	var arc_angles:Dictionary={}
+	for i in range(player_order.size()):
+		var t:float=(i+.5)/maxi(1,player_order.size())
+		var angle:=lerpf(-PI/3,PI/3,t)
+		arc_angles[player_order[i].unit.uid]=angle
+		lane_centers[player_order[i].unit.uid]=.5+.46*sin(angle)
+	var live_template=arena.owner_app.get("live_template")
+	var template_enabled:bool=live_template!=null and not live_template.data.is_empty() and not arena.owner_app.has_meta("traditional_editor")
+	if template_enabled:
+		var model_uids:Array=[]
+		for unit in arena.model.player:
+			if (arena.seer and unit.cardId=="daotong") or (arena.companion_actor and unit.uid==arena.companion_actor.uid):model_uids.append(unit.uid)
+		live_template.prepare_slots(arena.model.player,model_uids)
 	var entering:bool=arena.owner_app.phase=="entering"
-	var clock:float=arena.entrance_progress if entering else deployed
-	var right:=Vector2(cos(renderer.heading),-sin(renderer.heading))
-	var forward:=Vector2(sin(renderer.heading),cos(renderer.heading))
+	var clock:float=arena.entrance_progress if entering else (1.0 if arena.owner_app.phase in ["battle","clearing","defeat","reviving"] else 0.0)
+	var moving:bool=arena.owner_app.phase in ["travel","approach","sighting","encounter","choose"]
+	var route_pose:Dictionary=ForestRoute.pose(float(arena.owner_app.distance),int(arena.owner_app.branch))
+	var frame_heading:float=route_pose.heading if moving else arena.world_facing
+	var frame_origin:Vector2=route_pose.position if moving else arena.world_anchor
+	var right:=Vector2(cos(frame_heading),-sin(frame_heading))
+	var forward:=Vector2(sin(frame_heading),cos(frame_heading))
 	var leaving:bool=arena.owner_app.phase=="clearing"
-	var exit_t:float=1-deployed if leaving else 0.0
+	var reference:Vector2=route_pose.position
+	if leaving:reference=ForestRoute.pose(float(arena.owner_app.distance)+arena.owner_app.EXIT_ADVANCE*smoothstep(0,1.4,float(arena.owner_app.clearing_time)),int(arena.owner_app.branch)).position
+	arena.formation_motion.advance_reference(reference,arena.owner_app.phase in ["travel","approach"])
 	# Frame once against the settled camera, not the changing transition camera.
 	var settled_focal:float=renderer.focal()/renderer.combat_lens*.92
 	var settled_eye:float=renderer.camera_height()-renderer.shoulder_lift+10
 	var settled_horizon:float=renderer.horizon_y()+renderer.view_size.y*(renderer.battle_frame_shift-.19)
+	if template_enabled:
+		# The editor captured original world slots before camera editing. Keep that same
+		# reference here: live camera changes must never move the travel destination.
+		settled_focal=maxf(renderer.minimum_focal,minf(renderer.view_size.y*.86,renderer.view_size.x*.72))*float(ForestSettings.values.get("camera_lens",1.0))*.92
+		settled_eye=float(ForestSettings.values.get("camera_height",58.0))+10
+		settled_horizon=renderer.view_size.y*(float(ForestSettings.values.get("camera_horizon",.48))-.19)
 	for card in arena.cards:
 		if card.unit.is_empty():continue
-		var texture:=arena.scene_art(card.unit,card.side)
+		var live:bool=arena.seer!=null and card.side=="player" and card.unit.get("cardId","")=="daotong"
+		var ally_live:bool=arena.companion_actor!=null and card.side=="player" and card.unit.uid==arena.companion_actor.uid
+		var enemy_live:bool=arena.enemy_actor!=null and card.side=="enemy" and card.index==0
+		var texture:Texture2D=arena.seer.texture() if live else arena.scene_art(card.unit,card.side)
+		if ally_live:texture=arena.companion_actor.texture()
+		if enemy_live:texture=arena.enemy_actor.texture()
 		if not texture:continue
 		var person:=people.find(card)
 		var source:Dictionary=arena.scene_enemy_sources.get(card.unit.uid,{})
-		var reveal:float=arena.enemy_opacity*(1.0 if not source.is_empty() and not source.get("hidden",false) else smoothstep(.24,.48,clock)) if card.side=="enemy" else smoothstep(.18,.85,deployed)
+		var reveal:float=arena.enemy_opacity*(1.0 if not source.is_empty() and not source.get("hidden",false) else smoothstep(.24,.48,clock)) if card.side=="enemy" else smoothstep(.35,.65,clock)
+		if live:reveal=1.0
 		card.visible=reveal>.001 and (card.side=="player" or arena.enemies_visible)
 		card.modulate.a=reveal
 		if not card.visible:continue
-		var x:=0.0;var z:=0.0;var world_height:=0.0;var altitude:=0.0
-		if card.side=="enemy":
-			var slot:int=card.index
-			x=(slot-(arena.model.enemy.size()-1)*.5)*46
-			z=210.0+8*(card.index%2);world_height=54.0
-		elif person>=0:
-			# Left means farther into the scene. Keep every character foot below the viewport.
-			var far_depth:float=maxf(22,(settled_eye-5)*settled_focal/maxf(1,arena.size.y*1.15-settled_horizon))
-			var rank:float=person/float(maxi(1,people.size()-1))
-			var target_depth:float=far_depth*lerpf(1.0,.78,rank)
-			z=target_depth-16
-			world_height=46.0
-			altitude=0.0
-		else:
-			var arc_x:float=clampf((lane_centers[card.unit.uid]-.5)/.46,-1,1)
-			# A shallow companion arc: outer slots must not recede into roadside trees.
-			z=44.0-8.0*sqrt(maxf(0,1-arc_x*arc_x))
-			var placement:=SpatialMarks.prop_mark(card.unit)
-			world_height=15.0
-			# Clearance is above local terrain, not an offset in screen pixels.
-			altitude=placement.clearance+sin(arena.visual_time*2+card.unit.uid)*placement.bob
-		if card.side=="player":
-			var lane:float=lane_centers[card.unit.uid]
-			var target_x:float=(lane-.5)*arena.size.x*(z+16)/settled_focal
-			x=target_x
-		var world_position:=renderer.camera_world+right*x+forward*(z+16*deployed)
+		# Plan the composition once. Camera movement/zoom never updates these dimensions.
+		if not arena.world_slots.has(card.unit.uid):
+			var x:=0.0;var depth:=0.0;var height:=0.0;var clearance:=0.0
+			if card.side=="enemy":
+				x=(card.index-(arena.model.enemy.size()-1)*.5)*46
+				depth=226.0+8*(card.index%2);height=70 if enemy_live else 54
+			else:
+				var angle:float=arc_angles[card.unit.uid]
+				var t:float=(player_order.find(card)+.5)/maxi(1,player_order.size())
+				var radius:=maxf(22,(settled_eye-5)*settled_focal/maxf(1,arena.size.y*1.15-settled_horizon))
+				# A shallow arc; the slight tilt retains left-to-right depth layering.
+				depth=radius*(1.06-.12*cos(angle)-.10*t)
+				x=(lane_centers[card.unit.uid]-.5)*arena.size.x*depth/settled_focal
+				if person>=0:
+					var baseline:=settled_horizon+settled_eye*settled_focal/226+arena.size.y*.015
+					height=maxf(12,settled_eye-(baseline-settled_horizon)*depth/settled_focal)
+					if live:height=38.0
+					if ally_live:height*=1.35
+				else:
+					# Props occupy the same angular sectors on a slightly outer ring.
+					depth*=1.55
+					x=(lane_centers[card.unit.uid]-.5)*arena.size.x*depth/settled_focal
+					height=15
+					clearance=SpatialMarks.prop_mark(card.unit).clearance
+			arena.world_slots[card.unit.uid]={"x":x,"depth":depth,"height":height,"clearance":clearance,"right_facing":lane_centers.get(card.unit.uid,.5)>.5}
+		var slot:Dictionary=arena.world_slots[card.unit.uid]
+		if template_enabled and card.side=="player":live_template.apply_slot(card.unit.uid,slot,dt)
+		# Fixed default travel rig, independent of card order or hero slot.
+		var travel_focal:=settled_focal/.92
+		var travel_horizon:=settled_horizon+renderer.view_size.y*.19
+		renderer.travel_eye_offset=38.0*.83+(arena.size.y*.60-travel_horizon)*32.0/travel_focal-(settled_eye-10)
+		renderer.travel_lateral=0.0
+
+		var world_height:float=slot.height
+		var altitude:float=slot.clearance
+		var world_position:Vector2=frame_origin+right*float(slot.x)+forward*float(slot.depth)
 		if card.side=="enemy" and not source.is_empty():
-			var hop:=smoothstep(.06 if card.index==0 else .24,.70 if card.index==0 else .90,clock)
+			var hop:=smoothstep(.06 if card.index==0 else .24,.70 if card.index==0 else .90,clock) if entering else 1.0
 			world_position=source.position.lerp(world_position,hop)
-			world_height=lerpf(source.h,world_height,deployed)
-			altitude=lerpf(source.get("altitude",0.0),altitude,hop)+sin(hop*PI)*(13 if card.index==0 else 19)
-			texture=source.texture
-		if card.side=="player" and person>=0:
-			var rest_depth:float=z+16
-			var rest_ground:=ForestEcology.height_at(world_position)-ForestEcology.height_at(renderer.camera_world)
-			var enemy_baseline:float=settled_horizon+settled_eye*settled_focal/226
-			var head_line:float=enemy_baseline+arena.size.y*.015
-			var framed_height:float=maxf(12,settled_eye-rest_ground-altitude-(head_line-settled_horizon)*rest_depth/settled_focal)
-			world_height=framed_height
+			altitude+=sin(hop*PI)*(13 if card.index==0 else 19)
 		if card.side=="player":
-			if entering:
-				var chase:=smoothstep(.10,.90,clock)
-				world_position-=forward*(z+28)*(1-chase)
-				if person>=0:altitude+=absf(sin(clock*PI*5))*1.1*(1-chase)
-			elif leaving:
-				# Camera advances 36 extra units; the team walks only eight.
-				world_position-=forward*28*exit_t
-				if person>=0:altitude+=absf(sin(exit_t*PI*4))*.65
-			var visible_depth:float=ForestRoute.to_camera(world_position,renderer.camera_world,renderer.heading).y
-			reveal*=smoothstep(maxf(12,(z+16)*.70),maxf(25,(z+16)*.97),visible_depth) if entering else smoothstep(12,25,visible_depth)
-			card.visible=reveal>.001
-			if not card.visible:continue
+			var phase:String=arena.owner_app.phase
+			var travel_distance:float=arena.owner_app.distance
+			if leaving:travel_distance+=arena.owner_app.EXIT_ADVANCE*smoothstep(0,1.4,float(arena.owner_app.clearing_time))
+			var travel_pose:Dictionary=ForestRoute.pose(travel_distance,int(arena.owner_app.branch))
+			var travel_right:=Vector2(cos(travel_pose.heading),-sin(travel_pose.heading))
+			var travel_forward:=Vector2(sin(travel_pose.heading),cos(travel_pose.heading))
+			var travel_x:float=-.18*arena.size.x*32.0/travel_focal
+			var travel_position:Vector2=travel_pose.position+travel_right*travel_x+travel_forward*32.0
+			if not live:travel_position+=travel_right*(card.index-2)*5-travel_forward*8
+			var deployed:bool=phase in ["entering","battle","defeat","reviving"]
+			var target:Vector2=world_position if deployed else travel_position
+			world_position=arena.formation_motion.move(card.unit.uid,target,travel_position,dt,phase in ["defeat","reviving"] or (phase=="battle" and not template_enabled))
+			if world_position.distance_to(target)>.7:arena.formation_ready=false
+			if not live:
+				if moving:reveal=0
+				elif leaving:reveal*=1-smoothstep(.4,1.35,float(arena.owner_app.clearing_time))
+			if person<0:altitude+=sin(arena.visual_time*2+card.unit.uid)*SpatialMarks.prop_mark(card.unit).bob
+		if live:
+			var facing:=PI-.12 if moving or leaving else PI+(.22 if slot.right_facing else -.22)
+			arena.seer.body.rotation.y=lerp_angle(arena.seer.body.rotation.y,facing,1-exp(-8*dt))
 		card.scene_rest_position=world_position
 		var push:=motion_envelope(card.motion_kind,card.motion_age)
 		card.scene_motion_offset=card.motion_world_direction*card.motion_distance*push+card.motion_origin*(1-smoothstep(0,.12,card.motion_age))
@@ -126,10 +147,24 @@ static func update(arena:BattleArena) -> void:
 		card.scene_body_in_world=true
 		var tint:=Color.WHITE if BattleRules.alive(card.unit) else Color(.4,.4,.4,.45)
 		tint.a*=reveal
-		var actor:Dictionary={"edge_strength":smoothstep(0,.4,arena.model.elapsed) if card.side=="enemy" and arena.owner_app.phase in ["battle","clearing"] else 0.0,"actor":true,"born_at":-100.0,"hidden":false,"position":world_position,"texture":texture,"w":world_height*texture.get_width()/float(texture.get_height()),"h":world_height,"altitude":altitude,"ground_anchor":Vector2(.5,1),"flip":card.side=="player" and person>=0 and lane_centers[card.unit.uid]>.5,"kind":0,"id":200000+card.unit.uid,"region":renderer.world.camera_region,"motion":"static","ecology_tint":tint}
-		renderer.battle_actors.append(actor)
+		var actor:Dictionary={"edge_strength":smoothstep(0,.4,arena.model.elapsed) if card.side=="enemy" and arena.owner_app.phase in ["battle","clearing"] else 0.0,"actor":true,"born_at":-100.0,"hidden":false,"position":world_position,"texture":texture,"w":world_height*texture.get_width()/float(texture.get_height()),"h":world_height,"altitude":altitude,"ground_anchor":Vector2(.5,1),"flip":card.side=="player" and person>=0 and slot.right_facing,"kind":0,"id":200000+card.unit.uid,"region":renderer.world.camera_region,"motion":"static","ecology_tint":tint}
+		if enemy_live:
+			actor.live_enemy=true
+			if arena.enemy_actor.dead:actor.edge_strength*=1-smoothstep(.3,1.4,arena.enemy_actor.elapsed)
+			actor.ground_anchor=Vector2(.5,arena.enemy_actor.ground_uv())
+			battle_rect.position.y+=height*(1-arena.enemy_actor.ground_uv())
+		if live:
+			actor.live_character=true;actor.flip=false
+			actor.ground_anchor=Vector2(.5,.93)
+		if ally_live:
+			actor.live_companion=true;actor.flip=false
+			actor.ground_anchor=Vector2(.5,arena.companion_actor.ground_uv())
+			arena.companion_actor.body.rotation.y=PI+(.22 if slot.right_facing else -.22)
+			battle_rect.position.y+=height*(1-arena.companion_actor.ground_uv())
+		if not ((live or ally_live or enemy_live) and not BattleRules.alive(card.unit)):
+			renderer.battle_actors.append(actor)
 		card.size=battle_rect.size+Vector2(0,38)
-		card.scene_head_uv=SpatialMarks.head_uv(card.unit,texture,actor.flip)
+		card.scene_head_uv=arena.enemy_actor.head_uv() if enemy_live else SpatialMarks.head_uv(card.unit,texture,actor.flip)
 		card.position=battle_rect.position
 		card.modulate.a=reveal*smoothstep(.50,.90,arena.battle_mix)
 		card.z_index=20

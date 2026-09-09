@@ -85,10 +85,12 @@ func prepare_battle() -> bool:
 	var zone := active_zone()
 	if zone.is_empty() or cleared.has(zone.id): return false
 	battle.stage = world.map_index+int(zone.tier)
+	battle.health_multiplier=float(zone.get("battle_hp_multiplier",1.0))
 	battle.reset()
 	battle.enemy.clear()
 	var rosters := [["huoli","caoshe","yewu"],["shujing","jinchan","yewu","caoshe"],["shitoujing","yezhu","huoli","yewu","jinchan"]]
 	for id in rosters[int(zone.tier)]: battle.enemy.append(battle.rules.create_unit(id,"enemy",battle.enemy.size(),battle.stage))
+	for unit in battle.enemy:battle.scale_health(unit)
 	last_result = ""
 	return true
 func settle(result: String) -> bool:
@@ -126,7 +128,6 @@ func finish_local() -> bool:
 	updated.emit()
 	return true
 func resolve_event(option: String, complete := true) -> bool:
-	if not complete and int(local_steps.get(pending,0)) > 0: return false
 	var zone := active_zone()
 	if zone.is_empty() or cleared.has(pending): return false
 	var kind := event_kind()

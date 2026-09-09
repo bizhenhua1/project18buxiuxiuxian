@@ -1,5 +1,6 @@
 extends RefCounted
 const Catalog=preload("res://scripts/spaces/biome_catalog.gd")
+static var rock_marks:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/biomes/crystal/spatial-marks.json"))
 ## Habitat clusters are seeded once; render-time animation never re-scatters assets.
 func populate(world,region:RouteRegion) -> void:
  var key:=str(region.space.key);var c:Dictionary=Catalog.CONFIG[key]
@@ -10,6 +11,9 @@ func populate(world,region:RouteRegion) -> void:
  var s:float=region.start
  var mouth:float=ForestRoute.JUNCTION+380.0
  if not world.plan.straight and region.branch!=0:s=mouth
+ if key=="crystal":
+  populate_rock_arcs(world,region,shell)
+  s=region.end
  while s<region.end:
   var wobble:=sin(s*.013)*12 if key not in ["sewer","palace"] else 0.0
   var width:float=c.width*rng.randf_range(.97,1.06)
@@ -29,7 +33,7 @@ func populate(world,region:RouteRegion) -> void:
    put(world,region,s-1,side*width*.245,shell,7,height*.18,false,0)
    world.sprites.back()["outflow"]=true
   s+=c.spacing*rng.randf_range(.83,1.18)
- if not world.plan.straight and region.branch==0:
+ if not world.plan.straight and region.branch==0 and key!="crystal":
   if key!="swamp":
    # Whole silhouettes keep natural arch edges; cropped roof bands leave hard seams.
    for roof_s in [ForestRoute.JUNCTION+40.0,ForestRoute.JUNCTION+170.0,ForestRoute.JUNCTION+300.0]:
@@ -86,8 +90,48 @@ func add_prop(world,region:RouteRegion,s:float,x:float,tex:Texture2D,h:float,rng
  if h>8 and (absf(p.x) if world.plan.straight else ForestRoute.road_distance(p,world.plan.exits==3))<70+h*.2:return
  put(world,region,s,x,tex,h*tex.get_width()/float(tex.get_height()),h,rng.randf()<.5,0)
  world.sprites.back()["biome_prop"]=true
+ if str(region.space.key)=="crystal":
+  var anchor:Array=rock_marks["prop-%d.png"%species].ground_anchor
+  world.sprites.back().ground_anchor=Vector2(anchor[0],anchor[1])
+  world.sprites.back()["plane_heading"]=ForestRoute.pose(s,region.branch).heading
  if species in c.glow:
   world.sprites.back()["emissive"]=true
   world.biome_lights.append(Vector4(p.x,h*.65,p.y,80.0 if species!=4 else 65.0))
 func put(world,region:RouteRegion,s:float,x:float,tex:Texture2D,w:float,h:float,flip:bool,altitude:float) -> void:
  world.sprites.append({"position":ForestRoute.point_at(s,region.branch,x),"texture":tex,"w":w,"h":h,"flip":flip,"kind":0,"id":world.sprites.size(),"region":region,"route_s":s,"route_branch":region.branch,"altitude":altitude,"motion":"static","ground_anchor":Vector2(.5,1)})
+
+func populate_rock_arcs(world,region:RouteRegion,texture:Texture2D) -> void:
+ # Whole arches retain source aspect ratio. Unseparated lanes share open floor,
+ # bounded by independent rock masses, rather than stretching an arch across them.
+ var wall:Texture2D=load("res://assets/biomes/crystal/prop-2.png")
+ var s:float=ceil(region.start/85.0)*85.0
+ while s<region.end:
+  var paths:Array=[0] if world.plan.straight or s<ForestRoute.JUNCTION else [-1,2,1] if world.plan.exits==3 else [-1,1]
+  var clusters:Array=[]
+  for path in paths:
+   var point:=ForestRoute.point_at(s,path)
+   if clusters.is_empty() or point.x-float(clusters.back().right)>310.0:
+    clusters.append({"owner":path,"left":point.x,"right":point.x,"y":point.y})
+   else:clusters.back().right=point.x
+  for cluster in clusters:
+   if cluster.owner!=region.branch:continue
+   var variation:=sin(s*.037+Catalog.seed_value)*.5+.5
+   if cluster.left!=cluster.right:
+    for side in [-1,1]:
+     var high:float=185.0+variation*25.0
+     put(world,region,s,0,wall,high*wall.get_width()/float(wall.get_height()),high,side<0,0)
+     var rock:Dictionary=world.sprites.back()
+     rock.position=Vector2((cluster.left if side<0 else cluster.right)+side*205.0,cluster.y)
+     rock.ground_anchor=Vector2(.5,float(rock_marks["prop-2.png"].ground_anchor[1]))
+     rock["biome_prop"]=true;rock["plane_heading"]=side*.12
+    continue
+   var height:float=205.0+variation*15.0
+   var width:float=height*texture.get_width()/float(texture.get_height())
+   put(world,region,s,0,texture,width,height,variation>.5,0)
+   world.sprites.back().position=Vector2((cluster.left+cluster.right)*.5,cluster.y)
+   # Main rock feet, above the small foreground rubble tips in the source image.
+   var anchor:Array=rock_marks["shell.png"].ground_anchor
+   world.sprites.back().ground_anchor=Vector2(anchor[0],anchor[1])
+   world.sprites.back()["plane_heading"]=ForestRoute.pose(s,cluster.owner).heading if cluster.left==cluster.right else 0.0
+   world.sprites.back()["shell"]=true
+  s+=85.0

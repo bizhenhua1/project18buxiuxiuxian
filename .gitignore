@@ -14,3 +14,11 @@ Thumbs.db
 # Godot local import cache and generated visual checks
 godot/.godot/
 godot/captures/
+
+# Local downloaded source packs and conversion workspace (runtime exports live in godot/assets)
+/tempassets/
+
+# Blender authoring files and backups remain local
+/art/**/*.blend
+/art/**/*.blend[0-9]*
+/art/**/*.log

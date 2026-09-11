@@ -11,6 +11,7 @@ func travel_speed() -> float:return 1.598785/1.366667*world_units_per_meter
 func sync(dt:float,phase:String,moving:float,paused:bool,speed:float,enabled:bool,_distance:float=0):
 	if dt<=0:return
 	if not dead and state in ["idle","walk","run"]:
-		var next:=("run" if opening_run else "walk") if moving>.05 and phase in ["travel","approach","entering","clearing"] else "idle"
+		var returning:bool=health_effect and health_effect.unit.get("returning_to_slot",false)
+		var next:=("run" if opening_run and not returning else "walk") if (moving>.05 and phase in ["travel","approach","entering","clearing"]) or returning else "idle"
 		if next!=state:play(next)
 	advance(dt,phase,paused,speed,enabled)

@@ -1,4 +1,6 @@
 extends "res://scripts/journey/expedition_route.gd"
+var run_seed:=1842
+var extension_rng:=RandomNumberGenerator.new()
 var lap:=1
 var test_zone:=""
 var biome_key:="forest"
@@ -14,6 +16,7 @@ var pending_distance:=0.0
 func _ready() -> void:
 	StyleLibrary.active=true
 	lap=1
+	run_seed=preload("res://scripts/spaces/biome_catalog.gd").seed_value
 	biome_key=str(get_tree().get_meta("tour_biome","forest"))
 	Journey.SAVE="user://endless-forest-test.json"
 	Journey.state=JourneyState.new();Journey.expedition_active=true;Journey.fighting=false
@@ -24,7 +27,7 @@ func _ready() -> void:
 		zone.theme=biome_key
 		zone.route_kind="fork"
 		zone.event_placement="after"
-		zone.exits=int(get_tree().get_meta("tour_exits",2 if lap%2 else 3))
+		configure_leg(zone,1)
 	test_zone=Journey.state.zones[0].id
 	Journey.state.pending=test_zone
 	super()
@@ -32,6 +35,7 @@ func _ready() -> void:
 	restart_button=AdventureSkin.button("从头开始",restart_from_beginning)
 	restart_button.z_index=100;add_child(restart_button)
 	center_exit=AdventureSkin.button("直行 ↑",func():choose(2))
+	center_exit.custom_minimum_size=Vector2(250,44)
 	left_button.get_parent().add_child(center_exit)
 	left_button.get_parent().move_child(center_exit,right_button.get_index())
 	arena.scene_mode=true
@@ -39,11 +43,13 @@ func _ready() -> void:
 	if biome_key!="forest":
 		for link in leave_button.pressed.get_connections():leave_button.pressed.disconnect(link.callable)
 		leave_button.text="场景目录"
-		leave_button.pressed.connect(func():get_tree().change_scene_to_file("res://scenes/biome_hub.tscn"))
+		leave_button.pressed.connect(func():get_tree().change_scene_to_file("res://scenes/fairytale_hub.tscn" if FairytaleCatalog.has_scene(biome_key) else "res://scenes/biome_hub.tscn"))
 func _process(delta:float) -> void:
 	super(delta)
 	if not arena:return
 	restart_button.position=Vector2(size.x-245,20);restart_button.size=Vector2(105,40)
+	bag_label.position.x=size.x-440
+	pouch_icon.position.x=size.x-480
 	if changing_leg:return
 	_prepare_extension_slice()
 	if phase=="clearing" and encounter_step>=stops().size():
@@ -52,10 +58,8 @@ func _process(delta:float) -> void:
 	center_exit.visible=phase=="choose" and world.plan.exits==3
 	if phase=="choose":
 		left_button.text="← 左路";right_button.text="右路 →"
-		event_panel.position.y=size.y-235
-		event_box.position=event_panel.position+Vector2(24,12)
 		event_title.text="%s岔路口"%("三" if world.plan.exits==3 else "两")
-		event_text.text="请选择前进方向；这里会一直等待你的选择。"
+		event_text.text="道路在雾中分开，延伸向不同的深处。\n你停下脚步，决定接下来往哪里走。"
 	if phase=="travel" and encounter_step>=stops().size():append_leg()
 	var title:String=preload("res://scripts/spaces/biome_catalog.gd").TITLES.get(biome_key,"无限林径")
 	title_label.text="%s · 第 %d 路段"%[title,lap]
@@ -72,8 +76,7 @@ func append_leg() -> void:
 	lap+=1
 	var zone:Dictionary=Journey.state.active_zone()
 	zone.endless_leg=lap;zone.endless_offset=distance
-	zone.event_placement="after"
-	zone.exits=3 if lap%2==0 else 2
+	configure_leg(zone,lap)
 	route_zone=zone.duplicate(true);route_spec=LocalRouteSpec.profile(route_zone)
 	ForestRoute.origin=connection.position;ForestRoute.origin_s=distance;ForestRoute.origin_heading=connection.heading
 	var next_plan:=LocalRouteSpec.plan(route_zone)
@@ -151,7 +154,8 @@ func _prepare_extension_slice(force:=false) -> void:
 		pending_connection=ForestRoute.pose(pending_distance,branch)
 		var zone:Dictionary=route_zone.duplicate(true)
 		zone.endless_leg=lap+1;zone.endless_offset=pending_distance
-		zone.event_placement="after";zone.exits=3 if (lap+1)%2==0 else 2
+		configure_leg(zone,lap+1)
+		extension_rng.seed=int(zone.layout_seed)
 		var old_junction:float=ForestRoute.JUNCTION;var old_pause:float=ForestRoute.PAUSE_AT;var old_turn:float=ForestRoute.TURN_LENGTH
 		var plan:=LocalRouteSpec.plan(zone)
 		ForestRoute.JUNCTION=old_junction;ForestRoute.PAUSE_AT=old_pause;ForestRoute.TURN_LENGTH=old_turn
@@ -167,9 +171,21 @@ func _prepare_extension_slice(force:=false) -> void:
 		pending_index+=1
 		if source.position.y<120:continue
 		var sprite:Dictionary=source.duplicate()
+		# Vary small decoration only; preserve structural joins and grounded anchors.
+		if float(sprite.get("w",999))<100 and not sprite.get("actor",false) and not sprite.has("plane_heading"):
+			if extension_rng.randf()<.12:continue
+			sprite.position+=Vector2(extension_rng.randf_range(-10,10),extension_rng.randf_range(-16,16))
+			var factor:=extension_rng.randf_range(.88,1.12)
+			sprite.w*=factor;sprite.h*=factor
 		sprite.id=1000000+lap*20000+pending_index
 		sprite.position=pending_connection.position+source.position.rotated(-pending_connection.heading)
 		sprite.route_s=float(source.route_s)+pending_distance
 		sprite.region=pending_world.plan.regions.filter(func(region):return region.branch==source.region.branch)[0]
 		if sprite.has("plane_heading"):sprite.plane_heading+=pending_connection.heading
 		pending_world.sprites.append(sprite)
+
+func configure_leg(zone:Dictionary,index:int) -> void:
+	var rng:=RandomNumberGenerator.new();rng.seed=run_seed+index*104729
+	zone.layout_seed=run_seed+index*104729
+	zone.exits=int(get_tree().get_meta("tour_exits",rng.randi_range(2,3)))
+	zone.event_placement=str(get_tree().get_meta("tour_event_placement","before" if rng.randf()<.5 else "after"))

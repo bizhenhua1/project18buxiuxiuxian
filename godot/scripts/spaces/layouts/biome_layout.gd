@@ -4,7 +4,7 @@ static var rock_marks:Dictionary=JSON.parse_string(FileAccess.get_file_as_string
 ## Habitat clusters are seeded once; render-time animation never re-scatters assets.
 func populate(world,region:RouteRegion) -> void:
  var key:=str(region.space.key);var c:Dictionary=Catalog.CONFIG[key]
- var rng:=RandomNumberGenerator.new();rng.seed=Catalog.seed_value+hash(key)+region.branch*91
+ var rng:=RandomNumberGenerator.new();rng.seed=world.seed_value+hash(key)+region.branch*91
  var textures:Array[Texture2D]=[]
  for i in range(9):textures.append(load("res://assets/biomes/%s/prop-%d.png"%[key,i]))
  var shell:Texture2D=load("res://assets/biomes/%s/shell.png"%key)
@@ -115,7 +115,7 @@ func populate_rock_arcs(world,region:RouteRegion,texture:Texture2D) -> void:
    else:clusters.back().right=point.x
   for cluster in clusters:
    if cluster.owner!=region.branch:continue
-   var variation:=sin(s*.037+Catalog.seed_value)*.5+.5
+   var variation:=sin(s*.037+world.seed_value)*.5+.5
    if cluster.left!=cluster.right:
     for side in [-1,1]:
      var high:float=185.0+variation*25.0

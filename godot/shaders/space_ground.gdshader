@@ -82,9 +82,10 @@ int slot_at(vec2 coordinate) {
 vec3 floor_color(int slot, vec2 world, float z) {
     vec3 ground = depth_colors[slot].rgb;
     if(textured[slot]) {
-        vec3 tex = slot == 0 ? texture(floor0,world/145.0).rgb : (slot == 1 ? texture(floor1,world/145.0).rgb : texture(floor2,world/145.0).rgb);
+        vec2 floor_uv=world/(biome_kind>=6?80.0:145.0);
+        vec3 tex = slot == 0 ? texture(floor0,floor_uv).rgb : (slot == 1 ? texture(floor1,floor_uv).rgb : texture(floor2,floor_uv).rgb);
         ground = tex * floor_tints[slot].rgb;
-        if(ecology) {
+        if(ecology && biome_kind<6) {
             // Broad habitat modulation in world space breaks the identical tile rhythm.
             float habitat=.5+.25*sin(world.x*.018+sin(world.y*.011))+.25*sin(world.y*.025+world.x*.008);
             vec3 alternate=texture(floor0,world/231.0+vec2(.37,.61)).rgb;

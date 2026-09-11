@@ -25,6 +25,9 @@ const MODELS=[
  {"name": "园丁 · Hello Kitty（達答）", "file": "gardener-kitty-dada.glb"},
  {"name": "KING-h1", "file": "king-h1.glb"},
  {"name": "ROOK", "file": "rook.glb"}]
+var burst
+var burst_note:Label
+var burst_fire:=true
 var weapon_panel:VBoxContainer
 var catalog:Dictionary
 var clips:Array=[]
@@ -81,6 +84,13 @@ func _ready() -> void:
 复杂动作的衣摆穿插仍需精修。";note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;note.custom_minimum_size.x=210;left.add_child(note)
  var center:=VBoxContainer.new();center.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(center)
  info=label(center,"模型与动作预览",20)
+ var burst_bar:=HBoxContainer.new();center.add_child(burst_bar)
+ var burst_button:=Button.new();burst_button.text="爆发";burst_bar.add_child(burst_button);burst_button.pressed.connect(func():
+  if burst:burst.trigger())
+ var flame_toggle:=CheckButton.new();flame_toggle.text="火焰感";flame_toggle.button_pressed=true;burst_bar.add_child(flame_toggle);flame_toggle.toggled.connect(func(v):
+  burst_fire=v
+  if burst:burst.fire=v)
+ burst_note=label(burst_bar,"",14)
  var container:=SubViewportContainer.new();container.stretch=true;container.size_flags_vertical=Control.SIZE_EXPAND_FILL;container.size_flags_horizontal=Control.SIZE_EXPAND_FILL;center.add_child(container)
  viewport=SubViewport.new();viewport.size=Vector2i(700,750);viewport.own_world_3d=true;viewport.msaa_3d=Viewport.MSAA_2X;container.add_child(viewport)
  container.gui_input.connect(view_input)
@@ -152,6 +162,7 @@ func disable_players(node:Node) -> void:
  if node is AnimationPlayer:node.active=false
  for child in node.get_children():disable_players(child)
 func select_model(index:int) -> void:
+ if burst:burst.dispose()
  selected_model=index
  for i in range(model_buttons.size()):model_buttons[i].button_pressed=i==index
  if model:stage.remove_child(model);model.queue_free()
@@ -162,6 +173,8 @@ func select_model(index:int) -> void:
  var height:float=rig.get_bone_global_rest(head).origin.y+.20 if head>=0 else 1.8
  model.scale=Vector3.ONE*1.8/maxf(height,.1)
  if not selected.is_empty():retarget.apply(elapsed)
+ burst=preload("res://scripts/spaces/hair_burst.gd").new();burst.setup(model,rig);burst.fire=burst_fire
+ burst_note.text="飘起 + 发光 · 5 秒后恢复" if not burst.bones.is_empty() and not burst.materials.is_empty() else "仅头发发光 · 无独立头发骨骼" if not burst.materials.is_empty() else "头发飘起 · 发光区域待细分" if not burst.bones.is_empty() else "暂未识别独立头发区域"
  if weapon_panel:weapon_panel.bind_model()
  update_info()
 func select_clip(clip:Dictionary) -> void:
@@ -181,6 +194,7 @@ func _process(dt:float) -> void:
     else:elapsed=duration;playing=false;play_button.text="播放"
   retarget.apply(elapsed)
   slider_update=true;timeline.value=elapsed;slider_update=false
+ if burst:burst.advance(dt)
  if weapon_panel:weapon_panel.sample_weapon_motion()
  if camera:
   var target:=Vector3(0,.95,0);camera.position=target+Vector3(sin(yaw)*cos(pitch),sin(pitch),cos(yaw)*cos(pitch))*distance;camera.look_at(target)

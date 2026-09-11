@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-12",
+  "scene_count": 18,
+  "runtime_pngs": 180,
+  "checks": [
+    "180 runtime asset references",
+    "18 normal travel-to-battle transitions",
+    "54 matching enemy identities",
+    "18 overworld tile and monster-marker mappings",
+    "18 actual overworld battle rosters",
+    "menu scene count",
+    "rendered travel/battle/world screenshots",
+    "no engine errors in import or runtime logs"
+  ],
+  "passed_scenes": [
+    "red_village",
+    "red_cottage",
+    "red_workshop",
+    "snow_mirror",
+    "snow_orchard",
+    "snow_house",
+    "alice_tea",
+    "alice_roses",
+    "alice_hall",
+    "piper_market",
+    "piper_bridge",
+    "piper_mountain",
+    "puppet_workshop",
+    "puppet_theatre",
+    "puppet_fair",
+    "cinder_kitchen",
+    "cinder_garden",
+    "cinder_clock"
+  ]
+}

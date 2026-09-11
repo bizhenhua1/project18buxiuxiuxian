@@ -2,7 +2,7 @@ class_name IslandView3D
 extends SubViewportContainer
 const HEIGHT := 22.0/(112.0*0.8660254038)
 const BASE_DEPTH := 1.15
-const CLEAR_SECONDS := 0.28
+const CLEAR_SECONDS := 0.85
 var bedrock_y := 0.0
 var model: IslandModel
 var assets: IslandAssets
@@ -110,7 +110,8 @@ func rebuild() -> void:
 		body.rotation.y = PI/4
 		body.material_override = surface("",IslandAssets.side_colors(cell.base)[0])
 		body.material_override.shader = preload("res://shaders/island_cliff.gdshader")
-		body.material_override.set_shader_parameter("art",assets.texture("assets/cave/ground-tile.png"))
+		body.material_override.set_shader_parameter("themed_art",cell.has("cliff"))
+		body.material_override.set_shader_parameter("art",assets.texture(cell.get("cliff","assets/cave/ground-tile.png")))
 		body.material_override.set_shader_parameter("depth",depth)
 		body.material_override.set_shader_parameter("top_height",float(cell.h)*HEIGHT)
 		body.material_override.set_shader_parameter("grid_origin",Vector2(-float(cell.r),float(cell.c))*sqrt(.5))
@@ -194,21 +195,21 @@ func make_waterfall(edges: Array, depth: float) -> MeshInstance3D:
 	instance.material_override=ShaderMaterial.new()
 	instance.material_override.shader=preload("res://shaders/island_waterfall.gdshader")
 	return instance
-func fog_burst(parent: Node3D) -> void:
+func fog_burst(parent: Node3D, event_tile:=false) -> void:
 	var particles := CPUParticles3D.new()
-	particles.amount = 10
-	particles.lifetime = 0.28
+	particles.amount = 48 if event_tile else 28
+	particles.lifetime = 1.35 if event_tile else .9
 	particles.one_shot = true
 	particles.explosiveness = 1.0
 	particles.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
-	particles.emission_sphere_radius = 0.22
+	particles.emission_sphere_radius = 0.35
 	particles.direction = Vector3.UP
 	particles.spread = 85.0
 	particles.gravity = Vector3(0,0.3,0)
-	particles.initial_velocity_min = 0.35
-	particles.initial_velocity_max = 0.8
-	particles.scale_amount_min = 0.16
-	particles.scale_amount_max = 0.3
+	particles.initial_velocity_min = 0.45
+	particles.initial_velocity_max = 1.0 if event_tile else .75
+	particles.scale_amount_min = 0.25
+	particles.scale_amount_max = .55 if event_tile else .4
 	var gradient := Gradient.new()
 	gradient.set_color(0,Color.WHITE)
 	gradient.set_color(1,Color(1,1,1,0))
@@ -239,14 +240,20 @@ func _process(_dt: float) -> void:
 		if tile.get("event_actor") != null:
 			tile.event_actor.visible=event_visible
 			tile.event_actor.position=world_position(cell.c,cell.r,cell.h)+camera.basis.z*.015
+			if model.ambush_position==position_value and model.ambush_elapsed<1.1:
+				var target:=world_position(model.player.x,model.player.y,model.lookup[model.player].h)
+				var direction:Vector3=(target-tile.event_actor.position).normalized()
+				var pulse:=sin(clampf(model.ambush_elapsed/(IslandModel.AMBUSH_WINDUP*2.0),0,1)*PI)
+				tile.event_actor.position+=direction*.22*pulse
 		if style.known and not tile.was_known and not model.preview_all:
 			tile.clear_t = 0.0
-			fog_burst(tile.root)
-		if style.known: tile.clear_t = minf(CLEAR_SECONDS,tile.clear_t+_dt)
+			fog_burst(tile.root,model.blocked.has(position_value))
+		var clear_duration:float=IslandModel.AMBUSH_WINDUP if model.ambush_position==position_value else 1.15 if model.blocked.has(position_value) else CLEAR_SECONDS
+		if style.known: tile.clear_t = minf(clear_duration,tile.clear_t+_dt)
 		else: tile.clear_t = 0.0
-		if model.preview_all: tile.clear_t = CLEAR_SECONDS
+		if model.preview_all: tile.clear_t = clear_duration
 		tile.was_known = style.known
-		var clearing: float = tile.clear_t/CLEAR_SECONDS
+		var clearing: float = tile.clear_t/clear_duration
 		if tile.get("event_actor") != null: tile.event_actor.material_override.set_shader_parameter("reveal",smoothstep(0.0,0.75,clearing))
 		tile.fog.visible = clearing < 1.0
 		tile.wisp.visible = clearing < 1.0

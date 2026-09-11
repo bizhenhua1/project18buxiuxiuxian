@@ -29,6 +29,7 @@ var art_textures := {}
 var particles: BattleParticles
 var show_card_names := false
 var card_scale := 1.0
+var equipped_actors:Dictionary={}
 var companion_actor:Node
 var enemy_actor:Node
 var seer:Node
@@ -83,14 +84,6 @@ func setup(state: BattleModel, app: Control, route_view: CorridorView = null) ->
 	if StyleLibrary.active:
 		var selection=ConfigFile.new();var hero_index:=0
 		if selection.load("user://world-hero.cfg")==OK:hero_index=clampi(int(selection.get_value("hero","index",0)),0,preload("res://scripts/spaces/character_library.gd").MODELS.size()-1)
-		if hero_index==0:seer=preload("res://scripts/battle/seer_actor.gd").new()
-		else:
-			seer=preload("res://scripts/battle/selected_hero_actor.gd").new()
-			seer.model_scene=load("res://assets/characters3d/"+preload("res://scripts/spaces/character_library.gd").MODELS[hero_index].file)
-			seer.ally=true
-		add_child(seer)
-		companion_actor=preload("res://scripts/battle/enemy_actor.gd").new()
-		companion_actor.model_scene=preload("res://assets/characters3d/isabella.glb");companion_actor.ally=true;add_child(companion_actor)
 		enemy_actor=preload("res://scripts/battle/enemy_actor.gd").new();add_child(enemy_actor)
 	rebuild()
 func clean_path(path: String) -> String:
@@ -99,6 +92,12 @@ func clean_path(path: String) -> String:
 	var derived := "assets/cleaned/"+path.get_file()
 	return derived if path.begins_with("assets/style-e/") and ResourceLoader.exists("res://"+derived) else path
 func art_for(unit: Dictionary) -> Texture2D:
+	if StyleLibrary.active and (unit.get("cardType","")=="char" or unit.get("portrait_kind","")=="person") and unit.get("side","player")=="player":
+		var model_file:String=preload("res://scripts/equipment/loadouts.gd").model_for_unit(unit)
+		var portrait:String="res://assets/character-portraits/"+model_file.get_basename()+".png"
+		if ResourceLoader.exists(portrait):
+			if not art_textures.has(portrait):art_textures[portrait]=load(portrait)
+			return art_textures[portrait]
 	var path: String = unit.get("art","")
 	var id: String = unit.get("cardId",unit.get("id",""))
 	if path.is_empty() and PROJECTILES.has(id): path = "assets/style-e/style-e-proj-%s.png" % PROJECTILES[id]
@@ -121,6 +120,7 @@ func texture_for(path: String) -> Texture2D:
 	if not textures.has(path): textures[path] = load("res://"+path)
 	return textures[path]
 func rebuild() -> void:
+	if StyleLibrary.active:_sync_equipped_actors()
 	var lineup:Array=model.player.map(func(unit):return unit.uid)
 	if lineup!=world_lineup:
 		world_slots.clear()
@@ -181,22 +181,30 @@ func _process(dt: float) -> void:
 			pulse.energy=light.strength*smoothstep(0,.035,light.age)*pow(1-light.age/light.duration,2)
 			scenery.renderer.combat_lights.append(pulse)
 		light_flashes=light_flashes.filter(func(light):return light.age<light.duration)
+	if scenery.renderer is SegmentRenderer:
+		for equipped in equipped_actors.values():equipped.scene_light_tint=scenery.renderer.environment_light_tint()
 	if seer:
-		var heroes=model.player.filter(func(u):return u.cardId=="daotong")
+		var heroes=model.player.filter(func(u):return u.uid==seer.uid)
+		if not heroes.is_empty():seer.bind_unit(heroes[0])
 		if not heroes.is_empty() and float(heroes[0].hp)>0 and seer.defeated:seer.trigger("revive")
 		seer.opening_run=external_scenery and owner_app.route_travel_speed()>TravelPace.WALK*1.1 and str(owner_app.get("phase")) in ["travel","approach"]
 		var walk_input:float=float(owner_app.get("moving_envelope")) if external_scenery else 0.0
 		if str(owner_app.get("phase")) in ["entering","clearing","encounter"] and not heroes.is_empty():walk_input=clampf(formation_motion.speed_of(heroes[0].uid)/TravelPace.WALK,0,1)
 		seer.opening_run=seer.opening_run or (str(owner_app.get("phase")) in ["entering","clearing"] and not heroes.is_empty() and formation_motion.speed_of(heroes[0].uid)>TravelPace.WALK*1.1)
 		seer.sync(dt,str(owner_app.get("phase")),walk_input,model.paused,owner_app.speed,scene_mode and not equipment_open,float(owner_app.get("presented_travel_distance")) if external_scenery else 0.0)
-	if companion_actor:
-		var candidates=model.player.filter(func(u):return u.cardId!="daotong" and (u.get("portrait_kind","")=="person" or u.cardType=="char"))
-		if not candidates.is_empty():companion_actor.bind_unit(candidates[0])
-		var companion_phase:=str(owner_app.get("phase"))
-		if companion_phase in ["entering","clearing"] and not candidates.is_empty() and formation_motion.speed_of(candidates[0].uid)<.5:companion_phase="battle"
-		companion_actor.advance(dt,companion_phase,model.paused,owner_app.speed,scene_mode and not equipment_open and not candidates.is_empty())
+	for actor_uid in equipped_actors:
+		var actor=equipped_actors[actor_uid]
+		if actor==seer:continue
+		var matches=model.player.filter(func(u):return u.uid==actor_uid)
+		if matches.is_empty():continue
+		actor.bind_unit(matches[0])
+		actor.sync(dt,str(owner_app.get("phase")),0.0 if owner_app.phase=="clearing" else clampf(formation_motion.speed_of(actor_uid)/TravelPace.WALK,0,1),model.paused,owner_app.speed,scene_mode and not equipment_open)
 	if enemy_actor:
-		if not model.enemy.is_empty():enemy_actor.bind_unit(model.enemy[0])
+		if scenery.renderer is SegmentRenderer:
+			var light_tint:Color=scenery.renderer.enemy_light_tint()
+			enemy_actor.team_key.light_color=Color("bedae0")*light_tint
+		if not model.enemy.is_empty() and not model.enemy[0].get("fairytale_enemy",false):enemy_actor.bind_unit(model.enemy[0])
+		elif enemy_actor.health_effect:enemy_actor.health_effect.unit={}
 		enemy_actor.advance(dt,str(owner_app.get("phase")),model.paused,owner_app.speed,scene_mode and not model.enemy.is_empty(),entrance_progress)
 	particles.advance(dt,owner_app.speed,model.paused)
 	if not model.paused: visual_time += dt*owner_app.speed
@@ -255,6 +263,22 @@ func _process(dt: float) -> void:
 	queue_redraw()
 func _draw() -> void:
 	pass
+func restore_victorious_party() -> void:
+	for unit in model.player:
+		BattleRules.reset(unit)
+		unit.returning_to_slot=false
+		var actor=equipped_actors.get(unit.uid)
+		if actor:
+			actor.trigger("revive")
+			if actor.health_effect:actor.health_effect.progress=0.0
+	for card in cards:
+		if card.side!="player" or card.unit.is_empty():continue
+		if card.has_meta("corpse_position"):card.scene_rest_position=card.get_meta("corpse_position")
+		for key in ["corpse_position","return_position","exit_pose"]:
+			if card.has_meta(key):card.remove_meta(key)
+		card.motion_kind="";card.motion_age=10;card.motion_distance=0
+		card.motion_origin=Vector2.ZERO;card.scene_motion_offset=Vector2.ZERO
+		formation_motion.units[card.unit.uid]={"position":card.scene_rest_position,"target":card.scene_rest_position,"velocity":Vector2.ZERO}
 func aim_motion(card:BattleCard,other_uid:int,recoil:bool=false) -> void:
 	var other:BattleCard=null
 	for view in cards:
@@ -279,23 +303,26 @@ func flash_light(unit:Dictionary,color:Color,strength:float,radius:float) -> voi
 		while light_flashes.size()>4:light_flashes.pop_front()
 		break
 func on_event(event: Dictionary) -> void:
-	if companion_actor:
-		var unit:Dictionary=event.get("from",event.get("unit",{}))
-		if int(unit.get("uid",-2))==companion_actor.uid:companion_actor.trigger(event.type)
+	var source_unit:Dictionary=event.get("from",event.get("unit",{}))
+	var actor=equipped_actors.get(int(source_unit.get("uid",-2)))
+	if actor and not (event.type=="shot" and event.get("secondary",false)):
+		actor.trigger(event.type)
+		if event.type=="shot":event.combo_stage=source_unit.get("combo_stage",1)
 	if enemy_actor:
 		var unit:Dictionary=event.get("from",event.get("unit",{}))
 		if int(unit.get("uid",-2))==enemy_actor.uid:enemy_actor.trigger(event.type)
 	# Generic combat events do not emit light; future luminous skills opt in explicitly.
-	if seer:
-		var unit:Dictionary=event.get("from",event.get("unit",{}))
-		if unit.get("cardId","")=="daotong" and unit.get("side","")=="player":seer.trigger(event.type)
-	if event.type in ["shot","cast"]:
+	if event.type in ["shot","cast"] and not event.get("secondary",false):
 		for card in cards:
 			if card.unit.get("uid",-1) == event.from.uid:
 				card.motion_age = 0
-				card.motion_kind = "attack" if event.type == "shot" else "heal"
+				card.motion_kind = "sword_combo" if event.type=="shot" and card.unit.get("sword_combo",false) else "attack" if event.type == "shot" else "heal"
 				card.motion_direction = (anchor(event.to.uid)-anchor(event.from.uid)).normalized()
-				if scene_mode:aim_motion(card,event.to.uid)
+				if scene_mode:
+					aim_motion(card,event.to.uid)
+					if card.unit.get("sword_combo",false):
+						var meter:float=seer.world_units_per_meter if seer else 30.0
+						card.motion_distance=minf(card.scene_rest_position.distance_to(_unit_world_position(event.to.uid))*.18,meter*1.2)
 	if event.type in ["damage","heal","revive","buff","death"]:
 		particles.burst(event)
 		var copy := event.duplicate()
@@ -304,13 +331,20 @@ func on_event(event: Dictionary) -> void:
 		effects.append(copy)
 		for card in cards:
 			if not card.unit.is_empty() and card.unit.uid == event.unit.uid:
+				if event.type=="death":
+					card.set_meta("corpse_position",card.scene_rest_position+card.scene_motion_offset)
+					card.motion_distance=0;card.motion_origin=Vector2.ZERO;card.scene_motion_offset=Vector2.ZERO
+				if event.type=="revive" and card.has_meta("corpse_position"):
+					card.set_meta("return_position",card.get_meta("corpse_position"));card.remove_meta("corpse_position")
 				card.flash = 1
+				if event.type=="damage" and card.motion_kind=="sword_combo" and card.motion_age<float(card.unit.get("combo_duration",1.0)):continue
 				card.motion_age = 0
 				card.motion_kind = event.type
 				if event.type == "damage":
 					aim_motion(card,event.get("source",{}).get("uid",-1),true)
 func draw_effects() -> void:
 	for shot in model.shots:
+		if shot.get("style", "") == "melee" or shot.from.get("sword_combo", false): continue
 		var a := anchor(shot.from.uid)
 		var b := anchor(shot.to.uid)
 		if StyleLibrary.active:
@@ -402,3 +436,29 @@ func scene_art(unit:Dictionary,side:String) -> Texture2D:
 
 func layout_scene_units(dt:float=0.0) -> void:
 	SceneFormation.update(self,dt)
+
+func _unit_world_position(uid:int) -> Vector2:
+	for card in cards:
+		if card.unit.get("uid",-1)==uid:return card.scene_rest_position
+	return Vector2.ZERO
+
+func _sync_equipped_actors() -> void:
+	var people:Array=model.player.filter(func(u):return u.cardType=="char" or u.get("portrait_kind","")=="person")
+	var living_ids:Array=people.map(func(u):return u.uid)
+	for id in equipped_actors.keys():
+		if id not in living_ids:
+			equipped_actors[id].queue_free();equipped_actors.erase(id)
+	var roster:Array=JSON.parse_string(FileAccess.get_file_as_string("res://data/character_roster.json"))
+	for unit in people:
+		if not equipped_actors.has(unit.uid):
+			var file:String=unit.get("model_file","isabella.glb")
+			if unit.cardId=="daotong":
+				var config=ConfigFile.new();config.load("user://world-hero.cfg")
+				file=roster[clampi(int(config.get_value("hero","index",0)),0,roster.size()-1)].file
+			var actor=preload("res://scripts/battle/equipped_actor.gd").new()
+			actor.model_key=file;actor.model_scene=load("res://assets/characters3d/"+file);actor.ally=true;add_child(actor)
+			equipped_actors[unit.uid]=actor
+		equipped_actors[unit.uid].bind_unit(unit)
+	var leaders:Array=people.filter(func(u):return u.cardId=="daotong")
+	seer=equipped_actors.get(leaders[0].uid) if not leaders.is_empty() else equipped_actors.get(people[0].uid) if not people.is_empty() else null
+	companion_actor=equipped_actors.get(people[1].uid) if people.size()>1 else null

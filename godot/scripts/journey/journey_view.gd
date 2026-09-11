@@ -19,6 +19,7 @@ var save_message_until := 0
 func _ready() -> void:
 	Journey.resume()
 	state = Journey.state
+	state.world.zoom=2.4;state.world.zoom_goal=2.4
 	theme = StudyUI.theme()
 	var column := StudyUI.column(self)
 	var top := HBoxContainer.new()

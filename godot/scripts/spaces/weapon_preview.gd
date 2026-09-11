@@ -5,6 +5,7 @@ var mount:=Transform3D.IDENTITY
 var weapon_tracks:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/weapons/weapon_tracks.json"))
 var shield_attachment:BoneAttachment3D
 var shield_enabled:=false
+var close_fingers:=true
 var browser:Control
 var weapon:int=0
 var hand:int=0
@@ -24,6 +25,7 @@ func setup(owner_browser:Control) -> void:
  hands=OptionButton.new();hands.add_item("右手");hands.add_item("左手");add_child(hands)
  hands.item_selected.connect(func(i):hand=i;bind_model())
  var shield:=CheckButton.new();shield.text="副手持盾";add_child(shield);shield.toggled.connect(func(v):shield_enabled=v;bind_model())
+ var fingers:=CheckButton.new();fingers.text="握紧武器（手指修正）";fingers.button_pressed=true;add_child(fingers);fingers.toggled.connect(func(v):close_fingers=v)
  var motions:=Button.new();motions.text="查看对应职业动作";add_child(motions)
  motions.pressed.connect(func():
   var pack:String=items[weapon].pack
@@ -68,8 +70,8 @@ func bind_model() -> void:
    var shield_model:=build_weapon(shield_index);shield_attachment.add_child(shield_model)
    var grip:=palm_mount(browser.rig,other,1-hand)
    var inv_scale:float=1.0/browser.rig.global_transform.basis.get_scale().x
-   shield_model.transform=Transform3D(grip.basis*Basis.from_euler(Vector3(0,0,PI*.5))*float(items[shield_index].scale)*inv_scale,grip.origin)
- status.text="已按手掌骨骼校准。源动作中的手指姿态保留；双手武器请选匹配的持握动作。"
+   shield_model.transform=Transform3D(grip.basis*asset_orientation(shield_index)*float(items[shield_index].scale)*inv_scale,grip.origin)
+ status.text="手指骨骼可用；已加入握持修正，可关闭以查看源动作。双手武器仍需匹配动作。"
 func default_value(key:String) -> float:
  return 1.0 if key=="scale" else 0.0
 func load_grip(saved:bool) -> void:
@@ -82,7 +84,7 @@ func apply_grip() -> void:
  var scale_factor:float=1.0/maxf(browser.rig.global_transform.basis.get_scale().x,.001)
  var offset:=Vector3(fields.x.value,fields.y.value,fields.z.value)*scale_factor
  var rotate:=Basis.from_euler(Vector3(fields.rx.value,fields.ry.value,fields.rz.value)*PI/180.0)
- if items[weapon].kind=="shield":rotate=Basis.from_euler(Vector3(0,0,PI*.5))*rotate
+ rotate=asset_orientation(weapon)*rotate
  visual.transform=Transform3D(mount.basis*rotate*float(fields.scale.value)*float(items[weapon].scale)*scale_factor,mount.origin+mount.basis*offset)
 func save_grip() -> void:
  var config:=ConfigFile.new();config.load(save_path)
@@ -107,10 +109,52 @@ static func palm_mount(rig:Skeleton3D,bone:int,side:int) -> Transform3D:
  shaft=normal.cross(along).normalized()
  # Weapon Y follows the knuckle line towards the thumb, not the wrist axis.
  var basis:=Basis(shaft.cross(normal).normalized(),shaft,normal).orthonormalized()
- var center:Vector3=wrist.origin.lerp((first+last+mid)/3.0,.72)
+ # Bone joints lie inside the hand, not on its gripping surface. Move the
+ # handle towards the finger roots and out to the palm side of that plane.
+ # Mirror the normal for the left hand; derive distance from anatomy so small
+ # hands do not receive a fixed, oversized offset. Keep the orientation intact.
+ var knuckles:Vector3=(first+last+mid)/3.0
+ var palm_length:float=wrist.origin.distance_to(knuckles)
+ var palm_width:float=first.distance_to(last)
+ var palm_side:Vector3=normal*(-1.0 if side==0 else 1.0)
+ var clearance:float=minf(palm_width*.32,palm_length*.28)
+ var center:Vector3=wrist.origin.lerp(knuckles,.88)+palm_side*clearance
  return wrist.affine_inverse()*Transform3D(basis,center)
 
+func asset_orientation(index:int) -> Basis:
+ # The single-edged axe has its blade on -X; the other two are double edged.
+ if items[index].file=="axe_C.gltf":return Basis(Vector3.UP,PI)
+ # Keep the handle on the palm side, decorated surface facing outwards.
+ if items[index].get("kind","")=="shield":return Basis(Vector3.BACK,PI*.5)*Basis(Vector3.UP,PI)
+ return Basis.IDENTITY
+
+func curl_hand(side:int) -> void:
+ var rig:Skeleton3D=browser.rig
+ var suffix:String=".R" if side==0 else ".L"
+ var wrist:int=rig.find_bone("手首"+suffix)
+ if wrist<0:return
+ var grip:Transform3D=rig.get_bone_global_rest(wrist)*palm_mount(rig,wrist,side)
+ var inward:Vector3=grip.basis.z*(-1.0 if side==0 else 1.0)
+ for finger in ["人指","中指","薬指","小指","親指"]:
+  for joint in range(1,4):
+   var index:int=rig.find_bone(finger+String.chr(0xff10+joint)+suffix)
+   if index<0:continue
+   var rest:Transform3D=rig.get_bone_global_rest(index)
+   var children:PackedInt32Array=rig.get_bone_children(index)
+   var along:Vector3=rest.basis.y
+   if not children.is_empty():along=(rig.get_bone_global_rest(children[0]).origin-rest.origin).normalized()
+   var axis:Vector3=along.cross(inward).normalized()
+   if axis.length_squared()<.1:continue
+   var local_axis:Vector3=(rest.basis.inverse()*axis).normalized()
+   var angle:float=[.85,1.15,.8][joint-1]
+   if finger=="親指":angle*=.6
+   # Absolute local pose, never added to the last frame (no accumulated curl).
+   rig.set_bone_pose_rotation(index,Quaternion(local_axis,angle))
+
 func sample_weapon_motion() -> void:
+ if close_fingers and weapon!=0:
+  curl_hand(hand)
+  if shield_enabled:curl_hand(1-hand)
  if not is_instance_valid(visual):return
  apply_grip()
  if hand!=0 or not weapon_tracks.has(browser.selected.get("id","")):return

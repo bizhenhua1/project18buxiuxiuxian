@@ -12,7 +12,7 @@ func _ready() -> void:
  column.add_child(StudyUI.label("独立随机布局 · 行进与无限战斗 · 共用已保存镜头",16))
  var row:=HBoxContainer.new();row.size_flags_vertical=Control.SIZE_EXPAND_FILL;column.add_child(row)
  var descriptions=["低垂岩层与隐秘矿脉","蓝雾、菌群与孢光","逼仄管廊与流动污水","肋壁与吞入的遗物","保留的旧版拱券长廊"]
- for i in range(Catalog.TITLES.size()):
+ for i in range(5):
   var key:String=Catalog.TITLES.keys()[i]
   var box:=VBoxContainer.new();box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(box)
   var art:=TextureRect.new();art.texture=load("res://assets/biomes/%s/shell.png"%key);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;art.custom_minimum_size=Vector2(0,180);box.add_child(art)
@@ -23,22 +23,23 @@ func _ready() -> void:
    get_tree().set_meta("tour_lap",1)
    get_tree().change_scene_to_file("res://scenes/endless_forest.tscn"))
   box.add_child(button)
+ column.add_child(AdventureSkin.button("黑暗童话 · 十八个新场景",func():get_tree().change_scene_to_file("res://scenes/fairytale_hub.tscn")))
  var seeds:=HBoxContainer.new();column.add_child(seeds)
  var topology:=OptionButton.new()
- for label in ["路口：两岔 / 三岔交替","只看两岔","只看三岔"]:topology.add_item(label)
+ for label in ["路口：随机两岔 / 三岔","只看两岔","只看三岔"]:topology.add_item(label)
  topology.item_selected.connect(func(i):
   if i==0:get_tree().remove_meta("tour_exits")
   else:get_tree().set_meta("tour_exits",i+1))
  get_tree().remove_meta("tour_exits")
  seeds.add_child(topology)
  var events:=OptionButton.new()
- for label in ["事件：前后交替","先遇事再选路","选路后遇事"]:events.add_item(label)
+ for label in ["事件：随机前后安排","先遇事再选路","选路后遇事"]:events.add_item(label)
  events.item_selected.connect(func(i):
   if i==0:get_tree().remove_meta("tour_event_placement")
   else:get_tree().set_meta("tour_event_placement","before" if i==1 else "after"))
  get_tree().remove_meta("tour_event_placement")
  seeds.add_child(events)
- seeds.add_child(StudyUI.label("地形种子",16))
+ seeds.add_child(StudyUI.label("场景与路线种子",16))
  var seed_box:=SpinBox.new();seed_box.min_value=1;seed_box.max_value=999999;seed_box.value=Catalog.seed_value;seeds.add_child(seed_box)
  seed_box.value_changed.connect(func(v):Catalog.seed_value=int(v))
  seeds.add_child(AdventureSkin.button("换一组随机布局",func():seed_box.value=randi_range(1,999999)))

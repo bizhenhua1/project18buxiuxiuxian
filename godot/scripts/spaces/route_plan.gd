@@ -1,5 +1,6 @@
 class_name RoutePlan
 extends Resource
+@export var layout_seed := 1842
 @export var title: String
 @export var straight := false
 @export var exits := 2

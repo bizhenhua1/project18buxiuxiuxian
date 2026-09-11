@@ -10,7 +10,8 @@ var projection_heading := INF
 var projection_center := Vector2.ZERO
 var projection_cache: Array[Dictionary] = []
 
-func _init(art: ForestArt, straight := false, empty := false) -> void:
+func _init(art: ForestArt, straight := false, empty := false, layout_seed := 1842) -> void:
+	seed_value=layout_seed
 	atmosphere = SkyField.new(art.profile)
 	if empty:return
 	if StyleLibrary.active:

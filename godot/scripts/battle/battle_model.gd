@@ -69,7 +69,7 @@ func add_card(id: String, at := -1) -> String:
 	if card.is_empty(): return "未知卡牌"
 	var type: String = "beast" if card.pool == "enemy" else card.cardType
 	var count := player.filter(func(u):return u.cardType == type).size()
-	if type == "char" and count > 0: return "道童只能上场一位"
+	if type == "char" and player.any(func(u):return (u.cardType=="char" or u.get("portrait_kind","")=="person") and preload("res://scripts/equipment/loadouts.gd").model_for_unit(u)==preload("res://scripts/equipment/loadouts.gd").model_for_unit(card)): return "该角色已上阵"
 	if type == "spell" and count >= 1+mods.get("mindSlots",0): return "识海法术位已满"
 	if type == "beast" and count >= 1+mods.get("beastSlots",0): return "御兽位已满"
 	var unit := rules.create_unit(id,"player",0,stage)
@@ -209,7 +209,7 @@ func advance(dt: float) -> void:
 			if unit.cardType == "spell" or unit.cardType == "fabao" and unit.mode == "held":
 				BattleRules.corpse(unit)
 				emit_events([{"type":"death","unit":unit}])
-	for unit in player:
+	for unit in player+enemy:
 		if unit.status == "corpse" and unit.reviveLeft > 0:
 			unit.reviveLeft -= dt*1000
 			if unit.reviveLeft <= 0:
@@ -223,6 +223,7 @@ func advance(dt: float) -> void:
 	all.sort_custom(func(a,b):return a.uid < b.uid)
 	for unit in all:
 		if not BattleRules.alive(unit): continue
+		if unit.get("returning_to_slot",false):continue
 		# Once a terminal condition exists, only already launched shots resolve.
 		# Otherwise fresh casts can indefinitely postpone defeat behind inflight shots.
 		if not winner().is_empty(): break
@@ -242,8 +243,9 @@ func winner() -> String:
 	var p := BattleRules.living(player).size()
 	var e := BattleRules.living(enemy).size()
 	for unit in player:
-		if unit.cardType == "char" and unit.status == "corpse": return "draw" if e == 0 else "defeat"
+		if unit.cardType == "char" and unit.status == "corpse" and unit.reviveLeft<=0: return "draw" if e == 0 else "defeat"
 	if p == 0 and player.any(func(u):return u.status == "corpse" and u.reviveLeft > 0): return ""
+	if e == 0 and enemy.any(func(u):return u.status == "corpse" and u.reviveLeft > 0): return ""
 	if p == 0 and e == 0: return "draw"
 	if p == 0: return "defeat"
 	if e == 0: return "victory"

@@ -9,7 +9,7 @@ static func profile(zone: Dictionary) -> Dictionary:
 	result.theme = zone.get("theme","forest")
 	result.exits = int(zone.get("exits",2))
 	result.before_fork = result.fork and zone.get("event_placement","after")=="before"
-	var first:=TravelPace.leg_distance(int(zone.get("endless_leg",1))==1)
+	var first:=TravelPace.leg_distance(true) if int(zone.get("endless_leg",1))==1 else TravelPace.mixed_distance()
 	var walk:=TravelPace.EXIT_DISTANCE+TravelPace.mixed_distance()
 	var preview:=TravelPace.WALK
 	result.junction=(first+walk if result.before_fork else first)+preview
@@ -57,6 +57,7 @@ static func entries(zone: Dictionary, direction: int) -> Array:
 static func plan(zone: Dictionary) -> RoutePlan:
 	var spec := profile(zone)
 	var result := RoutePlan.new()
+	result.layout_seed=int(zone.get("layout_seed",preload("res://scripts/spaces/biome_catalog.gd").seed_value))
 	result.title = zone.get("title","地块探索")
 	result.straight = not spec.fork
 	ForestRoute.configure(spec.fork,spec.junction,TravelPace.WALK)

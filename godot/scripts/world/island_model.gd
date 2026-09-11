@@ -24,8 +24,8 @@ var heading := 0
 var spin_direction := 0
 var spin_t := 1.0
 var spin_queue := 0
-var zoom := 1.0
-var zoom_goal := 1.0
+var zoom := 2.4
+var zoom_goal := 2.4
 var elapsed := 0.0
 var hover := Vector2i(-999,-999)
 var preview_all := false
@@ -35,7 +35,13 @@ var reveal_range := 0
 var blocked := {}
 var rebounding := false
 var approach_event := Vector2i(-999,-999)
-const REBOUND_SECONDS := 0.375
+const REBOUND_SECONDS := 0.6
+const AMBUSH_EDGE := 0.46
+const AMBUSH_WINDUP := STEP_SECONDS*AMBUSH_EDGE
+var probing_monster:=false
+var ambush_position:=Vector2i(-999,-999)
+var ambush_elapsed:=10.0
+var confronted:Dictionary={}
 func reveal_near(position: Vector2i) -> void:
 	var radius := (reveal_range+1)/2
 	for cell in cells:
@@ -56,8 +62,12 @@ static func wxz(c: float, r: float) -> Vector2: return Vector2((c-r)/2,(c+r)/2)
 func load_map(index: int) -> void:
 	map_index = posmod(index,samples.size())
 	cells = samples[map_index].grid.duplicate(true)
+	preload("res://scripts/world/island_theme_assets.gd").apply(cells,map_index)
 	lookup.clear()
 	blocked.clear()
+	confronted.clear()
+	ambush_elapsed=10.0
+	probing_monster=false
 	rebounding = false
 	approach_event = Vector2i(-999,-999)
 	pivot = Vector2.ZERO
@@ -114,7 +124,7 @@ func level(position: Vector2i) -> int:
 	if explored.has(position): return 3 if sight.has(position) else 2
 	return 1 if sight.has(position) or adjacent(position,sight) else 0
 func can_visit(position: Vector2i) -> bool:
-	return lookup.has(position) and not (blocked.has(position) and explored.has(position)) and (explored.has(position) or adjacent(position,explored))
+	return lookup.has(position) and not (blocked.has(position) and explored.has(position) and confronted.has(position)) and (explored.has(position) or adjacent(position,explored))
 func find_path(destination: Vector2i) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
 	if not can_visit(destination) or destination == player: return result
@@ -127,7 +137,7 @@ func find_path(destination: Vector2i) -> Array[Vector2i]:
 		for offset in NBS:
 			var next: Vector2i = current+offset
 			if previous.has(next) or not lookup.has(next): continue
-			var probing_unknown := next == destination and not explored.has(next)
+			var probing_unknown := next == destination and (not explored.has(next) or (blocked.has(next) and not confronted.has(next)))
 			if blocked.has(next) and not probing_unknown: continue
 			if not explored.has(next) and not probing_unknown: continue
 			previous[next] = current
@@ -141,7 +151,7 @@ func find_path(destination: Vector2i) -> Array[Vector2i]:
 	return result
 func go_to(destination: Vector2i) -> bool:
 	if input_locked or walking or spin_direction != 0: return false
-	if blocked.has(destination) and explored.has(destination):
+	if blocked.has(destination) and explored.has(destination) and confronted.has(destination):
 		var best: Array[Vector2i] = []
 		for offset in NBS:
 			var neighbor: Vector2i = destination+offset
@@ -166,6 +176,12 @@ func begin_step() -> void:
 	walk_from = player
 	walk_to = walk_path.pop_front()
 	walk_t = 0
+	probing_monster=blocked.has(walk_to) and blocked[walk_to].get("battle",true) and not confronted.has(walk_to)
+	if probing_monster:
+		ambush_position=walk_to;ambush_elapsed=0.0
+		remember(walk_to)
+		walk_path.clear()
+		changed.emit()
 func rotate_view(direction: int) -> void:
 	if input_locked or walking: return
 	if spin_direction != 0:
@@ -181,10 +197,22 @@ func angles() -> Vector2:
 	return Vector2(base+spin_direction*PI/4*global_weight,base+spin_direction*PI/4*local_weight)
 func advance(dt: float) -> void:
 	elapsed += dt
+	ambush_elapsed+=dt
 	zoom = lerpf(zoom,zoom_goal,minf(1,dt/0.07))
 	if absf(zoom-zoom_goal) < 0.0008: zoom = zoom_goal
-	if walking:
-		walk_t += dt/step_seconds()
+	if walking and probing_monster:
+		if ambush_elapsed<AMBUSH_WINDUP:
+			walk_t=ambush_elapsed/AMBUSH_WINDUP
+		else:
+			rebounding=true
+			walk_t=clampf((ambush_elapsed-AMBUSH_WINDUP)/REBOUND_SECONDS,0,1)
+			if walk_t>=1:
+				confronted[walk_to]=true
+				probing_monster=false;rebounding=false;walking=false
+				update_sight()
+	elif walking:
+		var step_dt:=maxf(0.0,ambush_elapsed-maxf(AMBUSH_WINDUP,ambush_elapsed-dt)) if rebounding else dt
+		walk_t += step_dt/step_seconds()
 		while walking and walk_t >= 1:
 			var extra := (walk_t-1)*step_seconds()
 			if rebounding:
@@ -205,7 +233,10 @@ func advance(dt: float) -> void:
 				rebounding=true
 				walk_path.clear()
 				update_sight()
-				event_requested.emit(encounter)
+				confronted[encounter]=true
+				if blocked[encounter].get("battle",true):
+					ambush_position=encounter;ambush_elapsed=0.0
+				else:event_requested.emit(encounter)
 				break
 			arrived.emit(lookup[player])
 			if walk_path.is_empty():
@@ -228,9 +259,14 @@ func advance(dt: float) -> void:
 static func ease_walk(t: float) -> float: return 2*t*t if t < 0.5 else 1-pow(-2*t+2,2)/2
 func avatar() -> Vector3:
 	if not walking: return Vector3(player.x,lookup[player].h,player.y)
+	if probing_monster:
+		var advance_weight:=AMBUSH_EDGE*(1.0-ease_walk(walk_t) if rebounding else walk_t)
+		return Vector3(lerpf(walk_from.x,walk_to.x,advance_weight),lookup[walk_from].h,lerpf(walk_from.y,walk_to.y,advance_weight))
 	var weight := clampf(walk_t,0,1)
 	var height:float=lookup[walk_from].h
-	if has_height_step():
+	if rebounding:
+		height=lerpf(height,float(lookup[walk_to].h),weight)
+	elif has_height_step():
 		var start:=jump_start()
 		var end:=.82
 		var destination:float=lookup[walk_to].h
@@ -283,7 +319,9 @@ func to_save() -> Dictionary:
 		var id := "%d,%d" % [position.x,position.y]
 		keys.append(id)
 		memories[id] = last_seen.get(position,{})
-	return {"schema":1,"map_index":map_index,"player":[player.x,player.y],"heading":heading,"zoom":zoom_goal,"explored":keys,"last_seen":memories,"reveal_range":reveal_range}
+	var encounters:Array=[]
+	for p in confronted:encounters.append("%d,%d" % [p.x,p.y])
+	return {"confronted":encounters,"schema":1,"map_index":map_index,"player":[player.x,player.y],"heading":heading,"zoom":zoom_goal,"explored":keys,"last_seen":memories,"reveal_range":reveal_range}
 func restore(data: Dictionary) -> bool:
 	if data.get("schema",0) != 1 or not data.has("player"): return false
 	if not data.player is Array or data.player.size() != 2: return false
@@ -305,10 +343,13 @@ func restore(data: Dictionary) -> bool:
 	for id in data.get("explored",[]):
 		var parts: PackedStringArray = id.split(",")
 		if parts.size() == 2: remember(Vector2i(int(parts[0]),int(parts[1])))
+	for id in data.get("confronted",[]):
+		var parts:=str(id).split(",")
+		if parts.size()==2:confronted[Vector2i(int(parts[0]),int(parts[1]))]=true
 	player = position
 	remember(player)
 	heading = posmod(int(data.get("heading",0)),8)
-	zoom = clampf(data.get("zoom",1.0),0.42,2.4)
+	zoom = clampf(data.get("zoom",2.4),0.42,2.4)
 	zoom_goal = zoom
 	update_sight()
 	changed.emit()
@@ -321,7 +362,7 @@ func jump_start() -> float:
 	# Centers are one unit apart; the shared edge is halfway between them.
 	return 1.0/3.0 if lookup[walk_to].h>lookup[walk_from].h else .46
 func is_jumping() -> bool:
-	return has_height_step() and walk_t>=jump_start() and walk_t<.82
+	return not probing_monster and not rebounding and has_height_step() and walk_t>=jump_start() and walk_t<.82
 func jump_progress() -> float:
 	return clampf((walk_t-jump_start())/(.82-jump_start()),0,1)
 func step_seconds() -> float:

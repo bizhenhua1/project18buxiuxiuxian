@@ -15,6 +15,9 @@ var travel_leg_fork:=false
 var opening_leg:=true
 var travel_reveal := 1.0
 var clearing_time := 0.0
+var dialogue_speaker: Label
+var dialogue_was_visible := false
+var dialogue_tween: Tween
 var event_box: VBoxContainer
 var event_title: Label
 var event_text: Label
@@ -36,6 +39,8 @@ var header_panel: AdventurePanel
 var footer_panel: AdventurePanel
 var event_panel: AdventurePanel
 var kit_panel: PanelContainer
+var kit_tab:=0
+var roster_ui=preload("res://scripts/equipment/kit_roster.gd").new()
 var kit_items: HBoxContainer
 var kit_description: Label
 var kit_mode: Button
@@ -193,24 +198,37 @@ func _build_ui() -> void:
 	event_panel = AdventurePanel.new()
 	add_child(event_panel)
 	event_box = VBoxContainer.new()
-	event_box.add_theme_constant_override("separation",8)
+	event_box.add_theme_constant_override("separation",12)
 	add_child(event_box)
-	event_title = StudyUI.label("",21)
-	event_box.add_child(event_title)
-	event_text = StudyUI.label("",14)
+	var kicker := StudyUI.label("路 途 手 记   /   抉 择",12)
+	kicker.add_theme_color_override("font_color",Color("a89975"))
+	event_box.add_child(kicker)
+	var dialogue_row := HBoxContainer.new()
+	dialogue_row.add_theme_constant_override("separation",36)
+	event_box.add_child(dialogue_row)
+	var narrative := VBoxContainer.new()
+	narrative.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	narrative.add_theme_constant_override("separation",10)
+	dialogue_row.add_child(narrative)
+	event_title = StudyUI.label("",26)
+	narrative.add_child(event_title)
+	dialogue_speaker=StudyUI.label("旅途见闻",13)
+	dialogue_speaker.add_theme_color_override("font_color",Color("aa9872"))
+	narrative.add_child(dialogue_speaker)
+	event_text = StudyUI.label("",17)
 	event_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	event_box.add_child(event_text)
-	var actions := HBoxContainer.new()
-	actions.alignment = BoxContainer.ALIGNMENT_CENTER
-	actions.add_theme_constant_override("separation",12)
-	event_box.add_child(actions)
+	narrative.add_child(event_text)
+	var actions := VBoxContainer.new()
+	actions.custom_minimum_size.x=250
+	actions.add_theme_constant_override("separation",10)
+	dialogue_row.add_child(actions)
 	left_button = AdventureSkin.button("循人迹",func():choose(-1))
 	right_button = AdventureSkin.button("寻妖息",func():choose(1))
 	fight = AdventureSkin.button("迎战",start_battle)
-	fortune = AdventureSkin.button("领悟机缘",func():resolve("fortune"))
+	fortune = AdventureSkin.button("调查旧迹",func():resolve("fortune"))
 	supplies = AdventureSkin.button("取些补给",func():resolve("supplies"))
 	for button in [left_button,right_button,fight,fortune,supplies]:
-		button.custom_minimum_size.x = 170
+		button.custom_minimum_size = Vector2(250,44)
 		actions.add_child(button)
 	kit_panel = PanelContainer.new()
 	kit_panel.add_theme_stylebox_override("panel",_kit_style())
@@ -227,6 +245,8 @@ func _build_ui() -> void:
 	var close_button := AdventureSkin.button("整备完毕",close_kit)
 	close_button.custom_minimum_size = Vector2(120,40)
 	heading_row.add_child(close_button)
+	var tabs:=TabBar.new();tabs.add_tab("神秘道具");tabs.add_tab("角色");body.add_child(tabs)
+	tabs.tab_changed.connect(func(index):kit_tab=index;_refresh_kit())
 	var scroll := ScrollContainer.new()
 	scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -295,12 +315,11 @@ func _layout_ui() -> void:
 	relic_face_button.size=Vector2(112,38)
 	detail.position = Vector2(332,canvas_size.y-50)
 	detail.size = Vector2(canvas_size.x-640,28)
-	var width := minf(550,canvas_size.x-110)
-	var center := arena.position+arena.scenery.position+arena.scenery.size/2
-	event_panel.position = Vector2((canvas_size.x-width)/2,center.y-68)
-	event_panel.size = Vector2(width,136)
-	event_box.position = event_panel.position+Vector2(24,12)
-	event_box.size = event_panel.size-Vector2(48,24)
+	var width := minf(1100,canvas_size.x-64)
+	event_panel.position = Vector2((canvas_size.x-width)/2,canvas_size.y-338)
+	event_panel.size = Vector2(width,248)
+	event_box.position = event_panel.position+Vector2(30,20)
+	event_box.size = event_panel.size-Vector2(60,40)
 	if kit_panel:
 		kit_panel.position = arena.position
 		kit_panel.size = Vector2(arena.size.x,arena.scenery.position.y-8)
@@ -363,8 +382,12 @@ func _refresh_kit() -> void:
 	kit_description.tooltip_text = kit_description.text
 	kit_mode.disabled = selected_unit.is_empty() or selected_unit.get("cardType","") != "fabao"
 	kit_remove.disabled = selected_unit.is_empty() or selected_unit.get("cardType","") == "char"
+	if kit_tab==1:
+		kit_description.text="点击角色上阵或收回 · 长按角色装配武器"
+		roster_ui.populate(self)
+		return
 	for spec in model.rules.cards:
-		if spec.pool == "enemy": continue
+		if spec.pool == "enemy" or spec.cardType=="char" or spec.get("portrait_kind","")=="person": continue
 		var id: String = spec.id
 		var button := AdventureItem.new()
 		button.text = spec.name
@@ -453,6 +476,10 @@ func _process(delta: float) -> void:
 				if arena.scene_mode:
 					distance+=EXIT_ADVANCE
 					travel_reveal=1.0
+					# Hidden companions re-enter from the next travelling group, never
+					# from a previous battlefield's persistent movement state.
+					for unit in model.player:
+						if not arena.seer or unit.uid!=arena.seer.uid:arena.formation_motion.units.erase(unit.uid)
 				model.enemy.clear()
 				arena.effects.clear()
 				arena.particles.clear()
@@ -537,7 +564,9 @@ func _process(delta: float) -> void:
 	# Layout first, then publish one camera state, then advance actors exactly once.
 	_update_ui()
 	for view in views: view.sync(camera,heading,elapsed,moving_envelope,branch,labels,bob,distance)
-	if discovery_actor:discovery_actor.advance(minf(delta,.05),"travel",paused,speed,true)
+	if discovery_actor:
+		discovery_actor.team_key.light_color=Color("bedae0")*arena.scenery.renderer.enemy_light_tint()
+		discovery_actor.advance(minf(delta,.05),"travel",paused,speed,true)
 	arena._process(minf(delta,.05))
 	for view in views:view.sync_projection()
 	if phase == "arrived" and not route_complete:
@@ -568,7 +597,7 @@ func prepare_encounter() -> void:
 		model.enemy.erase(ranked[0])
 		model.enemy.push_front(ranked[0])
 		for i in range(model.enemy.size()): model.enemy[i].index = i
-		if arena.enemy_actor and arena.scene_mode:model.enemy[0].name="失控梦游者"
+		if arena.enemy_actor and arena.scene_mode and not ranked[0].get("fairytale_enemy",false):model.enemy[0].name="失控梦游者"
 		arena.rebuild()
 		road_actor.art = arena.art_for(ranked[0])
 		road_actor.caption = ranked[0].name+" · 拦路"
@@ -599,7 +628,7 @@ func prepare_encounter() -> void:
 				actor.hidden=arena.scene_mode
 				companions.append(actor)
 				world.sprites.append(actor)
-		if arena.enemy_actor and arena.scene_mode:arena.enemy_actor.bind_unit(model.enemy[0])
+		if arena.enemy_actor and arena.scene_mode and not model.enemy[0].get("fairytale_enemy",false):arena.enemy_actor.bind_unit(model.enemy[0])
 
 func start_battle() -> void:
 	if phase not in ["sighting","encounter","defeat"] or is_social(): return
@@ -657,6 +686,11 @@ func finish_battle(result: String) -> void:
 		Journey.save()
 		phase = "clearing"
 		clearing_time = 0
+		# Finish the last lethal animation before the existing departure/cleanup clock.
+		if arena.scene_mode:
+			for actor in arena.equipped_actors.values():clearing_time=minf(clearing_time,-actor.death_remaining())
+			if arena.enemy_actor:clearing_time=minf(clearing_time,-arena.enemy_actor.death_remaining())
+		arena.restore_victorious_party()
 		_sync_event_previews()
 	else:
 		phase = "defeat"
@@ -704,12 +738,20 @@ func _update_ui() -> void:
 	progress.value = distance/route_spec.end*100
 	event_box.visible = (choosing or encounter or route_complete) and not kit_panel.visible
 	event_panel.visible = event_box.visible
+	if event_box.visible and not dialogue_was_visible:
+		if dialogue_tween:dialogue_tween.kill()
+		event_box.modulate.a=0;event_panel.modulate.a=0
+		dialogue_tween=create_tween().set_parallel(true)
+		dialogue_tween.tween_property(event_box,"modulate:a",1.0,.18)
+		dialogue_tween.tween_property(event_panel,"modulate:a",1.0,.18)
+	dialogue_was_visible=event_box.visible
 	var social := is_social()
 	fight.visible = encounter and not social
 	fight.text = "原地休整" if phase == "defeat" else "迎战"
 	fortune.visible = encounter and social
 	supplies.visible = encounter and social
 	var kind := Journey.state.event_kind()
+	dialogue_speaker.text="旅途见闻"
 	if route_complete:
 		event_title.text = "此地探索完成"
 		event_text.text = "地块奖励 · 灵石 +%d\n战斗与事件所得已收入行囊，可从上方返岛。" % final_reward
@@ -718,11 +760,12 @@ func _update_ui() -> void:
 		event_text.text = "一侧留有人迹，另一侧隐约传来妖息。"
 	elif social:
 		event_title.text = {"traveler":"路遇采药人","merchant":"歇脚行商","story":"旅途旧迹"}.get(kind,"旅途机缘")
-		event_text.text = "路遇有缘人。悟一段道理，或取些补给再上路。"
+		event_text.text = {"traveler":"他收拢药篓，朝你点了点头。\n“前面不好走。带些补给，或让我告诉你一处旧迹。”","merchant":"行商将旧布铺开，露出随身带来的货物。\n“补给在这里。想找些别的？这张寻宝符或许用得上。”","story":"旧路旁留着一道模糊的刻痕。你停下脚步，辨认其中的线索。"}.get(kind,"你在路边停下脚步，查看留下的物品与线索。")
+		dialogue_speaker.text={"traveler":"采药人","merchant":"行商","story":"旧迹"}.get(kind,"旅途见闻")
 	else:
 		event_title.text = "妖物挡路" if phase != "defeat" else "暂歇 · 重整旗鼓"
-		event_text.text = "法宝在侧，进退由心。" if phase != "defeat" else "先行休整，再择阵势。"
-	fortune.text = "寻宝符 · 4 灵石" if kind == "merchant" else "领悟机缘"
+		event_text.text = "前方的身影停住了。它察觉了你的靠近，挡在去路中央。\n你收紧手中的武器，准备迎战。" if phase != "defeat" else "交锋暂歇，队伍需要重新站稳脚跟。\n休整后，将在原地再次迎战。"
+	fortune.text = "寻宝符 · 4 灵石" if kind == "merchant" else "调查旧迹"
 	fortune.disabled = kind == "merchant" and Journey.state.stones < 4
 	if phase == "sighting": status.text = "妖物现身 · 即将交锋"
 	if phase == "entering": status.text = "妖势展开 · 凝神迎敌"
@@ -798,7 +841,7 @@ func travel_envelope() -> float:
 
 func _sync_event_previews() -> void:
 	if not world or not arena:return
-	if arena.scene_mode and not discovery_actor:
+	if arena.scene_mode and not discovery_actor and not FairytaleCatalog.has_scene(route_zone.get("theme","")):
 		discovery_actor=preload("res://scripts/battle/enemy_actor.gd").new();add_child(discovery_actor)
 	# Resources may be warm, but only the next reachable event owns a world body.
 	# An unchosen branch is not part of the player's linear event sequence yet.
@@ -809,8 +852,9 @@ func _sync_event_previews() -> void:
 		if entry.kind=="battle" and (entry.branch==0 or branch!=0):
 			key="%d:%d" % [entry.branch,encounter_step]
 			if not event_previews.has(key):
-				var texture:Texture2D=discovery_actor.texture() if discovery_actor else StyleLibrary.texture("hound")
+				var texture:Texture2D=load("res://"+FairytaleCatalog.lead_art(route_zone.theme)) if FairytaleCatalog.has_scene(route_zone.get("theme","")) else discovery_actor.texture() if discovery_actor else StyleLibrary.texture("hound")
 				var actor:Dictionary={"actor":true,"born_at":elapsed,"edge_strength":0.0,"hidden":false,"position":ForestRoute.point_at(entry.spawn_distance,entry.branch),"texture":texture,"w":70.0*texture.get_width()/float(texture.get_height()),"h":70.0,"flip":false,"kind":0,"id":110000+event_previews.size(),"region":world.plan.at(entry.visual_distance,entry.branch),"route_s":entry.spawn_distance,"wait_s":entry.visual_distance,"spawn_s":entry.spawn_distance,"route_branch":entry.branch,"altitude":0.0,"motion":"static","event_index":encounter_step}
+				actor.silhouette=world.assets.silhouette(texture,actor.region.space.atmosphere.depth_color)
 				if discovery_actor:actor.live_discovery=true;actor.ground_anchor=Vector2(.5,discovery_actor.ground_uv())
 				event_previews[key]=actor;world.sprites.append(actor)
 	for preview_key in event_previews:

@@ -20,12 +20,17 @@ static func corners(canvas: CanvasItem, rect: Rect2, edge := 24.0, tint := Color
 		canvas.draw_texture_rect(part("corner",right,bottom),Rect2(at,Vector2.ONE*edge),false,tint)
 static func frame(canvas: CanvasItem, rect: Rect2, fill := Color("101e1b"), edge := 24.0) -> void:
 	if StyleLibrary.active:
-		canvas.draw_rect(rect,Color(.035,.046,.06,.96))
-		canvas.draw_rect(rect.grow(-1),Color("655c50"),false,1)
-		canvas.draw_rect(rect.grow(-5),Color(.28,.33,.36,.45),false,1)
+		canvas.draw_rect(rect,Color(.035,.052,.055,.96))
+		canvas.draw_rect(rect.grow(-1),Color("837253"),false,1)
+		canvas.draw_rect(rect.grow(-5),Color(.28,.33,.32,.28),false,1)
 		for x in [rect.position.x+12,rect.end.x-12]:
 			var y:=rect.position.y+rect.size.y*.5
 			canvas.draw_polyline(PackedVector2Array([Vector2(x,y-6),Vector2(x+3,y),Vector2(x,y+6),Vector2(x-3,y),Vector2(x,y-6)]),Color("8b7b60"),1,true)
+		for corner in [rect.position+Vector2(9,9),Vector2(rect.end.x-9,rect.position.y+9),Vector2(rect.position.x+9,rect.end.y-9),rect.end-Vector2(9,9)]:
+			var sx:=1.0 if corner.x<rect.get_center().x else -1.0
+			var sy:=1.0 if corner.y<rect.get_center().y else -1.0
+			canvas.draw_line(corner,corner+Vector2(18*sx,0),Color("b29b6e"),1,true)
+			canvas.draw_line(corner,corner+Vector2(0,7*sy),Color("b29b6e"),1,true)
 		return
 	var box := StyleBoxFlat.new()
 	box.bg_color = fill

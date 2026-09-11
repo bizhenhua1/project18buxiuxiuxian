@@ -56,13 +56,17 @@ func setup_zones() -> void:
 	for i in range(3):
 		var position := queue[mini(queue.size()-1,2+i*4)]
 		var biome: String = world.lookup[position].get("theme","forest")
-		zones.append({"id":"island_%d_%d" % [world.map_index,i],"cell":[position.x,position.y],"title":names[i],"theme":biome,"route_kind":"fork" if i == 2 else "short","route_profile":"short_social" if i == 1 else "short_battle","tier":i,"reward":12+i*6})
+		zones.append({"id":"island_%d_%d" % [world.map_index,i],"cell":[position.x,position.y],"title":names[i] if biome == "forest" else {"crystal":"晶矿","swamp":"幽沼","sewer":"暗渠","whale":"鲸腹","palace":"旧宫"}.get(biome,"异境")+["小径","歇脚处","岔道"][i],"theme":biome,"route_kind":"fork" if i == 2 else "short","route_profile":"short_social" if i == 1 else "short_battle","tier":i,"reward":12+i*6})
+	for zone in zones:
+		if FairytaleCatalog.has_scene(zone.theme):zone.title=FairytaleCatalog.entry(zone.theme).name
 	sync_events()
 func sync_events() -> void:
+	# These markers are hostile monsters; the route profile only orders events inside.
 	world.blocked.clear()
 	for zone in zones:
 		if not cleared.has(zone.id):
-			world.blocked[Vector2i(zone.cell[0],zone.cell[1])] = {"id":zone.id,"art":"assets/style-e/style-e-monster-%s.png" % ["huoli","shujing","shitoujing"][int(zone.tier)]}
+			world.blocked[Vector2i(zone.cell[0],zone.cell[1])] = {"id":zone.id,"battle":true,"art":"assets/style-e/style-e-monster-%s.png" % ["huoli","shujing","shitoujing"][int(zone.tier)]}
+			if FairytaleCatalog.has_scene(zone.theme):world.blocked[Vector2i(zone.cell[0],zone.cell[1])].art=FairytaleCatalog.lead_art(zone.theme)
 func on_event_requested(position: Vector2i) -> void:
 	on_arrival(world.lookup[position])
 func active_zone() -> Dictionary:
@@ -89,7 +93,9 @@ func prepare_battle() -> bool:
 	battle.reset()
 	battle.enemy.clear()
 	var rosters := [["huoli","caoshe","yewu"],["shujing","jinchan","yewu","caoshe"],["shitoujing","yezhu","huoli","yewu","jinchan"]]
-	for id in rosters[int(zone.tier)]: battle.enemy.append(battle.rules.create_unit(id,"enemy",battle.enemy.size(),battle.stage))
+	var selected_roster:Array=FairytaleCatalog.roster(zone.get("theme","forest"))
+	if selected_roster.is_empty():selected_roster=rosters[int(zone.tier)]
+	for id in selected_roster: battle.enemy.append(battle.rules.create_unit(id,"enemy",battle.enemy.size(),battle.stage))
 	for unit in battle.enemy:battle.scale_health(unit)
 	last_result = ""
 	return true

@@ -32,7 +32,7 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 	if template_enabled:
 		var model_uids:Array=[]
 		for unit in arena.model.player:
-			if (arena.seer and unit.cardId=="daotong") or (arena.companion_actor and unit.uid==arena.companion_actor.uid):model_uids.append(unit.uid)
+			if arena.equipped_actors.has(unit.uid):model_uids.append(unit.uid)
 		live_template.prepare_slots(arena.model.player,model_uids)
 	var entering:bool=arena.owner_app.phase=="entering"
 	var clock:float=arena.entrance_progress if entering else (1.0 if arena.owner_app.phase in ["battle","clearing","defeat","reviving"] else 0.0)
@@ -58,11 +58,12 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 		settled_horizon=renderer.view_size.y*(float(ForestSettings.values.get("camera_horizon",.48))-.19)
 	for card in arena.cards:
 		if card.unit.is_empty():continue
-		var live:bool=arena.seer!=null and card.side=="player" and card.unit.get("cardId","")=="daotong"
-		var ally_live:bool=arena.companion_actor!=null and card.side=="player" and card.unit.uid==arena.companion_actor.uid
-		var enemy_live:bool=arena.enemy_actor!=null and card.side=="enemy" and card.index==0
+		var live:bool=arena.seer!=null and card.side=="player" and card.unit.uid==arena.seer.uid
+		var ally_actor=arena.equipped_actors.get(card.unit.uid)
+		var ally_live:bool=ally_actor!=null and not live and card.side=="player"
+		var enemy_live:bool=arena.enemy_actor!=null and card.side=="enemy" and card.index==0 and not card.unit.get("fairytale_enemy",false)
 		var texture:Texture2D=arena.seer.texture() if live else arena.scene_art(card.unit,card.side)
-		if ally_live:texture=arena.companion_actor.texture()
+		if ally_live:texture=ally_actor.texture()
 		if enemy_live:texture=arena.enemy_actor.texture()
 		if not texture:continue
 		var person:=people.find(card)
@@ -106,6 +107,9 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 		renderer.travel_lateral=0.0
 
 		var world_height:float=slot.height
+		if live:world_height*=arena.seer.frame_scale()
+		elif ally_live:world_height*=ally_actor.frame_scale()
+		elif enemy_live:world_height*=arena.enemy_actor.frame_scale()
 		var altitude:float=slot.clearance
 		var world_position:Vector2=frame_origin+right*float(slot.x)+forward*float(slot.depth)
 		if card.side=="enemy" and not source.is_empty():
@@ -124,19 +128,44 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 			if not live:travel_position+=travel_right*(card.index-2)*5-travel_forward*8
 			var deployed:bool=phase in ["entering","battle","defeat","reviving"]
 			var target:Vector2=world_position if deployed else travel_position
-			world_position=arena.formation_motion.move(card.unit.uid,target,travel_position,dt,phase in ["defeat","reviving"] or (phase=="battle" and not template_enabled))
+			if leaving and not live:target=card.scene_rest_position
+			world_position=arena.formation_motion.move(card.unit.uid,target,travel_position,dt,(leaving and not live) or phase in ["defeat","reviving"] or (phase=="battle" and not template_enabled))
 			if world_position.distance_to(target)>.7:arena.formation_ready=false
 			if not live:
 				if moving:reveal=0
-				elif leaving:reveal*=1-smoothstep(.4,1.35,float(arena.owner_app.clearing_time))
+				elif leaving:reveal*=1-smoothstep(0,.7,float(arena.owner_app.clearing_time))
 			if person<0:altitude+=sin(arena.visual_time*2+card.unit.uid)*SpatialMarks.prop_mark(card.unit).bob
-		if live:
+		if live and BattleRules.alive(card.unit):
 			var facing:=PI-.12 if moving or leaving else PI+(.22 if slot.right_facing else -.22)
 			arena.seer.body.rotation.y=lerp_angle(arena.seer.body.rotation.y,facing,1-exp(-8*dt))
+		# Preserve the last presented pose, including any attack offset, for the fade.
+		var hold_exit:bool=leaving and card.side=="player" and not live
+		if hold_exit and not card.has_meta("exit_pose"):
+			card.set_meta("exit_pose",{"position":card.scene_rest_position+card.scene_motion_offset,"altitude":altitude})
+		elif not hold_exit and card.has_meta("exit_pose"):card.remove_meta("exit_pose")
 		card.scene_rest_position=world_position
 		var push:=motion_envelope(card.motion_kind,card.motion_age)
+		if card.motion_kind=="sword_combo":
+			var attack_t:float=card.motion_age/maxf(.1,float(card.unit.get("combo_duration",1.0)))
+			push=smoothstep(0,.30,attack_t)*(1-smoothstep(.58,1.0,attack_t))
 		card.scene_motion_offset=card.motion_world_direction*card.motion_distance*push+card.motion_origin*(1-smoothstep(0,.12,card.motion_age))
 		world_position+=card.scene_motion_offset
+		if hold_exit:
+			world_position=card.get_meta("exit_pose").position
+			altitude=card.get_meta("exit_pose").altitude
+		if live or ally_live or enemy_live:
+			if not BattleRules.alive(card.unit):
+				if not card.has_meta("corpse_position"):card.set_meta("corpse_position",world_position)
+				world_position=card.get_meta("corpse_position")
+				card.scene_motion_offset=Vector2.ZERO
+			elif card.has_meta("corpse_position"):
+				card.set_meta("return_position",card.get_meta("corpse_position"));card.remove_meta("corpse_position")
+			card.unit.returning_to_slot=card.has_meta("return_position")
+			if card.has_meta("return_position"):
+				var returning:Vector2=card.get_meta("return_position").move_toward(world_position,TravelPace.WALK*dt)
+				if returning.distance_to(world_position)<.1:card.remove_meta("return_position");card.unit.returning_to_slot=false
+				else:card.set_meta("return_position",returning)
+				world_position=returning
 		var relative:=ForestRoute.to_camera(world_position,renderer.camera_world,renderer.heading)
 		var scale:=renderer.focal()/maxf(10,relative.y)
 		var ground:=ForestEcology.height_at(world_position)-ForestEcology.height_at(renderer.camera_world)
@@ -145,7 +174,7 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 		var width:=height*texture.get_width()/float(texture.get_height())
 		var battle_rect:=Rect2(foot-Vector2(width*.5,height),Vector2(width,height))
 		card.scene_body_in_world=true
-		var tint:=Color.WHITE if BattleRules.alive(card.unit) else Color(.4,.4,.4,.45)
+		var tint:=Color.WHITE if BattleRules.alive(card.unit) or live or ally_live or enemy_live else Color(.4,.4,.4,.45)
 		tint.a*=reveal
 		var actor:Dictionary={"edge_strength":smoothstep(0,.4,arena.model.elapsed) if card.side=="enemy" and arena.owner_app.phase in ["battle","clearing"] else 0.0,"actor":true,"born_at":-100.0,"hidden":false,"position":world_position,"texture":texture,"w":world_height*texture.get_width()/float(texture.get_height()),"h":world_height,"altitude":altitude,"ground_anchor":Vector2(.5,1),"flip":card.side=="player" and person>=0 and slot.right_facing,"kind":0,"id":200000+card.unit.uid,"region":renderer.world.camera_region,"motion":"static","ecology_tint":tint}
 		if enemy_live:
@@ -155,14 +184,13 @@ static func update(arena:BattleArena,dt:float=0.0) -> void:
 			battle_rect.position.y+=height*(1-arena.enemy_actor.ground_uv())
 		if live:
 			actor.live_character=true;actor.flip=false
-			actor.ground_anchor=Vector2(.5,.93)
+			actor.ground_anchor=Vector2(.5,lerpf(.93,arena.seer.ground_uv(),arena.seer.corpse_frame))
 		if ally_live:
 			actor.live_companion=true;actor.flip=false
-			actor.ground_anchor=Vector2(.5,arena.companion_actor.ground_uv())
-			arena.companion_actor.body.rotation.y=PI+(.22 if slot.right_facing else -.22)
-			battle_rect.position.y+=height*(1-arena.companion_actor.ground_uv())
-		if not ((live or ally_live or enemy_live) and not BattleRules.alive(card.unit)):
-			renderer.battle_actors.append(actor)
+			actor.ground_anchor=Vector2(.5,ally_actor.ground_uv())
+			if BattleRules.alive(card.unit):ally_actor.body.rotation.y=PI+(.22 if slot.right_facing else -.22)
+			battle_rect.position.y+=height*(1-ally_actor.ground_uv())
+		renderer.battle_actors.append(actor)
 		card.size=battle_rect.size+Vector2(0,38)
 		card.scene_head_uv=arena.enemy_actor.head_uv() if enemy_live else SpatialMarks.head_uv(card.unit,texture,actor.flip)
 		card.position=battle_rect.position

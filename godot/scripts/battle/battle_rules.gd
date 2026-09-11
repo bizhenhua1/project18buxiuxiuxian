@@ -10,7 +10,14 @@ func _init() -> void:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/battle_cards.json"))
 	cards = data.cards
 	StyleLibrary.apply_cards(cards)
+	FairytaleCatalog.append_cards(cards)
 	balance = data.balance
+	var roster:Array=JSON.parse_string(FileAccess.get_file_as_string("res://data/character_roster.json"))
+	for i in range(roster.size()):
+		var entry:Dictionary=card("daotong").duplicate(true)
+		entry.id="character_"+str(i);entry.name=roster[i].name;entry.model_file=roster[i].file
+		entry.portrait_kind="person";entry.skillText="角色 · 装备决定动作；长按打开装配"
+		cards.append(entry)
 
 func card(id: String) -> Dictionary:
 	for value in cards:

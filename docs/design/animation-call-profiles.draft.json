@@ -1,0 +1,85 @@
+{
+  "status": "design_only_not_runtime_config",
+  "profiles": {
+    "samurai": {
+      "status": "candidate_requires_visual_contact_annotation",
+      "combo": [
+        {
+          "clip": "4_Anim_ARPGSamurai_Attack_Combo1",
+          "duration_seconds": 0.8,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "4_Anim_ARPGSamurai_Attack_Combo2",
+          "duration_seconds": 0.96,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "4_Anim_ARPGSamurai_Attack_Combo3",
+          "duration_seconds": 0.84,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "4_Anim_ARPGSamurai_Attack_Combo4",
+          "duration_seconds": 1.12,
+          "contact_time": null,
+          "chain_window": null
+        }
+      ],
+      "advance_on": "primary_attack_committed",
+      "wrap_after": 4,
+      "reset_on": [
+        "death",
+        "revive",
+        "battle_exit",
+        "weapon_change",
+        "hard_control"
+      ],
+      "target_change": "retain_stage_if_same_weapon_and_in_range",
+      "damage_multiplier_from_stage": 1.0
+    },
+    "warrior": {
+      "status": "candidate_requires_visual_contact_annotation",
+      "combo": [
+        {
+          "clip": "5_ARPG_Warrior_Anim_rig_Attack_Combo1",
+          "duration_seconds": 0.8,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "5_ARPG_Warrior_Anim_rig_Attack_Combo2",
+          "duration_seconds": 0.8,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "5_ARPG_Warrior_Anim_rig_Attack_Combo3",
+          "duration_seconds": 1.0,
+          "contact_time": null,
+          "chain_window": null
+        },
+        {
+          "clip": "5_ARPG_Warrior_Anim_rig_Attack_Combo4",
+          "duration_seconds": 1.0,
+          "contact_time": null,
+          "chain_window": null
+        }
+      ],
+      "advance_on": "primary_attack_committed",
+      "wrap_after": 4,
+      "reset_on": [
+        "death",
+        "revive",
+        "battle_exit",
+        "weapon_change",
+        "hard_control"
+      ],
+      "target_change": "retain_stage_if_same_weapon_and_in_range",
+      "damage_multiplier_from_stage": 1.0
+    }
+  }
+}

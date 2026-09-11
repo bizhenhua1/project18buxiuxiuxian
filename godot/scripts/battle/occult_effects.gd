@@ -18,6 +18,8 @@ static func sigil(canvas: CanvasItem, center: Vector2, radius: float, color: Col
 		var b := center+Vector2.from_angle(angle+TAU/3)*radius
 		canvas.draw_line(a,b,Color(color,color.a*.65),1,true)
 static func shot(canvas: CanvasItem, shot: Dictionary, start: Vector2, finish: Vector2) -> void:
+	# Melee is conveyed by the actor animation; do not draw weapon stamps or trails.
+	if shot.get("style", "") == "melee" or shot.from.get("sword_combo", false): return
 	var t: float = clampf(shot.age/shot.duration,0,1)
 	var color := color_for(shot.from)
 	var delta := finish-start
@@ -58,6 +60,8 @@ static func shot(canvas: CanvasItem, shot: Dictionary, start: Vector2, finish: V
 static func impact(canvas: CanvasItem, event: Dictionary, at: Vector2) -> void:
 	var t: float = clampf(event.age/.38,0,1)
 	if t >= 1: return
+	var source: Dictionary = event.get("source", {})
+	if event.type == "damage" and (source.get("sword_combo", false) or source.get("atkType", "") == "melee"): return
 	var color := Color("94d8ca") if event.type in ["heal","buff","revive"] else Color("ddb98a")
 	glow(canvas,at,44+20*t,color,pow(1-t,2)*1.6)
 	sigil(canvas,at,8+t*35,Color(color,pow(1-t,2)),t*.7)

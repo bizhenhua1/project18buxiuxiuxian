@@ -17,6 +17,7 @@ var motion_origin:=Vector2.ZERO
 var displayed_hp := -1.0
 var scene_body_in_world:=false
 var scene_head_uv:=Vector2(.5,0)
+var equipment_press:=0
 func accent() -> Color:
 	return {"violet":Color("b57bff"),"gold":Color("e8c25a"),"jade":Color("6ed89a"),"mint":Color("7eefb0"),"steel":Color("9bb4c8"),"crimson":Color("e07058"),"amber":Color("d4a04a")}.get(unit.get("theme","gold"),Color("e8c25a"))
 func _ready() -> void:
@@ -108,6 +109,9 @@ func _draw() -> void:
 	text_at("%d级 · %s" % [arena.model.stage+1,StyleLibrary.words(mode)],Vector2(0,size.y*.69),maxi(9,int(10*size.x/130)),Color("b9c3a5"),size.x)
 	var radius := size.x*37.5/130.0
 	var center := Vector2(size.x*.5,size.y*.83)
+	if unit.get("health_transformation_active",false):
+		if hovered or arena.show_card_names:text_at(unit.name,Vector2(-50,-8),14,Color("efd790"),size.x+100)
+		return
 	draw_circle(center,radius,Color("281b1a"))
 	var inherited: bool = live and (unit.mode == "held" or unit.cardType == "spell")
 	var hp_ratio: float = clampf((unit.hp if displayed_hp < 0 else displayed_hp)/float(maxi(1,unit.maxHp)),0,1)
@@ -166,12 +170,17 @@ func liquid(center: Vector2, radius: float, ratio: float, tint: Color) -> void:
 		var half := sqrt(maxf(0,radius*radius-y*y))
 		draw_line(center+Vector2(-half,y),center+Vector2(half,y),tint.darkened(pow(clampf((y+radius)/(radius*2),0,1),1.4)*.82),1.2,true)
 func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
+		equipment_press+=1
+		if event.pressed and arena.equipment_open and side=="player" and not unit.is_empty() and (unit.cardType=="char" or unit.get("portrait_kind","")=="person"):
+			_open_equipment_after_hold(equipment_press,get_global_mouse_position())
 	if event is InputEventMouseButton and event.pressed:
 		if not unit.is_empty(): arena.select(unit)
 		if side != "player": return
 		if event.button_index == MOUSE_BUTTON_RIGHT: arena.remove_card(index)
 		if event.button_index == MOUSE_BUTTON_LEFT and event.double_click: arena.change_mode(index)
 func _get_drag_data(_position: Vector2) -> Variant:
+	equipment_press+=1
 	if arena.formation_locked or side != "player" or unit.is_empty() or not arena.model.can_edit(): return null
 	var preview := StudyUI.label(unit.name,20)
 	set_drag_preview(preview)
@@ -202,6 +211,7 @@ func draw_scene_unit() -> void:
 	var art_rect:=Rect2(offset,Vector2(size.x,size.y-38))
 	if side=="player" and unit.get("cardId",unit.get("id",""))=="masuo":art_rect.position.x+=art_rect.size.x;art_rect.size.x=-art_rect.size.x
 	if not scene_body_in_world:draw_texture_rect(texture,art_rect,false,tint)
+	if unit.get("health_transformation_active",false):return
 	var center:=foot+Vector2(0,17)
 	center.y=minf(center.y,arena.size.y-position.y-26)
 	var radius:=15.0
@@ -217,3 +227,11 @@ func draw_scene_unit() -> void:
 	if hovered or arena.show_card_names:
 		var name_origin:=center+Vector2(-80,-24) if side=="enemy" else Vector2(-50,-8)
 		text_at(unit.name,name_origin,14,Color("efd790"),160 if side=="enemy" else size.x+100)
+
+func _open_equipment_after_hold(token:int,at:Vector2) -> void:
+	await get_tree().create_timer(.55).timeout
+	if token!=equipment_press or not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or get_global_mouse_position().distance_to(at)>8 or not arena.equipment_open:return
+	var owner=arena.owner_app
+	if owner.get("roster_ui"):
+		owner.roster_ui.route=owner
+		owner.roster_ui.open_loadout(preload("res://scripts/equipment/loadouts.gd").model_for_unit(unit),unit.name)

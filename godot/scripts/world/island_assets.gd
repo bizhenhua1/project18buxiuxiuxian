@@ -13,6 +13,7 @@ func texture(path: String) -> Texture2D:
 		textures[path] = ImageTexture.create_from_image(image)
 	return textures[path]
 func diamond_uv(path: String) -> PackedVector2Array:
+	if "world-six/" in path or "fairytales/" in path: return PackedVector2Array([Vector2(0,0),Vector2(1,0),Vector2(1,1),Vector2(0,1)])
 	if StyleLibrary.active:
 		return PackedVector2Array([Vector2(.5,0),Vector2(1,.5),Vector2(.5,1),Vector2(0,.5)])
 	if not diamonds.has(path):
@@ -41,6 +42,7 @@ func diamond_uv(path: String) -> PackedVector2Array:
 		diamonds[path] = PackedVector2Array([Vector2(center,equator-half_h)/size,Vector2(center+half_w,equator)/size,Vector2(center,equator+half_h)/size,Vector2(center-half_w,equator)/size])
 	return diamonds[path]
 static func side_colors(path: String) -> Array[Color]:
+	if "world-six/" in path or "fairytales/" in path: return [Color.WHITE,Color("b8bec5")]
 	if StyleLibrary.active: return [Color("37414d"),Color("2b3540")]
 	if "water_" in path: return [Color("24525c"),Color("163840")]
 	if "rock_" in path: return [Color("4a4640"),Color("2e2c28")]

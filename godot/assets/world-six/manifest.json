@@ -1,0 +1,164 @@
+{
+  "forest": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 502
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 520
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 527
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 532
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  },
+  "crystal": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 511
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 547
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 528
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 575
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  },
+  "swamp": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 496
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 531
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 527
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 541
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  },
+  "sewer": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 487
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 545
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 512
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 532
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  },
+  "whale": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 532
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 529
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 528
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 543
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  },
+  "palace": {
+    "ground": "ground.png",
+    "cliff": "cliff.png",
+    "props": [
+      {
+        "file": "prop-0.png",
+        "width": 528,
+        "height": 525
+      },
+      {
+        "file": "prop-1.png",
+        "width": 528,
+        "height": 555
+      },
+      {
+        "file": "prop-2.png",
+        "width": 528,
+        "height": 526
+      },
+      {
+        "file": "prop-3.png",
+        "width": 528,
+        "height": 533
+      }
+    ],
+    "source": "image_gen; prompts in art/world-six/raw"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "structure.png": {
+    "file": "structure.png",
+    "width": 916,
+    "height": 968,
+    "anchor": [
+      0.5,
+      0.9917355371900827
+    ]
+  },
+  "prop-0.png": {
+    "file": "prop-0.png",
+    "width": 500,
+    "height": 491,
+    "anchor": [
+      0.5,
+      0.9837067209775967
+    ]
+  },
+  "prop-1.png": {
+    "file": "prop-1.png",
+    "width": 272,
+    "height": 548,
+    "anchor": [
+      0.5,
+      0.9854014598540146
+    ]
+  },
+  "prop-2.png": {
+    "file": "prop-2.png",
+    "width": 532,
+    "height": 439,
+    "anchor": [
+      0.5,
+      0.9817767653758542
+    ]
+  },
+  "prop-3.png": {
+    "file": "prop-3.png",
+    "width": 528,
+    "height": 427,
+    "anchor": [
+      0.5,
+      0.9812646370023419
+    ]
+  },
+  "enemy-0.png": {
+    "file": "enemy-0.png",
+    "width": 341,
+    "height": 633,
+    "anchor": [
+      0.5,
+      0.9873617693522907
+    ]
+  },
+  "enemy-1.png": {
+    "file": "enemy-1.png",
+    "width": 462,
+    "height": 628,
+    "anchor": [
+      0.5,
+      0.9872611464968153
+    ]
+  },
+  "enemy-2.png": {
+    "file": "enemy-2.png",
+    "width": 469,
+    "height": 613,
+    "anchor": [
+      0.5,
+      0.9869494290375204
+    ]
+  }
+}

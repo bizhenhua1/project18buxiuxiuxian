@@ -62,16 +62,4 @@ static func space(original: SpaceType) -> SpaceType:
 	copy.ambient = Color(1.1,1.1,1.1)
 	return copy
 static func decorate_world(world: IslandModel) -> void:
-	if not active: return
-	var tower_placed := false
-	for cell in world.cells:
-		cell.theme = "forest"
-		if cell.feat == null: continue
-		var source: String = cell.feat.src
-		var distance: int = absi(int(cell.c)-world.player.x)+absi(int(cell.r)-world.player.y)
-		if distance <= 1:
-			cell.feat = null
-			continue
-		if "/link/" in source or "cave_" in source:
-			cell.feat = {"src":"assets/style2/tower.png" if not tower_placed else "assets/style2/tree-b.png","w":.40 if not tower_placed else .8,"kind":"deco"}
-			tower_placed = true
+	preload("res://scripts/world/island_theme_assets.gd").apply(world.cells,world.map_index)

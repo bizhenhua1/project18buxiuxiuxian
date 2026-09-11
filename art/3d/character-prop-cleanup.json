@@ -1,0 +1,198 @@
+{
+  "antiquarian": {
+    "remove": [
+      "小鸟"
+    ],
+    "removed_surfaces": [
+      "小鸟"
+    ],
+    "original": "tempassets\\work\\character-originals\\antiquarian.glb"
+  },
+  "batter-helmsman": {
+    "remove": [
+      "船",
+      "螃蟹"
+    ],
+    "weapons": [
+      "棍",
+      "棍2"
+    ],
+    "removed_surfaces": [
+      "船",
+      "棍",
+      "螃蟹",
+      "棍2"
+    ],
+    "original": "tempassets\\work\\character-originals\\batter-helmsman.glb"
+  },
+  "cheerleader-melody": {
+    "remove": [
+      "彩球"
+    ],
+    "removed_surfaces": [
+      "彩球"
+    ],
+    "original": "tempassets\\work\\character-originals\\cheerleader-melody.glb"
+  },
+  "fools-gold": {
+    "remove": [
+      "石头"
+    ],
+    "weapons": [
+      "武器"
+    ],
+    "removed_surfaces": [
+      "武器",
+      "石头"
+    ],
+    "original": "tempassets\\work\\character-originals\\fools-gold.glb"
+  },
+  "gardener-kitty-dada": {
+    "remove": [
+      "毛绒球",
+      "手持包",
+      "手持物",
+      "宠物",
+      "宠物装饰"
+    ],
+    "removed_surfaces": [
+      "毛绒球",
+      "手持包",
+      "手持物",
+      "宠物",
+      "宠物装饰"
+    ],
+    "original": "tempassets\\work\\character-originals\\gardener-kitty-dada.glb"
+  },
+  "gardener-kitty": {
+    "remove": [
+      "hello kitty",
+      "包"
+    ],
+    "removed_surfaces": [
+      "包",
+      "hello kitty"
+    ],
+    "original": "tempassets\\work\\character-originals\\gardener-kitty.glb"
+  },
+  "gentleman": {
+    "remove": [
+      "兔1",
+      "兔2"
+    ],
+    "removed_surfaces": [
+      "兔1",
+      "兔2"
+    ],
+    "original": "tempassets\\work\\character-originals\\gentleman.glb"
+  },
+  "hermit": {
+    "weapons": [
+      "武器"
+    ],
+    "removed_surfaces": [
+      "武器"
+    ],
+    "original": "tempassets\\work\\character-originals\\hermit.glb"
+  },
+  "joseph-cinnamoroll": {
+    "remove": [
+      "大耳狗b",
+      "大耳狗",
+      "星星",
+      "牌"
+    ],
+    "weapons": [
+      "武器"
+    ],
+    "removed_surfaces": [
+      "武器",
+      "大耳狗b",
+      "星星",
+      "大耳狗",
+      "牌"
+    ],
+    "original": "tempassets\\work\\character-originals\\joseph-cinnamoroll.glb"
+  },
+  "joseph-necromancer-old": {
+    "weapons": [
+      "剑"
+    ],
+    "removed_surfaces": [
+      "剑"
+    ],
+    "original": "tempassets\\work\\character-originals\\joseph-necromancer-old.glb"
+  },
+  "joseph-necromancer-young": {
+    "weapons": [
+      "剑"
+    ],
+    "removed_surfaces": [
+      "剑"
+    ],
+    "original": "tempassets\\work\\character-originals\\joseph-necromancer-young.glb"
+  },
+  "king-h1": {
+    "remove": [
+      "paper"
+    ],
+    "removed_surfaces": [
+      "paper"
+    ],
+    "original": "tempassets\\work\\character-originals\\king-h1.glb"
+  },
+  "lucky-egg": {
+    "remove": [
+      "蛋小黄",
+      "鱼",
+      "机械"
+    ],
+    "removed_surfaces": [
+      "蛋小黄",
+      "机械",
+      "鱼"
+    ],
+    "original": "tempassets\\work\\character-originals\\lucky-egg.glb"
+  },
+  "mary-kuromi": {
+    "remove": [
+      "骷髅1",
+      "骷髅2",
+      "骷髅3"
+    ],
+    "weapons": [
+      "武器"
+    ],
+    "removed_surfaces": [
+      "武器",
+      "骷髅1",
+      "骷髅2",
+      "骷髅3"
+    ],
+    "original": "tempassets\\work\\character-originals\\mary-kuromi.glb"
+  },
+  "scarlet-banquet": {
+    "remove": [
+      "镜子",
+      "镜子鸟"
+    ],
+    "weapons": [
+      "刀"
+    ],
+    "removed_surfaces": [
+      "刀",
+      "镜子",
+      "镜子鸟"
+    ],
+    "original": "tempassets\\work\\character-originals\\scarlet-banquet.glb"
+  },
+  "geisha-thirteen": {
+    "weapons": [
+      "扇子"
+    ],
+    "removed_surfaces": [
+      "扇子"
+    ],
+    "original": "tempassets\\work\\character-originals\\geisha-thirteen.glb"
+  }
+}

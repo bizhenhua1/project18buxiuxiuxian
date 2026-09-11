@@ -2,6 +2,16 @@ shader_type canvas_item;
 render_mode skip_vertex_transform;
 #include "res://shaders/lantern_atmosphere.gdshaderinc"
 varying vec3 lighting_point;
+uniform sampler2D live_ally_0 : filter_linear;
+uniform sampler2D live_ally_1 : filter_linear;
+uniform sampler2D live_ally_2 : filter_linear;
+uniform sampler2D live_ally_3 : filter_linear;
+uniform sampler2D live_ally_4 : filter_linear;
+uniform sampler2D live_ally_5 : filter_linear;
+uniform sampler2D live_ally_6 : filter_linear;
+uniform sampler2D live_ally_7 : filter_linear;
+uniform sampler2D live_ally_8 : filter_linear;
+varying float ally_texture_slot;
 uniform sampler2D live_character : filter_linear;
 uniform sampler2D live_companion : filter_linear;
 uniform sampler2D live_enemy : filter_linear;
@@ -35,7 +45,8 @@ varying vec4 art_region;
 float terrain(vec2 p){return (2.2*sin(p.y*.009)+1.3*sin(p.x*.017+p.y*.004))*terrain_amplitude;}
 void vertex(){
     float category=floor(INSTANCE_CUSTOM.w/64.0);
-    bool dynamic_actor=category==1.0 || category==2.0 || category==4.0 || category==5.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0;
+    ally_texture_slot=category>=16.0 && category<=24.0?category-16.0:-1.0;
+    bool dynamic_actor=ally_texture_slot>=0.0 || category==1.0 || category==2.0 || category==4.0 || category==5.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0;
     vec2 d=dynamic_actor?dynamic_positions[int(INSTANCE_CUSTOM.x)]:INSTANCE_CUSTOM.xy-camera_world;
     vec2 p=dynamic_actor?camera_world+d:INSTANCE_CUSTOM.xy;
     float z=dot(d,vec2(sin(heading),cos(heading)));
@@ -43,7 +54,7 @@ void vertex(){
     float x=dot(d,vec2(cos(heading),-sin(heading)));
     vec2 offset=((MODEL_MATRIX*vec4(VERTEX,0,1)).xy-canvas_origin)/canvas_scale;
     is_live_character=category==15.0?4.0:category==14.0?3.0:category==13.0?2.0:(category==12.0?1.0:0.0);
-    if(category==12.0 || category==13.0 || category==14.0 || category==15.0)category=5.0;
+    if(ally_texture_slot>=0.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0)category=5.0;
     if(category==9.0){
         float column=clamp(UV.x*8.0,0.0,8.0);
         int a=int(floor(column));int b=min(a+1,8);
@@ -93,6 +104,15 @@ void fragment(){
     if(depth<=10.0 || depth>=1700.0)discard;
     vec2 projected_uv=uv_over_depth/max(inverse_depth,.000001);
     vec4 tex=is_live_character>3.5?texture(live_discovery,projected_uv):is_live_character>2.5?texture(live_companion,projected_uv):is_live_character>1.5?texture(live_enemy,projected_uv):(is_live_character>.5?texture(live_character,projected_uv):texture(TEXTURE,art_region.xy+projected_uv*art_region.zw));
+    if(ally_texture_slot==0.0)tex=texture(live_ally_0,projected_uv);
+    else if(ally_texture_slot==1.0)tex=texture(live_ally_1,projected_uv);
+    else if(ally_texture_slot==2.0)tex=texture(live_ally_2,projected_uv);
+    else if(ally_texture_slot==3.0)tex=texture(live_ally_3,projected_uv);
+    else if(ally_texture_slot==4.0)tex=texture(live_ally_4,projected_uv);
+    else if(ally_texture_slot==5.0)tex=texture(live_ally_5,projected_uv);
+    else if(ally_texture_slot==6.0)tex=texture(live_ally_6,projected_uv);
+    else if(ally_texture_slot==7.0)tex=texture(live_ally_7,projected_uv);
+    else if(ally_texture_slot==8.0)tex=texture(live_ally_8,projected_uv);
     if(mist_patch>6.5 && mist_patch<7.5){
         float edge=1.0-smoothstep(.22,.5,abs(art_uv.x-.5));
         float falling=art_uv.y*8.0-atmosphere_time*3.2;
@@ -115,10 +135,10 @@ void fragment(){
         float density=smoothstep(.2,.75,cloud)*shape*.46;
         vec3 d=lighting_point-lantern_position;
         vec3 e=lighting_point-enemy_light_position;
-        float warm=exp(-dot(d,d)/11025.0);
+        float warm=exp(-dot(d,d)/max(team_light_radius*team_light_radius*1.64,1.0))*team_light_energy;
         float cold=exp(-dot(e,e)/10000.0)*enemy_light_strength;
-        vec3 mist_color=environment_mist(vec3(.24,.31,.33))+vec3(.24,.17,.075)*warm+vec3(.08,.12,.16)*cold;
-        if(biome_kind<2)mist_color=vec3(.24,.31,.33)+vec3(.42,.25,.075)*warm+vec3(.16,.27,.32)*cold;
+        vec3 mist_color=environment_mist(vec3(.24,.31,.33))+vec3(.24,.17,.075)*team_light_color.rgb*warm+vec3(.08,.12,.16)*enemy_scene_tint.rgb*cold;
+        if(biome_kind<2)mist_color=vec3(.24,.31,.33)+vec3(.42,.25,.075)*team_light_color.rgb*warm+vec3(.16,.27,.32)*enemy_scene_tint.rgb*cold;
         COLOR=vec4(mist_color,density*tint.a);
     }else if(edge_only){
         vec2 pixel=vec2(length(dFdx(UV)),length(dFdy(UV)))*2.2;

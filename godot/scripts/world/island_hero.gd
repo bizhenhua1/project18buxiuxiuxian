@@ -67,7 +67,7 @@ func update_world(view:IslandView3D,dt:float) -> void:
 	var grid:=IslandModel.wxz(pose.x,pose.z)
 	var traveled:=0.0 if not is_finite(previous_grid.x) else grid.distance_to(previous_grid)
 	previous_grid=grid
-	if model.walking:
+	if model.walking and not model.rebounding:
 		var direction:=IslandModel.wxz(model.walk_to.x,model.walk_to.y)-IslandModel.wxz(model.walk_from.x,model.walk_from.y)
 		var target:=atan2(direction.x,direction.y)
 		facing=lerp_angle(facing,target,1-exp(-dt*18))
@@ -93,7 +93,11 @@ func update_world(view:IslandView3D,dt:float) -> void:
 		pulse.mesh.material_override.set_shader_parameter("tile_center",Vector2(center.x,center.z))
 		pulse.mesh.material_override.set_shader_parameter("angle",model.angles().x)
 		pulse.mesh.material_override.set_shader_parameter("age",pulse.age)
-	if jumping:
+	if model.rebounding and model.ambush_elapsed<2.0:
+		var hit_time:=maxf(0,model.ambush_elapsed-IslandModel.AMBUSH_WINDUP)
+		sample_motion("hit",minf(hit_time,(motion_data.hit.frames-1)/motion_data.hit.fps))
+		rig.set_bone_pose_position(retarget.root_bone,retarget.rests[retarget.root_bone].origin)
+	elif jumping:
 		var progress:=model.jump_progress()
 		if model.lookup[model.walk_to].h<model.lookup[model.walk_from].h:progress=lerpf(.35,1.0,progress)
 		sample_motion("jump",progress*(jump_clip.frames-1)/jump_clip.fps)

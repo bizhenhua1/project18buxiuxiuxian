@@ -4,6 +4,7 @@ render_mode unshaded, cull_back, depth_prepass_alpha;
 uniform sampler2D art : source_color, filter_linear_mipmap, repeat_enable;
 uniform vec4 tint : source_color = vec4(1.0);
 uniform bool textured = true;
+uniform bool themed_art = false;
 uniform float brightness = 1.0;
 uniform float saturation = 1.0;
 uniform float depth = 1.15;
@@ -27,11 +28,11 @@ void fragment() {
 	float horizontal = abs(stone_normal.x) > 0.5 ? stone_position.z + grid_origin.y : stone_position.x + grid_origin.x;
 	vec2 rock_uv = vec2(horizontal, top_height - below_top) * 1.6;
 	float rock = dot(texture(art, rock_uv).rgb, vec3(0.299, 0.587, 0.114));
-	vec3 color = tint.rgb;
+	vec3 color = tint.rgb * (themed_art ? texture(art, rock_uv).rgb : vec3(1.0));
 	if (textured && abs(stone_normal.y) < 0.5) {
-		color *= clamp(0.62 + rock * 3.2, 0.65, 1.65);
+		color *= themed_art ? vec3(1.0) : vec3(clamp(0.62 + rock * 3.2, 0.65, 1.65));
 		float soil = 1.0 - smoothstep(0.025, 0.19, below_top);
-		color = mix(color, tint.rgb * 0.82, soil * 0.65);
+		color = mix(color, tint.rgb * 0.82, soil * (themed_art ? 0.0 : 0.65));
 		color *= mix(1.0, 0.68, smoothstep(0.45, 1.0, below_top / depth));
 
 	}

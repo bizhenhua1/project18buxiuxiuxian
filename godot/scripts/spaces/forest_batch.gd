@@ -39,6 +39,19 @@ func setup(sprites:Array[Dictionary]) -> void:
 		var trimmed:=raw.get_region(raw.get_used_rect())
 		var key_hash:=hash(trimmed.get_data())
 		if not image_keys.has(key_hash):image_keys[key_hash]=images.size();images.append(trimmed)
+	# Warm only this route's themed enemies, including trimmed card versions.
+	# This avoids atlas rebuilds when the next monster activates.
+	var tale_keys:Array=[]
+	for sprite in source:
+		var scene_key:=str(sprite.region.space.key)
+		if FairytaleCatalog.has_scene(scene_key) and scene_key not in tale_keys:tale_keys.append(scene_key)
+	for scene_key in tale_keys:
+		for enemy_index in 3:
+			var tex:Texture2D=load(FairytaleCatalog.asset(scene_key,"enemy-%d.png"%enemy_index))
+			var raw:=tex.get_image();raw.clear_mipmaps();raw.convert(Image.FORMAT_RGBA8)
+			textures[tex.get_instance_id()]=images.size();image_keys[hash(raw.get_data())]=images.size();images.append(raw)
+			var trimmed:=raw.get_region(raw.get_used_rect());var key_hash:=hash(trimmed.get_data())
+			if not image_keys.has(key_hash):image_keys[key_hash]=images.size();images.append(trimmed)
 	for sprite in source:
 		for texture in [sprite.texture]+sprite.get("root_cover",[]).map(func(c):return c.texture):
 			var key:int=texture.get_instance_id()
@@ -94,7 +107,15 @@ func sync(renderer:SegmentRenderer) -> void:
 		if sprite.get("actor",false):actors.append(sprite)
 		if sprite.has("rustle_started") and renderer.elapsed-float(sprite.rustle_started)<.42:rustles.append(sprite)
 	actors.append_array(renderer.battle_actors)
+	# Each ally owns a viewport texture. Bind slots before depth sorting; sharing
+	# live_companion makes every ally sample the last character in the party.
+	var companion_slot:=0
 	for actor in actors:
+		if actor.get("live_companion",false):
+			assert(companion_slot<9,"Party texture slot capacity exceeded")
+			actor.live_texture_slot=companion_slot
+			material.set_shader_parameter("live_ally_%d"%companion_slot,actor.texture)
+			companion_slot+=1
 		for field in ["live_character","live_enemy","live_companion","live_discovery"]:
 			if actor.get(field,false):
 				material.set_shader_parameter(field,actor.texture)
@@ -225,6 +246,8 @@ func write_instance(i:int,renderer:SegmentRenderer,entry:Dictionary,target:Multi
 			dynamic_indices[sprite.id]=index
 			dynamic_positions[index]=sprite.position-renderer.camera_world
 		packed_position=Vector2(dynamic_indices[sprite.id],0)
+	if sprite.has("live_texture_slot"):
+		target.set_instance_custom_data(i,Color(packed_position.x,packed_position.y,sprite.altitude,64*(16+int(sprite.live_texture_slot))));return
 	if sprite.get("live_discovery",false):
 		target.set_instance_custom_data(i,Color(packed_position.x,packed_position.y,sprite.altitude,64*15));return
 	if sprite.get("live_character",false) or sprite.get("live_enemy",false) or sprite.get("live_companion",false):

@@ -1,0 +1,84 @@
+[
+  {
+    "file": "batter-helmsman.glb",
+    "source_character": "batter-helmsman",
+    "materials": [
+      "棍",
+      "棍2"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "fools-gold.glb",
+    "source_character": "fools-gold",
+    "materials": [
+      "武器"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "hermit.glb",
+    "source_character": "hermit",
+    "materials": [
+      "武器"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "joseph-cinnamoroll.glb",
+    "source_character": "joseph-cinnamoroll",
+    "materials": [
+      "武器"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "joseph-necromancer-old.glb",
+    "source_character": "joseph-necromancer-old",
+    "materials": [
+      "剑"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "joseph-necromancer-young.glb",
+    "source_character": "joseph-necromancer-young",
+    "materials": [
+      "剑"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "mary-kuromi.glb",
+    "source_character": "mary-kuromi",
+    "materials": [
+      "武器"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "scarlet-banquet.glb",
+    "source_character": "scarlet-banquet",
+    "materials": [
+      "刀"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  },
+  {
+    "file": "geisha-thirteen.glb",
+    "source_character": "geisha-thirteen",
+    "materials": [
+      "扇子"
+    ],
+    "origin": "bounds centre; original proportions preserved",
+    "grip_calibrated": false
+  }
+]

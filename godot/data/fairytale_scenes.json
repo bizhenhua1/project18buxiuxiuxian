@@ -1,0 +1,380 @@
+[
+  {
+    "id": "red_village",
+    "name": "不可回头的村庄",
+    "story": "小红帽",
+    "parent": "forest",
+    "space": "street",
+    "fog": "242c2b",
+    "accent": "ac6b58",
+    "props": [
+      "红布篮",
+      "熄灭路灯",
+      "旧水井",
+      "柴堆"
+    ],
+    "enemies": [
+      "借面村民",
+      "红巾渡鸦",
+      "看门柴犬"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "red_cottage",
+    "name": "外婆的长屋",
+    "story": "小红帽",
+    "parent": "forest",
+    "space": "interior",
+    "fog": "292322",
+    "accent": "bc8a62",
+    "props": [
+      "摇椅",
+      "针线篮",
+      "旧茶壶",
+      "红烛台"
+    ],
+    "enemies": [
+      "床帘外婆",
+      "缝皮家仆",
+      "咬人的枕头"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "red_workshop",
+    "name": "猎人的兽皮作坊",
+    "story": "小红帽",
+    "parent": "forest",
+    "space": "interior",
+    "fog": "252522",
+    "accent": "a88e61",
+    "props": [
+      "捕兽夹",
+      "皮革卷",
+      "工具桶",
+      "兽骨灯"
+    ],
+    "enemies": [
+      "缝狼猎人",
+      "空皮狼",
+      "铁夹爬虫"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "snow_mirror",
+    "name": "王后的魔镜长廊",
+    "story": "白雪公主",
+    "parent": "crystal",
+    "space": "interior",
+    "fog": "202936",
+    "accent": "9ab4d0",
+    "props": [
+      "镜片簇",
+      "银烛台",
+      "蒙布镜台",
+      "空珠宝匣"
+    ],
+    "enemies": [
+      "镜面侍女",
+      "碎银卫兵",
+      "倒影乌鸦"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "snow_orchard",
+    "name": "毒苹果果园",
+    "story": "白雪公主",
+    "parent": "crystal",
+    "space": "garden",
+    "fog": "2c2830",
+    "accent": "bd626b",
+    "props": [
+      "毒苹果篮",
+      "包果布袋",
+      "枯灌木",
+      "药罐"
+    ],
+    "enemies": [
+      "嫁接园丁",
+      "苹果寄生兽",
+      "枯枝鹿"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "snow_house",
+    "name": "七个矮人的住宅",
+    "story": "白雪公主",
+    "parent": "crystal",
+    "space": "interior",
+    "fog": "302b25",
+    "accent": "b69a6a",
+    "props": [
+      "矿帽",
+      "七只木碗",
+      "矿石箱",
+      "短脚凳"
+    ],
+    "enemies": [
+      "守棺矿工",
+      "煤灰侍童",
+      "水晶鼠"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "alice_tea",
+    "name": "无尽茶会庭院",
+    "story": "爱丽丝",
+    "parent": "swamp",
+    "space": "garden",
+    "fog": "253333",
+    "accent": "b3b092",
+    "props": [
+      "叠杯塔",
+      "裂纹茶壶",
+      "茶点盘",
+      "旧怀表"
+    ],
+    "enemies": [
+      "无面帽匠",
+      "瓷杯兔",
+      "茶渍睡鼠"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "alice_roses",
+    "name": "王后的玫瑰庭园",
+    "story": "爱丽丝",
+    "parent": "swamp",
+    "space": "garden",
+    "fog": "26312d",
+    "accent": "bb6979",
+    "props": [
+      "染红玫瑰盆",
+      "滴漆桶",
+      "剪枝工具篮",
+      "纸牌石标"
+    ],
+    "enemies": [
+      "红心纸卫",
+      "涂花园丁",
+      "荆棘火烈鸟"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "alice_hall",
+    "name": "兔子洞与门厅",
+    "story": "爱丽丝",
+    "parent": "swamp",
+    "space": "interior",
+    "fog": "2b2534",
+    "accent": "b29e72",
+    "props": [
+      "钥匙台",
+      "药水瓶",
+      "书堆",
+      "坏座钟"
+    ],
+    "enemies": [
+      "迟到的白兔",
+      "钥匙管家",
+      "钟表甲虫"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "piper_market",
+    "name": "空城集市",
+    "story": "吹笛人",
+    "parent": "sewer",
+    "space": "street",
+    "fog": "27302d",
+    "accent": "aaa278",
+    "props": [
+      "遗落玩具车",
+      "空菜筐",
+      "旧秤",
+      "布包"
+    ],
+    "enemies": [
+      "无名商贩",
+      "鼠群执事",
+      "钱袋窃贼"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "piper_bridge",
+    "name": "河岸与旧石桥",
+    "story": "吹笛人",
+    "parent": "sewer",
+    "space": "bridge",
+    "fog": "24313a",
+    "accent": "91b5bc",
+    "props": [
+      "湿乐谱",
+      "系缆桩",
+      "芦苇簇",
+      "旧渔篓"
+    ],
+    "enemies": [
+      "渡河笛手",
+      "淤泥鼠王",
+      "空衣渡客"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "piper_mountain",
+    "name": "山中封闭的入口",
+    "story": "吹笛人",
+    "parent": "sewer",
+    "space": "cave",
+    "fog": "28303a",
+    "accent": "b49e84",
+    "props": [
+      "旧布偶",
+      "彩木积木",
+      "小鞋",
+      "蜡灯"
+    ],
+    "enemies": [
+      "封山守门人",
+      "石壳鼠",
+      "回声风筝"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "puppet_workshop",
+    "name": "木偶匠的工坊",
+    "story": "木偶奇遇记",
+    "parent": "whale",
+    "space": "interior",
+    "fog": "302b25",
+    "accent": "bd975d",
+    "props": [
+      "未完成木偶头",
+      "木屑筐",
+      "木工工具箱",
+      "线轴"
+    ],
+    "enemies": [
+      "修补父亲",
+      "失线木偶",
+      "木节蜘蛛"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "puppet_theatre",
+    "name": "无人木偶剧院",
+    "story": "木偶奇遇记",
+    "parent": "whale",
+    "space": "stage",
+    "fog": "30212b",
+    "accent": "b28676",
+    "props": [
+      "面具箱",
+      "脚灯",
+      "绳轮",
+      "道具冠"
+    ],
+    "enemies": [
+      "提线司仪",
+      "幕布舞者",
+      "木面小丑"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "puppet_fair",
+    "name": "玩乐之国游乐场",
+    "story": "木偶奇遇记",
+    "parent": "whale",
+    "space": "street",
+    "fog": "2d2832",
+    "accent": "af957c",
+    "props": [
+      "旧糖果罐",
+      "玩具鼓",
+      "驴形招牌",
+      "破木马"
+    ],
+    "enemies": [
+      "售票驴人",
+      "发条木马",
+      "糖纸小鬼"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "cinder_kitchen",
+    "name": "灰烬厨房",
+    "story": "灰姑娘",
+    "parent": "palace",
+    "space": "interior",
+    "fog": "302921",
+    "accent": "c98b50",
+    "props": [
+      "铜锅",
+      "灰烬桶",
+      "餐盘堆",
+      "扫帚簇"
+    ],
+    "enemies": [
+      "炉灰厨娘",
+      "铜锅侍从",
+      "煤渣鼠"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "cinder_garden",
+    "name": "午夜南瓜庭院",
+    "story": "灰姑娘",
+    "parent": "palace",
+    "space": "garden",
+    "fog": "263136",
+    "accent": "bd975d",
+    "props": [
+      "裂南瓜",
+      "藤缠车轮",
+      "水晶鞋盒",
+      "枯藤簇"
+    ],
+    "enemies": [
+      "南瓜车夫",
+      "藤蔓侍卫",
+      "玻璃鼠"
+    ],
+    "status": "assets_ready"
+  },
+  {
+    "id": "cinder_clock",
+    "name": "封存钟声的钟楼",
+    "story": "灰姑娘",
+    "parent": "palace",
+    "space": "clock",
+    "fog": "222c37",
+    "accent": "baa477",
+    "props": [
+      "铜齿轮",
+      "钟锤",
+      "断链堆",
+      "封声水晶罐"
+    ],
+    "enemies": [
+      "守时钟匠",
+      "摆锤卫士",
+      "报时铜鸮"
+    ],
+    "status": "assets_ready"
+  }
+]

@@ -7,6 +7,8 @@ uniform vec4 shadow_color : source_color = vec4(.15,.20,.26,1);
 uniform float threshold = .45;
 uniform float softness = .06;
 uniform float ambient = .25;
+uniform float environment_fill = 0.0;
+uniform vec4 environment_fill_color : source_color = vec4(.596,.686,.749,1.0);
 uniform float saturation = .8;
 uniform int style = 1;
 uniform float ink = .3;
@@ -18,7 +20,8 @@ void fragment(){
  vec3 color=mix(vec3(dot(tex.rgb,vec3(.299,.587,.114))),tex.rgb,saturation);
  ALBEDO=color;
  ROUGHNESS=1.0;
- EMISSION=color*shadow_color.rgb*ambient;
+ // Explicit fill keeps stylized shading while making the team ambient control effective.
+ EMISSION=color*(shadow_color.rgb*ambient+environment_fill_color.rgb*environment_fill*.25);
  screen_uv=FRAGCOORD.xy;
 }
 void light(){

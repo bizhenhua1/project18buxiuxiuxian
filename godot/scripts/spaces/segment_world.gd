@@ -10,7 +10,7 @@ var camera_region: RouteRegion
 var biome_lights:Array[Vector4]=[]
 
 func _init(art: ForestArt, route_plan: RoutePlan, empty:=false) -> void:
-	super(art,route_plan.straight,empty or route_plan.regions.all(func(r):return r.space.key in ["crystal","swamp","sewer","whale","palace"]))
+	super(art,route_plan.straight,empty or route_plan.regions.all(func(r):return r.space.key in ["crystal","swamp","sewer","whale","palace"] or FairytaleCatalog.has_scene(str(r.space.key))),route_plan.layout_seed)
 	plan = route_plan
 	assert(plan.validate().is_empty(), str(plan.validate()))
 	if empty:

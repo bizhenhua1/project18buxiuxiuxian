@@ -10,11 +10,11 @@ func _ready() -> void:
 func _draw() -> void:
 	if StyleLibrary.active:
 		var rect:=Rect2(Vector2.ONE,size-Vector2.ONE*2)
-		var fill:=Color("111820") if disabled else Color("30363b") if is_hovered() else Color("1b242c")
+		var fill:=Color("111820") if disabled else Color("34403b") if is_hovered() else Color("172321")
 		if button_pressed:fill=Color("10151b")
 		draw_rect(rect,fill)
-		draw_rect(rect,Color("a18c69") if is_hovered() or has_focus() else Color("514f4a"),false,1)
-		draw_line(Vector2(9,size.y-5),Vector2(size.x-9,size.y-5),Color("554942"),1)
+		draw_rect(rect,Color("a18c69") if is_hovered() or has_focus() else Color("555846"),false,1)
+		draw_line(Vector2(10,7),Vector2(10,size.y-7),Color("b6a071") if is_hovered() or has_focus() else Color("6a6550"),2)
 		draw_string(get_theme_default_font(),Vector2(7,size.y/2+5),text,HORIZONTAL_ALIGNMENT_CENTER,size.x-14,14,Color("66727a") if disabled else Color("d4cbbb"))
 		return
 	var tint := Color("202c25") if disabled else Color("315548") if is_hovered() else Color("203d32")

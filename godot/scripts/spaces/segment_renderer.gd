@@ -8,6 +8,7 @@ var projection_ms:=0.0
 var forest_batch:ForestBatch
 var combat_lens:=1.0
 var presentation_blend:float=-1.0
+var team_light_override:Dictionary={}
 var lantern_enabled:=false
 var travel_eye_offset:=15.0
 var travel_lateral:=0.0
@@ -22,6 +23,10 @@ func set_battle_camera(mix:float,enabled:bool=true) -> void:
 var battle_actors:Array[Dictionary]=[]
 var combat_lights:Array[Dictionary]=[]
 func bind_combat_lights(shader:ShaderMaterial) -> void:
+	var team=team_light()
+	shader.set_shader_parameter("team_light_energy",team.road_energy)
+	shader.set_shader_parameter("team_light_radius",team.road_radius)
+	shader.set_shader_parameter("team_light_color",team.road_color*environment_light_tint())
 	var positions:=PackedVector4Array();positions.resize(4)
 	var colors:=PackedColorArray();colors.resize(4);colors.fill(Color(0,0,0,0))
 	for i in range(mini(4,combat_lights.size())):
@@ -37,8 +42,11 @@ func bind_biome(material:ShaderMaterial) -> void:
 	var key:=str(scene.camera_region.space.key)
 	var catalog=preload("res://scripts/spaces/biome_catalog.gd")
 	var active:bool=key in catalog.CONFIG
+	material.set_shader_parameter("enemy_scene_tint",enemy_light_tint())
+	material.set_shader_parameter("environment_light_tint",environment_light_tint())
 	material.set_shader_parameter("biome_kind",catalog.TITLES.keys().find(key)+1 if active else 0)
 	if not active:return
+	if FairytaleCatalog.has_scene(key):material.set_shader_parameter("fairytale_mist_color",Color(FairytaleCatalog.entry(key).fog))
 	if absf(elapsed-biome_light_clock)>.2 or biome_light_cache.is_empty():
 		biome_light_clock=elapsed
 		var nearby:Array=scene.biome_lights.filter(func(p):return Vector2(p.x,p.z).distance_squared_to(camera_world)<360000)
@@ -47,10 +55,12 @@ func bind_biome(material:ShaderMaterial) -> void:
 	material.set_shader_parameter("biome_lights",biome_light_cache)
 	material.set_shader_parameter("biome_glow_color",catalog.CONFIG[key].color)
 
+func team_light() -> Dictionary:
+	return preload("res://scripts/battle/team_lighting.gd").sample(clampf(battle_frame_shift/.19,0,1),team_light_override)
 func lantern_position() -> Vector3:
-	var progress:=clampf(battle_frame_shift/.19,0,1)
-	var anchor:=camera_world+Vector2(sin(heading),cos(heading))*(40+16*progress)+Vector2(cos(heading),-sin(heading))*lerpf(2,-10,progress)
-	return Vector3(anchor.x,16+sin(elapsed*6.4)*.6,anchor.y)
+	var light=team_light()
+	var anchor:=camera_world+Vector2(sin(heading),cos(heading))*float(light.road_z)+Vector2(cos(heading),-sin(heading))*float(light.road_x)
+	return Vector3(anchor.x,float(light.road_y)+sin(elapsed*6.4)*.6,anchor.y)
 
 func enemy_light_position() -> Vector3:
 	var progress:=clampf(battle_frame_shift/.19,0,1)
@@ -58,7 +68,8 @@ func enemy_light_position() -> Vector3:
 	return Vector3(anchor.x,30,anchor.y)
 
 func enemy_light_strength() -> float:
-	return smoothstep(.1,.8,clampf(battle_frame_shift/.19,0,1))
+	# Keep discovery illumination through combat; do not add a second colored floodlight.
+	return 0.0
 
 func camera_height() -> float:
 	if not editor_camera.is_empty():return float(editor_camera.height)
@@ -117,7 +128,7 @@ func _draw() -> void:
 			points.append(foot + Vector2(cos(angle) * w, -sin(angle) * h))
 		points.append(foot + Vector2(w, 0))
 		draw_colored_polygon(points, region.space.atmosphere.depth_color)
-	if StyleLibrary.active and scene.plan.regions.all(func(region):return region.space.key in [&"forest",&"crystal",&"swamp",&"sewer",&"whale",&"palace"]):
+	if StyleLibrary.active and scene.plan.regions.all(func(region):return region.space.key in [&"forest",&"crystal",&"swamp",&"sewer",&"whale",&"palace"] or FairytaleCatalog.has_scene(str(region.space.key))):
 		if forest_batch==null:
 			forest_batch=ForestBatch.new();add_child(forest_batch)
 			forest_batch.setup(world.sprites)
@@ -223,3 +234,9 @@ func _draw_fogged(texture: Texture2D, rect: Rect2, item: Dictionary) -> void:
 		if item.fog>.001:draw_texture_rect(cover.silhouette,box,false,Color(1,1,1,item.fog*item.tint.a))
 
 
+
+func enemy_light_tint() -> Color:
+	return preload("res://scripts/spaces/biome_catalog.gd").enemy_light_tint(str(world.camera_region.space.key))
+
+func environment_light_tint() -> Color:
+	return preload("res://scripts/spaces/biome_catalog.gd").environment_light_tint(str(world.camera_region.space.key),.10)

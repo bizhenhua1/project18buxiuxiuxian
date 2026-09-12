@@ -4,6 +4,7 @@ signal changed
 signal map_changed
 signal arrived(cell: Dictionary)
 signal event_requested(position: Vector2i)
+signal passage_requested(link:Dictionary)
 const NBS := [Vector2i(1,0),Vector2i(-1,0),Vector2i(0,1),Vector2i(0,-1)]
 const STEP_SECONDS := 0.5625
 const SPIN_SECONDS := 0.30
@@ -42,6 +43,17 @@ var probing_monster:=false
 var ambush_position:=Vector2i(-999,-999)
 var ambush_elapsed:=10.0
 var confronted:Dictionary={}
+var waves_enabled:=true
+var wave_strength:=.35
+var traversal=preload("res://scripts/world/island_traversal.gd").new()
+func wave_height(c:float,r:float)->float:
+	if not waves_enabled:return 0.0
+	var k:=Vector2i(roundi(c),roundi(r))
+	if lookup.get(k,{}).get("layer","")!="water":return 0.0
+	var neighbors:=0
+	for d in NBS:
+		if lookup.get(k+d,{}).get("layer","")=="water":neighbors+=1
+	return wave_strength*(.25+.75*neighbors/4.0)*(sin(c*.7+r*.45-elapsed*1.6)*.7+sin(r*.8-c*.3-elapsed*1.1)*.3)
 func reveal_near(position: Vector2i) -> void:
 	var radius := (reveal_range+1)/2
 	for cell in cells:
@@ -60,6 +72,7 @@ func _init() -> void:
 static func key(cell: Dictionary) -> Vector2i: return Vector2i(cell.c,cell.r)
 static func wxz(c: float, r: float) -> Vector2: return Vector2((c-r)/2,(c+r)/2)
 func load_map(index: int) -> void:
+	traversal.reset()
 	map_index = posmod(index,samples.size())
 	cells = samples[map_index].grid.duplicate(true)
 	preload("res://scripts/world/island_theme_assets.gd").apply(cells,map_index)
@@ -124,6 +137,7 @@ func level(position: Vector2i) -> int:
 	if explored.has(position): return 3 if sight.has(position) else 2
 	return 1 if sight.has(position) or adjacent(position,sight) else 0
 func can_visit(position: Vector2i) -> bool:
+	if lookup.get(position,{}).get("concealed_peak",false):return false
 	return lookup.has(position) and not (blocked.has(position) and explored.has(position) and confronted.has(position)) and (explored.has(position) or adjacent(position,explored))
 func find_path(destination: Vector2i) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
@@ -137,6 +151,8 @@ func find_path(destination: Vector2i) -> Array[Vector2i]:
 		for offset in NBS:
 			var next: Vector2i = current+offset
 			if previous.has(next) or not lookup.has(next): continue
+			if lookup[next].get("concealed_peak",false):continue
+			if (lookup[next].get("requires_traversal",false) or lookup[current].get("requires_traversal",false)) and absf(float(lookup[next].h)-float(lookup[current].h))>1.5:continue
 			var probing_unknown := next == destination and (not explored.has(next) or (blocked.has(next) and not confronted.has(next)))
 			if blocked.has(next) and not probing_unknown: continue
 			if not explored.has(next) and not probing_unknown: continue
@@ -150,7 +166,7 @@ func find_path(destination: Vector2i) -> Array[Vector2i]:
 			queue.append(next)
 	return result
 func go_to(destination: Vector2i) -> bool:
-	if input_locked or walking or spin_direction != 0: return false
+	if input_locked or walking or spin_direction != 0 or not traversal.active.is_empty() or not traversal.pending.is_empty(): return false
 	if blocked.has(destination) and explored.has(destination) and confronted.has(destination):
 		var best: Array[Vector2i] = []
 		for offset in NBS:
@@ -183,7 +199,7 @@ func begin_step() -> void:
 		walk_path.clear()
 		changed.emit()
 func rotate_view(direction: int) -> void:
-	if input_locked or walking: return
+	if input_locked or walking or not traversal.active.is_empty(): return
 	if spin_direction != 0:
 		if spin_direction == direction: spin_queue = direction
 		return
@@ -198,6 +214,7 @@ func angles() -> Vector2:
 func advance(dt: float) -> void:
 	elapsed += dt
 	ambush_elapsed+=dt
+	traversal.advance(self,dt)
 	zoom = lerpf(zoom,zoom_goal,minf(1,dt/0.07))
 	if absf(zoom-zoom_goal) < 0.0008: zoom = zoom_goal
 	if walking and probing_monster:
@@ -258,6 +275,7 @@ func advance(dt: float) -> void:
 	changed.emit()
 static func ease_walk(t: float) -> float: return 2*t*t if t < 0.5 else 1-pow(-2*t+2,2)/2
 func avatar() -> Vector3:
+	if not traversal.active.is_empty():return traversal.pose(self)
 	if not walking: return Vector3(player.x,lookup[player].h,player.y)
 	if probing_monster:
 		var advance_weight:=AMBUSH_EDGE*(1.0-ease_walk(walk_t) if rebounding else walk_t)

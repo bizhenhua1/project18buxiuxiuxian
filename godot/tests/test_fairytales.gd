@@ -13,8 +13,15 @@ func run()->void:
   app.set_process(false);app.arena.set_process(false)
   assert(str(app.world.plan.regions[0].space.key)==key)
   assert(app.world.sprites.size()>30)
+  var corridor_count:=0
+  var dressing_textures:Dictionary={}
   for sprite in app.world.sprites:
    if not sprite.get("actor",false):assert(sprite.texture.resource_path.contains("fairytales"))
+   if sprite.texture.resource_path.contains("/corridor-"):corridor_count+=1
+   if sprite.texture.resource_path.contains("/dressing/"):dressing_textures[sprite.texture.resource_path]=true
+  assert(corridor_count>0,"Generated corridor art was not placed: "+key)
+  if FileAccess.file_exists(FairytaleCatalog.asset(key,"dressing.json")):
+   assert(dressing_textures.size()>=6,"Too few distinct dressing assets placed: "+key)
   for i in 30:app._process(1.0/60)
   for i in 4:await process_frame
   await RenderingServer.frame_post_draw

@@ -5,7 +5,11 @@ uniform bool textured = true;
 uniform vec4 tint : source_color = vec4(1.0);
 uniform float brightness = 1.0;
 uniform float saturation = 1.0;
+uniform float hole_radius = 0.0;
+varying vec3 local_point;
+void vertex(){local_point=VERTEX;}
 void fragment() {
+	if(hole_radius>0.0 && length(local_point.xz)<hole_radius)discard;
 	vec4 c = tint;
 	if (textured) c *= texture(art,UV);
 	if (c.a < 0.08) discard;

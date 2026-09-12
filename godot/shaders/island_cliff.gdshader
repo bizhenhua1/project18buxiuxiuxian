@@ -12,6 +12,11 @@ uniform float top_height = 0.0;
 uniform vec2 grid_origin = vec2(0.0);
 uniform float edge_softness = 0.085;
 uniform float fade_height = 0.85;
+uniform float upper_fade_height = 0.0;
+uniform float hole_radius = 0.0;
+uniform bool solid_fade=false;
+uniform vec4 silhouette_background:source_color=vec4(0.165,0.141,0.110,1.0);
+uniform bool water_body=false;
 uniform float fog_reveal = 1.0;
 uniform vec2 fog_origin;
 #include "res://shaders/island_fog_field.gdshaderinc"
@@ -23,6 +28,8 @@ void vertex() {
 	stone_normal = NORMAL;
 }
 void fragment() {
+	if(((!solid_fade && upper_fade_height>0.0) || water_body) && stone_normal.y>.5)discard;
+	if(hole_radius>0.0 && length(stone_position.xz)<hole_radius)discard;
 	float below_top = depth * 0.5 - stone_position.y;
 	// Local box axes coincide with grid columns/rows before the map rotates.
 	float horizontal = abs(stone_normal.x) > 0.5 ? stone_position.z + grid_origin.y : stone_position.x + grid_origin.x;
@@ -46,6 +53,14 @@ void fragment() {
 	float above_bottom = depth - below_top;
 	float dissolve = smoothstep(0.02, fade_height, above_bottom + (rock - 0.3) * 0.12);
 	ALPHA = dissolve;
+	if(upper_fade_height>0.0) ALPHA*=smoothstep(0.0,upper_fade_height,below_top+(rock-.3)*.12);
+	if(solid_fade && fog_reveal>=1.0){
+		// Keep the shell opaque: fade its color to the backdrop, never reveal inner faces.
+		float edge=smoothstep(.04,fade_height,above_bottom);
+		if(upper_fade_height>0.0)edge*=smoothstep(.04,upper_fade_height,below_top);
+		ALBEDO=mix(silhouette_background.rgb,ALBEDO,edge);
+		ALPHA=1.0;
+	}
 	if (fog_reveal < 1.0) {
 		// Undo the body's 45-degree local rotation to meet the top's field exactly.
 		vec2 cap = vec2(stone_position.x+stone_position.z,-stone_position.x+stone_position.z)*0.70710678+fog_origin;

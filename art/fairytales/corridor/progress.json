@@ -1,0 +1,11 @@
+{
+  "goal_complete": false,
+  "baseline_layouts_inspected": ["forest", "crystal", "swamp", "sewer", "whale", "palace"],
+  "generated_corridor_assets": 18,
+  "generated_dressing_scenes": ["red_village", "red_cottage", "red_workshop", "snow_orchard", "alice_tea", "piper_bridge", "puppet_workshop", "cinder_kitchen"],
+  "generated_dressing_assets": 72,
+  "dressing_remaining": ["snow_mirror", "snow_house", "alice_roses", "alice_hall", "piper_market", "piper_mountain", "puppet_theatre", "puppet_fair", "cinder_garden", "cinder_clock"],
+  "generation_limit": {"error": "usage_limit_reached", "resets_at": 1789437876, "observed": "2026-09-12", "fallback_used": false},
+  "runtime_integration": "corridor art for all 18 scenes; authored dressing for 8 scenes; remaining scenes retain their original four prop assets",
+  "remaining_validation": ["all scenes visually compared against original six at matching cameras", "branch travel and rotated route frames", "ground seams and world tile joins", "performance profiling", "remaining ten dressing sets generation and integration"]
+}

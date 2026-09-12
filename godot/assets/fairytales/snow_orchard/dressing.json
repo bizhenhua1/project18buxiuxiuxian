@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "stump",
+      "name": "树桩",
+      "texture": "dressing/stump/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 48,
+      "ground_anchor": [
+        0.5,
+        0.9766536964980544
+      ],
+      "alpha_height_fraction": 0.953307392996109,
+      "allow_on_road": false
+    },
+    {
+      "id": "sack",
+      "name": "果袋",
+      "texture": "dressing/sack/prop.png",
+      "role": "prop",
+      "height_min": 15,
+      "height_max": 22,
+      "ground_anchor": [
+        0.5,
+        0.98125
+      ],
+      "alpha_height_fraction": 0.9625,
+      "allow_on_road": false
+    },
+    {
+      "id": "crate",
+      "name": "果箱",
+      "texture": "dressing/crate/prop.png",
+      "role": "prop",
+      "height_min": 18,
+      "height_max": 27,
+      "ground_anchor": [
+        0.5,
+        0.9765625
+      ],
+      "alpha_height_fraction": 0.953125,
+      "allow_on_road": false
+    },
+    {
+      "id": "bush",
+      "name": "枯灌木",
+      "texture": "dressing/bush/prop.png",
+      "role": "cover",
+      "height_min": 21,
+      "height_max": 35,
+      "ground_anchor": [
+        0.5,
+        0.9822485207100592
+      ],
+      "alpha_height_fraction": 0.9644970414201184,
+      "allow_on_road": false
+    },
+    {
+      "id": "grass",
+      "name": "枯草",
+      "texture": "dressing/grass/prop.png",
+      "role": "cover",
+      "height_min": 8,
+      "height_max": 15,
+      "ground_anchor": [
+        0.5,
+        0.9795918367346939
+      ],
+      "alpha_height_fraction": 0.9591836734693877,
+      "allow_on_road": false
+    },
+    {
+      "id": "twigs",
+      "name": "断枝",
+      "texture": "dressing/twigs/prop.png",
+      "role": "cover",
+      "height_min": 7,
+      "height_max": 14,
+      "ground_anchor": [
+        0.5,
+        0.9758064516129032
+      ],
+      "alpha_height_fraction": 0.9516129032258065,
+      "allow_on_road": false
+    },
+    {
+      "id": "apples",
+      "name": "腐果",
+      "texture": "dressing/apples/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9748953974895398
+      ],
+      "alpha_height_fraction": 0.9497907949790795,
+      "allow_on_road": true
+    },
+    {
+      "id": "leaves",
+      "name": "落叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9745762711864406
+      ],
+      "alpha_height_fraction": 0.9491525423728814,
+      "allow_on_road": true
+    },
+    {
+      "id": "stones",
+      "name": "苔石",
+      "texture": "dressing/stones/prop.png",
+      "role": "cover",
+      "height_min": 10,
+      "height_max": 21,
+      "ground_anchor": [
+        0.5,
+        0.975
+      ],
+      "alpha_height_fraction": 0.95,
+      "allow_on_road": false
+    }
+  ]
+}

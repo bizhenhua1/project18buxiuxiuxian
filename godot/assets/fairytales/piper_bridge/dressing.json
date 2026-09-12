@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "barrel",
+      "name": "湿木桶",
+      "texture": "dressing/barrel/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 44,
+      "ground_anchor": [
+        0.5,
+        0.9791666666666666
+      ],
+      "alpha_height_fraction": 0.9583333333333334,
+      "allow_on_road": false
+    },
+    {
+      "id": "net",
+      "name": "渔网",
+      "texture": "dressing/net/prop.png",
+      "role": "prop",
+      "height_min": 12,
+      "height_max": 19,
+      "ground_anchor": [
+        0.5,
+        0.9754098360655737
+      ],
+      "alpha_height_fraction": 0.9467213114754098,
+      "allow_on_road": false
+    },
+    {
+      "id": "marker",
+      "name": "残石标",
+      "texture": "dressing/marker/prop.png",
+      "role": "anchor",
+      "height_min": 38,
+      "height_max": 55,
+      "ground_anchor": [
+        0.5,
+        0.9809523809523809
+      ],
+      "alpha_height_fraction": 0.9619047619047619,
+      "allow_on_road": false
+    },
+    {
+      "id": "reeds",
+      "name": "芦苇",
+      "texture": "dressing/reeds/prop.png",
+      "role": "cover",
+      "height_min": 17,
+      "height_max": 30,
+      "ground_anchor": [
+        0.5,
+        0.9823529411764705
+      ],
+      "alpha_height_fraction": 0.9647058823529412,
+      "allow_on_road": false
+    },
+    {
+      "id": "grass",
+      "name": "岸草",
+      "texture": "dressing/grass/prop.png",
+      "role": "cover",
+      "height_min": 8,
+      "height_max": 17,
+      "ground_anchor": [
+        0.5,
+        0.9790940766550522
+      ],
+      "alpha_height_fraction": 0.9581881533101045,
+      "allow_on_road": false
+    },
+    {
+      "id": "driftwood",
+      "name": "浮木",
+      "texture": "dressing/driftwood/prop.png",
+      "role": "cover",
+      "height_min": 9,
+      "height_max": 16,
+      "ground_anchor": [
+        0.5,
+        0.978494623655914
+      ],
+      "alpha_height_fraction": 0.956989247311828,
+      "allow_on_road": false
+    },
+    {
+      "id": "slate",
+      "name": "碎板岩",
+      "texture": "dressing/slate/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 6,
+      "ground_anchor": [
+        0.5,
+        0.972972972972973
+      ],
+      "alpha_height_fraction": 0.9414414414414415,
+      "allow_on_road": true
+    },
+    {
+      "id": "leaves",
+      "name": "柳叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9672897196261683
+      ],
+      "alpha_height_fraction": 0.9392523364485982,
+      "allow_on_road": true
+    },
+    {
+      "id": "chain",
+      "name": "锈链",
+      "texture": "dressing/chain/prop.png",
+      "role": "prop",
+      "height_min": 4,
+      "height_max": 8,
+      "ground_anchor": [
+        0.5,
+        0.9698275862068966
+      ],
+      "alpha_height_fraction": 0.9396551724137931,
+      "allow_on_road": false
+    }
+  ]
+}

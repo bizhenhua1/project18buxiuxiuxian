@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "barrel",
+      "name": "木桶",
+      "texture": "dressing/barrel/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 42,
+      "ground_anchor": [
+        0.5,
+        0.9781818181818182
+      ],
+      "alpha_height_fraction": 0.9563636363636364,
+      "allow_on_road": false
+    },
+    {
+      "id": "sack",
+      "name": "麻袋",
+      "texture": "dressing/sack/prop.png",
+      "role": "prop",
+      "height_min": 18,
+      "height_max": 28,
+      "ground_anchor": [
+        0.5,
+        0.9796610169491525
+      ],
+      "alpha_height_fraction": 0.9593220338983051,
+      "allow_on_road": false
+    },
+    {
+      "id": "crates",
+      "name": "木箱",
+      "texture": "dressing/crates/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 45,
+      "ground_anchor": [
+        0.5,
+        0.9801324503311258
+      ],
+      "alpha_height_fraction": 0.9602649006622517,
+      "allow_on_road": false
+    },
+    {
+      "id": "bush",
+      "name": "枯灌木",
+      "texture": "dressing/bush/prop.png",
+      "role": "cover",
+      "height_min": 17,
+      "height_max": 30,
+      "ground_anchor": [
+        0.5,
+        0.9788732394366197
+      ],
+      "alpha_height_fraction": 0.9577464788732394,
+      "allow_on_road": false
+    },
+    {
+      "id": "firewood",
+      "name": "柴薪",
+      "texture": "dressing/firewood/prop.png",
+      "role": "cover",
+      "height_min": 10,
+      "height_max": 19,
+      "ground_anchor": [
+        0.5,
+        0.9761904761904762
+      ],
+      "alpha_height_fraction": 0.9484126984126984,
+      "allow_on_road": false
+    },
+    {
+      "id": "cloth",
+      "name": "红布卷",
+      "texture": "dressing/cloth/prop.png",
+      "role": "prop",
+      "height_min": 7,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9743589743589743
+      ],
+      "alpha_height_fraction": 0.9523809523809523,
+      "allow_on_road": false
+    },
+    {
+      "id": "pottery",
+      "name": "碎陶",
+      "texture": "dressing/pottery/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9763779527559056
+      ],
+      "alpha_height_fraction": 0.952755905511811,
+      "allow_on_road": true
+    },
+    {
+      "id": "leaves",
+      "name": "落叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9760956175298805
+      ],
+      "alpha_height_fraction": 0.952191235059761,
+      "allow_on_road": true
+    },
+    {
+      "id": "stones",
+      "name": "碎石",
+      "texture": "dressing/stones/prop.png",
+      "role": "cover",
+      "height_min": 6,
+      "height_max": 13,
+      "ground_anchor": [
+        0.5,
+        0.9776119402985075
+      ],
+      "alpha_height_fraction": 0.9552238805970149,
+      "allow_on_road": false
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "red_village": [
+    ["barrel", "木桶", "anchor", 30, 42], ["sack", "麻袋", "prop", 18, 28], ["crates", "木箱", "anchor", 30, 45],
+    ["bush", "枯灌木", "cover", 17, 30], ["firewood", "柴薪", "cover", 10, 19], ["cloth", "红布卷", "prop", 7, 12],
+    ["pottery", "碎陶", "litter", 2, 4], ["leaves", "落叶", "litter", 2, 5], ["stones", "碎石", "cover", 6, 13]
+  ],
+  "red_workshop": [
+    ["chest", "工具盒", "anchor", 20, 30], ["bucket", "皮条桶", "anchor", 26, 38], ["hide", "皮革卷", "prop", 10, 18],
+    ["logs", "木料", "cover", 11, 20], ["rope", "绳圈", "prop", 5, 10], ["pouch", "皮包", "prop", 8, 15],
+    ["leather", "皮屑", "litter", 2, 4], ["straw", "干草", "litter", 3, 6], ["iron", "铁件", "litter", 3, 5]
+  ],
+  "alice_tea": [
+    ["caddy", "茶罐", "prop", 8, 12], ["urn", "枯植花钵", "anchor", 30, 42], ["plinth", "苔石座", "anchor", 36, 52],
+    ["bush", "暗叶灌木", "cover", 20, 34], ["twigs", "枯枝", "cover", 7, 13], ["cloth", "蕾丝布团", "prop", 4, 7],
+    ["china", "碎瓷", "litter", 2, 4], ["leaves", "落叶", "litter", 2, 4], ["stones", "石屑", "cover", 6, 12]
+  ],
+  "snow_orchard": [
+    ["stump", "树桩", "anchor", 30, 48], ["sack", "果袋", "prop", 15, 22], ["crate", "果箱", "prop", 18, 27],
+    ["bush", "枯灌木", "cover", 21, 35], ["grass", "枯草", "cover", 8, 15], ["twigs", "断枝", "cover", 7, 14],
+    ["apples", "腐果", "litter", 3, 5], ["leaves", "落叶", "litter", 3, 5], ["stones", "苔石", "cover", 10, 21]
+  ],
+  "red_cottage": [
+    ["chest", "木箱", "anchor", 24, 34], ["stool", "矮凳", "prop", 20, 27], ["hamper", "衣篓", "anchor", 28, 38],
+    ["firewood", "柴薪", "cover", 12, 20], ["blanket", "旧毯", "prop", 7, 11], ["shoes", "旧鞋", "prop", 5, 8],
+    ["pottery", "碎陶", "litter", 2, 4], ["shavings", "木屑", "litter", 2, 4], ["rags", "碎布", "litter", 3, 5]
+  ],
+  "piper_bridge": [
+    ["barrel", "湿木桶", "anchor", 30, 44], ["net", "渔网", "prop", 12, 19], ["marker", "残石标", "anchor", 38, 55],
+    ["reeds", "芦苇", "cover", 17, 30], ["grass", "岸草", "cover", 8, 17], ["driftwood", "浮木", "cover", 9, 16],
+    ["slate", "碎板岩", "litter", 3, 6], ["leaves", "柳叶", "litter", 2, 4], ["chain", "锈链", "prop", 4, 8]
+  ],
+  "cinder_kitchen": [
+    ["scuttle", "煤斗", "prop", 20, 30], ["sack", "面粉袋", "anchor", 27, 38], ["bowls", "木碗", "prop", 8, 13],
+    ["firewood", "柴薪", "cover", 12, 20], ["basket", "菜篮", "prop", 15, 24], ["cloth", "旧布", "prop", 4, 7],
+    ["ash", "煤灰", "litter", 3, 6], ["pottery", "碎陶", "litter", 2, 4], ["peelings", "菜皮", "litter", 2, 4]
+  ],
+  "puppet_workshop": [
+    ["chest", "工具箱", "anchor", 20, 30], ["barrel", "木料桶", "anchor", 30, 42], ["spool", "线轴", "prop", 12, 20],
+    ["blocks", "木料", "cover", 12, 21], ["rope", "绳圈", "prop", 5, 9], ["tools", "刻刀筒", "prop", 12, 18],
+    ["shavings", "刨花", "litter", 2, 4], ["pegs", "木榫碎屑", "litter", 3, 5], ["rag", "旧抹布", "litter", 3, 5]
+  ]
+}

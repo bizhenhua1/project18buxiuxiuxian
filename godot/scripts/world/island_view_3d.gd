@@ -15,6 +15,7 @@ var outline: MeshInstance3D
 var ghost_body: MeshInstance3D
 var ghost_prop: MeshInstance3D
 var selection_union: ColorRect
+var passage_markers:Array[Dictionary]=[]
 func setup(state: IslandModel, library: IslandAssets) -> void:
 	model = state
 	assets = library
@@ -52,8 +53,12 @@ func setup(state: IslandModel, library: IslandAssets) -> void:
 	selection_union.visible = false
 	var selector:=OptionButton.new();selector.position=Vector2(12,12);selector.custom_minimum_size=Vector2(230,36)
 	for entry in preload("res://scripts/spaces/character_library.gd").MODELS:selector.add_item("主角 · "+entry.name)
-	selector.select(hero.selected_model);selector.item_selected.connect(func(index):hero.select_model(index,true))
+	selector.select(hero.selected_model);selector.item_selected.connect(func(index):hero.select_model(index,not model.get_meta("traversal_demo",false)))
 	add_child(selector)
+	if not model.get_meta("traversal_demo",false):
+		var test:=Button.new();test.text="海浪 / 高台 / 洞口测试";test.position=Vector2(255,12);add_child(test)
+		test.pressed.connect(func():
+			var demo=preload("res://scripts/world/island_traversal_demo.gd").new();get_tree().root.add_child(demo))
 	mouse_exited.connect(func():model.hover = Vector2i(-999,-999))
 func surface(path: String, color := Color.WHITE) -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
@@ -87,12 +92,16 @@ func top_mesh(path: String) -> ArrayMesh:
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
 	return mesh
 func rebuild() -> void:
+	for marker in passage_markers:
+		marker.node.queue_free();marker.button.queue_free()
+	passage_markers.clear()
 	for tile in tiles.values():
 		tile.root.queue_free()
 		if tile.prop: tile.prop.queue_free()
 		if tile.get("event_actor") != null: tile.event_actor.queue_free()
 	tiles.clear()
-	if is_instance_valid(hero): hero.queue_free()
+	if is_instance_valid(hero) and not model.get_meta("traversal_demo",false):
+		hero.queue_free();hero=null
 	if is_instance_valid(outline): outline.queue_free()
 	if is_instance_valid(ghost_body): ghost_body.queue_free()
 	if is_instance_valid(ghost_prop): ghost_prop.queue_free()
@@ -106,6 +115,7 @@ func rebuild() -> void:
 		var depth := float(cell.h)*HEIGHT-bedrock_y
 		box.size = Vector3(sqrt(.5),depth,sqrt(.5))
 		body.mesh = box
+		if model.get_meta("traversal_demo",false) and cell.layer!="water":body.mesh=exterior_box(box,cell)
 		body.position.y = -depth/2
 		body.rotation.y = PI/4
 		body.material_override = surface("",IslandAssets.side_colors(cell.base)[0])
@@ -114,13 +124,24 @@ func rebuild() -> void:
 		body.material_override.set_shader_parameter("art",assets.texture(cell.get("cliff","assets/cave/ground-tile.png")))
 		body.material_override.set_shader_parameter("depth",depth)
 		body.material_override.set_shader_parameter("top_height",float(cell.h)*HEIGHT)
+		body.material_override.set_shader_parameter("upper_fade_height",float(cell.get("upper_fade",0.0)))
+		body.material_override.set_shader_parameter("hole_radius",.24 if cell.get("hole",false) else 0.0)
+		body.material_override.set_shader_parameter("water_body",cell.get("layer","")=="water")
+		body.material_override.set_shader_parameter("solid_fade",model.get_meta("traversal_demo",false) and cell.layer!="water")
+		body.material_override.set_shader_parameter("silhouette_background",Color("2a241c"))
 		body.material_override.set_shader_parameter("grid_origin",Vector2(-float(cell.r),float(cell.c))*sqrt(.5))
 		body.material_override.set_shader_parameter("fog_origin",IslandModel.wxz(cell.c,cell.r))
 		root.add_child(body)
 		var top := MeshInstance3D.new()
 		top.mesh = top_mesh(cell.base)
 		top.material_override = surface(cell.base)
+		top.material_override.set_shader_parameter("hole_radius",.24 if cell.get("hole",false) else 0.0)
 		root.add_child(top)
+		if cell.get("hole",false):
+			var ring:=MeshInstance3D.new();var torus:=TorusMesh.new();torus.inner_radius=.23;torus.outer_radius=.30;ring.mesh=torus
+			var stone:=StandardMaterial3D.new();stone.albedo_color=Color("444641");ring.material_override=stone;ring.position.y=.025;root.add_child(ring)
+			var dark:=MeshInstance3D.new();var disc:=CylinderMesh.new();disc.top_radius=.235;disc.bottom_radius=.235;disc.height=.015;dark.mesh=disc
+			var black:=StandardMaterial3D.new();black.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;black.albedo_color=Color("050709");dark.material_override=black;dark.position.y=-.07;root.add_child(dark)
 		var waterfall: MeshInstance3D = null
 		if not cell.get("waterfall_edges",[]).is_empty():
 			waterfall=make_waterfall(cell.waterfall_edges,depth)
@@ -146,8 +167,14 @@ func rebuild() -> void:
 		root.add_child(wisp)
 		var known: bool = model.style(IslandModel.key(cell)).known
 		tiles[IslandModel.key(cell)] = {"root":root,"body":body,"top":top,"prop":prop,"path":cell.base,"cell":cell,"fog":fog,"wisp":wisp,"was_known":known,"clear_t":CLEAR_SECONDS if known else 0.0,"waterfall":waterfall}
-	hero=preload("res://scripts/world/island_hero.gd").new()
-	world.add_child(hero)
+	if not is_instance_valid(hero):
+		hero=preload("res://scripts/world/island_hero.gd").new()
+		world.add_child(hero)
+	for link in model.traversal.links:
+		var marker:=Node3D.new();world.add_child(marker)
+		var button:=Button.new();button.text=link.label;button.modulate=Color("b8eddf");add_child(button)
+		button.pressed.connect(func():model.traversal.request(model,link.id))
+		passage_markers.append({"node":marker,"link":link,"button":button})
 	outline = MeshInstance3D.new()
 	var mat := StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -168,7 +195,21 @@ func rebuild() -> void:
 	ghost_body.material_override.shader = preload("res://shaders/island_selection_head.gdshader")
 func world_position(c: float,r: float,h: float) -> Vector3:
 	var p := (IslandModel.wxz(c,r)-model.pivot).rotated(model.angles().x)
-	return Vector3(p.x,h*HEIGHT,p.y)
+	return Vector3(p.x,(h+model.wave_height(c,r))*HEIGHT,p.y)
+func exterior_box(box:BoxMesh,cell:Dictionary)->ArrayMesh:
+	var arrays:=box.get_mesh_arrays()
+	var normals:PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+	var source:PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+	var indices:=PackedInt32Array()
+	for i in range(0,source.size(),3):
+		var n:Vector3=normals[source[i]]
+		# The cube rotates 45 degrees: local +X is grid -R; local +Z is grid +C.
+		var offset:=Vector2i(0,-int(sign(n.x))) if absf(n.x)>.5 else Vector2i(int(sign(n.z)),0)
+		var neighbor:Dictionary=model.lookup.get(IslandModel.key(cell)+offset,{})
+		if absf(n.y)<.5 and not neighbor.is_empty() and neighbor.layer!="water" and float(neighbor.h)>=float(cell.h):continue
+		indices.append_array(source.slice(i,i+3))
+	arrays[Mesh.ARRAY_INDEX]=indices
+	var mesh:=ArrayMesh.new();mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);return mesh
 func make_waterfall(edges: Array, depth: float) -> MeshInstance3D:
 	var corners:=[Vector3(.5,.008,0),Vector3(0,.008,.5),Vector3(-.5,.008,0),Vector3(0,.008,-.5)]
 	var pairs:=[[0,1],[2,3],[1,2],[3,0]]
@@ -228,6 +269,14 @@ func _process(_dt: float) -> void:
 	if not model or size.y < 1: return
 	camera.size = size.y/(112*model.zoom)
 	camera.v_offset = ((size.y*.36+22*model.zoom)-size.y*.5)/(112*model.zoom)
+	for marker in passage_markers:
+		var link:Dictionary=marker.link
+		var a:=world_position(link.from.x,link.from.y,model.lookup[link.from].h)
+		var b:=world_position(link.to.x,link.to.y,link.get("exit_height",model.lookup.get(link.to,{}).get("h",model.lookup[link.from].h)))
+		marker.node.position=a.lerp(b,.30)+Vector3(0,.22,0)
+		marker.node.visible=model.explored.has(link.from) or model.preview_all
+		marker.button.visible=marker.node.visible and not model.input_locked
+		marker.button.position=camera.unproject_position(marker.node.position)-marker.button.size*.5
 	for position_value in tiles:
 		var tile: Dictionary = tiles[position_value]
 		var cell: Dictionary = tile.cell
@@ -261,7 +310,7 @@ func _process(_dt: float) -> void:
 		for mist in [tile.fog,tile.wisp]:
 			mist.material_override.set_shader_parameter("clearing",clearing)
 			mist.material_override.set_shader_parameter("brightness",style.bright)
-		tile.top.visible = style.known
+		tile.top.visible = style.known and not cell.get("concealed_peak",false)
 		tile.root.position = world_position(cell.c,cell.r,cell.h)
 		tile.root.rotation.y = -model.angles().x
 		tile.wisp.basis = tile.root.basis.inverse()*camera.basis.scaled(Vector3.ONE*(1.0+clearing*0.3))
@@ -401,6 +450,7 @@ func pick(point: Vector2, visit_only := false) -> Vector2i:
 	for k in tiles:
 		if visit_only and not model.can_visit(k): continue
 		var tile: Dictionary = tiles[k]
+		if tile.cell.get("concealed_peak",false):continue
 		var t: float = (tile.root.position.y-origin.y)/direction.y
 		if t < 0 or t >= nearest: continue
 		var local: Vector3 = tile.root.transform.affine_inverse()*(origin+direction*t)
@@ -410,6 +460,10 @@ func pick(point: Vector2, visit_only := false) -> Vector2i:
 			result = k
 	return result
 func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:
+		for marker in passage_markers:
+			if marker.node.visible and camera.unproject_position(marker.node.position).distance_to(event.position)<45:
+				model.traversal.request(model,marker.link.id);accept_event();return
 	if event is InputEventMouseMotion: model.hover = pick(event.position)
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT: model.go_to(pick(event.position))

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "chest",
+      "name": "工具盒",
+      "texture": "dressing/chest/prop.png",
+      "role": "anchor",
+      "height_min": 20,
+      "height_max": 30,
+      "ground_anchor": [
+        0.5,
+        0.9739776951672863
+      ],
+      "alpha_height_fraction": 0.9479553903345725,
+      "allow_on_road": false
+    },
+    {
+      "id": "bucket",
+      "name": "皮条桶",
+      "texture": "dressing/bucket/prop.png",
+      "role": "anchor",
+      "height_min": 26,
+      "height_max": 38,
+      "ground_anchor": [
+        0.5,
+        0.980327868852459
+      ],
+      "alpha_height_fraction": 0.9573770491803278,
+      "allow_on_road": false
+    },
+    {
+      "id": "hide",
+      "name": "皮革卷",
+      "texture": "dressing/hide/prop.png",
+      "role": "prop",
+      "height_min": 10,
+      "height_max": 18,
+      "ground_anchor": [
+        0.5,
+        0.9776119402985075
+      ],
+      "alpha_height_fraction": 0.9552238805970149,
+      "allow_on_road": false
+    },
+    {
+      "id": "logs",
+      "name": "木料",
+      "texture": "dressing/logs/prop.png",
+      "role": "cover",
+      "height_min": 11,
+      "height_max": 20,
+      "ground_anchor": [
+        0.5,
+        0.978021978021978
+      ],
+      "alpha_height_fraction": 0.9523809523809523,
+      "allow_on_road": false
+    },
+    {
+      "id": "rope",
+      "name": "绳圈",
+      "texture": "dressing/rope/prop.png",
+      "role": "prop",
+      "height_min": 5,
+      "height_max": 10,
+      "ground_anchor": [
+        0.5,
+        0.9738805970149254
+      ],
+      "alpha_height_fraction": 0.9440298507462687,
+      "allow_on_road": false
+    },
+    {
+      "id": "pouch",
+      "name": "皮包",
+      "texture": "dressing/pouch/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 15,
+      "ground_anchor": [
+        0.5,
+        0.9772727272727273
+      ],
+      "alpha_height_fraction": 0.9545454545454546,
+      "allow_on_road": false
+    },
+    {
+      "id": "leather",
+      "name": "皮屑",
+      "texture": "dressing/leather/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9791666666666666
+      ],
+      "alpha_height_fraction": 0.9583333333333334,
+      "allow_on_road": true
+    },
+    {
+      "id": "straw",
+      "name": "干草",
+      "texture": "dressing/straw/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 6,
+      "ground_anchor": [
+        0.5,
+        0.977491961414791
+      ],
+      "alpha_height_fraction": 0.954983922829582,
+      "allow_on_road": true
+    },
+    {
+      "id": "iron",
+      "name": "铁件",
+      "texture": "dressing/iron/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9748953974895398
+      ],
+      "alpha_height_fraction": 0.9497907949790795,
+      "allow_on_road": true
+    }
+  ]
+}

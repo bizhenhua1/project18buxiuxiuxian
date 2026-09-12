@@ -1,0 +1,348 @@
+{
+  "input": "art\\fairytales\\corridor\\raw\\red_village-dressing-alpha.png",
+  "rows": 3,
+  "cols": 3,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "component_mode": "all",
+  "component_padding": 6,
+  "min_component_area": 12,
+  "edge_touch_margin": 0,
+  "accepted": [
+    {
+      "index": 0,
+      "label": "barrel",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        96,
+        108,
+        340,
+        371
+      ],
+      "padded_crop_bbox": [
+        90,
+        102,
+        346,
+        377
+      ],
+      "edge_touch": false,
+      "output_size": [
+        256,
+        275
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\barrel\\prop.png"
+    },
+    {
+      "index": 1,
+      "label": "sack",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        418,
+        0,
+        836,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        75,
+        90,
+        329,
+        373
+      ],
+      "padded_crop_bbox": [
+        69,
+        84,
+        335,
+        379
+      ],
+      "edge_touch": false,
+      "output_size": [
+        266,
+        295
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\sack\\prop.png"
+    },
+    {
+      "index": 2,
+      "label": "crates",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        836,
+        0,
+        1254,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        41,
+        90,
+        344,
+        380
+      ],
+      "padded_crop_bbox": [
+        35,
+        84,
+        350,
+        386
+      ],
+      "edge_touch": false,
+      "output_size": [
+        315,
+        302
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\crates\\prop.png"
+    },
+    {
+      "index": 3,
+      "label": "bush",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        418,
+        418,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        49,
+        80,
+        372,
+        352
+      ],
+      "padded_crop_bbox": [
+        43,
+        74,
+        378,
+        358
+      ],
+      "edge_touch": false,
+      "output_size": [
+        335,
+        284
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\bush\\prop.png"
+    },
+    {
+      "index": 4,
+      "label": "firewood",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        418,
+        418,
+        836,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        39,
+        95,
+        371,
+        335
+      ],
+      "padded_crop_bbox": [
+        33,
+        89,
+        377,
+        341
+      ],
+      "edge_touch": false,
+      "output_size": [
+        344,
+        252
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\firewood\\prop.png"
+    },
+    {
+      "index": 5,
+      "label": "cloth",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        836,
+        418,
+        1254,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        36,
+        94,
+        362,
+        355
+      ],
+      "padded_crop_bbox": [
+        30,
+        88,
+        368,
+        361
+      ],
+      "edge_touch": false,
+      "output_size": [
+        338,
+        273
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\cloth\\prop.png"
+    },
+    {
+      "index": 6,
+      "label": "pottery",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        836,
+        418,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 8,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        50,
+        79,
+        362,
+        321
+      ],
+      "padded_crop_bbox": [
+        44,
+        73,
+        368,
+        327
+      ],
+      "edge_touch": false,
+      "output_size": [
+        324,
+        254
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\pottery\\prop.png"
+    },
+    {
+      "index": 7,
+      "label": "leaves",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        836,
+        836,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        30,
+        80,
+        377,
+        319
+      ],
+      "padded_crop_bbox": [
+        24,
+        74,
+        383,
+        325
+      ],
+      "edge_touch": false,
+      "output_size": [
+        359,
+        251
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\leaves\\prop.png"
+    },
+    {
+      "index": 8,
+      "label": "stones",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 5,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        30,
+        75,
+        359,
+        331
+      ],
+      "padded_crop_bbox": [
+        24,
+        69,
+        365,
+        337
+      ],
+      "edge_touch": false,
+      "output_size": [
+        341,
+        268
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\red_village\\dressing\\stones\\prop.png"
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": []
+}

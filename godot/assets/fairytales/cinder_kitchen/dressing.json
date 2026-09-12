@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "scuttle",
+      "name": "煤斗",
+      "texture": "dressing/scuttle/prop.png",
+      "role": "prop",
+      "height_min": 20,
+      "height_max": 30,
+      "ground_anchor": [
+        0.5,
+        0.9805194805194806
+      ],
+      "alpha_height_fraction": 0.961038961038961,
+      "allow_on_road": false
+    },
+    {
+      "id": "sack",
+      "name": "面粉袋",
+      "texture": "dressing/sack/prop.png",
+      "role": "anchor",
+      "height_min": 27,
+      "height_max": 38,
+      "ground_anchor": [
+        0.5,
+        0.9814814814814815
+      ],
+      "alpha_height_fraction": 0.9629629629629629,
+      "allow_on_road": false
+    },
+    {
+      "id": "bowls",
+      "name": "木碗",
+      "texture": "dressing/bowls/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 13,
+      "ground_anchor": [
+        0.5,
+        0.973384030418251
+      ],
+      "alpha_height_fraction": 0.9505703422053232,
+      "allow_on_road": false
+    },
+    {
+      "id": "firewood",
+      "name": "柴薪",
+      "texture": "dressing/firewood/prop.png",
+      "role": "cover",
+      "height_min": 12,
+      "height_max": 20,
+      "ground_anchor": [
+        0.5,
+        0.9775280898876404
+      ],
+      "alpha_height_fraction": 0.9550561797752809,
+      "allow_on_road": false
+    },
+    {
+      "id": "basket",
+      "name": "菜篮",
+      "texture": "dressing/basket/prop.png",
+      "role": "prop",
+      "height_min": 15,
+      "height_max": 24,
+      "ground_anchor": [
+        0.5,
+        0.9811912225705329
+      ],
+      "alpha_height_fraction": 0.9623824451410659,
+      "allow_on_road": false
+    },
+    {
+      "id": "cloth",
+      "name": "旧布",
+      "texture": "dressing/cloth/prop.png",
+      "role": "prop",
+      "height_min": 4,
+      "height_max": 7,
+      "ground_anchor": [
+        0.5,
+        0.975103734439834
+      ],
+      "alpha_height_fraction": 0.946058091286307,
+      "allow_on_road": false
+    },
+    {
+      "id": "ash",
+      "name": "煤灰",
+      "texture": "dressing/ash/prop.png",
+      "role": "litter",
+      "height_min": 3,
+      "height_max": 6,
+      "ground_anchor": [
+        0.5,
+        0.9703389830508474
+      ],
+      "alpha_height_fraction": 0.9449152542372882,
+      "allow_on_road": true
+    },
+    {
+      "id": "pottery",
+      "name": "碎陶",
+      "texture": "dressing/pottery/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.967741935483871
+      ],
+      "alpha_height_fraction": 0.9354838709677419,
+      "allow_on_road": true
+    },
+    {
+      "id": "peelings",
+      "name": "菜皮",
+      "texture": "dressing/peelings/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9764705882352941
+      ],
+      "alpha_height_fraction": 0.9529411764705882,
+      "allow_on_road": true
+    }
+  ]
+}

@@ -19,6 +19,76 @@ var flight_distance:=1.0
 var saved_camera:Camera3D
 var traditional_ready:=false
 var overlay_host:SubViewportContainer
+var missile_light_enabled:=true
+var missile_light_energy:=.9
+var missile_light_radius:=75.0
+var missile_light_color:=Color("87cfff")
+var missile_burst_enabled:=true
+var missile_burst_energy:=1.25
+var missile_burst_radius:=90.0
+var missile_burst_duration:=.65
+var missile_burst_rise:=.06
+var missile_burst_color:=Color("a2dcff")
+var light_profiles:Dictionary={}
+var light_fields:Dictionary={}
+var light_panel:VBoxContainer
+var light_profile_path:="user://projectile-light-profiles.json"
+const LIGHT_DEFAULTS={"missile_light_enabled":false,"missile_light_energy":.9,"missile_light_radius":75.0,"missile_light_color":"87cfff","missile_burst_enabled":true,"missile_burst_energy":1.25,"missile_burst_radius":90.0,"missile_burst_duration":.65,"missile_burst_rise":.06,"missile_burst_color":"a2dcff"}
+var missile_light_position:=Vector3.ZERO
+var missile_light_tail:=0.0
+var missile_burst_age:=-1.0
+var missile_light_base:Array[Dictionary]=[]
+var missile_light_bound:=false
+func build_ui():
+ if FileAccess.file_exists(light_profile_path):
+  var stored=JSON.parse_string(FileAccess.get_file_as_string(light_profile_path))
+  if stored is Dictionary:light_profiles=stored
+ super()
+ var parent_panel=detail.get_parent()
+ var panel:=VBoxContainer.new();parent_panel.add_child(panel)
+ parent_panel.move_child(panel,target_slots.get_index()+1)
+ button(panel,"StormMissile · 点光源实验",func():
+  mode_pick.select(0);stop_action();arrange()
+  for entry in projectile_entries():
+   if entry.name.begins_with("StormMissile"):select_entry(entry);break)
+ light_panel=VBoxContainer.new();panel.add_child(light_panel)
+ for item in [["missile_light_enabled","启用当前子弹模拟光源"],["missile_burst_enabled","启用爆炸光源"]]:
+  var field:=CheckButton.new();field.text=item[1];light_panel.add_child(field);light_fields[item[0]]=field
+  field.toggled.connect(func(v):set(item[0],v))
+ for item in [["missile_light_energy","飞行 · 强度",0,5,.05],["missile_light_radius","飞行 · 范围",1,220,1],["missile_burst_energy","爆炸 · 峰值强度",0,5,.05],["missile_burst_radius","爆炸 · 最大范围",1,300,1],["missile_burst_duration","爆炸 · 持续秒数",.1,3,.05],["missile_burst_rise","爆炸 · 达峰秒数",.01,.5,.01]]:
+  var field:=spin(light_panel,item[1],item[2],item[3],item[4],get(item[0]));light_fields[item[0]]=field
+  field.value_changed.connect(func(v):set(item[0],v))
+ for item in [["missile_light_color","飞行 · 颜色"],["missile_burst_color","爆炸 · 颜色"]]:
+  text_node(light_panel,item[1]);var field:=ColorPickerButton.new();field.edit_alpha=false;light_panel.add_child(field);light_fields[item[0]]=field
+  field.color_changed.connect(func(v):set(item[0],v))
+ button(light_panel,"保存当前子弹光源配置",save_light_profile)
+ button(light_panel,"恢复当前子弹默认值",func():load_light_profile({}))
+ text_node(panel,"实验仅作用于传统预览的地面与场景精灵；独立角色模型照明尚未桥接。")
+func select_entry(entry:Dictionary,auto_play:bool=true):
+ super(entry,false)
+ load_light_profile(light_profiles.get(str(entry.get("file","")),{}))
+ if light_panel:light_panel.visible=entry.get("behavior","")=="projectile"
+ if auto_play:play_entry()
+func load_light_profile(saved:Dictionary):
+ for key in LIGHT_DEFAULTS:
+  var value=saved.get(key,LIGHT_DEFAULTS[key])
+  if key=="missile_light_enabled" and not saved.has(key):value=str(current_entry.get("name","")).begins_with("StormMissile")
+  if key.ends_with("color"):value=Color(str(value))
+  set(key,value)
+  var field=light_fields.get(key)
+  if field is CheckButton:field.set_pressed_no_signal(value)
+  elif field is SpinBox:field.set_value_no_signal(value)
+  elif field is ColorPickerButton:field.color=value
+func save_light_profile():
+ if current_entry.get("behavior","")!="projectile":return
+ var profile:Dictionary={}
+ for key in LIGHT_DEFAULTS:
+  profile[key]=get(key).to_html(false) if key.ends_with("color") else get(key)
+ light_profiles[str(current_entry.file)]=profile
+ var file=FileAccess.open(light_profile_path,FileAccess.WRITE)
+ if not file:status.text="光源配置保存失败";return
+ file.store_string(JSON.stringify(light_profiles,"  "))
+ status.text=current_entry.name+" · 光源配置已保存，下次选择自动读取"
 func traditional()->bool:return traditional_ready and mode_pick.selected==0
 func _ready():
  super()
@@ -95,6 +165,7 @@ func arrange():
  for i in target_slots.item_count:
   if target_slots.get_item_id(i)==old_target:target_slots.select(i);break
 func stop_action():
+ clear_missile_light()
  super()
  if is_instance_valid(game_actor):game_actor.body.position=actor_origin
 func view_input(event:InputEvent):
@@ -155,6 +226,9 @@ func create_fx(entry:Dictionary,at:Vector3)->Node3D:
 func impact():
  if not traditional():super();return
  if impact_sent:return
+ if missile_light_enabled and missile_burst_enabled and current_entry.get("behavior","")=="projectile":
+  missile_light_position=light_world_point(arrival_pixel,arrival_depth)
+  missile_burst_age=0.0;missile_light_tail=missile_burst_duration
  impact_sent=true;hit_count+=1
  var related:=matching_impact()
  if not related.is_empty():
@@ -165,7 +239,7 @@ func impact():
  if enemy:enemy.trigger("damage")
  status.text=current_entry.name+" · 已命中 · "+str(related.get("name","原包未关联命中特效"))
 func _process(dt:float):
- if not traditional():super(dt);return
+ if not traditional():clear_missile_light();super(dt);return
  var step:=minf(dt,.05)*rate;action_clock+=step
  if not game_actor:return
  var wanted_ratio:=maxf(1,float(viewport.size.x))/maxf(1,float(viewport.size.y))
@@ -229,7 +303,61 @@ func _process(dt:float):
   if fx.finished():return_fx(fx)
  if current_entry.get("behavior","")=="slash" and action_phase=="windup" and is_instance_valid(active_fx):active_fx.align_mesh_highlight(pixel_to_fx(hand.lerp(tip,.6)))
  if action_phase=="tail" and fx_nodes.is_empty():action_phase="idle";playing=false;game_actor.body.position=actor_origin
- if repeat_fx and action_phase=="idle" and action_clock>maxf(2,action_length+1):play_entry()
+ if repeat_fx and action_phase=="idle" and missile_light_tail<=0 and action_clock>maxf(2,action_length+1):play_entry()
+ update_missile_light(step)
+
+func update_missile_light(step:float)->void:
+ if not missile_light_enabled or current_entry.get("behavior","")!="projectile":
+  clear_missile_light();return
+ var bursting:=missile_burst_age>=0
+ var flying:=not bursting and action_phase=="flight" and is_instance_valid(active_fx)
+ if flying:
+  var depth:=lerpf(launch_depth,arrival_depth,flight_fraction)
+  var pixel:Vector2=(launch_pixel*launch_depth).lerp(arrival_pixel*arrival_depth,flight_fraction)/depth
+  missile_light_position=light_world_point(pixel,depth)
+  missile_light_tail=.18
+ elif bursting:
+  missile_burst_age+=step
+  missile_light_tail=maxf(0,missile_burst_duration-missile_burst_age)
+ else:missile_light_tail=maxf(0,missile_light_tail-step)
+ if missile_light_tail<=0:clear_missile_light();return
+ var r=game_preview.app.arena.scenery.renderer
+ if not missile_light_bound:
+  missile_light_base=r.combat_lights.duplicate();missile_light_bound=true
+ r.combat_lights=missile_light_base.duplicate()
+ # Same world-space attenuation as other combat lights; no screen-space glow decal.
+ var envelope:float=smoothstep(0,.12,flight_fraction) if flying else missile_light_tail/.18
+ var radius:=missile_light_radius
+ var color:=missile_light_color
+ var energy:=missile_light_energy*envelope
+ if bursting:
+  # Independent impact pulse survives the projectile and holds at the hit point.
+  var peak_time:=minf(missile_burst_rise,missile_burst_duration*.8)
+  var rise:=smoothstep(0,peak_time,missile_burst_age)
+  var fade:=1-smoothstep(peak_time,missile_burst_duration,missile_burst_age)
+  energy=lerpf(missile_light_energy,missile_burst_energy,rise)*fade
+  radius=lerpf(missile_light_radius,missile_burst_radius,rise)
+  color=missile_light_color.lerp(missile_burst_color,rise)
+ r.combat_lights.push_front({"position":missile_light_position,"radius":radius,"color":color,"energy":energy})
+ game_preview.app.arena.scenery.sync_projection();r.queue_redraw()
+
+func light_world_point(pixel:Vector2,depth:float)->Vector3:
+ var r=game_preview.app.arena.scenery.renderer
+ var x:float=(pixel.x-r.view_size.x*.5)*depth/r.focal()
+ var height:float=r.camera_height()-(pixel.y-r.horizon_y())*depth/r.focal()
+ var ground:Vector2=r.camera_world+Vector2(cos(r.heading)*x+sin(r.heading)*depth,-sin(r.heading)*x+cos(r.heading)*depth)
+ return Vector3(ground.x,height,ground.y)
+
+func clear_missile_light()->void:
+ missile_light_tail=0
+ missile_burst_age=-1
+ if not missile_light_bound:return
+ missile_light_bound=false
+ if is_instance_valid(game_preview) and is_instance_valid(game_preview.app):
+  var r=game_preview.app.arena.scenery.renderer
+  r.combat_lights=missile_light_base.duplicate()
+  game_preview.app.arena.scenery.sync_projection();r.queue_redraw()
+ missile_light_base.clear()
 
 func fitted_scale(entry:Dictionary,reference:float)->float:
  return fx_scale*reference*minf(1,1.1/maxf(1.1,estimate_radius(get_spec(entry))/maxf(.01,fx_scale)))

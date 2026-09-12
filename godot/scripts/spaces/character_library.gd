@@ -62,7 +62,7 @@ var model_buttons:Array[Button]=[]
 func _ready() -> void:
  DisplayServer.window_set_title("3D 主角 · 模型与动作预览")
  catalog=JSON.parse_string(FileAccess.get_file_as_string("res://assets/motions/catalog.json"));clips=catalog.clips
- for c in clips:c.category="制作与采集" if str(c.get("pack",""))=="6" else category(c.name)
+ for c in clips:c.category="攀爬与上下通行" if c.get("traversal",false) else "制作与采集" if str(c.get("pack",""))=="6" else category(c.name)
  var bg:=ColorRect.new();bg.color=Color("10191e");bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(bg)
  var margin:=MarginContainer.new();margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  for key in ["margin_left","margin_right","margin_top","margin_bottom"]:margin.add_theme_constant_override(key,16)
@@ -118,7 +118,7 @@ func _ready() -> void:
  pack_tabs.tab_changed.connect(func(_i):refresh_list())
  search=LineEdit.new();search.placeholder_text="搜索动作名称，例如 Walk、Idle";right.add_child(search);search.text_changed.connect(func(_v):refresh_list())
  categories=OptionButton.new();right.add_child(categories);categories.add_item("全部")
- for c in ["移动与待机","攻击与施法","防御与闪避","受击与死亡","跳跃与翻越","制作与采集","交互与其他"]:categories.add_item(c)
+ for c in ["移动与待机","攻击与施法","防御与闪避","受击与死亡","跳跃与翻越","制作与采集","交互与其他","攀爬与上下通行"]:categories.add_item(c)
  categories.item_selected.connect(func(_i):refresh_list())
  var scroll:=ScrollContainer.new();scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;right.add_child(scroll)
  list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)

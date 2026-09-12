@@ -1,0 +1,348 @@
+{
+  "input": "art\\fairytales\\corridor\\raw\\cinder_kitchen-dressing-alpha.png",
+  "rows": 3,
+  "cols": 3,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "component_mode": "all",
+  "component_padding": 6,
+  "min_component_area": 12,
+  "edge_touch_margin": 0,
+  "accepted": [
+    {
+      "index": 0,
+      "label": "scuttle",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        55,
+        84,
+        336,
+        380
+      ],
+      "padded_crop_bbox": [
+        49,
+        78,
+        342,
+        386
+      ],
+      "edge_touch": false,
+      "output_size": [
+        293,
+        308
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\scuttle\\prop.png"
+    },
+    {
+      "index": 1,
+      "label": "sack",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        418,
+        0,
+        836,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        64,
+        64,
+        346,
+        376
+      ],
+      "padded_crop_bbox": [
+        58,
+        58,
+        352,
+        382
+      ],
+      "edge_touch": false,
+      "output_size": [
+        294,
+        324
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\sack\\prop.png"
+    },
+    {
+      "index": 2,
+      "label": "bowls",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        836,
+        0,
+        1254,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        76,
+        117,
+        344,
+        368
+      ],
+      "padded_crop_bbox": [
+        70,
+        111,
+        350,
+        374
+      ],
+      "edge_touch": false,
+      "output_size": [
+        280,
+        263
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\bowls\\prop.png"
+    },
+    {
+      "index": 3,
+      "label": "firewood",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        418,
+        418,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        37,
+        95,
+        371,
+        350
+      ],
+      "padded_crop_bbox": [
+        31,
+        89,
+        377,
+        356
+      ],
+      "edge_touch": false,
+      "output_size": [
+        346,
+        267
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\firewood\\prop.png"
+    },
+    {
+      "index": 4,
+      "label": "basket",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        418,
+        418,
+        836,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        39,
+        61,
+        373,
+        368
+      ],
+      "padded_crop_bbox": [
+        33,
+        55,
+        379,
+        374
+      ],
+      "edge_touch": false,
+      "output_size": [
+        346,
+        319
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\basket\\prop.png"
+    },
+    {
+      "index": 5,
+      "label": "cloth",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        836,
+        418,
+        1254,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        50,
+        121,
+        362,
+        350
+      ],
+      "padded_crop_bbox": [
+        44,
+        115,
+        368,
+        356
+      ],
+      "edge_touch": false,
+      "output_size": [
+        324,
+        241
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\cloth\\prop.png"
+    },
+    {
+      "index": 6,
+      "label": "ash",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        836,
+        418,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 7,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        36,
+        102,
+        374,
+        326
+      ],
+      "padded_crop_bbox": [
+        30,
+        96,
+        380,
+        332
+      ],
+      "edge_touch": false,
+      "output_size": [
+        350,
+        236
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\ash\\prop.png"
+    },
+    {
+      "index": 7,
+      "label": "pottery",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        836,
+        836,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        45,
+        119,
+        362,
+        324
+      ],
+      "padded_crop_bbox": [
+        39,
+        113,
+        368,
+        330
+      ],
+      "edge_touch": false,
+      "output_size": [
+        329,
+        217
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\pottery\\prop.png"
+    },
+    {
+      "index": 8,
+      "label": "peelings",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        32,
+        95,
+        379,
+        338
+      ],
+      "padded_crop_bbox": [
+        26,
+        89,
+        385,
+        344
+      ],
+      "edge_touch": false,
+      "output_size": [
+        359,
+        255
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\cinder_kitchen\\dressing\\peelings\\prop.png"
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": []
+}

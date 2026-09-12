@@ -1,0 +1,348 @@
+{
+  "input": "art\\fairytales\\corridor\\raw\\puppet_workshop-dressing-alpha.png",
+  "rows": 3,
+  "cols": 3,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "component_mode": "all",
+  "component_padding": 6,
+  "min_component_area": 12,
+  "edge_touch_margin": 0,
+  "accepted": [
+    {
+      "index": 0,
+      "label": "chest",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        48,
+        113,
+        365,
+        353
+      ],
+      "padded_crop_bbox": [
+        42,
+        107,
+        371,
+        359
+      ],
+      "edge_touch": false,
+      "output_size": [
+        329,
+        252
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\chest\\prop.png"
+    },
+    {
+      "index": 1,
+      "label": "barrel",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        418,
+        0,
+        836,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        88,
+        78,
+        318,
+        363
+      ],
+      "padded_crop_bbox": [
+        82,
+        72,
+        324,
+        369
+      ],
+      "edge_touch": false,
+      "output_size": [
+        242,
+        297
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\barrel\\prop.png"
+    },
+    {
+      "index": 2,
+      "label": "spool",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        836,
+        0,
+        1254,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        72,
+        115,
+        351,
+        382
+      ],
+      "padded_crop_bbox": [
+        66,
+        109,
+        357,
+        388
+      ],
+      "edge_touch": false,
+      "output_size": [
+        291,
+        279
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\spool\\prop.png"
+    },
+    {
+      "index": 3,
+      "label": "blocks",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        418,
+        418,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        52,
+        88,
+        358,
+        361
+      ],
+      "padded_crop_bbox": [
+        46,
+        82,
+        364,
+        367
+      ],
+      "edge_touch": false,
+      "output_size": [
+        318,
+        285
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\blocks\\prop.png"
+    },
+    {
+      "index": 4,
+      "label": "rope",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        418,
+        418,
+        836,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        55,
+        128,
+        354,
+        367
+      ],
+      "padded_crop_bbox": [
+        49,
+        122,
+        360,
+        373
+      ],
+      "edge_touch": false,
+      "output_size": [
+        311,
+        251
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\rope\\prop.png"
+    },
+    {
+      "index": 5,
+      "label": "tools",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        836,
+        418,
+        1254,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        105,
+        46,
+        326,
+        372
+      ],
+      "padded_crop_bbox": [
+        99,
+        40,
+        332,
+        378
+      ],
+      "edge_touch": false,
+      "output_size": [
+        233,
+        338
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\tools\\prop.png"
+    },
+    {
+      "index": 6,
+      "label": "shavings",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        836,
+        418,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 9,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        34,
+        91,
+        375,
+        320
+      ],
+      "padded_crop_bbox": [
+        28,
+        85,
+        381,
+        326
+      ],
+      "edge_touch": false,
+      "output_size": [
+        353,
+        241
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\shavings\\prop.png"
+    },
+    {
+      "index": 7,
+      "label": "pegs",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        836,
+        836,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 14,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        31,
+        131,
+        379,
+        309
+      ],
+      "padded_crop_bbox": [
+        25,
+        125,
+        385,
+        315
+      ],
+      "edge_touch": false,
+      "output_size": [
+        360,
+        190
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\pegs\\prop.png"
+    },
+    {
+      "index": 8,
+      "label": "rag",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        32,
+        87,
+        379,
+        347
+      ],
+      "padded_crop_bbox": [
+        26,
+        81,
+        385,
+        353
+      ],
+      "edge_touch": false,
+      "output_size": [
+        359,
+        272
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\puppet_workshop\\dressing\\rag\\prop.png"
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": []
+}

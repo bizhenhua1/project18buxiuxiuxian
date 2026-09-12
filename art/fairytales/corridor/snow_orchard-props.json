@@ -1,0 +1,348 @@
+{
+  "input": "art\\fairytales\\corridor\\raw\\snow_orchard-dressing-alpha.png",
+  "rows": 3,
+  "cols": 3,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "component_mode": "all",
+  "component_padding": 6,
+  "min_component_area": 12,
+  "edge_touch_margin": 0,
+  "accepted": [
+    {
+      "index": 0,
+      "label": "stump",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        34,
+        146,
+        397,
+        391
+      ],
+      "padded_crop_bbox": [
+        28,
+        140,
+        403,
+        397
+      ],
+      "edge_touch": false,
+      "output_size": [
+        375,
+        257
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\stump\\prop.png"
+    },
+    {
+      "index": 1,
+      "label": "sack",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        418,
+        0,
+        836,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        74,
+        79,
+        344,
+        387
+      ],
+      "padded_crop_bbox": [
+        68,
+        73,
+        350,
+        393
+      ],
+      "edge_touch": false,
+      "output_size": [
+        282,
+        320
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\sack\\prop.png"
+    },
+    {
+      "index": 2,
+      "label": "crate",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        836,
+        0,
+        1254,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        40,
+        132,
+        332,
+        376
+      ],
+      "padded_crop_bbox": [
+        34,
+        126,
+        338,
+        382
+      ],
+      "edge_touch": false,
+      "output_size": [
+        304,
+        256
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\crate\\prop.png"
+    },
+    {
+      "index": 3,
+      "label": "bush",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        418,
+        418,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        37,
+        58,
+        392,
+        384
+      ],
+      "padded_crop_bbox": [
+        31,
+        52,
+        398,
+        390
+      ],
+      "edge_touch": false,
+      "output_size": [
+        367,
+        338
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\bush\\prop.png"
+    },
+    {
+      "index": 4,
+      "label": "grass",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        418,
+        418,
+        836,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        36,
+        74,
+        368,
+        356
+      ],
+      "padded_crop_bbox": [
+        30,
+        68,
+        374,
+        362
+      ],
+      "edge_touch": false,
+      "output_size": [
+        344,
+        294
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\grass\\prop.png"
+    },
+    {
+      "index": 5,
+      "label": "twigs",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        836,
+        418,
+        1254,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        10,
+        118,
+        373,
+        354
+      ],
+      "padded_crop_bbox": [
+        4,
+        112,
+        379,
+        360
+      ],
+      "edge_touch": false,
+      "output_size": [
+        375,
+        248
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\twigs\\prop.png"
+    },
+    {
+      "index": 6,
+      "label": "apples",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        836,
+        418,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        49,
+        90,
+        364,
+        317
+      ],
+      "padded_crop_bbox": [
+        43,
+        84,
+        370,
+        323
+      ],
+      "edge_touch": false,
+      "output_size": [
+        327,
+        239
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\apples\\prop.png"
+    },
+    {
+      "index": 7,
+      "label": "leaves",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        836,
+        836,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        31,
+        95,
+        369,
+        319
+      ],
+      "padded_crop_bbox": [
+        25,
+        89,
+        375,
+        325
+      ],
+      "edge_touch": false,
+      "output_size": [
+        350,
+        236
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\leaves\\prop.png"
+    },
+    {
+      "index": 8,
+      "label": "stones",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        20,
+        90,
+        364,
+        318
+      ],
+      "padded_crop_bbox": [
+        14,
+        84,
+        370,
+        324
+      ],
+      "edge_touch": false,
+      "output_size": [
+        356,
+        240
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\snow_orchard\\dressing\\stones\\prop.png"
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": []
+}

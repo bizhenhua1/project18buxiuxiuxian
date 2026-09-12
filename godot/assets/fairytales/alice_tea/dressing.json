@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "caddy",
+      "name": "茶罐",
+      "texture": "dressing/caddy/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9770992366412213
+      ],
+      "alpha_height_fraction": 0.9541984732824428,
+      "allow_on_road": false
+    },
+    {
+      "id": "urn",
+      "name": "枯植花钵",
+      "texture": "dressing/urn/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 42,
+      "ground_anchor": [
+        0.5,
+        0.9821428571428571
+      ],
+      "alpha_height_fraction": 0.9613095238095238,
+      "allow_on_road": false
+    },
+    {
+      "id": "plinth",
+      "name": "苔石座",
+      "texture": "dressing/plinth/prop.png",
+      "role": "anchor",
+      "height_min": 36,
+      "height_max": 52,
+      "ground_anchor": [
+        0.5,
+        0.9767441860465116
+      ],
+      "alpha_height_fraction": 0.9534883720930233,
+      "allow_on_road": false
+    },
+    {
+      "id": "bush",
+      "name": "暗叶灌木",
+      "texture": "dressing/bush/prop.png",
+      "role": "cover",
+      "height_min": 20,
+      "height_max": 34,
+      "ground_anchor": [
+        0.5,
+        0.9785714285714285
+      ],
+      "alpha_height_fraction": 0.9571428571428572,
+      "allow_on_road": false
+    },
+    {
+      "id": "twigs",
+      "name": "枯枝",
+      "texture": "dressing/twigs/prop.png",
+      "role": "cover",
+      "height_min": 7,
+      "height_max": 13,
+      "ground_anchor": [
+        0.5,
+        0.975
+      ],
+      "alpha_height_fraction": 0.95,
+      "allow_on_road": false
+    },
+    {
+      "id": "cloth",
+      "name": "蕾丝布团",
+      "texture": "dressing/cloth/prop.png",
+      "role": "prop",
+      "height_min": 4,
+      "height_max": 7,
+      "ground_anchor": [
+        0.5,
+        0.9773584905660377
+      ],
+      "alpha_height_fraction": 0.9547169811320755,
+      "allow_on_road": false
+    },
+    {
+      "id": "china",
+      "name": "碎瓷",
+      "texture": "dressing/china/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9691629955947136
+      ],
+      "alpha_height_fraction": 0.9427312775330396,
+      "allow_on_road": true
+    },
+    {
+      "id": "leaves",
+      "name": "落叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9679144385026738
+      ],
+      "alpha_height_fraction": 0.93048128342246,
+      "allow_on_road": true
+    },
+    {
+      "id": "stones",
+      "name": "石屑",
+      "texture": "dressing/stones/prop.png",
+      "role": "cover",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9736842105263158
+      ],
+      "alpha_height_fraction": 0.9473684210526315,
+      "allow_on_road": false
+    }
+  ]
+}

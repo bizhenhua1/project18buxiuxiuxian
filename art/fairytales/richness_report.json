@@ -1,0 +1,200 @@
+[
+  {
+    "scene": "snow_orchard",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 0.8354988098144531,
+    "prop_coverage": 2.1929702758789062,
+    "enemy_coverage": 1.0943069458007812,
+    "object_coverage": 4.122776031494141,
+    "richness_score": 5.178007507324218
+  },
+  {
+    "scene": "alice_tea",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 0.9652137756347656,
+    "prop_coverage": 2.0753822326660156,
+    "enemy_coverage": 1.193695068359375,
+    "object_coverage": 4.234291076660156,
+    "richness_score": 5.375842285156249
+  },
+  {
+    "scene": "piper_bridge",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 0.7431488037109375,
+    "prop_coverage": 2.825347900390625,
+    "enemy_coverage": 1.8093528747558594,
+    "object_coverage": 5.377849578857422,
+    "richness_score": 6.324197387695313
+  },
+  {
+    "scene": "red_cottage",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.8505668640136719,
+    "prop_coverage": 1.8003120422363281,
+    "enemy_coverage": 1.1416435241699219,
+    "object_coverage": 4.792522430419922,
+    "richness_score": 6.774822998046875
+  },
+  {
+    "scene": "snow_house",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.3737068176269531,
+    "prop_coverage": 2.6142730712890625,
+    "enemy_coverage": 1.2272262573242188,
+    "object_coverage": 5.215206146240234,
+    "richness_score": 6.866322326660156
+  },
+  {
+    "scene": "cinder_clock",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.2661705017089844,
+    "prop_coverage": 2.4119720458984375,
+    "enemy_coverage": 1.8283882141113281,
+    "object_coverage": 5.50653076171875,
+    "richness_score": 6.889418029785156
+  },
+  {
+    "scene": "red_workshop",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.748870849609375,
+    "prop_coverage": 2.1357269287109375,
+    "enemy_coverage": 1.110015869140625,
+    "object_coverage": 4.9946136474609375,
+    "richness_score": 6.948626708984375
+  },
+  {
+    "scene": "snow_mirror",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.9795875549316406,
+    "prop_coverage": 1.7794647216796875,
+    "enemy_coverage": 1.0793647766113281,
+    "object_coverage": 4.838417053222656,
+    "richness_score": 6.958024597167968
+  },
+  {
+    "scene": "alice_hall",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.5629158020019531,
+    "prop_coverage": 2.505298614501953,
+    "enemy_coverage": 1.0710945129394531,
+    "object_coverage": 5.139308929443359,
+    "richness_score": 6.989065551757812
+  },
+  {
+    "scene": "cinder_garden",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.3981552124023438,
+    "prop_coverage": 2.7836761474609375,
+    "enemy_coverage": 1.2623558044433594,
+    "object_coverage": 5.444187164306641,
+    "richness_score": 7.146606445312499
+  },
+  {
+    "scene": "alice_roses",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.7827033996582031,
+    "prop_coverage": 2.4671592712402344,
+    "enemy_coverage": 0.8682098388671875,
+    "object_coverage": 5.118072509765625,
+    "richness_score": 7.2205657958984375
+  },
+  {
+    "scene": "piper_market",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 2.1933555603027344,
+    "prop_coverage": 1.882965087890625,
+    "enemy_coverage": 1.2380332946777344,
+    "object_coverage": 5.314353942871094,
+    "richness_score": 7.636695861816406
+  },
+  {
+    "scene": "piper_mountain",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.6605072021484375,
+    "prop_coverage": 2.28125,
+    "enemy_coverage": 2.0052719116210938,
+    "object_coverage": 5.947029113769531,
+    "richness_score": 7.66273193359375
+  },
+  {
+    "scene": "red_village",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 2.1873741149902344,
+    "prop_coverage": 2.2357635498046875,
+    "enemy_coverage": 1.3070831298828125,
+    "object_coverage": 5.730220794677734,
+    "richness_score": 8.103330993652344
+  },
+  {
+    "scene": "puppet_theatre",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 1.8566474914550781,
+    "prop_coverage": 2.7730445861816406,
+    "enemy_coverage": 1.9132766723632812,
+    "object_coverage": 6.54296875,
+    "richness_score": 8.57156982421875
+  },
+  {
+    "scene": "puppet_fair",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 2.207752227783203,
+    "prop_coverage": 2.363056182861328,
+    "enemy_coverage": 1.7036819458007812,
+    "object_coverage": 6.2744903564453125,
+    "richness_score": 8.614117431640626
+  },
+  {
+    "scene": "cinder_kitchen",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 2.2163047790527344,
+    "prop_coverage": 2.8789901733398438,
+    "enemy_coverage": 1.7887077331542969,
+    "object_coverage": 6.884002685546875,
+    "richness_score": 9.31836395263672
+  },
+  {
+    "scene": "puppet_workshop",
+    "prop_count": 4,
+    "enemy_count": 3,
+    "scene_bg_opaque_ratio": 1.0,
+    "structure_coverage": 2.624866485595703,
+    "prop_coverage": 2.6289520263671875,
+    "enemy_coverage": 1.3418502807617188,
+    "object_coverage": 6.595668792724609,
+    "richness_score": 9.477955627441405
+  }
+]

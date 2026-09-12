@@ -1,0 +1,31 @@
+{
+  "file": "corridor-side.png",
+  "role": "side",
+  "image_size": [
+    1430,
+    1100
+  ],
+  "alpha_bounds": [
+    24,
+    19,
+    1410,
+    1081
+  ],
+  "ground_anchor": [
+    0.44825174825174824,
+    0.9827272727272728
+  ],
+  "edge_touch": false,
+  "residual_key_pixels": 0,
+  "status": "geometry_checked_runtime_pending",
+  "suggested_canvas_height": 230,
+  "repeat_distance_range": [
+    150,
+    240
+  ],
+  "placement": "outside_each_road_using_footprint",
+  "lower_footprint_x": [
+    0.016783216783216783,
+    0.8804195804195805
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "file": "corridor-shell.png",
+  "role": "shell",
+  "image_size": [
+    2060,
+    763
+  ],
+  "alpha_bounds": [
+    11,
+    8,
+    2051,
+    747
+  ],
+  "ground_anchor": [
+    0.5,
+    0.9790301441677588
+  ],
+  "edge_touch": false,
+  "residual_key_pixels": 0,
+  "status": "geometry_checked_runtime_pending",
+  "lower_passage_min_width_fraction": 0.36796,
+  "suggested_canvas_height": 320,
+  "suggested_canvas_width": 863.96,
+  "minimum_travel_clearance": 240,
+  "repeat_distance_range": [
+    130,
+    210
+  ]
+}

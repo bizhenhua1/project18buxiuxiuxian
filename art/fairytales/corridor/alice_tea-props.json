@@ -1,0 +1,348 @@
+{
+  "input": "art\\fairytales\\corridor\\raw\\alice_tea-dressing-alpha.png",
+  "rows": 3,
+  "cols": 3,
+  "threshold": 100,
+  "edge_threshold": 150,
+  "component_mode": "all",
+  "component_padding": 6,
+  "min_component_area": 12,
+  "edge_touch_margin": 0,
+  "accepted": [
+    {
+      "index": 0,
+      "label": "caddy",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        418,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        99,
+        127,
+        327,
+        377
+      ],
+      "padded_crop_bbox": [
+        93,
+        121,
+        333,
+        383
+      ],
+      "edge_touch": false,
+      "output_size": [
+        240,
+        262
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\caddy\\prop.png"
+    },
+    {
+      "index": 1,
+      "label": "urn",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        418,
+        0,
+        836,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        78,
+        63,
+        344,
+        387
+      ],
+      "padded_crop_bbox": [
+        72,
+        57,
+        350,
+        393
+      ],
+      "edge_touch": false,
+      "output_size": [
+        278,
+        336
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\urn\\prop.png"
+    },
+    {
+      "index": 2,
+      "label": "plinth",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        836,
+        0,
+        1254,
+        418
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        77,
+        141,
+        298,
+        387
+      ],
+      "padded_crop_bbox": [
+        71,
+        135,
+        304,
+        393
+      ],
+      "edge_touch": false,
+      "output_size": [
+        233,
+        258
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\plinth\\prop.png"
+    },
+    {
+      "index": 3,
+      "label": "bush",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        418,
+        418,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        43,
+        95,
+        384,
+        363
+      ],
+      "padded_crop_bbox": [
+        37,
+        89,
+        390,
+        369
+      ],
+      "edge_touch": false,
+      "output_size": [
+        353,
+        280
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\bush\\prop.png"
+    },
+    {
+      "index": 4,
+      "label": "twigs",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        418,
+        418,
+        836,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        43,
+        92,
+        363,
+        360
+      ],
+      "padded_crop_bbox": [
+        37,
+        86,
+        369,
+        366
+      ],
+      "edge_touch": false,
+      "output_size": [
+        332,
+        280
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\twigs\\prop.png"
+    },
+    {
+      "index": 5,
+      "label": "cloth",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        836,
+        418,
+        1254,
+        836
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        31,
+        120,
+        370,
+        373
+      ],
+      "padded_crop_bbox": [
+        25,
+        114,
+        376,
+        379
+      ],
+      "edge_touch": false,
+      "output_size": [
+        351,
+        265
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\cloth\\prop.png"
+    },
+    {
+      "index": 6,
+      "label": "china",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        836,
+        418,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        46,
+        93,
+        375,
+        308
+      ],
+      "padded_crop_bbox": [
+        40,
+        87,
+        381,
+        314
+      ],
+      "edge_touch": false,
+      "output_size": [
+        341,
+        227
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\china\\prop.png"
+    },
+    {
+      "index": 7,
+      "label": "leaves",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        836,
+        836,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 1,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        27,
+        120,
+        365,
+        295
+      ],
+      "padded_crop_bbox": [
+        21,
+        114,
+        371,
+        301
+      ],
+      "edge_touch": false,
+      "output_size": [
+        350,
+        187
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\leaves\\prop.png"
+    },
+    {
+      "index": 8,
+      "label": "stones",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        836,
+        836,
+        1254,
+        1254
+      ],
+      "component_mode": "all",
+      "component_count": 3,
+      "selected_component_area": null,
+      "selected_component_bbox": null,
+      "crop_bbox": [
+        28,
+        93,
+        369,
+        309
+      ],
+      "padded_crop_bbox": [
+        22,
+        87,
+        375,
+        315
+      ],
+      "edge_touch": false,
+      "output_size": [
+        353,
+        228
+      ],
+      "status": "accepted",
+      "image": "godot\\assets\\fairytales\\alice_tea\\dressing\\stones\\prop.png"
+    }
+  ],
+  "rejected": [],
+  "edge_touch_props": []
+}

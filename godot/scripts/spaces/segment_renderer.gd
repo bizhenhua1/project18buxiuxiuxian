@@ -182,7 +182,7 @@ func _project_space(cx: float, hy: float, f: float) -> Array[Dictionary]:
 		# Reject horizontally before any height, color or attachment work.
 		if absf(rx*scale)>view_size.x*.5+float(sprite.w)*scale:continue
 		var altitude: float = sprite.altitude
-		if StyleLibrary.active:
+		if StyleLibrary.active and not FairytaleCatalog.has_scene(str(sprite.region.space.key)):
 			if not sprite.has("terrain_unit"):sprite.terrain_unit=2.2*sin(position.y*.009)+1.3*sin(position.x*.017+position.y*.004)
 			altitude += float(sprite.terrain_unit)*float(ForestSettings.values.height)-terrain_camera
 		if sprite.motion == "sea": position.x += sin(elapsed * 0.055 + sprite.route_s * 0.001) * 5.0

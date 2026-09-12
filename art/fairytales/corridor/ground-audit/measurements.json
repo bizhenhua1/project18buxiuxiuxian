@@ -1,0 +1,293 @@
+{
+  "method": "RGB edge jump relative to 95th percentile internal adjacent-row/column jump; flags discontinuity only, not visual quality or tile motif continuity",
+  "assets": [
+    {
+      "scene": "baseline_forest",
+      "file": "godot\\assets\\style2\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 7.254557132720947,
+      "seam_y": 9.044921875,
+      "seam_x_vs_internal_p95": 1.164063639328172,
+      "seam_y_vs_internal_p95": 1.113444112414525
+    },
+    {
+      "scene": "baseline_crystal",
+      "file": "godot\\assets\\biomes\\crystal\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 10.423828125,
+      "seam_y": 12.02734375,
+      "seam_x_vs_internal_p95": 1.6847476379617317,
+      "seam_y_vs_internal_p95": 1.5503524672708964
+    },
+    {
+      "scene": "baseline_swamp",
+      "file": "godot\\assets\\biomes\\swamp\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 5.313150882720947,
+      "seam_y": 7.993489742279053,
+      "seam_x_vs_internal_p95": 0.853661105929507,
+      "seam_y_vs_internal_p95": 1.1610402122118795
+    },
+    {
+      "scene": "baseline_sewer",
+      "file": "godot\\assets\\biomes\\sewer\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 8.887370109558105,
+      "seam_y": 5.852864742279053,
+      "seam_x_vs_internal_p95": 0.9519526142455544,
+      "seam_y_vs_internal_p95": 0.5357568523564123
+    },
+    {
+      "scene": "baseline_whale",
+      "file": "godot\\assets\\biomes\\whale\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 13.514323234558105,
+      "seam_y": 10.071614265441895,
+      "seam_x_vs_internal_p95": 1.1768240455263348,
+      "seam_y_vs_internal_p95": 0.8365327598899731
+    },
+    {
+      "scene": "baseline_palace",
+      "file": "godot\\assets\\biomes\\palace\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 8.887370109558105,
+      "seam_y": 5.852864742279053,
+      "seam_x_vs_internal_p95": 0.9519526142455544,
+      "seam_y_vs_internal_p95": 0.5357568523564123
+    },
+    {
+      "scene": "red_village",
+      "file": "godot\\assets\\fairytales\\red_village\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 21.60807228088379,
+      "seam_y": 22.416015625,
+      "seam_x_vs_internal_p95": 1.4603132270079857,
+      "seam_y_vs_internal_p95": 1.588548827023332
+    },
+    {
+      "scene": "red_cottage",
+      "file": "godot\\assets\\fairytales\\red_cottage\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 3.9986979961395264,
+      "seam_y": 28.58724021911621,
+      "seam_x_vs_internal_p95": 0.3847888576807382,
+      "seam_y_vs_internal_p95": 1.723278623910932
+    },
+    {
+      "scene": "red_workshop",
+      "file": "godot\\assets\\fairytales\\red_workshop\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 14.733073234558105,
+      "seam_y": 15.234375,
+      "seam_x_vs_internal_p95": 1.2932536992776362,
+      "seam_y_vs_internal_p95": 1.3454075032341526
+    },
+    {
+      "scene": "snow_mirror",
+      "file": "godot\\assets\\fairytales\\snow_mirror\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 34.91666793823242,
+      "seam_y": 53.31901168823242,
+      "seam_x_vs_internal_p95": 3.2390388402131216,
+      "seam_y_vs_internal_p95": 4.857388405419865
+    },
+    {
+      "scene": "snow_orchard",
+      "file": "godot\\assets\\fairytales\\snow_orchard\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 4.450520992279053,
+      "seam_y": 24.63932228088379,
+      "seam_x_vs_internal_p95": 0.29839803289296585,
+      "seam_y_vs_internal_p95": 1.7511567195741948
+    },
+    {
+      "scene": "snow_house",
+      "file": "godot\\assets\\fairytales\\snow_house\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 21.14908790588379,
+      "seam_y": 16.81315040588379,
+      "seam_x_vs_internal_p95": 3.313612220682693,
+      "seam_y_vs_internal_p95": 0.8999041694311409
+    },
+    {
+      "scene": "alice_tea",
+      "file": "godot\\assets\\fairytales\\alice_tea\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 45.93424606323242,
+      "seam_y": 44.197265625,
+      "seam_x_vs_internal_p95": 2.2381007256075587,
+      "seam_y_vs_internal_p95": 1.9852323042872513
+    },
+    {
+      "scene": "alice_roses",
+      "file": "godot\\assets\\fairytales\\alice_roses\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 4.185546875,
+      "seam_y": 45.06510543823242,
+      "seam_x_vs_internal_p95": 0.23931208593473105,
+      "seam_y_vs_internal_p95": 2.5899872567477575
+    },
+    {
+      "scene": "alice_hall",
+      "file": "godot\\assets\\fairytales\\alice_hall\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 48.724609375,
+      "seam_y": 38.03971481323242,
+      "seam_x_vs_internal_p95": 3.8659538199287153,
+      "seam_y_vs_internal_p95": 2.9348772326478905
+    },
+    {
+      "scene": "piper_market",
+      "file": "godot\\assets\\fairytales\\piper_market\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 71.79036712646484,
+      "seam_y": 52.74348831176758,
+      "seam_x_vs_internal_p95": 4.468261828827241,
+      "seam_y_vs_internal_p95": 3.172105755755417
+    },
+    {
+      "scene": "piper_bridge",
+      "file": "godot\\assets\\fairytales\\piper_bridge\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 6.330729007720947,
+      "seam_y": 95.12109375,
+      "seam_x_vs_internal_p95": 0.33705955929424686,
+      "seam_y_vs_internal_p95": 4.148617299431657
+    },
+    {
+      "scene": "piper_mountain",
+      "file": "godot\\assets\\fairytales\\piper_mountain\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 49.27864456176758,
+      "seam_y": 73.90169525146484,
+      "seam_x_vs_internal_p95": 2.6770886070440576,
+      "seam_y_vs_internal_p95": 4.387314781327091
+    },
+    {
+      "scene": "puppet_workshop",
+      "file": "godot\\assets\\fairytales\\puppet_workshop\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 53.5625,
+      "seam_y": 55.61002731323242,
+      "seam_x_vs_internal_p95": 4.790358070283505,
+      "seam_y_vs_internal_p95": 2.452890524766011
+    },
+    {
+      "scene": "puppet_theatre",
+      "file": "godot\\assets\\fairytales\\puppet_theatre\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 5.239583492279053,
+      "seam_y": 41.69466018676758,
+      "seam_x_vs_internal_p95": 0.34847369880872275,
+      "seam_y_vs_internal_p95": 6.4442544972311975
+    },
+    {
+      "scene": "puppet_fair",
+      "file": "godot\\assets\\fairytales\\puppet_fair\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 51.79622268676758,
+      "seam_y": 66.1875,
+      "seam_x_vs_internal_p95": 3.830845257406355,
+      "seam_y_vs_internal_p95": 5.017223389931594
+    },
+    {
+      "scene": "cinder_kitchen",
+      "file": "godot\\assets\\fairytales\\cinder_kitchen\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 50.7421875,
+      "seam_y": 33.36458206176758,
+      "seam_x_vs_internal_p95": 2.194689389420852,
+      "seam_y_vs_internal_p95": 1.3106570319621498
+    },
+    {
+      "scene": "cinder_garden",
+      "file": "godot\\assets\\fairytales\\cinder_garden\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 9.783854484558105,
+      "seam_y": 35.50911331176758,
+      "seam_x_vs_internal_p95": 0.6200309764221041,
+      "seam_y_vs_internal_p95": 2.2384010481539924
+    },
+    {
+      "scene": "cinder_clock",
+      "file": "godot\\assets\\fairytales\\cinder_clock\\ground.png",
+      "size": [
+        512,
+        512
+      ],
+      "seam_x": 45.51692581176758,
+      "seam_y": 40.92903518676758,
+      "seam_x_vs_internal_p95": 3.4930799218418254,
+      "seam_y_vs_internal_p95": 3.433572445658096
+    }
+  ]
+}

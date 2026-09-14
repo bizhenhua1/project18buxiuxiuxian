@@ -12,6 +12,21 @@ func at(s: float, branch: int) -> RouteRegion:
 			return region
 	return null
 
+func environment_at(s: float, branch: int) -> RouteRegion:
+	var exact := at(s, branch)
+	if exact: return exact
+	# Retain the boundary biome while a successor chunk finishes uploading.
+	# Interior gaps remain errors; this does not alter geometry ownership.
+	var first: RouteRegion
+	var last: RouteRegion
+	for region in regions:
+		if region.branch != branch: continue
+		if first == null or region.start < first.start: first = region
+		if last == null or region.end > last.end: last = region
+	if first != null and s < first.start: return first
+	if last != null and s >= last.end: return last
+	return null
+
 func validate() -> PackedStringArray:
 	var errors := PackedStringArray()
 	var ids := {}

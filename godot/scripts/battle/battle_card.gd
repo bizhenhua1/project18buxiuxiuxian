@@ -29,7 +29,7 @@ func _ready() -> void:
 func _get_tooltip(_position: Vector2) -> String:
 	if arena.scene_mode and not arena.equipment_open:return ""
 	if unit.is_empty(): return "准备阶段可将卡牌拖到此处"
-	return "%s · 攻击 %.1f · 间隔 %.2fs\n%s\n%s" % [unit.name,unit.atk,unit.cd/1000.0,unit.skillText,"手持：不独立承伤，血量按比例并入道童" if unit.mode == "held" else "生命 %d / %d · 护盾 %d" % [unit.hp,unit.maxHp,unit.shield]]
+	return "%s · 攻击 %.1f · 间隔 %.2fs\n%s\n%s" % [unit.name,unit.atk,unit.cd/1000.0,unit.skillText,"手持：不独立承伤，血量按比例并入提灯调查员" if unit.mode == "held" else "生命 %d / %d · 护盾 %d" % [unit.hp,unit.maxHp,unit.shield]]
 func text_at(value: String, point: Vector2, font_size: int, color := Color("d8d6bd"), width := -1.0) -> void:
 	draw_string(get_theme_default_font(),point,value,HORIZONTAL_ALIGNMENT_CENTER,width,font_size,color)
 func _draw() -> void:
@@ -38,7 +38,7 @@ func _draw() -> void:
 	var offset := Vector2.ZERO
 	var zoom := 1.0
 	if not unit.is_empty():
-		if BattleRules.alive(unit) and unit.cardType == "fabao" and unit.mode != "held": offset.y = sin(arena.visual_time*TAU/3.4+unit.uid*1.7)*2.2
+		if BattleRules.alive(unit) and unit.cardType == "relic" and unit.mode != "held": offset.y = sin(arena.visual_time*TAU/3.4+unit.uid*1.7)*2.2
 		if motion_kind == "attack" and motion_age < .38:
 			var t := motion_age/.38
 			var envelope := minf(t/.3,1.0) if t < .52 else (1-t)/.48
@@ -99,10 +99,10 @@ func _draw() -> void:
 		for slot in range(capacity):
 			var at := Vector2(size.x-13,32+slot*14)
 			draw_circle(at,6,Color("ad873b") if slot >= used else Color("423b2b"))
-			draw_texture_rect(arena.texture_for("assets/style-e/style-e-ui-fist.png"),Rect2(at-Vector2(5,5),Vector2(10,10)),false,Color(1,1,1,1 if slot >= used else .35))
+			draw_texture_rect(arena.texture_for("assets/ui/grip.svg"),Rect2(at-Vector2(5,5),Vector2(10,10)),false,Color(1,1,1,1 if slot >= used else .35))
 	if arena.show_card_names:
 		draw_string(arena.sigil_font,Vector2(2,size.y*.055),unit.name,HORIZONTAL_ALIGNMENT_CENTER,size.x-4,int(20*size.x/130),Color("efd790"))
-	var mode: String = "手持" if unit.mode == "held" else "操控" if unit.cardType == "fabao" else "识海" if unit.cardType == "spell" else "御兽" if unit.cardType == "beast" else "角色"
+	var mode: String = "手持" if unit.mode == "held" else "操控" if unit.cardType == "relic" else "术式" if unit.cardType == "spell" else "使役" if unit.cardType == "beast" else "角色"
 	if side == "enemy": mode = "敌方"
 	elif StyleLibrary.active and unit.get("portrait_kind","") == "person": mode = "调查员"
 	if not live: mode = "重聚 %.1fs" % (unit.reviveLeft/1000.0) if unit.reviveLeft > 0 else "已倒下"
@@ -116,7 +116,7 @@ func _draw() -> void:
 	var inherited: bool = live and (unit.mode == "held" or unit.cardType == "spell")
 	var hp_ratio: float = clampf((unit.hp if displayed_hp < 0 else displayed_hp)/float(maxi(1,unit.maxHp)),0,1)
 	if inherited:
-		if unit.mode == "held": draw_texture_rect(arena.texture_for("assets/style-e/style-e-ui-fist.png"),Rect2(center-Vector2.ONE*(radius-2),Vector2.ONE*(radius-2)*2),false)
+		if unit.mode == "held": draw_texture_rect(arena.texture_for("assets/ui/grip.svg"),Rect2(center-Vector2.ONE*(radius-2),Vector2.ONE*(radius-2)*2),false)
 		else: text_at("识",center+Vector2(-20,5),14,Color("c9b9df"),40)
 	elif hp_ratio > 0: liquid(center,radius-3,hp_ratio,Color("ef3e1f"))
 	if not inherited and hp_ratio > .05:
@@ -200,7 +200,7 @@ func draw_scene_unit() -> void:
 	var offset:=Vector2.ZERO
 	if motion_kind=="attack" and motion_age<.30:offset=motion_direction*sin(motion_age/.30*PI)*16
 	if motion_kind=="damage" and motion_age<.22:offset.x=sin(motion_age*90)*(1-motion_age/.22)*5
-	var hovering:bool=unit.cardType in ["fabao","spell"]
+	var hovering:bool=unit.cardType in ["relic","spell"]
 	if hovering:offset.y+=sin(arena.visual_time*2+unit.uid)*4
 	draw_set_transform(foot,0,Vector2(1,.20))
 	if not scene_body_in_world:draw_circle(Vector2.ZERO,minf(size.x*.35,55),Color(0,0,0,.30))
@@ -209,7 +209,7 @@ func draw_scene_unit() -> void:
 	var tint:=Color.WHITE if live else Color(.4,.4,.4,.45)
 	if flash>0:tint=tint.lerp(Color(1.4,1.2,1.2),flash*.6)
 	var art_rect:=Rect2(offset,Vector2(size.x,size.y-38))
-	if side=="player" and unit.get("cardId",unit.get("id",""))=="masuo":art_rect.position.x+=art_rect.size.x;art_rect.size.x=-art_rect.size.x
+	if side=="player" and unit.get("cardId",unit.get("id",""))=="silent-medium":art_rect.position.x+=art_rect.size.x;art_rect.size.x=-art_rect.size.x
 	if not scene_body_in_world:draw_texture_rect(texture,art_rect,false,tint)
 	if unit.get("health_transformation_active",false):return
 	var center:=foot+Vector2(0,17)

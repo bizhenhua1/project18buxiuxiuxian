@@ -8,7 +8,7 @@ func run() -> void:
   if editor.ready_for_edit:break
  editor.frame_key="travel";editor.refresh();editor.set_process(false)
  var app=editor.app;var arena=app.arena;var r=arena.scenery.renderer
- var hero=arena.cards.filter(func(c):return c.side=="player" and c.unit.get("cardId","")=="daotong")[0]
+ var hero=arena.cards.filter(func(c):return c.side=="player" and c.unit.get("cardId","")=="investigator")[0]
  var before:Vector2=hero.position/arena.size
  var before_size:Vector2=hero.size/arena.size
  var camera:Vector2=r.camera_world

@@ -16,10 +16,13 @@ func setup(file:String) -> void:
  body=load("res://assets/characters3d/"+file).instantiate();add_child(body)
  scan(body)
  body.scale=Vector3.ONE*1.8/(rig.get_bone_global_rest(rig.find_bone("頭")).origin.y+.2)
+ prepare_body()
  preload("res://scripts/battle/character_ink_material.gd").apply(body)
  setup_fade(body)
  retarget.configure(rig,library.bones)
  play("idle")
+func prepare_body()->void:
+ pass
 func scan(node:Node) -> void:
  if node is Skeleton3D:rig=node
  if node is AnimationPlayer:node.active=false
@@ -35,6 +38,8 @@ func trigger(kind:String) -> void:
  if dead:return
  if kind=="death":dead=true
  play(kind);action=float(library.clips[kind].frames)/library.clips[kind].fps
+func locomotion_rate(move_speed:float)->float:
+ return clampf(move_speed/1.17,.15,2.5) if clip=="walk" else clampf(move_speed/2.7,.2,1.7) if clip=="run" else 1.0
 func advance(dt:float,velocity:Vector3) -> void:
  speed=Vector2(velocity.x,velocity.z).length()
  if speed>.05 and not dead:rotation.y=lerp_angle(rotation.y,atan2(velocity.x,velocity.z),1-exp(-dt*12))
@@ -42,7 +47,7 @@ func advance(dt:float,velocity:Vector3) -> void:
  if not dead and action<=0:
   var desired:="run" if speed>2.0 else "walk" if speed>.06 else "idle"
   if desired!=clip:play(desired)
- clock+=dt*(clampf(speed/1.17,.15,2.5) if clip=="walk" else clampf(speed/2.7,.2,1.7) if clip=="run" else 1.0)
+ clock+=dt*locomotion_rate(speed)
  var duration:float=(library.clips[clip].frames-1)/library.clips[clip].fps
  retarget.apply(fmod(clock,duration) if clip in ["walk","run","idle"] else minf(clock,duration))
 

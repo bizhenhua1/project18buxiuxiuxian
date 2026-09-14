@@ -18,7 +18,7 @@ func run() -> void:
   editor.unit_inputs.height.value=38+i
   editor.unit_inputs.depth.value=32+i
   assert(editor.data.battle_slots[i].prop==prop,"Mode switching overwrote prop values")
-  assert(editor.app.model.player[i].cardId=="daotong")
+  assert(editor.app.model.player[i].cardId=="investigator")
   assert(editor.app.arena.world_slots[editor.app.model.player[i].uid].height==38+i)
  assert(editor.data.frames==cameras,"Slot editing changed camera")
  editor.name_field.text="__slots_test__";editor.save_template()

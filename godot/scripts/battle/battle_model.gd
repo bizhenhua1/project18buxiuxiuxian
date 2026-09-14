@@ -26,7 +26,7 @@ func cap() -> int: return mini(10,8+stage)
 func can_edit() -> bool: return phase == "prepare"
 func default_lineup() -> void:
 	player.clear()
-	for id in ["daotong","taomu-jian","waci-yin","masuo","tongjing","xiaohulu","juhun-fan","qingfeng-jian"]:
+	for id in ["investigator","sealed-book","watchful-clock","silent-medium","faceless-mask","soul-lantern","containment-record","night-warden"]:
 		player.append(rules.create_unit(id,"player",player.size(),stage))
 	restat()
 func fill_enemies(randomize := false) -> void:
@@ -70,8 +70,8 @@ func add_card(id: String, at := -1) -> String:
 	var type: String = "beast" if card.pool == "enemy" else card.cardType
 	var count := player.filter(func(u):return u.cardType == type).size()
 	if type == "char" and player.any(func(u):return (u.cardType=="char" or u.get("portrait_kind","")=="person") and preload("res://scripts/equipment/loadouts.gd").model_for_unit(u)==preload("res://scripts/equipment/loadouts.gd").model_for_unit(card)): return "该角色已上阵"
-	if type == "spell" and count >= 1+mods.get("mindSlots",0): return "识海法术位已满"
-	if type == "beast" and count >= 1+mods.get("beastSlots",0): return "御兽位已满"
+	if type == "spell" and count >= 1+mods.get("mindSlots",0): return "契约术式位已满"
+	if type == "beast" and count >= 1+mods.get("beastSlots",0): return "使役位已满"
 	var unit := rules.create_unit(id,"player",0,stage)
 	var target_index := player.size() if at < 0 else clampi(at,0,player.size())
 	player.insert(target_index,unit)
@@ -94,8 +94,8 @@ func move(from: int, to: int) -> void:
 func toggle_mode(index: int) -> String:
 	if not can_edit() or index < 0 or index >= player.size(): return ""
 	var unit: Dictionary = player[index]
-	if unit.cardType != "fabao": return "仅法宝有手持与操控两种模式"
-	if unit.mode == "station" and player.filter(func(u):return u.cardType == "fabao" and u.mode == "held").size() >= 2+mods.get("handSlots",0): return "手持位置已满"
+	if unit.cardType != "relic": return "仅封印物有手持与操控两种模式"
+	if unit.mode == "station" and player.filter(func(u):return u.cardType == "relic" and u.mode == "held").size() >= 2+mods.get("handSlots",0): return "手持位置已满"
 	unit.mode = "held" if unit.mode == "station" else "station"
 	restat()
 	return ""
@@ -106,7 +106,7 @@ func emit_events(events: Array) -> void:
 		emitted.emit(event)
 		if event.type != "death": continue
 		var unit: Dictionary = event.unit
-		if unit.side == "player" and unit.cardType == "fabao" and unit.mode == "station" and unit.reviveMs > 0: unit.reviveLeft = unit.reviveMs
+		if unit.side == "player" and unit.cardType == "relic" and unit.mode == "station" and unit.reviveMs > 0: unit.reviveLeft = unit.reviveMs
 		for ally in player+enemy:
 			if BattleRules.alive(ally) and "fan" in ally.tags:
 				ally.soulStacks += 1
@@ -138,7 +138,7 @@ func act(unit: Dictionary) -> void:
 	var allies := player if unit.side == "player" else enemy
 	unit.cdLeft = unit.cd
 	unit.actingUntil = elapsed+0.18
-	var sealed: bool = unit.cardType == "fabao" and unit.mode == "held" and unit.skill in BattleRules.ACTIVE
+	var sealed: bool = unit.cardType == "relic" and unit.mode == "held" and unit.skill in BattleRules.ACTIVE
 	var wounded := BattleRules.living(allies).filter(func(u):return u.uid != unit.uid and u.hp < u.maxHp)
 	if unit.cardType == "spell" and unit.spellKind == "mend" and not wounded.is_empty():
 		for target in wounded: heal_from(unit,target,power(unit)*0.8*(1+unit.healBoost))
@@ -206,7 +206,7 @@ func advance(dt: float) -> void:
 	var has_hero := player.any(func(u):return u.cardType == "char" and BattleRules.alive(u))
 	if not has_hero:
 		for unit in BattleRules.living(player):
-			if unit.cardType == "spell" or unit.cardType == "fabao" and unit.mode == "held":
+			if unit.cardType == "spell" or unit.cardType == "relic" and unit.mode == "held":
 				BattleRules.corpse(unit)
 				emit_events([{"type":"death","unit":unit}])
 	for unit in player+enemy:

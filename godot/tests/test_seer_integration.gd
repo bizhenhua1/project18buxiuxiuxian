@@ -20,7 +20,7 @@ func run() -> void:
  app.arena.seer.texture().get_image().save_png("res://../art/3d/seer/live-texture.png")
  await RenderingServer.frame_post_draw
  root.get_texture().get_image().save_png("res://../art/3d/seer/in-game-battle.png")
- var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="daotong")[0]
+ var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="investigator")[0]
  app.arena.on_event({"type":"shot","from":hero,"to":hero})
  assert(app.arena.seer.clip=="EM_RangeAttack")
  app.model.paused=true;app.arena._process(.05);assert(not app.arena.seer.player.active)

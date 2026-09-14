@@ -3,8 +3,8 @@ extends RefCounted
 ## Analytic ribbons, sigils and trails. Time comes from battle simulation, never flipbooks.
 static func color_for(unit: Dictionary) -> Color:
 	var id: String = unit.get("cardId","")
-	if id in ["masuo","lihuo-shu","taomu-jian"]: return Color("dc725a")
-	if id in ["waci-yin","tongjing"]: return Color("e6c884")
+	if id in ["silent-medium","scarlet-edict","sealed-book"]: return Color("dc725a")
+	if id in ["watchful-clock","faceless-mask"]: return Color("e6c884")
 	return Color("91d3d5") if unit.get("side","") == "player" else Color("b19bbd")
 static func glow(canvas:CanvasItem,at:Vector2,radius:float,color:Color,energy:float) -> void:
 	for i in range(8,0,-1):
@@ -28,7 +28,7 @@ static func shot(canvas: CanvasItem, shot: Dictionary, start: Vector2, finish: V
 	glow(canvas,start.lerp(finish,t),30,color,envelope)
 	glow(canvas,start,22,color,envelope*.8)
 	var id: String = shot.from.cardId
-	if id == "qingfeng-jian" or shot.style == "melee":
+	if id == "night-warden" or shot.style == "melee":
 		var points := PackedVector2Array()
 		var back := PackedVector2Array()
 		for i in range(20):
@@ -41,7 +41,7 @@ static func shot(canvas: CanvasItem, shot: Dictionary, start: Vector2, finish: V
 		points.append_array(back)
 		if envelope > .01: canvas.draw_colored_polygon(points,Color(color,envelope*.8))
 		canvas.draw_line(finish-normal*25,finish+normal*25,Color(color,envelope*.55),2,true)
-	elif shot.style == "beam" or id == "masuo":
+	elif shot.style == "beam" or id == "silent-medium":
 		var line := PackedVector2Array()
 		for i in range(17):
 			var u := i/16.0

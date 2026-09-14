@@ -65,7 +65,7 @@ func prepare_skeleton():
 func _process(dt:float):
  if not is_instance_valid(body) or not ink:return
  var data:=settings()
- var enabled:bool=data.display=="transform" and not unit.is_empty()
+ var enabled:bool=data.display=="transform" and unit.has("hp") and unit.has("maxHp")
  if enabled and not ready_effect:prepare_effect()
  if enabled and int(data.mode)==1 and (skeletons.is_empty() or not is_equal_approx(skull_scale,float(data.get("head_scales",{}).get(body.scene_file_path.get_file(),1.0)))):prepare_skeleton()
  if enabled!=active:

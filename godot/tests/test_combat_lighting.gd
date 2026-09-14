@@ -12,7 +12,7 @@ func run() -> void:
  app.model.paused=true;app.paused=true
  await RenderingServer.frame_post_draw
  root.get_texture().get_image().save_png("res://../art/3d/seer/lighting-rest.png")
- var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="daotong")[0]
+ var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="investigator")[0]
  var enemy:Dictionary=app.model.enemy[0]
  app.arena.on_event({"type":"cast","from":hero,"to":enemy})
  app.arena.on_event({"type":"damage","unit":enemy,"source":hero,"amount":12,"crit":true})

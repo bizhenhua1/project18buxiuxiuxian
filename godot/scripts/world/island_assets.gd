@@ -1,7 +1,7 @@
 class_name IslandAssets
 extends RefCounted
 const SHROUD := "assets/world/sky/shroud_base.png"
-const HERO := "assets/style-e/style-e-char-daotong.png"
+const HERO := "assets/style2/agent.png"
 var textures := {}
 var diamonds := {}
 func texture(path: String) -> Texture2D:

@@ -116,6 +116,12 @@ func sync(renderer:SegmentRenderer) -> void:
 			actor.live_texture_slot=companion_slot
 			material.set_shader_parameter("live_ally_%d"%companion_slot,actor.texture)
 			companion_slot+=1
+		if actor.has("near_slot"):
+			for pass_material in [material,edge_pass.material,white_edge_pass.material]:pass_material.set_shader_parameter("near_atlas",actor.near_atlas)
+			continue
+		if actor.has("crowd_slot"):
+			for pass_material in [material,edge_pass.material,white_edge_pass.material]:pass_material.set_shader_parameter("crowd_atlas",actor.crowd_atlas)
+			continue
 		for field in ["live_character","live_enemy","live_companion","live_discovery"]:
 			if actor.get(field,false):
 				material.set_shader_parameter(field,actor.texture)
@@ -246,6 +252,11 @@ func write_instance(i:int,renderer:SegmentRenderer,entry:Dictionary,target:Multi
 			dynamic_indices[sprite.id]=index
 			dynamic_positions[index]=sprite.position-renderer.camera_world
 		packed_position=Vector2(dynamic_indices[sprite.id],0)
+	if sprite.has("near_slot"):
+		target.set_instance_custom_data(i,Color(packed_position.x,packed_position.y,sprite.altitude,64*(105+int(sprite.near_slot))))
+		return
+	if sprite.has("crowd_slot"):
+		target.set_instance_custom_data(i,Color(packed_position.x,packed_position.y,sprite.altitude,64*(25+int(sprite.crowd_slot))));return
 	if sprite.has("live_texture_slot"):
 		target.set_instance_custom_data(i,Color(packed_position.x,packed_position.y,sprite.altitude,64*(16+int(sprite.live_texture_slot))));return
 	if sprite.get("live_discovery",false):

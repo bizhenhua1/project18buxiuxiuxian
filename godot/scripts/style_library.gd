@@ -1,33 +1,28 @@
 class_name StyleLibrary
 extends RefCounted
-## Opt-in presentation family. Original rules/IDs and Style 1 files remain intact.
-static var active := "--style2" in OS.get_cmdline_user_args()
+## Native dark-fairytale presentation; no alternate cultivation content.
+static var active := true
 static var cache := {}
 const ROOT := "res://assets/style2/"
 const CARDS := {
-	"daotong":["agent","提灯调查员"], "masuo":["medium","缄默灵媒"],
-	"qingfeng-jian":["warden","巡夜守卫"], "taomu-jian":["book","封缄之书"],
-	"waci-yin":["watch","窥时怀表"], "tongjing":["mask","无面假面"],
-	"xiaohulu":["lantern","引魂提灯"], "lihuo-shu":["book","赤印敕令"],
-	"bingfu-jue":["mask","静默契约"], "tianlei-yin":["watch","断刻裁决"],
-	"huichun-shu":["lantern","余烬复苏"], "juhun-fan":["book","收容记录"],
-	"xuantie-jian":["watch","停摆之钟"], "kaishan-fu":["mask","破誓假面"],
-	"huoli":["hound","面骸猎犬"], "caoshe":["bell","丧钟行者"],
-	"yewu":["moth","窥梦蛾"], "jinchan":["moth","灰翼眷属"],
-	"shujing":["bell","林中送葬者"], "yezhu":["hound","失控猎犬"],
-	"xiaoqiao":["moth","夜翼"], "shanyang":["hound","骨面徘徊者"],
-	"huangfeng":["moth","裂梦飞蛾"], "shitoujing":["bell","钟骸守门人"]}
+	"investigator":["agent","提灯调查员"], "silent-medium":["medium","缄默灵媒"],
+	"night-warden":["warden","巡夜守卫"], "sealed-book":["book","封缄之书"],
+	"watchful-clock":["watch","窥时怀表"], "faceless-mask":["mask","无面假面"],
+	"soul-lantern":["lantern","引魂提灯"], "scarlet-edict":["book","赤印敕令"],
+	"silence-contract":["mask","静默契约"], "severed-moment":["watch","断刻裁决"],
+	"ember-renewal":["lantern","余烬复苏"], "containment-record":["book","收容记录"],
+	"stopped-clock":["watch","停摆之钟"], "oathbreaker-mask":["mask","破誓假面"],
+	"bone-hound":["hound","面骸猎犬"], "bell-walker":["bell","丧钟行者"],
+	"dream-moth":["moth","窥梦蛾"], "ashwing":["moth","灰翼眷属"],
+	"forest-mourner":["bell","林中送葬者"], "rabid-hound":["hound","失控猎犬"],
+	"nightwing":["moth","夜翼"], "bone-wanderer":["hound","骨面徘徊者"],
+	"rift-moth":["moth","裂梦飞蛾"], "bell-guardian":["bell","钟骸守门人"]}
 static func texture(id: String) -> Texture2D:
 	if not cache.has(id): cache[id] = load(ROOT+id+".png")
 	return cache[id]
 static func path(source: String) -> String:
 	if not active or "style2/" in source: return source
 	var file := source.get_file().get_basename()
-	if file == "style-e-char-daotong": return ROOT+"agent.png"
-	for prefix in ["style-e-monster-","style-e-artifact-"]:
-		if file.begins_with(prefix):
-			var id := file.trim_prefix(prefix)
-			if CARDS.has(id): return ROOT+CARDS[id][0]+".png"
 	if "ground-tile" in file: return ROOT+("cliff.png" if "cave/" in source else "ground.png")
 	if "/base/" in source: return ROOT+("cliff.png" if "rock" in file else "ground.png")
 	if "/link/" in source: return ROOT+"tower.png"
@@ -46,9 +41,11 @@ static func apply_cards(cards: Array) -> void:
 		if spec[0] in ["medium","warden"]: card.cardType = "beast"
 		card.skillText = words(card.skillText)
 static func words(value: String) -> String:
-	if not active: return value
-	for pair in [["灵石","秘银"],["道童","调查员"],["法宝","封印物"],["妖物","异变体"],["妖息","异常气息"],["妖势","敌势"],["机缘","线索"],["识海","术式"],["御兽","使役"],["采药人","档案员"],["有缘人","同行者"],["寻宝符","勘探许可"]]: value = value.replace(pair[0],pair[1])
 	return value
+static func card_path(id:String)->String:
+	return ROOT+str(CARDS.get(id,["book"])[0])+".png"
+static func projectile_path(kind:String)->String:
+	return ROOT+str({"sword":"book","seal":"watch","rope":"medium","mirror":"mask","gourd":"lantern"}.get(kind,"book"))+".png"
 static func space(original: SpaceType) -> SpaceType:
 	if not active: return original
 	var copy := original.duplicate(true) as SpaceType

@@ -46,7 +46,7 @@ func _ready():
  var style_row:=HBoxContainer.new();panel.add_child(style_row)
  label(style_row,"转化材质",14)
  material_control=OptionButton.new();style_row.add_child(material_control)
- for title in ["原始 · 全息扫描","符纹 · 灵篆流转","魂火 · 游丝焰光","墨灵 · 脉络浮影"]:material_control.add_item(title)
+ for title in ["原始 · 全息扫描","符纹 · 秘文流转","魂火 · 游丝焰光","墨影 · 脉络浮影"]:material_control.add_item(title)
  material_control.item_selected.connect(func(i):
   material_style=i
   glow=[Color("70ecdfff"),Color("d8b870"),Color("bba878"),Color("7eaa99")][i]

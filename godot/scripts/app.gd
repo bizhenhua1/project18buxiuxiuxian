@@ -104,7 +104,7 @@ func _build_ui() -> void:
 	var titles := VBoxContainer.new()
 	titles.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(titles)
-	titles.add_child(_label("仙途   /   林间歧路", 14, Color("b4aa81")))
+	titles.add_child(_label("雾林调查局   /   林间歧路", 14, Color("b4aa81")))
 	titles.add_child(_label("岔路之后", 32))
 	var modes := HBoxContainer.new()
 	modes.alignment = BoxContainer.ALIGNMENT_END

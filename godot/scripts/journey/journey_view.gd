@@ -58,7 +58,7 @@ func _ready() -> void:
 	side.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	side.add_theme_constant_override("separation",14)
 	side_scroll.add_child(side)
-	side.add_child(StudyUI.label("岛上机缘 · 进入局内探访",21))
+	side.add_child(StudyUI.label("岛上线索 · 进入局内探访",21))
 	for zone in state.zones:
 		var label_value := StudyUI.label("",16)
 		labels.append(label_value)
@@ -150,7 +150,7 @@ func _process(dt: float) -> void:
 		Journey.save()
 	refresh()
 func refresh() -> void:
-	status.text = "冒险岛 %d · 已探 %d / %d · 行囊灵石 %d · 完成探访 %d / 3 · 本次机缘 +%d" % [state.world.map_index+1,state.world.explored.size(),state.world.cells.size(),state.stones,state.cleared.size(),state.reward_bonus]
+	status.text = "冒险岛 %d · 已探 %d / %d · 行囊秘银 %d · 完成探访 %d / 3 · 本次线索 +%d" % [state.world.map_index+1,state.world.explored.size(),state.world.cells.size(),state.stones,state.cleared.size(),state.reward_bonus]
 	if Time.get_ticks_msec() < save_message_until: status.text += " · "+save_message
 	for i in range(labels.size()):
 		var zone := state.zones[i]
@@ -163,9 +163,9 @@ func refresh() -> void:
 	cancel_encounter.disabled=state.world.walking
 	if not zone.is_empty():
 		heading.text = zone.title
-		description.text = ("深林有岔道，可选择探索方向。" if zone.route_kind == "fork" else "一段短途探索，沿途遇见妖物或旅人。")+"\n地块探索奖励 %d 灵石，战斗所得另计。" % zone.reward
-		var path: String = ["huoli","shujing","shitoujing"][int(zone.tier)]
-		portrait.texture = load(StyleLibrary.path("res://assets/style-e/style-e-monster-%s.png" % path))
+		description.text = ("深林有岔道，可选择探索方向。" if zone.route_kind == "fork" else "一段短途探索，沿途遇见异变体或旅人。")+"\n地块探索奖励 %d 秘银，战斗所得另计。" % zone.reward
+		var path: String = ["bone-hound","forest-mourner","bell-guardian"][int(zone.tier)]
+		portrait.texture = load(StyleLibrary.card_path(path))
 	forward.disabled = state.world.walking or not zone.is_empty() or state.cleared.size() == 3
 	next_button.visible = state.cleared.size() == 3
 	log_label.text = "\n".join(state.journal.slice(maxi(0,state.journal.size()-5))) if not state.journal.is_empty() else "云下无声，林间有息。\n循着闪雾，一步一步揭开此岛。"

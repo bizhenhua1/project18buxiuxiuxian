@@ -11,9 +11,9 @@ func snapshot(app: Control, name_value: String) -> void:
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute("res://captures/tile-routes")
 	var session = root.get_node("Journey")
-	for id in ["rat","yezhu","caoshe","yewu","huoli"]:
+	for id in ["rat","rabid-hound","bell-walker","dream-moth","bone-hound"]:
 		check(CreatureMotion.sample(id,0).squash.is_equal_approx(Vector2.ONE) and CreatureMotion.sample(id,1).squash.is_equal_approx(Vector2.ONE),"Creature pose returns to neutral at fixed endpoints")
-	check(CreatureMotion.sample("rat",.5).squash != CreatureMotion.sample("yezhu",.5).squash,"Scurry and charge have distinct silhouettes")
+	check(CreatureMotion.sample("rat",.5).squash != CreatureMotion.sample("rabid-hound",.5).squash,"Scurry and charge have distinct silhouettes")
 	session.SAVE = "user://tile-routes-isolated.json"
 	for theme_name in ["forest","cave","cloudsea"]:
 		var plan := LocalRouteSpec.plan({"theme":theme_name,"route_kind":"short"})
@@ -93,7 +93,7 @@ func run() -> void:
 				if last_phase != "battle": await snapshot(app,"%d-battle" % index)
 			if app.phase == "clearing" and last_phase != "clearing":
 				wins += 1
-				check(app.reward_notice.visible and "灵石" in app.reward_notice.text,"Battle settlement is visible")
+				check(app.reward_notice.visible and "秘银" in app.reward_notice.text,"Battle settlement is visible")
 				await snapshot(app,"%d-loot-%d" % [index,wins])
 			last_phase = app.phase
 			if app.route_complete: break

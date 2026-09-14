@@ -39,7 +39,7 @@ static func profile(data:Dictionary) -> String:
 
 static func model_for_unit(unit:Dictionary) -> String:
  if unit.has("model_file"):return unit.model_file
- if unit.get("cardId",unit.get("id",""))=="daotong":
+ if unit.get("cardId",unit.get("id",""))=="investigator":
   var config=ConfigFile.new();config.load("user://world-hero.cfg")
   var roster:Array=JSON.parse_string(FileAccess.get_file_as_string("res://data/character_roster.json"))
   return roster[clampi(int(config.get_value("hero","index",0)),0,roster.size()-1)].file

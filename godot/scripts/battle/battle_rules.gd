@@ -14,7 +14,7 @@ func _init() -> void:
 	balance = data.balance
 	var roster:Array=JSON.parse_string(FileAccess.get_file_as_string("res://data/character_roster.json"))
 	for i in range(roster.size()):
-		var entry:Dictionary=card("daotong").duplicate(true)
+		var entry:Dictionary=card("investigator").duplicate(true)
 		entry.id="character_"+str(i);entry.name=roster[i].name;entry.model_file=roster[i].file
 		entry.portrait_kind="person";entry.skillText="角色 · 装备决定动作；长按打开装配"
 		cards.append(entry)
@@ -26,7 +26,7 @@ func card(id: String) -> Dictionary:
 
 static func js_round(value: float) -> int: return int(floor(value + 0.5))
 static func alive(unit: Dictionary) -> bool: return unit.status == "alive" and unit.hp > 0
-static func targetable(unit: Dictionary) -> bool: return unit.cardType != "spell" and not (unit.cardType == "fabao" and unit.mode == "held")
+static func targetable(unit: Dictionary) -> bool: return unit.cardType != "spell" and not (unit.cardType == "relic" and unit.mode == "held")
 static func living(queue: Array) -> Array:
 	return queue.filter(func(u): return alive(u))
 static func target(queue: Array) -> Dictionary:
@@ -48,7 +48,7 @@ func create_unit(id: String, side: String, index := 0, stage := 0, mode := "stat
 	next_uid += 1
 	unit.cardId = id
 	unit.cardType = "beast" if side == "player" and spec.pool == "enemy" else spec.cardType
-	unit.mode = ("held" if mode == "held" else "station") if unit.cardType == "fabao" else ""
+	unit.mode = ("held" if mode == "held" else "station") if unit.cardType == "relic" else ""
 	unit.side = side
 	unit.index = index
 	unit.baseAtk = spec.atk
@@ -102,18 +102,14 @@ static func reset(unit: Dictionary) -> void:
 func player_mods(unit: Dictionary, mods: Dictionary) -> void:
 	var atk_pct: float = mods.get("atkPct",0)
 	var hp_pct: float = mods.get("hpPct",0)
-	if unit.cardType in ["fabao","beast"]:
+	if unit.cardType in ["relic","beast"]:
 		atk_pct += mods.get(unit.cardType+"AtkPct",0)
 		hp_pct += mods.get(unit.cardType+"HpPct",0)
 	atk_pct += mods.get("spellPct" if unit.dmgType == "spell" else "physPct",0)
 	unit.atk = maxi(1,js_round(unit.atk*(1+atk_pct/100)))
-	var held: bool = unit.cardType == "fabao" and unit.mode == "held"
+	var held: bool = unit.cardType == "relic" and unit.mode == "held"
 	if held: unit.atk = maxi(1,js_round(unit.atk*(1+unit.weight*0.06)))
 	unit.maxHp = maxi(1,js_round(unit.maxHp*(1+hp_pct/100)))
-	if unit.cardType == "char":
-		var gain := pow(1.02,mods.get("realmLayers",0))*pow(1.1,mods.get("realmBreaks",0))
-		unit.atk = maxi(1,js_round(unit.atk*gain))
-		unit.maxHp = maxi(1,js_round(unit.maxHp*gain))
 	unit.hp = unit.maxHp
 	unit.cd = maxi(400,js_round(unit.cd*maxf(0.5,1-mods.get("cdPct",0)/100.0)))
 	if unit.cardType == "char" or held: unit.cd = maxi(400,js_round(unit.cd/(1+mods.get("atkSpeedPct",0)/100.0)))
@@ -123,7 +119,7 @@ func player_mods(unit: Dictionary, mods: Dictionary) -> void:
 	unit.critDmg = 1.5+maxf(0,mods.get("critDmgPct",0))/100.0
 	unit.physDef = unit.basePhysDef + maxf(0,mods.get("physDef",0))
 	unit.spellDef = unit.baseSpellDef + maxf(0,mods.get("spellDef",0))
-	if unit.cardType == "fabao": unit.reviveMs = maxi(1000,js_round(unit.baseReviveMs*(1-clampf(mods.get("reviveCdrPct",0),0,80)/100)))
+	if unit.cardType == "relic": unit.reviveMs = maxi(1000,js_round(unit.baseReviveMs*(1-clampf(mods.get("reviveCdrPct",0),0,80)/100)))
 	unit.dmgReduce = minf(0.6,mods.get("dmgReducePct",0)/100.0)
 	unit.thorns = maxf(0,mods.get("thornsPct",0)/100.0)
 	unit.splashMult = 0.5*(1+mods.get("splashDmgPct",0)/100.0)
@@ -140,7 +136,7 @@ func queue_effects(queue: Array, mods: Dictionary) -> void:
 	for unit in queue:
 		if unit.cardType == "beast": beasts[unit.cardId] = true
 		if unit.cardType == "char": hero = unit
-		if unit.cardType == "fabao" and unit.mode == "held": pool += unit.maxHp
+		if unit.cardType == "relic" and unit.mode == "held": pool += unit.maxHp
 	if mods.get("beastResonance",false):
 		for unit in queue: unit.atk = maxi(1,js_round(unit.atk*(1+beasts.size()*0.02)))
 	if not hero.is_empty():

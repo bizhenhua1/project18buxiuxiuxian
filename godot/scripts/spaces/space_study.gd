@@ -45,7 +45,7 @@ func _build_ui() -> void:
 	margin.add_child(column)
 	var top := HBoxContainer.new()
 	column.add_child(top)
-	var title := _label("仙途 · 山林之间",30)
+	var title := _label("雾林调查局 · 山林之间",30)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(title)
 	for item in [["connected","连续路线"],["cave","洞穴"],["cloudsea","云海"]]:

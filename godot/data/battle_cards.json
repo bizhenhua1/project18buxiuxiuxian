@@ -36,15 +36,16 @@
       "physDef": 2,
       "spellDef": 2,
       "tags": [],
-      "id": "daotong",
-      "name": "道童",
+      "id": "investigator",
+      "name": "提灯调查员",
       "pool": "player",
       "theme": "gold",
-      "art": "assets/style-e/style-e-char-daotong.png",
+      "art": "assets/style2/agent.png",
       "hp": 48,
       "atk": 10,
       "cd": 1400,
-      "skillText": "主角，攻守均衡，单体攻击最左存活（外伤）。手持法宝与识海法术都系于他一身"
+      "skillText": "调查队领队：攻击最左存活敌人。手持封印物共享防护，契约术式随领队施放。",
+      "portrait_kind": "person"
     },
     {
       "face": 1,
@@ -54,7 +55,7 @@
       "atkType": "melee",
       "skill": "none",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 1,
       "reviveMs": 4500,
       "dmgType": "phys",
@@ -63,20 +64,21 @@
       "tags": [
         "sword"
       ],
-      "id": "taomu-jian",
-      "name": "桃木剑",
+      "id": "sealed-book",
+      "name": "封缄之书",
       "pool": "player",
       "theme": "crimson",
-      "art": "assets/style-e/style-e-artifact-taomu-jian.png",
+      "art": "assets/style2/book.png",
       "base": {
         "hp": 17.6,
         "atk": 11.86,
         "cd": 803.6
       },
-      "skillText": "攻高血薄，冷却短。属剑类：修出剑心后参与剑阵连携（被动，手持照常生效）",
+      "skillText": "连锁攻击：共鸣效果可强化后续攻击。手持模式保留被动能力。",
       "hp": 22,
       "atk": 14,
-      "cd": 900
+      "cd": 900,
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -86,18 +88,18 @@
       "atkType": "melee",
       "skill": "shield",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 3,
       "reviveMs": 7000,
       "dmgType": "spell",
       "physDef": 6,
       "spellDef": 6,
       "tags": [],
-      "id": "waci-yin",
-      "name": "瓦瓷印",
+      "id": "watchful-clock",
+      "name": "窥时怀表",
       "pool": "player",
       "theme": "steel",
-      "art": "assets/style-e/style-e-artifact-waci-yin.png",
+      "art": "assets/style2/watch.png",
       "base": {
         "hp": 24,
         "atk": 3.9,
@@ -106,7 +108,8 @@
       "skillText": "主动技：行动时获得护盾再攻击最左（法伤；手持时封印，退化为普攻）。印身厚重，自带双防",
       "hp": 42,
       "atk": 6,
-      "cd": 1700
+      "cd": 1700,
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -116,18 +119,18 @@
       "atkType": "melee",
       "skill": "haste",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 1,
       "reviveMs": 4000,
       "dmgType": "phys",
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "masuo",
-      "name": "麻索",
+      "id": "silent-medium",
+      "name": "缄默灵媒",
       "pool": "player",
       "theme": "amber",
-      "art": "assets/style-e/style-e-artifact-masuo.png",
+      "art": "assets/style2/medium.png",
       "base": {
         "hp": 22.4,
         "atk": 4.24,
@@ -136,7 +139,8 @@
       "skillText": "主动技：加速队列左右相邻友军冷却（手持时封印，退化为普攻）",
       "hp": 28,
       "atk": 5,
-      "cd": 1600
+      "cd": 1600,
+      "portrait_kind": "person"
     },
     {
       "face": 1,
@@ -146,18 +150,18 @@
       "atkType": "beam",
       "skill": "splash",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 2,
       "reviveMs": 5500,
       "dmgType": "spell",
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "tongjing",
-      "name": "铜镜",
+      "id": "faceless-mask",
+      "name": "无面假面",
       "pool": "player",
       "theme": "violet",
-      "art": "assets/style-e/style-e-artifact-tongjing.png",
+      "art": "assets/style2/mask.png",
       "base": {
         "hp": 17.33,
         "atk": 5.88,
@@ -166,7 +170,8 @@
       "skillText": "镜光法伤，打最左并溅射其身后 2 张（攻击形态，两种模式都生效）",
       "hp": 26,
       "atk": 8,
-      "cd": 1500
+      "cd": 1500,
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -176,27 +181,28 @@
       "atkType": "melee",
       "skill": "heal",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 2,
       "reviveMs": 5500,
       "dmgType": "spell",
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "xiaohulu",
-      "name": "小葫芦",
+      "id": "soul-lantern",
+      "name": "引魂提灯",
       "pool": "player",
       "theme": "mint",
-      "art": "assets/style-e/style-e-artifact-xiaohulu.png",
+      "art": "assets/style2/lantern.png",
       "base": {
         "hp": 21.33,
         "atk": 3.68,
         "cd": 1209.7
       },
-      "skillText": "主动技：优先治疗伤员，全满则以灵气打对方最左（法伤；手持时封印，退化为普攻）",
+      "skillText": "主动技：优先治疗伤员，全满则以幽光打对方最左（法伤；手持时封印，退化为普攻）",
       "hp": 32,
       "atk": 5,
-      "cd": 1500
+      "cd": 1500,
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -206,7 +212,7 @@
       "atkType": "melee",
       "skill": "none",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 2,
       "reviveMs": 6000,
       "dmgType": "spell",
@@ -215,20 +221,21 @@
       "tags": [
         "fan"
       ],
-      "id": "juhun-fan",
-      "name": "聚魂幡",
+      "id": "containment-record",
+      "name": "收容记录",
       "pool": "player",
       "theme": "violet",
-      "art": "",
+      "art": "assets/style2/book.png",
       "base": {
         "hp": 20,
         "atk": 4.41,
         "cd": 1209.7
       },
-      "skillText": "被动：敌我任意单位死亡时幡叠 1 层魂力，每层攻击+8%（手持照常叠层）。魂噬为法伤，克送死复活流",
+      "skillText": "被动：敌我任意单位死亡时记录叠 1 层回响，每层攻击+8%（手持照常叠层）。回响冲击为法伤，克送死复活流",
       "hp": 30,
       "atk": 6,
-      "cd": 1500
+      "cd": 1500,
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -238,7 +245,7 @@
       "atkType": "melee",
       "skill": "none",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 2,
       "reviveMs": 5000,
       "dmgType": "phys",
@@ -247,8 +254,8 @@
       "tags": [
         "sword"
       ],
-      "id": "qingfeng-jian",
-      "name": "青锋剑",
+      "id": "night-warden",
+      "name": "巡夜守卫",
       "pool": "player",
       "theme": "steel",
       "base": {
@@ -256,10 +263,12 @@
         "atk": 8.82,
         "cd": 806.5
       },
-      "skillText": "轻剑：锋利趁手。属剑类可入剑阵（被动，手持照常生效）",
+      "skillText": "连锁攻击：共鸣效果可强化后续攻击。手持模式保留被动能力。",
       "hp": 20,
       "atk": 12,
-      "cd": 1000
+      "cd": 1000,
+      "art": "assets/style2/warden.png",
+      "portrait_kind": "person"
     },
     {
       "face": 1,
@@ -269,7 +278,7 @@
       "atkType": "melee",
       "skill": "none",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 3,
       "reviveMs": 7500,
       "dmgType": "phys",
@@ -278,8 +287,8 @@
       "tags": [
         "sword"
       ],
-      "id": "xuantie-jian",
-      "name": "玄铁重剑",
+      "id": "stopped-clock",
+      "name": "停摆之钟",
       "pool": "player",
       "theme": "steel",
       "base": {
@@ -287,10 +296,12 @@
         "atk": 14.29,
         "cd": 1323.5
       },
-      "skillText": "重剑：高锋利高重量。属剑类可入剑阵（被动，手持照常生效）",
+      "skillText": "连锁攻击：共鸣效果可强化后续攻击。手持模式保留被动能力。",
       "hp": 34,
       "atk": 22,
-      "cd": 1800
+      "cd": 1800,
+      "art": "assets/style2/watch.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -300,15 +311,15 @@
       "atkType": "melee",
       "skill": "none",
       "kind": "artifact",
-      "cardType": "fabao",
+      "cardType": "relic",
       "weight": 4,
       "reviveMs": 9000,
       "dmgType": "phys",
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "kaishan-fu",
-      "name": "开山斧",
+      "id": "oathbreaker-mask",
+      "name": "破誓假面",
       "pool": "player",
       "theme": "crimson",
       "base": {
@@ -319,7 +330,9 @@
       "skillText": "巨斧：极重极狠，冷却极长。手持时重量加成最高",
       "hp": 40,
       "atk": 30,
-      "cd": 2400
+      "cd": 2400,
+      "art": "assets/style2/mask.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -336,15 +349,17 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "lihuo-shu",
-      "name": "离火术",
+      "id": "scarlet-edict",
+      "name": "赤印敕令",
       "pool": "player",
       "spellKind": "fireball",
       "theme": "crimson",
       "hp": 10,
       "atk": 9,
       "cd": 2600,
-      "skillText": "识海法术：烈焰席卷敌方全体可承伤单位"
+      "skillText": "契约术式：烈焰席卷敌方全体可承伤单位",
+      "art": "assets/style2/book.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -361,15 +376,17 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "bingfu-jue",
-      "name": "冰缚诀",
+      "id": "silence-contract",
+      "name": "静默契约",
       "pool": "player",
       "spellKind": "bind",
       "theme": "steel",
       "hp": 10,
       "atk": 8,
       "cd": 2200,
-      "skillText": "识海法术：冰缚敌方最左，延迟其行动 1.4 秒并造成 40% 伤害"
+      "skillText": "契约术式：冰缚敌方最左，延迟其行动 1.4 秒并造成 40% 伤害",
+      "art": "assets/style2/mask.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -386,15 +403,17 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "tianlei-yin",
-      "name": "天雷引",
+      "id": "severed-moment",
+      "name": "断刻裁决",
       "pool": "player",
       "spellKind": "bolt",
       "theme": "gold",
       "hp": 10,
       "atk": 11,
       "cd": 2800,
-      "skillText": "识海法术：引天雷轰击敌方最左，造成 220% 伤害"
+      "skillText": "契约术式：引雷光轰击敌方最左，造成 220% 伤害",
+      "art": "assets/style2/watch.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -411,15 +430,17 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "huichun-shu",
-      "name": "回春术",
+      "id": "ember-renewal",
+      "name": "余烬复苏",
       "pool": "player",
       "spellKind": "mend",
       "theme": "mint",
       "hp": 10,
       "atk": 7,
       "cd": 2400,
-      "skillText": "识海法术：灵雨润泽，治疗我方全体伤员 80% 攻击的生命"
+      "skillText": "契约术式：温暖余烬，治疗我方全体伤员 80% 攻击的生命",
+      "art": "assets/style2/lantern.png",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -436,15 +457,16 @@
       "physDef": 0,
       "spellDef": 2,
       "tags": [],
-      "id": "huoli",
-      "name": "火狸",
+      "id": "bone-hound",
+      "name": "面骸猎犬",
       "pool": "enemy",
       "theme": "crimson",
-      "art": "assets/style-e/style-e-monster-huoli.png",
+      "art": "assets/style2/hound.png",
       "hp": 18,
       "atk": 8,
       "cd": 850,
-      "skillText": "妖火扑咬（法伤），脆皮，冷却极快"
+      "skillText": "诅咒火焰扑咬（法伤），脆皮，冷却极快",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -461,15 +483,16 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "caoshe",
-      "name": "草蛇",
+      "id": "bell-walker",
+      "name": "丧钟行者",
       "pool": "enemy",
       "theme": "jade",
-      "art": "assets/style-e/style-e-monster-caoshe.png",
+      "art": "assets/style2/bell.png",
       "hp": 20,
       "atk": 7,
       "cd": 1000,
-      "skillText": "低级单体"
+      "skillText": "低级单体",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -486,15 +509,16 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "yewu",
-      "name": "野乌",
+      "id": "dream-moth",
+      "name": "窥梦蛾",
       "pool": "enemy",
       "theme": "violet",
-      "art": "assets/style-e/style-e-monster-yewu.png",
+      "art": "assets/style2/moth.png",
       "hp": 16,
       "atk": 9,
       "cd": 1100,
-      "skillText": "妖光啄击最左（法伤）"
+      "skillText": "异光啄击最左（法伤）",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -511,15 +535,16 @@
       "physDef": 8,
       "spellDef": 2,
       "tags": [],
-      "id": "jinchan",
-      "name": "金蟾",
+      "id": "ashwing",
+      "name": "灰翼眷属",
       "pool": "enemy",
       "theme": "gold",
-      "art": "assets/style-e/style-e-monster-jinchan.png",
+      "art": "assets/style2/moth.png",
       "hp": 36,
       "atk": 5,
       "cd": 1600,
-      "skillText": "皮厚攻低，外防高"
+      "skillText": "皮厚攻低，外防高",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -536,15 +561,16 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "shujing",
-      "name": "鼠精",
+      "id": "forest-mourner",
+      "name": "林中送葬者",
       "pool": "enemy",
       "theme": "amber",
-      "art": "assets/style-e/style-e-monster-shujing.png",
+      "art": "assets/style2/bell.png",
       "hp": 18,
       "atk": 7,
       "cd": 800,
-      "skillText": "极快单体"
+      "skillText": "极快单体",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -561,15 +587,16 @@
       "physDef": 4,
       "spellDef": 0,
       "tags": [],
-      "id": "yezhu",
-      "name": "野猪",
+      "id": "rabid-hound",
+      "name": "失控猎犬",
       "pool": "enemy",
       "theme": "crimson",
-      "art": "assets/style-e/style-e-monster-yezhu.png",
+      "art": "assets/style2/hound.png",
       "hp": 32,
       "atk": 9,
       "cd": 1500,
-      "skillText": "冲撞最左（外伤），糙皮带外防"
+      "skillText": "冲撞最左（外伤），糙皮带外防",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -586,15 +613,16 @@
       "physDef": 0,
       "spellDef": 4,
       "tags": [],
-      "id": "xiaoqiao",
-      "name": "小蛟",
+      "id": "nightwing",
+      "name": "夜翼",
       "pool": "enemy",
       "theme": "jade",
-      "art": "assets/style-e/style-e-monster-xiaoqiao.png",
+      "art": "assets/style2/moth.png",
       "hp": 24,
       "atk": 8,
       "cd": 1600,
-      "skillText": "蛟息法伤打最左，并溅射其身后 2 张；有灵性带法防"
+      "skillText": "夜息法伤打最左，并溅射其身后 2 张；有感知带法防",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -611,15 +639,16 @@
       "physDef": 3,
       "spellDef": 3,
       "tags": [],
-      "id": "shanyang",
-      "name": "山羊",
+      "id": "bone-wanderer",
+      "name": "骨面徘徊者",
       "pool": "enemy",
       "theme": "steel",
-      "art": "assets/style-e/style-e-monster-shanyang.png",
+      "art": "assets/style2/hound.png",
       "hp": 28,
       "atk": 8,
       "cd": 1400,
-      "skillText": "均衡低级怪，双防各有一点"
+      "skillText": "均衡低级怪，双防各有一点",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -636,15 +665,16 @@
       "physDef": 0,
       "spellDef": 0,
       "tags": [],
-      "id": "huangfeng",
-      "name": "黄蜂",
+      "id": "rift-moth",
+      "name": "裂梦飞蛾",
       "pool": "enemy",
       "theme": "amber",
-      "art": "assets/style-e/style-e-monster-huangfeng.png",
+      "art": "assets/style2/moth.png",
       "hp": 14,
       "atk": 8,
       "cd": 900,
-      "skillText": "光线，血薄手快"
+      "skillText": "光线，血薄手快",
+      "portrait_kind": "object"
     },
     {
       "face": 1,
@@ -661,15 +691,16 @@
       "physDef": 12,
       "spellDef": 6,
       "tags": [],
-      "id": "shitoujing",
-      "name": "石头精",
+      "id": "bell-guardian",
+      "name": "钟骸守门人",
       "pool": "enemy",
       "theme": "steel",
-      "art": "assets/style-e/style-e-monster-shitoujing.png",
+      "art": "assets/style2/bell.png",
       "hp": 44,
       "atk": 5,
       "cd": 1900,
-      "skillText": "最肉，双防最高，行动时叠一层护盾"
+      "skillText": "最肉，双防最高，行动时叠一层护盾",
+      "portrait_kind": "object"
     }
   ]
 }

@@ -34,8 +34,8 @@ func _init(art: ForestArt, route_plan: RoutePlan, empty:=false) -> void:
 
 func update_camera(s: float, branch: int) -> void:
 	camera_s = s
-	camera_branch = 0 if s < ForestRoute.JUNCTION else branch
-	camera_region = plan.at(s, camera_branch)
+	camera_branch = 0 if plan.at(s, 0) != null else branch
+	camera_region = plan.environment_at(s, camera_branch)
 
 func place_existing(sprite: Dictionary, region: RouteRegion) -> void:
 	var value := sprite.duplicate()

@@ -19,6 +19,6 @@ func run():
   assert(actor.attacks.size()>=3 and actor.attachments.size()>0)
  var config=ConfigFile.new();config.load(L.SAVE);config.erase_section(key);config.save(L.SAVE)
  var rules=BattleRules.new();assert(rules.cards.filter(func(c):return c.cardType=="char").size()==25)
- var model=BattleModel.new();model.player.clear();assert(model.add_card("daotong").is_empty());assert(model.add_card("character_3").is_empty());assert(model.add_card("character_7").is_empty());assert(not model.add_card("character_7").is_empty())
+ var model=BattleModel.new();model.player.clear();assert(model.add_card("investigator").is_empty());assert(model.add_card("character_3").is_empty());assert(model.add_card("character_7").is_empty());assert(not model.add_card("character_7").is_empty())
  print("LOADOUT_PASS 24 characters, equip/save, no bows, two-hand occupancy, no double shield, dual wield, four animation profiles")
  quit()

@@ -26,12 +26,15 @@ func populate(world,region:RouteRegion) -> void:
     var separation:float=absf(ForestRoute.point_at(s,1).x)
     width=minf(width,separation*(1.35 if world.plan.exits==3 else 2.5))
     height*=lerpf(.66,1.0,smoothstep(mouth,mouth+600.0,s))
-  put(world,region,s,wobble,shell,width,height,rng.randf()<.5,0)
-  world.sprites.back()["shell"]=true
+  var flip_shell:bool=rng.randf()<.5
+  if include_shell(region,s):
+   put(world,region,s,wobble,shell,width,height,flip_shell,0)
+   world.sprites.back()["shell"]=true
   if key=="sewer" and rng.randf()<.65:
    var side:float=-1 if rng.randf()<.5 else 1
-   put(world,region,s-1,side*width*.245,shell,7,height*.18,false,0)
-   world.sprites.back()["outflow"]=true
+   if include_shell(region,s):
+    put(world,region,s-1,side*width*.245,shell,7,height*.18,false,0)
+    world.sprites.back()["outflow"]=true
   s+=c.spacing*rng.randf_range(.83,1.18)
  if not world.plan.straight and region.branch==0 and key!="crystal":
   if key!="swamp":
@@ -84,6 +87,8 @@ func populate(world,region:RouteRegion) -> void:
    var detail:int=[4,5,7][rng.randi_range(0,2)] if key=="crystal" else rng.randi_range(0,8)
    add_prop(world,region,s+rng.randf_range(-24,24),side*rng.randf_range(92,140),textures[detail],rng.randf_range(8,19),rng,detail,c)
   s+=rng.randf_range(430,780)
+func include_shell(_region:RouteRegion,_s:float)->bool:
+ return true
 func add_prop(world,region:RouteRegion,s:float,x:float,tex:Texture2D,h:float,rng:RandomNumberGenerator,species:int,c:Dictionary) -> void:
  # Protect every branch, including where paths split.
  var p:=ForestRoute.point_at(s,region.branch,x)

@@ -2,8 +2,8 @@ class_name HomeState
 extends RefCounted
 signal changed
 const PLANTS := {
-	"herbs":{"name":"灵草圃","cost":8,"period":60.0,"yield":3,"art":"flower_1"},
-	"grove":{"name":"灵木园","cost":12,"period":90.0,"yield":5,"art":"grove_1"}}
+	"herbs":{"name":"药草圃","cost":8,"period":60.0,"yield":3,"art":"flower_1"},
+	"grove":{"name":"苗木园","cost":12,"period":90.0,"yield":5,"art":"grove_1"}}
 const COTTAGE := Vector2i(9,10)
 var world := IslandModel.new()
 var bank := 24
@@ -11,7 +11,7 @@ var returns := 0
 var unlocked := {}
 var plots := {}
 var selected := Vector2i(10,10)
-var message := "先在空地种下一圃灵草，再出发寻找云外的机缘。"
+var message := "先在空地种下一圃药草，再出发寻找云外的线索。"
 func _init() -> void:
 	# A fixed home layout, independent of the expedition sample pool.
 	world.cells.clear()
@@ -79,7 +79,7 @@ func harvest() -> int:
 			amount += PLANTS[plot.kind].yield
 			plot.growth = 0.0
 	bank += amount
-	message = "收获灵石 %d" % amount if amount > 0 else "草木尚在生长，成熟后可收获。"
+	message = "收获秘银 %d" % amount if amount > 0 else "草木尚在生长，成熟后可收获。"
 	changed.emit()
 	return amount
 func to_save() -> Dictionary:

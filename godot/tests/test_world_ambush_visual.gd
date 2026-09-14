@@ -7,7 +7,7 @@ func run():
  var target:=start
  for offset in IslandModel.NBS:
   if model.lookup.has(start+offset):target=start+offset;break
- model.blocked[target]={"art":"assets/style-e/style-e-monster-huoli.png"}
+ model.blocked[target]={"art":"assets/style2/hound.png"}
  model.explored.erase(target)
  var view:=IslandView3D.new();root.add_child(view);view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);view.setup(model,IslandAssets.new());view.set_process(false)
  for i in range(4):await process_frame

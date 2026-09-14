@@ -2,10 +2,10 @@ class_name CreatureMotion
 extends RefCounted
 ## All profiles fit the same time slot and return to a neutral pose at the end.
 static func family(id: String) -> String:
-	if id in ["yezhu","boar"]: return "charge"
+	if id in ["rabid-hound","boar"]: return "charge"
 	if id in ["mouse","rat","laoshu"]: return "scurry"
-	if id == "caoshe": return "slither"
-	if id in ["yewu","bird"]: return "flutter"
+	if id == "bell-walker": return "slither"
+	if id in ["dream-moth","bird"]: return "flutter"
 	return "bound"
 static func sample(id: String, progress: float) -> Dictionary:
 	var t := clampf(progress,0,1)

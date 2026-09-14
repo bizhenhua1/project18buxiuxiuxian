@@ -28,6 +28,7 @@ const MODELS=[
 var burst
 var burst_note:Label
 var burst_fire:=true
+var carry_panel:VBoxContainer
 var weapon_panel:VBoxContainer
 var catalog:Dictionary
 var clips:Array=[]
@@ -123,6 +124,7 @@ func _ready() -> void:
  var scroll:=ScrollContainer.new();scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;right.add_child(scroll)
  list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)
  weapon_panel=preload("res://scripts/spaces/weapon_preview.gd").new();left.add_child(weapon_panel);left.move_child(weapon_panel,1);weapon_panel.setup(self)
+ carry_panel=preload("res://scripts/spaces/light_carry_preview.gd").new();left.add_child(carry_panel);left.move_child(carry_panel,1);carry_panel.setup(self)
  select_model(0);refresh_list()
  var initial:Array=clips.filter(func(c):return c.name=="EM_Idle")
  if not initial.is_empty():select_clip(initial[0])
@@ -196,6 +198,7 @@ func _process(dt:float) -> void:
   slider_update=true;timeline.value=elapsed;slider_update=false
  if burst:burst.advance(dt)
  if weapon_panel:weapon_panel.sample_weapon_motion()
+ if carry_panel:carry_panel.advance(dt)
  if camera:
   var target:=Vector3(0,.95,0);camera.position=target+Vector3(sin(yaw)*cos(pitch),sin(pitch),cos(yaw)*cos(pitch))*distance;camera.look_at(target)
 func view_input(event:InputEvent) -> void:

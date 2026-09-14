@@ -63,11 +63,11 @@ func run() -> void:
 	click(app.kit_remove)
 	await process_frame
 	check(not app.model.player.any(func(u):return u.uid == uid),"Inline action returns selected artifact")
-	var item = app.kit_items.get_children().filter(func(b):return b.card_id == "waci-yin")[0]
+	var item = app.kit_items.get_children().filter(func(b):return b.card_id == "watchful-clock")[0]
 	click(item)
 	await process_frame
 	check(app.model.player.size() == 8,"Inline inventory can re-equip artifact")
-	app.model.move(app.model.player.filter(func(u):return u.cardId == "waci-yin")[0].index,0)
+	app.model.move(app.model.player.filter(func(u):return u.cardId == "watchful-clock")[0].index,0)
 	app.arena.rebuild()
 	app.paused = true
 	root.size = Vector2i(1000,650)
@@ -82,7 +82,7 @@ func run() -> void:
 	var count: int = app.model.player.size()
 	app.arena.remove_card(0)
 	check(app.model.player.size() == count-1,"Can return an equipped artifact")
-	app.note(app.model.add_card("waci-yin",0))
+	app.note(app.model.add_card("watchful-clock",0))
 	app.arena.rebuild()
 	check(app.model.player.size() == count,"Returned artifact can be equipped again")
 	app.arena.remove_card(2)
@@ -123,7 +123,7 @@ func run() -> void:
 	# Card catalog review uses the same in-game renderer, without altering balance or saves.
 	app.model.reset()
 	app.model.player.clear()
-	for id in ["daotong","juhun-fan","qingfeng-jian","xuantie-jian","kaishan-fu","lihuo-shu","bingfu-jue","tianlei-yin"]:
+	for id in ["investigator","containment-record","night-warden","stopped-clock","oathbreaker-mask","scarlet-edict","silence-contract","severed-moment"]:
 		if not app.model.rules.card(id).is_empty(): app.model.player.append(app.model.rules.create_unit(id,"player",app.model.player.size()))
 	app.arena.rebuild()
 	await shot(app,"08-artifact-catalog")

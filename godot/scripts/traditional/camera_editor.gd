@@ -87,6 +87,11 @@ func _ready() -> void:
  while app.is_social():app.encounter_step+=1
  app.distance=app.stops()[app.encounter_step];app.fork_transit_time=app.FORK_TRANSIT_SECONDS
  app.prepare_encounter();app.phase="travel";app.paused=true;app.bob=false
+ # Calibration has eight independent slots even when the isolated expedition
+ # starts with fewer cards. Populate the preview before capturing its layouts.
+ while app.model.player.size()<8:
+  app.model.player.append(app.model.rules.create_unit("watchful-clock","player",app.model.player.size(),app.model.stage))
+ app.arena.rebuild()
  var pose:Dictionary=ForestRoute.pose(app.distance,app.branch)
  app.camera=pose.position;app.heading=pose.heading;app.arena.world_anchor=pose.position;app.arena.world_facing=pose.heading
  app.arena.battle_mix=0;app.presentation_camera.reset(app.camera,app.heading,0)
@@ -171,7 +176,7 @@ func apply_frame() -> void:
    var direction:float=arena.world_facing
    var position:Vector2=arena.world_anchor+Vector2(cos(direction),-sin(direction))*float(slot.x)+Vector2(sin(direction),cos(direction))*float(slot.depth)
    arena.formation_motion.units[unit.uid]={"position":position,"target":position,"velocity":Vector2.ZERO}
-   if unit.cardId=="daotong" and arena.seer:arena.seer.body.rotation.y=PI+(.22 if slot.right_facing else -.22)
+   if unit.cardId=="investigator" and arena.seer:arena.seer.body.rotation.y=PI+(.22 if slot.right_facing else -.22)
  arena.scale=Vector2.ONE;arena.position=Vector2.ZERO;arena.size=Vector2(viewport.size);arena.scenery.size=arena.size
  r.editor_camera=frame.duplicate();r.presentation_blend=snap.mix;r.bob_enabled=false;r.presentation_bob=0
  var angle:float=arena.world_facing
@@ -287,8 +292,8 @@ func load_latest() -> void:
 func sync_preview_units() -> void:
  # One cached 3D preview texture can illustrate any number of character slots.
  # Runtime identities stay separate from the slot/type calibration schema.
- var character:Dictionary=original_player.filter(func(u):return u.cardId=="daotong")[0]
- var prop:Dictionary=original_player.filter(func(u):return u.cardId=="waci-yin")[0]
+ var character:Dictionary=original_player.filter(func(u):return u.cardId=="investigator")[0]
+ var prop:Dictionary=original_player.filter(func(u):return u.cardId=="watchful-clock")[0]
  for i in range(app.model.player.size()):
   var source:Dictionary=original_player[i]
   if frame_key=="battle":source=character if data.battle_slots[i].preview_kind=="character" else prop

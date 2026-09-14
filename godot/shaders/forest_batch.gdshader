@@ -12,6 +12,12 @@ uniform sampler2D live_ally_6 : filter_linear;
 uniform sampler2D live_ally_7 : filter_linear;
 uniform sampler2D live_ally_8 : filter_linear;
 varying float ally_texture_slot;
+uniform float character_fill=0.0;
+uniform float character_brightness_cap=.78;
+uniform sampler2D crowd_atlas : filter_linear;
+varying float crowd_slot;
+uniform sampler2D near_atlas : filter_linear;
+varying float near_slot;
 uniform sampler2D live_character : filter_linear;
 uniform sampler2D live_companion : filter_linear;
 uniform sampler2D live_enemy : filter_linear;
@@ -45,8 +51,10 @@ varying vec4 art_region;
 float terrain(vec2 p){return (2.2*sin(p.y*.009)+1.3*sin(p.x*.017+p.y*.004))*terrain_amplitude;}
 void vertex(){
     float category=floor(INSTANCE_CUSTOM.w/64.0);
+    near_slot=category>=105.0 && category<120.0?category-105.0:-1.0;
+    crowd_slot=category>=25.0 && category<105.0?category-25.0:-1.0;
     ally_texture_slot=category>=16.0 && category<=24.0?category-16.0:-1.0;
-    bool dynamic_actor=ally_texture_slot>=0.0 || category==1.0 || category==2.0 || category==4.0 || category==5.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0;
+    bool dynamic_actor=near_slot>=0.0 || crowd_slot>=0.0 || ally_texture_slot>=0.0 || category==1.0 || category==2.0 || category==4.0 || category==5.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0;
     vec2 d=dynamic_actor?dynamic_positions[int(INSTANCE_CUSTOM.x)]:INSTANCE_CUSTOM.xy-camera_world;
     vec2 p=dynamic_actor?camera_world+d:INSTANCE_CUSTOM.xy;
     float z=dot(d,vec2(sin(heading),cos(heading)));
@@ -54,7 +62,7 @@ void vertex(){
     float x=dot(d,vec2(cos(heading),-sin(heading)));
     vec2 offset=((MODEL_MATRIX*vec4(VERTEX,0,1)).xy-canvas_origin)/canvas_scale;
     is_live_character=category==15.0?4.0:category==14.0?3.0:category==13.0?2.0:(category==12.0?1.0:0.0);
-    if(ally_texture_slot>=0.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0)category=5.0;
+    if(near_slot>=0.0 || crowd_slot>=0.0 || ally_texture_slot>=0.0 || category==12.0 || category==13.0 || category==14.0 || category==15.0)category=5.0;
     if(category==9.0){
         float column=clamp(UV.x*8.0,0.0,8.0);
         int a=int(floor(column));int b=min(a+1,8);
@@ -113,6 +121,15 @@ void fragment(){
     else if(ally_texture_slot==6.0)tex=texture(live_ally_6,projected_uv);
     else if(ally_texture_slot==7.0)tex=texture(live_ally_7,projected_uv);
     else if(ally_texture_slot==8.0)tex=texture(live_ally_8,projected_uv);
+    if(crowd_slot>=0.0){
+        vec2 tile=vec2(mod(crowd_slot,5.0),floor(crowd_slot/5.0));
+        vec2 safe_uv=clamp(projected_uv,vec2(.002),vec2(.998));
+        tex=texture(crowd_atlas,(tile+safe_uv)/vec2(5.0,16.0));
+    }
+    if(near_slot>=0.0){
+        vec2 tile=vec2(mod(near_slot,5.0),floor(near_slot/5.0));
+        tex=texture(near_atlas,(tile+clamp(projected_uv,vec2(.001),vec2(.999)))/vec2(5.0,3.0));
+    }
     if(mist_patch>6.5 && mist_patch<7.5){
         float edge=1.0-smoothstep(.22,.5,abs(art_uv.x-.5));
         float falling=art_uv.y*8.0-atmosphere_time*3.2;
@@ -162,6 +179,11 @@ void fragment(){
     if((mist_patch>2.5 && mist_patch<3.5) || mist_patch==11.0){
         float bright=max(tex.r,max(tex.g,tex.b));
         shaded=mix(shaded,tex.rgb*1.3,smoothstep(.38,.85,bright)*.85);
+    }
+    if(character_fill>0.0 && (near_slot>=0.0 || crowd_slot>=0.0 || ally_texture_slot>=0.0 || is_live_character>.5)){
+        float distance_fade=1.0-smoothstep(140.0,420.0,depth);
+        vec3 fill=surface*vec3(.83,.93,1.0)*character_fill*distance_fade;
+        shaded=min(max(shaded,fill),vec3(character_brightness_cap));
     }
     COLOR=vec4(shaded,tex.a*tint.a);
     }

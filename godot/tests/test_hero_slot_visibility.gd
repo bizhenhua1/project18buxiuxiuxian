@@ -5,7 +5,7 @@ func run() -> void:
  var app=load("res://scenes/endless_forest.tscn").instantiate();root.add_child(app)
  await process_frame;app.set_process(false);app.choose(-1)
  app.phase="travel";app.paused=true;app.travel_reveal=1
- var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="daotong")[0]
+ var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="investigator")[0]
  var renderer=app.arena.scenery.renderer
  for index in range(app.model.player.size()):
   app.model.player.erase(hero);app.model.player.insert(index,hero);app.arena.rebuild()

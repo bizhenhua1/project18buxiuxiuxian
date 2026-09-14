@@ -9,7 +9,7 @@ func run() -> void:
   var zone=session.state.zones[0];zone.route_kind="straight";zone.route_profile="short_battle";zone.theme="forest";zone.battle_choice=true;session.state.pending=zone.id
   var app=load("res://scenes/expedition_route.tscn").instantiate();app.set_process(false);root.add_child(app)
   app.paused=true;app._process(0)
-  var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="daotong")[0]
+  var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="investigator")[0]
   var initial_origin:Vector2=ForestRoute.pose(app.distance,app.branch).position
   var offset:Vector2=app.arena.formation_motion.units[hero.uid].position-initial_origin
   assert(absf(offset.y-32)<.001,"Invalid initial travel anchor")

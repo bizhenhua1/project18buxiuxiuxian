@@ -23,7 +23,7 @@ func _init() -> void:
 	updated.connect(sync_events)
 	setup_zones()
 	battle.player.clear()
-	for id in ["waci-yin","masuo","daotong","taomu-jian","tongjing","xiaohulu","qingfeng-jian","lihuo-shu"]: battle.add_card(id)
+	for id in ["watchful-clock","silent-medium","investigator","sealed-book","faceless-mask","soul-lantern","night-warden","scarlet-edict"]: battle.add_card(id)
 	battle.toggle_mode(3)
 func setup_zones() -> void:
 	StyleLibrary.decorate_world(world)
@@ -65,7 +65,7 @@ func sync_events() -> void:
 	world.blocked.clear()
 	for zone in zones:
 		if not cleared.has(zone.id):
-			world.blocked[Vector2i(zone.cell[0],zone.cell[1])] = {"id":zone.id,"battle":true,"art":"assets/style-e/style-e-monster-%s.png" % ["huoli","shujing","shitoujing"][int(zone.tier)]}
+			world.blocked[Vector2i(zone.cell[0],zone.cell[1])] = {"id":zone.id,"battle":true,"art":StyleLibrary.card_path(["bone-hound","forest-mourner","bell-guardian"][int(zone.tier)]).trim_prefix("res://")}
 			if FairytaleCatalog.has_scene(zone.theme):world.blocked[Vector2i(zone.cell[0],zone.cell[1])].art=FairytaleCatalog.lead_art(zone.theme)
 func on_event_requested(position: Vector2i) -> void:
 	on_arrival(world.lookup[position])
@@ -92,7 +92,7 @@ func prepare_battle() -> bool:
 	battle.health_multiplier=float(zone.get("battle_hp_multiplier",1.0))
 	battle.reset()
 	battle.enemy.clear()
-	var rosters := [["huoli","caoshe","yewu"],["shujing","jinchan","yewu","caoshe"],["shitoujing","yezhu","huoli","yewu","jinchan"]]
+	var rosters := [["bone-hound","bell-walker","dream-moth"],["forest-mourner","ashwing","dream-moth","bell-walker"],["bell-guardian","rabid-hound","bone-hound","dream-moth","ashwing"]]
 	var selected_roster:Array=FairytaleCatalog.roster(zone.get("theme","forest"))
 	if selected_roster.is_empty():selected_roster=rosters[int(zone.tier)]
 	for id in selected_roster: battle.enemy.append(battle.rules.create_unit(id,"enemy",battle.enemy.size(),battle.stage))
@@ -107,7 +107,7 @@ func settle(result: String) -> bool:
 		cleared[zone.id] = true
 		stones += int(zone.reward)+reward_bonus
 		victories += 1
-		journal.append("平息 · %s · 灵石 +%d" % [zone.title,int(zone.reward)+reward_bonus])
+		journal.append("平息 · %s · 秘银 +%d" % [zone.title,int(zone.reward)+reward_bonus])
 		pending = ""
 		world.input_locked = false
 		return_position = world.player
@@ -127,7 +127,7 @@ func finish_local() -> bool:
 	stones += int(zone.reward)+reward_bonus
 	victories += 1
 	last_result = "victory"
-	journal.append("走通 · %s · 灵石 +%d" % [zone.title,int(zone.reward)+reward_bonus])
+	journal.append("走通 · %s · 秘银 +%d" % [zone.title,int(zone.reward)+reward_bonus])
 	pending = ""
 	world.input_locked = false
 	return_position = world.player
@@ -143,7 +143,7 @@ func resolve_event(option: String, complete := true) -> bool:
 		if stones < cost: return false
 		stones -= cost
 		reward_bonus += 3 if kind == "merchant" else 2
-		journal.append("获得寻宝机缘 · 本次出征后续收获增加")
+		journal.append("获得寻宝线索 · 本次出征后续收获增加")
 	elif option == "supplies":
 		stones += int(zone.reward)/2+reward_bonus
 		journal.append("带走旅途补给 · 已收入行囊")
@@ -213,7 +213,7 @@ func restore(data: Dictionary) -> bool:
 	new_battle.player.clear()
 	for entry in data.formation:
 		if not entry is Dictionary or not entry.get("id") is String: return false
-		if not new_battle.add_card(entry.id).is_empty(): return false
+		if not new_battle.add_card(preload("res://scripts/journey/native_save_upgrade.gd").card_id(entry.id)).is_empty(): return false
 		if entry.get("mode","") == "held" and not new_battle.toggle_mode(new_battle.player.size()-1).is_empty(): return false
 	world = new_world
 	battle = new_battle
@@ -237,7 +237,7 @@ func restore(data: Dictionary) -> bool:
 		if world.explored.has(p): return_position = p
 	journal.clear()
 	for line in data.journal:
-		if line is String: journal.append(line)
+		if line is String: journal.append(preload("res://scripts/journey/native_save_upgrade.gd").journal_line(line))
 	world.input_locked = not pending.is_empty()
 	sync_events()
 	# Older saves could leave the player standing on an unresolved event.

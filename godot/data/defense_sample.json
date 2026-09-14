@@ -1,0 +1,97 @@
+{
+  "life": 20,
+  "line_z": 8.5,
+  "spawn_z": -24.0,
+  "cap": 50,
+  "total": 90,
+  "interval": 0.65,
+  "enemies": [
+    {
+      "name": "迷途者",
+      "model": "composer.glb",
+      "hp": 75,
+      "attack": 8,
+      "speed": 1.5,
+      "range": 1.4,
+      "cooldown": 1.4,
+      "color": "acb8aa",
+      "behavior": "melee"
+    },
+    {
+      "name": "疾行影",
+      "model": "joseph-summer.glb",
+      "hp": 48,
+      "attack": 6,
+      "speed": 2.4,
+      "range": 1.2,
+      "cooldown": 1.0,
+      "color": "c89977",
+      "behavior": "runner"
+    },
+    {
+      "name": "执咒者",
+      "model": "geisha-thirteen.glb",
+      "hp": 62,
+      "attack": 10,
+      "speed": 1.1,
+      "range": 7.0,
+      "cooldown": 2.4,
+      "color": "b599d3",
+      "behavior": "ranged"
+    },
+    {
+      "name": "沉重躯壳",
+      "model": "isabella.glb",
+      "hp": 190,
+      "attack": 18,
+      "speed": 1.05,
+      "range": 1.6,
+      "cooldown": 2.8,
+      "color": "8caabd",
+      "behavior": "melee",
+      "body_scale": 1.8
+    },
+    {
+      "name": "逐灯者",
+      "model": "composer-george.glb",
+      "hp": 95,
+      "attack": 12,
+      "speed": 1.3,
+      "range": 4.5,
+      "cooldown": 1.8,
+      "color": "c5b27b",
+      "behavior": "ranged"
+    }
+  ],
+  "spawn_cycle": [
+    0,
+    1,
+    4,
+    0,
+    2,
+    1,
+    0,
+    4,
+    3,
+    2,
+    1,
+    4,
+    0,
+    2,
+    1,
+    4,
+    0,
+    2,
+    1,
+    4
+  ],
+  "crawl_slots": [
+    2,
+    3,
+    6,
+    7,
+    8,
+    9
+  ],
+  "crawl_speed_multiplier": 1.05
+}

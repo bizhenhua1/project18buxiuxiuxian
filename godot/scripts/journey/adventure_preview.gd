@@ -1,6 +1,6 @@
 extends Node
 func _ready() -> void:
-	DisplayServer.window_set_title("云岫 · 连续冒险与战斗验收")
+	DisplayServer.window_set_title("雾林行记 · 连续冒险与战斗验收")
 	Journey.SAVE = "user://adventure-preview.json"
 	Journey.state = JourneyState.new()
 	Journey.expedition_active = true

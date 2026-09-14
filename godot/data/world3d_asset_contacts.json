@@ -1,0 +1,14 @@
+{
+  "clover": {
+    "anchor_y_offset": -0.02,
+    "note": "Rigid foliage support: the lowest sampled opaque foliage ends near UV 0.975. Remove two percent of bottom padding without flattening the leaves. Applies to body and root covers, native 3D only."
+  },
+  "fern": {
+    "anchor_y_offset": -0.18,
+    "note": "Rigid silhouette support at 0.82, excluding the transparent bottom margin. Keep drooping leaves intact; applies equally to standalone plants and root covers. Native 3D only."
+  },
+  "res://assets/biomes/swamp/prop-0.png": {
+    "anchor_y_offset": -0.008,
+    "note": "Large mushroom rigid base: remove bottom transparent padding, preserve the cap/stalk shape. Scales with the asset instead of a fixed world lift."
+  }
+}

@@ -57,7 +57,7 @@ func _ready() -> void:
  _process(0)
 func build_party() -> void:
  model.player.clear()
- var ids:=["daotong","masuo","tongjing","taomu-jian"] if has_meta("composition_editor") else ["daotong","masuo","tongjing","taomu-jian","waci-yin","xiaohulu","juhun-fan"]
+ var ids:=["investigator","silent-medium","faceless-mask","sealed-book"] if has_meta("composition_editor") else ["investigator","silent-medium","faceless-mask","sealed-book","watchful-clock","soul-lantern","containment-record"]
  for id in ids:model.player.append(model.rules.create_unit(id,"player",model.player.size(),0))
  model.enemy=model.enemy.slice(0,3);model.health_multiplier=5;model.reset()
  for i in range(model.player.size()):

@@ -1,0 +1,1445 @@
+{
+  "status": "active",
+  "particle_update_optimization": {
+    "differential_samples": 5383,
+    "geometry_max_error": 0,
+    "color_and_sheet_frames_equal": true,
+    "fixed_workload_state_unchanged": true,
+    "fixed_benchmark_mean_ms": 22.6701020833333,
+    "fixed_benchmark_p95_ms": 30.067,
+    "stable_60_fps": false
+  },
+  "atmosphere_shared_parameter_cache": {
+    "visible_groups_tested": 52,
+    "old_comparisons_per_sync": 1196,
+    "new_comparisons_per_sync": 431,
+    "hidden_multi_revision_and_equipment_tests_passed": true,
+    "frame_rate_improvement_proven": false
+  },
+  "pending_runtime_check": {
+    "test": "res://tests/test_world3d_portrait_runtime.gd",
+    "session_id": 74151,
+    "observed_process_id": 152188,
+    "state": "completed_pass",
+    "note": "Session returned exit 0 and WORLD3D_PORTRAIT_RUNTIME_PASS; process is absent. Near uniforms and attachment depth also checked."
+  },
+  "formal_enemy_framing_baseline": {
+    "sample_count": 15,
+    "model_count": 5,
+    "distance_count": 3,
+    "production_far_ordinary_projection": "orthographic",
+    "production_near_projection": "per_actor_perspective",
+    "flat_pose_near_max_error_pixels": 52.83,
+    "native_near_projection_matched": true,
+    "independent_full_near_samples_verified": 11,
+    "bone_projection_max_error_pixels": 0.000123,
+    "gpu_near_occlusion_verified": true,
+    "complete_gpu_silhouette_verified": false,
+    "isolated_gpu_silhouette_comparisons": 15,
+    "isolated_gpu_silhouette_min_iou": 0.98502765592218,
+    "continuous_motion_verified": false
+  },
+  "latest_formal_composition_check": {
+    "same_world_same_pose": true,
+    "scatter_objects_verified": 3483,
+    "formation_slots_verified": 7,
+    "bone_projection_error_limit_pixels": 0.02,
+    "gpu_images_reviewed": true,
+    "dynamic_enemy_composition_verified": false,
+    "full_visual_acceptance": false
+  },
+  "skin_palette_experiment": {
+    "enabled_by_default": false,
+    "gpu_comparisons": 30,
+    "max_rgba_byte_difference": 0,
+    "positive_weights_verified": 79764,
+    "compact_mean_ms": 21.3787333333333,
+    "baseline_mean_ms": 21.5515806451613,
+    "stable_performance_gain_proven": false
+  },
+  "presentation_entry": "godot/scenes/world3d_presentation.tscn",
+  "latest_continuous_travel_check": {
+    "events": 16,
+    "forks": 1,
+    "route_number": 2,
+    "max_leg_seconds": 5.4,
+    "combat_results_injected": true,
+    "full_visual_acceptance": false
+  },
+  "goal_complete": false,
+  "entry": "godot/scenes/world3d_stage.tscn",
+  "legacy_preserved": true,
+  "projection_anchor_max_error_pixels": 0.00073638476897,
+  "first_event_measured_seconds": 2.97,
+  "scene_import": {
+    "source_sprites": 6797,
+    "cutouts_with_root_covers": 14467,
+    "enemy_pool": 50
+  },
+  "last_capture": {
+    "activated_bindings": 40,
+    "sample_fps": 48,
+    "full_vfx_enabled": false
+  },
+  "completed_foundations": [
+    "off_axis_camera_math",
+    "original_forest_coordinates_import",
+    "single_world_bone_actors",
+    "spatial_circle_and_sweep_queries",
+    "basic_route_event_branch_flow",
+    "same_world_static_reference_capture",
+    "mist_seed_visual_fix",
+    "camera_template_forward_lateral_yaw",
+    "billboard_anchor_bounds_and_conservative_culling",
+    "read_only_saved_formation",
+    "per_card_model_identity_and_typed_slot_interpolation",
+    "original_weapon_mounts_and_profile_combos",
+    "bounded_simulated_melee_excursion_and_cancelable_windup",
+    "relative_3d_projectile_sweep_and_pierce_dedup",
+    "stormmissile_same_world_particle_pool",
+    "saved_storm_light_profile_and_muzzle",
+    "independent_impact_light_tail_and_energy_budget",
+    "battle_end_projectile_cleanup",
+    "cpu_section_profile",
+    "fixed_camera_visibility_cache_with_invalidation",
+    "particle_emitter_transform_cache_with_original_parity",
+    "catalog_event_arrival_choice_and_reward_state",
+    "in_scene_event_dialogue_panel",
+    "existing_branch_tail_geometry_extension_and_retirement",
+    "route_exit_validation",
+    "budgeted_cutout_grouping_and_upload_queue",
+    "queued_upload_sync_geometry_parity_and_retired_job_rejection",
+    "independent_route_segment_pose_in_live_stage",
+    "deterministic_successor_plan_and_100_fork_continuity",
+    "bounded_three_segment_ground_lane_support",
+    "live_successor_geometry_preload_and_handoff",
+    "six_repeated_live_route_transitions",
+    "accepted_crystal_swamp_assets_replace_legacy_test_biomes",
+    "fixed_cutout_plane_heading_and_squash",
+    "local_layout_generation_then_world_transform",
+    "crystal_same_camera_original_renderer_comparison",
+    "crystal_contact_line_ground_footprint_deformation",
+    "shared_cutout_mesh_and_contact_profile_cache"
+  ],
+  "next": [
+    "six_theme_visual_comparison_and_missing_environment_layers",
+    "continuous_route_and_theme_streaming",
+    "stable_performance_replay_and_animation_lod",
+    "party_live_edit_and_health_conversion",
+    "vfx_muzzle_mount_and_per_clip_strike_markers",
+    "transition_visual_parity"
+  ],
+  "notes": "Engineering sample only; not a finished migration. See WORLD3D-MIGRATION-GOAL.md.",
+  "benchmark": {
+    "baseline": {
+      "draw_calls_median": 1255.0,
+      "frames": 417,
+      "full_vfx": false,
+      "mean_ms": 19.2094988009592,
+      "model_bindings_median": 38,
+      "p50_ms": 19.053,
+      "p95_ms": 24.449,
+      "total_chunks": 1504,
+      "visible_chunks": 396
+    },
+    "optimized": {
+      "draw_calls_median": 1229.0,
+      "frames": 417,
+      "full_vfx": false,
+      "mean_ms": 19.205551558753,
+      "model_bindings_median": 39,
+      "p50_ms": 18.852,
+      "p95_ms": 24.071,
+      "total_chunks": 1504,
+      "visible_chunks": 345
+    },
+    "conclusion": "No material mean-frame improvement. Camera offsets also corrected; active bindings differ by one. This is not an isolated culling speedup claim."
+  },
+  "latest_cpu_profile": {
+    "before": {
+      "cpu_ms_per_frame": {
+        "crowd": 2.98783746556474,
+        "particles": 2.41241046831956,
+        "scenery": 4.24524517906336,
+        "simulation": 0.569691460055096
+      },
+      "draw_calls_median": 1191.0,
+      "frames": 363,
+      "full_vfx": false,
+      "mean_ms": 22.0627190082645,
+      "model_bindings_median": 38,
+      "p50_ms": 21.943,
+      "p95_ms": 28.401,
+      "storm_particles": true,
+      "total_chunks": 1504,
+      "visible_chunks": 345,
+      "visual_pool_misses": 0
+    },
+    "after": {
+      "cpu_ms_per_frame": {
+        "crowd": 3.54805120481928,
+        "particles": 2.87980722891566,
+        "scenery": 2.32531325301205,
+        "simulation": 0.745819277108434
+      },
+      "draw_calls_median": 1190.0,
+      "frames": 332,
+      "full_vfx": false,
+      "mean_ms": 24.1051355421687,
+      "model_bindings_median": 38,
+      "p50_ms": 24.089,
+      "p95_ms": 34.144,
+      "storm_particles": true,
+      "total_chunks": 1504,
+      "visible_chunks": 345,
+      "visual_pool_misses": 0
+    }
+  },
+  "theme_migration": {
+    "selectable": [
+      "forest",
+      "crystal",
+      "swamp",
+      "sewer",
+      "whale",
+      "palace"
+    ],
+    "connected_branches": [
+      "forest",
+      "crystal",
+      "swamp"
+    ],
+    "successor_tests": "Six theme layouts retain placement after rotation; light X/Z rotated, height/radius preserved; forest source restored",
+    "picker_test": "Swamp to sewer reload releases previous scene and overrides CLI theme",
+    "ambient_restored": [
+      "emissive prop highlights",
+      "swamp fireflies",
+      "crystal/sewer/whale drips"
+    ],
+    "visual_comparisons": [
+      "tempassets/work/world3d-swamp-native.png",
+      "tempassets/work/world3d-swamp-reference.png",
+      "tempassets/work/world3d-sewer-native.png",
+      "tempassets/work/world3d-sewer-reference.png"
+    ],
+    "remaining": [
+      "transparent edge aliasing and brightness differences",
+      "ground detail parity",
+      "other themes and moving comparisons",
+      "sustained performance and resource lifetime audit"
+    ],
+    "upload_regression": "GPU 1500-instance queued/sync parity passed, but shutdown texture/resource leak warnings recurred; not a clean lifetime result"
+  },
+  "lighting_snapshot_optimization": {
+    "change": "Sample combat/biome lighting once per scenery update; bind only visible mesh materials plus fog/ground; preserve traditional bind APIs",
+    "original_parameter_checks": 264,
+    "visible_material_checks": 560,
+    "max_skipped_materials_in_test": 18,
+    "benchmark": {
+      "cpu_ms_per_frame": {
+        "crowd": 3.2368345323741,
+        "particles": 2.64883693045564,
+        "scenery": 0.593467625899281,
+        "simulation": 0.542393285371703
+      },
+      "draw_calls_median": 1159.0,
+      "frames": 417,
+      "full_vfx": false,
+      "mean_ms": 19.222690647482,
+      "model_bindings_median": 38,
+      "p50_ms": 18.905,
+      "p95_ms": 27.73,
+      "storm_particles": true,
+      "total_chunks": 1012,
+      "visible_chunks": 311,
+      "visual_pool_misses": 0
+    },
+    "interpretation": "Current-run measurement only; scene assets/chunk counts changed since older benchmarks, so not a controlled whole-frame before/after. 60 FPS not achieved."
+  },
+  "shared_cache_audit": {
+    "world_creations": 21,
+    "warm_counts": [
+      10,
+      0,
+      3,
+      13
+    ],
+    "later_cycle_counts_unchanged": true,
+    "world_weakrefs_released": true,
+    "scope": "Headless world resources and shared cache counts only; not a complete GPU/actor lifetime audit",
+    "exit_diagnosis": "Explicit shared-cache release in upload fixture removes GL texture leak warnings, but script-resource warnings remain. Production caches retained for reuse."
+  },
+  "bone_evaluation_pruning": {
+    "approach": "Evaluate only mapped bones and their ancestor closure. Keep all mesh bones and per-frame animation sampling. Unmapped accessory chains retain existing rest poses and inherit animated parents.",
+    "counts": {
+      "composer": [
+        261,
+        83
+      ],
+      "joseph-summer": [
+        355,
+        103
+      ],
+      "geisha-thirteen": [
+        258,
+        93
+      ],
+      "isabella": [
+        517,
+        71
+      ],
+      "composer-george": [
+        404,
+        103
+      ]
+    },
+    "global_pose_comparisons": 256685,
+    "coverage": "Five actual enemy rigs; original motion library plus fall, landing, getup, crawl; fractional samples and clip endpoints",
+    "isolated_original_usec": 470133,
+    "isolated_pruned_usec": 288835,
+    "full_battle_before": {
+      "cpu_ms_per_frame": {
+        "crowd": 2.92695661157025,
+        "particles": 2.25355371900826,
+        "scenery": 0.530487603305785,
+        "simulation": 0.425849173553719
+      },
+      "draw_calls_median": 1160.0,
+      "frames": 484,
+      "full_vfx": false,
+      "mean_ms": 16.5445537190083,
+      "model_bindings_median": 38,
+      "p50_ms": 16.343,
+      "p95_ms": 23.214,
+      "storm_particles": true,
+      "total_chunks": 1012,
+      "visible_chunks": 311,
+      "visual_pool_misses": 0
+    },
+    "full_battle_after": {
+      "cpu_ms_per_frame": {
+        "crowd": 2.27793333333333,
+        "particles": 2.26296666666667,
+        "scenery": 0.520513725490196,
+        "simulation": 0.402405882352941
+      },
+      "draw_calls_median": 1159.0,
+      "frames": 510,
+      "full_vfx": false,
+      "mean_ms": 15.699468627451,
+      "model_bindings_median": 38,
+      "p50_ms": 15.542,
+      "p95_ms": 21.61,
+      "storm_particles": true,
+      "total_chunks": 1012,
+      "visible_chunks": 311,
+      "visual_pool_misses": 0
+    },
+    "limitations": "One paired real-time battle sample, not a long-run guarantee; p95 remains above 16.67 ms. Full VFX and 100-enemy stress are still outstanding."
+  },
+  "spatial_area_skills": {
+    "implemented": [
+      "world-metre circle and forward capsule damage",
+      "height and activation filtering",
+      "stable-ID damage dispatch",
+      "fixed-step periodic circles with entry/exit and exact lifetime",
+      "64-zone bound and shared local spatial index",
+      "ground-conforming batched test-range markers",
+      "restart/terminal cleanup"
+    ],
+    "tests": [
+      "test_world3d_areas.gd: height, activation, periodic ticks, movement, rotated battlefield, 1000 logical units",
+      "test_world3d_area_integration.gd: real stage fixed-step damage and GPU marker/restart cleanup",
+      "test_world3d_flow.gd",
+      "test_world3d_projectiles.gd"
+    ],
+    "limits": [
+      "Not full skill/card rule migration",
+      "1000-unit test is query logic, not animated-model performance",
+      "Marker is test geometry, not finished skill VFX",
+      "Forward capsule uses fixed vertical band; arbitrary sloped 3D beam volumes not implemented"
+    ]
+  },
+  "character_composition_correction": {
+    "user_priority": "Strictly reproduce formal battle screen occupancy and angle. Do not accept visually oversized characters or camera-parameter-only parity.",
+    "root_cause": "Party scale used slot.height/36, treating full portrait-frame height as normalized model height. Formal SceneFormation maps the entire 2.6 m orthographic portrait frame. Correct factor is slot.height/52 at 20 route units/metre.",
+    "old_linear_size_ratio": 1.4444444444444444,
+    "evidence": "test_world3d_character_frame.gd instantiated original enemy_actor Camera3D: actual normalized projection per metre 0.3846154213; three slot sizes match native conversion",
+    "capture": "tempassets/work/world3d-material-current.png",
+    "remaining_priority": [
+      "Exact same-party formal battle versus native screenshot overlay",
+      "Head/foot bounding landmarks, width/height occupancy and facing angles",
+      "Full travel/event/battle transition verification after scale change",
+      "Perspective deformation residuals; no claim of complete framing parity"
+    ]
+  },
+  "party_lighting_migration": {
+    "implemented": "Saved team key, rim and ambient values applied using actor-only light layers; ground unaffected",
+    "verification": "Actual material comparisons rendered, geometry confirmed intact; dedicated parameter and performance checks remain",
+    "capture_fixture": "godot/tests/capture_world3d_materials.gd"
+  },
+  "formal_party_projection_comparison": {
+    "fixture": "godot/tests/capture_world3d_party_comparison.gd",
+    "method": "Same native lineup/slot profiles; actual original enemy_actor portrait cameras and ForestBatch production renderer; copy native rig poses into portraits; sample six bones per actor. Component-level reference, not a full expedition replay.",
+    "changes": [
+      "Restore inward 0.22-radian stationary party facing relative to camera",
+      "Single-unit formation now samples saved central slot as formal sampler does",
+      "Use formal watch-front art instead of watch.png"
+    ],
+    "landmarks": [
+      {
+        "bone": "頭",
+        "error_pixels": 11.5145063400269,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          506.980590820313,
+          549.320373535156
+        ],
+        "reference": [
+          500.838928222656,
+          559.060180664063
+        ]
+      },
+      {
+        "bone": "首",
+        "error_pixels": 9.50054168701172,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          508.996704101563,
+          571.040405273438
+        ],
+        "reference": [
+          504.188049316406,
+          579.234130859375
+        ]
+      },
+      {
+        "bone": "手首.L",
+        "error_pixels": 102.691780090332,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          413.581634521484,
+          818.408203125
+        ],
+        "reference": [
+          459.864624023438,
+          726.737670898438
+        ]
+      },
+      {
+        "bone": "手首.R",
+        "error_pixels": 53.1747360229492,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          616.409484863281,
+          682.111267089844
+        ],
+        "reference": [
+          604.978393554688,
+          734.042785644531
+        ]
+      },
+      {
+        "bone": "足首.L",
+        "error_pixels": 84.1617202758789,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          482.842163085938,
+          1096.49938964844
+        ],
+        "reference": [
+          504.626770019531,
+          1015.20593261719
+        ]
+      },
+      {
+        "bone": "足首.R",
+        "error_pixels": 56.0919342041016,
+        "model": "gardener-kitty-dada.glb",
+        "native": [
+          555.714172363281,
+          957.725830078125
+        ],
+        "reference": [
+          543.654052734375,
+          1012.50592041016
+        ]
+      },
+      {
+        "bone": "頭",
+        "error_pixels": 4.31753444671631,
+        "model": "isabella.glb",
+        "native": [
+          294.700012207031,
+          512.461120605469
+        ],
+        "reference": [
+          291.175628662109,
+          514.955078125
+        ]
+      },
+      {
+        "bone": "首",
+        "error_pixels": 0.73750764131546,
+        "model": "isabella.glb",
+        "native": [
+          291.185424804688,
+          530.17578125
+        ],
+        "reference": [
+          290.593414306641,
+          530.615600585938
+        ]
+      },
+      {
+        "bone": "手首.L",
+        "error_pixels": 55.7786407470703,
+        "model": "isabella.glb",
+        "native": [
+          310.648773193359,
+          640.524108886719
+        ],
+        "reference": [
+          272.143341064453,
+          680.8798828125
+        ]
+      },
+      {
+        "bone": "手首.R",
+        "error_pixels": 63.9442863464355,
+        "model": "isabella.glb",
+        "native": [
+          369.734313964844,
+          612.389831542969
+        ],
+        "reference": [
+          327.66162109375,
+          660.543334960938
+        ]
+      },
+      {
+        "bone": "足首.L",
+        "error_pixels": 97.0194702148438,
+        "model": "isabella.glb",
+        "native": [
+          201.357543945313,
+          1034.49365234375
+        ],
+        "reference": [
+          253.083740234375,
+          952.413330078125
+        ]
+      },
+      {
+        "bone": "足首.R",
+        "error_pixels": 54.0424423217773,
+        "model": "isabella.glb",
+        "native": [
+          344.284393310547,
+          906.740844726563
+        ],
+        "reference": [
+          318.591064453125,
+          954.284912109375
+        ]
+      }
+    ],
+    "captures": [
+      "tempassets/work/world3d-party-native.png",
+      "tempassets/work/world3d-party-reference.png",
+      "tempassets/work/world3d-party-landmark-overlay.png"
+    ],
+    "overlay_legend": "yellow original projection; cyan native projection",
+    "status": "NOT PARITY: head errors about 4-12 px; hands/ankles about 53-103 px. Investigate reference pose rendering and perspective residuals before accepting or changing lens/geometry."
+  },
+  "portrait_projection_experiment": {
+    "enabled_in_game": true,
+    "invocation": "capture_world3d_party_comparison.gd -- --weak-projection",
+    "verified": "Exact full rig pose equality after copying rotation, translation and scale. CPU weak-perspective landmark math agrees with real original camera projection. Actual OpenGL character/outline/weapon shaders compile and screenshots inspected.",
+    "max_analytic_landmark_error_pixels": 0.000125827195006423,
+    "important_limit": "Analytic error is not GPU pixel-mask parity. Planar front/back GPU occlusion and runtime moving body/weapon anchors pass. Full complex intersections, projectile origins, complete material semantics, formal replay and lighting parity remain unverified.",
+    "implementation": "Shared per-actor weak projection modifies clip XY and retains original clip Z/W for depth. World positions, rigs and simulation unchanged; weapon diagnostic uses same projection.",
+    "next": [
+      "Full formal-game-state reference replay and phase transitions",
+      "Projected hand/projectile origin consistency and complete weapon material preservation",
+      "Complex occlusion/culling and lighting parity",
+      "Controlled performance comparison and sustained load"
+    ],
+    "enabled_by_default": false,
+    "runtime_toggle": "传统角色构图（试验）",
+    "runtime_validation": [
+      "test_world3d_portrait_depth.gd: actual GPU front/back occlusion at two anchors passed",
+      "test_world3d_portrait_runtime.gd: unchanged world transforms, moving body/weapon anchors, equipment refresh, toggle restoration, real event-to-battle and completed ally entry opacity passed",
+      "test_world3d_flow.gd passed"
+    ],
+    "benchmark": {
+      "file": "tempassets/work/world3d-benchmark-portrait-projection.json",
+      "mean_ms": 18.5527939814815,
+      "p95_ms": 25.318,
+      "median_model_bindings": 38,
+      "stable_60_fps": false,
+      "note": "Not a controlled comparison against older samples; other changes intervene."
+    },
+    "known_reset_issue": "Resolved for mid-travel invocation: reset is rejected during travel/stopping/fork/entering and button disabled. Battle restarts hold camera and projection, revive in place, and move all model allies back at bounded speed."
+  },
+  "projectile_emission_alignment": {
+    "status": "implemented, focused runtime validation passed; broader visual acceptance pending",
+    "physical_origin": "Right wrist world pose, translated to current fixed-step source position, converted back to combat coordinates. Nonmodel sources retain fallback origin. Aim recalculated from actual origin.",
+    "presentation": "Same weak-projection formula as actor shader, preserved view depth. Muzzle and initial missile use projected origin; visual offset converges over 0.8 world metres. Physical sweep and impact positions are unchanged by projection toggle.",
+    "tests": [
+      "Actual stage hand/world roundtrip",
+      "Off-axis shader-equivalent projection and unchanged depth",
+      "Actual pooled effect at projected hand, convergence to physical trajectory and unchanged simulation",
+      "Existing nearest-hit/pierce/moving-target/height and melee regression pass"
+    ],
+    "remaining": [
+      "Staff tip / left-hand equipment-specific sockets",
+      "Attack phase alignment when render and fixed step differ",
+      "Very close immediate impacts and shots born/removed within one fixed step",
+      "Full visual movement/attack reference replay and performance"
+    ]
+  },
+  "restart_flow_validation": {
+    "test": "test_world3d_restart_flow.gd",
+    "result": "PASS actual OpenGL stage",
+    "checks": [
+      "Repeated start_travel cannot reset distance or event target",
+      "Mid-travel reset cannot mutate phase/camera/actor",
+      "Repeated preparation cannot teleport revived units",
+      "Battle restart camera transform and projection remain exactly fixed",
+      "All model allies return to slots at bounded speed before battle resumes"
+    ],
+    "regression": "test_world3d_flow.gd PASS; first event 2.985 seconds, maximum rendered movement step 0.052625 m",
+    "remaining": "Full formal-camera image parity and all normal transitions remain pending; current revive resets pose, a dedicated stand-up clip has not been added."
+  },
+  "camera_transition_completion": {
+    "problem": "Entry-dependent exponential blending froze the camera short of saved parameters when hero arrived early; event blend could likewise stop at residual values.",
+    "change": "Event frame interpolates from captured source over the existing stop transition and reaches exact target. Battle camera uses independent 0.6-second smooth interpolation continuing after entering becomes battle. Restart freeze remains authoritative.",
+    "evidence": [
+      "test_world3d_camera_completion.gd actual OpenGL PASS: force immediate actor arrival, camera continues, bounded intermediate values, exact final saved frame, restart unchanged",
+      "test_world3d_portrait_runtime.gd PASS including all six saved event/battle fields",
+      "test_world3d_flow.gd PASS first event 2.986 seconds max step 0.052621 m",
+      "Updated runtime screenshot inspected"
+    ],
+    "limitations": "Saved parameter equality does not prove formal full-frame visual parity. Heading deceleration and full formal reference replay still need evaluation."
+  },
+  "travel_rig_parity": {
+    "change": "Shared formal travel offset: depth 32 instead of native hardcoded 18; lateral derives from reference focal and aspect. Route tangent offset matches formal placement. Camera edits do not move destination. First leg distance recalculated with unchanged run speed.",
+    "passed": [
+      "test_world3d_travel_rig.gd: three aspects and curved routes compared against frozen original formula",
+      "test_world3d_flow.gd: first event 2.968 seconds, max movement step 0.063976 m"
+    ],
+    "failed_reference_gate": "Resolved: isolated editor roster padded to eight before layout snapshots. Both traditional camera parity and eight-slot editor tests now pass without script errors.",
+    "remaining": "Actual formal/editor full-frame and travel body projection comparison; camera_editor preview count bug."
+  },
+  "editor_reference_repair": {
+    "cause": "Editor calibration accesses eight slots but isolated expedition currently creates seven units.",
+    "change": "Fill missing preview units with watchful-clock before any scene snapshots; rebuild arena. Existing units retained, user expedition save untouched.",
+    "verified": [
+      "test_traditional_camera_parity.gd clean PASS normalized editor/runtime travel projection",
+      "test_slot_profiles_editor.gd clean PASS all 8 character/prop modes, independent values, save/load, 1/3/8/10 runtime sampling"
+    ],
+    "scope_limit": "These validate the original reference editor, not full native 3D visual parity."
+  },
+  "travel_capture_regression": {
+    "discovery": "1.4-second travel capture had invisible hero: anchor depth 0.0668 m. start_travel advanced route by 31 units without hero movement.",
+    "fix": "Removed discontinuous route advance; first-leg distance RUN*3 at unchanged speed.",
+    "verified": "Actual capture shows hero in left foreground. Flow PASS first event 3.102 sec; every frame hero camera depth >0.5 m.",
+    "analytic_max_landmark_error": 9.1552734375E-05,
+    "capture": "tempassets/work/world3d-travel-weak-projection.png",
+    "limit": "Same-pose original renderer comparison, not full formal gameplay replay."
+  },
+  "party_duplicate_light": {
+    "cause": "Stage sun lit dedicated party layers in addition to saved key/rim, unlike original enemy_actor portrait rig.",
+    "fix": "Scene sun cull mask 1 excludes dedicated party layers; saved party lights unchanged.",
+    "validation": "Runtime layer-isolation assertion PASS and actual travel native/reference captures inspected.",
+    "remaining": "Native still brighter: original forest_batch applies region ambient, environment_surface, fog and lantern_atmosphere to the rendered portrait. No arbitrary brightness scalar applied; full transfer remains pending."
+  },
+  "atmosphere_isolation": {
+    "fixture_option": "--travel --weak-projection --reference-no-atmosphere",
+    "evidence": "tempassets/work/world3d-atmosphere-isolation.json",
+    "finding": "Actual original-renderer GPU isolation: disabling lantern_atmosphere brings sampled native/reference colors much closer. Hair RGB native 97.56/85.39/79.69, reference without atmosphere 87.75/77.67/74.89, normal reference 37.43/33.78/32.02. Similar change in dress and sleeve ROIs.",
+    "scope": "Three fixed ROIs, one pose/theme; no universal color-parity claim. Near-depth fog/region ambient remain in no-atmosphere image.",
+    "next": "Implement combined-light atmosphere response for native actor rendering, respecting post-light nonlinearity. Avoid arbitrary scalar darkening or changing saved fill lights."
+  },
+  "actor_atmosphere_trial": {
+    "default_enabled": false,
+    "scope": "Party body only. Screen-reading transparent next-pass after opaque light shading; shared original lantern_atmosphere, region tint/depth fog. Same projection and opacity discard.",
+    "files": [
+      "godot/scripts/world3d/actor_atmosphere.gd",
+      "godot/scripts/world3d/actor_atmosphere.gdshader"
+    ],
+    "verified": [
+      "Actual GPU post-light darkening plus opaque front/back occlusion at two anchors",
+      "Runtime enable/disable restores original pass chains",
+      "Same-pose travel capture inspected; native dress RGB 48.87/30.42/43.94 vs reference 60.61/42.25/49.68; improved but too dark"
+    ],
+    "benchmark": {
+      "enabled_mean_ms": 22.321,
+      "disabled_mean_ms": 22.954,
+      "enabled_p95_ms": 32.271,
+      "disabled_p95_ms": 31.92,
+      "enabled_draws": 1193,
+      "disabled_draws": 1170,
+      "median_models": 38,
+      "conclusion": "Short sequential samples cannot attribute timing reliably. Not stable 60 FPS."
+    },
+    "remaining": [
+      "Transparent fog/vegetation ordering and complex overlaps",
+      "Weapons/outlines and enemy integration",
+      "Color-space and flat portrait versus true-surface coordinate residuals",
+      "Theme-specific environment_surface semantics",
+      "Optimize uniform updates / pass count and sustained performance"
+    ]
+  },
+  "actor_atmosphere_transparency": {
+    "reproduced": "Actual GPU test failed with pass priority 100: 50% blue foreground disappeared, sampled RGB 0/.149/0.",
+    "fix": "Post-light pass priority -100: after opaque light rendering, before normal transparent passes.",
+    "verified": "GPU tests at two anchors: opaque foreground/background, half-transparent foreground and transparent background. Foreground result RGB 0/.0745/.498; transparent background does not bleed through opaque actor.",
+    "capture": "Travel same-pose capture rerun successfully.",
+    "remaining": "Complex multi-actor intersections, special-priority VFX and alpha-cutout edge cases; visual parity/performance still incomplete."
+  },
+  "atmosphere_uniform_cache": {
+    "change": "Per-material last-value cache skips unchanged uniforms; visible reentry and toggle update changed values. Dedicated CPU timer added.",
+    "verified": "test_world3d_atmosphere_updates.gd actual OpenGL PASS: initial456 unchanged0 animated+flash-clear96; hidden moved actor, new/expired flash, disable/re-enable.",
+    "benchmark": {
+      "mean_ms": 19.616,
+      "p95_ms": 29.006,
+      "atmosphere_cpu_ms": 0.4213,
+      "median_model_bindings": 38,
+      "draws": 1193
+    },
+    "limit": "One current sample does not isolate causal frame-time improvement; still not stable60. Rendering/pass count unchanged."
+  },
+  "atmosphere_sampling_alignment": {
+    "change": "Traditional projection uses camera-facing anchor plane for atmosphere sampling; normal perspective retains real surface XZ. Preserve terrain-relative actor clearance and signed vertex height instead of clamping to zero.",
+    "evidence": "Actual same-pose travel GPU capture dress RGB65.06/43.57/52.49 vs original60.61/42.25/49.68, previously48.87/30.42/43.94. Fixture compares actual shader-bound lantern/fog/tint uniforms; no differences reported.",
+    "regressions": "Opaque/transparent depth test PASS; cached updates PASS initial480 unchanged0, reentry/expired flash/toggle valid.",
+    "limit": "One pose/theme ROI; still no full multi-theme/image-mask parity, weapons/enemy integration incomplete. Trial remains default-off."
+  },
+  "six_theme_actor_atmosphere_review": {
+    "themes": [
+      "forest",
+      "whale",
+      "swamp",
+      "crystal",
+      "sewer",
+      "palace"
+    ],
+    "fixture": "Same-pose travel capture now uses theme-specific filenames and applies the actual formal ally scene_light_tint to reference portrait.",
+    "evidence": "tempassets/work/world3d-theme-atmosphere-rois.json and world3d-travel-<theme>-atmosphere-{weak-projection,reference}.png",
+    "finding": "All captured themes retain clothing identity with modest tint. Dress ROI differences native/reference about 1-8 RGB channel units; no catastrophic red/green flood in sampled pose.",
+    "limit": "One moving pose per theme; static snapshots and ROIs are not full visual acceptance. Scenery/ground/fog differences visible. Weapon/enemy/other pose integration and performance remain pending."
+  },
+  "weapon_atmosphere_integration": {
+    "change": "Weapon materials are actor-owned duplicates; both normal and projected material chains share the actor atmosphere pass. Equipment refresh detaches old passes and registers new attachments. Comparison fixture now uses runtime presenter rather than overwriting weapon materials with diagnostic shaders.",
+    "verified": "Actual runtime and atmosphere tests pass; three refreshes across projection modes maintain entry count, valid anchors, both chains and clean toggle removal; source asset materials remain distinct.",
+    "remaining": "Full weapon material semantic preservation, alpha-emissive variations and original-reference weapon pose capture; enemy atmosphere and full visual/performance acceptance remain open."
+  },
+  "enemy_atmosphere_grouping": {
+    "integration": "Atmosphere trial now includes preview and pooled enemy bodies as well as party/weapons. Default remains off.",
+    "optimization": "Group materials per actor; compare shared uniforms and compute actor position/clearance once per actor. Equipment rebuild regroups with invalidated values.",
+    "tests": "Actual GPU update test passes hidden pooled enemy activation with current anchor/time, cached unchanged frame, expired flash and repeated equipment changes.",
+    "before": {
+      "mean_ms": 26.041,
+      "atmosphere_cpu_ms": 6.316,
+      "draws": 1557
+    },
+    "after": {
+      "mean_ms": 23.232,
+      "p95_ms": 32.254,
+      "atmosphere_cpu_ms": 1.64,
+      "draws": 1556,
+      "median_models": 38
+    },
+    "remaining": "Pass count remains high, stable60 not achieved. Enemy light/material visual comparison and full effect load remain unverified."
+  },
+  "outline_lod": {
+    "implementation": "Estimate projected outline width from mesh/actor scale and camera focal/depth. Smoothly reduce width between0.65 and0.25px, then bypass outline while preserving atmosphere tail. Cache fully near/far group state. --no-outline-lod benchmark override.",
+    "tests": "Actual runtime tests pass far skip, atmosphere tail, near restoration, reentry, disable; portrait runtime passes.",
+    "draw_evidence": "Median drawcalls1430 with LOD vs1557 full at38 models.",
+    "timing_limit": "First LOD sample22.697ms vs later full21.267ms; no demonstrated frame-time win from these noisy sequential samples. Group-state early skip added after these timings and remains to be profiled.",
+    "remaining": "Visual side-by-side distant contour audit and controlled timing, full frame pacing and migration acceptance."
+  },
+  "frozen_outline_ab": {
+    "artifact": "tempassets/work/world3d-outline-ab.json",
+    "order": "full/lod/lod/full,120 frames each, same frozen scene",
+    "draws": "1535 full vs1310 LOD,225 skipped",
+    "timings_ms": [
+      5.757,
+      5.004,
+      4.515,
+      4.22
+    ],
+    "visual_diff": "1378 pixels >8 RGB difference,0.1063% of1440x900; mean absolute channel difference <.037. Screenshot inspected.",
+    "conclusion": "Draw reduction verified, overall FPS gain not isolated; sequential timing drift remains. Frozen rendering alone4-6ms suggests investigate dynamic/engine-side update cost."
+  },
+  "stage_total_profile": {
+    "mean_frame_ms": 21.211,
+    "p95_ms": 27.829,
+    "stage_script_ms": 8.971,
+    "median_models": 38,
+    "draws": 1423,
+    "limit": "Remaining wall time includes engine/render/driver/scheduling and cannot all be labelled animation cost. Need targeted engine-side isolation."
+  },
+  "pose_submission_isolation": {
+    "diagnostic": "defense_retarget.submit_pose defaults true; benchmark-only --no-pose-upload freezes enemy rig submission after warmup while retarget math/movement/combat/VFX continue.",
+    "normal": {
+      "mean_ms": 20.485,
+      "p95_ms": 26.521,
+      "stage_ms": 8.789,
+      "crowd_ms": 2.107,
+      "draws": 1424
+    },
+    "no_submission": {
+      "mean_ms": 16.237,
+      "p95_ms": 22.277,
+      "stage_ms": 8.358,
+      "crowd_ms": 1.778,
+      "draws": 1423
+    },
+    "inference": "Pose submission plus downstream skeleton/skin/engine work is a material cost centre; wall difference4.25ms exceeds script difference. GPU shape/visibility and timing variability also change, so no exact attribution.",
+    "next": "Audit actual skin palettes, required joints and engine skeleton work; preserve all visible animation and deformations. No production animation reduction applied."
+  },
+  "skin_usage_audit": {
+    "artifact": "tempassets/work/world3d-skin-usage.json",
+    "method": "Read every mesh surface bone index with positive weight, resolve actual Skin bind names/indices, count weighted joints and ancestor closure. No model changes.",
+    "findings": [
+      {
+        "meshes": 1,
+        "meshes_without_skin": 0,
+        "model": "composer.glb",
+        "positive_influences": 11510,
+        "retarget_evaluated": 83,
+        "skeleton_bones": 261,
+        "total_skin_bind_slots": 261,
+        "unique_skins": 1,
+        "vertices": 8397,
+        "weighted_and_attachment_ancestors": 195,
+        "weighted_bones": 181
+      },
+      {
+        "meshes": 1,
+        "meshes_without_skin": 0,
+        "model": "joseph-summer.glb",
+        "positive_influences": 13404,
+        "retarget_evaluated": 103,
+        "skeleton_bones": 355,
+        "total_skin_bind_slots": 355,
+        "unique_skins": 1,
+        "vertices": 10219,
+        "weighted_and_attachment_ancestors": 228,
+        "weighted_bones": 200
+      },
+      {
+        "meshes": 1,
+        "meshes_without_skin": 0,
+        "model": "geisha-thirteen.glb",
+        "positive_influences": 12157,
+        "retarget_evaluated": 93,
+        "skeleton_bones": 258,
+        "total_skin_bind_slots": 258,
+        "unique_skins": 1,
+        "vertices": 7300,
+        "weighted_and_attachment_ancestors": 102,
+        "weighted_bones": 88
+      },
+      {
+        "meshes": 1,
+        "meshes_without_skin": 0,
+        "model": "isabella.glb",
+        "positive_influences": 27392,
+        "retarget_evaluated": 71,
+        "skeleton_bones": 517,
+        "total_skin_bind_slots": 517,
+        "unique_skins": 1,
+        "vertices": 20715,
+        "weighted_and_attachment_ancestors": 410,
+        "weighted_bones": 315
+      },
+      {
+        "meshes": 1,
+        "meshes_without_skin": 0,
+        "model": "composer-george.glb",
+        "positive_influences": 15301,
+        "retarget_evaluated": 103,
+        "skeleton_bones": 404,
+        "total_skin_bind_slots": 404,
+        "unique_skins": 1,
+        "vertices": 10816,
+        "weighted_and_attachment_ancestors": 273,
+        "weighted_bones": 242
+      }
+    ],
+    "next": "Implement shared runtime skin/mesh palette compaction: remove only zero-use Skin bindings, remap all positive-weight joint indices, preserve bones/rest hierarchy/materials and prove CPU/GPU deformation parity before enabling. Ancestor pruning is separate and riskier."
+  },
+  "cutout_texture_budget": {
+    "source_bytes": 32971796,
+    "additional_sampled_bytes": 17538668,
+    "prepare_ms": 60.162,
+    "fixed_mean_ms": 22.92908125,
+    "fixed_p95_ms": 29.553,
+    "unused_cache_release_verified": true,
+    "full_long_run_memory_bound_verified": false
+  },
+  "skill_stress": {
+    "zones_peak": 32,
+    "projectiles_peak": 95,
+    "spawned": 384,
+    "area_hits": 10885,
+    "mean_before_ms": 44.5834145833333,
+    "mean_after_ms": 31.31706875,
+    "particle_before_ms": 20.293925,
+    "particle_after_ms": 8.58478958333333,
+    "visual_pool_misses": 720,
+    "complete_visual_coverage": false,
+    "stable_60_fps": false,
+    "shared_volley_muzzles": 353,
+    "dropped_by_kind": {
+      "missile": 315,
+      "impact": 405
+    }
+  },
+  "gpu_particle_curves": {
+    "default_backend": "gl_compatibility",
+    "image_comparisons": 36,
+    "max_channel_error": "1/255",
+    "stress_particle_ms": 8.58478958333333,
+    "stress_mean_ms": 31.31706875,
+    "stress_pool_misses": 720,
+    "normal_particle_ms": 1.64194375,
+    "normal_mean_ms": 22.2585666666667,
+    "stable_60_fps": false
+  },
+  "full_capacity_diagnostic": {
+    "missile_peak": 120,
+    "impact_peak": 85,
+    "muzzle_peak": 7,
+    "visual_pool_misses": 0,
+    "mean_ms": 57.1635729166667,
+    "particle_ms": 28.3809416666667,
+    "default_enabled": false,
+    "stable_60_fps": false
+  },
+  "typed_particle_state": {
+    "status": "implemented_verified_initial_measurement",
+    "geometry_samples": 5383,
+    "geometry_max_error": 0,
+    "cpu_control_max_channel_error": 0,
+    "varied_step_camera_color_comparisons": 18,
+    "varied_step_max_channel_error": 0.00392159819603,
+    "changed_pixels_over_threshold": 0,
+    "full_capacity_profile_mean_ms": 53.88963125,
+    "full_capacity_profile_p95_ms": 71.9,
+    "particle_spawn_ms": 5.24290625,
+    "particle_update_ms": 16.6174270833333,
+    "particle_total_ms": 23.8802854166667,
+    "dropped_effects": 0,
+    "final_state_fingerprint": "408ccb8c329edb01679d89e1c795dbc3a93f36a819ee49cbc1f24fb2c0538a72",
+    "gpu_motion_default_enabled": false,
+    "stable_60_fps": false,
+    "repeated_performance_comparison_pending": true
+  },
+  "particle_reuse": {
+    "state": "implemented",
+    "reset_cycles_per_mode": 3,
+    "modes": 3,
+    "compared_samples": 30015,
+    "repeated_allocations": 0,
+    "geometry_reference_samples": 5383,
+    "geometry_max_error": 0,
+    "full_capacity_mean_ms": 52.6131270833333,
+    "full_capacity_p95_ms": 69.331,
+    "spawn_ms": 4.85148541666667,
+    "update_ms": 15.87070625,
+    "particle_total_ms": 22.7323520833333,
+    "visual_pool_misses": 0,
+    "stable_60_fps": false,
+    "controlled_repeat_pending": true
+  },
+  "latest_flow_recapture": {
+    "checkpoints": 6,
+    "viewed": [
+      "battle",
+      "travel",
+      "departing"
+    ],
+    "result": "checkpoint_capture_pass",
+    "victory_injected": true,
+    "full_visual_acceptance": false,
+    "next_check": "Use projected silhouette bounds and formal baseline across transition frames; head-inside check does not establish occupancy or natural motion."
+  },
+  "continuous_flow_motion": {
+    "sample_step": 0.01,
+    "samples": 567,
+    "peaks": {
+      "anchor_delta": {
+        "model": "isabella.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 0.32,
+        "value": 0.108426243066788
+      },
+      "bounds_center_delta": {
+        "model": "isabella.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 0.32,
+        "value": 0.0643216446042061
+      },
+      "bounds_height_delta": {
+        "model": "isabella.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 4.58999999999995,
+        "value": 0.125095844268799
+      },
+      "hero_anchor_delta": {
+        "model": "gardener-kitty-dada.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 4.32999999999995,
+        "value": 0.0244463365525007
+      },
+      "hero_bounds_center_delta": {
+        "model": "gardener-kitty-dada.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 4.33999999999995,
+        "value": 0.0217056982219219
+      },
+      "hero_bounds_height_delta": {
+        "model": "gardener-kitty-dada.glb",
+        "phase": "travel",
+        "previous_phase": "travel",
+        "time": 4.32999999999995,
+        "value": 0.0568192005157471
+      }
+    },
+    "scope": "Animated skeleton bounds; not full mesh silhouettes or independent formal parity",
+    "hidden_ally_placement_velocity_fixed": true,
+    "entry_idle_assertion_passed": true,
+    "departure_smoothness_unresolved": true
+  },
+  "departure_camera_ease": {
+    "implemented": true,
+    "settle_seconds": 0.9,
+    "saved_travel_frame_exact": true,
+    "peak_anchor_uv_before": 0.02444633716286455,
+    "peak_anchor_uv_after": 0.018335683825209167,
+    "peak_skeletal_height_uv_before": 0.05681920051574707,
+    "peak_skeletal_height_uv_after": 0.04497230052947998,
+    "continuous_events": 16,
+    "forks": 1,
+    "routes": 2,
+    "max_leg_seconds": 5.4,
+    "full_visual_acceptance": false,
+    "remaining": "Actual route-follow velocity onset, animation pose transitions and full independent formal silhouette parity remain to be checked."
+  },
+  "allied_locomotion_blend": {
+    "implemented": true,
+    "seconds": 0.16,
+    "direct_comparison_transitions": 4,
+    "animation_clock_preserved": true,
+    "world_anchor_unchanged": true,
+    "death_interrupt_preserved": true,
+    "portrait_runtime_passed": true,
+    "hero_peak_skeletal_height_uv_before": 0.0449729561805725,
+    "hero_peak_skeletal_height_uv_after": 0.0223026275634766,
+    "hero_peak_center_uv_after": 0.014227875508368,
+    "scope": "Allied idle/walk/run only; enemy attack/death paths and full silhouette acceptance not covered",
+    "full_visual_acceptance": false
+  },
+  "event_camera_braking": {
+    "implemented": true,
+    "duration_seconds": 0.8,
+    "incoming_speed": 61.3571166992188,
+    "first_braking_speed": 61.3571166992188,
+    "straight_monotonic_deceleration_passed": true,
+    "event_endpoint_exact": true,
+    "first_event_seconds": 3.17,
+    "continuous_events": 16,
+    "max_leg_seconds": 5.4,
+    "curved_fallback": "Cubic Hermite preserving incoming velocity and zero endpoint velocity; monotonic speed not established",
+    "full_visual_acceptance": false
+  },
+  "curved_camera_brake": {
+    "left_stops": 17,
+    "implemented": true,
+    "endpoint_checks_passed": true,
+    "right_peak_speed_ratio": 1.000178,
+    "full_visual_acceptance": false,
+    "left_peak_speed_ratio": 1.000108,
+    "lookup_samples": 64,
+    "right_stops": 17,
+    "backwards_steps": 0
+  },
+  "priority_ground_intersections": {
+    "findings": [
+      "Most cutouts use root-only terrain height; grounded contact deformation currently limited to crystal.",
+      "2D base art and root covers may extend below anchor; these are upright planes in other themes.",
+      "Shared terrain analytic function does not guarantee per-vertex contact or transparent sorting correctness."
+    ],
+    "next": "Audit visible instances by asset footprint and actual GPU intersection; use shared contact profiles and narrow terrain-following bases while preserving upper silhouettes.",
+    "status": "source_inspected_solution_proposed"
+  },
+  "ground_contact_experiment": {
+    "enabled_by_default": false,
+    "opaque_bottom_buried_candidates": 1121,
+    "audited_upright_candidates": 9201,
+    "screenshot": "tempassets/work/world3d-contact-bases-experiment.png",
+    "efficiency_profile_pending": true,
+    "textures": 12,
+    "max_analytic_burial_metres": 0.0809727731305376,
+    "mesh_vertices": 45,
+    "added_instances": 0,
+    "visual_result": "Rejected for default: visible horizontal near-tree root seam; use actual asset contact profile and separate cover identity next",
+    "caveat": "Analytic foot sampling only; candidates include occluded instances, not pixel intersection counts",
+    "flag": "--contact-bases"
+  },
+  "contact_profile_refinement": {
+    "profile_benchmark_before_band_guard_mean_ms": 22.8089458,
+    "draws_profile": 1397,
+    "first_profile_capture_seam_removed": true,
+    "implementation": "Per-texture nine-column opaque foot profile; lower-band displacement to local ground without folded apron",
+    "draws_baseline": 1394,
+    "full_visual_acceptance": false,
+    "enabled_by_default": false,
+    "performance_gain_proven": false,
+    "baseline_mean_ms": 24.94904375,
+    "deformation_band": "max(8cm,8%height,2*abs(displacement)) prevents inversion",
+    "shared_mesh_vertices": 45,
+    "pending": "GPU contact/silhouette validation across slopes and angles, source asset identity, final-band performance repeat"
+  },
+  "contact_raster_validation": {
+    "full_visual_acceptance": false,
+    "scope": "Synthetic opaque feet against independently projected analytic height; not actual ground triangulation or all asset silhouettes",
+    "max_error_before_pixels": 21.10302734375,
+    "sampler_fix_default_enabled": true,
+    "terrain_amplitudes": [
+      1,
+      5
+    ],
+    "max_error_after_pixels": 1.0716552734375,
+    "threshold_pixels": 1.5,
+    "test_exit_resource_warnings_pending": true,
+    "cases": 12,
+    "angles": [
+      -0.5,
+      0,
+      0.5
+    ],
+    "added_draw_calls": 0,
+    "foot_samples": 156,
+    "deformation_default_enabled": false,
+    "fix": "repeat_disable on cutout art sampler"
+  },
+  "irregular_contact_refinement": {
+    "mesh_contact_rows_follow_alpha_profile": true,
+    "default_enabled": false,
+    "curved_max_error_before": 5.24496459960938,
+    "flat_max_error": 1.0716552734375,
+    "shared_vertices_per_texture": 85,
+    "contact_columns": 17,
+    "curved_foot_samples": 156,
+    "flat_samples": 156,
+    "full_visual_acceptance": false,
+    "curved_max_error_after": 1.10302734375,
+    "performance_recheck_pending": true,
+    "threshold": 1.5
+  },
+  "production_ground_contact_test": {
+    "max_green_pixel_loss": 0.00742479111453,
+    "full_visual_acceptance": false,
+    "pixel_loss_limit": 0.01,
+    "curved_foot_error_pixels": 1.10302734375,
+    "samples": 156,
+    "geometry": "Same 160x260 PlaneMesh, subdivisions160x260 and production ground vertex shader; fragment color neutralized",
+    "deformation_default_enabled": false,
+    "cases": 12,
+    "real_artwork_validation_pending": true
+  },
+  "contact_mesh_85_vertex_benchmark": {
+    "mean_ms": 22.6715354166667,
+    "controlled_AB_repeat_pending": true,
+    "draw_calls": 1397,
+    "p95_ms": 29.418,
+    "stable_60_fps": false,
+    "scenery_cpu_ms": 0.65366875,
+    "visual_pool_misses": 0,
+    "models": 39,
+    "texture_and_profile_prepare_ms": 102.758
+  },
+  "actual_asset_contact_tests": {
+    "tree_a": {
+      "samples": 12,
+      "max_error_pixels": 0.52133178710938,
+      "ground_pixel_loss": 0.00068306010929
+    },
+    "fern": {
+      "max_error_pixels": 10.0775146484375,
+      "samples": 72,
+      "passed": false,
+      "actual_anchor": 1.0,
+      "ground_pixel_loss": 0.00925925925926
+    },
+    "default_deformation_enabled": false,
+    "next": "Separate true support/contact pixels from drooping/frond silhouette and validate root-cover offsets; do not flatten all lowest opaque pixels",
+    "test_resource_warnings_pending": true,
+    "tree_b": {
+      "samples": 18,
+      "max_error_pixels": 0.60299682617188,
+      "ground_pixel_loss": 0.00095308694271
+    }
+  },
+  "selective_tree_contact_rollout": {
+    "next": "Fix litter, offset root covers and plant support semantics; default selective performance recheck",
+    "whole_forest_deformation_default": false,
+    "inspected_battle": true,
+    "contact_roles_retained": true,
+    "source_asset_identity_preserved": true,
+    "default_enabled": "Body sprites carrying trunk_radius; root_cover excluded",
+    "flow_capture_passed": true,
+    "full_visual_acceptance": false
+  },
+  "root_cover_terrain_support": {
+    "default_enabled": true,
+    "gpu_reference_cases": 20,
+    "max_channel_error": 0,
+    "analytic_upright_candidates": 8000,
+    "remaining_buried_candidates": 126,
+    "remaining_litter": 124,
+    "remaining_swamp_shell": 2,
+    "flow_passed": true,
+    "battle_image_reviewed": true,
+    "benchmark_mean_ms": 24.63565,
+    "benchmark_p95_ms": 35.649,
+    "stable_60_fps": false,
+    "note": "Root cover uses its own terrain support center in vertex shader, preserves silhouette and batching, bounds expanded. Half precision uploaded heading included in independent reference. All-terrain and asset contact work remains incomplete."
+  },
+  "litter_contact_anchor": {
+    "native_anchor": [
+      0.5,
+      1.0
+    ],
+    "legacy_unchanged": true,
+    "additional_geometry": 0,
+    "gpu_ground_cases": 6,
+    "max_ground_occlusion_fraction": 0.0020687951584,
+    "rigid_silhouette_preserved": true,
+    "contact_line_test_applicable": false,
+    "analytic_litter_buried": 0,
+    "remaining_analytic_buried": 2,
+    "flow_passed": true,
+    "battle_image_reviewed": true,
+    "note": "Litter three-quarter artwork retained upright. Ground test uses production terrain grid, 3 angles and 2 amplitudes, diagnostic alpha mask; not full-theme visual acceptance. Test exit still reports resource warnings; full migration incomplete."
+  },
+  "swamp_arch_contact": {
+    "default_enabled": true,
+    "asset": "biomes/swamp/shell",
+    "gpu_cases": 6,
+    "foot_samples": 42,
+    "max_foot_error_pixels": 0.56387329101563,
+    "max_ground_occlusion_fraction": 0.00625723224617,
+    "swamp_battle_image_reviewed": true,
+    "flow_passed": true,
+    "material_order_test_passed": true,
+    "retirement_test_passed": true,
+    "note": "Shared 85-vertex profile mesh for swamp shell only, preserves upper arch. Raster test fits complete width and supports native biome asset paths. Other biome shells and full theme contact remain unverified. Existing raster harness exit resource warnings remain."
+  },
+  "architectural_contact_expansion": {
+    "default_themes": [
+      "swamp",
+      "palace",
+      "sewer"
+    ],
+    "shared_geometry_module": "godot/scripts/world3d/contact_geometry.gd",
+    "raster_exit_warnings_resolved": true,
+    "palace_max_foot_error_pixels": 0.60931396484375,
+    "sewer_max_foot_error_pixels": 1.37496948242188,
+    "palace_ground_loss_fraction": 0.00599248610551,
+    "sewer_ground_loss_fraction": 0.00192563385448,
+    "battle_captures_reviewed": [
+      "sewer",
+      "palace"
+    ],
+    "material_order_passed": true,
+    "note": "Pure shared geometry extraction avoids loading whole scenery dependencies in isolated GPU test. Swamp exact prior metrics unchanged with clean exit. Palace/sewer real alpha 6 cases each pass; default enabled only verified arch themes. Whale, broader props, dynamic all-theme occlusion and stable 60 FPS still pending."
+  },
+  "six_theme_contact_audit": {
+    "default_enabled": true,
+    "whale_foot_samples": 48,
+    "whale_max_foot_error_pixels": 0.61907958984375,
+    "whale_ground_loss_fraction": 0.00343869399097,
+    "whale_battle_reviewed": true,
+    "rotated_successor_six_themes_passed": true,
+    "upright_candidates": {
+      "forest": 8052,
+      "swamp": 866,
+      "sewer": 488,
+      "palace": 367,
+      "whale": 603,
+      "crystal": 0
+    },
+    "upright_buried_candidates": 0,
+    "crystal_analytic_validation_applicable": false,
+    "note": "Audit now records per-theme reports and excluded deformed counts explicitly. Zero upright candidates in crystal means no coverage, not passed. Static analytic audit does not verify GPU slopes, all seed routes or moving-camera intersections. Whale contact GPU clean exit and theme battle checked."
+  },
+  "crystal_ground_skirt_clearance": {
+    "default_clearance_metres": "0.001 + 0.0025 * abs(terrain_amplitude)",
+    "gpu_assets": 9,
+    "gpu_cases": 54,
+    "max_ground_loss_fraction": 0.00767064763569,
+    "prop0_before_fraction": 0.02594544506863,
+    "prop0_after_max_fraction": 0.00262257696693,
+    "crystal_battle_reviewed": true,
+    "additional_draws": 0,
+    "note": "Mode 3-5 support clearance addresses analytic-height vs triangulated-floor coplanarity. Production skirt geometry extracted unchanged to shared helper. Tests use real marks and downward camera; 2 m props only, shell-specific rock profile and very large props still need dedicated coverage. No stable performance conclusion."
+  },
+  "large_crystal_contact": {
+    "shell_height_m": 11,
+    "shell_max_ground_loss_fraction": 0.00160766917741,
+    "wall_height_m": 10.5,
+    "wall_max_ground_loss_fraction": 0.00164473684211,
+    "rock_profile_shared": true,
+    "unused_sampler_node_removed": true,
+    "retirement_passed": true,
+    "crystal_right_route_events": 16,
+    "crystal_right_route_count": 2,
+    "crystal_max_leg_seconds": 5.45,
+    "crystal_braking_speed_ratio": 1.00015858938954,
+    "note": "GPU used shell mode5 and real rock profile/marks; sizes from biome generation maxima. Continuous route checks state/camera motion, not full dynamic foliage pixel validation. Height-specific result filenames added to avoid overwriting smaller fixtures. Overall migration remains active."
+  },
+  "shared_atmosphere_clock_experiment": {
+    "enabled_by_default": false,
+    "flag": "--shared-atmosphere-clock",
+    "gpu_pixels": 1536000,
+    "gpu_max_channel_difference": 0,
+    "clock_cpu_ms": 1.65824791666667,
+    "baseline_cpu_ms": 1.7258125,
+    "clock_mean_ms": 22.1742375,
+    "baseline_mean_ms": 22.0359041666667,
+    "clock_p95_ms": 28.52,
+    "baseline_p95_ms": 27.899,
+    "frame_gain_proven": false,
+    "default_atmosphere_regression_passed": true,
+    "note": "One RGBAF texel per actor service shares animation time only; scoped shader macro affects native actor atmosphere exclusively. Six timestamps incl 12h compared in same viewport, exact pixels. Small CPU saving with no end-to-end gain; remains opt-in. Next performance work must tackle larger submission/render/particle costs."
+  },
+  "draw_submission_audit": {
+    "visible_actors": 40,
+    "baseline_draws": 1282,
+    "without_actors_draws": 398,
+    "without_scenery_draws": 969,
+    "without_actor_atmosphere_draws": 1159,
+    "baseline_primitives": 1144764,
+    "restored_exact": true,
+    "composer_surfaces_per_actor": 10,
+    "composer_texture_color_classes": 2,
+    "isabella_body_surfaces": 13,
+    "isabella_body_texture_color_classes": 2,
+    "next": "Investigate compatible surface merging with full skin/blendshape/material preservation and independent GPU comparisons.",
+    "note": "Frozen diagnostic uses camera layer exclusion rather than actor hide/show. Hide/show altered primitive counts while calls stayed equal, invalidating initial restore test; layer masking restores both exactly. Texture/color signatures alone do not prove merge compatibility. No frame-time improvement claimed."
+  },
+  "character_surface_merge": {
+    "enabled_by_default": true,
+    "disable_flag": "--no-merge-character-surfaces",
+    "gpu_models": 6,
+    "gpu_comparisons": 36,
+    "gpu_max_byte_error": 1,
+    "merged_draws": 689,
+    "baseline_draws": 1395,
+    "merged_mean_ms": 14.1526479166667,
+    "baseline_mean_ms": 21.9143583333333,
+    "merged_p95_ms": 18.928,
+    "baseline_p95_ms": 27.753,
+    "state_fingerprint_unchanged": true,
+    "model_count": 39,
+    "dropped_effects": 0,
+    "atmosphere_equipment_regression_passed": true,
+    "flow_passed": true,
+    "battle_image_reviewed": true,
+    "stable_60_fps": false,
+    "note": "Native prepare_body hook defaults no-op; only world3d applies cached compatible surface merge. Standard material storage properties + format define groups. Concatenates skin/geometry and preserves union of imported LOD thresholds/indices. Blend shapes, shadow meshes, custom channels and surface overrides fall back. Further memory/LOD boundary/high skill pressure verification remains."
+  },
+  "merged_full_skill_pressure": {
+    "mesh_source_buffer_bytes": 4999044,
+    "mesh_converted_buffer_bytes": 6843696,
+    "converted_cache_entries": 5,
+    "stress_mean_ms": 42.7653958333333,
+    "stress_p95_ms": 57.981,
+    "stress_draws": 1443,
+    "stress_particle_cpu_ms": 22.3365854166667,
+    "stress_spawn_ms": 4.77759166666667,
+    "stress_update_ms": 15.6058416666667,
+    "stress_model_count": 39,
+    "peak_missile_effects": 120,
+    "peak_impact_effects": 85,
+    "dropped_effects": 0,
+    "simulation_fingerprint_unchanged": true,
+    "note": "Full capacity + experimental GPU particle motion, fixed 32 zones/384 extra shots/10885 hits. Still too slow. Mesh audit measures buffers, not driver or total memory; five converted source meshes shared, sixth unchanged. Next target per-particle transform/color/custom uploads and update math; no stable 60 FPS claim."
+  },
+  "particle_bulk_and_stretch_trials": {
+    "bulk_enabled_by_default": false,
+    "bulk_flag": "--bulk-particle-upload",
+    "bulk_reference_samples": 5383,
+    "bulk_max_transform_error": 0,
+    "bulk_stress_mean_ms": 43.6932395833333,
+    "bulk_stress_particle_ms": 23.3177604166667,
+    "gpu_stretch_enabled_by_default": false,
+    "gpu_stretch_flag": "--gpu-particle-motion",
+    "gpu_stretch_pixel_comparisons": 2359296,
+    "gpu_stretch_max_channel_error": 0.00392159819603,
+    "gpu_stretch_changed_pixels": 0,
+    "gpu_stretch_stress_mean_ms": 43.5670166666667,
+    "gpu_stretch_stress_particle_update_ms": 14.1850166666667,
+    "gpu_stretch_stress_particle_ms": 21.2174875,
+    "frame_gain_proven": false,
+    "default_cpu_regression_passed": true,
+    "note": "Bulk buffer exact but slower, stays off. Stretch mode1 now supported by experimental GPU current-state path including CPU Basis.scaled row semantics, velocity orientation remains CPU. Full Storm layer coverage reached (impact2+3, missile3+3, muzzle1+3 analytic+hybrid) without drops or simulation changes. Need larger physics/state submission savings; no stable 60 FPS claim."
+  },
+  "ground_grid_world_lock": {
+    "implemented": true,
+    "vertices": 42021,
+    "triangles": 83200,
+    "gpu_pixels": 768000,
+    "max_channel_byte_difference": 1,
+    "tree_contact_max_pixels": 0.522,
+    "flow_capture_passed": true,
+    "all_intersections_fixed": false
+  },
+  "fern_contact_anchor": {
+    "implemented": true,
+    "instances_audited": 2194,
+    "previous_support_gap_max_metres": 0.24610328,
+    "support_gap_over_2cm_after": 0,
+    "buried_over_2cm_after": 0,
+    "extra_draw_calls": 0,
+    "extra_shader_work": 0,
+    "flow_capture_passed": true,
+    "retirement_passed": true,
+    "full_route_visual_acceptance": false
+  },
+  "bounded_ground_contact": {
+    "default_enabled": false,
+    "ui_toggle": "精细贴地（重开测试）",
+    "nine_crystal_props_passed": true,
+    "large_prop2_shell_passed": true,
+    "continuous_events": 16,
+    "retirement_passed": true,
+    "toggle_reload_passed": true,
+    "high_stress_mean_ms": 41.7592167,
+    "control_mean_ms": 41.9746042,
+    "stable_60_fps": false,
+    "full_visual_acceptance": false
+  },
+  "gpu_particle_motion_default": {
+    "enabled_in_native_gl": true,
+    "fallback_flag": "--cpu-particle-motion",
+    "cpu_high_stress_mean_ms": 47.2486458,
+    "gpu_high_stress_mean_ms": 39.035175,
+    "same_workload_verified": true,
+    "dropped_effects": 0,
+    "default_flow_passed": true,
+    "stable_60_fps": false
+  }
+}

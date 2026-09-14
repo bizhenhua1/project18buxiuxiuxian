@@ -21,11 +21,11 @@ func _ready() -> void:
 	var column := StudyUI.column(self)
 	var top := HBoxContainer.new()
 	column.add_child(top)
-	var title := StudyUI.label("仙途 · 列阵试锋",28)
+	var title := StudyUI.label("雾林调查局 · 列阵试锋",28)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(title)
 	if journey_battle:
-		title.text = "云岫 · "+str(Journey.state.active_zone().get("title","妖息遭遇"))
+		title.text = "雾林行记 · "+str(Journey.state.active_zone().get("title","异常气息遭遇"))
 		return_button = StudyUI.button("返回浮岛",func():Journey.return_to_world())
 		top.add_child(return_button)
 	else:
@@ -51,7 +51,7 @@ func _ready() -> void:
 	scroll.add_child(pool)
 	for spec in model.rules.cards:
 		var id: String = spec.id
-		var prefix := "御兽 · " if spec.pool == "enemy" else ""
+		var prefix := "使役 · " if spec.pool == "enemy" else ""
 		var button := StudyUI.button(prefix+spec.name,func():
 			note(model.add_card(id))
 			arena.rebuild())
@@ -71,7 +71,7 @@ func _ready() -> void:
 	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail.custom_minimum_size = Vector2(230,175)
 	right.add_child(detail)
-	right.add_child(StudyUI.button("切换选中法宝模式",func():
+	right.add_child(StudyUI.button("切换选中封印物模式",func():
 		if not selected.is_empty() and selected.side == "player": arena.change_mode(selected.index)))
 	log_text = RichTextLabel.new()
 	log_text.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -115,7 +115,7 @@ func _ready() -> void:
 	speed_picker.select(1)
 	speed_picker.item_selected.connect(func(i):speed = [0.5,1.0,2.0,4.0][i])
 	bar.add_child(speed_picker)
-	message = StudyUI.label("拖动己方卡牌调整顺序 · 双击法宝切模式 · 右键移除 · 空格暂停",14)
+	message = StudyUI.label("拖动己方卡牌调整顺序 · 双击封印物切模式 · 右键移除 · 空格暂停",14)
 	column.add_child(message)
 	model.emitted.connect(record_event)
 	model.finished.connect(finish)
@@ -157,17 +157,17 @@ func show_detail(unit: Dictionary) -> void:
 	selected = unit
 	if not detail: return
 	detail.text = "%s\n生命 %d / %d · 护盾 %d\n攻击 %.1f · 间隔 %.2fs\n外防 %d · 内防 %d\n累计伤害 %.0f · 治疗 %.0f\n\n%s" % [unit.name,unit.hp,unit.maxHp,unit.shield,unit.atk,unit.cd/1000.0,unit.physDef,unit.spellDef,unit.damageDealt,unit.healDone,unit.skillText]
-	if unit.mode == "held": detail.text += "\n手持：不独立承伤，30% 基础血量并入道童；主动技能封印。"
+	if unit.mode == "held": detail.text += "\n手持：不独立承伤，30% 基础血量并入提灯调查员；主动技能封印。"
 func guard_lineup() -> void:
 	if journey_battle and model.phase == "victory": return
 	model.reset()
 	log_text.clear()
 	model.player.clear()
-	for id in ["waci-yin","masuo","daotong","taomu-jian","tongjing","xiaohulu","qingfeng-jian","lihuo-shu"]:
+	for id in ["watchful-clock","silent-medium","investigator","sealed-book","faceless-mask","soul-lantern","night-warden","scarlet-edict"]:
 		model.add_card(id)
 	model.toggle_mode(3)
 	arena.rebuild()
-	note("护阵：瓦瓷印在前承伤，道童居中，桃木剑手持；战斗数值沿用原型")
+	note("护阵：窥时怀表在前承伤，提灯调查员居中，封缄之书手持；战斗数值沿用原型")
 func record_event(event: Dictionary) -> void:
 	if event.type in ["death","revive"]:
 		log_text.append_text("%.1fs  %s%s\n" % [model.elapsed,event.unit.name,"倒下" if event.type == "death" else "重聚"])
@@ -180,6 +180,6 @@ func finish(result: String) -> void:
 	if journey_battle:
 		Journey.state.settle(result)
 		Journey.save()
-		message.text = "妖息已平，所得灵石已记入行囊。返回浮岛继续探路。" if result == "victory" else "此处妖息尚在。可以调整阵容再战，或返回浮岛退回来路。"
+		message.text = "异常气息已平，所得秘银已记入行囊。返回浮岛继续探路。" if result == "victory" else "此处异常气息尚在。可以调整阵容再战，或返回浮岛退回来路。"
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_pressed() and not event.is_echo() and event.keycode == KEY_SPACE and model.phase == "battle": model.paused = not model.paused

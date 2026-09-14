@@ -5,6 +5,8 @@ var fighting := false
 var home := HomeState.new()
 var expedition_active := false
 var autosave_elapsed := 0.0
+func _enter_tree():
+	preload("res://scripts/journey/native_save_upgrade.gd").import_settings()
 func _process(dt: float) -> void:
 	home.advance(dt)
 	autosave_elapsed += dt
@@ -53,7 +55,7 @@ func return_home() -> bool:
 	if fighting or not expedition_active or state.world.walking: return false
 	home.bank += state.stones
 	home.returns += 1
-	home.message = "平安归来 · 行囊中的 %d 灵石已入库。" % state.stones
+	home.message = "平安归来 · 行囊中的 %d 秘银已入库。" % state.stones
 	state.stones = 0
 	expedition_active = false
 	save()

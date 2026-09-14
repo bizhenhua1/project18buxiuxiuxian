@@ -16,7 +16,7 @@ func run() -> void:
 	second._drop_data(Vector2.ZERO,{"formation_index":0})
 	check(app.model.player[1].uid == hero_uid,"Drop moves real formation order")
 	app.guard_lineup()
-	check(app.model.player[0].cardId == "waci-yin" and app.model.player[3].mode == "held","Guard sample shields hero and holds sword")
+	check(app.model.player[0].cardId == "watchful-clock" and app.model.player[3].mode == "held","Guard sample shields hero and holds sword")
 	check(app.model.player[2].maxHp > 48,"Held HP inherited in rendered formation")
 	app.start_button.pressed.emit()
 	check(app.model.phase == "battle","Start button launches battle")
@@ -39,7 +39,7 @@ func run() -> void:
 	for spec in app.model.rules.cards:
 		var model := BattleModel.new()
 		model.player = [model.rules.create_unit(spec.id,"player")]
-		model.enemy = [model.rules.create_unit("shitoujing","enemy")]
+		model.enemy = [model.rules.create_unit("bell-guardian","enemy")]
 		model.act(model.player[0])
 		for shot in model.shots: model.resolve(shot)
 	# Hero death cannot be postponed by continually launching new casts.

@@ -1,0 +1,13 @@
+{
+  "soft_limit": 2000,
+  "lighting": {"burst_limit": 32, "burst_merge_distance": 0.75, "burst_merge_window": 0.05},
+  "dense": {"projectile_threshold": 24, "caps": {"missile": [3, 0, 1, 0, 0, 0], "impact": [2, 1, 0, 0, 0], "muzzle": [1, 1, 0, 0]}},
+  "minimum": {"missile": [3, 0, 1, 1, 0, 0], "impact": [2, 1, 0, 1, 0], "muzzle": [1, 1, 0, 0]},
+  "reduce_order": {"missile": [5, 4, 1, 2, 3, 0], "impact": [4, 2, 3, 1, 0], "muzzle": [3, 2, 1, 0]},
+  "layer_names": {"missile": ["StormMissile", "DustTrail", "Cutters", "OrbGlow", "Dust", "CloudTrail"], "impact": ["Cutters", "StormExplosion", "CloudBurst", "OrbGlow", "Dust"], "muzzle": ["StormMuzzle", "Cutters", "CloudBurst", "Dust"]},
+  "ordinary": {
+    "missile": {"caps": [3, 4, 6, 1, 4, 6], "emission": [1, 0.25, 0.35, 1, 0.2, 0.25], "gain": [0.6, 1, 0.65, 0.3, 1, 1], "size": [1, 1, 1, 0.6, 1, 1]},
+    "impact": {"caps": [2, 2, 12, 2, 14], "emission": [1, 1, 0.4, 1, 0.4], "gain": [0.65, 0.65, 1, 0.35, 1], "size": [1, 0.8, 1, 0.65, 1]},
+    "muzzle": {"caps": [1, 4, 4, 3], "emission": [1, 0.5, 0.5, 0.5], "gain": [0.65, 0.65, 1, 1], "size": [1, 1, 1, 1]}
+  }
+}

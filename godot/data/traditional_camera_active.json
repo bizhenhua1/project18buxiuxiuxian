@@ -123,7 +123,7 @@
   ],
   "battle_units": [
     {
-      "card_id": "waci-yin",
+      "card_id": "watchful-clock",
       "clearance": 7.0,
       "depth": 46.0,
       "height": 10.0,
@@ -132,7 +132,7 @@
       "x": -42.0
     },
     {
-      "card_id": "masuo",
+      "card_id": "silent-medium",
       "clearance": 7.0,
       "depth": 45.0,
       "height": 10.0,
@@ -141,7 +141,7 @@
       "x": -29.0
     },
     {
-      "card_id": "daotong",
+      "card_id": "investigator",
       "clearance": 0.0,
       "depth": 29.5558794863764,
       "height": 38.0,
@@ -150,7 +150,7 @@
       "x": -11.3110016567551
     },
     {
-      "card_id": "taomu-jian",
+      "card_id": "sealed-book",
       "clearance": 7.0,
       "depth": 42.0,
       "height": 10.0,
@@ -159,7 +159,7 @@
       "x": -6.0
     },
     {
-      "card_id": "tongjing",
+      "card_id": "faceless-mask",
       "clearance": 7.0,
       "depth": 40.0,
       "height": 10.0,
@@ -168,7 +168,7 @@
       "x": 6.0
     },
     {
-      "card_id": "xiaohulu",
+      "card_id": "soul-lantern",
       "clearance": 7.0,
       "depth": 42.0,
       "height": 10.0,
@@ -177,7 +177,7 @@
       "x": 17.0
     },
     {
-      "card_id": "qingfeng-jian",
+      "card_id": "night-warden",
       "clearance": 7.0,
       "depth": 43.0,
       "height": 10.0,
@@ -186,7 +186,7 @@
       "x": 27.0
     },
     {
-      "card_id": "lihuo-shu",
+      "card_id": "scarlet-edict",
       "clearance": 7.0,
       "depth": 45.0,
       "height": 10.0,

@@ -21,7 +21,7 @@ func run() -> void:
  assert(app.model.player[1].uid==first_uid,"Formation drop did not reorder")
  var prop_index:=-1
  for i in range(app.model.player.size()):
-  if app.model.player[i].cardType=="fabao":prop_index=i;break
+  if app.model.player[i].cardType=="relic":prop_index=i;break
  assert(prop_index>=0)
  var id:String=app.model.player[prop_index].cardId
  app.model.remove_at(prop_index);app.arena.rebuild()

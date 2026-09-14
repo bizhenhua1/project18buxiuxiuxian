@@ -223,7 +223,7 @@ func _build_ui() -> void:
 	actions.add_theme_constant_override("separation",10)
 	dialogue_row.add_child(actions)
 	left_button = AdventureSkin.button("循人迹",func():choose(-1))
-	right_button = AdventureSkin.button("寻妖息",func():choose(1))
+	right_button = AdventureSkin.button("寻异常气息",func():choose(1))
 	fight = AdventureSkin.button("迎战",start_battle)
 	fortune = AdventureSkin.button("调查旧迹",func():resolve("fortune"))
 	supplies = AdventureSkin.button("取些补给",func():resolve("supplies"))
@@ -380,7 +380,7 @@ func _refresh_kit() -> void:
 	if not selected_unit.is_empty() and not model.player.has(selected_unit): selected_unit = {}
 	kit_description.text = "选择下方卡牌，可收回或切换持用方式" if selected_unit.is_empty() else selected_unit.name+" · "+selected_unit.skillText
 	kit_description.tooltip_text = kit_description.text
-	kit_mode.disabled = selected_unit.is_empty() or selected_unit.get("cardType","") != "fabao"
+	kit_mode.disabled = selected_unit.is_empty() or selected_unit.get("cardType","") != "relic"
 	kit_remove.disabled = selected_unit.is_empty() or selected_unit.get("cardType","") == "char"
 	if kit_tab==1:
 		kit_description.text="点击角色上阵或收回 · 长按角色装配武器"
@@ -678,8 +678,8 @@ func finish_battle(result: String) -> void:
 	if result == "victory":
 		var gain := int(LocalRouteSpec.entries(route_zone,branch)[encounter_step].get("reward",0))+int(route_zone.tier)
 		Journey.state.stones += gain
-		Journey.state.journal.append("战胜拦路妖物 · 灵石 +%d" % gain)
-		reward_notice.text = "战斗胜利 · 灵石 +%d · 已收入行囊" % gain
+		Journey.state.journal.append("战胜拦路异变体 · 秘银 +%d" % gain)
+		reward_notice.text = "战斗胜利 · 秘银 +%d · 已收入行囊" % gain
 		notice_left = 3.5
 		encounter_step += 1
 		Journey.state.local_steps[Journey.state.pending] = encounter_step
@@ -699,7 +699,7 @@ func resolve(option: String) -> void:
 	if phase != "encounter" or not is_social(): return
 	var before := Journey.state.stones
 	if Journey.state.resolve_event(option,false):
-		reward_notice.text = "补给入囊 · 灵石 +%d" % (Journey.state.stones-before) if option == "supplies" else "获得寻宝机缘 · 后续地块收获增加"
+		reward_notice.text = "补给入囊 · 秘银 +%d" % (Journey.state.stones-before) if option == "supplies" else "获得寻宝线索 · 后续地块收获增加"
 		notice_left = 3.5
 		encounter_step += 1
 		Journey.state.local_steps[Journey.state.pending] = encounter_step
@@ -733,8 +733,8 @@ func _update_ui() -> void:
 	formation_button.text = "整备完毕" if kit_panel.visible else "随行整备"
 	pause_button.disabled = kit_panel.visible
 	leave_button.text = "返岛" if route_complete else "归途"
-	bag_label.text = "行囊 · %d 灵石" % Journey.state.stones
-	status.text = {"approach":"山风微起 · 前路有岔","choose":"听风辨路","travel":"沿路探幽","encounter":"前方有缘","battle":"交锋之中","clearing":"妖息渐散","defeat":"胜负乃常事 · 原地休整","arrived":"此间已探尽 · 收获入囊"}.get(phase,phase)
+	bag_label.text = "行囊 · %d 秘银" % Journey.state.stones
+	status.text = {"approach":"山风微起 · 前路有岔","choose":"听风辨路","travel":"沿路探幽","encounter":"前方有缘","battle":"交锋之中","clearing":"异常气息渐散","defeat":"胜负乃常事 · 原地休整","arrived":"此间已探尽 · 收获入囊"}.get(phase,phase)
 	progress.value = distance/route_spec.end*100
 	event_box.visible = (choosing or encounter or route_complete) and not kit_panel.visible
 	event_panel.visible = event_box.visible
@@ -754,21 +754,21 @@ func _update_ui() -> void:
 	dialogue_speaker.text="旅途见闻"
 	if route_complete:
 		event_title.text = "此地探索完成"
-		event_text.text = "地块奖励 · 灵石 +%d\n战斗与事件所得已收入行囊，可从上方返岛。" % final_reward
+		event_text.text = "地块奖励 · 秘银 +%d\n战斗与事件所得已收入行囊，可从上方返岛。" % final_reward
 	elif choosing:
 		event_title.text = "岔路 · 听风辨路"
-		event_text.text = "一侧留有人迹，另一侧隐约传来妖息。"
+		event_text.text = "一侧留有人迹，另一侧隐约传来异常气息。"
 	elif social:
-		event_title.text = {"traveler":"路遇采药人","merchant":"歇脚行商","story":"旅途旧迹"}.get(kind,"旅途机缘")
-		event_text.text = {"traveler":"他收拢药篓，朝你点了点头。\n“前面不好走。带些补给，或让我告诉你一处旧迹。”","merchant":"行商将旧布铺开，露出随身带来的货物。\n“补给在这里。想找些别的？这张寻宝符或许用得上。”","story":"旧路旁留着一道模糊的刻痕。你停下脚步，辨认其中的线索。"}.get(kind,"你在路边停下脚步，查看留下的物品与线索。")
-		dialogue_speaker.text={"traveler":"采药人","merchant":"行商","story":"旧迹"}.get(kind,"旅途见闻")
+		event_title.text = {"traveler":"路遇档案员","merchant":"歇脚行商","story":"旅途旧迹"}.get(kind,"旅途线索")
+		event_text.text = {"traveler":"他收拢药篓，朝你点了点头。\n“前面不好走。带些补给，或让我告诉你一处旧迹。”","merchant":"行商将旧布铺开，露出随身带来的货物。\n“补给在这里。想找些别的？这张勘探许可或许用得上。”","story":"旧路旁留着一道模糊的刻痕。你停下脚步，辨认其中的线索。"}.get(kind,"你在路边停下脚步，查看留下的物品与线索。")
+		dialogue_speaker.text={"traveler":"档案员","merchant":"行商","story":"旧迹"}.get(kind,"旅途见闻")
 	else:
-		event_title.text = "妖物挡路" if phase != "defeat" else "暂歇 · 重整旗鼓"
+		event_title.text = "异变体挡路" if phase != "defeat" else "暂歇 · 重整旗鼓"
 		event_text.text = "前方的身影停住了。它察觉了你的靠近，挡在去路中央。\n你收紧手中的武器，准备迎战。" if phase != "defeat" else "交锋暂歇，队伍需要重新站稳脚跟。\n休整后，将在原地再次迎战。"
-	fortune.text = "寻宝符 · 4 灵石" if kind == "merchant" else "调查旧迹"
+	fortune.text = "勘探许可 · 4 秘银" if kind == "merchant" else "调查旧迹"
 	fortune.disabled = kind == "merchant" and Journey.state.stones < 4
-	if phase == "sighting": status.text = "妖物现身 · 即将交锋"
-	if phase == "entering": status.text = "妖势展开 · 凝神迎敌"
+	if phase == "sighting": status.text = "异变体现身 · 即将交锋"
+	if phase == "entering": status.text = "敌势展开 · 凝神迎敌"
 	reward_notice.visible = notice_left > 0
 	road_actor.visible = not arena.scene_mode and phase == "entering" and scene_actor.get("hidden",false)
 	if StyleLibrary.active:

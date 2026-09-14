@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="仙途 · 原生制作样本"
+config/name="雾林调查局 · 黑暗童话"
 run/main_scene="res://scenes/mistwood_start.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 

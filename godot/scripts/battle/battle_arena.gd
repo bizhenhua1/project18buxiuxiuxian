@@ -43,7 +43,7 @@ func set_card_names(value: bool) -> void:
 	config.load("user://battle-presentation.cfg")
 	config.set_value("cards","show_names",value)
 	config.save("user://battle-presentation.cfg")
-const PROJECTILES := {"taomu-jian":"sword","qingfeng-jian":"sword","xuantie-jian":"heavysword","kaishan-fu":"axe","waci-yin":"seal","masuo":"rope","tongjing":"mirror","xiaohulu":"gourd","juhun-fan":"fan"}
+const PROJECTILES := {"sealed-book":"sword","night-warden":"sword","stopped-clock":"heavysword","oathbreaker-mask":"axe","watchful-clock":"seal","silent-medium":"rope","faceless-mask":"mirror","soul-lantern":"gourd","containment-record":"fan"}
 const PROJ_SIZE := {"sword":40,"heavysword":46,"axe":44,"seal":34,"rope":36,"mirror":30,"gourd":32,"fan":40}
 func setup(state: BattleModel, app: Control, route_view: CorridorView = null) -> void:
 	model = state
@@ -89,8 +89,7 @@ func setup(state: BattleModel, app: Control, route_view: CorridorView = null) ->
 func clean_path(path: String) -> String:
 	path = StyleLibrary.path(path)
 	if path.begins_with("res://"): return path.trim_prefix("res://")
-	var derived := "assets/cleaned/"+path.get_file()
-	return derived if path.begins_with("assets/style-e/") and ResourceLoader.exists("res://"+derived) else path
+	return path
 func art_for(unit: Dictionary) -> Texture2D:
 	if StyleLibrary.active and (unit.get("cardType","")=="char" or unit.get("portrait_kind","")=="person") and unit.get("side","player")=="player":
 		var model_file:String=preload("res://scripts/equipment/loadouts.gd").model_for_unit(unit)
@@ -100,7 +99,7 @@ func art_for(unit: Dictionary) -> Texture2D:
 			return art_textures[portrait]
 	var path: String = unit.get("art","")
 	var id: String = unit.get("cardId",unit.get("id",""))
-	if path.is_empty() and PROJECTILES.has(id): path = "assets/style-e/style-e-proj-%s.png" % PROJECTILES[id]
+	if path.is_empty() and PROJECTILES.has(id): path = StyleLibrary.card_path(id).trim_prefix("res://")
 	if path.is_empty(): return null
 	path = clean_path(path)
 	if not art_textures.has(path):
@@ -158,7 +157,7 @@ func select(unit: Dictionary) -> void:
 func remove_card(index: int) -> void:
 	if formation_locked: return
 	if external_scenery and index < model.player.size() and index >= 0 and model.player[index].cardType == "char":
-		owner_app.note("道童须留在随行阵中")
+		owner_app.note("提灯调查员须留在随行阵中")
 		return
 	model.remove_at(index)
 	rebuild()
@@ -365,7 +364,7 @@ func draw_effects() -> void:
 				var beam_type: String = PROJECTILES[shot.from.cardId]
 				vfx.draw_set_transform(spark,t*TAU if beam_type in ["seal","mirror"] else (b-a).angle())
 				var edge: float = PROJ_SIZE[beam_type]*secondary_scale
-				vfx.draw_texture_rect(texture_for("assets/style-e/style-e-proj-%s.png" % beam_type),Rect2(Vector2.ONE*-edge/2,Vector2.ONE*edge),false,Color(1,1,1,envelope))
+				vfx.draw_texture_rect(texture_for(StyleLibrary.projectile_path(beam_type).trim_prefix("res://")),Rect2(Vector2.ONE*-edge/2,Vector2.ONE*edge),false,Color(1,1,1,envelope))
 				vfx.draw_set_transform(Vector2.ZERO)
 			continue
 		var p := a.lerp(b,t)
@@ -375,7 +374,7 @@ func draw_effects() -> void:
 			p = a.lerp(control,e).lerp(control.lerp(b,e),e)
 		if PROJECTILES.has(shot.from.cardId):
 			var type: String = PROJECTILES[shot.from.cardId]
-			var tex := texture_for("assets/style-e/style-e-proj-%s.png" % type)
+			var tex := texture_for(StyleLibrary.projectile_path(type).trim_prefix("res://"))
 			var angle := (b-a).angle()
 			if type in ["seal","mirror"]: angle = t*TAU
 			if type == "gourd": angle = 0
@@ -452,13 +451,13 @@ func _sync_equipped_actors() -> void:
 	for unit in people:
 		if not equipped_actors.has(unit.uid):
 			var file:String=unit.get("model_file","isabella.glb")
-			if unit.cardId=="daotong":
+			if unit.cardId=="investigator":
 				var config=ConfigFile.new();config.load("user://world-hero.cfg")
 				file=roster[clampi(int(config.get_value("hero","index",0)),0,roster.size()-1)].file
 			var actor=preload("res://scripts/battle/equipped_actor.gd").new()
 			actor.model_key=file;actor.model_scene=load("res://assets/characters3d/"+file);actor.ally=true;add_child(actor)
 			equipped_actors[unit.uid]=actor
 		equipped_actors[unit.uid].bind_unit(unit)
-	var leaders:Array=people.filter(func(u):return u.cardId=="daotong")
+	var leaders:Array=people.filter(func(u):return u.cardId=="investigator")
 	seer=equipped_actors.get(leaders[0].uid) if not leaders.is_empty() else equipped_actors.get(people[0].uid) if not people.is_empty() else null
 	companion_actor=equipped_actors.get(people[1].uid) if people.size()>1 else null

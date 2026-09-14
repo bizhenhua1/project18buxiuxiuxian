@@ -1,0 +1,15 @@
+{
+  "snapshotDate": "2026-09-13",
+  "source": "get_goal read-only snapshot",
+  "goal": {
+    "threadId": "01a07252-c2fb-7271-92fd-cbe98920f3a0",
+    "objective": "以原有森林、水晶、沼泽、下水道、鲸鱼、宫殿六套场景为基准，核算18个童话场景的资产类型与尺寸缺口，优先生成缺失的通道围合、层次与装饰资产，逐场景接入并验证比例、接地与衔接，达到原有场景丰富度。",
+    "status": "blocked",
+    "tokensUsed": 568897,
+    "timeUsedSeconds": 6187,
+    "createdAt": 1789150240,
+    "updatedAt": 1789200744
+  },
+  "remainingTokens": null,
+  "completionBudgetReport": null
+}

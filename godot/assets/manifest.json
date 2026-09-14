@@ -256,154 +256,100 @@
       "bytes": 751928
     },
     {
-      "source": "assets/style-e/style-e-artifact-masuo.png",
-      "destination": "godot/assets/style-e/style-e-artifact-masuo.png",
+      "source": "assets/style2/medium.png",
+      "destination": "godot/assets/style2/medium.png",
       "sha256": "339fce27cfe51fb97db827d2ccc6b01b634a380726643ebfcdad7b0cdd6262e6",
       "bytes": 447178
     },
     {
-      "source": "assets/style-e/style-e-artifact-taomu-jian.png",
-      "destination": "godot/assets/style-e/style-e-artifact-taomu-jian.png",
+      "source": "assets/style2/book.png",
+      "destination": "godot/assets/style2/book.png",
       "sha256": "9faec8000bf4763777962e4ed67640c8137f6308ad7ed61b1da583fcad8e3fb0",
       "bytes": 161628
     },
     {
-      "source": "assets/style-e/style-e-artifact-tongjing.png",
-      "destination": "godot/assets/style-e/style-e-artifact-tongjing.png",
+      "source": "assets/style2/mask.png",
+      "destination": "godot/assets/style2/mask.png",
       "sha256": "f8d569db17b305350d55ce546775f0946d4e4342c4f096f167fdfb74d9148aef",
       "bytes": 899273
     },
     {
-      "source": "assets/style-e/style-e-artifact-waci-yin.png",
-      "destination": "godot/assets/style-e/style-e-artifact-waci-yin.png",
+      "source": "assets/style2/watch.png",
+      "destination": "godot/assets/style2/watch.png",
       "sha256": "2f32db2dd59b76c5e42b63791e4e92fa4c6c5390922d4c4f7a2aea031618f9d0",
       "bytes": 826089
     },
     {
-      "source": "assets/style-e/style-e-artifact-xiaohulu.png",
-      "destination": "godot/assets/style-e/style-e-artifact-xiaohulu.png",
+      "source": "assets/style2/lantern.png",
+      "destination": "godot/assets/style2/lantern.png",
       "sha256": "8fb2e99f82244341dbb87f44fd19a1e86bbb35f3de00bcb755ecfffbc0dbd7c6",
       "bytes": 404158
     },
     {
-      "source": "assets/style-e/style-e-char-daotong.png",
-      "destination": "godot/assets/style-e/style-e-char-daotong.png",
+      "source": "assets/style2/agent.png",
+      "destination": "godot/assets/style2/agent.png",
       "sha256": "95858e578afeda2ab3f59ca5719df98aeba89e9c722d5b984b740c8c81c58b21",
       "bytes": 263195
     },
     {
-      "source": "assets/style-e/style-e-monster-caoshe.png",
-      "destination": "godot/assets/style-e/style-e-monster-caoshe.png",
+      "source": "assets/style2/bell.png",
+      "destination": "godot/assets/style2/bell.png",
       "sha256": "f8bf5181ee1978a4b6d72a698f6986819f2c52544f5049c024f7897181be6eae",
       "bytes": 562320
     },
     {
-      "source": "assets/style-e/style-e-monster-huangfeng.png",
-      "destination": "godot/assets/style-e/style-e-monster-huangfeng.png",
+      "source": "assets/style2/moth.png",
+      "destination": "godot/assets/style2/moth.png",
       "sha256": "c753c1c75ad896d16ecef06c293af8222f10c22092c6d4db8c4f50d7225114e6",
       "bytes": 406992
     },
     {
-      "source": "assets/style-e/style-e-monster-huoli.png",
-      "destination": "godot/assets/style-e/style-e-monster-huoli.png",
+      "source": "assets/style2/hound.png",
+      "destination": "godot/assets/style2/hound.png",
       "sha256": "66ca3de734021e5421d61f4c569cc6d7049b673013f2518aaa0a2a8de55d4161",
       "bytes": 462982
     },
     {
-      "source": "assets/style-e/style-e-monster-jinchan.png",
-      "destination": "godot/assets/style-e/style-e-monster-jinchan.png",
+      "source": "assets/style2/moth.png",
+      "destination": "godot/assets/style2/moth.png",
       "sha256": "27faac3e5beedbc999aa70417971d4e930f3ed4e624164b103c19d421bedff84",
       "bytes": 555814
     },
     {
-      "source": "assets/style-e/style-e-monster-shanyang.png",
-      "destination": "godot/assets/style-e/style-e-monster-shanyang.png",
+      "source": "assets/style2/hound.png",
+      "destination": "godot/assets/style2/hound.png",
       "sha256": "5741b44da17468249fdeea9753016adadf129e81a9e0ccc85c41747e66a05073",
       "bytes": 414044
     },
     {
-      "source": "assets/style-e/style-e-monster-shitoujing.png",
-      "destination": "godot/assets/style-e/style-e-monster-shitoujing.png",
+      "source": "assets/style2/bell.png",
+      "destination": "godot/assets/style2/bell.png",
       "sha256": "ce2e0cd7c9c61fd8aadba4e1a8a8408d4a7688e56cc79c6883b1fc3457232021",
       "bytes": 672262
     },
     {
-      "source": "assets/style-e/style-e-monster-shujing.png",
-      "destination": "godot/assets/style-e/style-e-monster-shujing.png",
+      "source": "assets/style2/bell.png",
+      "destination": "godot/assets/style2/bell.png",
       "sha256": "125e0776621a95436dc78f13e5b1ca904bf754f9411e11c83aa8932406eef2a5",
       "bytes": 396596
     },
     {
-      "source": "assets/style-e/style-e-monster-xiaoqiao.png",
-      "destination": "godot/assets/style-e/style-e-monster-xiaoqiao.png",
+      "source": "assets/style2/moth.png",
+      "destination": "godot/assets/style2/moth.png",
       "sha256": "fe959236c08c5eb386fa24d42d5eb5b6eea854dde8863b2c4b1f7a99c12e37aa",
       "bytes": 614468
     },
     {
-      "source": "assets/style-e/style-e-monster-yewu.png",
-      "destination": "godot/assets/style-e/style-e-monster-yewu.png",
+      "source": "assets/style2/moth.png",
+      "destination": "godot/assets/style2/moth.png",
       "sha256": "e68f99cd988d99b204c4427bf792cea9bfc745f8e9012bf4720eb8b0a30679ab",
       "bytes": 443843
     },
     {
-      "source": "assets/style-e/style-e-monster-yezhu.png",
-      "destination": "godot/assets/style-e/style-e-monster-yezhu.png",
+      "source": "assets/style2/hound.png",
+      "destination": "godot/assets/style2/hound.png",
       "sha256": "80bfd5b9ba2fc3150cb37e8518ef48b2a57127098ca021d1fcfbb96a00b5ab9d",
       "bytes": 494383
-    },
-    {
-      "source": "assets/style-e/style-e-proj-axe.png",
-      "destination": "godot/assets/style-e/style-e-proj-axe.png",
-      "sha256": "4f3fb9f1210518e813a08bc5251a77c7a09345f427ea6199315a416802ecee8e",
-      "bytes": 114372
-    },
-    {
-      "source": "assets/style-e/style-e-proj-fan.png",
-      "destination": "godot/assets/style-e/style-e-proj-fan.png",
-      "sha256": "682ce9cf5a69d0bae091bcdfcad053e1ad4fdbb83df8e961478c82ad250da2c8",
-      "bytes": 80663
-    },
-    {
-      "source": "assets/style-e/style-e-proj-gourd.png",
-      "destination": "godot/assets/style-e/style-e-proj-gourd.png",
-      "sha256": "f5820c57396fc991b67721efd02a4a91521cb9fcdd38f81a307f5ff0b7cbc6a1",
-      "bytes": 165705
-    },
-    {
-      "source": "assets/style-e/style-e-proj-heavysword.png",
-      "destination": "godot/assets/style-e/style-e-proj-heavysword.png",
-      "sha256": "3a63e6ee854123bd9bc3733a7950a20edac28e6fca3c22337210ea543565078b",
-      "bytes": 43021
-    },
-    {
-      "source": "assets/style-e/style-e-proj-mirror.png",
-      "destination": "godot/assets/style-e/style-e-proj-mirror.png",
-      "sha256": "4d4117c6e4fcb58e3ccd1625977c33f2bdc59474cc1f99bf85dd6b2912aa43b8",
-      "bytes": 260406
-    },
-    {
-      "source": "assets/style-e/style-e-proj-rope.png",
-      "destination": "godot/assets/style-e/style-e-proj-rope.png",
-      "sha256": "22f87ea16a0fde0e33676dc80a456b7873416f0468bf12bcf1dbb5874a39fb78",
-      "bytes": 77972
-    },
-    {
-      "source": "assets/style-e/style-e-proj-seal.png",
-      "destination": "godot/assets/style-e/style-e-proj-seal.png",
-      "sha256": "fc282cacaf3ebc57c43cfc8530b24f73bedb9e2a4c65e1ae0fb33ab46694b024",
-      "bytes": 224828
-    },
-    {
-      "source": "assets/style-e/style-e-proj-sword.png",
-      "destination": "godot/assets/style-e/style-e-proj-sword.png",
-      "sha256": "c0185c69f22dd7a635e4248dcb3f94c988e9380678604b95d7c8d7ce25121e3f",
-      "bytes": 52464
-    },
-    {
-      "source": "assets/style-e/style-e-ui-fist.png",
-      "destination": "godot/assets/style-e/style-e-ui-fist.png",
-      "sha256": "8d2371514d932c38e5176033c0b24e9ef9f7ae4e9577cc27e5f42f149e019770",
-      "bytes": 17747
     },
     {
       "source": "assets/world/forest/base/grass_1.png",

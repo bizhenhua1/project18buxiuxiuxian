@@ -18,7 +18,7 @@ static func lead_art(key:String)->String:return asset(key,"enemy-0.png").trim_pr
 static func append_cards(cards:Array)->void:
  var base:Dictionary={}
  for card in cards:
-  if card.id=="huoli":base=card;break
+  if card.id=="bone-hound":base=card;break
  if base.is_empty():return
  for scene in scenes:
   for i in 3:

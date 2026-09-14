@@ -36,6 +36,9 @@ func run() -> void:
 	root.add_child(app)
 	await process_frame
 	app.set_process(false)
+	for frame in range(400):
+		if app.phase == "choose": break
+		app._process(.05)
 	app.choose(-1)
 	for frame in range(1600): app._process(.05)
 	check(app.phase == "encounter" and state.event_kind() == "traveler","Explicit forest fork reaches traveler")
@@ -50,6 +53,7 @@ func run() -> void:
 			state.world.advance(.05)
 			if not state.world.walking: break
 	state.active_zone().route_profile = "short_battle"
+	state.active_zone().route_kind = "short"
 	app = load("res://scenes/expedition_route.tscn").instantiate()
 	root.add_child(app)
 	await process_frame

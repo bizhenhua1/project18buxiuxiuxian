@@ -12,7 +12,7 @@ func _ready() -> void:
 	var column := StudyUI.column(self)
 	var top := HBoxContainer.new()
 	column.add_child(top)
-	var title := StudyUI.label("归云居 · 我的主岛",32)
+	var title := StudyUI.label("灯下寓所 · 我的主岛",32)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(title)
 	top.add_child(StudyUI.button("森林场景调校",func():
@@ -46,10 +46,10 @@ func _ready() -> void:
 	selection = StudyUI.label("",17)
 	selection.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	side.add_child(selection)
-	side.add_child(StudyUI.button("开拓选中封土 · 10 灵石",func():act(home.unlock(home.selected))))
+	side.add_child(StudyUI.button("开拓选中封土 · 10 秘银",func():act(home.unlock(home.selected))))
 	for kind in HomeState.PLANTS:
 		var key: String = kind
-		side.add_child(StudyUI.button("布置 %s · %d 灵石" % [HomeState.PLANTS[key].name,HomeState.PLANTS[key].cost],func():act(home.plant(home.selected,key))))
+		side.add_child(StudyUI.button("布置 %s · %d 秘银" % [HomeState.PLANTS[key].name,HomeState.PLANTS[key].cost],func():act(home.plant(home.selected,key))))
 	side.add_child(StudyUI.button("搬迁选中种植 → 再点空地",func():
 		if home.plots.has(home.selected):
 			moving = home.selected
@@ -82,20 +82,20 @@ func select_cell(p: Vector2i) -> void:
 	home.selected = p
 	refresh()
 func act(ok: bool) -> void:
-	if not ok: home.message = "暂不能操作：请检查灵石、相邻解锁条件和地块占用。"
+	if not ok: home.message = "暂不能操作：请检查秘银、相邻解锁条件和地块占用。"
 	Journey.save()
 	refresh()
 func _process(dt: float) -> void:
 	home.world.advance(dt)
 	refresh()
 func refresh() -> void:
-	status.text = "主岛仓储 · 灵石 %d   |   已开拓 %d / %d   |   返航 %d 次" % [home.bank,home.unlocked.size(),home.world.cells.size(),home.returns]
+	status.text = "主岛仓储 · 秘银 %d   |   已开拓 %d / %d   |   返航 %d 次" % [home.bank,home.unlocked.size(),home.world.cells.size(),home.returns]
 	var p := home.selected
 	selection.text = "选中地块 · %d，%d\n" % [p.x-7,p.y-7]
 	if home.plots.has(p):
 		var plot: Dictionary = home.plots[p]
 		var spec: Dictionary = HomeState.PLANTS[plot.kind]
-		selection.text += "%s · 生长 %d%%\n成熟收获 %d 灵石" % [spec.name,100*plot.growth/spec.period,spec.yield]
+		selection.text += "%s · 生长 %d%%\n成熟收获 %d 秘银" % [spec.name,100*plot.growth/spec.period,spec.yield]
 	elif p == home.world.player: selection.text += "归航点 · 为出发与返回保留"
 	elif p == Vector2i(10,8): selection.text += "护岛古木 · 常驻景观"
 	elif p == HomeState.COTTAGE: selection.text += "归云小居 · 出征所得在此入库"

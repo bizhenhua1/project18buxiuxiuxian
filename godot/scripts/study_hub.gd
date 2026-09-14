@@ -3,10 +3,10 @@ func _ready() -> void:
 	theme = StudyUI.theme()
 	var column := StudyUI.column(self)
 	column.add_spacer(false)
-	column.add_child(StudyUI.label("仙途 · 原生制作样本",38))
+	column.add_child(StudyUI.label("雾林调查局 · 黑暗童话",38))
 	column.add_child(StudyUI.label("从山林中的前行，到列阵交战，再到浮岛探索。",20))
 	column.add_child(StudyUI.label("沿用原 Demo 最终素材与战斗基础数值；新表现仍待你试玩确认。",16))
-	var journey := StudyUI.button("归云居 · 返回我的主岛",func():
+	var journey := StudyUI.button("灯下寓所 · 返回我的主岛",func():
 		Journey.resume()
 		get_tree().change_scene_to_file("res://scenes/home.tscn"))
 	journey.custom_minimum_size.y = 64
@@ -17,7 +17,7 @@ func _ready() -> void:
 	row.add_theme_constant_override("separation",24)
 	column.add_child(row)
 	var entries := [
-		["列阵试锋","布阵、手持与操控、识海法术、御兽\n原有技能、弹道、尸体重聚与战斗结算","battle_study"],
+		["列阵试锋","布阵、手持与操控、契约术式、使役\n原有技能、弹道、尸体重聚与战斗结算","battle_study"],
 		["浮岛 · 两种空间","A：原投影与双阶段旋转\nB：实体地块与 2D 装饰；共用探索进度","world_study"],
 		["山林之间","森林、洞穴与云海\n沿路径连续进入不同空间区域","space_study"]]
 	for entry in entries:

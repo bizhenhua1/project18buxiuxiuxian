@@ -97,8 +97,18 @@ static func _exclude_trunk_overlap(world: ForestWorld) -> void:
 		if not blocked:kept.append(sprite)
 	world.sprites=kept
 
+static func bind_texture_shutdown() -> void:
+	var tree := Engine.get_main_loop() as SceneTree
+	if tree != null and not tree.root.tree_exiting.is_connected(release_textures):
+		tree.root.tree_exiting.connect(release_textures, CONNECT_ONE_SHOT)
+
+static func release_textures() -> void:
+	# Shared across worlds during play; release GPU assets before renderer shutdown.
+	textures.clear()
+
 static func root_texture(key: String) -> Texture2D:
 	if not textures.has(key):
+		bind_texture_shutdown()
 		var image:=StyleLibrary.texture(key).get_image()
 		image.generate_mipmaps()
 		textures[key]=ImageTexture.create_from_image(image)
@@ -106,6 +116,7 @@ static func root_texture(key: String) -> Texture2D:
 
 static func place(world: ForestWorld, s: float, branch: int, offset: float, key: String, extent: float, kind: int, straight:=true) -> void:
 	if not textures.has(key):
+		bind_texture_shutdown()
 		var image := StyleLibrary.texture(key).get_image()
 		image.generate_mipmaps()
 		textures[key] = ImageTexture.create_from_image(image)

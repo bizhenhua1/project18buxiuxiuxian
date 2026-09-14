@@ -28,15 +28,15 @@ func _initialize() -> void:
 		for i in range(fixture.units.size()):
 			var actual: Dictionary = (action_model.player+action_model.enemy)[i]
 			for key in ["hp","shield","cdLeft","healDone"]: check(is_equal_approx(actual.get(key,0),fixture.units[i][key]),"JS action effect: "+fixture.id+"/"+key)
-	model.player = [rules.create_unit("waci-yin","player"),rules.create_unit("daotong","player",1),rules.create_unit("tongjing","player",2,0,"held"),rules.create_unit("lihuo-shu","player",3)]
-	check(BattleRules.target(model.player).cardId == "waci-yin","Leftmost targetable")
+	model.player = [rules.create_unit("watchful-clock","player"),rules.create_unit("investigator","player",1),rules.create_unit("faceless-mask","player",2,0,"held"),rules.create_unit("scarlet-edict","player",3)]
+	check(BattleRules.target(model.player).cardId == "watchful-clock","Leftmost targetable")
 	BattleRules.corpse(model.player[0])
-	check(BattleRules.target(model.player).cardId == "daotong","Skip corpse")
+	check(BattleRules.target(model.player).cardId == "investigator","Skip corpse")
 	check(not BattleRules.targetable(model.player[2]) and not BattleRules.targetable(model.player[3]),"Held and spells untargetable")
 	model.emit_events([{"type":"death","unit":model.player[0]}])
 	check(model.player[0].reviveLeft == 7000,"Station revive countdown")
 	model.phase = "battle"
-	model.enemy = [rules.create_unit("jinchan","enemy")]
+	model.enemy = [rules.create_unit("ashwing","enemy")]
 	model.enemy[0].cdLeft = 100000
 	for unit in model.player: unit.cdLeft = 100000
 	model.advance(7.01)
@@ -44,7 +44,7 @@ func _initialize() -> void:
 	BattleRules.corpse(model.player[1])
 	check(model.winner() == "defeat","Hero death defeats surviving artifacts")
 	model = BattleModel.new()
-	model.player = [rules.create_unit("daotong","player"),rules.create_unit("waci-yin","player",1,0,"held")]
+	model.player = [rules.create_unit("investigator","player"),rules.create_unit("watchful-clock","player",1,0,"held")]
 	model.restat()
 	check(model.player[0].maxHp == 48+BattleRules.js_round(model.player[1].maxHp*0.3),"Held HP merge")
 	model.act(model.player[1])
@@ -53,7 +53,7 @@ func _initialize() -> void:
 	model.act(model.player[1])
 	check(model.player[1].shield > 0,"Station casts shield")
 	model = BattleModel.new()
-	model.player = [rules.create_unit("daotong","player"),rules.create_unit("juhun-fan","player",1)]
+	model.player = [rules.create_unit("investigator","player"),rules.create_unit("containment-record","player",1)]
 	model.emit_events([{"type":"death","unit":model.enemy[0]}])
 	check(model.player[1].soulStacks == 1,"Soul fan stacks on deaths")
 	model = BattleModel.new()

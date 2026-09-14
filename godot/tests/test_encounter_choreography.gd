@@ -12,7 +12,7 @@ func run() -> void:
  while app.is_social():app.encounter_step+=1
  app.distance=app.stops()[app.encounter_step];app.fork_transit_time=app.FORK_TRANSIT_SECONDS
  app.prepare_encounter();app.phase="travel";app.paused=true
- var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="daotong")[0]
+ var hero:Dictionary=app.model.player.filter(func(u):return u.cardId=="investigator")[0]
  app.arena._process(0)
  var motion=app.arena.formation_motion
  var initial:Vector2=motion.units[hero.uid].position

@@ -6,6 +6,14 @@ func run():
  while not shell.stage or not shell.stage.ready_stage:await process_frame
  var stage=shell.stage;stage.set_process(false)
  var pace=load("res://scripts/journey/travel_pace.gd")
+ var hero=stage.team[0]
+ for gait in ["walk","run"]:
+  hero.action=0;hero.dead=false;hero.play(gait);hero.clock=0
+  var speed:float=(stage.walk_pace() if gait=="walk" else stage.run_pace())/20.0
+  hero.advance(.05,Vector3(0,0,speed))
+  assert(hero.clip==gait)
+  assert(hero.clock/.05<=1.051,"Route movement must respect the model's natural cadence")
+  print("WORLD3D_CADENCE ",gait," rate=",hero.clock/.05," speed_mps=",speed)
  for kind in ["first","linear","fork"]:
   stage.phase="prepare";stage.first_leg=kind=="first"
   stage.branch=1 if kind=="fork" else 0
@@ -17,10 +25,10 @@ func run():
   var elapsed:=0.0;var walked:=0.0;var previous_speed:float=pace.RUN
   for i in 400:
    var speed:float=stage.route_locomotion_speed()
-   assert(speed>=pace.WALK and speed<=pace.RUN)
+   assert(speed>=stage.walk_pace()-.0001 and speed<=stage.run_pace()+.0001)
    assert(speed<=previous_speed+.0001,"Braking must not accelerate the character again")
    previous_speed=speed
-   if is_equal_approx(speed,pace.WALK):walked+=.025
+   if is_equal_approx(speed,stage.walk_pace()):walked+=.025
    stage._process(.025);elapsed+=.025
    if stage.phase not in ["travel","stopping"]:break
   assert(stage.phase=="event")

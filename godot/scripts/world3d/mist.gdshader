@@ -6,6 +6,8 @@ uniform vec4 fog_color : source_color=vec4(.06,.09,.13,1);
 uniform vec2 fog_range=vec2(240,1400);
 uniform float heading=0.0;
 uniform float terrain_amplitude=1.0;
+uniform sampler2D scene_depth : hint_depth_texture, repeat_disable, filter_nearest;
+uniform float intersection_softness=.45;
 varying vec3 point;
 varying float depth;
 varying vec4 tint;
@@ -45,6 +47,14 @@ void fragment(){
  float warm=exp(-dot(d,d)/max(team_light_radius*team_light_radius*1.64,1.0))*team_light_energy;
  vec3 color=environment_mist(vec3(.24,.31,.33))+vec3(.24,.17,.075)*team_light_color.rgb*warm;
  if(biome_kind<2)color=vec3(.24,.31,.33)+vec3(.42,.25,.075)*team_light_color.rgb*warm;
- ALBEDO=color;ALPHA=density*tint.a;
+ float sampled=texture(scene_depth,SCREEN_UV).r;
+ vec3 ndc=vec3(SCREEN_UV*2.0-1.0,sampled);
+ #if CURRENT_RENDERER == RENDERER_COMPATIBILITY
+ ndc.z=sampled*2.0-1.0;
+ #endif
+ vec4 surface=INV_PROJECTION_MATRIX*vec4(ndc,1.0);
+ float gap=-surface.z/surface.w-depth/20.0;
+ float contact=intersection_softness>0.0?smoothstep(0.0,intersection_softness,gap):1.0;
+ ALBEDO=color;ALPHA=density*tint.a*contact;
  }
 }

@@ -203,7 +203,7 @@ func _ready():
   var view=preload("res://scripts/world3d/health_view.gd").new();view.setup(actor,actor_atmosphere);health_views.append(view)
  outline_lod.setup(atmosphere_actors)
  if fork_test in [2,3]:
-  distance=route_segment.junction_s-TravelPace.RUN*2.9
+  distance=route_segment.junction_s-run_pace()*2.9
   camera_origin=route_segment.point(distance,0);frame=composition.frames.travel.duplicate()
   team[0].position=travel_destination(distance)
   for i in range(1,team.size()):team[i].set_opacity(0)
@@ -443,8 +443,8 @@ func start_travel():
  for slot in enemy_pool:slot.actor.hide()
  # Include the camera's final settling time in the three-second opening.
  # Starting the brake farther away would require it to accelerate to catch up.
- var leg:=TravelPace.RUN*(3.0-maxf(0,STOP_CAMERA_SECONDS-.7)) if first_leg else TravelPace.mixed_distance(branch!=0)
- leg_walk_distance=0.0 if first_leg else TravelPace.WALK*((1.4 if branch!=0 else 1.0)-TravelPace.BRAKE_SECONDS*.5)
+ var leg:=run_pace()*(3.0-maxf(0,STOP_CAMERA_SECONDS-.7)) if first_leg else run_pace()*(4.6 if branch!=0 else 2.7)+walk_pace()*((1.4 if branch!=0 else 1.0)-TravelPace.BRAKE_SECONDS*.5)
+ leg_walk_distance=0.0 if first_leg else walk_pace()*((1.4 if branch!=0 else 1.0)-TravelPace.BRAKE_SECONDS*.5)
  next_event=distance+leg
  if fork_test in [2,3] and branch==0:next_event=route_segment.junction_s
  if branch==0 and next_event>ForestRoute.JUNCTION-80:next_event=ForestRoute.JUNCTION
@@ -529,12 +529,12 @@ func _process(dt:float):
    if phase=="event":encounters.arrive()
  elif phase=="entering":
   transition+=dt
-  move_hero(slot_position(0),dt,TravelPace.RUN/20)
+  move_hero(slot_position(0),dt,run_pace()/20)
   var arrived:bool=team[0].position.distance_to(slot_position(0))<.03
   for i in range(1,team.size()):
    var old:Vector3=team[i].position
    var walk_to_slot:bool=hold_restart_camera or team[i].opacity>.01
-   team[i].position=old.move_toward(slot_position(i),TravelPace.RUN/20*dt) if walk_to_slot else slot_position(i)
+   team[i].position=old.move_toward(slot_position(i),natural_pace(team[i],"run")/20*dt) if walk_to_slot else slot_position(i)
    # A hidden ally is placed before fading in. Placement is not locomotion:
    # feeding that relocation as velocity selects a spurious first-frame run pose.
    team[i].advance(dt,(team[i].position-old)/maxf(dt,.0001) if walk_to_slot else Vector3.ZERO)
@@ -668,11 +668,15 @@ func advance_preview(dt:float):
  preview_station=-float(step.distance)
  preview.position=old.move_toward(step.target,TravelPace.MONSTER_WALK_SPEED/20*dt)
  preview.advance(dt,(preview.position-old)/maxf(dt,.0001))
+func natural_pace(actor,kind:String)->float:
+ return minf(TravelPace.RUN if kind=="run" else TravelPace.WALK,float(actor.strides[actor.model_key][kind])*actor.scale.x*1.05*20)
+func walk_pace()->float:return natural_pace(team[0],"walk")
+func run_pace()->float:return natural_pace(team[0],"run")
 func route_locomotion_speed()->float:
- if first_leg:return TravelPace.RUN
+ if first_leg:return run_pace()
  # One pace envelope spans travel and camera braking. The camera state must
  # never restart running or rescale the speed to meet its own deadline.
- return lerpf(TravelPace.WALK,TravelPace.RUN,smoothstep(leg_walk_distance,leg_walk_distance+TravelPace.RUN*.25,maxf(0,next_event-distance)))
+ return lerpf(walk_pace(),run_pace(),smoothstep(leg_walk_distance,leg_walk_distance+run_pace()*.25,maxf(0,next_event-distance)))
 func sync_party_health(dt:float,instant:bool=false):
  var settings:Dictionary=preload("res://scripts/battle/health_transformation.gd").settings()
  for i in health_views.size():

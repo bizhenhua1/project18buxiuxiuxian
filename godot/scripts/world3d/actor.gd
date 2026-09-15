@@ -2,6 +2,7 @@ extends "res://scripts/native3d/actor.gd"
 static var catalog:Dictionary={}
 static var strides:Dictionary={}
 static var death_profiles:Dictionary={}
+static var crawl_buffers:Dictionary={}
 var model_key:=""
 var change_stamp:=-1.0
 var death_pose_finished:=false
@@ -11,12 +12,18 @@ func play(name:String)->void:
   rig.reset_bone_poses();prone_death_transition=null
  death_pose_finished=false
  super(name)
+ if name=="crawl":
+  var file:String=library.clips[name].file
+  if not crawl_buffers.has(file):crawl_buffers[file]=preload("res://scripts/world3d/crawl_loop.gd").close_cycle(retarget.data,retarget.source_names.size())
+  retarget.data=crawl_buffers[file];cache[name]=retarget.data
 var portrait_presenter
 var merge_surfaces_enabled:bool=not "--no-merge-character-surfaces" in OS.get_cmdline_user_args()
 func prepare_body()->void:
+ if body.scene_file_path.ends_with("gardener-kitty-dada.glb"):
+  preload("res://scripts/world3d/hand_skin.gd").apply(body,rig)
  if merge_surfaces_enabled:preload("res://scripts/world3d/surface_merge.gd").apply(body)
 func setup(file:String)->void:
- retarget=preload("res://scripts/defense/defense_retarget.gd").new()
+ retarget=preload("res://scripts/world3d/retarget.gd").new()
  super(file);model_key=file
  if "--compact-skins" in OS.get_cmdline_user_args():preload("res://scripts/world3d/skin_palette.gd").apply(body)
  if catalog.is_empty():catalog=JSON.parse_string(FileAccess.get_file_as_string("res://assets/motions/catalog.json"))
@@ -51,6 +58,11 @@ func locomotion_rate(move_speed:float)->float:
  if clip in ["walk","run"] and strides.has(model_key):
   return move_speed/maxf(.01,absf(scale.x)*float(strides[model_key][clip]))
  return 1.0
+func locomotion_clip(move_speed:float)->String:
+ if move_speed<=.06:return "idle"
+ var walking:float=absf(scale.x)*float(strides.get(model_key,{}).get("walk",1.17))
+ var threshold:float=1.15 if clip=="run" else 1.4
+ return "run" if move_speed>walking*threshold else "walk"
 func animate_unit(unit:Dictionary,now:float,dt:float,velocity:Vector3):
  # Presentation consumers (corpse framing, attachment anchors) must observe
  # the same life state as the animation, including a later resurrection.
@@ -92,3 +104,4 @@ func animate_unit(unit:Dictionary,now:float,dt:float,velocity:Vector3):
  var prone:bool=unit.entry=="crawl" and unit.entry_phase=="advance"
  body.rotation.x=PI*.5 if prone else 0
  body.position.y=.3 if prone else 0
+

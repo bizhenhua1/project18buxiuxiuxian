@@ -8,6 +8,7 @@ var attack_seconds:=1.0
 var combo:=0
 var profile:=""
 var applied_loadout:Dictionary={}
+var hand_pose:Dictionary={}
 var atmosphere_service
 var locomotion_blend_enabled:=true
 var locomotion_blend_age:=1.0
@@ -33,6 +34,12 @@ func refresh_equipment(data:Dictionary={}):
  for a in attachments:a.get_parent().remove_child(a);a.queue_free()
  attachments.clear()
  applied_loadout=data.duplicate(true);profile=LOADOUT.profile(data)
+ hand_pose.clear()
+ for side in ["right","left"]:
+  var holding:bool=not str(data[side]).is_empty() or (side=="left" and not str(data.right).is_empty() and LOADOUT.two_handed(data.right))
+  # Empty hands belong entirely to the source animation. A grip is an
+  # equipment-specific override, never a replacement for unarmed locomotion.
+  if holding:hand_pose.merge(preload("res://scripts/world3d/hand_grip.gd").build(rig,0 if side=="right" else 1))
  for side in ["right","left"]:
   var file:String=data[side]
   if file.is_empty() or (side=="left" and LOADOUT.two_handed(file)):continue
@@ -79,6 +86,9 @@ func trigger(kind:String)->void:
   combo=(combo+1)%attacks.size()
  super(kind)
 
+func apply_hand_pose():
+ if dead:return
+ for bone in hand_pose:rig.set_bone_pose_rotation(bone,hand_pose[bone])
 func advance(dt:float,velocity:Vector3)->void:
  if clip=="attack" and not dead:
   locomotion_blend_age=1.0
@@ -94,9 +104,10 @@ func advance(dt:float,velocity:Vector3)->void:
     locomotion_from_rotations.append(rig.get_bone_pose_rotation(bone))
    locomotion_blend_age=0.0
    action=0;play("idle")
+  apply_hand_pose()
   return
  var move_speed:=Vector2(velocity.x,velocity.z).length()
- var desired:="run" if move_speed>2.0 else "walk" if move_speed>.06 else "idle"
+ var desired:=locomotion_clip(move_speed)
  if locomotion_blend_enabled and not dead and action<=dt and desired!=clip:
   locomotion_from_positions.clear();locomotion_from_rotations.clear()
   for bone in retarget.evaluation_bones:
@@ -112,3 +123,4 @@ func advance(dt:float,velocity:Vector3)->void:
    var bone:int=retarget.evaluation_bones[i]
    rig.set_bone_pose_position(bone,locomotion_from_positions[i].lerp(rig.get_bone_pose_position(bone),weight))
    rig.set_bone_pose_rotation(bone,locomotion_from_rotations[i].slerp(rig.get_bone_pose_rotation(bone),weight))
+ apply_hand_pose()

@@ -3,6 +3,8 @@ const MODEL=preload("res://assets/characters3d/gentleman.glb")
 var model_scene:PackedScene=MODEL
 var ally:=false
 var auto_locomotion:=true
+var native_pose_external:=false
+var pose_samples:=0
 const RETARGET=preload("res://scripts/spaces/preview_retarget.gd")
 var viewport:SubViewport
 var body:Node3D
@@ -102,7 +104,7 @@ func trigger(kind:String) -> void:
  elif kind in ["shot","cast"]:play("attack")
 func advance(dt:float,phase:String,paused:bool,speed:float,enabled:bool,entrance:float=-1.0) -> void:
  if ally:update_team_light(phase,dt)
- viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS if enabled else SubViewport.UPDATE_DISABLED
+ viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS if enabled and not native_pose_external else SubViewport.UPDATE_DISABLED
  if not enabled or paused:return
  corpse_frame=move_toward(corpse_frame,1.0 if dead else 0.0,dt*speed*2.5)
  actor_camera.size=lerpf(2.6,3.4,corpse_frame)
@@ -131,6 +133,10 @@ func advance(dt:float,phase:String,paused:bool,speed:float,enabled:bool,entrance
  var duration:float=(clips[state].frames-1)/clips[state].fps
  if state in ["attack","hit"] and elapsed>=duration:play("idle")
  duration=(clips[state].frames-1)/clips[state].fps
+ # Keep timing and framing metadata for SceneFormation, but let the native
+ # world actor own the only skeleton evaluation while it replaces this view.
+ if native_pose_external:return
+ pose_samples+=1
  retarget.apply(fmod(elapsed,duration) if state in ["idle","walk","run"] else minf(elapsed,duration))
  var weight=smoothstep(0,.12,blend_time)
  if weight<1:

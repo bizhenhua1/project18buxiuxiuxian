@@ -164,7 +164,7 @@ func _ready():
  scenery.bounded_ground=bool(get_tree().get_meta("world3d_bounded_ground",scenery.bounded_ground))
  add_child(scenery);scenery.populate(world,route_segment)
  build_ui()
- units=PARTY.read_units()
+ units=read_battle_units()
  for i in units.size():profiles.append(PARTY.slot(composition.battle_slots,i,units.size(),PARTY.character(units[i])))
  for i in units.size():
   if PARTY.character(units[i]):team_slots.append(i)
@@ -175,7 +175,7 @@ func _ready():
  for slot_index in team_slots:
   var actor=preload("res://scripts/world3d/allied_actor.gd").new();add_child(actor)
   actor.setup(PARTY.LOADOUT.model_for_unit(units[slot_index]));actor.rotation.y=PI;actor.scale=Vector3.ONE*CHARACTER_FRAME.scale_for_slot(float(profiles[slot_index].height));team.append(actor)
-  actor.refresh_equipment()
+  prepare_actor_equipment(actor,slot_index)
   await get_tree().process_frame
  for slot_index in units.size():
   if slot_index in team_slots:continue
@@ -185,7 +185,7 @@ func _ready():
   props.append({"node":prop,"slot":slot_index,"two_faces":units[slot_index].cardId=="watchful-clock","bob":float(preload("res://scripts/battle/asset_spatial_marks.gd").prop_mark(units[slot_index]).bob),"bob_phase":float(units[slot_index].get("uid",slot_index))})
  prop_atmosphere.setup(props,profiles)
  for kind in 5:
-  for n in [13,12,10,3,12][kind]:
+  for n in enemy_pool_capacity(kind):
    var actor=ACTOR.new();actor.retarget=preload("res://scripts/defense/defense_retarget.gd").new();add_child(actor);actor.setup(sim.config.enemies[kind].model);actor.hide()
    enemy_pool.append({"actor":actor,"kind":kind,"id":-1,"last":Vector3.ZERO,"state":""})
    await get_tree().process_frame
@@ -293,7 +293,7 @@ func sync_fork_buttons():
 func configure_allies():
  # Resolve the saved equipment once before creating matching combat behavior.
  # Never rebuild weapon/animation resources in the per-frame battle loop.
- for actor in team:actor.refresh_equipment_if_changed()
+ for i in team.size():prepare_actor_equipment(team[i],team_slots[i],true)
  sim.allies.clear()
  for i in units.size():
   var profile:Dictionary=profiles[i];var source:Dictionary=units[i]
@@ -609,12 +609,7 @@ func _process(dt:float):
  world.update_camera(minf(distance,route_segment.junction_s-.01) if branch==0 else distance,branch);bridge.environment=world.environment();bridge.camera_world=P.frame_origin(camera_origin,camera_heading,frame);bridge.heading=P.frame_heading(camera_heading,frame);bridge.elapsed=clock;bridge.view_size=get_viewport().get_visible_rect().size
  environment_3d.background_color=environment_3d.background_color.lerp(Color("101923") if world.camera_region.space.key==&"forest" else world.camera_region.space.top_color,1-exp(-dt*4))
  bridge.runtime_camera=frame;bridge.battle_frame_shift=.19 if phase not in ["travel"] else 0
- if phase in ["prepare","battle"]:
-  for i in team.size():
-   if team[i].dead:continue
-   if sim.allies[team_slots[i]].state in ["rising","returning"]:continue
-   var target_yaw:float=PI-bridge.heading+(.22 if profiles[team_slots[i]].x>0 else -.22)
-   team[i].rotation.y=lerp_angle(team[i].rotation.y,target_yaw,1.0 if dt<=0 else 1-exp(-8*dt))
+ sync_ally_facing(dt)
  P.configure(camera,bridge.view_size,bridge.camera_world,bridge.heading,frame.height,frame.lens,frame.horizon)
  forest_background.sync(bridge)
  for i in team.size():team[i].portrait_presenter.advance_anchor(dt,i==0)
@@ -687,12 +682,13 @@ func move_hero(target:Vector3,dt:float,speed:float):
  actor.position=actor.position.move_toward(target,speed*dt);actor.advance(dt,(actor.position-old)/maxf(dt,.0001))
 func render_enemies(dt:float):
  for e in sim.enemies:
-  if sim.clock<e.activate_at or e.state=="leaked":continue
+  if sim.clock<e.activate_at or e.state=="leaked" or e.get("visual_removed",false):continue
   if not pool_ids.has(e.id):
    for slot in enemy_pool:
     if slot.id<0 and slot.kind==e.type:
      slot.id=e.id;slot.last=world_point(e.pos);pool_ids[e.id]=slot
      if e.hp>0:
+      slot.actor.trigger("revive")
       # Bind a new visible life with its own direction, never the previous
       # pooled creature's yaw. Existing/adopted actors retain smooth steering.
       var movement:Vector3=e.pos-e.previous_pos;movement.y=0
@@ -759,3 +755,18 @@ func handoff_route_if_ready():
  for pair in [["route_origin",route_segment.origin],["route_origin_s",route_segment.start_s],["route_origin_heading",route_segment.heading],["junction",route_segment.junction_s],["turn_length",route_segment.turn_length],["three_way",route_segment.exits==3]]:
   scenery.floor_material.set_shader_parameter(pair[0],pair[1])
  scenery.retire_before(distance-500)
+
+func sync_ally_facing(dt:float):
+ if phase in ["prepare","battle"]:
+  for i in team.size():
+   if team[i].dead:continue
+   if sim.allies[team_slots[i]].state in ["rising","returning"]:continue
+   var target_yaw:float=PI-bridge.heading+(.22 if profiles[team_slots[i]].x>0 else -.22)
+   team[i].rotation.y=lerp_angle(team[i].rotation.y,target_yaw,1.0 if dt<=0 else 1-exp(-8*dt))
+
+func read_battle_units()->Array:return PARTY.read_units()
+func prepare_actor_equipment(actor,slot_index:int,refresh:bool=false):
+ if refresh:actor.refresh_equipment_if_changed()
+ else:actor.refresh_equipment()
+
+func enemy_pool_capacity(kind:int)->int:return [13,12,10,3,12][kind]

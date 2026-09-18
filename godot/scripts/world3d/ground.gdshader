@@ -1,4 +1,5 @@
 shader_type spatial;
+#include "res://shaders/fairytale_floor.gdshaderinc"
 #include "res://shaders/lantern_atmosphere.gdshaderinc"
 render_mode unshaded, cull_disabled;
 uniform sampler2D floor0 : repeat_enable, filter_linear_mipmap;
@@ -7,6 +8,7 @@ uniform sampler2D floor2 : repeat_enable, filter_linear_mipmap;
 uniform vec4 floor_tints[3];
 uniform vec4 depth_colors[3];
 uniform bool textured[3];
+uniform bool seam_blend_floor[3];
 uniform vec4 regions[12]; // start, end, branch, type slot
 uniform int region_count = 0;
 uniform float blend_lengths[12];
@@ -115,7 +117,7 @@ vec3 floor_color(int slot, vec2 world, float z) {
     vec3 ground = depth_colors[slot].rgb;
     if(textured[slot]) {
         vec2 floor_uv=world/(biome_kind>=6?80.0:145.0);
-        vec3 tex = slot == 0 ? texture(floor0,floor_uv).rgb : (slot == 1 ? texture(floor1,floor_uv).rgb : texture(floor2,floor_uv).rgb);
+        vec3 tex = slot == 0 ? fairytale_floor_sample(floor0,floor_uv,seam_blend_floor[slot]) : (slot == 1 ? fairytale_floor_sample(floor1,floor_uv,seam_blend_floor[slot]) : fairytale_floor_sample(floor2,floor_uv,seam_blend_floor[slot]));
         ground = tex * floor_tints[slot].rgb;
         if(ecology && biome_kind<6) {
             // Broad habitat modulation in world space breaks the identical tile rhythm.

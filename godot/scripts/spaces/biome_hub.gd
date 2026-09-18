@@ -18,11 +18,16 @@ func _ready() -> void:
   var art:=TextureRect.new();art.texture=load("res://assets/biomes/%s/shell.png"%key);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;art.custom_minimum_size=Vector2(0,180);box.add_child(art)
   box.add_child(StudyUI.label(Catalog.TITLES[key],23))
   box.add_child(StudyUI.label(descriptions[i],16))
-  var button:=AdventureSkin.button("进入 · 无限探索",func():
+  var button:=AdventureSkin.button("进入 3D · 无限探索",func():
+   get_tree().set_meta("native_route_view",true)
    get_tree().set_meta("tour_biome",key)
    get_tree().set_meta("tour_lap",1)
    get_tree().change_scene_to_file("res://scenes/endless_forest.tscn"))
   box.add_child(button)
+  box.add_child(AdventureSkin.button("传统版对照 · 探索与战斗",func():
+   get_tree().set_meta("native_route_view",false)
+   get_tree().set_meta("tour_biome",key)
+   get_tree().change_scene_to_file("res://scenes/endless_forest.tscn")))
  column.add_child(AdventureSkin.button("黑暗童话 · 十八个新场景",func():get_tree().change_scene_to_file("res://scenes/fairytale_hub.tscn")))
  var seeds:=HBoxContainer.new();column.add_child(seeds)
  var topology:=OptionButton.new()

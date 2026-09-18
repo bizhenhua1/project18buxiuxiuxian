@@ -37,6 +37,7 @@ func enter_battle() -> bool:
 	if not state or state.active_zone().is_empty(): return false
 	fighting = false
 	save()
+	get_tree().set_meta("native_route_view",true)
 	get_tree().change_scene_to_file("res://scenes/expedition_route.tscn")
 	return true
 func return_to_world() -> void:

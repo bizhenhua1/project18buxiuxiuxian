@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/snow_mirror-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "plinth",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        393,
+        439
+      ],
+      "crop_bbox": [
+        86,
+        90,
+        352,
+        404
+      ],
+      "output_size": [
+        282,
+        330
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/plinth/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "basin",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        393,
+        0,
+        845,
+        439
+      ],
+      "crop_bbox": [
+        42,
+        178,
+        428,
+        403
+      ],
+      "output_size": [
+        402,
+        241
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/basin/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "stool",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        845,
+        0,
+        1254,
+        439
+      ],
+      "crop_bbox": [
+        25,
+        193,
+        372,
+        401
+      ],
+      "output_size": [
+        363,
+        224
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/stool/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "ivy",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        439,
+        419,
+        849
+      ],
+      "crop_bbox": [
+        40,
+        35,
+        402,
+        379
+      ],
+      "output_size": [
+        378,
+        360
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/ivy/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "molding",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        419,
+        439,
+        830,
+        849
+      ],
+      "crop_bbox": [
+        17,
+        79,
+        394,
+        345
+      ],
+      "output_size": [
+        393,
+        282
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/molding/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "silk",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        830,
+        439,
+        1254,
+        849
+      ],
+      "crop_bbox": [
+        18,
+        91,
+        391,
+        360
+      ],
+      "output_size": [
+        389,
+        285
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/silk/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "glass",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        849,
+        428,
+        1254
+      ],
+      "crop_bbox": [
+        42,
+        67,
+        401,
+        326
+      ],
+      "output_size": [
+        375,
+        275
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/glass/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "wax",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        428,
+        849,
+        831,
+        1254
+      ],
+      "crop_bbox": [
+        28,
+        31,
+        371,
+        336
+      ],
+      "output_size": [
+        359,
+        321
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/wax/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "silver",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        831,
+        849,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        33,
+        88,
+        384,
+        310
+      ],
+      "output_size": [
+        367,
+        238
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/snow_mirror/dressing/silver/prop.png"
+    }
+  ],
+  "rejected": []
+}

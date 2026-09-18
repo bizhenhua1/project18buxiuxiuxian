@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/puppet_theatre-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "chest",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        449,
+        459
+      ],
+      "crop_bbox": [
+        34,
+        112,
+        408,
+        405
+      ],
+      "output_size": [
+        390,
+        309
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/chest/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "stool",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        449,
+        0,
+        851,
+        459
+      ],
+      "crop_bbox": [
+        42,
+        108,
+        331,
+        388
+      ],
+      "output_size": [
+        305,
+        296
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/stool/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "spool",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        851,
+        0,
+        1254,
+        459
+      ],
+      "crop_bbox": [
+        72,
+        107,
+        336,
+        404
+      ],
+      "output_size": [
+        280,
+        313
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/spool/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "rope",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        459,
+        426,
+        864
+      ],
+      "crop_bbox": [
+        34,
+        84,
+        403,
+        364
+      ],
+      "output_size": [
+        385,
+        296
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/rope/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "masks",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        426,
+        459,
+        823,
+        864
+      ],
+      "crop_bbox": [
+        24,
+        65,
+        375,
+        344
+      ],
+      "output_size": [
+        367,
+        295
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/masks/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "velvet",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        823,
+        459,
+        1254,
+        864
+      ],
+      "crop_bbox": [
+        23,
+        54,
+        404,
+        355
+      ],
+      "output_size": [
+        397,
+        317
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/velvet/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "tickets",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        864,
+        418,
+        1254
+      ],
+      "crop_bbox": [
+        44,
+        57,
+        385,
+        308
+      ],
+      "output_size": [
+        357,
+        267
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/tickets/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "wood",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        418,
+        864,
+        846,
+        1254
+      ],
+      "crop_bbox": [
+        33,
+        42,
+        391,
+        309
+      ],
+      "output_size": [
+        374,
+        283
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/wood/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "pulley",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        846,
+        864,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        37,
+        68,
+        364,
+        342
+      ],
+      "output_size": [
+        343,
+        290
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_theatre/dressing/pulley/prop.png"
+    }
+  ],
+  "rejected": []
+}

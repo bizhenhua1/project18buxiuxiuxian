@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "bell",
+      "name": "裂钟",
+      "texture": "dressing/bell/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 46,
+      "ground_anchor": [
+        0.5,
+        0.9744318181818182
+      ],
+      "alpha_height_fraction": 0.9517045454545454,
+      "allow_on_road": false
+    },
+    {
+      "id": "gears",
+      "name": "铜齿轮",
+      "texture": "dressing/gears/prop.png",
+      "role": "anchor",
+      "height_min": 24,
+      "height_max": 40,
+      "ground_anchor": [
+        0.5,
+        0.9735973597359736
+      ],
+      "alpha_height_fraction": 0.9438943894389439,
+      "allow_on_road": false
+    },
+    {
+      "id": "chest",
+      "name": "维修箱",
+      "texture": "dressing/chest/prop.png",
+      "role": "prop",
+      "height_min": 20,
+      "height_max": 30,
+      "ground_anchor": [
+        0.5,
+        0.9642857142857143
+      ],
+      "alpha_height_fraction": 0.9285714285714286,
+      "allow_on_road": false
+    },
+    {
+      "id": "chain",
+      "name": "铁链",
+      "texture": "dressing/chain/prop.png",
+      "role": "prop",
+      "height_min": 5,
+      "height_max": 11,
+      "ground_anchor": [
+        0.5,
+        0.9716312056737588
+      ],
+      "alpha_height_fraction": 0.9397163120567376,
+      "allow_on_road": false
+    },
+    {
+      "id": "weight",
+      "name": "钟摆锤",
+      "texture": "dressing/weight/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 15,
+      "ground_anchor": [
+        0.5,
+        0.9626556016597511
+      ],
+      "alpha_height_fraction": 0.9294605809128631,
+      "allow_on_road": false
+    },
+    {
+      "id": "timbers",
+      "name": "旧木料",
+      "texture": "dressing/timbers/prop.png",
+      "role": "cover",
+      "height_min": 9,
+      "height_max": 18,
+      "ground_anchor": [
+        0.5,
+        0.9717314487632509
+      ],
+      "alpha_height_fraction": 0.9434628975265018,
+      "allow_on_road": false
+    },
+    {
+      "id": "bolts",
+      "name": "螺栓垫片",
+      "texture": "dressing/bolts/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9605911330049262
+      ],
+      "alpha_height_fraction": 0.9211822660098522,
+      "allow_on_road": true
+    },
+    {
+      "id": "brass",
+      "name": "铜碎屑",
+      "texture": "dressing/brass/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9673469387755103
+      ],
+      "alpha_height_fraction": 0.9306122448979591,
+      "allow_on_road": true
+    },
+    {
+      "id": "rubble",
+      "name": "煤尘碎石",
+      "texture": "dressing/rubble/prop.png",
+      "role": "cover",
+      "height_min": 5,
+      "height_max": 11,
+      "ground_anchor": [
+        0.5,
+        0.9673469387755103
+      ],
+      "alpha_height_fraction": 0.9306122448979591,
+      "allow_on_road": false
+    }
+  ]
+}

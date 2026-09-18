@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "repeat_distance": [
+    300,
+    410
+  ],
+  "assets": [
+    {
+      "id": "scenery-cart-v2",
+      "file": "furnishings/scenery-cart-v2.png",
+      "height": 120.0,
+      "ground_anchor": [
+        0.5,
+        0.9895833333333334
+      ],
+      "source": "art/fairytales/corridor/raw/puppet_theatre-scenery-cart-v2.png",
+      "prompt": "art/fairytales/corridor/raw/puppet_theatre-scenery-cart-v2.prompt.txt"
+    }
+  ]
+}

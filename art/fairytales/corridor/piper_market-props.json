@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/piper_market-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "crate",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        441,
+        452
+      ],
+      "crop_bbox": [
+        57,
+        156,
+        387,
+        418
+      ],
+      "output_size": [
+        346,
+        278
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/crate/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "barrel",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        441,
+        0,
+        814,
+        452
+      ],
+      "crop_bbox": [
+        54,
+        80,
+        320,
+        414
+      ],
+      "output_size": [
+        282,
+        350
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/barrel/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "sack",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        814,
+        0,
+        1254,
+        452
+      ],
+      "crop_bbox": [
+        54,
+        145,
+        383,
+        430
+      ],
+      "output_size": [
+        345,
+        301
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/sack/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "basket",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        452,
+        427,
+        847
+      ],
+      "crop_bbox": [
+        55,
+        64,
+        392,
+        337
+      ],
+      "output_size": [
+        353,
+        289
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/basket/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "weeds",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        427,
+        452,
+        827,
+        847
+      ],
+      "crop_bbox": [
+        35,
+        22,
+        365,
+        348
+      ],
+      "output_size": [
+        346,
+        342
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/weeds/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "awning",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        827,
+        452,
+        1254,
+        847
+      ],
+      "crop_bbox": [
+        36,
+        106,
+        384,
+        350
+      ],
+      "output_size": [
+        364,
+        260
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/awning/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "leaves",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        847,
+        435,
+        1254
+      ],
+      "crop_bbox": [
+        51,
+        102,
+        396,
+        312
+      ],
+      "output_size": [
+        361,
+        226
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/leaves/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "jug",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        435,
+        847,
+        828,
+        1254
+      ],
+      "crop_bbox": [
+        39,
+        45,
+        353,
+        324
+      ],
+      "output_size": [
+        330,
+        295
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/jug/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "rope",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        828,
+        847,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        41,
+        78,
+        374,
+        313
+      ],
+      "output_size": [
+        349,
+        251
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_market/dressing/rope/prop.png"
+    }
+  ],
+  "rejected": []
+}

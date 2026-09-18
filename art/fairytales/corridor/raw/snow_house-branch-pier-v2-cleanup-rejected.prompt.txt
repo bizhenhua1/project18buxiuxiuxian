@@ -1,0 +1,3 @@
+Keep this timber post, lantern and stone partition completely unchanged in design, proportions and color. Remove ALL of the dark brown ambient backdrop, haze, bloom and drop shadow outside the object AND within the triangular hole between the post and diagonal brace. Export a clean game sprite cutout with fully transparent background and transparent hole. Only solid wood, stone, metal and the lantern remain, opaque except thin antialiased silhouette edges. Preserve entire object and transparent margins. No new floor, no shadow, no background gradient.
+
+Outcome: rejected; visible brown background halo remained. Not used at runtime.

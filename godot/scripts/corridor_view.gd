@@ -25,7 +25,9 @@ func setup(art: ForestArt, world: ForestWorld, mode: int, font: Font) -> void:
 	add_child(renderer)
 
 func sync(camera: Vector2, heading: float, elapsed: float, movement: float, branch: int, labels: bool, bob: bool, _route_distance: float = 0.0) -> void:
-	if not renderer or not is_visible_in_tree():
+	# Hidden legacy drawing may still supply the native presenter's camera state.
+	# Visibility suppresses rendering, never publication of the route transform.
+	if not renderer:
 		return
 	renderer.view_size = size
 	renderer.camera_world = camera

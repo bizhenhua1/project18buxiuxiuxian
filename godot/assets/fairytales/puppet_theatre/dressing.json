@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "chest",
+      "name": "戏箱",
+      "texture": "dressing/chest/prop.png",
+      "role": "anchor",
+      "height_min": 26,
+      "height_max": 40,
+      "ground_anchor": [
+        0.5,
+        0.9741100323624595
+      ],
+      "alpha_height_fraction": 0.948220064724919,
+      "allow_on_road": false
+    },
+    {
+      "id": "stool",
+      "name": "戏凳",
+      "texture": "dressing/stool/prop.png",
+      "role": "anchor",
+      "height_min": 22,
+      "height_max": 34,
+      "ground_anchor": [
+        0.5,
+        0.972972972972973
+      ],
+      "alpha_height_fraction": 0.9425675675675675,
+      "allow_on_road": false
+    },
+    {
+      "id": "spool",
+      "name": "绳轴",
+      "texture": "dressing/spool/prop.png",
+      "role": "prop",
+      "height_min": 14,
+      "height_max": 24,
+      "ground_anchor": [
+        0.5,
+        0.9744408945686901
+      ],
+      "alpha_height_fraction": 0.9488817891373802,
+      "allow_on_road": false
+    },
+    {
+      "id": "rope",
+      "name": "舞台绳",
+      "texture": "dressing/rope/prop.png",
+      "role": "prop",
+      "height_min": 5,
+      "height_max": 11,
+      "ground_anchor": [
+        0.5,
+        0.972972972972973
+      ],
+      "alpha_height_fraction": 0.9425675675675675,
+      "allow_on_road": false
+    },
+    {
+      "id": "masks",
+      "name": "碎面具",
+      "texture": "dressing/masks/prop.png",
+      "role": "prop",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9728813559322034
+      ],
+      "alpha_height_fraction": 0.9423728813559322,
+      "allow_on_road": false
+    },
+    {
+      "id": "velvet",
+      "name": "残幕",
+      "texture": "dressing/velvet/prop.png",
+      "role": "cover",
+      "height_min": 7,
+      "height_max": 14,
+      "ground_anchor": [
+        0.5,
+        0.9716088328075709
+      ],
+      "alpha_height_fraction": 0.943217665615142,
+      "allow_on_road": false
+    },
+    {
+      "id": "tickets",
+      "name": "残票",
+      "texture": "dressing/tickets/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 3,
+      "ground_anchor": [
+        0.5,
+        0.9700374531835206
+      ],
+      "alpha_height_fraction": 0.9363295880149812,
+      "allow_on_road": true
+    },
+    {
+      "id": "wood",
+      "name": "彩木屑",
+      "texture": "dressing/wood/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9717314487632509
+      ],
+      "alpha_height_fraction": 0.9399293286219081,
+      "allow_on_road": true
+    },
+    {
+      "id": "pulley",
+      "name": "锈滑轮",
+      "texture": "dressing/pulley/prop.png",
+      "role": "prop",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9724137931034482
+      ],
+      "alpha_height_fraction": 0.9448275862068966,
+      "allow_on_road": false
+    }
+  ]
+}

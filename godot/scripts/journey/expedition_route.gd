@@ -1,6 +1,7 @@
 extends "res://scripts/spaces/space_study.gd"
 var live_template=preload("res://scripts/traditional/live_template.gd").new()
 var arena: BattleArena
+var native_route_view
 var model: BattleModel
 var speed := 1.0
 
@@ -569,6 +570,13 @@ func _process(delta: float) -> void:
 		discovery_actor.advance(minf(delta,.05),"travel",paused,speed,true)
 	arena._process(minf(delta,.05))
 	for view in views:view.sync_projection()
+	if get_tree().get_meta("native_route_view",false) and not has_meta("traditional_editor") and get_script().resource_path!="res://scripts/defense/defense_route.gd":
+		if not native_route_view:
+			native_route_view=preload("res://scripts/world3d/route_view.gd").new()
+			arena.add_child(native_route_view);arena.move_child(native_route_view,0)
+			native_route_view.setup(views[0],arena)
+		if arena.scene_mode:native_route_view.resume(0.0 if paused else minf(delta,.05)*speed)
+		else:native_route_view.suspend()
 	if phase == "arrived" and not route_complete:
 		var before := Journey.state.stones
 		route_complete = Journey.state.finish_local()

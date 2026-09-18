@@ -1,0 +1,16 @@
+{
+  "file": "branch-side.png",
+  "role": "side",
+  "ground_anchor": [
+    0.5,
+    0.9921259842519685
+  ],
+  "suggested_canvas_height": 220,
+  "junction_side_radius": 700,
+  "image_size": [
+    388,
+    1016
+  ],
+  "source": "art/fairytales/corridor/raw/puppet_theatre-curtain-pier-v3-key.png",
+  "edge_touch": false
+}

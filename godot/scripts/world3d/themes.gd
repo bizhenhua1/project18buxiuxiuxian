@@ -1,7 +1,17 @@
 extends RefCounted
 const CATALOG=preload("res://scripts/spaces/biome_catalog.gd")
-const KEYS=["connected","forest","crystal","swamp","sewer","whale","palace"]
-const LABELS=["森林 · 主题岔路","森林","水晶矿洞","菌菇沼泽","城市下水道","巨鲸体内","地下宫殿"]
+const BASE_KEYS=["connected","forest","crystal","swamp","sewer","whale","palace"]
+const BASE_LABELS=["森林 · 主题岔路","森林","水晶矿洞","菌菇沼泽","城市下水道","巨鲸体内","地下宫殿"]
+static var KEYS:Array=_keys()
+static var LABELS:Array=_labels()
+static func _keys()->Array:
+ var result:Array=BASE_KEYS.duplicate()
+ for scene in FairytaleCatalog.scenes:result.append(str(scene.id))
+ return result
+static func _labels()->Array:
+ var result:Array=BASE_LABELS.duplicate()
+ for scene in FairytaleCatalog.scenes:result.append(str(scene.name))
+ return result
 static func plan(key:String,exits:int=2,layout_seed:int=1842)->RoutePlan:
  assert(exits in [2,3])
  var result:RoutePlan=load("res://spaces/routes/connected.tres").duplicate(true)

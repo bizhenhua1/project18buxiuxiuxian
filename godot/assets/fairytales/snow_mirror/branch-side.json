@@ -1,0 +1,20 @@
+{
+  "file": "branch-side.png",
+  "role": "side",
+  "ground_anchor": [
+    0.5,
+    0.9933993399339934
+  ],
+  "suggested_canvas_height": 319.2140468227425,
+  "source_box": [
+    50,
+    93,
+    704,
+    1887
+  ],
+  "image_size": [
+    678,
+    1818
+  ],
+  "edge_touch": false
+}

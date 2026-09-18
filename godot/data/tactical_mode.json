@@ -1,0 +1,142 @@
+{
+ "slow_scale": 0.2,
+ "respawn_seconds": 12.0,
+ "return_seconds": 1.0,
+ "death_hold_seconds": 2.4,
+ "energy_max": 30.0,
+ "auto_energy": 2.0,
+ "attack_energy": 5.0,
+ "hurt_energy": 3.0,
+ "skills": [
+  {
+   "name": "贯穿斩",
+   "shape": "line",
+   "length": 18.0,
+   "width": 3.0,
+   "damage": 160.0,
+   "recharge": "attack"
+  },
+  {
+   "name": "守夜领域",
+   "shape": "circle",
+   "radius": 7.0,
+   "damage": 110.0,
+   "recharge": "hurt"
+  },
+  {
+   "name": "幽焰爆破",
+   "shape": "blast",
+   "length": 12.0,
+   "radius": 5.0,
+   "damage": 190.0,
+   "recharge": "auto"
+  },
+  {
+   "name": "无尽射线",
+   "shape": "line",
+   "length": 160.0,
+   "width": 2.2,
+   "infinite": true,
+   "damage": 125.0,
+   "recharge": "auto"
+  },
+  {
+   "name": "请勿入内",
+   "shape": "circle",
+   "radius": 8.0,
+   "effect": "gate",
+   "cost": 30,
+   "recharge": "hurt",
+   "gain": 3,
+   "description": "8 秒 · 阻挡 +2 / 减伤 35%",
+   "target": "taunt",
+   "color": "e6c374"
+  },
+  {
+   "name": "晚宴谢幕",
+   "shape": "line",
+   "length": 18.0,
+   "width": 3.0,
+   "effect": "maid",
+   "cost": 30,
+   "recharge": "attack",
+   "gain": 5,
+   "description": "直线贯穿 · 280% 伤害",
+   "color": "e5d69d"
+  },
+  {
+   "name": "报时长刺",
+   "shape": "line",
+   "length": 14.0,
+   "width": 2.0,
+   "effect": "spear",
+   "cost": 24,
+   "recharge": "attack",
+   "gain": 4,
+   "description": "贯穿 220% · 邻列队友回能 4",
+   "color": "d4e6c0"
+  },
+  {
+   "name": "最后一根火柴",
+   "shape": "blast",
+   "length": 12.0,
+   "radius": 5.0,
+   "effect": "fire",
+   "cost": 36,
+   "recharge": "auto",
+   "gain": 2,
+   "description": "定点火球 300% · 4 秒余烬",
+   "color": "efa36a"
+  },
+  {
+   "name": "七枚银针",
+   "shape": "circle",
+   "radius": 20.0,
+   "effect": "needle",
+   "cost": 28,
+   "recharge": "attack",
+   "gain": 3,
+   "description": "4 秒分批追踪 · 七针各 120%",
+   "color": "d6d1ee"
+  },
+  {
+   "name": "灯还没有熄灭",
+   "shape": "circle",
+   "radius": 7.0,
+   "effect": "heal",
+   "cost": 30,
+   "recharge": "auto",
+   "gain": 2,
+   "description": "6 秒治疗 · 首次护盾 80",
+   "target": "ally",
+   "color": "9aefc2"
+  },
+  {
+   "name": "别吵醒她",
+   "shape": "blast",
+   "length": 12.0,
+   "radius": 6.0,
+   "effect": "slow",
+   "cost": 32,
+   "recharge": "auto",
+   "gain": 2,
+   "description": "6 秒领域 · 减速 45% / 每秒 40%",
+   "color": "b29ad6"
+  },
+  {
+   "name": "滚回故事里",
+   "shape": "line",
+   "length": 10.0,
+   "width": 6.0,
+   "effect": "push",
+   "cost": 30,
+   "recharge": "attack",
+   "gain": 5,
+   "description": "矩形 180% · 最多击退 1.6 米",
+   "color": "c9b693"
+  }
+ ],
+ "taunt_radius": 8.0,
+ "advance_limit_z": -0.5,
+ "enemy_corpse_seconds": 5.0
+}

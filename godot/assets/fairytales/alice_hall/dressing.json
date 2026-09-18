@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "books",
+      "name": "旧书摞",
+      "texture": "dressing/books/prop.png",
+      "role": "prop",
+      "height_min": 12,
+      "height_max": 21,
+      "ground_anchor": [
+        0.5,
+        0.9693486590038314
+      ],
+      "alpha_height_fraction": 0.9348659003831418,
+      "allow_on_road": false
+    },
+    {
+      "id": "clock",
+      "name": "残钟",
+      "texture": "dressing/clock/prop.png",
+      "role": "anchor",
+      "height_min": 25,
+      "height_max": 38,
+      "ground_anchor": [
+        0.5,
+        0.9751552795031055
+      ],
+      "alpha_height_fraction": 0.9503105590062112,
+      "allow_on_road": false
+    },
+    {
+      "id": "stool",
+      "name": "矮凳",
+      "texture": "dressing/stool/prop.png",
+      "role": "anchor",
+      "height_min": 22,
+      "height_max": 32,
+      "ground_anchor": [
+        0.5,
+        0.9701492537313433
+      ],
+      "alpha_height_fraction": 0.9402985074626866,
+      "allow_on_road": false
+    },
+    {
+      "id": "fern",
+      "name": "枯蕨",
+      "texture": "dressing/fern/prop.png",
+      "role": "cover",
+      "height_min": 13,
+      "height_max": 25,
+      "ground_anchor": [
+        0.5,
+        0.9716312056737588
+      ],
+      "alpha_height_fraction": 0.9432624113475178,
+      "allow_on_road": false
+    },
+    {
+      "id": "bottles",
+      "name": "药瓶",
+      "texture": "dressing/bottles/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 16,
+      "ground_anchor": [
+        0.5,
+        0.9741100323624595
+      ],
+      "alpha_height_fraction": 0.948220064724919,
+      "allow_on_road": false
+    },
+    {
+      "id": "scrolls",
+      "name": "卷轴",
+      "texture": "dressing/scrolls/prop.png",
+      "role": "prop",
+      "height_min": 5,
+      "height_max": 11,
+      "ground_anchor": [
+        0.5,
+        0.963265306122449
+      ],
+      "alpha_height_fraction": 0.9306122448979591,
+      "allow_on_road": false
+    },
+    {
+      "id": "keys",
+      "name": "钥匙盘",
+      "texture": "dressing/keys/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9590163934426229
+      ],
+      "alpha_height_fraction": 0.9262295081967213,
+      "allow_on_road": true
+    },
+    {
+      "id": "pages",
+      "name": "残页",
+      "texture": "dressing/pages/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 3,
+      "ground_anchor": [
+        0.5,
+        0.9625
+      ],
+      "alpha_height_fraction": 0.9291666666666667,
+      "allow_on_road": true
+    },
+    {
+      "id": "tiles",
+      "name": "碎砖",
+      "texture": "dressing/tiles/prop.png",
+      "role": "cover",
+      "height_min": 5,
+      "height_max": 10,
+      "ground_anchor": [
+        0.5,
+        0.9722222222222222
+      ],
+      "alpha_height_fraction": 0.9409722222222222,
+      "allow_on_road": false
+    }
+  ]
+}

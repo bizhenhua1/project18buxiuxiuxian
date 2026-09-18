@@ -26,7 +26,17 @@ func refresh()->void:
   box.add_child(StudyUI.label(scene.name,23))
   var description:=StudyUI.label(scene.story+" · "+" / ".join(scene.enemies),14)
   description.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;box.add_child(description)
-  box.add_child(AdventureSkin.button("进入场景 · 探索与战斗",func():
+  box.add_child(AdventureSkin.button("场景测试 · 行进与岔路",func():
+   get_tree().set_meta("world3d_theme",str(scene.id))
+   get_tree().set_meta("world3d_return_scene","res://scenes/fairytale_hub.tscn")
+   get_tree().set_meta("world3d_fork_test",0)
+   get_tree().change_scene_to_file("res://scenes/world3d_presentation.tscn")))
+  box.add_child(AdventureSkin.button("进入 3D · 探索与战斗",func():
+   get_tree().set_meta("native_route_view",true)
+   get_tree().set_meta("tour_biome",scene.id)
+   get_tree().change_scene_to_file("res://scenes/endless_forest.tscn")))
+  box.add_child(AdventureSkin.button("传统版对照 · 探索与战斗",func():
+   get_tree().set_meta("native_route_view",false)
    get_tree().set_meta("tour_biome",scene.id)
    get_tree().change_scene_to_file("res://scenes/endless_forest.tscn")))
   box.add_child(AdventureSkin.button("查看世界地块与怪物",func():

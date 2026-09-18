@@ -2,6 +2,8 @@ extends Node3D
 const FX=preload("res://scripts/spaces/epic181_effect.gd")
 const LIB="res://assets/fx/epic181/library/"
 var app
+var enabled:=true
+var disabled_cleared:=false
 var pools:Dictionary={}
 var bindings:Dictionary={}
 var emission_offsets:Dictionary={}
@@ -84,6 +86,7 @@ func emit_effect(kind:String,position:Vector3,world_space:=false):
   fx.position=position if world_space else app.world_point(position);fx.scale=Vector3.ONE*.3;fx.last_position=fx.global_position
   fx.age=0;fx.stopped=false;fx.show()
   fx.reset_particles()
+  style_effect(fx,Color(1,1,1,0))
   if ordinary_budget:
    var requested:Array=requested_caps(budget_profiles,kind,app.sim.projectiles.active.size())
    if requested!=budget_profiles.ordinary[kind].caps:dense_instances+=1
@@ -102,6 +105,10 @@ func clear():
  for pool in pools.values():
   for fx in pool:fx.hide();fx.stopped=true;fx.reset_particles()
 func advance(dt:float):
+ if not enabled:
+  if not disabled_cleared:clear();disabled_cleared=true
+  return
+ disabled_cleared=false
  if render_batch!=null:render_batch.begin_frame(app.camera)
  var alive:Dictionary={}
  var bound_effects:Dictionary={}
@@ -117,6 +124,7 @@ func advance(dt:float):
     offset=actor.portrait_presenter.presented_attachment(origin,app.camera)-origin
    emission_offsets[shot.id]=offset
    bindings[shot.id]=emit_effect("missile",origin+offset,true)
+   if shot.get("payload",{}).has("color"):style_effect(bindings[shot.id],Color(shot.payload.color))
    # A volley has one casting flash at its shared attachment, not one overlapping
    # copy per projectile. Distinct emitters/positions still get distinct flashes.
    var muzzle_key:Array=[shot.source_id,shot.enemy,origin+offset]
@@ -141,7 +149,9 @@ func advance(dt:float):
  var impacts:Array=group_impacts(app.sim.impact_events)
  shared_impacts+=app.sim.impact_events.size()-impacts.size()
  for event in impacts:
-  emit_effect("impact",event.position);lighting.impact(app.world_point(event.position))
+  var impact=emit_effect("impact",event.position)
+  if event.has("color"):style_effect(impact,Color(event.color))
+  lighting.impact(app.world_point(event.position))
  app.sim.impact_events.clear()
  app.bridge.combat_lights.assign(lighting.advance(dt,flight_positions))
  for kind in pools:
@@ -173,3 +183,7 @@ static func group_impacts(events:Array)->Array:
   if shared:continue
   groups.append(event);contacts.append(event);by_target[target]=contacts
  return groups
+
+func style_effect(fx,color:Color):
+ if fx==null:return
+ for layer in fx.layers:layer.material.set_shader_parameter("role_color",color)

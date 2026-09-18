@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "repeat_distance": [
+    220,
+    310
+  ],
+  "assets": [
+    {
+      "id": "bed-alcove-v2",
+      "file": "furnishings/bed-alcove-v2.png",
+      "height": 105,
+      "ground_anchor": [
+        0.5,
+        0.9895833333333334
+      ],
+      "source": "art/fairytales/corridor/raw/snow_house-bed-alcove-v2.png",
+      "prompt": "art/fairytales/corridor/raw/snow_house-bed-alcove-v2.prompt.txt"
+    },
+    {
+      "id": "work-cabinet-v2",
+      "file": "furnishings/work-cabinet-v2.png",
+      "height": 82,
+      "ground_anchor": [
+        0.5,
+        0.9878234398782344
+      ],
+      "source": "art/fairytales/corridor/raw/snow_house-work-cabinet-v2.png",
+      "prompt": "art/fairytales/corridor/raw/snow_house-work-cabinet-v2.prompt.txt"
+    }
+  ]
+}

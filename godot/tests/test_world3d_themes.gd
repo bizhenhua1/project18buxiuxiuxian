@@ -34,5 +34,5 @@ func run():
    assert(expected.distance_to(Vector2(after.x,after.z))<.01)
    assert(before.y==after.y and before.w==after.w,"Turning a light must retain its height and radius")
   print("WORLD3D_THEME_PASS ",key," sprites=",transformed.sprites.size()," lights=",transformed.biome_lights.size())
- print("WORLD3D_THEMES_PASS six themes, rotated successor scenery and lights, scoped route context")
+ print("WORLD3D_THEMES_PASS themes=",THEMES.KEYS.size()-1," rotated successor scenery and lights, scoped route context")
  quit()

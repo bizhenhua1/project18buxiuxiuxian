@@ -12,6 +12,11 @@ func populate(world, region:RouteRegion)->void:
 	var h:float=spec.suggested_canvas_height
 	var w:float=h*tex.get_width()/float(tex.get_height())
 	var anchor:=Vector2(spec.ground_anchor[0],spec.ground_anchor[1])
+	var branch_side:Dictionary={}
+	var side_path:=Catalog.asset(key,"branch-side.json")
+	if FileAccess.file_exists(side_path):
+		branch_side=JSON.parse_string(FileAccess.get_file_as_string(side_path))
+		branch_side["loaded"]=load(Catalog.asset(key,branch_side.file))
 	var s:float=region.start+30.0
 	while s<region.end:
 		if spec.role=="shell":
@@ -20,11 +25,16 @@ func populate(world, region:RouteRegion)->void:
 			var offset:float=(w+opening)*.25
 			var support_radius:float=(w-opening)*.25
 			var safe:=true
+			# Some interiors need separate piers through the junction: full
+			# overhead room frames otherwise overlap across diverging roads.
+			if not world.plan.straight and not branch_side.is_empty() and absf(s-ForestRoute.JUNCTION)<float(branch_side.get("junction_side_radius",0)):safe=false
 			for side in [-1,1]:
 				var p:=ForestRoute.point_at(s,region.branch,side*offset)
 				if road_distance(world,p)<support_radius+76.0:safe=false
 			if safe:
 				append(world,region,s,0,tex,h,anchor,false,true)
+			elif not branch_side.is_empty():
+				place_branch_sides(world,region,s,branch_side)
 		else:
 			for side in [-1,1]:
 				var lateral:float=side*(96.0+w*.5)
@@ -73,6 +83,39 @@ func populate(world, region:RouteRegion)->void:
 			var ew:float=eh*e.loaded.get_width()/float(e.loaded.get_height())
 			if e.role!="litter" and road_distance(world,ForestRoute.point_at(at,region.branch,x))<76+ew*.5:continue
 			append(world,region,at,x,e.loaded,eh,Vector2(e.ground_anchor[0],e.ground_anchor[1]),rng.randf()<.5,false)
+	place_furnishings(world,region,key)
+
+func place_furnishings(world,region:RouteRegion,key:String)->void:
+	var path:=Catalog.asset(key,"furnishings.json")
+	if not FileAccess.file_exists(path):return
+	var config:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(path))
+	var rng:=RandomNumberGenerator.new();rng.seed=world.seed_value+hash(key)+region.branch*91+7823
+	var at:float=region.start+100
+	var index:=0
+	while at<region.end:
+		var entry:Dictionary=config.assets[index%config.assets.size()]
+		var texture:Texture2D=load(Catalog.asset(key,entry.file))
+		var height:float=entry.height;var width:float=height*texture.get_width()/float(texture.get_height())
+		var side:float=-1 if index%2==0 else 1
+		for extra in [0.0,40.0,80.0]:
+			var x:float=side*(84+width*.5+extra)
+			if road_distance(world,ForestRoute.point_at(at,region.branch,x))<76+width*.5:continue
+			append(world,region,at,x,texture,height,Vector2(entry.ground_anchor[0],entry.ground_anchor[1]),side>0,false)
+			break
+		at+=rng.randf_range(config.repeat_distance[0],config.repeat_distance[1]);index+=1
+
+func place_branch_sides(world,region:RouteRegion,s:float,spec:Dictionary)->void:
+	# Only replace unsafe spanning arches. The complete independent prop stays
+	# outside every active road; no clipped arch or per-frame repositioning.
+	var texture:Texture2D=spec.loaded
+	var height:float=spec.suggested_canvas_height
+	var width:float=height*texture.get_width()/float(texture.get_height())
+	for side in [-1,1]:
+		for extra in [0.0,40.0,80.0,120.0,160.0]:
+			var lateral:float=side*(100.0+width*.5+extra)
+			if road_distance(world,ForestRoute.point_at(s,region.branch,lateral))<76+width*.5:continue
+			append(world,region,s,lateral,texture,height,Vector2(spec.ground_anchor[0],spec.ground_anchor[1]),side>0,false)
+			break
 
 func road_distance(world,p:Vector2)->float:
 	return absf(ForestRoute.local_point(p).x) if world.plan.straight else ForestRoute.road_distance(p,world.plan.exits==3)

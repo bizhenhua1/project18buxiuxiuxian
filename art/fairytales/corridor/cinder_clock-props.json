@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/cinder_clock-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "bell",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        417,
+        486
+      ],
+      "crop_bbox": [
+        61,
+        93,
+        384,
+        429
+      ],
+      "output_size": [
+        339,
+        352
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/bell/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "gears",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        417,
+        0,
+        835,
+        486
+      ],
+      "crop_bbox": [
+        34,
+        138,
+        390,
+        425
+      ],
+      "output_size": [
+        372,
+        303
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/gears/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "chest",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        835,
+        0,
+        1254,
+        486
+      ],
+      "crop_bbox": [
+        28,
+        211,
+        369,
+        419
+      ],
+      "output_size": [
+        357,
+        224
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/chest/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "chain",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        486,
+        436,
+        884
+      ],
+      "crop_bbox": [
+        46,
+        71,
+        400,
+        337
+      ],
+      "output_size": [
+        370,
+        282
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/chain/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "weight",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        436,
+        486,
+        817,
+        884
+      ],
+      "crop_bbox": [
+        37,
+        94,
+        346,
+        319
+      ],
+      "output_size": [
+        325,
+        241
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/weight/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "timbers",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        817,
+        486,
+        1254,
+        884
+      ],
+      "crop_bbox": [
+        36,
+        69,
+        400,
+        336
+      ],
+      "output_size": [
+        380,
+        283
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/timbers/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "bolts",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        884,
+        417,
+        1254
+      ],
+      "crop_bbox": [
+        52,
+        91,
+        387,
+        278
+      ],
+      "output_size": [
+        351,
+        203
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/bolts/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "brass",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        417,
+        884,
+        828,
+        1254
+      ],
+      "crop_bbox": [
+        31,
+        62,
+        388,
+        291
+      ],
+      "output_size": [
+        373,
+        245
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/brass/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "rubble",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        828,
+        884,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        23,
+        65,
+        379,
+        294
+      ],
+      "output_size": [
+        372,
+        245
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_clock/dressing/rubble/prop.png"
+    }
+  ],
+  "rejected": []
+}

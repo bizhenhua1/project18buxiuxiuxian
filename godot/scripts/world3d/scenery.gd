@@ -107,7 +107,7 @@ func add_sprite_to_groups(sprite:Dictionary,groups:Dictionary,placement_done:=fa
      correction=float(contact_specs[asset_key].anchor_y_offset);break
    contact_offsets[member.texture]=correction
   member.anchor.y+=float(contact_offsets[member.texture])
-  var adaptive_contact:bool=conform_bases or (member.role=="body" and (sprite.get("trunk_radius",0.0)>0 or (sprite.get("shell",false) and sprite.region.space.key in [&"swamp",&"palace",&"sewer",&"whale"])))
+  var adaptive_contact:bool=conform_bases or (member.role=="body" and (sprite.get("trunk_radius",0.0)>0 or (sprite.get("shell",false) and (sprite.region.space.key in [&"swamp",&"palace",&"sewer",&"whale"] or FairytaleCatalog.has_scene(sprite.region.space.key)))))
   var cell:=Vector2i(floor(sprite.position.x/240),floor(sprite.position.y/240))
   var key:=str(member.texture.get_instance_id())+":"+str(cell)+":"+str(grounded)+":"+str(adaptive_contact)
   # Bounded geometry bakes its fold boundary into the mesh. Instance custom
@@ -378,11 +378,13 @@ func create_ground(world:SegmentWorld):
  floor_types=types.duplicate()
  floor_material.set_shader_parameter("region_count",regions.size());regions.resize(12);blends.resize(12)
  floor_material.set_shader_parameter("regions",regions);floor_material.set_shader_parameter("blend_lengths",blends)
- var tints:=PackedColorArray();var colors:=PackedColorArray();var textured:Array[bool]=[]
+ var tints:=PackedColorArray();var colors:=PackedColorArray();var textured:Array[bool]=[];var mirrored:Array[bool]=[]
  for i in 3:
   var type=types[mini(i,types.size()-1)];tints.append(type.ground_tint);colors.append(type.atmosphere.depth_color);textured.append(type.ground_texture!=null)
+  mirrored.append(FairytaleCatalog.has_scene(type.key))
   floor_material.set_shader_parameter("floor%d"%i,type.ground_texture if type.ground_texture else StyleLibrary.texture("ground"))
  floor_material.set_shader_parameter("floor_tints",tints);floor_material.set_shader_parameter("depth_colors",colors);floor_material.set_shader_parameter("textured",textured)
+ floor_material.set_shader_parameter("seam_blend_floor",mirrored)
  var plane:=preload("res://scripts/world3d/ground_grid.gd").mesh()
  var node:=MeshInstance3D.new();floor_node=node;node.mesh=plane;node.position.z=-100;node.material_override=floor_material;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;add_child(node)
 static func order_mist(patches:Array,view_heading:float):

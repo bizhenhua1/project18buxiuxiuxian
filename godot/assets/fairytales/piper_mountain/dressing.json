@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "boulder",
+      "name": "苔岩",
+      "texture": "dressing/boulder/prop.png",
+      "role": "anchor",
+      "height_min": 26,
+      "height_max": 44,
+      "ground_anchor": [
+        0.5,
+        0.9708029197080292
+      ],
+      "alpha_height_fraction": 0.9416058394160584,
+      "allow_on_road": false
+    },
+    {
+      "id": "marker",
+      "name": "残界石",
+      "texture": "dressing/marker/prop.png",
+      "role": "anchor",
+      "height_min": 32,
+      "height_max": 52,
+      "ground_anchor": [
+        0.5,
+        0.9758308157099698
+      ],
+      "alpha_height_fraction": 0.9516616314199395,
+      "allow_on_road": false
+    },
+    {
+      "id": "stump",
+      "name": "腐树桩",
+      "texture": "dressing/stump/prop.png",
+      "role": "anchor",
+      "height_min": 27,
+      "height_max": 44,
+      "ground_anchor": [
+        0.5,
+        0.9722222222222222
+      ],
+      "alpha_height_fraction": 0.9444444444444444,
+      "allow_on_road": false
+    },
+    {
+      "id": "roots",
+      "name": "盘根",
+      "texture": "dressing/roots/prop.png",
+      "role": "cover",
+      "height_min": 10,
+      "height_max": 22,
+      "ground_anchor": [
+        0.5,
+        0.9689655172413794
+      ],
+      "alpha_height_fraction": 0.9379310344827586,
+      "allow_on_road": false
+    },
+    {
+      "id": "fern",
+      "name": "山蕨",
+      "texture": "dressing/fern/prop.png",
+      "role": "cover",
+      "height_min": 14,
+      "height_max": 27,
+      "ground_anchor": [
+        0.5,
+        0.9731543624161074
+      ],
+      "alpha_height_fraction": 0.9395973154362416,
+      "allow_on_road": false
+    },
+    {
+      "id": "cloth",
+      "name": "旧蓝布",
+      "texture": "dressing/cloth/prop.png",
+      "role": "prop",
+      "height_min": 4,
+      "height_max": 8,
+      "ground_anchor": [
+        0.5,
+        0.9692307692307692
+      ],
+      "alpha_height_fraction": 0.9384615384615385,
+      "allow_on_road": false
+    },
+    {
+      "id": "gravel",
+      "name": "板岩屑",
+      "texture": "dressing/gravel/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9615384615384616
+      ],
+      "alpha_height_fraction": 0.9230769230769231,
+      "allow_on_road": true
+    },
+    {
+      "id": "sticks",
+      "name": "断木",
+      "texture": "dressing/sticks/prop.png",
+      "role": "cover",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9642857142857143
+      ],
+      "alpha_height_fraction": 0.9285714285714286,
+      "allow_on_road": false
+    },
+    {
+      "id": "wax",
+      "name": "石上残烛",
+      "texture": "dressing/wax/prop.png",
+      "role": "prop",
+      "height_min": 8,
+      "height_max": 14,
+      "ground_anchor": [
+        0.5,
+        0.9669421487603306
+      ],
+      "alpha_height_fraction": 0.9338842975206612,
+      "allow_on_road": false
+    }
+  ]
+}

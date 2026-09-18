@@ -32,15 +32,18 @@ func setup(art: ForestArt, world: ForestWorld, mode: int, font: Font) -> void:
 	var tints := PackedColorArray()
 	var colors := PackedColorArray()
 	var textured: Array[bool] = []
+	var mirrored: Array[bool] = []
 	for i in range(3):
 		var type := types[mini(i,types.size()-1)]
 		tints.append(type.ground_tint)
 		colors.append(type.atmosphere.depth_color)
 		textured.append(type.ground_texture != null)
+		mirrored.append(FairytaleCatalog.has_scene(type.key))
 		ground_material.set_shader_parameter("floor%d" % i, type.ground_texture if type.ground_texture else art.textures["ground-tile"])
 	ground_material.set_shader_parameter("floor_tints", tints)
 	ground_material.set_shader_parameter("depth_colors", colors)
 	ground_material.set_shader_parameter("textured", textured)
+	ground_material.set_shader_parameter("seam_blend_floor", mirrored)
 	renderer = SegmentRenderer.new()
 	renderer.lantern_enabled=StyleLibrary.active
 	renderer.art = art

@@ -1,5 +1,6 @@
 extends Node
 func _ready() -> void:
+	get_tree().set_meta("native_route_view",true)
 	DisplayServer.window_set_title("雾林行记 · 连续冒险与战斗验收")
 	Journey.SAVE = "user://adventure-preview.json"
 	Journey.state = JourneyState.new()

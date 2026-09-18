@@ -1,0 +1,110 @@
+[
+  {
+    "scene": "red_village",
+    "props": 9,
+    "compressed_bytes": 1290498,
+    "rgba_bytes": 3127580
+  },
+  {
+    "scene": "red_cottage",
+    "props": 9,
+    "compressed_bytes": 1526595,
+    "rgba_bytes": 3495904
+  },
+  {
+    "scene": "red_workshop",
+    "props": 9,
+    "compressed_bytes": 1556815,
+    "rgba_bytes": 3415464
+  },
+  {
+    "scene": "snow_mirror",
+    "props": 9,
+    "compressed_bytes": 1633672,
+    "rgba_bytes": 3738940
+  },
+  {
+    "scene": "snow_orchard",
+    "props": 9,
+    "compressed_bytes": 1318250,
+    "rgba_bytes": 3315256
+  },
+  {
+    "scene": "snow_house",
+    "props": 9,
+    "compressed_bytes": 1960890,
+    "rgba_bytes": 4175792
+  },
+  {
+    "scene": "alice_tea",
+    "props": 9,
+    "compressed_bytes": 1321461,
+    "rgba_bytes": 2898232
+  },
+  {
+    "scene": "alice_roses",
+    "props": 9,
+    "compressed_bytes": 1766938,
+    "rgba_bytes": 4053164
+  },
+  {
+    "scene": "alice_hall",
+    "props": 9,
+    "compressed_bytes": 1587940,
+    "rgba_bytes": 3474616
+  },
+  {
+    "scene": "piper_market",
+    "props": 9,
+    "compressed_bytes": 1597545,
+    "rgba_bytes": 3521028
+  },
+  {
+    "scene": "piper_bridge",
+    "props": 9,
+    "compressed_bytes": 1334409,
+    "rgba_bytes": 3216296
+  },
+  {
+    "scene": "piper_mountain",
+    "props": 9,
+    "compressed_bytes": 1491539,
+    "rgba_bytes": 3478620
+  },
+  {
+    "scene": "puppet_workshop",
+    "props": 9,
+    "compressed_bytes": 1211990,
+    "rgba_bytes": 2938148
+  },
+  {
+    "scene": "puppet_theatre",
+    "props": 9,
+    "compressed_bytes": 1700488,
+    "rgba_bytes": 3788540
+  },
+  {
+    "scene": "puppet_fair",
+    "props": 9,
+    "compressed_bytes": 1591644,
+    "rgba_bytes": 3651652
+  },
+  {
+    "scene": "cinder_kitchen",
+    "props": 9,
+    "compressed_bytes": 1395552,
+    "rgba_bytes": 3142072
+  },
+  {
+    "scene": "cinder_garden",
+    "props": 9,
+    "compressed_bytes": 1457311,
+    "rgba_bytes": 3307552
+  },
+  {
+    "scene": "cinder_clock",
+    "props": 9,
+    "compressed_bytes": 1405325,
+    "rgba_bytes": 3423980
+  }
+]

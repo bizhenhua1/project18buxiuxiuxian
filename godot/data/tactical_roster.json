@@ -1,0 +1,178 @@
+[
+ {
+  "key": "gate",
+  "name": "荆棘门卫",
+  "model": "batter-helmsman.glb",
+  "profession": "守卫",
+  "loadout": {
+   "right": "sword_A.gltf",
+   "left": "shield_C.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 900,
+  "attack": 32,
+  "cooldown": 1.6,
+  "block": 3,
+  "range": 3.2,
+  "projectile_mode": "homing",
+  "skill": 4,
+  "class_label": "重装 · 守门者"
+ },
+ {
+  "key": "maid",
+  "name": "白瓷女仆",
+  "model": "isabella.glb",
+  "profession": "剑士",
+  "loadout": {
+   "right": "sword_B.gltf",
+   "left": "",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 560,
+  "attack": 52,
+  "cooldown": 1.1,
+  "block": 2,
+  "range": 3.2,
+  "projectile_mode": "homing",
+  "skill": 5,
+  "class_label": "近卫 · 剑士"
+ },
+ {
+  "key": "spear",
+  "name": "踏钟侍从",
+  "model": "antiquarian.glb",
+  "profession": "先锋",
+  "loadout": {
+   "right": "spear_A.gltf",
+   "left": "spear_A.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 520,
+  "attack": 42,
+  "cooldown": 1.0,
+  "block": 2,
+  "range": 4.5,
+  "projectile_mode": "homing",
+  "skill": 6,
+  "class_label": "先锋 · 长矛"
+ },
+ {
+  "key": "fire",
+  "name": "灰烬卖火人",
+  "model": "scarlet-banquet.glb",
+  "profession": "术士",
+  "loadout": {
+   "right": "staff_A.gltf",
+   "left": "staff_A.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 330,
+  "attack": 64,
+  "cooldown": 1.8,
+  "block": 1,
+  "range": 18.0,
+  "projectile_mode": "ballistic",
+  "skill": 7,
+  "class_label": "术士 · 焚烧者"
+ },
+ {
+  "key": "needle",
+  "name": "缝影裁缝",
+  "model": "composer-reason.glb",
+  "profession": "术士",
+  "loadout": {
+   "right": "wand_A.gltf",
+   "left": "",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 320,
+  "attack": 30,
+  "cooldown": 0.75,
+  "block": 1,
+  "range": 20.0,
+  "projectile_mode": "homing",
+  "skill": 8,
+  "class_label": "射手 · 飞针"
+ },
+ {
+  "key": "heal",
+  "name": "井中守灯人",
+  "model": "seer-treading-snow.glb",
+  "profession": "术士",
+  "loadout": {
+   "right": "staff_B.gltf",
+   "left": "staff_B.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 360,
+  "attack": 46,
+  "cooldown": 1.8,
+  "block": 1,
+  "range": 14.0,
+  "projectile_mode": "homing",
+  "skill": 9,
+  "class_label": "医师 · 守夜人"
+ },
+ {
+  "key": "slow",
+  "name": "睡梦纺女",
+  "model": "hermit.glb",
+  "profession": "术士",
+  "loadout": {
+   "right": "staff_A.gltf",
+   "left": "staff_A.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 350,
+  "attack": 34,
+  "cooldown": 1.4,
+  "block": 1,
+  "range": 16.0,
+  "projectile_mode": "homing",
+  "skill": 10,
+  "class_label": "辅助 · 迟滞者"
+ },
+ {
+  "key": "push",
+  "name": "风箱清道夫",
+  "model": "fools-gold.glb",
+  "profession": "守卫",
+  "loadout": {
+   "right": "hammer_B.gltf",
+   "left": "hammer_B.gltf",
+   "head": "",
+   "body": "",
+   "jewel": "",
+   "feet": ""
+  },
+  "hp": 600,
+  "attack": 44,
+  "cooldown": 1.5,
+  "block": 2,
+  "range": 3.2,
+  "projectile_mode": "homing",
+  "skill": 11,
+  "class_label": "特种 · 驱离者"
+ }
+]

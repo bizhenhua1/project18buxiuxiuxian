@@ -1,0 +1,20 @@
+[
+  {
+    "draws_p50": 124.0,
+    "frames": 180,
+    "p50_ms": 5.25,
+    "p95_ms": 8.028,
+    "scene": "alice_tea",
+    "scope": "traditional travel, 1440x900, frame wall time, not skill stress",
+    "sprites": 838
+  },
+  {
+    "draws_p50": 124.0,
+    "frames": 180,
+    "p50_ms": 4.649,
+    "p95_ms": 6.575,
+    "scene": "snow_mirror",
+    "scope": "traditional travel, 1440x900, frame wall time, not skill stress",
+    "sprites": 762
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "rook",
+      "name": "棋石座",
+      "texture": "dressing/rook/prop.png",
+      "role": "anchor",
+      "height_min": 32,
+      "height_max": 50,
+      "ground_anchor": [
+        0.5,
+        0.9799498746867168
+      ],
+      "alpha_height_fraction": 0.9573934837092731,
+      "allow_on_road": false
+    },
+    {
+      "id": "pot",
+      "name": "枯玫花钵",
+      "texture": "dressing/pot/prop.png",
+      "role": "anchor",
+      "height_min": 23,
+      "height_max": 36,
+      "ground_anchor": [
+        0.5,
+        0.9811764705882353
+      ],
+      "alpha_height_fraction": 0.9623529411764706,
+      "allow_on_road": false
+    },
+    {
+      "id": "lamp",
+      "name": "园灯",
+      "texture": "dressing/lamp/prop.png",
+      "role": "prop",
+      "height_min": 16,
+      "height_max": 25,
+      "ground_anchor": [
+        0.5,
+        0.9802955665024631
+      ],
+      "alpha_height_fraction": 0.9605911330049262,
+      "allow_on_road": false
+    },
+    {
+      "id": "bush",
+      "name": "玫瑰丛",
+      "texture": "dressing/bush/prop.png",
+      "role": "cover",
+      "height_min": 20,
+      "height_max": 34,
+      "ground_anchor": [
+        0.5,
+        0.9777158774373259
+      ],
+      "alpha_height_fraction": 0.9526462395543176,
+      "allow_on_road": false
+    },
+    {
+      "id": "thorns",
+      "name": "荆条",
+      "texture": "dressing/thorns/prop.png",
+      "role": "cover",
+      "height_min": 8,
+      "height_max": 16,
+      "ground_anchor": [
+        0.5,
+        0.9697986577181208
+      ],
+      "alpha_height_fraction": 0.9395973154362416,
+      "allow_on_road": false
+    },
+    {
+      "id": "knight",
+      "name": "残棋",
+      "texture": "dressing/knight/prop.png",
+      "role": "prop",
+      "height_min": 13,
+      "height_max": 22,
+      "ground_anchor": [
+        0.5,
+        0.9686411149825784
+      ],
+      "alpha_height_fraction": 0.9407665505226481,
+      "allow_on_road": false
+    },
+    {
+      "id": "petals",
+      "name": "枯花瓣",
+      "texture": "dressing/petals/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9658119658119658
+      ],
+      "alpha_height_fraction": 0.9316239316239316,
+      "allow_on_road": true
+    },
+    {
+      "id": "pottery",
+      "name": "碎陶",
+      "texture": "dressing/pottery/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9695817490494296
+      ],
+      "alpha_height_fraction": 0.935361216730038,
+      "allow_on_road": true
+    },
+    {
+      "id": "stones",
+      "name": "苔石",
+      "texture": "dressing/stones/prop.png",
+      "role": "cover",
+      "height_min": 7,
+      "height_max": 15,
+      "ground_anchor": [
+        0.5,
+        0.9683794466403162
+      ],
+      "alpha_height_fraction": 0.9367588932806324,
+      "allow_on_road": false
+    }
+  ]
+}

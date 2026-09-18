@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "crate",
+      "name": "菜箱",
+      "texture": "dressing/crate/prop.png",
+      "role": "anchor",
+      "height_min": 22,
+      "height_max": 34,
+      "ground_anchor": [
+        0.5,
+        0.9676258992805755
+      ],
+      "alpha_height_fraction": 0.9388489208633094,
+      "allow_on_road": false
+    },
+    {
+      "id": "barrel",
+      "name": "破桶",
+      "texture": "dressing/barrel/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 44,
+      "ground_anchor": [
+        0.5,
+        0.9771428571428571
+      ],
+      "alpha_height_fraction": 0.9514285714285714,
+      "allow_on_road": false
+    },
+    {
+      "id": "sack",
+      "name": "粮袋",
+      "texture": "dressing/sack/prop.png",
+      "role": "prop",
+      "height_min": 18,
+      "height_max": 28,
+      "ground_anchor": [
+        0.5,
+        0.9700996677740864
+      ],
+      "alpha_height_fraction": 0.9435215946843853,
+      "allow_on_road": false
+    },
+    {
+      "id": "basket",
+      "name": "菜篮",
+      "texture": "dressing/basket/prop.png",
+      "role": "prop",
+      "height_min": 13,
+      "height_max": 23,
+      "ground_anchor": [
+        0.5,
+        0.972318339100346
+      ],
+      "alpha_height_fraction": 0.9446366782006921,
+      "allow_on_road": false
+    },
+    {
+      "id": "weeds",
+      "name": "枯草",
+      "texture": "dressing/weeds/prop.png",
+      "role": "cover",
+      "height_min": 10,
+      "height_max": 22,
+      "ground_anchor": [
+        0.5,
+        0.9736842105263158
+      ],
+      "alpha_height_fraction": 0.9473684210526315,
+      "allow_on_road": false
+    },
+    {
+      "id": "awning",
+      "name": "棚布",
+      "texture": "dressing/awning/prop.png",
+      "role": "prop",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9692307692307692
+      ],
+      "alpha_height_fraction": 0.9346153846153846,
+      "allow_on_road": false
+    },
+    {
+      "id": "leaves",
+      "name": "菜叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9601769911504425
+      ],
+      "alpha_height_fraction": 0.9203539823008849,
+      "allow_on_road": true
+    },
+    {
+      "id": "jug",
+      "name": "碎罐",
+      "texture": "dressing/jug/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9728813559322034
+      ],
+      "alpha_height_fraction": 0.9423728813559322,
+      "allow_on_road": true
+    },
+    {
+      "id": "rope",
+      "name": "旧绳木屑",
+      "texture": "dressing/rope/prop.png",
+      "role": "cover",
+      "height_min": 5,
+      "height_max": 10,
+      "ground_anchor": [
+        0.5,
+        0.9681274900398407
+      ],
+      "alpha_height_fraction": 0.9362549800796812,
+      "allow_on_road": false
+    }
+  ]
+}

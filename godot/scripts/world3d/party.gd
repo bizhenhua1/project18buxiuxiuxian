@@ -1,7 +1,12 @@
 extends RefCounted
 const LOADOUT=preload("res://scripts/equipment/loadouts.gd")
 static func read_units()->Array:
- var data=JSON.parse_string(FileAccess.get_file_as_string("user://journey-v1.json")) if FileAccess.file_exists("user://journey-v1.json") else {}
+ var path:="user://journey-v1.json"
+ var tree=Engine.get_main_loop()
+ if tree is SceneTree:
+  var journey=tree.root.get_node_or_null("Journey")
+  if journey!=null:path=journey.SAVE
+ var data=JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else {}
  return units_from_save(data)
 static func units_from_save(data:Variant)->Array:
  var model:=BattleModel.new()

@@ -1,6 +1,7 @@
 extends Node
 ## Default playable entry for the current art direction; isolated from style 1 saves.
 func _ready() -> void:
+	get_tree().set_meta("native_route_view",true)
 	StyleLibrary.active=true
 	DisplayServer.window_set_title("雾林调查局 · 幽暗森林")
 	Journey.SAVE="user://mistwood-game.json"

@@ -343,6 +343,8 @@ func on_event(event: Dictionary) -> void:
 					aim_motion(card,event.get("source",{}).get("uid",-1),true)
 func draw_effects() -> void:
 	for shot in model.shots:
+		var native_view=owner_app.get("native_route_view")
+		if native_view and native_view.visible:break
 		if shot.get("style", "") == "melee" or shot.from.get("sword_combo", false): continue
 		var a := anchor(shot.from.uid)
 		var b := anchor(shot.to.uid)

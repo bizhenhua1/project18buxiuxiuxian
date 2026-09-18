@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/piper_mountain-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "boulder",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        452,
+        463
+      ],
+      "crop_bbox": [
+        51,
+        139,
+        404,
+        397
+      ],
+      "output_size": [
+        369,
+        274
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/boulder/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "marker",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        452,
+        0,
+        818,
+        463
+      ],
+      "crop_bbox": [
+        48,
+        88,
+        319,
+        403
+      ],
+      "output_size": [
+        287,
+        331
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/marker/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "stump",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        818,
+        0,
+        1254,
+        463
+      ],
+      "crop_bbox": [
+        48,
+        135,
+        400,
+        407
+      ],
+      "output_size": [
+        368,
+        288
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/stump/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "roots",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        463,
+        422,
+        868
+      ],
+      "crop_bbox": [
+        41,
+        69,
+        401,
+        343
+      ],
+      "output_size": [
+        376,
+        290
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/roots/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "fern",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        422,
+        463,
+        850,
+        868
+      ],
+      "crop_bbox": [
+        22,
+        56,
+        406,
+        338
+      ],
+      "output_size": [
+        400,
+        298
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/fern/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "cloth",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        850,
+        463,
+        1254,
+        868
+      ],
+      "crop_bbox": [
+        22,
+        99,
+        369,
+        343
+      ],
+      "output_size": [
+        363,
+        260
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/cloth/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "gravel",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        868,
+        427,
+        1254
+      ],
+      "crop_bbox": [
+        46,
+        100,
+        403,
+        292
+      ],
+      "output_size": [
+        373,
+        208
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/gravel/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "sticks",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        427,
+        868,
+        849,
+        1254
+      ],
+      "crop_bbox": [
+        25,
+        85,
+        391,
+        293
+      ],
+      "output_size": [
+        382,
+        224
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/sticks/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "wax",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        849,
+        868,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        31,
+        62,
+        353,
+        288
+      ],
+      "output_size": [
+        338,
+        242
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/piper_mountain/dressing/wax/prop.png"
+    }
+  ],
+  "rejected": []
+}

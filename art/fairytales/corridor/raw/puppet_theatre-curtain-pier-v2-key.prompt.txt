@@ -1,0 +1,1 @@
+Keep the exact carved column and red curtain object unchanged. Replace ALL surrounding background including brown/red haze and shadow with uniform flat solid RGB 255,0,255 magenta. Crisp object cutout boundary. No glow, no external shadow, no gradient, no room. Preserve full bottom base and fringe and empty margins. Background removal only.

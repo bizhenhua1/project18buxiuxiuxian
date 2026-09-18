@@ -1,11 +1,55 @@
 {
   "goal_complete": false,
-  "baseline_layouts_inspected": ["forest", "crystal", "swamp", "sewer", "whale", "palace"],
+  "baseline_layouts_inspected": [
+    "forest",
+    "crystal",
+    "swamp",
+    "sewer",
+    "whale",
+    "palace"
+  ],
   "generated_corridor_assets": 18,
-  "generated_dressing_scenes": ["red_village", "red_cottage", "red_workshop", "snow_orchard", "alice_tea", "piper_bridge", "puppet_workshop", "cinder_kitchen"],
-  "generated_dressing_assets": 72,
-  "dressing_remaining": ["snow_mirror", "snow_house", "alice_roses", "alice_hall", "piper_market", "piper_mountain", "puppet_theatre", "puppet_fair", "cinder_garden", "cinder_clock"],
-  "generation_limit": {"error": "usage_limit_reached", "resets_at": 1789437876, "observed": "2026-09-12", "fallback_used": false},
-  "runtime_integration": "corridor art for all 18 scenes; authored dressing for 8 scenes; remaining scenes retain their original four prop assets",
-  "remaining_validation": ["all scenes visually compared against original six at matching cameras", "branch travel and rotated route frames", "ground seams and world tile joins", "performance profiling", "remaining ten dressing sets generation and integration"]
+  "generated_dressing_scenes": [
+    "red_village",
+    "red_workshop",
+    "alice_tea",
+    "snow_orchard",
+    "red_cottage",
+    "piper_bridge",
+    "cinder_kitchen",
+    "puppet_workshop",
+    "snow_mirror",
+    "snow_house",
+    "alice_roses",
+    "alice_hall",
+    "piper_market",
+    "piper_mountain",
+    "puppet_theatre",
+    "puppet_fair",
+    "cinder_garden",
+    "cinder_clock"
+  ],
+  "generated_dressing_assets": 162,
+  "dressing_remaining": [],
+  "runtime_integration": "18 corridor sets; 18 dressing sets; two independent branch sides",
+  "remaining_validation": [],
+  "completed_scope": "art supplement and integration only; comprehensive 3D migration remains active",
+  "completed_date": "2026-09-16",
+  "generated_branch_sides": [
+    "alice_tea",
+    "snow_mirror"
+  ],
+  "revised_ground": [
+    "red_cottage",
+    "cinder_clock"
+  ],
+  "delivery_report": "docs/design/ART-SUPPLEMENT-DELIVERY-2026-09-16.md",
+  "historical_generation_limit": {
+    "error": "usage_limit_reached",
+    "resets_at": 1789437876,
+    "observed": "2026-09-12",
+    "fallback_used": false
+  },
+  "visual_acceptance": "reopened_after_user_scope_correction",
+  "visual_followup": "docs/design/SCENE-VISUAL-FOLLOWUP-2026-09-16.md"
 }

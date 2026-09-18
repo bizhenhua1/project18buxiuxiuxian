@@ -20,6 +20,9 @@ static func intersection(a:Vector3,b:Vector3,radius:float)->float:
  if discriminant<0:return INF
  var t:=(-along-sqrt(discriminant))/length
  return t if t>=0 and t<=1 else INF
+func can_hit(shot:Dictionary,unit:Dictionary)->bool:
+ return not shot.hit.has(unit.query_id) and bool(unit.query_enemy)!=bool(shot.enemy)
+func deal_damage(shot:Dictionary,unit:Dictionary,callback:Callable):callback.call(unit,shot.damage)
 func step(dt:float,targets:Array,damage_callback:Callable):
  events.clear()
  if active.is_empty():
@@ -42,7 +45,7 @@ func step(dt:float,targets:Array,damage_callback:Callable):
    # Broad phase is shared by the whole step. Earlier shots may already have
    # killed a candidate; its corpse must not consume another projectile.
    if unit.hp<=0 or unit.get("resolved",false):continue
-   if shot.hit.has(id) or bool(unit.query_enemy)==bool(shot.enemy):continue
+   if not can_hit(shot,unit):continue
    # Posture-aware ellipsoid proxy. Transform only the relative segment, so
    # the resulting time of impact still maps to the original projectile path.
    var stretch:float=(shot.radius+entry.radius)/(shot.radius+entry.vertical_radius)
@@ -54,7 +57,7 @@ func step(dt:float,targets:Array,damage_callback:Callable):
   for hit in hits:
    if lookup[hit.id].unit.hp<=0 or lookup[hit.id].unit.get("resolved",false):continue
    shot.hit[hit.id]=true;shot.remaining-=1
-   damage_callback.call(lookup[hit.id].unit,shot.damage)
+   deal_damage(shot,lookup[hit.id].unit,damage_callback)
    events.append({"shot":shot.id,"position":shot.previous.lerp(shot.pos,hit.t),"target":hit.id})
    if shot.remaining<=0:break
   if shot.remaining<=0 or shot.life<=0:active.remove_at(i)

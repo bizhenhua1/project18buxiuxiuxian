@@ -14,6 +14,7 @@ var pending_source:SegmentWorld
 var pending_connection:Dictionary={}
 var pending_distance:=0.0
 func _ready() -> void:
+	if not get_tree().has_meta("native_route_view"):get_tree().set_meta("native_route_view",true)
 	StyleLibrary.active=true
 	lap=1
 	run_seed=preload("res://scripts/spaces/biome_catalog.gd").seed_value

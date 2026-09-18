@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "plinth",
+      "name": "花园石座",
+      "texture": "dressing/plinth/prop.png",
+      "role": "anchor",
+      "height_min": 32,
+      "height_max": 48,
+      "ground_anchor": [
+        0.5,
+        0.9735099337748344
+      ],
+      "alpha_height_fraction": 0.9470198675496688,
+      "allow_on_road": false
+    },
+    {
+      "id": "pot",
+      "name": "裂花钵",
+      "texture": "dressing/pot/prop.png",
+      "role": "anchor",
+      "height_min": 23,
+      "height_max": 35,
+      "ground_anchor": [
+        0.5,
+        0.9719298245614035
+      ],
+      "alpha_height_fraction": 0.9438596491228071,
+      "allow_on_road": false
+    },
+    {
+      "id": "pumpkin",
+      "name": "枯南瓜",
+      "texture": "dressing/pumpkin/prop.png",
+      "role": "prop",
+      "height_min": 10,
+      "height_max": 19,
+      "ground_anchor": [
+        0.5,
+        0.9678714859437751
+      ],
+      "alpha_height_fraction": 0.9357429718875502,
+      "allow_on_road": false
+    },
+    {
+      "id": "vines",
+      "name": "瓜藤",
+      "texture": "dressing/vines/prop.png",
+      "role": "cover",
+      "height_min": 14,
+      "height_max": 26,
+      "ground_anchor": [
+        0.5,
+        0.9757575757575757
+      ],
+      "alpha_height_fraction": 0.9515151515151515,
+      "allow_on_road": false
+    },
+    {
+      "id": "shrub",
+      "name": "暗叶丛",
+      "texture": "dressing/shrub/prop.png",
+      "role": "cover",
+      "height_min": 18,
+      "height_max": 32,
+      "ground_anchor": [
+        0.5,
+        0.9730639730639731
+      ],
+      "alpha_height_fraction": 0.9461279461279462,
+      "allow_on_road": false
+    },
+    {
+      "id": "roots",
+      "name": "盘根",
+      "texture": "dressing/roots/prop.png",
+      "role": "cover",
+      "height_min": 8,
+      "height_max": 18,
+      "ground_anchor": [
+        0.5,
+        0.974025974025974
+      ],
+      "alpha_height_fraction": 0.948051948051948,
+      "allow_on_road": false
+    },
+    {
+      "id": "leaves",
+      "name": "枯叶",
+      "texture": "dressing/leaves/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9567307692307693
+      ],
+      "alpha_height_fraction": 0.9182692307692307,
+      "allow_on_road": true
+    },
+    {
+      "id": "limestone",
+      "name": "石屑",
+      "texture": "dressing/limestone/prop.png",
+      "role": "cover",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9686274509803922
+      ],
+      "alpha_height_fraction": 0.9372549019607843,
+      "allow_on_road": false
+    },
+    {
+      "id": "pottery",
+      "name": "碎花盆",
+      "texture": "dressing/pottery/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9624413145539906
+      ],
+      "alpha_height_fraction": 0.9248826291079812,
+      "allow_on_road": true
+    }
+  ]
+}

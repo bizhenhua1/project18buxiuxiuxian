@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "cabinet",
+      "name": "床头柜",
+      "texture": "dressing/cabinet/prop.png",
+      "role": "anchor",
+      "height_min": 30,
+      "height_max": 45,
+      "ground_anchor": [
+        0.5,
+        0.9758064516129032
+      ],
+      "alpha_height_fraction": 0.9516129032258065,
+      "allow_on_road": false
+    },
+    {
+      "id": "coal_bucket",
+      "name": "煤桶",
+      "texture": "dressing/coal_bucket/prop.png",
+      "role": "prop",
+      "height_min": 18,
+      "height_max": 28,
+      "ground_anchor": [
+        0.5,
+        0.9775280898876404
+      ],
+      "alpha_height_fraction": 0.9550561797752809,
+      "allow_on_road": false
+    },
+    {
+      "id": "stool",
+      "name": "旧凳",
+      "texture": "dressing/stool/prop.png",
+      "role": "anchor",
+      "height_min": 23,
+      "height_max": 33,
+      "ground_anchor": [
+        0.5,
+        0.9773371104815864
+      ],
+      "alpha_height_fraction": 0.9546742209631728,
+      "allow_on_road": false
+    },
+    {
+      "id": "firewood",
+      "name": "柴薪",
+      "texture": "dressing/firewood/prop.png",
+      "role": "cover",
+      "height_min": 10,
+      "height_max": 20,
+      "ground_anchor": [
+        0.5,
+        0.9712460063897763
+      ],
+      "alpha_height_fraction": 0.9456869009584664,
+      "allow_on_road": false
+    },
+    {
+      "id": "boots",
+      "name": "旧靴",
+      "texture": "dressing/boots/prop.png",
+      "role": "prop",
+      "height_min": 7,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9761194029850746
+      ],
+      "alpha_height_fraction": 0.9522388059701492,
+      "allow_on_road": false
+    },
+    {
+      "id": "sack",
+      "name": "麻袋",
+      "texture": "dressing/sack/prop.png",
+      "role": "prop",
+      "height_min": 17,
+      "height_max": 26,
+      "ground_anchor": [
+        0.5,
+        0.9772727272727273
+      ],
+      "alpha_height_fraction": 0.9545454545454546,
+      "allow_on_road": false
+    },
+    {
+      "id": "bowls",
+      "name": "碎碗",
+      "texture": "dressing/bowls/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9649122807017544
+      ],
+      "alpha_height_fraction": 0.9368421052631579,
+      "allow_on_road": true
+    },
+    {
+      "id": "coal",
+      "name": "煤屑",
+      "texture": "dressing/coal/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9637096774193549
+      ],
+      "alpha_height_fraction": 0.9314516129032258,
+      "allow_on_road": true
+    },
+    {
+      "id": "rag",
+      "name": "旧布",
+      "texture": "dressing/rag/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9683794466403162
+      ],
+      "alpha_height_fraction": 0.9367588932806324,
+      "allow_on_road": true
+    }
+  ]
+}

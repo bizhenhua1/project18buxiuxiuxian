@@ -1,7 +1,7 @@
 extends Node3D
 const INK=preload("res://scripts/battle/character_ink_material.gd")
 var entries:Array=[]
-func set_layer(node:Node,mask:int):
+static func set_layer(node:Node,mask:int):
  if node is GeometryInstance3D:node.layers=mask
  for child in node.get_children():set_layer(child,mask)
 func setup(actors:Array):

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "crate",
+      "name": "游园木箱",
+      "texture": "dressing/crate/prop.png",
+      "role": "anchor",
+      "height_min": 24,
+      "height_max": 38,
+      "ground_anchor": [
+        0.5,
+        0.9721254355400697
+      ],
+      "alpha_height_fraction": 0.9442508710801394,
+      "allow_on_road": false
+    },
+    {
+      "id": "horse",
+      "name": "残木马",
+      "texture": "dressing/horse/prop.png",
+      "role": "prop",
+      "height_min": 13,
+      "height_max": 22,
+      "ground_anchor": [
+        0.5,
+        0.9679715302491103
+      ],
+      "alpha_height_fraction": 0.9359430604982206,
+      "allow_on_road": false
+    },
+    {
+      "id": "gears",
+      "name": "锈齿轮",
+      "texture": "dressing/gears/prop.png",
+      "role": "anchor",
+      "height_min": 20,
+      "height_max": 32,
+      "ground_anchor": [
+        0.5,
+        0.9745222929936306
+      ],
+      "alpha_height_fraction": 0.9490445859872612,
+      "allow_on_road": false
+    },
+    {
+      "id": "weeds",
+      "name": "枯草",
+      "texture": "dressing/weeds/prop.png",
+      "role": "cover",
+      "height_min": 12,
+      "height_max": 24,
+      "ground_anchor": [
+        0.5,
+        0.9723926380368099
+      ],
+      "alpha_height_fraction": 0.9447852760736196,
+      "allow_on_road": false
+    },
+    {
+      "id": "flags",
+      "name": "残旗",
+      "texture": "dressing/flags/prop.png",
+      "role": "cover",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9692307692307692
+      ],
+      "alpha_height_fraction": 0.9346153846153846,
+      "allow_on_road": false
+    },
+    {
+      "id": "lantern",
+      "name": "旧油灯",
+      "texture": "dressing/lantern/prop.png",
+      "role": "prop",
+      "height_min": 15,
+      "height_max": 25,
+      "ground_anchor": [
+        0.5,
+        0.9774436090225563
+      ],
+      "alpha_height_fraction": 0.9573934837092731,
+      "allow_on_road": false
+    },
+    {
+      "id": "wrappers",
+      "name": "糖纸",
+      "texture": "dressing/wrappers/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 3,
+      "ground_anchor": [
+        0.5,
+        0.9636363636363636
+      ],
+      "alpha_height_fraction": 0.9227272727272727,
+      "allow_on_road": true
+    },
+    {
+      "id": "slats",
+      "name": "彩木板",
+      "texture": "dressing/slats/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.967391304347826
+      ],
+      "alpha_height_fraction": 0.9384057971014492,
+      "allow_on_road": true
+    },
+    {
+      "id": "bolts",
+      "name": "螺栓",
+      "texture": "dressing/bolts/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.96
+      ],
+      "alpha_height_fraction": 0.92,
+      "allow_on_road": true
+    }
+  ]
+}

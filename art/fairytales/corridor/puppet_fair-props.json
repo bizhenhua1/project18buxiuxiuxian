@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/puppet_fair-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "crate",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        419,
+        429
+      ],
+      "crop_bbox": [
+        51,
+        131,
+        383,
+        402
+      ],
+      "output_size": [
+        348,
+        287
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/crate/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "horse",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        419,
+        0,
+        843,
+        429
+      ],
+      "crop_bbox": [
+        36,
+        141,
+        401,
+        406
+      ],
+      "output_size": [
+        381,
+        281
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/horse/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "gears",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        843,
+        0,
+        1254,
+        429
+      ],
+      "crop_bbox": [
+        23,
+        110,
+        363,
+        408
+      ],
+      "output_size": [
+        356,
+        314
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/gears/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "weeds",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        429,
+        412,
+        871
+      ],
+      "crop_bbox": [
+        41,
+        76,
+        401,
+        386
+      ],
+      "output_size": [
+        376,
+        326
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/weeds/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "flags",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        412,
+        429,
+        886,
+        871
+      ],
+      "crop_bbox": [
+        12,
+        119,
+        424,
+        363
+      ],
+      "output_size": [
+        428,
+        260
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/flags/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "lantern",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        886,
+        429,
+        1254,
+        871
+      ],
+      "crop_bbox": [
+        51,
+        22,
+        267,
+        405
+      ],
+      "output_size": [
+        232,
+        399
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/lantern/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "wrappers",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        871,
+        415,
+        1254
+      ],
+      "crop_bbox": [
+        48,
+        77,
+        392,
+        281
+      ],
+      "output_size": [
+        360,
+        220
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/wrappers/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "slats",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        415,
+        871,
+        841,
+        1254
+      ],
+      "crop_bbox": [
+        24,
+        38,
+        401,
+        298
+      ],
+      "output_size": [
+        393,
+        276
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/slats/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "bolts",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        841,
+        871,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        25,
+        74,
+        365,
+        283
+      ],
+      "output_size": [
+        356,
+        225
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/puppet_fair/dressing/bolts/prop.png"
+    }
+  ],
+  "rejected": []
+}

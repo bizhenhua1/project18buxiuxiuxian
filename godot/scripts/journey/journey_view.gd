@@ -107,7 +107,7 @@ func _ready() -> void:
 	description = StudyUI.label("",16)
 	description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	encounter_panel.add_child(description)
-	action = StudyUI.button("进入局内冒险",func():get_tree().change_scene_to_file("res://scenes/expedition_route.tscn"))
+	action = StudyUI.button("进入局内冒险",func():Journey.enter_battle())
 	encounter_panel.add_child(action)
 	cancel_encounter=StudyUI.button("暂不进入",func():
 		state.retreat()

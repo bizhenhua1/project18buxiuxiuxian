@@ -1,0 +1,250 @@
+{
+  "input": "art/fairytales/corridor/raw/cinder_garden-dressing.png",
+  "method": "measured transparent gutters; original art retained",
+  "accepted": [
+    {
+      "index": 0,
+      "label": "plinth",
+      "grid": [
+        0,
+        0
+      ],
+      "source_box": [
+        0,
+        0,
+        406,
+        451
+      ],
+      "crop_bbox": [
+        102,
+        114,
+        336,
+        400
+      ],
+      "output_size": [
+        250,
+        302
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/plinth/prop.png"
+    },
+    {
+      "index": 1,
+      "label": "pot",
+      "grid": [
+        0,
+        1
+      ],
+      "source_box": [
+        406,
+        0,
+        840,
+        451
+      ],
+      "crop_bbox": [
+        71,
+        118,
+        370,
+        387
+      ],
+      "output_size": [
+        315,
+        285
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/pot/prop.png"
+    },
+    {
+      "index": 2,
+      "label": "pumpkin",
+      "grid": [
+        0,
+        2
+      ],
+      "source_box": [
+        840,
+        0,
+        1254,
+        451
+      ],
+      "crop_bbox": [
+        64,
+        147,
+        348,
+        380
+      ],
+      "output_size": [
+        300,
+        249
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/pumpkin/prop.png"
+    },
+    {
+      "index": 3,
+      "label": "vines",
+      "grid": [
+        1,
+        0
+      ],
+      "source_box": [
+        0,
+        451,
+        421,
+        881
+      ],
+      "crop_bbox": [
+        49,
+        52,
+        394,
+        366
+      ],
+      "output_size": [
+        361,
+        330
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/vines/prop.png"
+    },
+    {
+      "index": 4,
+      "label": "shrub",
+      "grid": [
+        1,
+        1
+      ],
+      "source_box": [
+        421,
+        451,
+        838,
+        881
+      ],
+      "crop_bbox": [
+        28,
+        75,
+        386,
+        356
+      ],
+      "output_size": [
+        374,
+        297
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/shrub/prop.png"
+    },
+    {
+      "index": 5,
+      "label": "roots",
+      "grid": [
+        1,
+        2
+      ],
+      "source_box": [
+        838,
+        451,
+        1254,
+        881
+      ],
+      "crop_bbox": [
+        31,
+        84,
+        385,
+        376
+      ],
+      "output_size": [
+        370,
+        308
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/roots/prop.png"
+    },
+    {
+      "index": 6,
+      "label": "leaves",
+      "grid": [
+        2,
+        0
+      ],
+      "source_box": [
+        0,
+        881,
+        426,
+        1254
+      ],
+      "crop_bbox": [
+        43,
+        84,
+        399,
+        276
+      ],
+      "output_size": [
+        372,
+        208
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/leaves/prop.png"
+    },
+    {
+      "index": 7,
+      "label": "limestone",
+      "grid": [
+        2,
+        1
+      ],
+      "source_box": [
+        426,
+        881,
+        841,
+        1254
+      ],
+      "crop_bbox": [
+        27,
+        54,
+        373,
+        293
+      ],
+      "output_size": [
+        362,
+        255
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/limestone/prop.png"
+    },
+    {
+      "index": 8,
+      "label": "pottery",
+      "grid": [
+        2,
+        2
+      ],
+      "source_box": [
+        841,
+        881,
+        1254,
+        1254
+      ],
+      "crop_bbox": [
+        43,
+        77,
+        370,
+        274
+      ],
+      "output_size": [
+        343,
+        213
+      ],
+      "edge_touch": false,
+      "status": "accepted",
+      "image": "godot/assets/fairytales/cinder_garden/dressing/pottery/prop.png"
+    }
+  ],
+  "rejected": []
+}

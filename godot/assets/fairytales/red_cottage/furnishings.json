@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "repeat_distance": [
+    300,
+    410
+  ],
+  "assets": [
+    {
+      "id": "hearth-v2",
+      "file": "furnishings/hearth-v2.png",
+      "height": 115.0,
+      "ground_anchor": [
+        0.5,
+        0.9894039735099338
+      ],
+      "source": "art/fairytales/corridor/raw/red_cottage-hearth-v2.png",
+      "prompt": "art/fairytales/corridor/raw/red_cottage-hearth-v2.prompt.txt"
+    },
+    {
+      "id": "sewing-corner-v2",
+      "file": "furnishings/sewing-corner-v2.png",
+      "height": 108.0,
+      "ground_anchor": [
+        0.5,
+        0.9895833333333334
+      ],
+      "source": "art/fairytales/corridor/raw/red_cottage-sewing-corner-v2.png",
+      "prompt": "art/fairytales/corridor/raw/red_cottage-sewing-corner-v2.prompt.txt"
+    }
+  ]
+}

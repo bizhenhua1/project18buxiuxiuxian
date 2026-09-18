@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "size_units": "layout_world_visible_height",
+  "assets": [
+    {
+      "id": "plinth",
+      "name": "残石座",
+      "texture": "dressing/plinth/prop.png",
+      "role": "anchor",
+      "height_min": 32,
+      "height_max": 48,
+      "ground_anchor": [
+        0.5,
+        0.9757575757575757
+      ],
+      "alpha_height_fraction": 0.9515151515151515,
+      "allow_on_road": false
+    },
+    {
+      "id": "basin",
+      "name": "银盆",
+      "texture": "dressing/basin/prop.png",
+      "role": "prop",
+      "height_min": 10,
+      "height_max": 17,
+      "ground_anchor": [
+        0.5,
+        0.966804979253112
+      ],
+      "alpha_height_fraction": 0.9294605809128631,
+      "allow_on_road": false
+    },
+    {
+      "id": "stool",
+      "name": "绒凳",
+      "texture": "dressing/stool/prop.png",
+      "role": "prop",
+      "height_min": 20,
+      "height_max": 28,
+      "ground_anchor": [
+        0.5,
+        0.9642857142857143
+      ],
+      "alpha_height_fraction": 0.9285714285714286,
+      "allow_on_road": false
+    },
+    {
+      "id": "ivy",
+      "name": "暗藤",
+      "texture": "dressing/ivy/prop.png",
+      "role": "cover",
+      "height_min": 15,
+      "height_max": 27,
+      "ground_anchor": [
+        0.5,
+        0.9777777777777777
+      ],
+      "alpha_height_fraction": 0.9555555555555556,
+      "allow_on_road": false
+    },
+    {
+      "id": "molding",
+      "name": "雕石碎块",
+      "texture": "dressing/molding/prop.png",
+      "role": "cover",
+      "height_min": 8,
+      "height_max": 17,
+      "ground_anchor": [
+        0.5,
+        0.9645390070921985
+      ],
+      "alpha_height_fraction": 0.9326241134751773,
+      "allow_on_road": false
+    },
+    {
+      "id": "silk",
+      "name": "旧绸",
+      "texture": "dressing/silk/prop.png",
+      "role": "prop",
+      "height_min": 4,
+      "height_max": 8,
+      "ground_anchor": [
+        0.5,
+        0.968421052631579
+      ],
+      "alpha_height_fraction": 0.9403508771929825,
+      "allow_on_road": false
+    },
+    {
+      "id": "glass",
+      "name": "碎镜",
+      "texture": "dressing/glass/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 5,
+      "ground_anchor": [
+        0.5,
+        0.9709090909090909
+      ],
+      "alpha_height_fraction": 0.9418181818181818,
+      "allow_on_road": true
+    },
+    {
+      "id": "wax",
+      "name": "残烛",
+      "texture": "dressing/wax/prop.png",
+      "role": "prop",
+      "height_min": 6,
+      "height_max": 12,
+      "ground_anchor": [
+        0.5,
+        0.9719626168224299
+      ],
+      "alpha_height_fraction": 0.9470404984423676,
+      "allow_on_road": false
+    },
+    {
+      "id": "silver",
+      "name": "银器",
+      "texture": "dressing/silver/prop.png",
+      "role": "litter",
+      "height_min": 2,
+      "height_max": 4,
+      "ground_anchor": [
+        0.5,
+        0.9663865546218487
+      ],
+      "alpha_height_fraction": 0.9327731092436975,
+      "allow_on_road": true
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "scene_id": "piper_mountain",
+  "status": "annotated_candidate",
+  "dimension_source": "design_initial",
+  "scale": {
+    "world_units_per_m": 20.0,
+    "route_step_units": 16.0,
+    "outer_span_m": 10.0,
+    "inner_clear_span_m": 3.0,
+    "camera_envelope_half_width_m": 7.5,
+    "note": "Cave-shell candidate; entrance remains open for one span before continuous closure."
+  },
+  "assets": [
+    {"id":"piper-mountain-rock-ring","role":"structure","path":"res://assets/fairytales/piper_mountain/corridor-shell.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[10.0,4.0],"allow_on_road":false},
+    {"id":"piper-mountain-cave-material","role":"roof","path":"res://assets/fairytales/piper_mountain/ground.png","representation":"surface_texture","contact":"surface","status":"annotated_candidate","repeat_distance_m":[3.5,3.5],"allow_on_road":false},
+    {"id":"piper-mountain-cliff","role":"structure","path":"res://assets/fairytales/piper_mountain/cliff.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[4.6,3.2],"allow_on_road":false},
+    {"id":"piper-mountain-boulder","role":"furnishing","path":"res://assets/fairytales/piper_mountain/dressing/boulder/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[1.0,0.55],"allow_on_road":false},
+    {"id":"piper-mountain-gravel","role":"litter","path":"res://assets/fairytales/piper_mountain/dressing/gravel/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[0.5,0.05],"allow_on_road":true}
+  ],
+  "placement_rules": {
+    "road_clearance_m": 1.0,
+    "wall_clearance_m": 0.25,
+    "rock_ring_spacing_m": [3.5, 5.0],
+    "entrance_open_spans": 1,
+    "branch_policy": "one shared cave owner at a junction; do not stack three independent rock gates"
+  },
+  "review": {
+    "issues": ["per-asset footprint/socket annotation, entrance transition and final user visual acceptance remain pending"],
+    "evidence": ["legacy corridor.json", "anchors.json", "dressing.json"],
+    "approved_by": null
+  }
+}

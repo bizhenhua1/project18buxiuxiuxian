@@ -1,0 +1,11 @@
+{
+  "dimensions": [
+    2048,
+    768
+  ],
+  "limitations": "Single resource loader proof; not full game export or VRAM/performance acceptance",
+  "live_texture_shared": true,
+  "pack_alias": "res://assets/packed-cave-proof-698577.png",
+  "source": "res://assets/biomes/crystal/cards-study/crown-c.png",
+  "status": "pack_only_raster_bytes_and_dimensions_match"
+}

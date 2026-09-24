@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "goal_scope": "new representative-scene execution proposed in SCENE3D-GOAL-AUDIT-2026-09-21.md",
+  "record_type": "implementation_progress",
+  "active_goal": "01a07252-c2fb-7271-92fd-cbe98920f3a0",
+  "issue_register": "docs/design/SCENE3D-EXECUTION-ISSUES-2026-09-21.md",
+  "runtime_visual_acceptance": "not_accepted_previous_claim_superseded",
+  "changes": [
+    {
+      "area": "ceiling_geometry",
+      "status": "candidate_implemented",
+      "files": [
+        "godot/scripts/world3d/ceiling_band.gd",
+        "godot/scripts/world3d/scenery.gd",
+        "godot/data/scene3d_runtime_profiles.json"
+      ],
+      "detail": "Runtime candidate profiles now choose red_cottage closed_low_ceiling, snow_mirror closed_arch and piper_mountain cave_shell. The flat and vaulted builders use accumulated metre UVs, explicit route units and a roof-only camera envelope (7.0m/7.0m/7.5m) without adding side walls.",
+      "fallback": "--legacy-scene3d-enclosures restores the previous enclosure path for comparison.",
+      "not_yet_proven": [
+        "visual framing",
+        "material suitability",
+        "camera clearance on every live branch",
+        "user visual acceptance"
+      ]
+    },
+    {
+      "area": "runtime_profile_loading",
+      "status": "candidate_implemented",
+      "files": [
+        "godot/scripts/spaces/layouts/fairytale_corridor.gd"
+      ],
+      "detail": "The three production profiles load from Godot data; other scenes keep an honest legacy_candidate record rather than depending on docs paths or inventing runtime_ready status.",
+      "not_yet_proven": [
+        "full exported-build catalog",
+        "all scene profile values"
+      ]
+    },
+    {
+      "area": "red_cottage_asset_contract",
+      "status": "annotated_candidate",
+      "files": [
+        "godot/data/scene3d_asset_contract_red_cottage.json",
+        "godot/data/scene3d_runtime_profiles.json",
+        "godot/scripts/world3d/scenery.gd"
+      ],
+      "detail": "Red Cottage now has an explicit runtime asset contract with scale, clearance, furnishing and litter placement rules. The enclosure records the contract identity for diagnostics without marking the scene visually accepted.",
+      "not_yet_proven": [
+        "fixed-camera material review",
+        "actual branch dressing density"
+      ]
+    },
+    {
+      "area": "red_cottage_fixed_camera_capture",
+      "status": "candidate_reviewed",
+      "files": [
+        "tmp/rep-envelope-red-1/beauty.png",
+        "tmp/rep-envelope-red-1/diagnostic.png",
+        "tmp/rep-envelope-red-1/manifest.json"
+      ],
+      "command": "Godot 4.7.1 visible representative capture with red_cottage; python validate_scene3d_capture.py",
+      "result": "REP_CAPTURE_COMPLETE; provenance_valid=true. Camera-envelope roof width, shared pre-fork roof and scaled corridor shell are visually inspectable; this is not user acceptance."
+    },
+    {
+      "area": "snow_mirror_fixed_camera_capture",
+      "status": "candidate_reviewed",
+      "files": [
+        "tmp/rep-envelope-snow-1/beauty.png",
+        "tmp/rep-envelope-snow-1/diagnostic.png",
+        "tmp/rep-envelope-snow-1/manifest.json"
+      ],
+      "command": "Godot 4.7.1 visible representative capture with snow_mirror",
+      "result": "REP_CAPTURE_COMPLETE; provenance_valid=true. High arch and mirror framing render with the widened roof-only camera envelope; this is not user acceptance."
+    },
+    {
+      "area": "piper_mountain_fixed_camera_capture",
+      "status": "candidate_reviewed",
+      "files": [
+        "tmp/rep-envelope-piper-1/beauty.png",
+        "tmp/rep-envelope-piper-1/diagnostic.png",
+        "tmp/rep-envelope-piper-1/manifest.json"
+      ],
+      "command": "Godot 4.7.1 visible representative capture with piper_mountain",
+      "result": "REP_CAPTURE_COMPLETE; provenance_valid=true. Cave shell and entrance framing render with the widened roof-only camera envelope; this is not user acceptance."
+    },
+    {
+      "area": "geometry_test",
+      "status": "verified",
+      "files": [
+        "godot/tests/test_scene3d_ceiling_band.gd"
+      ],
+      "command": "Godot 4.7.1 headless test_scene3d_ceiling_band.gd",
+      "result": "ROOF_CEILING_BAND_PASS shared_edges/endpoint_uv/metric_height/curved_branch/vault_profile"
+    },
+    {
+      "area": "runtime_profile_test",
+      "status": "verified",
+      "files": [
+        "godot/tests/test_scene3d_runtime_profiles.gd"
+      ],
+      "command": "Godot 4.7.1 headless test_scene3d_runtime_profiles.gd",
+      "result": "RUNTIME_PROFILE_PASS red_cottage/snow_mirror/piper_mountain/contract_paths"
+    },
+    {
+      "area": "benchmark_asset_contract_audit",
+      "status": "verified_inventory",
+      "files": [
+        "scripts/audit_scene_production_contract.py",
+        "tmp/benchmark-scene-contract-audit-20260921.json",
+        "docs/design/SCENE3D-ASSET-PRODUCTION-V3.md"
+      ],
+      "command": "python scripts/audit_scene_production_contract.py --output tmp/benchmark-scene-contract-audit-20260921.json",
+      "result": "INVENTORY scenes=18 missing_references=0; benchmark contracts remain candidate until physics fields are annotated; no placeholder asset is promoted to runtime_ready."
+    },
+    {
+      "area": "benchmark_contract_checker",
+      "status": "verified",
+      "files": [
+        "scripts/validate_scene3d_benchmark_contracts.py",
+        "tmp/benchmark-contract-check-20260921.json"
+      ],
+      "command": "python scripts/validate_scene3d_benchmark_contracts.py --output tmp/benchmark-contract-check-20260921.json",
+      "result": "All three benchmark contracts are candidate_structurally_valid; required roof/structure/family roles and camera envelope values are present. This is not visual acceptance."
+    },
+    {
+      "area": "capture_guard",
+      "status": "verified",
+      "files": [
+        "godot/tests/capture_fairytale_3d_representative.gd"
+      ],
+      "command": "Godot 4.7.1 headless representative capture with red_cottage",
+      "result": "Exits 3 with an explicit readable-image error under dummy rendering; no false capture completion or null-image save is reported."
+    },
+    {
+      "area": "scene_parse_smoke",
+      "status": "verified",
+      "command": "Godot 4.7.1 headless world3d_stage.tscn --quit-after 2",
+      "result": "No script parse/runtime error reported; this is not a visual acceptance test."
+    }
+  ],
+  "next_work_order": "Exercise red_cottage full travel, combat entry and two-way/three-way branch cases; keep snow_mirror and piper_mountain asset-physics annotation gaps for Luna.",
+  "blocked_items": [
+    "No new art was generated in this execution slice.",
+    "Material suitability and final top height still need one bounded visual review.",
+    "The previous blocked queue was replaced by the active v3.2 goal; this record does not claim visual completion."
+  ],
+  "current_workflow_status": "scene-production/current-status.json",
+  "current_issues": "scene-production/OPEN-ISSUES.md"
+}

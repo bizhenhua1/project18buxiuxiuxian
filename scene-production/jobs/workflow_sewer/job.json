@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "id": "workflow_sewer",
+  "family": "sewer",
+  "style": "古老砌石下水道，连续沟渠与拱廊",
+  "stage": "draft",
+  "family_sha256": "639339d647813abbd949d75c6d3a05f794c2c8834dcbaa8c8ce59053d02d0b1e",
+  "slots": [
+    {
+      "id": "slot_1",
+      "purpose": "砌石拱架",
+      "prompt": "01-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "structural_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_2",
+      "purpose": "沟渠地面",
+      "prompt": "02-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 2,
+      "representation": "surface_texture",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_3",
+      "purpose": "边台",
+      "prompt": "03-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_4",
+      "purpose": "出水口",
+      "prompt": "04-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 2,
+      "representation": "attached_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_5",
+      "purpose": "污迹与碎屑",
+      "prompt": "05-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 4,
+      "representation": "surface_decal",
+      "status": "needs_specification"
+    }
+  ],
+  "assemblies": [],
+  "runtime_evidence": [],
+  "visual_review": null,
+  "rules": {
+    "id": "sewer",
+    "title": "下水道",
+    "roof": "masonry_tunnel",
+    "support": "masonry",
+    "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+    "slots": [
+      "砌石拱架",
+      "沟渠地面",
+      "边台",
+      "出水口",
+      "污迹与碎屑"
+    ],
+    "scatter_rule": "规则重复拱架，基准100U节距乘0.83–1.18；边台和沟渠不可混作普通平地。",
+    "junction_rule": "交汇井一个owner，侧出口保留净空；出水口连接沟渠不能悬空排水。",
+    "top_rule": "砌石拱顶按照明决定连续覆盖范围，检查拱肩和沟渠交汇处；禁止用岩顶代替砌石。",
+    "effects": [
+      "ground_mist",
+      "drips",
+      "outflow"
+    ],
+    "reference_scene": "sewer",
+    "protected_camera": true,
+    "ground": {
+      "policy": "inherit_reference",
+      "max_slope_degrees": 8,
+      "max_support_error_m": 0.02,
+      "source": "design_initial; measure runtime slope before acceptance"
+    },
+    "lighting": {
+      "policy": "inherit_reference_palette",
+      "new_realtime_lights": 0,
+      "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+      "closure_strategy": "atmospheric",
+      "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+      "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+    },
+    "hanging": {
+      "allowed": false,
+      "character_clearance_m": 0.35,
+      "camera_clearance_m": 0.2,
+      "sway_degrees_max": 2,
+      "default_sway_degrees": 0,
+      "max_dynamic_visible": 8,
+      "required": [
+        "owner_id",
+        "socket_m",
+        "lowest_point_m",
+        "sway_radius_m"
+      ],
+      "figure_requires_explicit_selection": true
+    },
+    "cases": [
+      "entry",
+      "junction2",
+      "junction3",
+      "left",
+      "right",
+      "center",
+      "battle",
+      "departure"
+    ],
+    "acceptance": "not_yet_workflow_verified"
+  },
+  "production_rules_sha256": "8a8d8af853c2a0a3558baeefa9d5b6b9b9a6ff55553e320e2a1b0ba560788cc9",
+  "kit": {
+    "variants": [
+      3,
+      2,
+      3,
+      2,
+      4
+    ],
+    "examples": [
+      "plain brick arch, repaired arch, pipe-bearing arch",
+      "channel bed and paving tile",
+      "straight curb, inner turn, outer turn",
+      "round outlet and grated outlet",
+      "damp stain, mineral crust, scrap, rubble"
+    ],
+    "representations": [
+      "structural_cutout",
+      "surface_texture",
+      "rigid_cutout",
+      "attached_cutout",
+      "surface_decal"
+    ],
+    "root_policy": "Channel water and walking ledge have different elevations. Arch supports land on ledge, outlets attach to a structural owner. No freestanding flat stain cards.",
+    "assembly": "Brick vault skin + decorative arches every 4.15-5.9m + connected ledges. Curved junction curb has explicit inside/outside pieces. Pipe outlet owns water emitter origin.",
+    "light_fx": "Keep green-gray reference and sparse amber accents. Outflow terminates on channel water; no drips emitted from empty ceiling pixels.",
+    "junction": "One junction well owns roof, channel and ledges. Interior boundaries omitted; all outgoing channels connect before decoration. No extra left/right walls as a closure workaround.",
+    "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+  },
+  "publication_allowed": false
+}

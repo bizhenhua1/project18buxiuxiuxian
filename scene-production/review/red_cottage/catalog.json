@@ -1,0 +1,350 @@
+[
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/blanket/prop.png",
+    "sha256": "4f9c8df5a31730a1eff7b76102d777457eba145f08c05c84d12f952b6e303a27",
+    "pixels": [
+      375,
+      252
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      368,
+      245
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.574334907531738,
+      "canvas_height_m_min": 0.367954341173172,
+      "count": 37,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/chest/prop.png",
+    "sha256": "a391f59feacfef3d30c1f11ae544d526c10b1c8e15437de7e692b22383d6196a",
+    "pixels": [
+      386,
+      291
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      384,
+      285
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.73994090582735,
+      "canvas_height_m_min": 1.25339439761254,
+      "count": 15,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/firewood/prop.png",
+    "sha256": "ff672abe07234ac77bfa4d8f738bd850288729fa6d96913240a79b4c8255e0a0",
+    "pixels": [
+      360,
+      274
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      353,
+      268
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.04302439434838,
+      "canvas_height_m_min": 0.627836073809908,
+      "count": 75,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/hamper/prop.png",
+    "sha256": "74513bb3b843655a6c38bbac4d29ee7cafeb1054e92b3e9394196ebd14d6d178",
+    "pixels": [
+      314,
+      345
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      308,
+      339
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.93319678950954,
+      "canvas_height_m_min": 1.48860977791451,
+      "count": 16,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/pottery/prop.png",
+    "sha256": "d11201fae85b1818af3abdbe8b4a96169aebb3ad08e2c437280e81c98fa68488",
+    "pixels": [
+      356,
+      270
+    ],
+    "alpha_bounds": [
+      6,
+      7,
+      349,
+      263
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.207541848337928,
+      "canvas_height_m_min": 0.109656114910924,
+      "count": 70,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/rags/prop.png",
+    "sha256": "4491812604cef2f0af077e934fa20336b6d987ca4b2615e4ec1c5c5addf2b6d4",
+    "pixels": [
+      359,
+      294
+    ],
+    "alpha_bounds": [
+      7,
+      6,
+      353,
+      288
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.2586816513792,
+      "canvas_height_m_min": 0.157273061732028,
+      "count": 74,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/shavings/prop.png",
+    "sha256": "7a6a113a848fddaacbaad614489a14fcec91fea03bf41bbaa47a1273d71703da",
+    "pixels": [
+      366,
+      282
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      359,
+      275
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.208663119475047,
+      "canvas_height_m_min": 0.106493028269874,
+      "count": 57,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/shoes/prop.png",
+    "sha256": "e908ad09aade04873fe6635c81d945450dcdc3d27736240e5ad394b3c6abad3a",
+    "pixels": [
+      310,
+      241
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      303,
+      235
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.420588495637652,
+      "canvas_height_m_min": 0.268859321685858,
+      "count": 30,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/dressing/stool/prop.png",
+    "sha256": "a9172870f1299f342a9ef4072d15fb91816bb01898aae46af0b00b8ba9c4bd91",
+    "pixels": [
+      276,
+      292
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      269,
+      286
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.40408333778381,
+      "canvas_height_m_min": 1.04640339578901,
+      "count": 38,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/furnishings/hearth-v2.png",
+    "sha256": "d0c1ed74be8b8e722d253c605eb8e9fa24d22d20c44d5ebee14fa96ca390a873",
+    "pixels": [
+      768,
+      755
+    ],
+    "alpha_bounds": [
+      9,
+      9,
+      759,
+      746
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 5.75,
+      "canvas_height_m_min": 5.75,
+      "count": 8,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/furnishings/sewing-corner-v2.png",
+    "sha256": "6d409a649ed33b4c823ca63268dfbd8b77de6ee1621d96d61a62eb852b227728",
+    "pixels": [
+      727,
+      768
+    ],
+    "alpha_bounds": [
+      8,
+      9,
+      719,
+      759
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 5.4,
+      "canvas_height_m_min": 5.4,
+      "count": 7,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/fairytales/red_cottage/structure.png",
+    "sha256": "19b8430c8ae23effe4de0a03c569d2b503f38f321a87607ba7b60af265d6522e",
+    "pixels": [
+      916,
+      665
+    ],
+    "alpha_bounds": [
+      8,
+      8,
+      908,
+      657
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 8.0,
+      "canvas_height_m_min": 8.0,
+      "count": 14,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

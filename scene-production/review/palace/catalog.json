@@ -1,0 +1,292 @@
+[
+  {
+    "source": "res://assets/biomes/palace/prop-0.png",
+    "sha256": "0bc632674045d0a73314ab0c8776a837d15d5527748100c4d8609cb81f8a1de5",
+    "pixels": [
+      361,
+      284
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      361,
+      284
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24933090209961,
+      "canvas_height_m_min": 0.351635670661926,
+      "count": 64,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-1.png",
+    "sha256": "4b53328b15984afd9eb1ea5f7c39cab05ecdf1f407c99863c110472ae9dfd254",
+    "pixels": [
+      246,
+      316
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      246,
+      316
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.2349157333374,
+      "canvas_height_m_min": 0.350081634521484,
+      "count": 74,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-2.png",
+    "sha256": "df480ebed4e1d708c60cca002c8518ad93f4b0aaeb61982b9fe8434f8247ef45",
+    "pixels": [
+      372,
+      305
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      372,
+      305
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.19215774536133,
+      "canvas_height_m_min": 0.354316306114197,
+      "count": 93,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-3.png",
+    "sha256": "8dcf9d55c61d1c881b892802bfd99b7904025c8d7c5eb100440185d3126ecbab",
+    "pixels": [
+      307,
+      309
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      306,
+      309
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 6.0,
+      "canvas_height_m_min": 0.360151290893555,
+      "count": 84,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-4.png",
+    "sha256": "3a68116745e78378377a178bbe1655a336b15255eb8cb4bed5e4bec0e1e5b351",
+    "pixels": [
+      176,
+      334
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      176,
+      334
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.09094848632812,
+      "canvas_height_m_min": 0.367699766159058,
+      "count": 12,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-5.png",
+    "sha256": "05b605240760609ef8fd8c8f31ce66fd6a443aa2634248940579f30afa9d2fe2",
+    "pixels": [
+      234,
+      286
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      233,
+      286
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24509115219116,
+      "canvas_height_m_min": 0.397998642921448,
+      "count": 62,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-6.png",
+    "sha256": "c3618b69d5995eee273fa00d4c6a3c2abf45c963d28490a3ac6719de6aaa8003",
+    "pixels": [
+      347,
+      300
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      347,
+      300
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24461116790771,
+      "canvas_height_m_min": 0.351406741142273,
+      "count": 78,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-7.png",
+    "sha256": "9175762273e2f88bf8d36771be8f78d89d4d65da3bf69aa64690bd39d17ab8c5",
+    "pixels": [
+      305,
+      260
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      304,
+      260
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24708414077759,
+      "canvas_height_m_min": 0.105077481269836,
+      "count": 237,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/prop-8.png",
+    "sha256": "b8be51be52c218b30508f0613aa5c9c909b299c4a74dee23e5098aea4d21bdc2",
+    "pixels": [
+      369,
+      267
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      368,
+      266
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.22815771102905,
+      "canvas_height_m_min": 0.350954985618591,
+      "count": 98,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/palace/shell.png",
+    "sha256": "64848af846fe04e3471e61013fb32e4df4e43a2b001d23942ad60b6e32398209",
+    "pixels": [
+      991,
+      340
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      991,
+      340
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 18.9546272754669,
+      "canvas_height_m_min": 11.9436242508888,
+      "count": 39,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

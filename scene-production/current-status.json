@@ -1,0 +1,267 @@
+{
+  "latest_design_review": {
+    "date": "2026-09-22",
+    "entry": "design-v2/README.md",
+    "first_benchmark_plan": "design-v2/FIRST-BENCHMARK.md",
+    "first_benchmark_tasks": "design-v2/benchmark-tasks.json",
+    "next_planned_task": "B04",
+    "delivery": "design_plus_partial_rejected_C1_prototype_and_asset_diagnostics",
+    "latest_asset_review": "design-v2/C1-ASSET-QUALIFICATION.md",
+    "forest_visual_feedback": "user_basically_satisfied_not_full_workflow_certification",
+    "other_scenes_visual_feedback": "not_accepted",
+    "compact_cave_visual_feedback": "rejected_by_user",
+    "implementation_status": "partial_camera_event_and_rigid_support_implemented_visual_assemblies_not_accepted",
+    "historical_evidence_notice": "The capture and source-check fields below describe the previous run, not certification of current code or the new design.",
+    "implementation_checkpoint": "design-v2/C1-IMPLEMENTATION-CHECKPOINT.md"
+  },
+  "status": "seven_reference_workflows_executed_visual_acceptance_pending",
+  "scope": "Seven existing families and compatible asset recipes; not arbitrary geometry or mixed-theme certification",
+  "review": "art/scene-workflow-review/2026-09-21/index.html",
+  "key_states": 56,
+  "paired_pngs": 112,
+  "source_checks_passed": true,
+  "generated_asset_examples": 1,
+  "new_recipe_runtime_example": "room_oak_study",
+  "families": [
+    {
+      "family": "forest",
+      "recipe": "godot/data/scene_production/reference_forest.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 610.0,
+        "family": "forest",
+        "full_performance_accepted": false,
+        "max_ms": 89.755,
+        "p50_ms": 16.111,
+        "p95_ms": 21.163,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "swamp",
+      "recipe": "godot/data/scene_production/reference_swamp.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 480.0,
+        "family": "swamp",
+        "full_performance_accepted": false,
+        "max_ms": 75.049,
+        "p50_ms": 12.439,
+        "p95_ms": 16.625,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "crystal",
+      "recipe": "godot/data/scene_production/reference_crystal.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 453.0,
+        "family": "crystal",
+        "full_performance_accepted": false,
+        "max_ms": 59.623,
+        "p50_ms": 10.746,
+        "p95_ms": 14.639,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "sewer",
+      "recipe": "godot/data/scene_production/reference_sewer.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 425.0,
+        "family": "sewer",
+        "full_performance_accepted": false,
+        "max_ms": 74.579,
+        "p50_ms": 9.413,
+        "p95_ms": 13.501,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "whale",
+      "recipe": "godot/data/scene_production/reference_whale.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 463.0,
+        "family": "whale",
+        "full_performance_accepted": false,
+        "max_ms": 64.302,
+        "p50_ms": 11.159,
+        "p95_ms": 13.59,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "palace",
+      "recipe": "godot/data/scene_production/reference_palace.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 399.0,
+        "family": "palace",
+        "full_performance_accepted": false,
+        "max_ms": 64.801,
+        "p50_ms": 9.852,
+        "p95_ms": 14.91,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    },
+    {
+      "family": "red_cottage",
+      "recipe": "godot/data/scene_production/reference_red_cottage.json",
+      "captured_states": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "source_valid": true,
+      "performance_smoke": {
+        "draws_p95": 359.0,
+        "family": "red_cottage",
+        "full_performance_accepted": false,
+        "max_ms": 65.252,
+        "p50_ms": 8.285,
+        "p95_ms": 12.118,
+        "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+        "states": [
+          "approach",
+          "travel"
+        ],
+        "viewport": [
+          1440,
+          900
+        ],
+        "vsync": false
+      },
+      "accepted": false
+    }
+  ],
+  "open_issues": "OPEN-ISSUES.md",
+  "accepted": false
+}

@@ -1,0 +1,701 @@
+{
+  "status": "candidate_not_accepted",
+  "scope": "sampled diagnostic pixels only; not a continuous coverage proof, not visual approval",
+  "method": "match diagnostic background RGB 75,86,100 +/-1 in native viewport; list connected regions >=16 pixels; far terminal apertures are included, not silently waived",
+  "cases": [
+    {
+      "case": "final-left",
+      "frames": [
+        {
+          "name": "00-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "01-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "02-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 1.0612331529236973e-05
+        },
+        {
+          "name": "03-choice",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "04-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 1.0612331529236973e-05
+        },
+        {
+          "name": "05-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "06-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "07-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "08-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              678,
+              328,
+              37,
+              36,
+              1112
+            ],
+            [
+              662,
+              358,
+              7,
+              6,
+              33
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "09-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              697,
+              328,
+              26,
+              36,
+              736
+            ],
+            [
+              666,
+              340,
+              22,
+              24,
+              312
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "10-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              666,
+              326,
+              28,
+              38,
+              452
+            ],
+            [
+              704,
+              327,
+              23,
+              37,
+              639
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "11-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              682,
+              326,
+              6,
+              7,
+              23
+            ],
+            [
+              706,
+              326,
+              22,
+              38,
+              671
+            ],
+            [
+              666,
+              334,
+              28,
+              29,
+              444
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "12-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              706,
+              324,
+              23,
+              40,
+              729
+            ],
+            [
+              664,
+              336,
+              29,
+              28,
+              475
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "13-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              708,
+              323,
+              22,
+              41,
+              710
+            ],
+            [
+              663,
+              336,
+              30,
+              28,
+              417
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "14-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              709,
+              322,
+              23,
+              42,
+              729
+            ],
+            [
+              661,
+              336,
+              29,
+              27,
+              398
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "15-event",
+          "exposed_background_components_xywh_area": [
+            [
+              663,
+              203,
+              33,
+              34,
+              432
+            ],
+            [
+              711,
+              206,
+              19,
+              32,
+              383
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        }
+      ],
+      "instances": 621,
+      "source_count": 5,
+      "final_yaw": 0.0,
+      "simulation_cpu_p95_ms": 6.511,
+      "frame_wall_p95_ms": 16.998
+    },
+    {
+      "case": "final-right",
+      "frames": [
+        {
+          "name": "00-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "01-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "02-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 1.0612331529236973e-05
+        },
+        {
+          "name": "03-choice",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "04-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 1.0612331529236973e-05
+        },
+        {
+          "name": "05-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "06-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 3.183699458771092e-05
+        },
+        {
+          "name": "07-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              728,
+              353,
+              10,
+              12,
+              74
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "08-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              678,
+              327,
+              44,
+              38,
+              1132
+            ],
+            [
+              730,
+              343,
+              6,
+              21,
+              74
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "09-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              670,
+              325,
+              33,
+              39,
+              743
+            ],
+            [
+              711,
+              335,
+              19,
+              29,
+              409
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "10-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              666,
+              324,
+              28,
+              40,
+              581
+            ],
+            [
+              704,
+              326,
+              24,
+              38,
+              579
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "11-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              665,
+              322,
+              29,
+              42,
+              590
+            ],
+            [
+              706,
+              324,
+              23,
+              40,
+              594
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "12-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              664,
+              323,
+              29,
+              41,
+              555
+            ],
+            [
+              706,
+              323,
+              24,
+              40,
+              644
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "13-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              662,
+              321,
+              30,
+              42,
+              507
+            ],
+            [
+              708,
+              322,
+              24,
+              41,
+              626
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "14-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              709,
+              320,
+              25,
+              43,
+              659
+            ],
+            [
+              661,
+              324,
+              29,
+              39,
+              391
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "15-event",
+          "exposed_background_components_xywh_area": [
+            [
+              663,
+              203,
+              33,
+              34,
+              622
+            ],
+            [
+              711,
+              211,
+              21,
+              26,
+              324
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        }
+      ],
+      "instances": 621,
+      "source_count": 5,
+      "final_yaw": 0.0,
+      "simulation_cpu_p95_ms": 7.944,
+      "frame_wall_p95_ms": 17.107
+    },
+    {
+      "case": "three-right",
+      "frames": [
+        {
+          "name": "00-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              677,
+              334,
+              42,
+              30,
+              1061
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "01-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              677,
+              334,
+              43,
+              30,
+              1136
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "02-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              676,
+              333,
+              45,
+              31,
+              1188
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "03-choice",
+          "exposed_background_components_xywh_area": [
+            [
+              675,
+              333,
+              46,
+              32,
+              1220
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "04-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              675,
+              332,
+              46,
+              33,
+              1290
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "05-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              673,
+              331,
+              47,
+              34,
+              1372
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "06-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              664,
+              331,
+              48,
+              34,
+              1454
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "07-travel",
+          "exposed_background_components_xywh_area": [],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "08-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              696,
+              326,
+              42,
+              38,
+              992
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "09-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              680,
+              324,
+              32,
+              40,
+              986
+            ],
+            [
+              721,
+              339,
+              14,
+              25,
+              219
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "10-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              673,
+              323,
+              23,
+              41,
+              609
+            ],
+            [
+              706,
+              325,
+              24,
+              39,
+              547
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "11-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              671,
+              321,
+              23,
+              43,
+              607
+            ],
+            [
+              706,
+              323,
+              25,
+              40,
+              610
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "12-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              670,
+              319,
+              23,
+              45,
+              553
+            ],
+            [
+              706,
+              322,
+              26,
+              41,
+              663
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "13-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              669,
+              318,
+              24,
+              45,
+              523
+            ],
+            [
+              708,
+              320,
+              26,
+              43,
+              639
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        },
+        {
+          "name": "14-travel",
+          "exposed_background_components_xywh_area": [
+            [
+              667,
+              319,
+              24,
+              44,
+              442
+            ],
+            [
+              708,
+              318,
+              28,
+              44,
+              712
+            ]
+          ],
+          "top_band_background_fraction": 5.3061657646184865e-06
+        },
+        {
+          "name": "15-event",
+          "exposed_background_components_xywh_area": [
+            [
+              669,
+              201,
+              29,
+              36,
+              630
+            ],
+            [
+              711,
+              211,
+              25,
+              25,
+              308
+            ]
+          ],
+          "top_band_background_fraction": 0.0
+        }
+      ],
+      "instances": 1198,
+      "source_count": 5,
+      "final_yaw": 0.0,
+      "simulation_cpu_p95_ms": 7.745,
+      "frame_wall_p95_ms": 17.141
+    }
+  ]
+}

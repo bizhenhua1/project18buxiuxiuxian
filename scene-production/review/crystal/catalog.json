@@ -1,0 +1,292 @@
+[
+  {
+    "source": "res://assets/biomes/crystal/prop-0.png",
+    "sha256": "460cf8613c8444fde27cb18c0bc2a28e818b91089b192c68c7aec01a63362da3",
+    "pixels": [
+      321,
+      327
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      321,
+      327
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.16431732177734,
+      "canvas_height_m_min": 0.351151466369629,
+      "count": 18,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-1.png",
+    "sha256": "6d6335dffe8271d84f708da84f79f8112f8d733e75f3a1e7b49e9ab2c70e7724",
+    "pixels": [
+      336,
+      313
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      335,
+      313
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24973402023315,
+      "canvas_height_m_min": 0.354130005836487,
+      "count": 87,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-2.png",
+    "sha256": "58ee48aa715f688672f864d1210ce39f6946ccfded1c82ca5df4aa0f09ac5914",
+    "pixels": [
+      346,
+      334
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      346,
+      334
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 10.4648777760507,
+      "canvas_height_m_min": 0.354142236709595,
+      "count": 349,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-3.png",
+    "sha256": "2cc8d08135d8e1f5e785df95a88f477f5b49d0c5bc25c56c6df97700e882a245",
+    "pixels": [
+      319,
+      328
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      318,
+      328
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24896678924561,
+      "canvas_height_m_min": 0.355763149261475,
+      "count": 238,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-4.png",
+    "sha256": "4648f9c152ccc44479b5e4a4a2cde45e36f8b366479c18b499060a9571e75d2d",
+    "pixels": [
+      374,
+      298
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      374,
+      298
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24489727020264,
+      "canvas_height_m_min": 0.38494381904602,
+      "count": 93,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-5.png",
+    "sha256": "177020a3cc82ed0db1344958243f7f59288141c93f68dd55d1a84c21d86a33dd",
+    "pixels": [
+      353,
+      283
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      353,
+      283
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.23303918838501,
+      "canvas_height_m_min": 0.35021390914917,
+      "count": 86,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-6.png",
+    "sha256": "90acc7316ebb3b13c5992a70ca459a54d77684a74ea7e96ebe2ccaac4b941880",
+    "pixels": [
+      329,
+      226
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      329,
+      226
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24508399963379,
+      "canvas_height_m_min": 0.100776374340057,
+      "count": 257,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-7.png",
+    "sha256": "14f00ac086bff9bcd6968b62e614341d3d3e84f2e786bacdd8a71ac3d8ef6505",
+    "pixels": [
+      328,
+      277
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      328,
+      277
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24358854293823,
+      "canvas_height_m_min": 0.364687561988831,
+      "count": 137,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/prop-8.png",
+    "sha256": "4549dc2429749cb1d5b440507e96305ab3d5f4ccc70b8272810f43b7431e1b3a",
+    "pixels": [
+      317,
+      333
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      317,
+      333
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24650201797485,
+      "canvas_height_m_min": 0.358262205123901,
+      "count": 109,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/crystal/shell.png",
+    "sha256": "00c54771ae79eea734b8700052236a8ddf0ad8896d8c9b028c10b3f280791db5",
+    "pixels": [
+      1429,
+      686
+    ],
+    "alpha_bounds": [
+      2,
+      2,
+      1427,
+      684
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 10.9821731936724,
+      "canvas_height_m_min": 10.2682181570668,
+      "count": 57,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scene3d-asset-contract-v1",
+  "title": "Scene3D asset request and AssetSpec contract",
+  "type": "object",
+  "required": ["asset_request", "asset_spec"],
+  "properties": {
+    "asset_request": {
+      "type": "object",
+      "required": [
+        "request_id", "scene_id", "physical_family", "role", "why_existing_assets_fail",
+        "required_sockets", "size_source", "alpha_requirements", "opening_requirements",
+        "footprint_requirements", "view_angles", "palette_reference", "source_prompt_path",
+        "blocking_tasks", "status"
+      ],
+      "properties": {
+        "request_id": {"type": "string", "minLength": 1},
+        "scene_id": {"type": "string", "minLength": 1},
+        "physical_family": {"enum": ["street", "interior", "garden", "cave", "bridge", "stage", "clock"]},
+        "role": {"enum": ["structure", "wall", "roof", "canopy", "furnishing", "prop", "cover", "litter", "landmark"]},
+        "why_existing_assets_fail": {"type": "string", "minLength": 20},
+        "required_sockets": {"type": "array", "items": {"type": "string"}},
+        "size_source": {"type": "string", "minLength": 1},
+        "alpha_requirements": {"type": "string", "minLength": 1},
+        "opening_requirements": {"type": "string", "minLength": 1},
+        "footprint_requirements": {"type": "string", "minLength": 1},
+        "view_angles": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "palette_reference": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "source_prompt_path": {"type": "string", "minLength": 1},
+        "blocking_tasks": {"type": "array", "items": {"type": "string"}},
+        "status": {"enum": ["awaiting_asset", "awaiting_asset_review", "accepted", "rejected"]}
+      },
+      "additionalProperties": false
+    },
+    "asset_spec": {
+      "type": "object",
+      "required": [
+        "id", "texture", "sha256", "role", "size_m", "anchor_uv", "footprints_m",
+        "opening_uv", "contact", "sockets_m", "variant_family", "mirror_allowed",
+        "height_band_m", "status"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "texture": {"type": "string", "pattern": "^res://"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "role": {"enum": ["structure", "wall", "roof", "canopy", "furnishing", "prop", "cover", "litter", "landmark"]},
+        "size_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "exclusiveMinimum": 0}},
+        "anchor_uv": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0, "maximum": 1}},
+        "footprints_m": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 3, "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}}},
+        "opening_uv": {"type": "array", "items": {"type": "array", "minItems": 3, "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0, "maximum": 1}}}},
+        "contact": {"enum": ["rigid_feet", "conform_base", "ground_surface", "suspended"]},
+        "sockets_m": {"type": "object", "additionalProperties": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}}},
+        "variant_family": {"type": "string", "minLength": 1},
+        "mirror_allowed": {"type": "boolean"},
+        "height_band_m": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0}},
+        "status": {"enum": ["unannotated", "annotated", "reviewed", "rejected"]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

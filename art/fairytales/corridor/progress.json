@@ -32,7 +32,12 @@
   "generated_dressing_assets": 162,
   "dressing_remaining": [],
   "runtime_integration": "18 corridor sets; 18 dressing sets; two independent branch sides",
-  "remaining_validation": [],
+  "remaining_validation": [
+    "18景截图级视觉验收：空旷、完整框景重复、岔路围合和中景层次",
+    "除red_cottage、snow_house、puppet_theatre外的中型侧景/独立岔路侧景补充",
+    "地面接缝数值与同机位画面联合复核",
+    "所有后续主体场景接入继续使用最新native 3D route view、投影、接地和镜头算法"
+  ],
   "completed_scope": "art supplement and integration only; comprehensive 3D migration remains active",
   "completed_date": "2026-09-16",
   "generated_branch_sides": [

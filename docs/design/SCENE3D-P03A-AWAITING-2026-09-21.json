@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "package": "P03A",
+  "status": "awaiting_external_asset",
+  "rule": "不把未经生成、处理、AssetSpec校验和单景验证的资产标记为runtime_ready",
+  "requests": [
+    {
+      "request_id": "red_cottage-roof-connection-v1",
+      "path": "docs/design/asset_requests/red_cottage-roof-connection.json",
+      "status": "awaiting_asset",
+      "reason": "现有corridor壳体中心透明开口，缺少连续室内顶棚连接面",
+      "blocked_by": ["P05"],
+      "next_required": [
+        "raw_generation_output_or_approved_existing_asset",
+        "processed_rgba_asset",
+        "AssetSpec_with_size_footprints_contact_sockets",
+        "alpha_resolution_outline_logs",
+        "single_scene_before_after_manifest"
+      ]
+    }
+  ],
+  "no_runtime_changes": false,
+  "default_runtime_unchanged": true,
+  "no_new_image_generated": true,
+  "existing_material_experiment": {
+    "mode": "closed_low_ceiling",
+    "flag": "--closed-low-ceiling",
+    "scene": "red_cottage",
+    "material_candidate": "godot/assets/fairytales/red_cottage/ground.png",
+    "evidence": "tempassets/work/p03a-ceiling-experiment-20260921-180000/manifest.json",
+    "provenance_valid": true,
+    "review_status": "awaiting_Astra_visual_review",
+    "note": "The experiment closes the diagnostic top gap without generating a new image, but the repeated ground texture is only a candidate and is not enabled by default."
+  }
+}

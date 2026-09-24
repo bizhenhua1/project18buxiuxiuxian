@@ -1,0 +1,9 @@
+{
+  "source": "../../../tmp/场景参考.mp4",
+  "sha256": "82287e56f0821a8bfdddd35ec16f90aef56552d97b7e64f5b25c9f3efc613d40",
+  "duration_s": 793.7665625,
+  "fps": 30.000003936925726,
+  "width": 852,
+  "height": 480,
+  "analysis_scope": "video frame evidence, not source-engine reconstruction"
+}

@@ -1,0 +1,153 @@
+{
+  "res://assets/fairytales/red_cottage/dressing/blanket/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 0.575157022476196,
+    "canvas_height_m_min": 0.367954341173172,
+    "count": 47,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/chest/prop.png": {
+    "branches": [
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.71139084190451,
+    "canvas_height_m_min": 1.25172958066387,
+    "count": 21,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/firewood/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.04302439434838,
+    "canvas_height_m_min": 0.628463309775782,
+    "count": 84,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/hamper/prop.png": {
+    "branches": [
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.93319678950954,
+    "canvas_height_m_min": 1.45791381543821,
+    "count": 26,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/pottery/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 0.20828331071277,
+    "canvas_height_m_min": 0.10579392106034,
+    "count": 98,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/rags/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 0.26033895218626,
+    "canvas_height_m_min": 0.158667369345401,
+    "count": 89,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/shavings/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 0.208535586463081,
+    "canvas_height_m_min": 0.104843453566233,
+    "count": 81,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/shoes/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 0.420588495637652,
+    "canvas_height_m_min": 0.268859321685858,
+    "count": 44,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/dressing/stool/prop.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.38321109771729,
+    "canvas_height_m_min": 1.04640339578901,
+    "count": 43,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/enemy-0.png": {
+    "branches": [
+      -1
+    ],
+    "canvas_height_m_max": 3.5,
+    "canvas_height_m_min": 3.5,
+    "count": 1,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/furnishings/hearth-v2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 3.3,
+    "canvas_height_m_min": 3.3,
+    "count": 12,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/furnishings/sewing-corner-v2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 3.1,
+    "canvas_height_m_min": 3.1,
+    "count": 9,
+    "semantic_support_verified": false
+  },
+  "res://assets/fairytales/red_cottage/structure.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 3.4,
+    "canvas_height_m_min": 3.4,
+    "count": 20,
+    "semantic_support_verified": false
+  }
+}

@@ -1,0 +1,14 @@
+项目：黑暗童话绘本游戏。新场景风格：幽暗古木森林，沿用已认可的绘本密林构图
+空间族：森林。本张唯一用途：中层灌木。
+结构限制：开放天空；只约束树冠覆盖，不能铺封闭屋顶。
+撒布用途：高树与灌木分层；树冠悬挑不算树根占地；根固定、顶部风摆。
+岔路要求：岔路保留全部出口；树只在保护区外，中央出口不能被复制右路的树挡住。
+具体内容：fern, broad shrub, bramble, sapling。至少4个真正不同的轮廓或材质。
+表达方式：rooted_cutout。
+支撑/挂点：Tree trunk footprint only; canopy overhang may cross road. Grass roots follow terrain; rigid stumps use rigid support. Distant silhouettes never receive near-camera placement.
+拼组：Tree+root grass: one owner and seed. Root cover 1-3 clumps around trunk footprint, never pasted over entire trunk; inherit terrain, not canopy wind.
+光效：Preserve forest environment. Shared world-anchored curved mist, root-pinned foliage wind; no lamp per tree.
+只制作指定部件或材质，不画整幅走廊背景，不烘焙消失点，不夹带人物。构件完整保留支撑端、挂点及连接边；结构连接件必须指定正面/侧面/转角。材质须无方向性投影、无道具且可平铺；独立物件须透明底、完整轮廓、无文字无水印。沿用参考图的线条与材料笔触，颜色由新风格决定；不能仅把参考改色。
+生成前必须查看并绑定对应参考图片，填写下列槽位的物理尺寸、视角和拆件方案。此提示仅是工单起点；缺少具体内容、尺寸和参考时不得调用生成或发布。
+
+最新光照裁决优先：诊断图露空不自动要求补顶。正式暗场可用相近深色背景、天空盒或雾衔接；只对正式照明或游戏允许灯光变化中穿帮的区域补面。先按 LIGHTING-ACCEPTANCE.md 对照，决定真正需要生成的顶部资产范围。

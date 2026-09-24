@@ -1,0 +1,1088 @@
+{
+  "schema_version": 1,
+  "protocol": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#C2",
+  "status": "draft_all_profiles_pending_visual_review",
+  "rule": "Unknown numeric values stay absent; each unresolved field carries a source and pending status.",
+  "profiles": [
+    {
+      "profile_contract_version": 1,
+      "scene_id": "red_village",
+      "physical_family": "street",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "local",
+      "family_contract": {
+        "topology": "local",
+        "scatter_namespace": "street",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "red_cottage",
+      "physical_family": "interior",
+      "baseline_id": "sewer",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "red_workshop",
+      "physical_family": "interior",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "snow_mirror",
+      "physical_family": "interior",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "snow_orchard",
+      "physical_family": "garden",
+      "baseline_id": "forest",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "open",
+      "family_contract": {
+        "topology": "open",
+        "scatter_namespace": "garden",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "cover",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "snow_house",
+      "physical_family": "interior",
+      "baseline_id": "sewer",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "alice_tea",
+      "physical_family": "garden",
+      "baseline_id": "swamp",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "open",
+      "family_contract": {
+        "topology": "open",
+        "scatter_namespace": "garden",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "cover",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "alice_roses",
+      "physical_family": "garden",
+      "baseline_id": "swamp",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "open",
+      "family_contract": {
+        "topology": "open",
+        "scatter_namespace": "garden",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "cover",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "alice_hall",
+      "physical_family": "interior",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "piper_market",
+      "physical_family": "street",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "local",
+      "family_contract": {
+        "topology": "local",
+        "scatter_namespace": "street",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "piper_bridge",
+      "physical_family": "bridge",
+      "baseline_id": "swamp",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "open",
+      "family_contract": {
+        "topology": "open",
+        "scatter_namespace": "bridge",
+        "required_roles": [
+          "structure",
+          "wall",
+          "cover",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "piper_mountain",
+      "physical_family": "cave",
+      "baseline_id": "crystal",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "entrance_to_closed",
+      "family_contract": {
+        "topology": "entrance_to_closed",
+        "scatter_namespace": "cave",
+        "required_roles": [
+          "structure",
+          "roof",
+          "wall",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "puppet_workshop",
+      "physical_family": "interior",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "puppet_theatre",
+      "physical_family": "stage",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "stage",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "puppet_fair",
+      "physical_family": "street",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "local",
+      "family_contract": {
+        "topology": "local",
+        "scatter_namespace": "street",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "cinder_kitchen",
+      "physical_family": "interior",
+      "baseline_id": "sewer",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "interior",
+        "required_roles": [
+          "structure",
+          "roof",
+          "furnishing",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "cinder_garden",
+      "physical_family": "garden",
+      "baseline_id": "swamp",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "open",
+      "family_contract": {
+        "topology": "open",
+        "scatter_namespace": "garden",
+        "required_roles": [
+          "structure",
+          "canopy",
+          "cover",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    },
+    {
+      "profile_contract_version": 1,
+      "scene_id": "cinder_clock",
+      "physical_family": "clock",
+      "baseline_id": "palace",
+      "baseline_revision": "SCENE3D-BASELINE-MEASUREMENTS.json:visual-review-pending",
+      "roof_mode": "closed",
+      "family_contract": {
+        "topology": "closed",
+        "scatter_namespace": "clock",
+        "required_roles": [
+          "structure",
+          "roof",
+          "suspended",
+          "prop",
+          "litter"
+        ],
+        "status": "contract_ready_values_pending",
+        "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#4-7"
+      },
+      "layer_rules": {
+        "structure": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#7"
+        },
+        "ceiling_or_canopy": {
+          "status": "pending_roof_profile",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+        },
+        "functional_groups": {
+          "status": "pending_measurement_and_asset_annotation",
+          "source": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md#5"
+        },
+        "ground_cover": {
+          "status": "pending_baseline_calibration",
+          "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+        }
+      },
+      "battle_clearance_source": {
+        "status": "pending_camera_and_battle_template_review",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D5"
+      },
+      "asset_ids": [],
+      "junction_rules": {
+        "owner": "segment_id+junction_id",
+        "status": "flagged_runtime_geometry_audit_pass",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2"
+      },
+      "seed_version": {
+        "value": "legacy-route-seed-v1",
+        "status": "pending-stable-layer-seed-migration",
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D4"
+      },
+      "limits": {
+        "status": "pending_same-camera_baseline_measurement",
+        "values": {},
+        "source": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1"
+      },
+      "status": "draft_pending_asset_visual_and_battle_review"
+    }
+  ]
+}

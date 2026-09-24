@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "id": "dark_tailor_room",
+  "family": "red_cottage",
+  "style": "黑暗童话裁缝室，旧橡木、灰绿布料、黄铜挂灯，克制的暖光",
+  "stage": "draft",
+  "family_sha256": "8fecb7c2f315c1fadc3bf6d701bf7746707aae2e014f38e2e177738727dfcf88",
+  "slots": [
+    {
+      "id": "slot_1",
+      "purpose": "梁架",
+      "prompt": "01-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_2",
+      "purpose": "连续天花材质",
+      "prompt": "02-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_3",
+      "purpose": "地板材质",
+      "prompt": "03-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_4",
+      "purpose": "生活功能组合",
+      "prompt": "04-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_5",
+      "purpose": "小物与碎屑",
+      "prompt": "05-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_6",
+      "purpose": "吊挂装饰",
+      "prompt": "06-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": null,
+      "status": "needs_specification"
+    }
+  ],
+  "assemblies": [],
+  "runtime_evidence": [],
+  "visual_review": null,
+  "rules": {
+    "id": "red_cottage",
+    "title": "低顶室内",
+    "roof": "domestic_low",
+    "support": "timber",
+    "adapter": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+    "slots": [
+      "梁架",
+      "连续天花材质",
+      "地板材质",
+      "生活功能组合",
+      "小物与碎屑",
+      "吊挂装饰"
+    ],
+    "scatter_rule": "梁架先验净空；壁炉与柴薪、缝纫台与布篓成组；低家具不放大道路边界。",
+    "junction_rule": "低顶所有出口先并集三角化，只生成一张顶；拱架脚点避开全部道路，路口停止重复整框。",
+    "top_rule": "连续平顶使用世界材质相位；不新增左右墙。挂物必须绑定真实顶面socket。",
+    "effects": [
+      "ground_mist",
+      "hanging_sway",
+      "fixture_glow"
+    ],
+    "reference_scene": "red_cottage",
+    "protected_camera": true,
+    "ground": {
+      "policy": "dry_room",
+      "max_slope_degrees": 2,
+      "max_support_error_m": 0.02,
+      "source": "design_initial; measure runtime slope before acceptance"
+    },
+    "lighting": {
+      "policy": "inherit_reference_palette",
+      "new_realtime_lights": 0,
+      "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background"
+    },
+    "hanging": {
+      "allowed": true,
+      "character_clearance_m": 0.35,
+      "camera_clearance_m": 0.2,
+      "sway_degrees_max": 2,
+      "default_sway_degrees": 0,
+      "max_dynamic_visible": 8,
+      "required": [
+        "owner_id",
+        "socket_m",
+        "lowest_point_m",
+        "sway_radius_m"
+      ],
+      "figure_requires_explicit_selection": true
+    },
+    "cases": [
+      "entry",
+      "junction2",
+      "junction3",
+      "left",
+      "right",
+      "center",
+      "battle"
+    ],
+    "acceptance": "not_yet_workflow_verified"
+  },
+  "publication_allowed": false
+}

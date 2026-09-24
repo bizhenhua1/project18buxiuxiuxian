@@ -1,0 +1,62 @@
+{
+  "res://assets/biomes/crystal/modular/roof-cluster-matte-v2.png": {
+    "branches": [
+      0,
+      -1,
+      2,
+      1
+    ],
+    "canvas_height_m_max": 2.2789732841184,
+    "canvas_height_m_min": 2.02124037654468,
+    "count": 374,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/modular/shoulder-rising-v3.png": {
+    "branches": [
+      0,
+      -1,
+      2,
+      1
+    ],
+    "canvas_height_m_max": 5.77386808395386,
+    "canvas_height_m_min": 5.11759707331657,
+    "count": 166,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/modular/side-fill-v1.png": {
+    "branches": [
+      0,
+      -1,
+      2,
+      1
+    ],
+    "canvas_height_m_max": 6.06256148815155,
+    "canvas_height_m_min": 5.3734769269824,
+    "count": 166,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      2,
+      1
+    ],
+    "canvas_height_m_max": 0.948623847961426,
+    "canvas_height_m_min": 0.500129318237305,
+    "count": 332,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      2,
+      1
+    ],
+    "canvas_height_m_max": 0.225,
+    "canvas_height_m_min": 0.225,
+    "count": 29,
+    "semantic_support_verified": false
+  }
+}

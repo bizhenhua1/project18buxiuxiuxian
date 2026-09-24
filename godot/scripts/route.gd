@@ -4,8 +4,11 @@ extends RefCounted
 static var origin:=Vector2.ZERO
 static var origin_s:=0.0
 static var origin_heading:=0.0
+static var cave_fork:=false
+const CAVE_FORK=preload("res://scripts/world3d/cave_fork.gd")
 static func reset_frame() -> void:
 	origin=Vector2.ZERO;origin_s=0;origin_heading=0
+	cave_fork=false
 static func local_point(point:Vector2) -> Vector2:
 	return to_camera(point,origin,origin_heading)+Vector2(0,origin_s)
 static var JUNCTION := 700.0
@@ -29,6 +32,8 @@ static func base_pose(distance: float, branch: int) -> Dictionary:
 	if branch == 2: branch = 0 # The third exit continues along the trunk axis.
 	if distance <= JUNCTION or branch == 0:
 		return {"position": Vector2(0.0, distance), "heading": 0.0}
+	if cave_fork:
+		return {"position":Vector2(CAVE_FORK.lateral(distance,JUNCTION,TURN_LENGTH,branch),distance),"heading":CAVE_FORK.heading(distance,JUNCTION,TURN_LENGTH,branch)}
 	var travel := distance - JUNCTION
 	# Integrate a linearly increasing heading: an exact circular transition.
 	var radius := TURN_LENGTH / TURN_ANGLE
@@ -49,6 +54,7 @@ static func to_camera(point: Vector2, camera: Vector2, heading: float) -> Vector
 
 static func road_distance(point: Vector2, three_way := false) -> float:
 	point=local_point(point)
+	if cave_fork:return CAVE_FORK.lane_distance(point,JUNCTION,TURN_LENGTH,maxf(END_AT,point.y),3 if three_way else 2)
 	var closest := absf(point.x) if point.y <= JUNCTION else INF
 	if three_way: closest = absf(point.x)
 	for branch in [-1, 1]:

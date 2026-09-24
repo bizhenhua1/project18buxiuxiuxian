@@ -1,0 +1,18 @@
+[
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/roof-coverage-a.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/roof-coverage-a.prompt.txt",
+    "tool": "built_in_image_gen",
+    "inputs": [
+      "godot/assets/biomes/crystal/cards-study/backing-geology-e.png",
+      "scene-production/references/mushroom-corridor/09.png"
+    ],
+    "first_output": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-9b5278e7-57eb-4736-85e5-75501f4e2c98.png",
+    "first_output_rejected_reason": "central solid band too shallow: roughly 40 percent instead of requested coverage profile",
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-2e1238e7-aeb6-4a57-9cdd-c2ea0837ca56.png",
+    "sha256": "e5c7b9c4b1a6cd45bb92d33fd15f8507b8f13a0519dcc537e2c9abb9fdc9d165",
+    "bytes": 2424803,
+    "pixel_editing_after_generation": false,
+    "status": "coverage_candidate_requires_hidden_clip_edges_and_native_art_review"
+  }
+]

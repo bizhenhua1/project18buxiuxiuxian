@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "reference_forest",
+  "family": "forest",
+  "style": "森林原有画风与布局，保持镜头；通过生产配方重建",
+  "adapter": "godot/scripts/spaces/layouts/forest_layout.gd",
+  "assets": [
+    {
+      "source": "res://assets/style2/clover.png",
+      "target": "res://assets/style2/clover.png",
+      "source_sha256": "c3d99871b06edbdb10a1aece0f1d84c76a1bbd4e2eed07c012cf3c57151feeff",
+      "target_sha256": "c3d99871b06edbdb10a1aece0f1d84c76a1bbd4e2eed07c012cf3c57151feeff",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/fern.png",
+      "target": "res://assets/style2/fern.png",
+      "source_sha256": "347aac3dd79595dc4f04f8dead410ab104e9390cf3bd91988f937d7510e088c7",
+      "target_sha256": "347aac3dd79595dc4f04f8dead410ab104e9390cf3bd91988f937d7510e088c7",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/ground.png",
+      "target": "res://assets/style2/ground.png",
+      "source_sha256": "922a11eeb26cfbd0539b57b1badb896352a46ebc4a2055c89bae31836a23bf89",
+      "target_sha256": "922a11eeb26cfbd0539b57b1badb896352a46ebc4a2055c89bae31836a23bf89",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/litter.png",
+      "target": "res://assets/style2/litter.png",
+      "source_sha256": "2bca932fdfbf1af15007715f50b6593cf52dd8829991ab08f83be01f3a85bb57",
+      "target_sha256": "2bca932fdfbf1af15007715f50b6593cf52dd8829991ab08f83be01f3a85bb57",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/reeds.png",
+      "target": "res://assets/style2/reeds.png",
+      "source_sha256": "e3aad09a622be3285bdbe95e8b9746657c7f93805aa2a45aeaa920e2a4820790",
+      "target_sha256": "e3aad09a622be3285bdbe95e8b9746657c7f93805aa2a45aeaa920e2a4820790",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/rocks.png",
+      "target": "res://assets/style2/rocks.png",
+      "source_sha256": "1d56b4a75a507608e4e0694dff3d04f001e9cdd52a1732590019514b5d81f07e",
+      "target_sha256": "1d56b4a75a507608e4e0694dff3d04f001e9cdd52a1732590019514b5d81f07e",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/short-grass.png",
+      "target": "res://assets/style2/short-grass.png",
+      "source_sha256": "afeb54ace33bb127b59d0bc394fd3a1c8ca420e3ed6c047deb2005d31415ea53",
+      "target_sha256": "afeb54ace33bb127b59d0bc394fd3a1c8ca420e3ed6c047deb2005d31415ea53",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/shrub.png",
+      "target": "res://assets/style2/shrub.png",
+      "source_sha256": "bbc5313f55aa3656f9829792198b98976a5bd132c2fbc2ed25e6163afd5f9012",
+      "target_sha256": "bbc5313f55aa3656f9829792198b98976a5bd132c2fbc2ed25e6163afd5f9012",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/stump.png",
+      "target": "res://assets/style2/stump.png",
+      "source_sha256": "ad393ef806f43dbb8ef27c85c40416ba787f7380a11316ee241478e1b4cf62be",
+      "target_sha256": "ad393ef806f43dbb8ef27c85c40416ba787f7380a11316ee241478e1b4cf62be",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/tree-a.png",
+      "target": "res://assets/style2/tree-a.png",
+      "source_sha256": "0c1ae46b071e53b5d99c32e776f28f0bf0e2f4b7d8d268d9cce77495a61caa06",
+      "target_sha256": "0c1ae46b071e53b5d99c32e776f28f0bf0e2f4b7d8d268d9cce77495a61caa06",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/tree-b.png",
+      "target": "res://assets/style2/tree-b.png",
+      "source_sha256": "74be3f6265b88898a26468b57e181b71d9fecb70ce1c77e0a6b8a3a7c4553feb",
+      "target_sha256": "74be3f6265b88898a26468b57e181b71d9fecb70ce1c77e0a6b8a3a7c4553feb",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    }
+  ],
+  "closure_strategy": "open",
+  "new_asset_policy": "inspect metadata, preserve compatible support/opening/aspect, compile; incompatible geometry is rejected, never stretched"
+}

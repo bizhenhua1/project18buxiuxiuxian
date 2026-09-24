@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "metrics": {
+    "pixels": [
+      1254,
+      1254
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "edge_mean_difference_255": 12.46810207336523,
+    "seam_note": "metric is diagnostic, never automatic artistic acceptance"
+  }
+}

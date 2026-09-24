@@ -1,0 +1,776 @@
+{
+  "schema_version": 1,
+  "scope": "conservative existing-asset roof/ceiling reuse audit",
+  "tokens": [
+    "roof",
+    "ceiling",
+    "arch",
+    "拱",
+    "顶",
+    "wall_top",
+    "shell"
+  ],
+  "roots": [
+    "godot/assets",
+    "art/world-six"
+  ],
+  "candidate_count": 48,
+  "runtime_approved_count": 0,
+  "conclusion": "No candidate is runtime-approved by this filename/metadata audit; every candidate still needs AssetSpec and native closed-scene evidence.",
+  "candidates": [
+    {
+      "path": "godot/assets/biomes/asset-marks.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/biomes/crystal/shell-v3.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "水晶矿洞壳候选；与shell.png需要先做hash/版本去重，不能当作两个变体。",
+      "image_size_px": [
+        1429,
+        686
+      ],
+      "alpha_bounds_px": [
+        2,
+        2,
+        1427,
+        684
+      ],
+      "center_column_alpha_pixels": 230
+    },
+    {
+      "path": "godot/assets/biomes/crystal/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "水晶矿洞壳候选；需要验证入口到洞内的截面连续和接地能力。",
+      "image_size_px": [
+        1429,
+        686
+      ],
+      "alpha_bounds_px": [
+        2,
+        2,
+        1427,
+        684
+      ],
+      "center_column_alpha_pixels": 230
+    },
+    {
+      "path": "godot/assets/biomes/crystal/spatial-marks.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/biomes/palace/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "完整石拱门壳候选；视觉上有连续侧墙与拱圈，但仍需SceneProfile sockets/footprints和原机位闭合证据。",
+      "image_size_px": [
+        991,
+        340
+      ],
+      "alpha_bounds_px": [
+        0,
+        0,
+        991,
+        340
+      ],
+      "center_column_alpha_pixels": 73
+    },
+    {
+      "path": "godot/assets/biomes/raw/prompts.json",
+      "matched_tokens": [
+        "arch",
+        "roof",
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/biomes/raw/revision-v2-prompts.json",
+      "matched_tokens": [
+        "arch",
+        "ceiling",
+        "roof"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/biomes/raw/shell-alpha.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1086,
+        1448
+      ],
+      "alpha_bounds_px": [
+        30,
+        37,
+        1056,
+        1426
+      ],
+      "center_column_alpha_pixels": 271
+    },
+    {
+      "path": "godot/assets/biomes/raw/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1086,
+        1448
+      ],
+      "alpha_bounds_px": [
+        0,
+        0,
+        1086,
+        1448
+      ],
+      "center_column_alpha_pixels": 1448
+    },
+    {
+      "path": "godot/assets/biomes/sewer/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "连续下水道拱廊候选；可作为sewer类结构参考，不自动替代童话场景的风格资产。",
+      "image_size_px": [
+        1448,
+        1086
+      ],
+      "alpha_bounds_px": [
+        0,
+        0,
+        1448,
+        1086
+      ],
+      "center_column_alpha_pixels": 225
+    },
+    {
+      "path": "godot/assets/biomes/swamp/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        935,
+        324
+      ],
+      "alpha_bounds_px": [
+        0,
+        0,
+        935,
+        324
+      ],
+      "center_column_alpha_pixels": 69
+    },
+    {
+      "path": "godot/assets/biomes/whale/shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "existing_biome_shell_candidate",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1000,
+        317
+      ],
+      "alpha_bounds_px": [
+        0,
+        0,
+        1000,
+        317
+      ],
+      "center_column_alpha_pixels": 92
+    },
+    {
+      "path": "godot/assets/cave/arch-a.png",
+      "matched_tokens": [
+        "arch"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "洞口拱形装饰候选；单张拱片不等于连续洞顶。",
+      "image_size_px": [
+        942,
+        837
+      ],
+      "alpha_bounds_px": [
+        2,
+        2,
+        940,
+        835
+      ],
+      "center_column_alpha_pixels": 152
+    },
+    {
+      "path": "godot/assets/cave/arch-b.png",
+      "matched_tokens": [
+        "arch"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "manual_candidate_note": "洞口拱形装饰候选；单张拱片不等于连续洞顶。",
+      "image_size_px": [
+        864,
+        782
+      ],
+      "alpha_bounds_px": [
+        2,
+        2,
+        862,
+        780
+      ],
+      "center_column_alpha_pixels": 150
+    },
+    {
+      "path": "godot/assets/fairytales/alice_hall/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        59,
+        13,
+        1925,
+        769
+      ],
+      "center_column_alpha_pixels": 151
+    },
+    {
+      "path": "godot/assets/fairytales/alice_hall/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/alice_tea/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        2060,
+        763
+      ],
+      "alpha_bounds_px": [
+        10,
+        8,
+        2051,
+        747
+      ],
+      "center_column_alpha_pixels": 62
+    },
+    {
+      "path": "godot/assets/fairytales/alice_tea/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_clock/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        126,
+        8,
+        1857,
+        778
+      ],
+      "center_column_alpha_pixels": 192
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_clock/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_garden/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        25,
+        13,
+        1962,
+        776
+      ],
+      "center_column_alpha_pixels": 78
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_garden/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_kitchen/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        99,
+        69,
+        1885,
+        723
+      ],
+      "center_column_alpha_pixels": 167
+    },
+    {
+      "path": "godot/assets/fairytales/cinder_kitchen/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/piper_mountain/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        9,
+        12,
+        1973,
+        780
+      ],
+      "center_column_alpha_pixels": 205
+    },
+    {
+      "path": "godot/assets/fairytales/piper_mountain/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/puppet_theatre/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        119,
+        27,
+        1864,
+        719
+      ],
+      "center_column_alpha_pixels": 263
+    },
+    {
+      "path": "godot/assets/fairytales/puppet_theatre/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/puppet_workshop/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        26,
+        8,
+        1933,
+        782
+      ],
+      "center_column_alpha_pixels": 71
+    },
+    {
+      "path": "godot/assets/fairytales/puppet_workshop/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/red_cottage/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1971,
+        798
+      ],
+      "alpha_bounds_px": [
+        58,
+        22,
+        1914,
+        763
+      ],
+      "center_column_alpha_pixels": 83
+    },
+    {
+      "path": "godot/assets/fairytales/red_cottage/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/red_village/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1942,
+        809
+      ],
+      "alpha_bounds_px": [
+        18,
+        21,
+        1925,
+        795
+      ],
+      "center_column_alpha_pixels": 164
+    },
+    {
+      "path": "godot/assets/fairytales/red_village/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/red_workshop/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        8,
+        11,
+        1975,
+        781
+      ],
+      "center_column_alpha_pixels": 116
+    },
+    {
+      "path": "godot/assets/fairytales/red_workshop/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/snow_house/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        43,
+        8,
+        1940,
+        758
+      ],
+      "center_column_alpha_pixels": 173
+    },
+    {
+      "path": "godot/assets/fairytales/snow_house/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/snow_mirror/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        158,
+        9,
+        1825,
+        764
+      ],
+      "center_column_alpha_pixels": 176
+    },
+    {
+      "path": "godot/assets/fairytales/snow_mirror/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fairytales/snow_orchard/corridor-shell.png",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot",
+      "image_size_px": [
+        1983,
+        793
+      ],
+      "alpha_bounds_px": [
+        15,
+        14,
+        1965,
+        776
+      ],
+      "center_column_alpha_pixels": 94
+    },
+    {
+      "path": "godot/assets/fairytales/snow_orchard/corridor.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fx/epic181/library/effects/00f24abfdf0d75142ad604932304d8c9.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fx/epic181/library/effects/23ffe291646e5a24cb5322ad0784de8c.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fx/epic181/library/effects/3a42f18a610374a469fdfc06cda3fdf4.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fx/epic181/library/effects/5a28ab12a60431942ac754ec3f39c551.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/fx/epic181/library/effects/67bdebbb85b13b245b9a81082c88a910.json",
+      "matched_tokens": [
+        "shell"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    },
+    {
+      "path": "godot/assets/manifest.json",
+      "matched_tokens": [
+        "arch"
+      ],
+      "candidate_class": "token_match_only",
+      "candidate_only": true,
+      "runtime_approved": false,
+      "reason": "token match has no proof of continuous top surface, sockets, opening polygon, contact or closed-scene screenshot"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "method": "hybrid",
+  "step": 1.25,
+  "band": 1.6,
+  "transition": 12.0,
+  "offset": 5.0,
+  "exits": 3,
+  "radius": 2.1,
+  "throat": 1.25,
+  "height": 3.7,
+  "spring": 1.1,
+  "jitter": 0.0,
+  "seed": 37,
+  "depth_nodes": [],
+  "thickness": 0.8
+}

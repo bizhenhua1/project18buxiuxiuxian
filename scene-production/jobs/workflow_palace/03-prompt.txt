@@ -1,0 +1,14 @@
+项目：黑暗童话绘本游戏。新场景风格：地下宫殿，规则柱跨与高拱顶
+空间族：宫殿。本张唯一用途：柱脚装饰。
+结构限制：连续高拱与装饰柱跨分离，检查拱肩，顶部不能靠黑背景填空。
+撒布用途：规则柱跨基准140U节距乘0.83–1.18；成对柱冠不可分别随机缩放。
+岔路要求：交汇厅单owner，出口之间放柱，公共厅不能叠三张宫殿图。
+具体内容：base plinth, rubble, small urn, fallen carving。至少4个真正不同的轮廓或材质。
+表达方式：rigid_cutout。
+支撑/挂点：Two columns share module scale and support plane. Sculpture base defines grounding; niche is attached, never a floor prop.
+拼组：Vault surface behind decorative column bays at 5.81-8.26m. The continuous roof closes shoulders and bay gaps. Sparse chandeliers occupy verified roof sockets.
+光效：Reference gray-green ambient and warm accents. Lamp emissive surface plus shared accent budget; no extra real light for each chandelier.
+只制作指定部件或材质，不画整幅走廊背景，不烘焙消失点，不夹带人物。构件完整保留支撑端、挂点及连接边；结构连接件必须指定正面/侧面/转角。材质须无方向性投影、无道具且可平铺；独立物件须透明底、完整轮廓、无文字无水印。沿用参考图的线条与材料笔触，颜色由新风格决定；不能仅把参考改色。
+生成前必须查看并绑定对应参考图片，填写下列槽位的物理尺寸、视角和拆件方案。此提示仅是工单起点；缺少具体内容、尺寸和参考时不得调用生成或发布。
+
+最新光照裁决优先：诊断图露空不自动要求补顶。正式暗场可用相近深色背景、天空盒或雾衔接；只对正式照明或游戏允许灯光变化中穿帮的区域补面。先按 LIGHTING-ACCEPTANCE.md 对照，决定真正需要生成的顶部资产范围。

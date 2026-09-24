@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "id": "workflow_swamp",
+  "family": "swamp",
+  "style": "巨型菌菇湿地，开放冠层与泥岸",
+  "stage": "draft",
+  "family_sha256": "639339d647813abbd949d75c6d3a05f794c2c8834dcbaa8c8ce59053d02d0b1e",
+  "slots": [
+    {
+      "id": "slot_1",
+      "purpose": "不规则根木",
+      "prompt": "01-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rooted_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_2",
+      "purpose": "湿地地面",
+      "prompt": "02-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 2,
+      "representation": "surface_texture",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_3",
+      "purpose": "菌簇",
+      "prompt": "03-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 4,
+      "representation": "rooted_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_4",
+      "purpose": "岸边植物",
+      "prompt": "04-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rooted_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_5",
+      "purpose": "水边碎屑",
+      "prompt": "05-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rooted_cutout",
+      "status": "needs_specification"
+    }
+  ],
+  "assemblies": [],
+  "runtime_evidence": [],
+  "visual_review": null,
+  "rules": {
+    "id": "swamp",
+    "title": "沼泽",
+    "roof": "open_canopy",
+    "support": "wetland",
+    "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+    "slots": [
+      "不规则根木",
+      "湿地地面",
+      "菌簇",
+      "岸边植物",
+      "水边碎屑"
+    ],
+    "scatter_rule": "大根木稀疏，小菌簇密集；发光物限制占比，不能每丛都发光。",
+    "junction_rule": "公共湿地区不复制三套完整壳；植物避开所有出口，水岸必须连续。",
+    "top_rule": "开放；根木构图不能形成连续室内顶。",
+    "effects": [
+      "ground_mist",
+      "fireflies"
+    ],
+    "reference_scene": "swamp",
+    "protected_camera": true,
+    "ground": {
+      "policy": "inherit_reference",
+      "max_slope_degrees": 8,
+      "max_support_error_m": 0.02,
+      "source": "design_initial; measure runtime slope before acceptance"
+    },
+    "lighting": {
+      "policy": "inherit_reference_palette",
+      "new_realtime_lights": 0,
+      "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+      "closure_strategy": "open",
+      "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+      "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+    },
+    "hanging": {
+      "allowed": false,
+      "character_clearance_m": 0.35,
+      "camera_clearance_m": 0.2,
+      "sway_degrees_max": 2,
+      "default_sway_degrees": 0,
+      "max_dynamic_visible": 8,
+      "required": [
+        "owner_id",
+        "socket_m",
+        "lowest_point_m",
+        "sway_radius_m"
+      ],
+      "figure_requires_explicit_selection": true
+    },
+    "cases": [
+      "entry",
+      "junction2",
+      "junction3",
+      "left",
+      "right",
+      "center",
+      "battle",
+      "departure"
+    ],
+    "acceptance": "not_yet_workflow_verified"
+  },
+  "production_rules_sha256": "8a8d8af853c2a0a3558baeefa9d5b6b9b9a6ff55553e320e2a1b0ba560788cc9",
+  "kit": {
+    "variants": [
+      3,
+      2,
+      4,
+      3,
+      3
+    ],
+    "examples": [
+      "root buttress, giant fungus stem, crooked root",
+      "damp mud and water-edge surface",
+      "large cap, shelf fungus, small cluster, unlit cluster",
+      "reed, moss, bank fern",
+      "wet branch, leaf raft, broken shell"
+    ],
+    "representations": [
+      "rooted_cutout",
+      "surface_texture",
+      "rooted_cutout",
+      "rooted_cutout",
+      "rooted_cutout"
+    ],
+    "root_policy": "Roots and reeds attach to bank elevation; water litter at water level. Do not sink stems into a flat water sheet to conceal missing contact.",
+    "assembly": "One bank group owns shoreline, roots and adjacent fungi. Keep open sky between mushrooms; optional glow only on authored glow species.",
+    "light_fx": "Preserve swamp tint. Shared firefly batch and low mist; optional sheen is a surface response, not an extra light on every mushroom.",
+    "junction": "Shared wet clearing and continuous bank mask. Do not duplicate three water surfaces at common junction.",
+    "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+  },
+  "publication_allowed": false
+}

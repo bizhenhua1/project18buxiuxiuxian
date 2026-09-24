@@ -47,8 +47,10 @@ func sync(dt:float=0):
  if world!=renderer.world:replace_world(renderer.world)
  var lens:=renderer.focal()/minf(size.y*.86,size.x*.72)
  P.configure(camera,size,renderer.camera_world,renderer.heading,renderer.camera_height(),lens,renderer.horizon_y()/size.y)
- environment.background_color=world.camera_region.space.atmosphere.depth_color
+ environment.background_color=world.camera_region.space.top_color
  background.sync(renderer)
+ if not world.plan.straight and str(world.camera_region.space.key)=="crystal":
+  scenery.restrict_to_branch(renderer.selected,world.camera_s)
  scenery.process_uploads(1500)
  var floor_material:ShaderMaterial=scenery.floor_material
  floor_material.set_shader_parameter("route_origin",ForestRoute.origin)
@@ -91,7 +93,7 @@ func replace_world(next:SegmentWorld):
  if scenery:scene.remove_child(scenery);scenery.queue_free()
  world=next;scenery=Scenery.new();scene.add_child(scenery)
  scenery.fixed_shells=true
- var route=preload("res://scripts/world3d/route_segment.gd").new(ForestRoute.origin_s,ForestRoute.origin,ForestRoute.origin_heading,ForestRoute.JUNCTION,ForestRoute.TURN_LENGTH,ForestRoute.END_AT,world.plan.exits)
+ var route=preload("res://scripts/world3d/route_segment.gd").new(ForestRoute.origin_s,ForestRoute.origin,ForestRoute.origin_heading,ForestRoute.JUNCTION,ForestRoute.TURN_LENGTH,ForestRoute.END_AT,world.plan.exits,1842,str(world.camera_region.space.key))
  scenery.populate(world,route);rebuild_count+=1
 
 func sync_body(sprite:Dictionary,seen:Dictionary):

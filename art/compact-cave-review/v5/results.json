@@ -1,0 +1,34 @@
+[
+  {
+    "case": "entry",
+    "captured": true
+  },
+  {
+    "case": "junction2",
+    "captured": true
+  },
+  {
+    "case": "junction3",
+    "captured": true
+  },
+  {
+    "case": "left",
+    "captured": true
+  },
+  {
+    "case": "right",
+    "captured": true
+  },
+  {
+    "case": "center",
+    "captured": true
+  },
+  {
+    "case": "battle",
+    "captured": true
+  },
+  {
+    "case": "departure",
+    "captured": true
+  }
+]

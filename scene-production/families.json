@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "scope": "seven executable workflow profiles; baseline appearance is a reference, not proof of structural acceptance",
+  "units_per_m": 20,
+  "states": [
+    "draft",
+    "assets_checked",
+    "assembled",
+    "runtime_checked",
+    "visual_reviewed",
+    "accepted"
+  ],
+  "families": [
+    {
+      "id": "forest",
+      "title": "森林",
+      "roof": "open_canopy",
+      "support": "vegetation",
+      "adapter": "godot/scripts/spaces/layouts/forest_layout.gd",
+      "slots": [
+        "主树干与根部",
+        "左右冠层",
+        "中层灌木",
+        "低草与落叶",
+        "远处林隙"
+      ],
+      "scatter_rule": "高树与灌木分层；树冠悬挑不算树根占地；根固定、顶部风摆。",
+      "junction_rule": "岔路保留全部出口；树只在保护区外，中央出口不能被复制右路的树挡住。",
+      "top_rule": "开放天空；只约束树冠覆盖，不能铺封闭屋顶。",
+      "effects": [
+        "ground_mist",
+        "wind"
+      ],
+      "reference_scene": "forest",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "open",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": false,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "swamp",
+      "title": "沼泽",
+      "roof": "open_canopy",
+      "support": "wetland",
+      "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+      "slots": [
+        "不规则根木",
+        "湿地地面",
+        "菌簇",
+        "岸边植物",
+        "水边碎屑"
+      ],
+      "scatter_rule": "大根木稀疏，小菌簇密集；发光物限制占比，不能每丛都发光。",
+      "junction_rule": "公共湿地区不复制三套完整壳；植物避开所有出口，水岸必须连续。",
+      "top_rule": "开放；根木构图不能形成连续室内顶。",
+      "effects": [
+        "ground_mist",
+        "fireflies"
+      ],
+      "reference_scene": "swamp",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "open",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": false,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "crystal",
+      "title": "矿洞",
+      "roof": "irregular_cave",
+      "support": "rock",
+      "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+      "slots": [
+        "岩环",
+        "独立大岩壁",
+        "岩根碎石",
+        "晶簇",
+        "洞顶收口"
+      ],
+      "scatter_rule": "保持岩环原图比例，85U一层；分叉尚未分离时使用公共岩腔与独立岩块。",
+      "junction_rule": "按横截面路线距离分组，单owner；分离后再恢复岩环，不拉伸整个岩门。",
+      "top_rule": "岩环只是截面；核查环间空区在正式照明中是否穿帮；自然暗部衔接可保留，明亮暴露区补同材质顶件。",
+      "effects": [
+        "ground_mist",
+        "drips",
+        "crystal_glow"
+      ],
+      "reference_scene": "crystal",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "atmospheric",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": true,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "sewer",
+      "title": "下水道",
+      "roof": "masonry_tunnel",
+      "support": "masonry",
+      "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+      "slots": [
+        "砌石拱架",
+        "沟渠地面",
+        "边台",
+        "出水口",
+        "污迹与碎屑"
+      ],
+      "scatter_rule": "规则重复拱架，基准100U节距乘0.83–1.18；边台和沟渠不可混作普通平地。",
+      "junction_rule": "交汇井一个owner，侧出口保留净空；出水口连接沟渠不能悬空排水。",
+      "top_rule": "砌石拱顶按照明决定连续覆盖范围，检查拱肩和沟渠交汇处；禁止用岩顶代替砌石。",
+      "effects": [
+        "ground_mist",
+        "drips",
+        "outflow"
+      ],
+      "reference_scene": "sewer",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "atmospheric",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": false,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "whale",
+      "title": "鲸腹",
+      "roof": "organic_tube",
+      "support": "organic",
+      "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+      "slots": [
+        "肋架",
+        "有机地面",
+        "膜壁",
+        "附着组织",
+        "残骸"
+      ],
+      "scatter_rule": "肋架基准130U节距乘0.83–1.18；软组织起伏与硬残骸接地分开。",
+      "junction_rule": "公共体腔扩大后分离管道；禁止多个肋环互穿，分离位置由通路与支撑决定。",
+      "top_rule": "有机曲面与肋架分工；不能用方房间顶替有机穹面。",
+      "effects": [
+        "ground_mist",
+        "drips",
+        "organic_glow"
+      ],
+      "reference_scene": "whale",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "atmospheric",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": true,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "palace",
+      "title": "宫殿",
+      "roof": "ceremonial_vault",
+      "support": "masonry",
+      "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+      "slots": [
+        "柱拱",
+        "石地面",
+        "柱脚装饰",
+        "壁龛与灯具",
+        "地标"
+      ],
+      "scatter_rule": "规则柱跨基准140U节距乘0.83–1.18；成对柱冠不可分别随机缩放。",
+      "junction_rule": "交汇厅单owner，出口之间放柱，公共厅不能叠三张宫殿图。",
+      "top_rule": "高拱与装饰柱跨分离；暗部允许相近色背景/雾衔接，明亮拱肩需实际覆盖。",
+      "effects": [
+        "ground_mist",
+        "fixture_glow"
+      ],
+      "reference_scene": "palace",
+      "protected_camera": true,
+      "ground": {
+        "policy": "inherit_reference",
+        "max_slope_degrees": 8,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "atmospheric",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": true,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    },
+    {
+      "id": "red_cottage",
+      "title": "低顶室内",
+      "roof": "domestic_low",
+      "support": "timber",
+      "adapter": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+      "slots": [
+        "梁架",
+        "连续天花材质",
+        "地板材质",
+        "生活功能组合",
+        "小物与碎屑",
+        "吊挂装饰"
+      ],
+      "scatter_rule": "梁架先验净空；壁炉与柴薪、缝纫台与布篓成组；低家具不放大道路边界。",
+      "junction_rule": "低顶所有出口先并集三角化，只生成一张顶；拱架脚点避开全部道路，路口停止重复整框。",
+      "top_rule": "连续平顶使用世界材质相位；不新增左右墙。挂物必须绑定真实顶面socket。",
+      "effects": [
+        "ground_mist",
+        "hanging_sway",
+        "fixture_glow"
+      ],
+      "reference_scene": "red_cottage",
+      "protected_camera": true,
+      "ground": {
+        "policy": "dry_room",
+        "max_slope_degrees": 2,
+        "max_support_error_m": 0.02,
+        "source": "design_initial; measure runtime slope before acceptance"
+      },
+      "lighting": {
+        "policy": "inherit_reference_palette",
+        "new_realtime_lights": 0,
+        "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+        "closure_strategy": "hybrid",
+        "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+        "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+      },
+      "hanging": {
+        "allowed": true,
+        "character_clearance_m": 0.35,
+        "camera_clearance_m": 0.2,
+        "sway_degrees_max": 2,
+        "default_sway_degrees": 0,
+        "max_dynamic_visible": 8,
+        "required": [
+          "owner_id",
+          "socket_m",
+          "lowest_point_m",
+          "sway_radius_m"
+        ],
+        "figure_requires_explicit_selection": true
+      },
+      "cases": [
+        "entry",
+        "junction2",
+        "junction3",
+        "left",
+        "right",
+        "center",
+        "battle",
+        "departure"
+      ],
+      "acceptance": "not_yet_workflow_verified"
+    }
+  ]
+}

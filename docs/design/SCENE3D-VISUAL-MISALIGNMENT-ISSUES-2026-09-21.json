@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "status": "design_decided_implementation_pending",
+  "owner": "Astra",
+  "scope": "18 story scenes versus six approved 3D baseline families",
+  "latest_evidence": {
+    "captured_at": "2026-09-21T17:46:17+08:00",
+    "root": "tempassets/work/current-review-18-20260921-174617",
+    "production_contact_sheet": "tempassets/work/current-review-18-20260921-174617/beauty-contact-sheet.png",
+    "neutral_contact_sheet": "tempassets/work/current-review-18-20260921-174617/diagnostic-contact-sheet.png",
+    "capture_rule": "same native entry, 1440x900, seed 1842, approach phase, 60 frames, current source",
+    "neutral_capture_validity": "untrusted_until_debug_override_and_mist_disable_are_verified",
+    "capture_context_validity": "do_not_assume_seed_or_same_camera_without_runtime_context"
+  },
+  "rule": "Do not raise density or call a scene aligned until the same-camera composition is reviewed against its assigned baseline.",
+  "issues": [
+    {
+      "id": "VIS-001",
+      "severity": "blocker",
+      "title": "No approved same-camera visual acceptance set for the 18 scenes",
+      "evidence": [
+        "tempassets/work/p02-recheck-20260921-181000",
+        "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png"
+      ],
+      "impact": "Runtime captures prove construction and provenance only; they do not define the target crop, depth bands, density or top treatment for each story scene.",
+      "needed_decision": "For each physical family, approve one baseline camera, visible-height band, side-occupancy band and focal-depth rule before scene tuning.",
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T01",
+        "T06"
+      ]
+    },
+    {
+      "id": "VIS-002",
+      "severity": "blocker",
+      "title": "Scene assets are present but their role, depth and intended scale are not annotated",
+      "evidence": [
+        "docs/design/SCENE3D-ASSET-GAP-REPORT-2026-09-21.json",
+        "docs/design/SCENE3D-SCENE-PROFILES-2026-09-21.json"
+      ],
+      "impact": "The layout cannot distinguish structural silhouettes, foreground cover, midground props, focal set pieces and safe travel clearance without guessing.",
+      "needed_decision": "Annotate AssetSpec role, depth band, measured foot and overlap policy per scene; unknown values must remain pending.",
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T03"
+      ]
+    },
+    {
+      "id": "VIS-003",
+      "severity": "blocker",
+      "title": "Closed and local roof scenes lack an approved top treatment",
+      "evidence": [
+        "docs/design/asset_requests/red_cottage-roof-connection.json",
+        "tempassets/work/p03a-ceiling-experiment-20260921-180000/manifest.json"
+      ],
+      "impact": "Interior and clock scenes cannot be accepted from a dark screenshot while ceiling continuity and occlusion are unresolved.",
+      "needed_decision": "Choose authored roof/arch assets, or approve the closed-low-ceiling mesh plus its material/UV treatment.",
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T04",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+    {
+      "id": "VIS-004",
+      "severity": "high",
+      "title": "Current scatter algorithm is family-generic and does not encode signature composition",
+      "evidence": [
+        "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "godot/data/fairytale_scatter_profiles.json"
+      ],
+      "impact": "Increasing cluster counts produces a fuller frame but cannot reproduce market stalls, tea courts, caves, sewers, whale interiors or palace halls as distinct compositions.",
+      "needed_decision": "Define per-family and per-scene placement phases: shell rhythm, focal set-piece cadence, edge dressing, floor litter and branch/junction exclusions.",
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+    {
+      "id": "VIS-005",
+      "severity": "high",
+      "title": "Official fog/light pass hides layout defects during visual review",
+      "evidence": [
+        "tempassets/work/p01-recheck-20260921-181000/beauty.png",
+        "tempassets/work/visual-alignment-alice-20260921-171959/diagnostic.png"
+      ],
+      "impact": "Dark production presentation makes missing roof layers, floating roots, intersections and empty midground difficult to judge.",
+      "needed_decision": "Review every scene in a neutral diagnostic pass first, then a production-light pass; acceptance requires both.",
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T01"
+      ]
+    },
+    {
+      "id": "VIS-006",
+      "severity": "high",
+      "title": "Alice Tea and Piper Market density experiment was not a valid alignment result",
+      "evidence": [
+        "docs/design/SCENE3D-VISUAL-ALIGNMENT-ALICE-TEA-2026-09-21.json",
+        "tempassets/work/visual-alignment-alice-20260921-171959/beauty.png",
+        "tempassets/work/visual-alignment-piper-market-20260921-172900/beauty.png"
+      ],
+      "impact": "The experiment only increased sprite counts and added fallback furniture; it did not establish target parity and has been reverted from runtime.",
+      "needed_decision": "Treat these captures as rejected experiments, not as progress toward scene acceptance.",
+      "v3_implementation_status": "rejected_experiment_retained",
+      "v3_tasks": [
+        "T09"
+      ]
+    }
+  ],
+  "next_action": "Await explicit visual direction for VIS-001 through VIS-005; after decisions, implement one scene per family with before/after neutral and production captures.",
+  "v3_review": {
+    "authoritative_entry": "docs/design/SCENE3D-START-HERE.md",
+    "decisions": "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "execution_index": "docs/design/SCENE3D-PRODUCTION-PLAN-V3.json",
+    "historical_values_not_current_acceptance": true,
+    "runtime_fixed_by_this_revision": false
+  },
+  "previous_status": "blocked_on_visual_direction"
+}

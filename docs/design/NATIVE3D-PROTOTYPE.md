@@ -1,6 +1,6 @@
 # 原生3D森林独立样板
 
-入口：项目根目录「启动原生3D森林.cmd」。场景 native3d_forest.tscn。
+开发入口：`./godot/native3d.ps1`。场景 native3d_forest.tscn。
 
 完全独立的 Node3D 场景；不替换旧模式，不读写旧冒险存档。
 角色模型、地形网格、植被面片与雾共享 World3D，由一台 Camera3D 拍摄。复用现有美术、重定向动作、版画材质与 BattleModel。

@@ -1,0 +1,14 @@
+项目：黑暗童话绘本游戏。新场景风格：古老砌石下水道，连续沟渠与拱廊
+空间族：下水道。本张唯一用途：边台。
+结构限制：砌石连续拱顶，检查拱肩和沟渠交汇处；禁止用岩顶代替砌石。
+撒布用途：规则重复拱架，基准100U节距乘0.83–1.18；边台和沟渠不可混作普通平地。
+岔路要求：交汇井一个owner，侧出口保留净空；出水口连接沟渠不能悬空排水。
+具体内容：straight curb, inner turn, outer turn。至少3个真正不同的轮廓或材质。
+表达方式：rigid_cutout。
+支撑/挂点：Channel water and walking ledge have different elevations. Arch supports land on ledge, outlets attach to a structural owner. No freestanding flat stain cards.
+拼组：Brick vault skin + decorative arches every 4.15-5.9m + connected ledges. Curved junction curb has explicit inside/outside pieces. Pipe outlet owns water emitter origin.
+光效：Keep green-gray reference and sparse amber accents. Outflow terminates on channel water; no drips emitted from empty ceiling pixels.
+只制作指定部件或材质，不画整幅走廊背景，不烘焙消失点，不夹带人物。构件完整保留支撑端、挂点及连接边；结构连接件必须指定正面/侧面/转角。材质须无方向性投影、无道具且可平铺；独立物件须透明底、完整轮廓、无文字无水印。沿用参考图的线条与材料笔触，颜色由新风格决定；不能仅把参考改色。
+生成前必须查看并绑定对应参考图片，填写下列槽位的物理尺寸、视角和拆件方案。此提示仅是工单起点；缺少具体内容、尺寸和参考时不得调用生成或发布。
+
+最新光照裁决优先：诊断图露空不自动要求补顶。正式暗场可用相近深色背景、天空盒或雾衔接；只对正式照明或游戏允许灯光变化中穿帮的区域补面。先按 LIGHTING-ACCEPTANCE.md 对照，决定真正需要生成的顶部资产范围。

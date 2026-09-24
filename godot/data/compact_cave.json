@@ -1,0 +1,23 @@
+{
+  "status": "candidate",
+  "backing_height_m": 8.4,
+  "camera_bounds": {"eye_min_m": 0.7, "aspect_max": 2.4, "horizon_min": 0.40, "coverage_bottom": 0.30, "lens_max": 1.5, "offset_radius_m": 12.0},
+  "shoulder": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+  "side_fill": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+  "side_fill_height_u": 175,
+  "side_fill_offset_u": 108,
+  "roof": "res://assets/biomes/crystal/modular/roof-cluster-matte-v2.png",
+  "accent_keep_probability": 0.3,
+  "accent_min_spacing_u": 340,
+  "accent_neighbourhood_u": 600,
+  "accent_neighbourhood_limit": 2,
+  "lane_half_width_u": 65,
+  "support_margin_u": 38,
+  "support_clearance_u": 88,
+  "shoulder_height_u": 155,
+  "section_step_u": 65,
+  "right_stagger_u": 23,
+  "roof_tile_step_u": 105,
+  "roof_height_u": 75,
+  "roof_bottom_u": 150
+}

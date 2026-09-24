@@ -1,0 +1,620 @@
+{
+  "schema_version": 3,
+  "purpose": "Design and execution index, NOT a runtime SceneProfile or evidence of visual completion",
+  "entry": "docs/design/SCENE3D-START-HERE.md",
+  "documents": [
+    "docs/design/SCENE3D-ASSET-PRODUCTION-V3.md",
+    "docs/design/SCENE3D-SCENE-RECIPES-V3.md",
+    "docs/design/SCENE3D-LUNA-RUNBOOK-V3.md",
+    "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "docs/design/SCENE3D-SPATIAL-PRESETS-V3.1.md",
+    "docs/design/SCENE3D-GOAL-AUDIT-2026-09-21.md",
+    "docs/design/SCENE3D-COMPUTED-PLACEMENT-V3.2.md"
+  ],
+  "asset_schema": "docs/design/SCENE3D-ASSET-CONTRACT-V2.schema.json",
+  "delivery_status": "design_specification_delivered_runtime_not_modified_by_this_revision",
+  "current_scope": "documentation_only",
+  "image_generation_in_current_scope": false,
+  "future_generation_policy": "Follow explicit active task scope. Existing no-generation scope remains until changed; recipes do not independently authorize generation.",
+  "baseline_policy": "six original baselines read-only; camera, actor framing, gameplay and web demo unchanged",
+  "number_policy": "all new numeric defaults are design_initial unless source evidence is explicitly supplied",
+  "maximum_fix_rounds_per_issue": 2,
+  "tasks": [
+    {
+      "id": "T01",
+      "depends": [],
+      "status": "todo",
+      "scope": "one-entry frozen beauty and genuinely neutral capture",
+      "output": "one scene paired captures and pre-draw state sentinels"
+    },
+    {
+      "id": "T02",
+      "depends": [
+        "T01"
+      ],
+      "status": "todo",
+      "scope": "valid role and linear metre depth with explicit validity",
+      "output": "2/10/35 metre test and background exclusion; not global blocking"
+    },
+    {
+      "id": "T03",
+      "depends": [],
+      "status": "todo",
+      "scope": "annotate assets actually used in red_cottage; reusable adapter",
+      "output": "runtime candidates, exact gap classes, support and footprint checks"
+    },
+    {
+      "id": "T04",
+      "depends": [
+        "T03"
+      ],
+      "status": "todo",
+      "scope": "ceiling/walls UV and geometry prototype repair",
+      "output": "straight and curve closure; shared edge and UV assertions"
+    },
+    {
+      "id": "T05",
+      "depends": [
+        "T04"
+      ],
+      "status": "todo",
+      "scope": "single junction owner and union surfaces",
+      "output": "two/three branch structural test"
+    },
+    {
+      "id": "T06",
+      "depends": [
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "status": "todo",
+      "scope": "red_cottage complete candidate",
+      "output": "30m travel, event, battle, forks and visual review package",
+      "capture_policy": "T01 precision is not prerequisite for geometry/layout; perform bounded post-implementation verification with documented fallback"
+    },
+    {
+      "id": "T07",
+      "depends": [
+        "T03"
+      ],
+      "status": "todo",
+      "scope": "piper_mountain cave shell and shared cavern",
+      "output": "cave candidate; no dependency on cottage visual approval",
+      "capture_policy": "T01 precision is not prerequisite for geometry/layout; perform bounded post-implementation verification with documented fallback"
+    },
+    {
+      "id": "T08",
+      "depends": [],
+      "status": "todo",
+      "scope": "independent garden/street/bridge/stage/clock representatives",
+      "output": "five separate candidates and own asset annotation",
+      "capture_policy": "T01 precision is not prerequisite for geometry/layout; perform bounded post-implementation verification with documented fallback"
+    },
+    {
+      "id": "T09",
+      "depends": [],
+      "conditional_dependency": "corresponding representative candidate_ready; final acceptance waits for representative acceptance",
+      "status": "todo",
+      "scope": "other eleven scene recipes",
+      "output": "scene-specific candidate packages"
+    },
+    {
+      "id": "T10",
+      "depends": [],
+      "conditional_dependency": "one actual scene candidate_ready",
+      "status": "todo",
+      "scope": "bounded scene performance and local regression",
+      "output": "three 30s measurements, maximum two optimization rounds"
+    },
+    {
+      "id": "T11",
+      "depends": [],
+      "conditional_dependency": "every scene has an honest actual status, including specific blockers",
+      "status": "todo",
+      "scope": "review index and unresolved decisions",
+      "output": "18-scene status with evidence; no fabricated completion"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "red_village",
+      "family": "street",
+      "roof_mode": "local_canopy",
+      "reference": "palace",
+      "auxiliary": {
+        "far_background": "forest"
+      },
+      "cadence_m": [
+        5,
+        8
+      ],
+      "initial_m": 6,
+      "representative": "piper_market",
+      "status": "design_ready",
+      "recipe": 1
+    },
+    {
+      "id": "red_cottage",
+      "family": "interior",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "cadence_m": [
+        3.5,
+        5.5
+      ],
+      "initial_m": 4.5,
+      "representative": "red_cottage",
+      "status": "design_ready",
+      "recipe": 2
+    },
+    {
+      "id": "red_workshop",
+      "family": "interior",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        4.5,
+        6.5
+      ],
+      "initial_m": 5.5,
+      "representative": "red_cottage",
+      "status": "design_ready",
+      "recipe": 3
+    },
+    {
+      "id": "snow_mirror",
+      "family": "interior",
+      "roof_mode": "closed_arch",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        5.8,
+        8.2
+      ],
+      "initial_m": 7,
+      "representative": "red_cottage",
+      "requires_extra_gate": "arched ceiling and mirror wall variant; low ceiling acceptance is insufficient",
+      "status": "design_ready",
+      "recipe": 4
+    },
+    {
+      "id": "snow_orchard",
+      "family": "garden",
+      "roof_mode": "open",
+      "reference": "forest",
+      "auxiliary": {
+        "midground": "swamp"
+      },
+      "cadence_m": [
+        7,
+        11
+      ],
+      "initial_m": 9,
+      "representative": "snow_orchard",
+      "status": "design_ready",
+      "recipe": 5
+    },
+    {
+      "id": "snow_house",
+      "family": "interior",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "cadence_m": [
+        3.5,
+        5.5
+      ],
+      "initial_m": 4.5,
+      "representative": "red_cottage",
+      "status": "design_ready",
+      "recipe": 6
+    },
+    {
+      "id": "alice_tea",
+      "family": "garden",
+      "roof_mode": "local_canopy",
+      "reference": "swamp",
+      "auxiliary": {},
+      "cadence_m": [
+        7,
+        11
+      ],
+      "initial_m": 9,
+      "assembly_spacing_m": [
+        12,
+        18
+      ],
+      "representative": "snow_orchard",
+      "status": "design_ready",
+      "recipe": 7
+    },
+    {
+      "id": "alice_roses",
+      "family": "garden",
+      "roof_mode": "local_canopy",
+      "reference": "swamp",
+      "auxiliary": {
+        "ground_cover": "forest"
+      },
+      "cadence_m": [
+        7,
+        11
+      ],
+      "initial_m": 9,
+      "representative": "snow_orchard",
+      "status": "design_ready",
+      "recipe": 8
+    },
+    {
+      "id": "alice_hall",
+      "family": "interior",
+      "roof_mode": "closed_arch",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        5.8,
+        8.2
+      ],
+      "initial_m": 6.5,
+      "representative": "red_cottage",
+      "requires_extra_gate": "arched ceiling, varied real and decorative doors",
+      "status": "design_ready",
+      "recipe": 9
+    },
+    {
+      "id": "piper_market",
+      "family": "street",
+      "roof_mode": "local_canopy",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        5,
+        8
+      ],
+      "initial_m": 6.5,
+      "representative": "piper_market",
+      "status": "design_ready",
+      "recipe": 10
+    },
+    {
+      "id": "piper_bridge",
+      "family": "bridge",
+      "roof_mode": "open",
+      "reference": "swamp",
+      "auxiliary": {},
+      "cadence_m": [
+        2,
+        3
+      ],
+      "initial_m": 2.5,
+      "cadence_role": "railing_posts",
+      "major_structure_spacing_m": [
+        6,
+        10
+      ],
+      "representative": "piper_bridge",
+      "status": "design_ready",
+      "recipe": 11
+    },
+    {
+      "id": "piper_mountain",
+      "family": "cave",
+      "roof_mode": "cave_shell",
+      "reference": "crystal",
+      "auxiliary": {},
+      "cadence_m": [
+        3.5,
+        5
+      ],
+      "initial_m": 4.25,
+      "representative": "piper_mountain",
+      "status": "design_ready",
+      "recipe": 12
+    },
+    {
+      "id": "puppet_workshop",
+      "family": "interior",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        4.5,
+        6.5
+      ],
+      "initial_m": 5.5,
+      "representative": "red_cottage",
+      "status": "design_ready",
+      "recipe": 13
+    },
+    {
+      "id": "puppet_theatre",
+      "family": "stage",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "palace",
+      "auxiliary": {
+        "depth_layers": "whale"
+      },
+      "cadence_m": [
+        5.8,
+        8.2
+      ],
+      "initial_m": 7,
+      "representative": "puppet_theatre",
+      "status": "design_ready",
+      "recipe": 14
+    },
+    {
+      "id": "puppet_fair",
+      "family": "street",
+      "roof_mode": "local_canopy",
+      "reference": "palace",
+      "auxiliary": {
+        "far_background": "swamp"
+      },
+      "cadence_m": [
+        5.5,
+        8.5
+      ],
+      "initial_m": 7,
+      "representative": "piper_market",
+      "status": "design_ready",
+      "recipe": 15
+    },
+    {
+      "id": "cinder_kitchen",
+      "family": "interior",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "cadence_m": [
+        3.5,
+        5.5
+      ],
+      "initial_m": 4.5,
+      "representative": "red_cottage",
+      "status": "design_ready",
+      "recipe": 16
+    },
+    {
+      "id": "cinder_garden",
+      "family": "garden",
+      "roof_mode": "open",
+      "reference": "swamp",
+      "auxiliary": {
+        "ground_cover": "forest"
+      },
+      "cadence_m": [
+        8,
+        12
+      ],
+      "initial_m": 10,
+      "representative": "snow_orchard",
+      "status": "design_ready",
+      "recipe": 17
+    },
+    {
+      "id": "cinder_clock",
+      "family": "clock",
+      "roof_mode": "closed_low_ceiling",
+      "reference": "palace",
+      "auxiliary": {},
+      "cadence_m": [
+        4.5,
+        7
+      ],
+      "initial_m": 5.5,
+      "representative": "cinder_clock",
+      "status": "design_ready",
+      "recipe": 18
+    }
+  ],
+  "issues": [
+    {
+      "id": "ROOF-001",
+      "tasks": [
+        "T03",
+        "T04",
+        "T06"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "ROOF-002",
+      "tasks": [
+        "T01",
+        "T07",
+        "T09"
+      ],
+      "implementation_status": "pending_evidence_correction"
+    },
+    {
+      "id": "ROOF-003",
+      "tasks": [
+        "T04",
+        "T05"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "ASSET-001",
+      "tasks": [
+        "T03"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "CAP-001",
+      "tasks": [
+        "T02"
+      ],
+      "implementation_status": "invalid_metrics_quarantined"
+    },
+    {
+      "id": "CAP-002",
+      "tasks": [
+        "T01"
+      ],
+      "implementation_status": "diagnostic_untrusted"
+    },
+    {
+      "id": "JUNCTION-001",
+      "tasks": [
+        "T05"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "PROFILE-001",
+      "tasks": [
+        "T06",
+        "T07",
+        "T08"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "PERF-001",
+      "tasks": [
+        "T10"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "CAP-003",
+      "tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "historical_navigation_only"
+    },
+    {
+      "id": "CAP-004",
+      "tasks": [
+        "T01",
+        "T11"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "SCATTER-002",
+      "tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "ASSET-002",
+      "tasks": [
+        "T03",
+        "T06"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "MOTION-001",
+      "tasks": [
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "PROFILE-002",
+      "tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-001",
+      "tasks": [
+        "T01",
+        "T06"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-002",
+      "tasks": [
+        "T03"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-003",
+      "tasks": [
+        "T04",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-004",
+      "tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-005",
+      "tasks": [
+        "T01"
+      ],
+      "implementation_status": "pending"
+    },
+    {
+      "id": "VIS-006",
+      "tasks": [
+        "T09"
+      ],
+      "implementation_status": "rejected_experiment_retained"
+    }
+  ],
+  "evidence_quarantine": {
+    "diagnostic_reason": "custom fog/light overwritten on subsequent sync; separate mist batch not guaranteed hidden",
+    "depth_reason": "depth capped at20m but aggregated into30plus; background and colour pipeline unverified",
+    "role_reason": "generic override loses original vertex transforms and uses insufficient per-instance role classification",
+    "comparison_reason": "baseline stage and candidate endless entry have different simulation/camera contexts"
+  },
+  "spatial_presets": "docs/design/SCENE3D-SPATIAL-PRESETS-V3.1.json",
+  "execution_revision": "3.2",
+  "progress_record": "docs/design/SCENE3D-EXECUTION-PROGRESS-2026-09-21.json",
+  "first_visible_milestone": "R01: compute and build 6-10m red_cottage before capture-tool work becomes a separate project",
+  "capture_gate_fallback": "Two failed T01 tool fixes: use documented fixed-view and flat-geometry capture fallback; do not claim precise paired metrics",
+  "legacy_task_queue": "superseded; system goal remains blocked and unchanged",
+  "computed_placement_protocol": "docs/design/SCENE3D-COMPUTED-PLACEMENT-V3.2.md",
+  "execution_order": "one-asset semantic annotation -> feasibility/closure/clearance calculation -> finite placement decision -> implementation -> bounded visual verification",
+  "placement_decisions": [
+    "use_as_is",
+    "rescale",
+    "split_and_assemble",
+    "add_backing_surface",
+    "add_semantic_trim",
+    "remake_required"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "record_type": "execution_issue_register",
+  "goal": "01a07252-c2fb-7271-92fd-cbe98920f3a0",
+  "source_of_truth": [
+    "docs/design/SCENE3D-START-HERE.md",
+    "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md",
+    "docs/design/SCENE3D-SCENE-RECIPES-V3.md"
+  ],
+  "rule": "Execute the existing specification first; register uncovered cases; never invent an unapproved asset or scene type to hide a gap.",
+  "issues": [
+    {
+      "id": "EXEC-BRANCH-001",
+      "scene": "red_cottage",
+      "status": "superseded_incomplete",
+      "severity": "medium",
+      "category": "branch_roof",
+      "evidence": [
+        "tmp/rep-visible-check-3/diagnostic.png",
+        "godot/scripts/world3d/scenery.gd"
+      ],
+      "decision": "red_cottage uses all-exit roof union; other profiles and mixed themes are not verified"
+    },
+    {
+      "id": "EXEC-ASSET-001",
+      "scene": "snow_mirror,piper_mountain",
+      "status": "open_annotation_gap",
+      "severity": "high",
+      "category": "asset_physics",
+      "evidence": [
+        "docs/design/SCENE3D-ASSET-MIGRATION.json",
+        "docs/design/SCENE3D-ASSET-GAP-REPORT-2026-09-21.json"
+      ],
+      "decision": "Keep missing size/footprint/contact/socket fields explicit; do not publish runtime_ready."
+    },
+    {
+      "id": "EXEC-VIS-001",
+      "scene": "red_cottage,snow_mirror,piper_mountain",
+      "status": "not_accepted",
+      "severity": "medium",
+      "category": "visual_review",
+      "evidence": [
+        "tmp/rep-envelope-red-1/manifest.json",
+        "tmp/rep-envelope-snow-1/manifest.json",
+        "tmp/rep-envelope-piper-1/manifest.json"
+      ],
+      "decision": "Previous blanket structural-verification claim withdrawn. See scene-production/OPEN-ISSUES.md and per-capture scope."
+    }
+  ],
+  "current_issue_register": "scene-production/OPEN-ISSUES.md"
+}

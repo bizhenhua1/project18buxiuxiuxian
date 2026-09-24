@@ -22,3 +22,24 @@ godot/captures/
 /art/**/*.blend
 /art/**/*.blend[0-9]*
 /art/**/*.log
+
+# Local, hash-checked pre-recovery snapshots and native verification captures.
+/recovery-backups/
+
+# Local experiment scratch space. Keep the supplied reference video in place,
+# but do not include it or disposable captures in Git changes.
+/tmp/
+/godot/tempassets/
+
+# Cave benchmark specs and written conclusions remain visible to Git. Native
+# capture runs, frame sequences and engine logs are reproducible local output.
+/scene-production/jobs/cave-c1-benchmark/algorithm-lab/game-*/
+/scene-production/jobs/cave-c1-benchmark/algorithm-lab/native-*/
+/scene-production/jobs/cave-c1-benchmark/algorithm-lab/pipeline-*/
+/scene-production/jobs/cave-c1-benchmark/algorithm-lab/run-*/
+/scene-production/jobs/cave-c1-benchmark/algorithm-lab/performance-*/
+/scene-production/jobs/cave-c1-benchmark/**/*.png
+/scene-production/jobs/cave-c1-benchmark/**/*.gif
+/scene-production/jobs/cave-c1-benchmark/**/*.log
+/scene-production/jobs/cave-c1-benchmark/**/*.npz
+/scene-production/jobs/cave-c1-benchmark/**/*.pck

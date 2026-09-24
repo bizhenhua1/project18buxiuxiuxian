@@ -1,0 +1,79 @@
+{
+  "method": "weld_then_optional_quadric_reduction",
+  "ratio": 0.06,
+  "caution": "Vertex distance is not a whole-surface proof; native silhouette and chunk seam recheck required.",
+  "parts": [
+    {
+      "chunk": 0,
+      "before": 40909,
+      "after": 2453,
+      "max_vertex_surface_distance_m": 0.09473645687103271
+    },
+    {
+      "chunk": 1,
+      "before": 41994,
+      "after": 2518,
+      "max_vertex_surface_distance_m": 0.04882402718067169
+    },
+    {
+      "chunk": 2,
+      "before": 54382,
+      "after": 3261,
+      "max_vertex_surface_distance_m": 0.10097633302211761
+    },
+    {
+      "chunk": 3,
+      "before": 68613,
+      "after": 4115,
+      "max_vertex_surface_distance_m": 0.04565044119954109
+    },
+    {
+      "chunk": 4,
+      "before": 75179,
+      "after": 4510,
+      "max_vertex_surface_distance_m": 0.05814703181385994
+    },
+    {
+      "chunk": 5,
+      "before": 75119,
+      "after": 4506,
+      "max_vertex_surface_distance_m": 0.07223133742809296
+    },
+    {
+      "chunk": 6,
+      "before": 76729,
+      "after": 4602,
+      "max_vertex_surface_distance_m": 0.04311148449778557
+    },
+    {
+      "chunk": 7,
+      "before": 78728,
+      "after": 4723,
+      "max_vertex_surface_distance_m": 0.08933372795581818
+    },
+    {
+      "chunk": 8,
+      "before": 76729,
+      "after": 4602,
+      "max_vertex_surface_distance_m": 0.03992512449622154
+    },
+    {
+      "chunk": 9,
+      "before": 75119,
+      "after": 10959,
+      "max_vertex_surface_distance_m": 0.8909553289413452
+    },
+    {
+      "chunk": 10,
+      "before": 75119,
+      "after": 17300,
+      "max_vertex_surface_distance_m": 0.34801483154296875
+    },
+    {
+      "chunk": 11,
+      "before": 76729,
+      "after": 18360,
+      "max_vertex_surface_distance_m": 0.34619140625
+    }
+  ]
+}

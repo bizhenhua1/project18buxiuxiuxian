@@ -1,0 +1,269 @@
+{
+  "status": "geometry_screen_not_asset_or_art_acceptance",
+  "results": [
+    {
+      "recipe": {
+        "method": "union",
+        "step": 0.5,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 3.7678848877214843,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 196,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": false
+    },
+    {
+      "recipe": {
+        "method": "union",
+        "step": 0.8,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 5.41002029283113,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 122,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": false
+    },
+    {
+      "recipe": {
+        "method": "union",
+        "step": 1.1,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 6.308842632701377,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 89,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": false
+    },
+    {
+      "recipe": {
+        "method": "union",
+        "step": 1.4,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 7.835052972048447,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 70,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": false
+    },
+    {
+      "recipe": {
+        "method": "card-hybrid",
+        "step": 0.5,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 1.4605747026538487,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 196,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": true
+    },
+    {
+      "recipe": {
+        "method": "card-hybrid",
+        "step": 0.8,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 1.4605747026538487,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 122,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": true
+    },
+    {
+      "recipe": {
+        "method": "card-hybrid",
+        "step": 1.1,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 1.4605747026538487,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 89,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": true
+    },
+    {
+      "recipe": {
+        "method": "card-hybrid",
+        "step": 1.4,
+        "band": 1.6,
+        "transition": 12.0,
+        "offset": 5.4,
+        "exits": 3,
+        "radius": 1.85,
+        "throat": 1.1,
+        "height": 3.0,
+        "spring": 0.7,
+        "jitter": 0.15,
+        "seed": 91,
+        "depth_nodes": [],
+        "thickness": 0.0,
+        "relief": 0.4,
+        "warp": 0.0,
+        "forward_end": 96.0
+      },
+      "max_missing_fraction": 0.0,
+      "max_p99_extra_depth_m": 1.5671245928212985,
+      "clearance_violations": 0,
+      "visible_sibling_markers": 0,
+      "settled_divider_width_m": 1.7000000000000002,
+      "section_count": 70,
+      "worst_pose": [
+        0.0,
+        1.3,
+        4.0
+      ],
+      "screened": true
+    }
+  ]
+}

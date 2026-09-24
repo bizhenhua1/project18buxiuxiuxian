@@ -28,8 +28,10 @@ func route_shells(sprites:Array,route)->Array:
    result.append(plant)
   elif fixed_shells and original.get("shell",false) and not original.has("plane_heading"):
    var sprite:Dictionary=original.duplicate()
-   sprite.plane_heading=route.pose(float(sprite.route_s),int(sprite.get("route_branch",0))).heading
-   if shared_shell_heading and int(sprite.get("route_branch",0))!=0:
+   # Mine arches are cross-sections of the original forward axis. Rotating
+   # each one along the sideways transfer makes a diagonal wall in the road.
+   sprite.plane_heading=route.heading if sprite.get("cross_section",false) else route.pose(float(sprite.route_s),int(sprite.get("route_branch",0))).heading
+   if shared_shell_heading and not sprite.get("cross_section",false) and int(sprite.get("route_branch",0))!=0:
     # In the shared chamber, full-width arches must not turn into each other.
     # Use an immutable cross-section until the branch has enough lateral space.
     var local:Vector2=(sprite.position-route.origin).rotated(route.heading)
@@ -57,6 +59,9 @@ var imported_count:=0
 var visible_chunks:=0
 var cull_updates:=0
 var last_cull_pose:=Vector4(INF,INF,INF,INF)
+var selected_route_branch:int=0
+var hidden_branch_fraction:=0.0
+var branch_choice_s:=INF
 var last_cull_size:=Vector2.ZERO
 var visible_materials:Array=[]
 var material_updates:=0
@@ -86,7 +91,12 @@ func add_sprite_to_groups(sprite:Dictionary,groups:Dictionary,placement_done:=fa
  if trunk_placement!=null and float(sprite.get("trunk_radius",0))>0 and float(sprite.get("route_s",INF))<retired_distance:return
  if trunk_placement!=null and not placement_done:sprite=trunk_placement.place(sprite)
  if sprite.get("actor",false) or sprite.get("mist",false) or sprite.get("firefly",false):return
- var grounded:bool=sprite.region.space.key==&"crystal" and (sprite.has("plane_heading") or sprite.get("biome_prop",false) or sprite.get("emissive",false))
+ # All original cave cutouts use their own alpha support contour, including
+ # junction landmarks that were missing the ordinary biome_prop marker.
+ var cave_asset:bool=sprite.region.space.key==&"crystal" and sprite.texture.resource_path.begins_with("res://assets/biomes/crystal/")
+ # Any authored cutout can opt in; the original cave set is the default user.
+ # An explicit false also lets a hanging decoration keep its intended height.
+ var grounded:bool=bool(sprite.get("ground_contact",cave_asset and (sprite.get("shell",false) or sprite.texture.resource_path.get_file().begins_with("prop-"))))
  var squash:Vector2=sprite.get("squash",Vector2.ONE)
  var members:Array=[{"texture":sprite.texture,"w":sprite.w*squash.x,"h":sprite.h*squash.y,"anchor":sprite.get("ground_anchor",Vector2(.5,1)),"role":"body"}]
  # The legacy .82 litter anchor intentionally painted the foreground of the
@@ -110,10 +120,15 @@ func add_sprite_to_groups(sprite:Dictionary,groups:Dictionary,placement_done:=fa
   var adaptive_contact:bool=conform_bases or (member.role=="body" and (sprite.get("trunk_radius",0.0)>0 or (sprite.get("shell",false) and (sprite.region.space.key in [&"swamp",&"palace",&"sewer",&"whale"] or FairytaleCatalog.has_scene(sprite.region.space.key)))))
   var cell:=Vector2i(floor(sprite.position.x/240),floor(sprite.position.y/240))
   var key:=str(member.texture.get_instance_id())+":"+str(cell)+":"+str(grounded)+":"+str(adaptive_contact)
+  # Cave branches must remain separate batches so the chosen path can hide
+  # other exits without rewriting thousands of per-instance transforms.
+  if sprite.region.space.key==&"crystal":key+=":branch:"+str(sprite.get("route_branch",0))
+  var junction_role:int=1 if sprite.get("junction_bridge",false) else 2 if sprite.get("junction_entry",false) else 0
+  if junction_role!=0:key+=":junction:"+str(junction_role)
   # Bounded geometry bakes its fold boundary into the mesh. Instance custom
   # data cannot correct a mesh built for a different anchor or shell profile.
   if grounded and bounded_ground:key+=":"+str(member.anchor.y)+":"+str(sprite.get("shell",false))
-  if not groups.has(key):groups[key]={"texture":member.texture,"grounded":grounded,"adaptive_contact":adaptive_contact,"items":[],"first_s":INF,"order":groups.size()}
+  if not groups.has(key):groups[key]={"texture":member.texture,"grounded":grounded,"adaptive_contact":adaptive_contact,"items":[],"first_s":INF,"order":groups.size(),"cave_branch":int(sprite.get("route_branch",0)) if sprite.region.space.key==&"crystal" else 0,"cave":sprite.region.space.key==&"crystal","junction_role":junction_role}
   groups[key].first_s=minf(groups[key].first_s,float(sprite.get("route_s",0)))
   var contact_box:=BOUNDS.enclosing(P.point(sprite.position,ForestEcology.height_at(sprite.position)+float(sprite.get("altitude",0))),Vector2(member.w,member.h)/20,member.anchor)
   if member.role=="root_cover":contact_box=contact_box.grow(.35*absf(float(ForestSettings.values.height)))
@@ -153,19 +168,19 @@ func build_group(group:Dictionary):
   by_texture[texture].set_meta("base_contact_ready",true)
   texture_prepare_usec+=Time.get_ticks_usec()-contact_started
  var grounded:bool=group.grounded
- if group.items.any(func(item):return item.sprite.get("shell",false)) and not contact_cache.has(texture):
+ if grounded and not contact_cache.has(texture):
   contact_cache[texture]=preload("res://scripts/world3d/contact_geometry.gd").contact_profile(texture.get_image())
   by_texture[texture].set_shader_parameter("rock_contact",contact_cache[texture])
  var mesh_key:=str(texture.get_instance_id())+":"+str(grounded)+":"+str(group.adaptive_contact)
  var contact_size:=Vector2.ZERO
- var foot_profile:PackedFloat32Array=contact_cache[texture] if group.items[0].sprite.get("shell",false) else PackedFloat32Array()
+ var foot_profile:PackedFloat32Array=contact_cache[texture] if grounded else PackedFloat32Array()
  if grounded and bounded_ground:
   for item in group.items:contact_size=contact_size.max(Vector2(item.member.w,item.member.h)/20)
   var resolution:=preload("res://scripts/world3d/contact_geometry.gd").bounded_resolution(contact_size,float(group.items[0].member.anchor.y),foot_profile)
   mesh_key+=":bounded:"+str(resolution)+":"+str(group.items[0].member.anchor.y)+":"+str(group.items[0].sprite.get("shell",false))
   by_texture[texture].set_shader_parameter("precise_ground_contact",true)
  if not mesh_cache.has(mesh_key):
-  var geometry:Mesh=contact_mesh() if grounded else base_contact_mesh(by_texture[texture].get_shader_parameter("base_contact")) if group.adaptive_contact else QuadMesh.new()
+  var geometry:Mesh=contact_mesh(33,8) if grounded and group.items[0].sprite.get("shell",false) else contact_mesh() if grounded else base_contact_mesh(by_texture[texture].get_shader_parameter("base_contact")) if group.adaptive_contact else QuadMesh.new()
   if grounded and bounded_ground:
    var shape:=preload("res://scripts/world3d/contact_geometry.gd")
    geometry=shape.bounded_contact_mesh(contact_size,float(group.items[0].member.anchor.y),foot_profile)
@@ -194,12 +209,14 @@ func build_group(group:Dictionary):
    pos.y=ForestEcology.height_at(Vector2(pos.x,-pos.z)*20)/20+float(sprite.get("altitude",0))/20+(anchor.y-1)*member.h/20
    anchor=Vector2(.5,1)
   mm.set_instance_transform(i,Transform3D(Basis.from_scale(Vector3(member.w/20,member.h/20,1)),pos))
-  var mode:int=(5 if sprite.get("shell",false) else 4 if sprite.has("plane_heading") else 3) if grounded else 2 if sprite.has("plane_heading") else 1
+  var mode:int=5 if grounded else 2 if sprite.has("plane_heading") else 1
   if group.adaptive_contact and not grounded:mode=7 if sprite.has("plane_heading") else 6
   if fixed_cover:mode=2
   if sprite.get("emissive",false):mode+=8
   if sprite.get("shell",false):mode+=16
   if member.role=="root_cover":mode+=32
+  if grounded and sprite.get("shell",false):mode+=64
+  if sprite.get("junction_bridge",false):mode+=128
   var extra:float=float(sprite.get("plane_heading",0))
   if fixed_cover:extra=cover_angle
   elif member.role=="root_cover" and not sprite.has("plane_heading"):
@@ -210,6 +227,9 @@ func build_group(group:Dictionary):
   mm.set_instance_color(i,sprite.region.space.ambient*sprite.get("ecology_tint",Color.WHITE))
  mm.custom_aabb=bounds
  var node:=MultiMeshInstance3D.new();node.multimesh=mm;node.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;add_child(node);chunks.append(node)
+ if group.cave:node.set_meta("cave_route_branch",group.cave_branch)
+ if group.junction_role!=0:node.set_meta("junction_role",group.junction_role)
+ apply_branch_visibility(node)
  if far_mesh!=null:node.set_meta("contact_fine",mesh);node.set_meta("contact_far",far_mesh);node.set_meta("contact_is_far",false)
  var end_s:float=-INF
  for item in group.items:end_s=maxf(end_s,float(item.sprite.get("route_s",0)))
@@ -362,7 +382,7 @@ func bind_route_segments(segments:Array):
  var frames:=PackedVector4Array();var shapes:=PackedVector4Array()
  for segment in segments:
   frames.append(Vector4(segment.origin.x,segment.origin.y,segment.heading,segment.start_s))
-  shapes.append(Vector4(segment.junction_s,segment.turn_length,segment.end_s,segment.exits))
+  shapes.append(Vector4(segment.junction_s,-segment.turn_length if segment.theme=="crystal" else segment.turn_length,segment.end_s,segment.exits))
  floor_material.set_shader_parameter("segment_count",segments.size())
  frames.resize(3);shapes.resize(3)
  floor_material.set_shader_parameter("segment_frames",frames);floor_material.set_shader_parameter("segment_shapes",shapes)
@@ -370,6 +390,8 @@ func create_ground(world:SegmentWorld):
  floor_material=ShaderMaterial.new();floor_material.shader=preload("res://scripts/world3d/ground.gdshader")
  floor_material.set_shader_parameter("ecology",true);floor_material.set_shader_parameter("terrain_amplitude",ForestSettings.values.height)
  floor_material.set_shader_parameter("straight_route",world.plan.straight);floor_material.set_shader_parameter("three_way",world.plan.exits==3)
+ floor_material.set_shader_parameter("cave_fork",ForestRoute.cave_fork)
+ floor_material.set_shader_parameter("cave_half_sep",preload("res://scripts/world3d/cave_fork.gd").HALF_SEPARATION)
  floor_material.set_shader_parameter("junction",ForestRoute.JUNCTION);floor_material.set_shader_parameter("turn_length",ForestRoute.TURN_LENGTH)
  var types:Array=[];var regions:=PackedVector4Array();var blends:=PackedFloat32Array()
  for region in world.plan.regions:
@@ -409,7 +431,8 @@ func update_view(renderer:SegmentRenderer):
   var used:Dictionary={}
   var half_width_over_focal:=size.x*.5/(minf(size.y*.86,size.x*.72)*lens)
   for chunk in chunks:
-   chunk.visible=BOUNDS.visible(chunk.multimesh.custom_aabb,renderer.camera_world,renderer.heading,half_width_over_focal)
+   var allowed:bool=branch_visibility_allowed(chunk)
+   chunk.visible=allowed and BOUNDS.visible(chunk.multimesh.custom_aabb,renderer.camera_world,renderer.heading,half_width_over_focal)
    if chunk.visible and chunk.has_meta("contact_fine"):
     var far:bool=contact_lod_enabled and preload("res://scripts/world3d/contact_mesh_lod.gd").distant(chunk.multimesh.custom_aabb,renderer.camera_world,renderer.heading,chunk.get_meta("contact_is_far",false))
     if far!=bool(chunk.get_meta("contact_is_far",false)):
@@ -428,6 +451,7 @@ func update_view(renderer:SegmentRenderer):
  for mat in targets:
   mat.set_shader_parameter("terrain_amplitude",ForestSettings.values.height)
   mat.set_shader_parameter("heading",renderer.heading);mat.set_shader_parameter("fog_color",renderer.world.camera_region.space.atmosphere.depth_color)
+  mat.set_shader_parameter("cave_branch_side",float(selected_route_branch));mat.set_shader_parameter("cave_handoff",hidden_branch_fraction)
   mat.set_shader_parameter("fog_range",Vector2(renderer.world.camera_region.space.depth_start,renderer.world.camera_region.space.depth_end))
   mat.set_shader_parameter("lantern_enabled",renderer.lantern_enabled);mat.set_shader_parameter("lantern_position",lantern);mat.set_shader_parameter("lantern_forward",Vector2(sin(renderer.heading),cos(renderer.heading)))
   mat.set_shader_parameter("atmosphere_time",renderer.elapsed)
@@ -441,14 +465,53 @@ func trim_after(s:float):
   var remaining_end:float=-INF
   for i in samples.size():
    if samples[i]>=s:
-    var transform:Transform3D=node.multimesh.get_instance_transform(i)
-    transform.basis=Basis.from_scale(Vector3.ZERO);node.multimesh.set_instance_transform(i,transform)
+    var tint:Color=node.multimesh.get_instance_color(i)
+    tint.a=0.0;node.multimesh.set_instance_color(i,tint)
    else:remaining_end=maxf(remaining_end,samples[i])
   node.set_meta("end_s",remaining_end)
  retire_before(retired_distance)
 
-func contact_mesh()->ArrayMesh:
- return preload("res://scripts/world3d/contact_geometry.gd").contact_mesh()
+func restrict_to_branch(branch:int,camera_s:float=INF)->void:
+ # A choice may occur before the junction (route preview) or at it (native
+ # stage). Anchor the transition to the actual choice, never a global fork s.
+ if branch==0:return
+ if selected_route_branch!=branch or not is_finite(branch_choice_s):branch_choice_s=camera_s
+ # The straight third exit sits behind the chosen aperture. Leaving it at
+ # half opacity for most of the bend paints a rock wall across that opening.
+ # Keep both apertures stable while they are in the near field. Their exit
+ # batches retire only after the selected parallel passage has enclosed view.
+ var fade_start:float=branch_choice_s+ForestRoute.TURN_LENGTH+200.0
+ var fraction:float=smoothstep(fade_start,fade_start+240.0,camera_s)
+ if selected_route_branch==branch and is_equal_approx(hidden_branch_fraction,fraction):return
+ selected_route_branch=branch;hidden_branch_fraction=fraction
+ for node in chunks:apply_branch_visibility(node)
+ last_cull_pose=Vector4(INF,INF,INF,INF)
+
+func clear_branch_selection()->void:
+ selected_route_branch=0;hidden_branch_fraction=0.0;branch_choice_s=INF
+ for node in chunks:apply_branch_visibility(node)
+ last_cull_pose=Vector4(INF,INF,INF,INF)
+
+func apply_branch_visibility(node:Node3D)->void:
+ if not node.has_meta("cave_route_branch"):return
+ var owner:int=int(node.get_meta("cave_route_branch"))
+ var role:int=int(node.get_meta("junction_role",0))
+ var fade:=0.0
+ if role==2:fade=1.0-hidden_branch_fraction if selected_route_branch!=0 and owner==selected_route_branch else 1.0
+ elif selected_route_branch!=0 and owner not in [0,selected_route_branch]:fade=hidden_branch_fraction
+ if node is GeometryInstance3D:node.transparency=fade
+ if fade>=.995:node.visible=false
+
+func branch_visibility_allowed(node:Node3D)->bool:
+ if not node.has_meta("cave_route_branch"):return true
+ var owner:int=int(node.get_meta("cave_route_branch"))
+ var role:int=int(node.get_meta("junction_role",0))
+ if role==1:return true
+ if role==2:return selected_route_branch!=0 and owner==selected_route_branch and hidden_branch_fraction>.005
+ return selected_route_branch==0 or owner in [0,selected_route_branch] or hidden_branch_fraction<.995
+
+func contact_mesh(columns:int=9,foot_steps:int=0)->ArrayMesh:
+ return preload("res://scripts/world3d/contact_geometry.gd").contact_mesh(columns,foot_steps)
 func base_contact_mesh(profile:PackedFloat32Array=PackedFloat32Array())->ArrayMesh:
  return preload("res://scripts/world3d/contact_geometry.gd").base_contact_mesh(profile)
 

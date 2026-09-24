@@ -1,0 +1,11 @@
+{
+  "family": "red_cottage",
+  "cases": [
+    {
+      "case": "entry",
+      "captured": true,
+      "visual_accepted": false
+    }
+  ],
+  "workflow_verified": false
+}

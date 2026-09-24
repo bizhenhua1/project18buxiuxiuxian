@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "id": "workflow_crystal",
+  "family": "crystal",
+  "style": "冷色水晶矿洞，层叠不规则岩环与晶脉",
+  "stage": "draft",
+  "family_sha256": "639339d647813abbd949d75c6d3a05f794c2c8834dcbaa8c8ce59053d02d0b1e",
+  "slots": [
+    {
+      "id": "slot_1",
+      "purpose": "岩环",
+      "prompt": "01-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "structural_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_2",
+      "purpose": "独立大岩壁",
+      "prompt": "02-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_3",
+      "purpose": "岩根碎石",
+      "prompt": "03-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 4,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_4",
+      "purpose": "晶簇",
+      "prompt": "04-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_5",
+      "purpose": "洞顶收口",
+      "prompt": "05-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 2,
+      "representation": "surface_texture",
+      "status": "needs_specification"
+    }
+  ],
+  "assemblies": [],
+  "runtime_evidence": [],
+  "visual_review": null,
+  "rules": {
+    "id": "crystal",
+    "title": "矿洞",
+    "roof": "irregular_cave",
+    "support": "rock",
+    "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+    "slots": [
+      "岩环",
+      "独立大岩壁",
+      "岩根碎石",
+      "晶簇",
+      "洞顶收口"
+    ],
+    "scatter_rule": "保持岩环原图比例，85U一层；分叉尚未分离时使用公共岩腔与独立岩块。",
+    "junction_rule": "按横截面路线距离分组，单owner；分离后再恢复岩环，不拉伸整个岩门。",
+    "top_rule": "岩环只是截面；核查环间空区在正式照明中是否穿帮；自然暗部衔接可保留，明亮暴露区补同材质顶件。",
+    "effects": [
+      "ground_mist",
+      "drips",
+      "crystal_glow"
+    ],
+    "reference_scene": "crystal",
+    "protected_camera": true,
+    "ground": {
+      "policy": "inherit_reference",
+      "max_slope_degrees": 8,
+      "max_support_error_m": 0.02,
+      "source": "design_initial; measure runtime slope before acceptance"
+    },
+    "lighting": {
+      "policy": "inherit_reference_palette",
+      "new_realtime_lights": 0,
+      "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+      "closure_strategy": "atmospheric",
+      "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+      "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+    },
+    "hanging": {
+      "allowed": true,
+      "character_clearance_m": 0.35,
+      "camera_clearance_m": 0.2,
+      "sway_degrees_max": 2,
+      "default_sway_degrees": 0,
+      "max_dynamic_visible": 8,
+      "required": [
+        "owner_id",
+        "socket_m",
+        "lowest_point_m",
+        "sway_radius_m"
+      ],
+      "figure_requires_explicit_selection": true
+    },
+    "cases": [
+      "entry",
+      "junction2",
+      "junction3",
+      "left",
+      "right",
+      "center",
+      "battle",
+      "departure"
+    ],
+    "acceptance": "not_yet_workflow_verified"
+  },
+  "production_rules_sha256": "8a8d8af853c2a0a3558baeefa9d5b6b9b9a6ff55553e320e2a1b0ba560788cc9",
+  "kit": {
+    "variants": [
+      3,
+      3,
+      4,
+      3,
+      2
+    ],
+    "examples": [
+      "narrow rock ring, asymmetric ring, broken decorative ring",
+      "left rock buttress, right buttress, freestanding rock",
+      "rubble, chips, grit, low stone shelf",
+      "small shard group, angled cluster, large vein",
+      "tileable rock ceiling skin and curved transition patch"
+    ],
+    "representations": [
+      "structural_cutout",
+      "rigid_cutout",
+      "rigid_cutout",
+      "rigid_cutout",
+      "surface_texture"
+    ],
+    "root_policy": "Mark both ring supports and lower opening; rock overhang is not a support footprint. Crystal tips must not be used as floor anchors.",
+    "assembly": "Ring spacing 4.25m is the old visual cadence, not roof closure. Continuous rock ceiling behind rings owns inter-ring gaps. Separate roots/rubble fill only ground contact seams.",
+    "light_fx": "Cool reference tint and limited crystal emissive accents. Ceiling drips originate on verified rock surface and terminate at ground; one pooled emitter group.",
+    "junction": "Group corridor cross-sections by overlap; one common chamber while overlapping, split rings only after both supports clear all exits. Never stretch a complete ring across the junction.",
+    "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+  },
+  "publication_allowed": false
+}

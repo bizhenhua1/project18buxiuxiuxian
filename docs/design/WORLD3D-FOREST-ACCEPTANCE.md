@@ -147,7 +147,7 @@ CPU分项：particles17.862ms（内部spawn4.853/update10.907，不可再与总�
 本轮小修：projectile_lights在构建时就限制最多4项，避免先为所有飞行弹构造光照字典再slice；保留爆炸优先次序、所有burst寿命推进与总能量归一化。spawn同帧复用发射器basis/position/phase，5383粒子GPU数据对照maxerror0；森林高压36.675ms/P95 53.039ms、指纹不变，相比前次37.881/55.272仅单次小幅差异，不能称为稳定提速或达标。预算分级尚未实现。
 ## 已实现普通攻击预算试验
 
---ordinary-vfx-budget 或根目录“启动3D森林轻量特效验证.cmd”。仅原生projectile_view选取深复制spec；默认原版不改，原包文件不改。数据world3d_vfx_budgets.json：飞行总上限24、受击32、出手12，按原StormMissile层分配；减少烟尘/装饰发射率，保留弹芯与发光层；每层spawn先检查明确的runtime_particle_limit。报告单列visual_budget与budget_skipped_particle_spawns，不能把主动减量算成无损优化。未实现全局自适应预算/重要技能分级或屏幕面积限制。
+开发时运行 `godot.exe --path godot res://scenes/world3d_presentation.tscn -- --theme=forest --ordinary-vfx-budget`。仅原生projectile_view选取深复制spec；默认原版不改，原包文件不改。数据world3d_vfx_budgets.json：飞行总上限24、受击32、出手12，按原StormMissile层分配；减少烟尘/装饰发射率，保留弹芯与发光层；每层spawn先检查明确的runtime_particle_limit。报告单列visual_budget与budget_skipped_particle_spawns，不能把主动减量算成无损优化。未实现全局自适应预算/重要技能分级或屏幕面积限制。
 
 森林相同高压、种子1842、同408ccb…模拟指纹：普通档mean27.059ms/P95 36.766ms，粒子CPU10.033ms；原版最近36.675/P95 53.039、粒子17.475。池零丢失，预算主动抑制5195次粒子发射；飞行/受击/出手活跃粒子各自峰值1004/906/59（各峰值不一定同时发生），原版3727/2210/222。仍未达到60FPS。日志forest-ordinary-budget-stress.log。
 

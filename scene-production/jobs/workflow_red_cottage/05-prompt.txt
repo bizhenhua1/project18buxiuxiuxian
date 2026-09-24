@@ -1,0 +1,14 @@
+项目：黑暗童话绘本游戏。新场景风格：黑暗童话木屋，低顶、生活家具组合和吊挂装饰
+空间族：低顶室内。本张唯一用途：小物与碎屑。
+结构限制：连续平顶使用世界材质相位；不新增左右墙。挂物必须绑定真实顶面socket。
+撒布用途：梁架先验净空；壁炉与柴薪、缝纫台与布篓成组；低家具不放大道路边界。
+岔路要求：低顶所有出口先并集三角化，只生成一张顶；拱架脚点避开全部道路，路口停止重复整框。
+具体内容：pottery, rags, wood shavings, shoes。至少4个真正不同的轮廓或材质。
+表达方式：rigid_cutout。
+支撑/挂点：Furniture needs authored support points. Hanging fixtures use top sockets and lowest points, never bottom-center roots. A figure hanging by a rope is an explicit optional narrative asset, not randomly selected room dressing.
+拼组：One continuous ceiling mesh across all exits. Beam supports must clear every path after scale. Hanging chain+body use one pivot; doorway frame is decoration, never proof of closure.
+光效：Default hanging sway zero, optional <=2 degrees, <=8 moving fixtures. No physics chain, no per-fixture real light. Static soft ceiling material; no floor dirt texture reused as final ceiling.
+只制作指定部件或材质，不画整幅走廊背景，不烘焙消失点，不夹带人物。构件完整保留支撑端、挂点及连接边；结构连接件必须指定正面/侧面/转角。材质须无方向性投影、无道具且可平铺；独立物件须透明底、完整轮廓、无文字无水印。沿用参考图的线条与材料笔触，颜色由新风格决定；不能仅把参考改色。
+生成前必须查看并绑定对应参考图片，填写下列槽位的物理尺寸、视角和拆件方案。此提示仅是工单起点；缺少具体内容、尺寸和参考时不得调用生成或发布。
+
+最新光照裁决优先：诊断图露空不自动要求补顶。正式暗场可用相近深色背景、天空盒或雾衔接；只对正式照明或游戏允许灯光变化中穿帮的区域补面。先按 LIGHTING-ACCEPTANCE.md 对照，决定真正需要生成的顶部资产范围。

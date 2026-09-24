@@ -1,0 +1,23 @@
+{
+  "job": "workflow_red_cottage",
+  "publication_allowed": false,
+  "errors": [
+    "asset inspection failed",
+    "missing runtime case entry",
+    "missing runtime case junction2",
+    "missing runtime case junction3",
+    "missing runtime case left",
+    "missing runtime case right",
+    "missing runtime case center",
+    "missing runtime case battle",
+    "visual_review: explicit decision, reason and reviewer required",
+    "junction_review: explicit decision, reason and reviewer required",
+    "ground_review: explicit decision, reason and reviewer required",
+    "hanging_review: explicit decision, reason and reviewer required",
+    "effects_review: explicit decision, reason and reviewer required",
+    "transition_review: explicit decision, reason and reviewer required",
+    "performance_review: explicit decision, reason and reviewer required"
+  ],
+  "job_sha256": "9468e0c3c40245dd8612d32666d9ae44737348fcf332b0749d0b571bfb9f33ab",
+  "installation_performed": false
+}

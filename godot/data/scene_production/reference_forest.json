@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "reference_forest",
+  "family": "forest",
+  "style": "森林原有画风与布局，保持镜头；通过生产配方重建",
+  "bindings": {
+    "res://assets/style2/clover.png": "res://assets/style2/clover.png",
+    "res://assets/style2/fern.png": "res://assets/style2/fern.png",
+    "res://assets/style2/ground.png": "res://assets/style2/ground.png",
+    "res://assets/style2/litter.png": "res://assets/style2/litter.png",
+    "res://assets/style2/reeds.png": "res://assets/style2/reeds.png",
+    "res://assets/style2/rocks.png": "res://assets/style2/rocks.png",
+    "res://assets/style2/short-grass.png": "res://assets/style2/short-grass.png",
+    "res://assets/style2/shrub.png": "res://assets/style2/shrub.png",
+    "res://assets/style2/stump.png": "res://assets/style2/stump.png",
+    "res://assets/style2/tree-a.png": "res://assets/style2/tree-a.png",
+    "res://assets/style2/tree-b.png": "res://assets/style2/tree-b.png"
+  },
+  "asset_sha256": {
+    "res://assets/style2/clover.png": "c3d99871b06edbdb10a1aece0f1d84c76a1bbd4e2eed07c012cf3c57151feeff",
+    "res://assets/style2/fern.png": "347aac3dd79595dc4f04f8dead410ab104e9390cf3bd91988f937d7510e088c7",
+    "res://assets/style2/ground.png": "922a11eeb26cfbd0539b57b1badb896352a46ebc4a2055c89bae31836a23bf89",
+    "res://assets/style2/litter.png": "2bca932fdfbf1af15007715f50b6593cf52dd8829991ab08f83be01f3a85bb57",
+    "res://assets/style2/reeds.png": "e3aad09a622be3285bdbe95e8b9746657c7f93805aa2a45aeaa920e2a4820790",
+    "res://assets/style2/rocks.png": "1d56b4a75a507608e4e0694dff3d04f001e9cdd52a1732590019514b5d81f07e",
+    "res://assets/style2/short-grass.png": "afeb54ace33bb127b59d0bc394fd3a1c8ca420e3ed6c047deb2005d31415ea53",
+    "res://assets/style2/shrub.png": "bbc5313f55aa3656f9829792198b98976a5bd132c2fbc2ed25e6163afd5f9012",
+    "res://assets/style2/stump.png": "ad393ef806f43dbb8ef27c85c40416ba787f7380a11316ee241478e1b4cf62be",
+    "res://assets/style2/tree-a.png": "0c1ae46b071e53b5d99c32e776f28f0bf0e2f4b7d8d268d9cce77495a61caa06",
+    "res://assets/style2/tree-b.png": "74be3f6265b88898a26468b57e181b71d9fecb70ce1c77e0a6b8a3a7c4553feb"
+  },
+  "recipe_sha256": "264b5a6c06747aa9103841d8408114d2be7fe4b133963e0ac99cf4765c6d1be4",
+  "adapter_sha256": "fc4aee47e2e66ce17fca7d0f800e98fa97bf67fb16beb0701a6e8631e8a35e28",
+  "status": "preview_candidate",
+  "publication_allowed": false
+}

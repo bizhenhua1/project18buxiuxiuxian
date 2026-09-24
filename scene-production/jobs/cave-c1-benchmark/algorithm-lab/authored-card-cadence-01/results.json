@@ -1,0 +1,1461 @@
+{
+  "source": {
+    "paths": [
+      "godot/assets/biomes/crystal/cards-study/crown-a.png",
+      "godot/assets/biomes/crystal/cards-study/backing-a.png",
+      "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png",
+      "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    ],
+    "unique_roles": 6,
+    "source_variants_per_role": 1,
+    "art_accepted": false
+  },
+  "camera_aspect": 1.8698795180722891,
+  "results": [
+    {
+      "mode": "authored",
+      "step": 1.2,
+      "instances": 556,
+      "triangles": 1112,
+      "worst_missing_pixels": 0,
+      "simultaneous_same_role_by_visible_frame_fraction": {
+        "0.001": {
+          "right": 11,
+          "crown": 15,
+          "outer-left": 6,
+          "left": 11,
+          "outer-right": 9,
+          "outer-crown": 4
+        },
+        "0.003": {
+          "right": 8,
+          "crown": 10,
+          "outer-left": 4,
+          "left": 8,
+          "outer-right": 5,
+          "outer-crown": 2
+        },
+        "0.01": {
+          "right": 5,
+          "outer-left": 3,
+          "left": 5,
+          "outer-right": 3,
+          "crown": 7
+        }
+      },
+      "diversity_note": "Sensitivity only; not an approved asset count. Crops, mirrors, outer/inner placements of same source remain one similarity family.",
+      "rows": [
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.037
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.209521739130435
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.3820434782608695
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.554565217391304
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 132
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.727086956521739
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            4.899608695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.072130434782609
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.244652173913043
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.417173913043478
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.589695652173913
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.762217391304348
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 120
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            5.9347391304347825
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.107260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.279782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.452304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.6248260869565225
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.797347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            6.969869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            7.142391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            7.314913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            7.487434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            7.659956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            7.832478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.005
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.177521739130436
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.35004347826087
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.522565217391305
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.69508695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            8.867608695652175
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.04013043478261
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.212652173913044
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.385173913043479
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.557695652173914
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.730217391304349
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 131
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            9.902739130434783
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.075260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.247782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.420304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.592826086956523
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 134
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.765347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 131
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            10.937869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.110391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.282913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.455434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.627956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.800478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            -0.12,
+            1.15,
+            11.973
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.037
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 120
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.209521739130435
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 119
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.3820434782608695
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 118
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.554565217391304
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.727086956521739
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            4.899608695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.072130434782609
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 118
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.244652173913043
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 119
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.417173913043478
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 119
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.589695652173913
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 117
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.762217391304348
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            5.9347391304347825
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.107260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.279782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 120
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.452304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.6248260869565225
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 121
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.797347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            6.969869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 118
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            7.142391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            7.314913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 121
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            7.487434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 120
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            7.659956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            7.832478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.005
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.177521739130436
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.35004347826087
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.522565217391305
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.69508695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            8.867608695652175
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 132
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.04013043478261
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 133
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.212652173913044
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.385173913043479
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.557695652173914
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.730217391304349
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            9.902739130434783
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.075260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.247782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.420304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.592826086956523
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 132
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.765347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            10.937869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.110391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.282913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.455434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.627956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.800478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.12,
+            1.45,
+            11.973
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.037
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.209521739130435
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.3820434782608695
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.554565217391304
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.727086956521739
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 122
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            4.899608695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.072130434782609
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.244652173913043
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 121
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.417173913043478
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 120
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.589695652173913
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.762217391304348
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            5.9347391304347825
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.107260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.279782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.452304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.6248260869565225
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.797347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            6.969869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 124
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            7.142391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            7.314913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            7.487434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            7.659956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            7.832478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.005
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 134
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.177521739130436
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.35004347826087
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.522565217391305
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.69508695652174
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 133
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            8.867608695652175
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 127
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.04013043478261
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 125
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.212652173913044
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 123
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.385173913043479
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 126
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.557695652173914
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.730217391304349
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 132
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            9.902739130434783
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 137
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.075260869565218
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 140
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.247782608695653
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.420304347826088
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.592826086956523
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.765347826086957
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            10.937869565217392
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.110391304347827
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 131
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.282913043478262
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 132
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.455434782608696
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 130
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.627956521739131
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 129
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.800478260869566
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 131
+        },
+        {
+          "pose": [
+            0.0,
+            1.25,
+            11.973
+          ],
+          "missing": 0,
+          "missing_grid_yx": [],
+          "visible_cards": 128
+        }
+      ]
+    }
+  ]
+}

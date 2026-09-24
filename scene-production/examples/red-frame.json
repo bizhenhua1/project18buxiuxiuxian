@@ -1,0 +1,10 @@
+{
+  "source": "godot/assets/fairytales/red_cottage/corridor.json",
+  "scope": "existing whole frame vs current 76U half-clearance and 3.8m room height",
+  "image_width_px":1971,
+  "image_height_px":798,
+  "visible_height_fraction":0.9285714285714286,
+  "opening_width_fraction":0.6002,
+  "required_opening_m":7.6,
+  "ceiling_height_m":3.8
+}

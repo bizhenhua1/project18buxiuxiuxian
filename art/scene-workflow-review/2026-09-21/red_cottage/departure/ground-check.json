@@ -1,0 +1,7 @@
+{
+  "height_field": "ForestEcology.height_at",
+  "max_allowed_degrees": 2,
+  "semantic_support_verified": false,
+  "slope_upper_bound_degrees": 1.91112496758733,
+  "slope_within_initial_limit": true
+}

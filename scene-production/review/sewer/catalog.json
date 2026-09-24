@@ -1,0 +1,292 @@
+[
+  {
+    "source": "res://assets/biomes/sewer/prop-0.png",
+    "sha256": "0bc632674045d0a73314ab0c8776a837d15d5527748100c4d8609cb81f8a1de5",
+    "pixels": [
+      361,
+      284
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      361,
+      284
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24278955459595,
+      "canvas_height_m_min": 0.362915420532227,
+      "count": 90,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-1.png",
+    "sha256": "4b53328b15984afd9eb1ea5f7c39cab05ecdf1f407c99863c110472ae9dfd254",
+    "pixels": [
+      246,
+      316
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      246,
+      316
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24838943481445,
+      "canvas_height_m_min": 0.369706845283508,
+      "count": 82,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-2.png",
+    "sha256": "df480ebed4e1d708c60cca002c8518ad93f4b0aaeb61982b9fe8434f8247ef45",
+    "pixels": [
+      372,
+      305
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      372,
+      305
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.22680492401123,
+      "canvas_height_m_min": 0.351506567001343,
+      "count": 84,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-3.png",
+    "sha256": "8dcf9d55c61d1c881b892802bfd99b7904025c8d7c5eb100440185d3126ecbab",
+    "pixels": [
+      307,
+      309
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      306,
+      309
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 6.0,
+      "canvas_height_m_min": 0.358670926094055,
+      "count": 134,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-4.png",
+    "sha256": "3a68116745e78378377a178bbe1655a336b15255eb8cb4bed5e4bec0e1e5b351",
+    "pixels": [
+      176,
+      334
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      176,
+      334
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.175927734375,
+      "canvas_height_m_min": 0.361590671539307,
+      "count": 47,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-5.png",
+    "sha256": "05b605240760609ef8fd8c8f31ce66fd6a443aa2634248940579f30afa9d2fe2",
+    "pixels": [
+      234,
+      286
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      233,
+      286
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.21864881515503,
+      "canvas_height_m_min": 0.3740638256073,
+      "count": 80,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-6.png",
+    "sha256": "c3618b69d5995eee273fa00d4c6a3c2abf45c963d28490a3ac6719de6aaa8003",
+    "pixels": [
+      347,
+      300
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      347,
+      300
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.20883159637451,
+      "canvas_height_m_min": 0.412031602859497,
+      "count": 83,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-7.png",
+    "sha256": "9175762273e2f88bf8d36771be8f78d89d4d65da3bf69aa64690bd39d17ab8c5",
+    "pixels": [
+      305,
+      260
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      304,
+      260
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24012136459351,
+      "canvas_height_m_min": 0.100009405612946,
+      "count": 283,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/prop-8.png",
+    "sha256": "b8be51be52c218b30508f0613aa5c9c909b299c4a74dee23e5098aea4d21bdc2",
+    "pixels": [
+      369,
+      267
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      368,
+      266
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.22423295974731,
+      "canvas_height_m_min": 0.354531574249268,
+      "count": 82,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/sewer/shell.png",
+    "sha256": "5f267b915dc6f0f5a1b26e4d06e2e4dfe24cbeb11301a6b2fe997dfb1c210834",
+    "pixels": [
+      1448,
+      1086
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      1448,
+      1086
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 15.2222304046154,
+      "canvas_height_m_min": 1.67940379414558,
+      "count": 82,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

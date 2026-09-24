@@ -1,0 +1,87 @@
+{
+  "status": "candidate_not_accepted",
+  "source_sha256": "42fd0feb7abd8627430a209510d545e26bf45be481d5f971354099a29acd66ed",
+  "processing": "cell extraction and transparent margin crop only; source alpha preserved",
+  "pieces": [
+    {
+      "name": "rounded",
+      "cell": [
+        0,
+        0,
+        651,
+        599
+      ],
+      "opaque_bounds": [
+        22,
+        68,
+        647,
+        594
+      ],
+      "size": [
+        629,
+        530
+      ]
+    },
+    {
+      "name": "buttress",
+      "cell": [
+        651,
+        0,
+        1254,
+        599
+      ],
+      "opaque_bounds": [
+        21,
+        26,
+        576,
+        599
+      ],
+      "size": [
+        559,
+        575
+      ]
+    },
+    {
+      "name": "overhang",
+      "cell": [
+        0,
+        599,
+        651,
+        1254
+      ],
+      "opaque_bounds": [
+        22,
+        52,
+        651,
+        586
+      ],
+      "size": [
+        631,
+        538
+      ]
+    },
+    {
+      "name": "broken",
+      "cell": [
+        651,
+        599,
+        1254,
+        1254
+      ],
+      "opaque_bounds": [
+        12,
+        67,
+        578,
+        613
+      ],
+      "size": [
+        570,
+        550
+      ]
+    }
+  ],
+  "seam_opaque_pixels": [
+    0,
+    0
+  ]
+}

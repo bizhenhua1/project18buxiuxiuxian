@@ -17,6 +17,8 @@ uniform vec2 camera_world;
 uniform float heading;
 uniform bool straight_route = false;
 uniform bool three_way = false;
+uniform bool cave_fork = false;
+uniform float cave_half_sep = 265.0;
 uniform float junction=700.0;
 uniform float turn_length=420.0;
 uniform vec2 route_origin=vec2(0.0);
@@ -25,12 +27,37 @@ uniform float route_origin_heading=0.0;
 // At most three adjacent immutable route segments: old, active, prepared.
 uniform int segment_count=0;
 uniform vec4 segment_frames[3]; // world origin xy, heading, absolute start
-uniform vec4 segment_shapes[3]; // absolute junction, turn length, absolute end, exits
+uniform vec4 segment_shapes[3]; // junction, signed turn length (negative=cave), end, exits
+float cave_x(float y,float j,float transfer,float side){
+ float t=clamp((y-j)/transfer,0.0,1.0);
+ return side*cave_half_sep*t*t*(3.0-2.0*t);
+}
+float cave_lane(vec2 p,float j,float transfer,float end_s,float exits){
+ float best=length(p-vec2(0.0,clamp(p.y,0.0,j)));
+ if(exits>2.5)best=min(best,abs(p.x));
+ for(int i=0;i<2;i++){
+  float side=i==0?-1.0:1.0;
+  float y=clamp(p.y,j,j+transfer);
+  // Project to the smooth sideways transfer, then to its parallel tail.
+  for(int step=0;step<3;step++){
+   float t=clamp((y-j)/transfer,0.0,1.0);
+   float x=cave_x(y,j,transfer,side);
+   float dx=side*cave_half_sep*6.0*t*(1.0-t)/transfer;
+   float ddx=side*cave_half_sep*(6.0-12.0*t)/(transfer*transfer);
+   float delta=(y-p.y)+(x-p.x)*dx;
+   y=clamp(y-delta/max(0.2,1.0+dx*dx+(x-p.x)*ddx),j,j+transfer);
+  }
+  best=min(best,length(p-vec2(cave_x(y,j,transfer,side),y)));
+  best=min(best,length(p-vec2(side*cave_half_sep,clamp(p.y,j+transfer,end_s))));
+ }
+ return best;
+}
 float segment_lane(vec2 world,int index){
  vec4 frame=segment_frames[index];vec4 shape=segment_shapes[index];
  vec2 delta=world-frame.xy;float c=cos(frame.z);float s=sin(frame.z);
  vec2 p=vec2(delta.x*c-delta.y*s,delta.x*s+delta.y*c);
  float j=shape.x-frame.w;float end_s=shape.z-frame.w;
+ if(shape.y<0.0)return cave_lane(p,j,-shape.y,end_s,shape.w);
  float best=length(p-vec2(0,clamp(p.y,0.0,j)));
  if(shape.w>2.5)best=min(best,length(p-vec2(0,clamp(p.y,0.0,end_s))));
  float r=shape.y/.5;
@@ -73,6 +100,7 @@ float lane_distance(vec2 p) {
     }
     p=route_local(p);
     if(straight_route)return abs(p.x);
+    if(cave_fork)return cave_lane(p,junction,turn_length,100000.0,three_way?3.0:2.0);
     float radius=turn_length/.5;
     float best=p.y<=junction || three_way?abs(p.x):length(p-vec2(0,junction));
     for(int i=0;i<2;i++){
@@ -90,6 +118,7 @@ float lane_distance(vec2 p) {
 vec2 route_coordinate(vec2 world) {
     world=route_local(world);
     if (straight_route) return vec2(world.y,0.0);
+    if (cave_fork) return vec2(world.y,world.y<junction?0.0:(world.x<0.0?-1.0:1.0));
     float branch = world.x < 0.0 ? -1.0 : 1.0;
     float s = world.y;
     if (world.y < junction) branch = 0.0;

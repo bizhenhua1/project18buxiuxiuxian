@@ -1,0 +1,9 @@
+{
+  "street": {"cluster_step": [18, 32], "cluster_members": [4, 7], "side_range": [118, 250], "furniture_step": [360, 540], "litter_range": [-170, 170], "anchor_chance": 0.20, "prop_keep": 0.50},
+  "interior": {"cluster_step": [34, 56], "cluster_members": [3, 6], "side_range": [100, 210], "furniture_step": [260, 420], "litter_range": [-130, 130], "anchor_chance": 0.25, "prop_keep": 0.60},
+  "garden": {"cluster_step": [20, 34], "cluster_members": [5, 8], "side_range": [125, 280], "furniture_step": [400, 620], "litter_range": [-220, 220], "anchor_chance": 0.18, "prop_keep": 0.58},
+  "bridge": {"cluster_step": [26, 44], "cluster_members": [3, 6], "side_range": [120, 240], "furniture_step": [420, 660], "litter_range": [-150, 150], "anchor_chance": 0.22, "prop_keep": 0.52},
+  "cave": {"cluster_step": [18, 30], "cluster_members": [4, 7], "side_range": [100, 210], "furniture_step": [340, 520], "litter_range": [-140, 140], "anchor_chance": 0.26, "prop_keep": 0.57},
+  "stage": {"cluster_step": [30, 50], "cluster_members": [3, 5], "side_range": [100, 210], "furniture_step": [280, 440], "litter_range": [-140, 140], "anchor_chance": 0.30, "prop_keep": 0.62},
+  "clock": {"cluster_step": [24, 40], "cluster_members": [4, 7], "side_range": [105, 220], "furniture_step": [300, 480], "litter_range": [-160, 160], "anchor_chance": 0.24, "prop_keep": 0.58}
+}

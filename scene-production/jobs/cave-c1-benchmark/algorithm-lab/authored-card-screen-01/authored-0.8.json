@@ -1,0 +1,4892 @@
+{
+  "status": "real_2d_asset_fixture_not_accepted",
+  "scope": "straight_8m_only",
+  "source": {
+    "paths": [
+      "godot/assets/biomes/crystal/cards-study/crown-a.png",
+      "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png",
+      "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    ],
+    "unique_roles": 3,
+    "source_variants_per_role": 1,
+    "art_accepted": false
+  },
+  "cards": [
+    {
+      "role": "left",
+      "z": -2.0,
+      "x": -2.2507698832073513,
+      "y": -0.10290335008941263,
+      "width": 2.3687639603041686,
+      "height": 3.5531459404562526,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": -1.63,
+      "x": 2.285436098171688,
+      "y": -0.12263790010861554,
+      "width": 2.44936021580494,
+      "height": 3.6740403237074104,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": -1.26,
+      "x": 0.05109425155554495,
+      "y": 2.2994021169601875,
+      "width": 4.596722071911224,
+      "height": 1.723770776966709,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": -1.1182553808030269,
+      "x": -2.2598175263822915,
+      "y": -0.1029538101426118,
+      "width": 2.3701237259482726,
+      "height": 3.555185588922409,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": -0.6690535130147881,
+      "x": 2.3016767082545666,
+      "y": -0.11777676245919828,
+      "width": 2.338742327960423,
+      "height": 3.5081134919406347,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": -0.4820906758846737,
+      "x": -0.05885463259937613,
+      "y": 2.3314985338535923,
+      "width": 4.4323476319495585,
+      "height": 1.6621303619810845,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": -0.21467386852129766,
+      "x": -2.252835536706339,
+      "y": -0.10290951805573614,
+      "width": 2.3689301707650965,
+      "height": 3.553395256147645,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 0.19227943810790404,
+      "x": 2.277959624466753,
+      "y": -0.11901610617860821,
+      "width": 2.3669442828198846,
+      "height": 3.550416424229827,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 0.3355772358989497,
+      "x": 0.026337022502758767,
+      "y": 2.2438341734373166,
+      "width": 4.419944897605013,
+      "height": 1.6574793366018798,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 0.5593104165013646,
+      "x": -2.3370202618483957,
+      "y": -0.10445686897477038,
+      "width": 2.410627206056967,
+      "height": 3.6159408090854503,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 0.9201655301387934,
+      "x": 2.3379776576433144,
+      "y": -0.12124983665358627,
+      "width": 2.417774060739385,
+      "height": 3.626661091109078,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 1.1207012485131331,
+      "x": 0.037982423463205864,
+      "y": 2.2394632691946263,
+      "width": 4.477778215149744,
+      "height": 1.679166830681154,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 1.4453751220182771,
+      "x": -2.3027971263875524,
+      "y": -0.10612109170699877,
+      "width": 2.455473629157016,
+      "height": 3.6832104437355238,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 1.8422829147439705,
+      "x": 2.26914803614375,
+      "y": -0.12024014572847473,
+      "width": 2.3947979827990693,
+      "height": 3.592196974198604,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 1.9095262165568023,
+      "x": 0.004261725258895996,
+      "y": 2.3573802335436045,
+      "width": 4.4637124873212395,
+      "height": 1.673892182745465,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 2.2577507226236855,
+      "x": -2.2644704322342832,
+      "y": -0.10250675487432463,
+      "width": 2.3580767629291657,
+      "height": 3.5371151443937485,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 2.5391234856107374,
+      "x": 0.04728026522306995,
+      "y": 2.3344786173273047,
+      "width": 4.5386080511897005,
+      "height": 1.7019780191961378,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 2.668560763970746,
+      "x": 2.3004005834061014,
+      "y": -0.11838047035192942,
+      "width": 2.352480036452794,
+      "height": 3.528720054679191,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 2.9468983707850893,
+      "x": -2.31370137272408,
+      "y": -0.10636883319035777,
+      "width": 2.462149610182269,
+      "height": 3.693224415273403,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 3.1987065469071108,
+      "x": -0.03744902915522265,
+      "y": 2.3736756265613437,
+      "width": 4.564118425112392,
+      "height": 1.711544409417147,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 3.564804556619152,
+      "x": 2.3337971000829874,
+      "y": -0.11734141395805547,
+      "width": 2.3288357309566403,
+      "height": 3.4932535964349603,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 3.7262708657112835,
+      "x": -2.2416190532330003,
+      "y": -0.1028153678249739,
+      "width": 2.3663930698098192,
+      "height": 3.549589604714729,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 4.0139109448666375,
+      "x": -0.022598467489484297,
+      "y": 2.348058420336869,
+      "width": 4.563948817779424,
+      "height": 1.711480806667284,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 4.432715378458078,
+      "x": 2.3408956472199876,
+      "y": -0.12265285143935939,
+      "width": 2.4497004416423116,
+      "height": 3.674550662463467,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 4.5388482363726235,
+      "x": -2.3148744557800804,
+      "y": -0.10301342036861719,
+      "width": 2.3717300646701016,
+      "height": 3.5575950970051524,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 4.730901962173886,
+      "x": -0.04668413538106248,
+      "y": 2.2874054939605335,
+      "width": 4.385173506553344,
+      "height": 1.644440064957504,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 5.166204864931561,
+      "x": 2.343818912432788,
+      "y": -0.12051604178818637,
+      "width": 2.4010761509133967,
+      "height": 3.6016142263700948,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 5.36959115839319,
+      "x": -0.04816575367114501,
+      "y": 2.3459197892725876,
+      "width": 4.4249933487606565,
+      "height": 1.6593725057852462,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 5.411110715202638,
+      "x": -2.2938337840061815,
+      "y": -0.10509271371089146,
+      "width": 2.4277615484198085,
+      "height": 3.6416423226297128,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 5.993158015540594,
+      "x": 2.3125884321570815,
+      "y": -0.11863122430585253,
+      "width": 2.358186081982067,
+      "height": 3.5372791229731,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 6.128259706485913,
+      "x": 0.032169969738117865,
+      "y": 2.320717812380835,
+      "width": 4.378508838196269,
+      "height": 1.6419408143236007,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 6.188649929064066,
+      "x": -2.293827053675574,
+      "y": -0.1018839831955322,
+      "width": 2.3412947050585484,
+      "height": 3.5119420575878224,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 6.928436337542639,
+      "x": -0.022232114679078006,
+      "y": 2.3468007420172836,
+      "width": 4.427348304382591,
+      "height": 1.6602556141434717,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 6.953549752189151,
+      "x": 2.252800648232856,
+      "y": -0.12306228911387973,
+      "width": 2.4590174233913964,
+      "height": 3.688526135087095,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 6.996033516614612,
+      "x": -2.309565542179594,
+      "y": -0.10673434753421003,
+      "width": 2.471999259869235,
+      "height": 3.7079988898038523,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 7.700883039413055,
+      "x": 2.2911932198615714,
+      "y": -0.11869038993636584,
+      "width": 2.3595324287741914,
+      "height": 3.5392986431612874,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 7.717209959515188,
+      "x": 0.036069818863865566,
+      "y": 2.246081882793654,
+      "width": 4.510143280239169,
+      "height": 1.6913037300896883,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 7.874421778303128,
+      "x": -2.264110984586934,
+      "y": -0.10458024212180284,
+      "width": 2.413951787703315,
+      "height": 3.6209276815549725,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 8.521605738517573,
+      "x": -0.025968553281896914,
+      "y": 2.3287285641512407,
+      "width": 4.588098151745359,
+      "height": 1.7205368069045097,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 8.54719849868223,
+      "x": 2.341044889233023,
+      "y": -0.11752688152592253,
+      "width": 2.3330561485009924,
+      "height": 3.499584222751489,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 8.712034058564008,
+      "x": -2.3108375248789,
+      "y": -0.10237300061971036,
+      "width": 2.3544724377521917,
+      "height": 3.5317086566282874,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 9.161860819285284,
+      "x": 0.02270899519856308,
+      "y": 2.2334923383089484,
+      "width": 4.468555016850176,
+      "height": 1.675708131318816,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 9.441771690016928,
+      "x": 2.319966360704516,
+      "y": -0.11825573410031018,
+      "width": 2.3496415937492805,
+      "height": 3.524462390623921,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 9.505073118994847,
+      "x": -2.328253140077568,
+      "y": -0.10462427611511937,
+      "width": 2.415138387944266,
+      "height": 3.6227075819163987,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 9.815163578075257,
+      "x": -0.049433900606179984,
+      "y": 2.3059654838048034,
+      "width": 4.608851446764627,
+      "height": 1.728319292536735,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 10.236313774656194,
+      "x": 2.3299430578897784,
+      "y": -0.11749150906151733,
+      "width": 2.3322512284220833,
+      "height": 3.498376842633125,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 10.416112104044135,
+      "x": -2.292881867944721,
+      "y": -0.106502236073642,
+      "width": 2.4657444668265596,
+      "height": 3.6986167002398393,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 10.525213555464266,
+      "x": -0.012389724558331323,
+      "y": 2.253130079781232,
+      "width": 4.414781467170831,
+      "height": 1.6555430501890618,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 11.19230482195909,
+      "x": 2.3211596257905525,
+      "y": -0.11803592212528206,
+      "width": 2.344639650139752,
+      "height": 3.516959475209628,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 11.208209220881765,
+      "x": 0.007560548853356566,
+      "y": 2.2645813286082666,
+      "width": 4.5309999386168345,
+      "height": 1.699124976981313,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 11.336088903321855,
+      "x": -2.273225443151791,
+      "y": -0.1038726758273418,
+      "width": 2.3948847380841545,
+      "height": 3.592327107126232,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 11.88742134979254,
+      "x": -0.0029301763578440873,
+      "y": 2.363119652993519,
+      "width": 4.474619704614426,
+      "height": 1.6779823892304098,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 12.00970891259153,
+      "x": 2.3289554031938353,
+      "y": -0.11780061447111825,
+      "width": 2.3392850937427796,
+      "height": 3.5089276406141696,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 12.201009279894016,
+      "x": -2.286606627015553,
+      "y": -0.10157820601787705,
+      "width": 2.3330548147975256,
+      "height": 3.4995822221962882,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 12.628529494183027,
+      "x": 0.04163774212350403,
+      "y": 2.2383261709383464,
+      "width": 4.4085227315617095,
+      "height": 1.653196024335641,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 12.824916015973828,
+      "x": 2.25339981322712,
+      "y": -0.11833072797118617,
+      "width": 2.351348120944325,
+      "height": 3.5270221814164877,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 12.8985612075008,
+      "x": -2.325072408051024,
+      "y": -0.10465269702049695,
+      "width": 2.4159042565523356,
+      "height": 3.6238563848285033,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 13.448327619219613,
+      "x": 0.01764462988059512,
+      "y": 2.298942748004996,
+      "width": 4.585882081803619,
+      "height": 1.719705780676357,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 13.693823025038563,
+      "x": 2.3543241517397204,
+      "y": -0.12316910759135188,
+      "width": 2.461448137189874,
+      "height": 3.692172205784811,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 13.793691059747182,
+      "x": -2.340173405630045,
+      "y": -0.1036060667668923,
+      "width": 2.3877003255078306,
+      "height": 3.581550488261746,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 14.068394610220482,
+      "x": -0.0480540880051214,
+      "y": 2.3588450937441174,
+      "width": 4.586114149319352,
+      "height": 1.719792805994757,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 14.481461415016371,
+      "x": 2.3249950814729545,
+      "y": -0.11736700569383088,
+      "width": 2.3294180851218402,
+      "height": 3.4941271276827606,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 14.507780029200605,
+      "x": -2.3364480146352546,
+      "y": -0.10576487034673701,
+      "width": 2.4458744009225937,
+      "height": 3.6688116013838905,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 14.814054260640788,
+      "x": -0.02495279444958133,
+      "y": 2.3393696231052323,
+      "width": 4.388877205580726,
+      "height": 1.645828952092772,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 15.404234390583792,
+      "x": -2.2754620571463042,
+      "y": -0.10518709603449737,
+      "width": 2.430304903666452,
+      "height": 3.6454573554996776,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 15.415128307164156,
+      "x": 2.356244632145598,
+      "y": -0.11768927643731263,
+      "width": 2.3367515349290695,
+      "height": 3.5051273023936043,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 15.455984538539848,
+      "x": 0.0227154596739422,
+      "y": 2.372217795463806,
+      "width": 4.524718743818466,
+      "height": 1.696769528931925,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 16.08159038561923,
+      "x": 0.0029863998892084437,
+      "y": 2.367455183107435,
+      "width": 4.512565136494806,
+      "height": 1.6922119261855522,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 16.151697495818045,
+      "x": -2.3280434982692624,
+      "y": -0.10529080471540812,
+      "width": 2.4330995796994155,
+      "height": 3.649649369549123,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 16.155507467013738,
+      "x": 2.2941917267360314,
+      "y": -0.12279656656184425,
+      "width": 2.452970759096189,
+      "height": 3.6794561386442837,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 16.772933405609418,
+      "x": 0.0029305667253517464,
+      "y": 2.3485787927335284,
+      "width": 4.571063414970366,
+      "height": 1.7141487806138873,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 16.858428411099233,
+      "x": -2.3242267488797035,
+      "y": -0.10224955359260454,
+      "width": 2.3511458652322874,
+      "height": 3.526718797848431,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 16.928819489779674,
+      "x": 2.315872180370063,
+      "y": -0.12119751936292664,
+      "width": 2.416583551725264,
+      "height": 3.6248753275878958,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 17.49727001968816,
+      "x": -0.017735503870209418,
+      "y": 2.3605804957806136,
+      "width": 4.404654785650525,
+      "height": 1.6517455446189468,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 17.54143111528963,
+      "x": -2.250041914133144,
+      "y": -0.10454704247318318,
+      "width": 2.413057144540512,
+      "height": 3.6195857168107675,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 17.87164391400828,
+      "x": 2.244780828934875,
+      "y": -0.12029957802202815,
+      "width": 2.3961503976568186,
+      "height": 3.5942255964852277,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 18.180797982276392,
+      "x": -0.05157788615935407,
+      "y": 2.3278631517679873,
+      "width": 4.613226643370944,
+      "height": 1.7299599912641042,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 18.379489664148327,
+      "x": -2.257094455421979,
+      "y": -0.10450126741563101,
+      "width": 2.4118236272001585,
+      "height": 3.617735440800238,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 18.76709856178257,
+      "x": 2.3282635873871422,
+      "y": -0.12047169158586811,
+      "width": 2.400066937420643,
+      "height": 3.6001004061309647,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 18.904438871525745,
+      "x": 0.0358093994767007,
+      "y": 2.279724444577565,
+      "width": 4.374721103236918,
+      "height": 1.640520413713844,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 19.301405302863124,
+      "x": -2.356657559590035,
+      "y": -0.10643500143314168,
+      "width": 2.4639326701983406,
+      "height": 3.6958990052975107,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 19.534840794354434,
+      "x": 0.016865650455610934,
+      "y": 2.375584859254121,
+      "width": 4.406449274023532,
+      "height": 1.6524184777588247,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 19.564751385291913,
+      "x": 2.2410600716264395,
+      "y": -0.12065243223975551,
+      "width": 2.4041797914113254,
+      "height": 3.606269687116988,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 20.163051752468064,
+      "x": 0.03401399739261646,
+      "y": 2.301790898232194,
+      "width": 4.464697759775368,
+      "height": 1.674261659915763,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 20.178383566635567,
+      "x": -2.280012657642005,
+      "y": -0.10448594867538383,
+      "width": 2.411410827462971,
+      "height": 3.6171162411944566,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 20.3859370928314,
+      "x": 2.2547562890212114,
+      "y": -0.118340630374349,
+      "width": 2.3515734556296306,
+      "height": 3.5273601834444457,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 20.902483531806194,
+      "x": -0.008172710877262436,
+      "y": 2.302660397244179,
+      "width": 4.586557726572045,
+      "height": 1.7199591474645168,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 20.918331444656648,
+      "x": -2.344395309397344,
+      "y": -0.1047822008534468,
+      "width": 2.4193940440507733,
+      "height": 3.62909106607616,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 21.186968617882048,
+      "x": 2.241194335628914,
+      "y": -0.12123333861083987,
+      "width": 2.417398638611112,
+      "height": 3.626097957916668,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 21.73551141676424,
+      "x": -0.02870403811093434,
+      "y": 2.3002229163530137,
+      "width": 4.469813448824724,
+      "height": 1.6761800433092715,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 21.749225477535703,
+      "x": -2.2703192630453612,
+      "y": -0.10296226135479669,
+      "width": 2.370351463876623,
+      "height": 3.5555271958149346,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 21.941913171581366,
+      "x": 2.24484936169298,
+      "y": -0.1211471237365635,
+      "width": 2.4154367712498006,
+      "height": 3.623155156874701,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 22.43992476016345,
+      "x": -0.057236485901595184,
+      "y": 2.2939677294011975,
+      "width": 4.4085741276717245,
+      "height": 1.6532152978768966,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 22.473322072819094,
+      "x": -2.2798197020687163,
+      "y": -0.10538784234934835,
+      "width": 2.4357144885719095,
+      "height": 3.6535717328578645,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 22.830346569642078,
+      "x": 2.3024495634837385,
+      "y": -0.12185215890293229,
+      "width": 2.431480238146726,
+      "height": 3.647220357220089,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 23.13750211300911,
+      "x": -0.012275047727364312,
+      "y": 2.308645242672431,
+      "width": 4.442438920608079,
+      "height": 1.6659145952280294,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 23.245551774553636,
+      "x": -2.336056059540307,
+      "y": -0.10425454390541798,
+      "width": 2.4051750778723124,
+      "height": 3.607762616808469,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 23.583806858282404,
+      "x": 2.2900886438608166,
+      "y": -0.1183060515427256,
+      "width": 2.350786595105578,
+      "height": 3.526179892658367,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 23.840657045614197,
+      "x": 0.03169738012356829,
+      "y": 2.2477542440568437,
+      "width": 4.608729891408809,
+      "height": 1.7282737092783034,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 23.990237523077344,
+      "x": -2.3384060133309297,
+      "y": -0.10172291479440995,
+      "width": 2.3369543355125173,
+      "height": 3.505431503268776,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 24.535502925291635,
+      "x": 2.250090765411668,
+      "y": -0.11774557979932306,
+      "width": 2.3380327492112625,
+      "height": 3.5070491238168935,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 24.563964074335846,
+      "x": -0.0529417388583931,
+      "y": 2.3023546265418733,
+      "width": 4.533810815352277,
+      "height": 1.700179055757104,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 24.84408605161502,
+      "x": -2.287425804094493,
+      "y": -0.10547471624461018,
+      "width": 2.4380555114337024,
+      "height": 3.6570832671505533,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 25.334230597591166,
+      "x": -0.016471886401363087,
+      "y": 2.3453534768800806,
+      "width": 4.532950137653878,
+      "height": 1.6998563016202044,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 25.51355855159422,
+      "x": 2.29478095800319,
+      "y": -0.11810580393962102,
+      "width": 2.3462298496482648,
+      "height": 3.519344774472397,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 25.71052520591937,
+      "x": -2.344734481561307,
+      "y": -0.10442631321351106,
+      "width": 2.4098038087009264,
+      "height": 3.6147057130513893,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 26.027402765961636,
+      "x": -0.01947679698587957,
+      "y": 2.2236632784478325,
+      "width": 4.600231918991168,
+      "height": 1.725086969621688,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 26.435016316830346,
+      "x": 2.2666813219641493,
+      "y": -0.11825965984356065,
+      "width": 2.3497309262179136,
+      "height": 3.5245963893268706,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 26.46230569535163,
+      "x": -2.240903667825121,
+      "y": -0.10190591246347447,
+      "width": 2.3418856411209927,
+      "height": 3.512828461681489,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 26.807642684573963,
+      "x": 0.04008162821775703,
+      "y": 2.366643925863225,
+      "width": 4.452947394284335,
+      "height": 1.6698552728566256,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 27.375660429376108,
+      "x": -2.2913143626474612,
+      "y": -0.1027673869698142,
+      "width": 2.365100112028674,
+      "height": 3.547650168043011,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 27.41565759741903,
+      "x": 2.3035009638427715,
+      "y": -0.11832615123458752,
+      "width": 2.3512439747603917,
+      "height": 3.5268659621405876,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 27.5090879590136,
+      "x": 0.019257328111185232,
+      "y": 2.3305772285950166,
+      "width": 4.550124034454804,
+      "height": 1.7062965129205514,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 28.107875459015716,
+      "x": -2.356528645873038,
+      "y": -0.10559824460622692,
+      "width": 2.4413842757046376,
+      "height": 3.6620764135569566,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 28.302593825762788,
+      "x": 0.03672012525705136,
+      "y": 2.2383938002724477,
+      "width": 4.536082511700024,
+      "height": 1.7010309418875091,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 28.355684138297846,
+      "x": 2.2717875628293953,
+      "y": -0.12103455682588818,
+      "width": 2.4128752486602107,
+      "height": 3.6193128729903163,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 28.998217503136484,
+      "x": -2.340538609202011,
+      "y": -0.10515938947469489,
+      "width": 2.4295582847917743,
+      "height": 3.6443374271876614,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 29.03414077585002,
+      "x": -0.03844198501204855,
+      "y": 2.2271094287566884,
+      "width": 4.481949468863172,
+      "height": 1.6807310508236895,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 29.153642350512204,
+      "x": 2.2900570227451866,
+      "y": -0.11852922103965328,
+      "width": 2.3558649409912213,
+      "height": 3.533797411486832,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 29.669499543828735,
+      "x": -0.04086087846352098,
+      "y": 2.3127104750813414,
+      "width": 4.53355591998041,
+      "height": 1.7000834699926537,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 29.85612501047917,
+      "x": -2.3247713932319063,
+      "y": -0.10511293099938407,
+      "width": 2.4283063511412935,
+      "height": 3.64245952671194,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 29.903127901653953,
+      "x": 2.331769053407824,
+      "y": -0.11900185684550188,
+      "width": 2.366620031328754,
+      "height": 3.549930046993131,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 30.371710246008163,
+      "x": 0.001316096397726979,
+      "y": 2.2648107432667692,
+      "width": 4.4535622448557115,
+      "height": 1.6700858418208917,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 30.717079145827377,
+      "x": -2.2493017104690005,
+      "y": -0.10558007521488862,
+      "width": 2.440894658422258,
+      "height": 3.6613419876333873,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 30.766734252419166,
+      "x": 2.3005061817681853,
+      "y": -0.12345193420901322,
+      "width": 2.4678840140006564,
+      "height": 3.7018260210009846,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 31.14485782386878,
+      "x": 0.03326914249014282,
+      "y": 2.2203373163166784,
+      "width": 4.370024007246914,
+      "height": 1.6387590027175927,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 31.480880183959073,
+      "x": -2.2812893842151243,
+      "y": -0.10359673529814406,
+      "width": 2.3874488669815626,
+      "height": 3.581173300472344,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 31.48896903351301,
+      "x": 2.309076339942796,
+      "y": -0.12020250441047077,
+      "width": 2.393941433696046,
+      "height": 3.590912150544069,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 31.826476205602848,
+      "x": 0.006767568402939156,
+      "y": 2.363880197257986,
+      "width": 4.482969654382313,
+      "height": 1.6811136203933674,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 32.365839283065206,
+      "x": -2.2429086808693466,
+      "y": -0.10214340402852672,
+      "width": 2.348285413821348,
+      "height": 3.522428120732022,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 32.45963109588437,
+      "x": 2.243471688411703,
+      "y": -0.11951823256282622,
+      "width": 2.3783704476518674,
+      "height": 3.5675556714778014,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 32.5187857148426,
+      "x": -0.03916320455288766,
+      "y": 2.2893394685030617,
+      "width": 4.563314770764428,
+      "height": 1.7112430390366606,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 33.18797216600049,
+      "x": -2.3461512543138694,
+      "y": -0.10168860525030345,
+      "width": 2.336029783587121,
+      "height": 3.5040446753806815,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 33.19081596282388,
+      "x": 2.284174232098785,
+      "y": -0.1184341692677059,
+      "width": 2.353701985114019,
+      "height": 3.5305529776710283,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 33.286464638277856,
+      "x": 0.0480292561293577,
+      "y": 2.3130846599337667,
+      "width": 4.424307349885361,
+      "height": 1.6591152562070104,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 34.0103510826796,
+      "x": 2.350570761896719,
+      "y": -0.11793496611540209,
+      "width": 2.342342340048261,
+      "height": 3.5135135100723915,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 34.02893082177505,
+      "x": -2.322051755286276,
+      "y": -0.1061258402917595,
+      "width": 2.455601591020042,
+      "height": 3.6834023865300627,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 34.08821354315292,
+      "x": -0.011608975453781159,
+      "y": 2.344445960780579,
+      "width": 4.371052546656137,
+      "height": 1.6391447049960515,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 34.72867916837662,
+      "x": -2.349069327769406,
+      "y": -0.10338620320640401,
+      "width": 2.381775581140989,
+      "height": 3.5726633717114833,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 34.74730474466637,
+      "x": 2.241056076609548,
+      "y": -0.11799811498861068,
+      "width": 2.3437793277408296,
+      "height": 3.5156689916112445,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 34.89901039796551,
+      "x": 0.043095018473134544,
+      "y": 2.308473853999168,
+      "width": 4.467617079890412,
+      "height": 1.6753564049589045,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 35.483794089549946,
+      "x": 2.330218038896282,
+      "y": -0.11781486052420145,
+      "width": 2.339609270595162,
+      "height": 3.509413905892743,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 35.514598403857306,
+      "x": -2.308729423599988,
+      "y": -0.10643138574096504,
+      "width": 2.46383523680916,
+      "height": 3.6957528552137395,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 35.55803534181196,
+      "x": -0.014131455791520364,
+      "y": 2.3380129592687826,
+      "width": 4.533135327655933,
+      "height": 1.6999257478709748,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 36.33069389725027,
+      "x": 0.04431938521015566,
+      "y": 2.2760367379468844,
+      "width": 4.394499737609029,
+      "height": 1.6479374016033856,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 36.33787826724173,
+      "x": 2.3032142213595286,
+      "y": -0.11798202717582598,
+      "width": 2.34341324062324,
+      "height": 3.51511986093486,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 36.42800586737656,
+      "x": -2.322486292785409,
+      "y": -0.10174867164449847,
+      "width": 2.3376484148412184,
+      "height": 3.5064726222618274,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 36.981615634786195,
+      "x": -0.02991521368941884,
+      "y": 2.3221761049147993,
+      "width": 4.447618427418433,
+      "height": 1.6678569102819125,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 37.0840205162488,
+      "x": 2.338798328913955,
+      "y": -0.11957842442067387,
+      "width": 2.379740146817112,
+      "height": 3.5696102202256683,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 37.23134340184099,
+      "x": -2.242379667412198,
+      "y": -0.10395927585541365,
+      "width": 2.3972183809458802,
+      "height": 3.59582757141882,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 37.60239944866969,
+      "x": -0.010079969140257647,
+      "y": 2.3728033896596794,
+      "width": 4.474089039696287,
+      "height": 1.6777833898861079,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 37.8252074719983,
+      "x": 2.2806365573893728,
+      "y": -0.12126799884449943,
+      "width": 2.4181873514837204,
+      "height": 3.6272810272255804,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 38.15292338749977,
+      "x": -2.2595660551524115,
+      "y": -0.10353342017101355,
+      "width": 2.385742690924151,
+      "height": 3.5786140363862264,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 38.23556239355796,
+      "x": -0.015183177346337402,
+      "y": 2.3645744386977046,
+      "width": 4.3707464088896115,
+      "height": 1.6390299033336044,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 38.707688742092415,
+      "x": 2.3322823992209374,
+      "y": -0.12094173259299171,
+      "width": 2.4107629816716334,
+      "height": 3.6161444725074503,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 38.86370802127976,
+      "x": -2.3525970351096483,
+      "y": -0.10142967912301679,
+      "width": 2.329052405841291,
+      "height": 3.4935786087619367,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 38.95417827053935,
+      "x": -0.02448966356735241,
+      "y": 2.3613046418314765,
+      "width": 4.5196061756765555,
+      "height": 1.6948523158787083,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 39.51121133052718,
+      "x": 2.285974309871516,
+      "y": -0.12143572918126949,
+      "width": 2.4220041484804438,
+      "height": 3.6330062227206654,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 39.73737780217261,
+      "x": -2.3173819560350006,
+      "y": -0.10180664976485147,
+      "width": 2.339210772610731,
+      "height": 3.5088161589160967,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 39.78402410564939,
+      "x": -0.0006184108109203862,
+      "y": 2.3622165539073285,
+      "width": 4.44994677354098,
+      "height": 1.6687300400778677,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 40.34188291600183,
+      "x": 2.3252605310914216,
+      "y": -0.12219114137043471,
+      "width": 2.4391939725183365,
+      "height": 3.6587909587775047,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 40.446851901020004,
+      "x": -2.354141804880198,
+      "y": -0.10641803273777867,
+      "width": 2.463475408512769,
+      "height": 3.695213112769153,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 40.59340825292093,
+      "x": 0.033898609623716616,
+      "y": 2.3512263370146944,
+      "width": 4.372110913586064,
+      "height": 1.639541592594774,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 41.29848438137063,
+      "x": -2.2596927636917448,
+      "y": -0.10258962398397842,
+      "width": 2.360309867357731,
+      "height": 3.540464801036596,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 41.33026934190332,
+      "x": 2.3523955084286197,
+      "y": -0.12222474581803938,
+      "width": 2.4399586603927186,
+      "height": 3.6599379905890776,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 41.41133415977778,
+      "x": -0.029464949249926854,
+      "y": 2.3145203740402955,
+      "width": 4.392247605654844,
+      "height": 1.6470928521205666,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 42.04539137592542,
+      "x": -2.274119443709857,
+      "y": -0.10442288344228498,
+      "width": 2.409711385392097,
+      "height": 3.6145670780881454,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 42.105816369627775,
+      "x": 0.01999677017099763,
+      "y": 2.3038131348143804,
+      "width": 4.469132026523267,
+      "height": 1.6759245099462252,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 42.22927201419285,
+      "x": 2.2739006498838044,
+      "y": -0.12330243506378623,
+      "width": 2.4644820778959358,
+      "height": 3.6967231168439034,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 42.77798600449059,
+      "x": -2.2452752184032287,
+      "y": -0.10413336780403645,
+      "width": 2.401909700824558,
+      "height": 3.6028645512368365,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 42.79826976449682,
+      "x": 0.027816059346093033,
+      "y": 2.3674967974712855,
+      "width": 4.366876381343302,
+      "height": 1.6375786430037382,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 43.08861961094212,
+      "x": 2.353357643909915,
+      "y": -0.12035413763582475,
+      "width": 2.3973919319796564,
+      "height": 3.596087897969485,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 43.634038578825006,
+      "x": 0.02198047485467143,
+      "y": 2.3730639004169376,
+      "width": 4.595491108181299,
+      "height": 1.723309165567987,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 43.6383286368302,
+      "x": -2.323640571008249,
+      "y": -0.10388682024345049,
+      "width": 2.395265892876136,
+      "height": 3.592898839314204,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 44.02701075696034,
+      "x": 2.262665509956664,
+      "y": -0.11785149995445282,
+      "width": 2.340443021185771,
+      "height": 3.5106645317786564,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 44.36443057719417,
+      "x": -0.04583887304236176,
+      "y": 2.3045059032644013,
+      "width": 4.528810459501191,
+      "height": 1.6983039223129466,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 44.55336296798179,
+      "x": -2.266767901047229,
+      "y": -0.10176510697162433,
+      "width": 2.3380913036563995,
+      "height": 3.5071369554845995,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 44.822947723451165,
+      "x": 2.304108864480342,
+      "y": -0.12232258155686705,
+      "width": 2.4421849669829303,
+      "height": 3.6632774504743955,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 44.98924722095821,
+      "x": 0.0029305960834477007,
+      "y": 2.2424654897032763,
+      "width": 4.4221254289416425,
+      "height": 1.658297035853116,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 45.27776154352908,
+      "x": -2.358977748311206,
+      "y": -0.10247533686842895,
+      "width": 2.35723013034924,
+      "height": 3.53584519552386,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 45.62628636299793,
+      "x": -0.012351770369643522,
+      "y": 2.252329738413683,
+      "width": 4.579647362557061,
+      "height": 1.717367760958898,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 45.72664664271792,
+      "x": 2.251572869517845,
+      "y": -0.11937716540419653,
+      "width": 2.3751603860866055,
+      "height": 3.5627405791299083,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 46.12670795047229,
+      "x": -2.3253007971495983,
+      "y": -0.10324007120991342,
+      "width": 2.377837708393453,
+      "height": 3.5667565625901796,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 46.33250062936035,
+      "x": -0.029305140659333675,
+      "y": 2.274112838431308,
+      "width": 4.491787445104389,
+      "height": 1.684420291914146,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 46.709063711770746,
+      "x": 2.2505642930895347,
+      "y": -0.11974396696464756,
+      "width": 2.3835071593733135,
+      "height": 3.57526073905997,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 46.87062010383238,
+      "x": -2.319950136860481,
+      "y": -0.10456930831593284,
+      "width": 2.4136571504082918,
+      "height": 3.6204857256124376,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 47.019594020793214,
+      "x": -0.05585700077458907,
+      "y": 2.3060629756980138,
+      "width": 4.616121909094265,
+      "height": 1.7310457159103494,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 47.50492390839358,
+      "x": 2.2584263577872923,
+      "y": -0.11905778668642703,
+      "width": 2.3678927459311394,
+      "height": 3.551839118896709,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 47.65333635107119,
+      "x": 0.01644901587131757,
+      "y": 2.2682440267011104,
+      "width": 4.4725374125392445,
+      "height": 1.6772015297022167,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 47.68910294913404,
+      "x": -2.30890337352678,
+      "y": -0.10183753764626907,
+      "width": 2.3400431197310367,
+      "height": 3.510064679596555,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 48.27012761348186,
+      "x": 2.333778786002402,
+      "y": -0.1223117568247179,
+      "width": 2.441938644189136,
+      "height": 3.6629079662837043,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 48.387381995642784,
+      "x": -2.351488787927289,
+      "y": -0.10615508133190517,
+      "width": 2.456389560101862,
+      "height": 3.6845843401527927,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 48.470236338960646,
+      "x": 0.0009672860357110152,
+      "y": 2.2474683493880003,
+      "width": 4.435718898187995,
+      "height": 1.663394586820498,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 49.118948248213755,
+      "x": 0.057927507760957134,
+      "y": 2.247953988457486,
+      "width": 4.572174903310741,
+      "height": 1.714565588741528,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 49.12194916778714,
+      "x": -2.30524818895036,
+      "y": -0.10463309400323986,
+      "width": 2.415376006824144,
+      "height": 3.623064010236216,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 49.16504089599236,
+      "x": 2.32099867536307,
+      "y": -0.1187703608078076,
+      "width": 2.361352210382111,
+      "height": 3.5420283155731664,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 49.80125070625858,
+      "x": -2.28104410692831,
+      "y": -0.10322560961893862,
+      "width": 2.3774480065735,
+      "height": 3.5661720098602503,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 49.91501597453585,
+      "x": -0.018669823500290256,
+      "y": 2.241296223333973,
+      "width": 4.467270526972693,
+      "height": 1.67522644761476,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 50.07104815502771,
+      "x": 2.2941257346006325,
+      "y": -0.11968857522712027,
+      "width": 2.382246689612692,
+      "height": 3.5733700344190384,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 50.5528561407586,
+      "x": -2.243076743864333,
+      "y": -0.10532434100521257,
+      "width": 2.4340032944562506,
+      "height": 3.651004941684376,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 50.70670612723464,
+      "x": -0.034335149233805054,
+      "y": 2.3424177871381953,
+      "width": 4.416355914174244,
+      "height": 1.6561334678153417,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 51.03571834532321,
+      "x": 2.2537835886508684,
+      "y": -0.11874778221286479,
+      "width": 2.360838421910523,
+      "height": 3.541257632865785,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 51.41073956788764,
+      "x": -2.2952980010658197,
+      "y": -0.10180425722977228,
+      "width": 2.3391463000864916,
+      "height": 3.508719450129737,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 51.427443376000774,
+      "x": -0.040839880344070864,
+      "y": 2.2874116637209365,
+      "width": 4.432170945995203,
+      "height": 1.6620641047482012,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 51.840890429210305,
+      "x": 2.2823910829701766,
+      "y": -0.11805295141063014,
+      "width": 2.3450271609885616,
+      "height": 3.517540741482842,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 52.09280723505392,
+      "x": -0.03359641098541228,
+      "y": 2.339963604823072,
+      "width": 4.470366376718137,
+      "height": 1.6763873912693015,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 52.256775146789685,
+      "x": -2.245063009752109,
+      "y": -0.10523262561955336,
+      "width": 2.4315318061690134,
+      "height": 3.64729770925352,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 52.693864304525135,
+      "x": 2.318499144695343,
+      "y": -0.12299408010569488,
+      "width": 2.4574652895162568,
+      "height": 3.686197934274385,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 52.7828228237908,
+      "x": 0.058638107270037834,
+      "y": 2.373781245110893,
+      "width": 4.484668610868007,
+      "height": 1.6817507290755027,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 52.933086581049764,
+      "x": -2.3090886262162247,
+      "y": -0.10461697897153133,
+      "width": 2.4149417491275775,
+      "height": 3.6224126236913663,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 53.45250661459411,
+      "x": 2.27135553496345,
+      "y": -0.11866054950894317,
+      "width": 2.358853393270173,
+      "height": 3.53828008990526,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 53.62139820776877,
+      "x": -0.03962736539185935,
+      "y": 2.274488745182137,
+      "width": 4.53046607996053,
+      "height": 1.698924779985199,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 53.79416746005917,
+      "x": -2.293906414313893,
+      "y": -0.10533220169161933,
+      "width": 2.4342151192688966,
+      "height": 3.6513226789033446,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 54.27124248956583,
+      "x": -0.0028975627937298937,
+      "y": 2.2367372237326113,
+      "width": 4.537188889987349,
+      "height": 1.7014458337452558,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 54.271453138714094,
+      "x": 2.330025591827525,
+      "y": -0.123547815802007,
+      "width": 2.470065852916781,
+      "height": 3.705098779375172,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 54.66264396984126,
+      "x": -2.3546902588637675,
+      "y": -0.10468783464170361,
+      "width": 2.4168511229764307,
+      "height": 3.625276684464646,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 55.115245843610914,
+      "x": -0.0004055055536038507,
+      "y": 2.2973714717177116,
+      "width": 4.38442597836982,
+      "height": 1.6441597418886826,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 55.11718043520913,
+      "x": 2.2518182159338855,
+      "y": -0.11757776319196098,
+      "width": 2.3342139890792897,
+      "height": 3.5013209836189345,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 55.505456816619734,
+      "x": -2.264241178872217,
+      "y": -0.10386943740697145,
+      "width": 2.3947974711773323,
+      "height": 3.5921962067659985,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 55.87183019238459,
+      "x": 0.038574138771416244,
+      "y": 2.3240272837829825,
+      "width": 4.5505433375144255,
+      "height": 1.7064537515679095,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 55.93143495506523,
+      "x": 2.339929280347262,
+      "y": -0.12361573627823562,
+      "width": 2.4716114210869615,
+      "height": 3.7074171316304425,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 56.268031756447726,
+      "x": -2.2695578802943124,
+      "y": -0.10395200425029939,
+      "width": 2.3970224303238536,
+      "height": 3.5955336454857805,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 56.63880834383623,
+      "x": 0.026708091756349736,
+      "y": 2.3382663223756572,
+      "width": 4.493513540840632,
+      "height": 1.6850675778152369,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 56.882300881863685,
+      "x": 2.3544562151040185,
+      "y": -0.11773364508682817,
+      "width": 2.3377611681980457,
+      "height": 3.5066417522970683,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 57.12196510995742,
+      "x": -2.3187305080936116,
+      "y": -0.10490409169842195,
+      "width": 2.422678681557472,
+      "height": 3.634018022336208,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 57.34525723931557,
+      "x": 0.009420315025498296,
+      "y": 2.288754170942879,
+      "width": 4.39674437234473,
+      "height": 1.648779139629274,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 57.75210735549304,
+      "x": 2.2994727990345494,
+      "y": -0.11800877253272833,
+      "width": 2.3440218460780846,
+      "height": 3.516032769117127,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 57.85603629513157,
+      "x": -2.2682722237294506,
+      "y": -0.10609334066268807,
+      "width": 2.4547258115419064,
+      "height": 3.6820887173128596,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 58.069048914350965,
+      "x": -0.03448144062463729,
+      "y": 2.2297419842940087,
+      "width": 4.468341980611247,
+      "height": 1.6756282427292177,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 58.532655905756805,
+      "x": -2.3392944775474054,
+      "y": -0.10338879804264067,
+      "width": 2.3818455051490504,
+      "height": 3.5727682577235758,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 58.70337863583554,
+      "x": 2.348947252018413,
+      "y": -0.12353840713964759,
+      "width": 2.469851753577758,
+      "height": 3.7047776303666375,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 58.827425457577,
+      "x": 0.0014085710762682668,
+      "y": 2.247587215207676,
+      "width": 4.453321299798103,
+      "height": 1.6699954874242886,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 59.33021904768253,
+      "x": -2.2968921713050734,
+      "y": -0.10293892570375332,
+      "width": 2.3697226294906124,
+      "height": 3.5545839442359184,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 59.441887282628755,
+      "x": -0.010415810068361571,
+      "y": 2.3422491588387597,
+      "width": 4.466237845260172,
+      "height": 1.6748391919725645,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 59.49819122490927,
+      "x": 2.338405613839013,
+      "y": -0.120708780432587,
+      "width": 2.4054620258437573,
+      "height": 3.608193038765636,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 60.079286514623135,
+      "x": 0.006522417753438675,
+      "y": 2.3750830584744294,
+      "width": 4.399564565664321,
+      "height": 1.6498367121241206,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 60.16359144540851,
+      "x": -2.3117684591480923,
+      "y": -0.10660430717598308,
+      "width": 2.468495014426488,
+      "height": 3.7027425216397316,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 60.22838636104793,
+      "x": 2.2775278382053497,
+      "y": -0.12178483947523498,
+      "width": 2.4299483471697916,
+      "height": 3.6449225207546876,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 60.73948827604008,
+      "x": -0.03915084701390588,
+      "y": 2.2223771538473374,
+      "width": 4.483093388604438,
+      "height": 1.6811600207266642,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 61.046091377287766,
+      "x": 2.347311304885018,
+      "y": -0.11787180777103377,
+      "width": 2.340905136834191,
+      "height": 3.511357705251286,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 61.054540191751336,
+      "x": -2.274111304624975,
+      "y": -0.10191986223015395,
+      "width": 2.342261550623092,
+      "height": 3.5133923259346385,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 61.518779769770056,
+      "x": 0.035249279008309,
+      "y": 2.2972736643450182,
+      "width": 4.515901182079049,
+      "height": 1.6934629432796433,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 61.780650527742985,
+      "x": 2.2747522061338636,
+      "y": -0.11951518701024742,
+      "width": 2.3783011444109636,
+      "height": 3.5674517166164454,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 61.895046713419184,
+      "x": -2.3320391543264005,
+      "y": -0.10179981798584622,
+      "width": 2.3390266741449053,
+      "height": 3.5085400112173577,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 62.3005047722944,
+      "x": 0.04672193050819713,
+      "y": 2.3147471820101844,
+      "width": 4.601373982347656,
+      "height": 1.725515243380371,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 62.60932291477452,
+      "x": 2.2465982601738532,
+      "y": -0.11738502455424624,
+      "width": 2.32982811430107,
+      "height": 3.494742171451605,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 62.637552439811685,
+      "x": -2.2707479954465546,
+      "y": -0.10350684458829781,
+      "width": 2.385026548905706,
+      "height": 3.577539823358559,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 62.91420602850549,
+      "x": 0.05855091280690922,
+      "y": 2.356132745638274,
+      "width": 4.55106401831362,
+      "height": 1.7066490068676075,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 63.47142338222805,
+      "x": -2.33529739951829,
+      "y": -0.10326736230049388,
+      "width": 2.3785731314659366,
+      "height": 3.567859697198905,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 63.50135617342924,
+      "x": 2.317692659508842,
+      "y": -0.11916011361600196,
+      "width": 2.3702212520619113,
+      "height": 3.5553318780928667,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 63.71927871241552,
+      "x": 0.0568386898550749,
+      "y": 2.288618734265921,
+      "width": 4.571584489349275,
+      "height": 1.7143441835059783,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 64.23515651790449,
+      "x": 2.2909267604493717,
+      "y": -0.11968362860386655,
+      "width": 2.38213412645243,
+      "height": 3.573201189678645,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 64.27001275014835,
+      "x": -2.2666769811872802,
+      "y": -0.10278621305397612,
+      "width": 2.365607425454511,
+      "height": 3.5484111381817662,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 64.4961373131065,
+      "x": 0.042911956521778455,
+      "y": 2.2437188129023644,
+      "width": 4.590040044469551,
+      "height": 1.7212650166760817,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 65.11993193724767,
+      "x": -0.010728787545937972,
+      "y": 2.343766885906803,
+      "width": 4.594100812093072,
+      "height": 1.7227878045349019,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 65.15470307795383,
+      "x": -2.3398157699316506,
+      "y": -0.10580023343805962,
+      "width": 2.4468273431729712,
+      "height": 3.670241014759457,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 65.16537514742251,
+      "x": 2.2726495218380647,
+      "y": -0.11830114652753738,
+      "width": 2.3506749787599617,
+      "height": 3.5260124681399425,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 65.9170041948171,
+      "x": -2.285741541667763,
+      "y": -0.10530583801835455,
+      "width": 2.433504687652498,
+      "height": 3.650257031478747,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 65.92586376133876,
+      "x": -0.0018274562205944644,
+      "y": 2.335952842142494,
+      "width": 4.427650296043008,
+      "height": 1.6603688610161278,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 65.96822313089486,
+      "x": 2.29631138153112,
+      "y": -0.11958312898768035,
+      "width": 2.379847201852993,
+      "height": 3.569770802779489,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 66.63515117944502,
+      "x": 0.047788428408559805,
+      "y": 2.231835632277679,
+      "width": 4.545852501862313,
+      "height": 1.7046946881983673,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 66.82952364855213,
+      "x": -2.3536962839614564,
+      "y": -0.10547920367181303,
+      "width": 2.4381764357878004,
+      "height": 3.6572646536817004,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 66.87720361754504,
+      "x": 2.3232270393709804,
+      "y": -0.1208381962539082,
+      "width": 2.4084069547555997,
+      "height": 3.6126104321334,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 67.26698378921621,
+      "x": 0.03342689499481284,
+      "y": 2.371925900839166,
+      "width": 4.432392780334075,
+      "height": 1.662147292625278,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 67.63907152194074,
+      "x": -2.278672209595466,
+      "y": -0.10238989863283057,
+      "width": 2.3549277947373253,
+      "height": 3.532391692105988,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 67.70419399125825,
+      "x": 2.352700138109136,
+      "y": -0.11943351876237206,
+      "width": 2.376442738059311,
+      "height": 3.564664107088966,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 68.00469041682028,
+      "x": -0.00825511800063243,
+      "y": 2.287886486125884,
+      "width": 4.436599355117044,
+      "height": 1.6637247581688916,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 68.31939123969242,
+      "x": -2.314882845685346,
+      "y": -0.10536520356516478,
+      "width": 2.4351044329139104,
+      "height": 3.6526566493708654,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 68.64449893720914,
+      "x": 2.2749348782527377,
+      "y": -0.11996589794940851,
+      "width": 2.3885573222265406,
+      "height": 3.5828359833398107,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 68.81416414293857,
+      "x": 0.004524344961108276,
+      "y": 2.36481869786605,
+      "width": 4.4100054237303326,
+      "height": 1.6537520338988747,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 69.23888365138247,
+      "x": -2.3390503995521192,
+      "y": -0.10557315962907882,
+      "width": 2.440708301583594,
+      "height": 3.661062452375391,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 69.41407420319685,
+      "x": 2.295650011977033,
+      "y": -0.12307975093316356,
+      "width": 2.459414776790211,
+      "height": 3.6891221651853163,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 69.50527157852522,
+      "x": -0.0472015155815704,
+      "y": 2.2685302296194982,
+      "width": 4.560527565855868,
+      "height": 1.7101978371959508,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 69.91620899255007,
+      "x": -2.356121573386099,
+      "y": -0.10181022552372136,
+      "width": 2.339307129902383,
+      "height": 3.5089606948535743,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 70.30025278310423,
+      "x": 0.01045131021095097,
+      "y": 2.235237147172447,
+      "width": 4.543506307095831,
+      "height": 1.7038148651609366,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 70.32639531850621,
+      "x": 2.3309086700062145,
+      "y": -0.12056749542556232,
+      "width": 2.4022470070172406,
+      "height": 3.6033705105258607,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 70.70305882384662,
+      "x": -2.3397465827619435,
+      "y": -0.10461527152220422,
+      "width": 2.4148957378615,
+      "height": 3.6223436067922496,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 71.02613214359225,
+      "x": -0.01529181875005229,
+      "y": 2.33727012198559,
+      "width": 4.598062557567181,
+      "height": 1.724273459087693,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 71.13392478061978,
+      "x": 2.322088180492288,
+      "y": -0.12226020321185468,
+      "width": 2.4407655130875376,
+      "height": 3.6611482696313065,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 71.48011986775177,
+      "x": -2.262654824485066,
+      "y": -0.10488356334175648,
+      "width": 2.4221254963673293,
+      "height": 3.6331882445509938,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 71.71042560814827,
+      "x": -0.038755390977449594,
+      "y": 2.234971583513232,
+      "width": 4.5300144550610595,
+      "height": 1.6987554206478974,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 72.01784891966993,
+      "x": 2.320968320968364,
+      "y": -0.1221101820934393,
+      "width": 2.43735169919293,
+      "height": 3.6560275487893947,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 72.2053268337276,
+      "x": -2.3426835893955698,
+      "y": -0.10430423944944747,
+      "width": 2.40651424200616,
+      "height": 3.60977136300924,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 72.4364113165996,
+      "x": 0.008054924583411949,
+      "y": 2.292584367752754,
+      "width": 4.576736634364772,
+      "height": 1.7162762378867893,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 72.95669172780973,
+      "x": 2.257376788675545,
+      "y": -0.12014672556569375,
+      "width": 2.392672155094898,
+      "height": 3.589008232642347,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 72.98403492782077,
+      "x": -2.3563189306653873,
+      "y": -0.10362644774406712,
+      "width": 2.3882495392085423,
+      "height": 3.5823743088128133,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 73.21554060294875,
+      "x": -0.008697118662323401,
+      "y": 2.2282279916316883,
+      "width": 4.449312198070136,
+      "height": 1.668492074276301,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 73.73894993280193,
+      "x": -2.2700441958853452,
+      "y": -0.10391910373330447,
+      "width": 2.3961358479711485,
+      "height": 3.594203771956723,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 73.74208938841069,
+      "x": 2.354663617299649,
+      "y": -0.1200743204068125,
+      "width": 2.391024535479467,
+      "height": 3.5865368032192,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 73.99696128152286,
+      "x": 0.05039259705949044,
+      "y": 2.299045518422706,
+      "width": 4.376235304724554,
+      "height": 1.6410882392717079,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 74.49234669637138,
+      "x": -2.2790449689856964,
+      "y": -0.10564478004680153,
+      "width": 2.4426382833664375,
+      "height": 3.6639574250496563,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 74.61337026575951,
+      "x": -0.02095925900425402,
+      "y": 2.312725680442164,
+      "width": 4.595858388052867,
+      "height": 1.723446895519825,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 74.72998886597223,
+      "x": 2.3271866860347026,
+      "y": -0.11773254620582473,
+      "width": 2.3377361625503226,
+      "height": 3.506604243825484,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 75.26072225614605,
+      "x": -0.024361547160294407,
+      "y": 2.2224717176535798,
+      "width": 4.472530116725626,
+      "height": 1.6771987937721098,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 75.40247233757401,
+      "x": -2.3034932347746917,
+      "y": -0.10287826466439226,
+      "width": 2.368087974114146,
+      "height": 3.5521319611712188,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 75.49593894735257,
+      "x": 2.2734812750243805,
+      "y": -0.12204626341388526,
+      "width": 2.4358971941293004,
+      "height": 3.6538457911939504,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 76.06128564593325,
+      "x": -0.05242579997131377,
+      "y": 2.3000168577528526,
+      "width": 4.390348668947486,
+      "height": 1.6463807508553074,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 76.12494948116667,
+      "x": -2.2509159528765457,
+      "y": -0.10645128702055227,
+      "width": 2.4643715239222472,
+      "height": 3.6965572858833706,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 76.26338205963302,
+      "x": 2.340478355890127,
+      "y": -0.1199124498177689,
+      "width": 2.3873410802976744,
+      "height": 3.5810116204465117,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 76.71101520849159,
+      "x": 0.021576831006044017,
+      "y": 2.267932543573776,
+      "width": 4.595379181403313,
+      "height": 1.7232671930262424,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 76.99235474624956,
+      "x": -2.316085787457897,
+      "y": -0.1039705967740003,
+      "width": 2.3975234499098996,
+      "height": 3.596285174864849,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 77.13321544264032,
+      "x": 2.276687576566249,
+      "y": -0.12016491115439153,
+      "width": 2.3930859782688203,
+      "height": 3.5896289674032307,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 77.54367014411605,
+      "x": 0.04233929795774306,
+      "y": 2.273061269725457,
+      "width": 4.595542844676991,
+      "height": 1.7233285667538714,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 77.84869492638474,
+      "x": -2.3556914872400556,
+      "y": -0.10264052754025968,
+      "width": 2.3616815842427834,
+      "height": 3.5425223763641753,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "right",
+      "z": 77.92748344589279,
+      "x": 2.3155796276319,
+      "y": -0.1186430407016295,
+      "width": 2.3584549706326356,
+      "height": 3.5376824559489535,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 78.15588558718909,
+      "x": -0.030129311421357868,
+      "y": 2.371429251681235,
+      "width": 4.492174436200941,
+      "height": 1.6845654135753527,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 78.5280255769096,
+      "x": -2.294882195433634,
+      "y": -0.1014744262978544,
+      "width": 2.3302582244474412,
+      "height": 3.495387336671162,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 78.8034832885145,
+      "x": -0.03662882553798209,
+      "y": 2.335280467951779,
+      "width": 4.491165551224757,
+      "height": 1.6841870817092839,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 78.83250122881803,
+      "x": 2.296562947819488,
+      "y": -0.11743497275621748,
+      "width": 2.3309647133859266,
+      "height": 3.4964470700788897,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 79.22101526912074,
+      "x": -2.3408733235254084,
+      "y": -0.10204436951539504,
+      "width": 2.345616694309589,
+      "height": 3.5184250414643836,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 79.44274179168214,
+      "x": -0.0032387005063545526,
+      "y": 2.2338180246524613,
+      "width": 4.4234103557310105,
+      "height": 1.658778883399129,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 79.71894822548491,
+      "x": 2.3172882430242248,
+      "y": -0.11953245319885743,
+      "width": 2.378694046125111,
+      "height": 3.5680410691876667,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 80.06549635373793,
+      "x": -2.278480149428869,
+      "y": -0.10267595226169662,
+      "width": 2.362636187262558,
+      "height": 3.5439542808938373,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 80.13961432638207,
+      "x": -0.05983245689680843,
+      "y": 2.3743406679112122,
+      "width": 4.586953132419439,
+      "height": 1.7201074246572896,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 80.62890040308152,
+      "x": 2.2814222723038315,
+      "y": -0.11844711251722172,
+      "width": 2.353996515947445,
+      "height": 3.530994773921168,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 80.7657461856347,
+      "x": -0.009775447036461722,
+      "y": 2.305513471902713,
+      "width": 4.440147234009172,
+      "height": 1.6650552127534393,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "left",
+      "z": 80.78505239750034,
+      "x": -2.2651457426919026,
+      "y": -0.10340269148129845,
+      "width": 2.3822198967591968,
+      "height": 3.573329845138795,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    },
+    {
+      "role": "crown",
+      "z": 81.42848917332068,
+      "x": -0.03839289497104043,
+      "y": 2.2761247470657615,
+      "width": 4.457602223124514,
+      "height": 1.6716008336716928,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/crown-a.png"
+    },
+    {
+      "role": "right",
+      "z": 81.516418652248,
+      "x": 2.262400645162456,
+      "y": -0.1210874064095961,
+      "width": 2.4140778702983647,
+      "height": 3.621116805447547,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-a.png"
+    },
+    {
+      "role": "left",
+      "z": 81.52572504892917,
+      "x": -2.271739103287427,
+      "y": -0.1024860320622743,
+      "width": 2.357518337678125,
+      "height": 3.5362775065171874,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png"
+    }
+  ],
+  "lens": 1.0,
+  "horizon": 0.48,
+  "shots": [
+    {
+      "name": "cards-0",
+      "pose": [
+        0.0,
+        1.3,
+        4.0
+      ]
+    },
+    {
+      "name": "cards-1",
+      "pose": [
+        0.0,
+        1.3,
+        5.0
+      ]
+    },
+    {
+      "name": "cards-2",
+      "pose": [
+        0.0,
+        1.3,
+        6.0
+      ]
+    },
+    {
+      "name": "cards-3",
+      "pose": [
+        0.0,
+        1.3,
+        7.0
+      ]
+    },
+    {
+      "name": "cards-4",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ]
+    },
+    {
+      "name": "cards-5",
+      "pose": [
+        0.0,
+        1.3,
+        9.0
+      ]
+    },
+    {
+      "name": "cards-6",
+      "pose": [
+        0.0,
+        1.3,
+        10.0
+      ]
+    },
+    {
+      "name": "cards-7",
+      "pose": [
+        0.0,
+        1.3,
+        11.0
+      ]
+    },
+    {
+      "name": "cards-8",
+      "pose": [
+        0.0,
+        1.3,
+        12.0
+      ]
+    }
+  ]
+}

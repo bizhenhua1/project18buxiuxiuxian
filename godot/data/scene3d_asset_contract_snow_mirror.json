@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "scene_id": "snow_mirror",
+  "status": "annotated_candidate",
+  "dimension_source": "design_initial",
+  "scale": {
+    "world_units_per_m": 20.0,
+    "route_step_units": 20.0,
+    "outer_span_m": 8.0,
+    "inner_clear_span_m": 4.0,
+    "camera_envelope_half_width_m": 7.0,
+    "note": "High-arch candidate; visual and camera clearance review pending."
+  },
+  "assets": [
+    {"id":"snow-mirror-arch","role":"structure","path":"res://assets/fairytales/snow_mirror/corridor-shell.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[8.0,3.2],"allow_on_road":false},
+    {"id":"snow-mirror-roof-material","role":"roof","path":"res://assets/fairytales/snow_mirror/ground.png","representation":"surface_texture","contact":"surface","status":"annotated_candidate","repeat_distance_m":[4.0,4.0],"allow_on_road":false},
+    {"id":"snow-mirror-structure","role":"structure","path":"res://assets/fairytales/snow_mirror/structure.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[4.8,3.4],"allow_on_road":false},
+    {"id":"snow-mirror-branch-side","role":"structure","path":"res://assets/fairytales/snow_mirror/branch-side.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[2.8,3.2],"allow_on_road":false},
+    {"id":"snow-mirror-dressing","role":"furnishing","path":"res://assets/fairytales/snow_mirror/dressing/stool/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[0.8,0.3],"allow_on_road":false}
+  ],
+  "placement_rules": {
+    "road_clearance_m": 1.2,
+    "wall_clearance_m": 0.35,
+    "mirror_group_spacing_m": [6.0, 10.0],
+    "max_hanging_count": 0,
+    "branch_policy": "shared ceremonial hall at the junction; mirror niches start after the selected branch turn"
+  },
+  "review": {
+    "issues": ["per-asset footprint/socket annotation and final user visual acceptance remain pending"],
+    "evidence": ["legacy corridor.json", "anchors.json", "dressing.json"],
+    "approved_by": null
+  }
+}

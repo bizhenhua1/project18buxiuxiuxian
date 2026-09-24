@@ -1,0 +1,469 @@
+{
+  "status": "measured_not_art_accepted",
+  "frames": [
+    {
+      "name": "approach-5",
+      "pose": [
+        0.0,
+        1.3,
+        5.0
+      ],
+      "background_pixels": 96,
+      "border_background_pixels": 0,
+      "visible_cards": 208
+    },
+    {
+      "name": "approach-6.5",
+      "pose": [
+        0.0,
+        1.3,
+        6.5
+      ],
+      "background_pixels": 156,
+      "border_background_pixels": 0,
+      "visible_cards": 210
+    },
+    {
+      "name": "approach-8",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 214,
+      "border_background_pixels": 0,
+      "visible_cards": 224
+    },
+    {
+      "name": "branch--1-00",
+      "pose": [
+        -0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 214,
+      "border_background_pixels": 0,
+      "visible_cards": 224
+    },
+    {
+      "name": "branch--1-01",
+      "pose": [
+        -0.3882716049382716,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 516,
+      "border_background_pixels": 5,
+      "visible_cards": 208
+    },
+    {
+      "name": "branch--1-02",
+      "pose": [
+        -1.4617283950617286,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 943,
+      "border_background_pixels": 25,
+      "visible_cards": 124
+    },
+    {
+      "name": "branch--1-03",
+      "pose": [
+        -1.85,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 106
+    },
+    {
+      "name": "branch--1-04",
+      "pose": [
+        -1.9645078267132772,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 109
+    },
+    {
+      "name": "branch--1-05",
+      "pose": [
+        -2.504619965104222,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 122
+    },
+    {
+      "name": "branch--1-06",
+      "pose": [
+        -3.341135106270684,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 10,
+      "border_background_pixels": 0,
+      "visible_cards": 121
+    },
+    {
+      "name": "branch--1-07",
+      "pose": [
+        -4.0712491695177295,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 11,
+      "border_background_pixels": 0,
+      "visible_cards": 120
+    },
+    {
+      "name": "branch--1-08",
+      "pose": [
+        -4.383358998081352,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 127
+    },
+    {
+      "name": "branch--1-09",
+      "pose": [
+        -4.4,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 129
+    },
+    {
+      "name": "branch--1-10",
+      "pose": [
+        -4.4,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 15,
+      "border_background_pixels": 0,
+      "visible_cards": 119
+    },
+    {
+      "name": "branch--1-11",
+      "pose": [
+        -4.4,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 113
+    },
+    {
+      "name": "branch--1-12",
+      "pose": [
+        -4.4,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 117
+    },
+    {
+      "name": "branch-0-00",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 214,
+      "border_background_pixels": 0,
+      "visible_cards": 224
+    },
+    {
+      "name": "branch-0-01",
+      "pose": [
+        0.0,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 515,
+      "border_background_pixels": 5,
+      "visible_cards": 214
+    },
+    {
+      "name": "branch-0-02",
+      "pose": [
+        0.0,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 405,
+      "border_background_pixels": 21,
+      "visible_cards": 151
+    },
+    {
+      "name": "branch-0-03",
+      "pose": [
+        0.0,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 7,
+      "border_background_pixels": 0,
+      "visible_cards": 135
+    },
+    {
+      "name": "branch-0-04",
+      "pose": [
+        0.0,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 128
+    },
+    {
+      "name": "branch-0-05",
+      "pose": [
+        0.0,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 9,
+      "border_background_pixels": 0,
+      "visible_cards": 134
+    },
+    {
+      "name": "branch-0-06",
+      "pose": [
+        0.0,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 9,
+      "border_background_pixels": 0,
+      "visible_cards": 135
+    },
+    {
+      "name": "branch-0-07",
+      "pose": [
+        0.0,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 12,
+      "border_background_pixels": 0,
+      "visible_cards": 125
+    },
+    {
+      "name": "branch-0-08",
+      "pose": [
+        0.0,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 126
+    },
+    {
+      "name": "branch-0-09",
+      "pose": [
+        0.0,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 129
+    },
+    {
+      "name": "branch-0-10",
+      "pose": [
+        0.0,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 15,
+      "border_background_pixels": 0,
+      "visible_cards": 118
+    },
+    {
+      "name": "branch-0-11",
+      "pose": [
+        0.0,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 111
+    },
+    {
+      "name": "branch-0-12",
+      "pose": [
+        0.0,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 119
+    },
+    {
+      "name": "branch-1-00",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 214,
+      "border_background_pixels": 0,
+      "visible_cards": 224
+    },
+    {
+      "name": "branch-1-01",
+      "pose": [
+        0.3882716049382716,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 537,
+      "border_background_pixels": 2,
+      "visible_cards": 211
+    },
+    {
+      "name": "branch-1-02",
+      "pose": [
+        1.4617283950617286,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 731,
+      "border_background_pixels": 21,
+      "visible_cards": 125
+    },
+    {
+      "name": "branch-1-03",
+      "pose": [
+        1.85,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 3,
+      "border_background_pixels": 0,
+      "visible_cards": 114
+    },
+    {
+      "name": "branch-1-04",
+      "pose": [
+        1.9645078267132772,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 4,
+      "border_background_pixels": 0,
+      "visible_cards": 113
+    },
+    {
+      "name": "branch-1-05",
+      "pose": [
+        2.504619965104222,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 7,
+      "border_background_pixels": 0,
+      "visible_cards": 123
+    },
+    {
+      "name": "branch-1-06",
+      "pose": [
+        3.341135106270684,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 9,
+      "border_background_pixels": 0,
+      "visible_cards": 128
+    },
+    {
+      "name": "branch-1-07",
+      "pose": [
+        4.0712491695177295,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 11,
+      "border_background_pixels": 0,
+      "visible_cards": 126
+    },
+    {
+      "name": "branch-1-08",
+      "pose": [
+        4.383358998081352,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 127
+    },
+    {
+      "name": "branch-1-09",
+      "pose": [
+        4.4,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 14,
+      "border_background_pixels": 0,
+      "visible_cards": 132
+    },
+    {
+      "name": "branch-1-10",
+      "pose": [
+        4.4,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 15,
+      "border_background_pixels": 0,
+      "visible_cards": 120
+    },
+    {
+      "name": "branch-1-11",
+      "pose": [
+        4.4,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 114
+    },
+    {
+      "name": "branch-1-12",
+      "pose": [
+        4.4,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 115
+    }
+  ],
+  "body_intersections": [],
+  "max_border_background_pixels": 25
+}

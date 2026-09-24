@@ -1,0 +1,518 @@
+{
+  "instances": [
+    {
+      "height_m": 4.26860380172729,
+      "max_burial_m": 0.124365786999303,
+      "position_m": [
+        -0.101868063211441,
+        -0.0170260333074619,
+        -2.41767768859863
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.40290570259094
+    },
+    {
+      "height_m": 4.41444540023804,
+      "max_burial_m": 0.121308681504656,
+      "position_m": [
+        -0.0826240479946136,
+        0.0210903336574516,
+        -4.45163516998291
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.62166810035706
+    },
+    {
+      "height_m": 4.51332998275757,
+      "max_burial_m": 0.114535009501414,
+      "position_m": [
+        -0.0568313896656036,
+        0.0530362910221635,
+        -6.73310737609863
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.76999497413635
+    },
+    {
+      "height_m": 4.55178689956665,
+      "max_burial_m": 0.101565098718615,
+      "position_m": [
+        0.11775928735733,
+        0.072332942658678,
+        -8.89290051460266
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.82768034934998
+    },
+    {
+      "height_m": 4.4722375869751,
+      "max_burial_m": 0.0946946440215448,
+      "position_m": [
+        -0.039252981543541,
+        0.0718179399321679,
+        -10.8756387710571
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.70835638046265
+    },
+    {
+      "height_m": 4.55469131469727,
+      "max_burial_m": 0.0832554761787428,
+      "position_m": [
+        0.0520804077386856,
+        0.0610292064305565,
+        -12.91891746521
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.8320369720459
+    },
+    {
+      "height_m": 4.54431676864624,
+      "max_burial_m": 0.0723638117374903,
+      "position_m": [
+        -0.0307529121637344,
+        0.0371357120953141,
+        -14.9881546974182
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.81647515296936
+    },
+    {
+      "height_m": 4.33332586288452,
+      "max_burial_m": 0.0599243659596587,
+      "position_m": [
+        -0.157546326518059,
+        0.011331327357648,
+        -16.8933713912964
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.49998879432678
+    },
+    {
+      "height_m": 4.39616775512695,
+      "max_burial_m": 0.0406421124851332,
+      "position_m": [
+        -0.00413720309734344,
+        -0.0183442652692487,
+        -19.0720515727997
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.59425163269043
+    },
+    {
+      "height_m": 4.38394069671631,
+      "max_burial_m": 0.0468837545430633,
+      "position_m": [
+        -0.0289530605077744,
+        -0.0578500028289108,
+        -21.129921245575
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.57591104507446
+    },
+    {
+      "height_m": 4.30512619018555,
+      "max_burial_m": 0.0606119953545822,
+      "position_m": [
+        -0.111789099872112,
+        -0.0971837670072482,
+        -23.5770671844482
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.45768928527832
+    },
+    {
+      "height_m": 4.39090585708618,
+      "max_burial_m": 0.0767335092553674,
+      "position_m": [
+        -0.128740459680557,
+        -0.122576280273713,
+        -25.9670684814453
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.58635878562927
+    },
+    {
+      "height_m": 4.23725986480713,
+      "max_burial_m": 0.0840270160163723,
+      "position_m": [
+        -0.164120391011238,
+        -0.124032434080855,
+        -27.8351939201355
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.35588979721069
+    },
+    {
+      "height_m": 4.45899486541748,
+      "max_burial_m": 0.103250505940678,
+      "position_m": [
+        0.114368677139282,
+        -0.123859140739269,
+        -30.0100419998169
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.68849229812622
+    },
+    {
+      "height_m": 4.5936107635498,
+      "max_burial_m": 0.113010502964499,
+      "position_m": [
+        -0.0352534055709839,
+        -0.0976006069530937,
+        -32.3022654533386
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.89041614532471
+    },
+    {
+      "height_m": 4.55829429626465,
+      "max_burial_m": 0.12063727287937,
+      "position_m": [
+        0.000123828649520874,
+        -0.0656065470734273,
+        -34.4484391689301
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.83744144439697
+    },
+    {
+      "height_m": 4.46443605422974,
+      "max_burial_m": 0.124749724834404,
+      "position_m": [
+        -0.02305968105793,
+        -0.0314597386230193,
+        -36.4922142505646
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.6966540813446
+    },
+    {
+      "height_m": 4.25967454910278,
+      "max_burial_m": 0.125729908866923,
+      "position_m": [
+        0.134320855140686,
+        -0.000698135661274132,
+        -38.5984116077423
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.38951182365417
+    },
+    {
+      "height_m": 4.59047222137451,
+      "max_burial_m": 0.128763000609631,
+      "position_m": [
+        -0.0319741666316986,
+        0.0205176388596455,
+        -40.5618066072464
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.88570833206177
+    },
+    {
+      "height_m": 4.31406593322754,
+      "max_burial_m": 0.12117996935399,
+      "position_m": [
+        0.0536527037620544,
+        0.0332442895057483,
+        -42.769538807869
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.47109889984131
+    },
+    {
+      "height_m": 4.36743879318237,
+      "max_burial_m": 0.113725380649499,
+      "position_m": [
+        0.123723804950714,
+        0.0298649134772177,
+        -45.0179161310196
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.55115818977356
+    },
+    {
+      "height_m": 4.25589227676392,
+      "max_burial_m": 0.104622086243886,
+      "position_m": [
+        0.0667818188667297,
+        0.0137419977061867,
+        -46.9828697919846
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.38383841514587
+    },
+    {
+      "height_m": 4.59602212905884,
+      "max_burial_m": 0.102149950723688,
+      "position_m": [
+        -0.153729304671288,
+        -0.0214633843890849,
+        -49.4275280714035
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.89403319358826
+    },
+    {
+      "height_m": 4.47739601135254,
+      "max_burial_m": 0.0857035527060444,
+      "position_m": [
+        0.114909559488297,
+        -0.0559560160711477,
+        -51.2986833333969
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.71609401702881
+    },
+    {
+      "height_m": 4.34122753143311,
+      "max_burial_m": 0.0682037442135514,
+      "position_m": [
+        0.164313644170761,
+        -0.100414965899425,
+        -53.6720864057541
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.51184129714966
+    },
+    {
+      "height_m": 4.25227689743042,
+      "max_burial_m": 0.0582936513731841,
+      "position_m": [
+        -0.0944129750132561,
+        -0.13943180761882,
+        -55.9968957185745
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.37841534614563
+    },
+    {
+      "height_m": 4.47771644592285,
+      "max_burial_m": 0.042771951234366,
+      "position_m": [
+        0.0830937325954437,
+        -0.15763460286311,
+        -57.8389070510864
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.71657466888428
+    },
+    {
+      "height_m": 4.4292516708374,
+      "max_burial_m": 0.0409258450657775,
+      "position_m": [
+        -0.161229133605957,
+        -0.17436151448528,
+        -60.0405371665955
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.6438775062561
+    },
+    {
+      "height_m": 4.34109687805176,
+      "max_burial_m": 0.0588015679378077,
+      "position_m": [
+        -0.0863664224743843,
+        -0.178939725381033,
+        -62.4064510345459
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.51164531707764
+    },
+    {
+      "height_m": 4.40168905258179,
+      "max_burial_m": 0.0736555346265969,
+      "position_m": [
+        -0.0832946449518204,
+        -0.164288428809836,
+        -64.5487590312958
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.60253357887268
+    },
+    {
+      "height_m": 4.45852375030518,
+      "max_burial_m": 0.088322310297725,
+      "position_m": [
+        -0.106012523174286,
+        -0.129707657479829,
+        -67.0279894351959
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.68778562545776
+    },
+    {
+      "height_m": 4.42316865921021,
+      "max_burial_m": 0.0956081266599071,
+      "position_m": [
+        -0.152993828058243,
+        -0.0951923229079877,
+        -68.8624753236771
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.63475298881531
+    },
+    {
+      "height_m": 4.42006921768188,
+      "max_burial_m": 0.108224702564833,
+      "position_m": [
+        -0.0825139582157135,
+        -0.049821605572752,
+        -71.2003428220749
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.63010382652283
+    },
+    {
+      "height_m": 4.3355393409729,
+      "max_burial_m": 0.114519407571697,
+      "position_m": [
+        -0.0982086434960365,
+        -0.016862478344515,
+        -73.0019857168198
+      ],
+      "source": "res://assets/biomes/crystal/arch-study/surround-a.png",
+      "width_m": 6.50330901145935
+    }
+  ],
+  "scope": "straight 8m motion, no junction or combat acceptance",
+  "status": "hypothesis_only_not_accepted",
+  "unique_structural_sources": 1,
+  "views": [
+    {
+      "camera_world_m": [
+        0.0,
+        1.25199139118195,
+        -4.46885871887207
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 0,
+      "phase": "travel",
+      "route_s_m": 4.06885808915046,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.26026511192322,
+        -4.92948341369629
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 1,
+      "phase": "travel",
+      "route_s_m": 4.52948353320523,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.26872944831848,
+        -5.44128894805908
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 2,
+      "phase": "travel",
+      "route_s_m": 5.04128958215498,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.27637326717377,
+        -5.95309638977051
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 3,
+      "phase": "travel",
+      "route_s_m": 5.55309563110472,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.28314805030823,
+        -6.4649019241333
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 4,
+      "phase": "travel",
+      "route_s_m": 6.06490168005446,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.28846800327301,
+        -6.92552661895752
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 5,
+      "phase": "travel",
+      "route_s_m": 6.52552712410924,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.30841886997223,
+        -7.43584823608398
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 6,
+      "phase": "travel",
+      "route_s_m": 7.03733317305899,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.48004293441772,
+        -7.90441751480103
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 7,
+      "phase": "travel",
+      "route_s_m": 7.54913922200874,
+      "viewport": [
+        1552,
+        830
+      ]
+    },
+    {
+      "camera_world_m": [
+        0.0,
+        1.78305661678314,
+        -8.28038024902344
+      ],
+      "frame_origin": "unmodified production camera",
+      "index": 8,
+      "phase": "travel",
+      "route_s_m": 8.04383969131398,
+      "viewport": [
+        1552,
+        830
+      ]
+    }
+  ]
+}

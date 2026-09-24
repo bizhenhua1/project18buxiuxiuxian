@@ -1,0 +1,8 @@
+{
+  "uniform_scale_feasible": false,
+  "minimum_canvas_height_m": 5.126652353832335,
+  "maximum_canvas_height_m": 4.092307692307692,
+  "opening_at_max_height_m": 6.0666369230769215,
+  "decision": "split supports and span, or regenerate source with a wider aperture; do not squash or change the camera",
+  "runtime_verified": false
+}

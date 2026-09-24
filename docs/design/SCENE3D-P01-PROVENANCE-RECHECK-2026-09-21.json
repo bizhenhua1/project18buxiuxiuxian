@@ -1,0 +1,9 @@
+{
+  "manifest": "tempassets/work/p01-recheck-20260921-181000/manifest.json",
+  "provenance_valid": true,
+  "errors": [],
+  "visual_acceptance": "not evaluated by this tool",
+  "renderer": "Windows/OpenGL compatibility",
+  "source_frozen_at_capture": true,
+  "original_manifest_preserved": true
+}

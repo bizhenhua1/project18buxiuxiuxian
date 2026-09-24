@@ -1,0 +1,369 @@
+{
+  "schema_version": 2,
+  "scope": "3D scenery production only",
+  "protocol": "docs/design/SCENE3D-START-HERE.md",
+  "asset_contract_schema": "docs/design/SCENE3D-ASSET-CONTRACT.schema.json",
+  "runtime_profiles_accepted": false,
+  "image_generation_allowed": false,
+  "image_generation_phase": "not_in_current_documentation_scope; obey explicit future task scope",
+  "asset_generation_contract": {
+    "requires_asset_request": true,
+    "requires_prompt_and_palette_reference": true,
+    "runtime_direct_use_of_raw_generation": false,
+    "minimum_counts_are_initial_targets": true,
+    "quality_contract": "SCENE3D-LUNA-EXECUTION-2026-09-21.md#B8",
+    "deliverables": [
+      "source_prompt_and_references",
+      "raw_generation_output",
+      "processed_rgba_asset",
+      "crop_rect_and_anchor_uv",
+      "AssetSpec_with_footprints_and_sockets",
+      "alpha_resolution_outline_logs",
+      "single_scene_before_after_manifest"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "P00",
+      "depends": [],
+      "status": "superseded",
+      "output": "baseline_context.json",
+      "historical_status": "complete",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P01",
+      "depends": [
+        "P00"
+      ],
+      "status": "superseded",
+      "output": "single-scene provenance capture tool and validated manifest",
+      "evidence": [
+        "tempassets/work/p01-recheck-20260921-181000/manifest.json",
+        "docs/design/SCENE3D-P01-PROVENANCE-RECHECK-2026-09-21.json",
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json"
+      ],
+      "note": "Source-frozen Windows/OpenGL recapture for red_cottage is current-source valid after the explicit ceiling experiment was isolated behind a flag; old manifests remain historical and were not rewritten.",
+      "historical_status": "complete",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P02",
+      "depends": [
+        "P01"
+      ],
+      "status": "superseded",
+      "output": "six measured baseline captures, role-ID masks, depth masks and ROI metrics",
+      "evidence": [
+        "docs/design/SCENE3D-BASELINE-MEASUREMENTS-RECHECK-2026-09-21.json",
+        "tempassets/work/p02-recheck-20260921-181000",
+        "tempassets/work/p02-mask-recheck-20260921-181000",
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json"
+      ],
+      "note": "All six themes were recaptured in Windows/OpenGL from the current source and aggregated with same-camera role-ID/depth masks after the explicit ceiling experiment was isolated behind a flag; provenance and mask checks pass. Visual review remains separate and unapproved; original six baseline directories were not overwritten.",
+      "historical_status": "complete",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P03",
+      "depends": [
+        "P00"
+      ],
+      "status": "superseded",
+      "output": "runtime asset/profile schema, migration validator and asset-gap ledger",
+      "evidence": [
+        "docs/design/SCENE3D-ASSET-CONTRACT.schema.json",
+        "docs/design/SCENE3D-ASSET-MIGRATION.json",
+        "scripts/test_scene3d_asset_contract.py"
+      ],
+      "historical_status": "complete",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P03A",
+      "depends": [
+        "P03"
+      ],
+      "status": "superseded",
+      "mode": "conditional",
+      "output": "validated generated assets for approved asset requests, or explicit no-op report",
+      "evidence": "docs/design/SCENE3D-P03A-AWAITING-2026-09-21.json",
+      "note": "red_cottage roof request remains awaiting_asset; no image generated and no runtime placeholder introduced.",
+      "historical_status": "awaiting_asset",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P04",
+      "depends": [
+        "P03"
+      ],
+      "status": "superseded",
+      "output": "junction envelope, footprint geometry tests and flagged runtime layout audit",
+      "evidence": [
+        "godot/scripts/world3d/junction_geometry.gd",
+        "godot/tests/test_scene3d_junction_geometry.gd",
+        "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "tempassets/work/fairytale-travel-audit-junction-geometry/report.json"
+      ],
+      "note": "Geometry module and headless tests pass for straight, curved left/right, 2-way, 3-way, boundary continuity, SAT and spatial buckets; fairytale_corridor integration passes 18-scene audit behind explicit --junction-geometry-layout. Default enablement remains an Astra review decision.",
+      "historical_status": "complete",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P05",
+      "depends": [
+        "P02",
+        "P03A",
+        "P04"
+      ],
+      "status": "superseded",
+      "scene": "red_cottage",
+      "output": "closed interior representative or explicit missing asset requests",
+      "evidence": [
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448",
+        "tempassets/work/representative-fork/red_cottage-20260921052213",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-1842",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-2718",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-4096"
+      ],
+      "historical_status": "pending",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P06",
+      "depends": [
+        "P02",
+        "P03A",
+        "P04"
+      ],
+      "status": "superseded",
+      "scene": "piper_mountain",
+      "output": "entrance/cave representative or explicit missing asset requests",
+      "evidence": [
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509",
+        "tempassets/work/representative-travel/piper_mountain-left-20260921052020",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-1842",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-2718",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-4096"
+      ],
+      "historical_status": "pending",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P07",
+      "depends": [
+        "P05",
+        "P06"
+      ],
+      "status": "superseded",
+      "output": "user visual decision on representative scenes",
+      "historical_status": "pending",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P08",
+      "depends": [
+        "P07"
+      ],
+      "status": "superseded",
+      "output": "remaining family representatives",
+      "historical_status": "pending",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P09",
+      "depends": [
+        "P08"
+      ],
+      "status": "superseded",
+      "output": "per-scene rollout with exception reports",
+      "evidence": "tempassets/work/scene3d-18-captures-20260921",
+      "historical_status": "pending",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    },
+    {
+      "id": "P10",
+      "depends": [
+        "P09"
+      ],
+      "status": "superseded",
+      "output": "18-scene evidence and bounded performance report",
+      "evidence": [
+        "tempassets/work/scene3d-18-captures-20260921",
+        "tempassets/work/scene3d-performance-20260921/p10-report.json"
+      ],
+      "note": "Travel/streaming benchmark executed in Windows/OpenGL with draw-call metrics available; final gate remains pending because combat/skill stress and visual acceptance are still pending.",
+      "historical_status": "in_progress",
+      "execution_disposition": "Historical evidence only; use v3.1 work orders and v3 T tasks"
+    }
+  ],
+  "scene_assignments": [
+    {
+      "scene": "red_village",
+      "family": "street",
+      "structure_baseline": "palace",
+      "auxiliary": {
+        "far_background": "forest"
+      },
+      "roof": "local"
+    },
+    {
+      "scene": "red_cottage",
+      "family": "interior",
+      "structure_baseline": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "roof": "closed"
+    },
+    {
+      "scene": "red_workshop",
+      "family": "interior",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "closed"
+    },
+    {
+      "scene": "snow_mirror",
+      "family": "interior",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "closed"
+    },
+    {
+      "scene": "snow_orchard",
+      "family": "garden",
+      "structure_baseline": "forest",
+      "auxiliary": {
+        "midground": "swamp"
+      },
+      "roof": "open"
+    },
+    {
+      "scene": "snow_house",
+      "family": "interior",
+      "structure_baseline": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "roof": "closed"
+    },
+    {
+      "scene": "alice_tea",
+      "family": "garden",
+      "structure_baseline": "swamp",
+      "auxiliary": {},
+      "roof": "open"
+    },
+    {
+      "scene": "alice_roses",
+      "family": "garden",
+      "structure_baseline": "swamp",
+      "auxiliary": {
+        "ground_cover": "forest"
+      },
+      "roof": "open"
+    },
+    {
+      "scene": "alice_hall",
+      "family": "interior",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "closed"
+    },
+    {
+      "scene": "piper_market",
+      "family": "street",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "local"
+    },
+    {
+      "scene": "piper_bridge",
+      "family": "bridge",
+      "structure_baseline": "swamp",
+      "auxiliary": {},
+      "roof": "open"
+    },
+    {
+      "scene": "piper_mountain",
+      "family": "cave",
+      "structure_baseline": "crystal",
+      "auxiliary": {},
+      "roof": "entrance_to_closed"
+    },
+    {
+      "scene": "puppet_workshop",
+      "family": "interior",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "closed"
+    },
+    {
+      "scene": "puppet_theatre",
+      "family": "stage",
+      "structure_baseline": "palace",
+      "auxiliary": {
+        "depth_layers": "whale"
+      },
+      "roof": "closed"
+    },
+    {
+      "scene": "puppet_fair",
+      "family": "street",
+      "structure_baseline": "palace",
+      "auxiliary": {
+        "far_background": "swamp"
+      },
+      "roof": "local"
+    },
+    {
+      "scene": "cinder_kitchen",
+      "family": "interior",
+      "structure_baseline": "sewer",
+      "auxiliary": {
+        "furnishing": "palace"
+      },
+      "roof": "closed"
+    },
+    {
+      "scene": "cinder_garden",
+      "family": "garden",
+      "structure_baseline": "swamp",
+      "auxiliary": {
+        "ground_cover": "forest"
+      },
+      "roof": "open"
+    },
+    {
+      "scene": "cinder_clock",
+      "family": "clock",
+      "structure_baseline": "palace",
+      "auxiliary": {},
+      "roof": "closed"
+    }
+  ],
+  "family_representatives": {
+    "interior": "red_cottage",
+    "cave": "piper_mountain",
+    "garden": "snow_orchard",
+    "street": "piper_market",
+    "bridge": "piper_bridge",
+    "stage": "puppet_theatre",
+    "clock": "cinder_clock"
+  },
+  "measurement_status": "historical_role_depth_values_quarantined_pending_T02",
+  "assignment_note": "Design mapping only. Borrow layer composition, never copy baseline theme art into another story. Bridge/street have no exact baseline: derive component metrics, retain explicit design exceptions.",
+  "provenance_validator": "scripts/validate_scene3d_capture.py",
+  "v3_review": {
+    "authoritative_entry": "docs/design/SCENE3D-START-HERE.md",
+    "decisions": "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "execution_index": "docs/design/SCENE3D-PRODUCTION-PLAN-V3.json",
+    "historical_values_not_current_acceptance": true,
+    "runtime_fixed_by_this_revision": false
+  },
+  "historical_protocol": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md",
+  "tasks_status_scope": "P00-P10 historical log only; execute T01-T11 in v3 index",
+  "execution_queue_active": false,
+  "goal_audit": "docs/design/SCENE3D-GOAL-AUDIT-2026-09-21.md"
+}

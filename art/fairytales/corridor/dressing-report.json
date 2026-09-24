@@ -3,126 +3,108 @@
     "scene": "red_village",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "red_workshop",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "alice_tea",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "snow_orchard",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "red_cottage",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "piper_bridge",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "cinder_kitchen",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "puppet_workshop",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "snow_mirror",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "snow_house",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "alice_roses",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "alice_hall",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "piper_market",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "piper_mountain",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "puppet_theatre",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "puppet_fair",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "cinder_garden",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   },
   {
     "scene": "cinder_clock",
     "count": 9,
     "edge_checks": "passed",
-    "runtime_verified": true,
-    "verification": "test_fairytales.gd 2026-09-16, real travel/battle/world captures"
+    "runtime_verified": false
   }
 ]

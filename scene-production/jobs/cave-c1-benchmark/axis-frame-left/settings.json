@@ -1,0 +1,43 @@
+{
+  "arguments": [
+    "crystal",
+    "--run-dir=F:/GitHub/project18buxiuxiuxian/scene-production/jobs/cave-c1-benchmark/axis-frame-left",
+    "--case=left",
+    "--frames=30",
+    "--exits=3",
+    "--cave-c1-benchmark"
+  ],
+  "branch": -1,
+  "case": "left",
+  "exits": 3,
+  "finite_route": true,
+  "forest_settings": {
+    "bend": 12.0,
+    "camera_height": 30.0,
+    "camera_horizon": 0.48,
+    "camera_lens": 1.0,
+    "cover": 1.6,
+    "density": 2.0,
+    "height": 1.0,
+    "size": 1.0,
+    "variation": 8.0,
+    "width": 26.0
+  },
+  "frames": 30,
+  "native_viewport": [
+    1552,
+    830
+  ],
+  "phase": "travel",
+  "presented_heading": 0.0,
+  "route_distance": 278.934296677612,
+  "route_heading": -0.69758687401388,
+  "route_junction": 203.991268081398,
+  "scene": "crystal",
+  "seed": 106571,
+  "test_victory_triggered": false,
+  "viewport": [
+    1440,
+    900
+  ]
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/crown-quiet-d.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/crown-quiet-d.prompt.txt",
+    "tool": "built_in_image_gen",
+    "input": "godot/assets/biomes/crystal/cards-study/crown-c.png",
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-1f89bc9a-5380-4210-bbd2-8c4511683782.png",
+    "sha256": "3fe88f1b0b939c8fbf6f41fca8b604aa43d1afcb6862dcc7864a0dba09bb6549",
+    "bytes": 1725535,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_requires_assembly_review"
+  },
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/backing-quiet-c.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/backing-quiet-c.prompt.txt",
+    "tool": "built_in_image_gen",
+    "input": "godot/assets/biomes/crystal/cards-study/backing-b.png",
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-613feada-89fa-4383-a7dc-a398b7d411e1.png",
+    "sha256": "cda1fcecf93194a87f27b706460d58c213ab0ffb6ed6cf8b4eb0b8a91dc45c6e",
+    "bytes": 2580546,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_requires_assembly_review"
+  }
+]

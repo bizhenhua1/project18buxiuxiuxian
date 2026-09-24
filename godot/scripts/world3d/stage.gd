@@ -161,6 +161,7 @@ func _ready():
  # layers. The scene sun would add an extra light absent from the reference.
  sun.light_cull_mask=1;add_child(sun)
  scenery=preload("res://scripts/world3d/scenery.gd").new()
+ if theme_key=="crystal":scenery.fixed_shells=true
  scenery.bounded_ground=bool(get_tree().get_meta("world3d_bounded_ground",scenery.bounded_ground))
  add_child(scenery);scenery.populate(world,route_segment)
  build_ui()
@@ -230,6 +231,9 @@ func build_ui():
  comparison_button.pressed.connect(comparison_panel.open)
  for count in [2,3,0]:
   var test_button:=Button.new();test_button.text={2:"二岔测试",3:"三岔测试",0:"普通流程"}[count]
+  if count==3 and theme_key=="crystal":
+   test_button.disabled=true
+   test_button.tooltip_text="矿洞无门版仅支持双岔；三岔需要先制作关门洞口。"
   toolbar.add_child(test_button)
   test_button.pressed.connect(func():
    if not ready_stage:return
@@ -308,8 +312,14 @@ func travel_destination(s:float)->Vector3:
  var size:Vector2=get_viewport().get_visible_rect().size
  var offset:Vector2=TRAVEL_RIG.offset(size.x,TRAVEL_RIG.reference_focal(size))
  var pose:Dictionary=route_segment.pose(s,branch)
- var p:Vector2=pose.position+offset.rotated(-float(pose.heading))
+ var p:Vector2=pose.position+offset.rotated(-travel_view_heading(s,branch))
  return P.point(p,ForestEcology.height_at(p))
+func travel_view_heading(s:float,side:int)->float:
+ var h:float=route_segment.pose(s,side).heading
+ if route_segment.theme=="crystal" and side in [-1,1]:
+  # The actor's screen-space travel offset and camera must use one frame.
+  h=route_segment.heading+clampf(wrapf(h-route_segment.heading,-PI,PI),-.26,.26)
+ return h
 func world_point(local:Vector3)->Vector3:
  var h:float=route_segment.pose(distance,branch).heading
  var p:Vector2=encounter_anchor+Vector2(local.x*8,31+(8.5-local.z)*8).rotated(-h)
@@ -603,10 +613,14 @@ func _process(dt:float):
  if not team[0].dead:
   var body_yaw:float=-.12 if portrait_mode and phase in ["travel","stopping"] else 0.0
   team[0].body.rotation.y=lerp_angle(team[0].body.rotation.y,body_yaw,1-exp(-8*dt))
- if not hold_restart_camera:camera_heading=lerp_angle(camera_heading,route_segment.pose(next_event,branch).heading if phase=="stopping" else pose.heading,1-exp(-dt*7))
+ var target_heading:float=travel_view_heading(next_event,branch) if phase=="stopping" else travel_view_heading(distance,branch)
+ if not hold_restart_camera:camera_heading=lerp_angle(camera_heading,target_heading,1-exp(-dt*7))
  scenery.process_uploads()
  extend_route_if_needed()
  world.update_camera(minf(distance,route_segment.junction_s-.01) if branch==0 else distance,branch);bridge.environment=world.environment();bridge.camera_world=P.frame_origin(camera_origin,camera_heading,frame);bridge.heading=P.frame_heading(camera_heading,frame);bridge.elapsed=clock;bridge.view_size=get_viewport().get_visible_rect().size
+ # Native-stage forks share the same cave branch ownership as route previews.
+ # Uploading a successor does not remove unchosen cave exits at selection.
+ if branch!=0:scenery.restrict_to_branch(branch,distance)
  environment_3d.background_color=environment_3d.background_color.lerp(Color("101923") if world.camera_region.space.key==&"forest" else world.camera_region.space.top_color,1-exp(-dt*4))
  bridge.runtime_camera=frame;bridge.battle_frame_shift=.19 if phase not in ["travel"] else 0
  sync_ally_facing(dt)
@@ -750,11 +764,13 @@ func handoff_route_if_ready():
  world=pending_world;pending_world=null;bridge.world=world;branch=0
  ForestRoute.origin=route_segment.origin;ForestRoute.origin_s=route_segment.start_s;ForestRoute.origin_heading=route_segment.heading
  ForestRoute.JUNCTION=route_segment.junction_s;ForestRoute.TURN_LENGTH=route_segment.turn_length
+ ForestRoute.cave_fork=route_segment.theme=="crystal"
  scenery.mist_source.source=world.sprites
  scenery.update_region_bounds(world);scenery.bind_route_segments([previous,route_segment])
- for pair in [["route_origin",route_segment.origin],["route_origin_s",route_segment.start_s],["route_origin_heading",route_segment.heading],["junction",route_segment.junction_s],["turn_length",route_segment.turn_length],["three_way",route_segment.exits==3]]:
+ for pair in [["route_origin",route_segment.origin],["route_origin_s",route_segment.start_s],["route_origin_heading",route_segment.heading],["junction",route_segment.junction_s],["turn_length",route_segment.turn_length],["three_way",route_segment.exits==3],["cave_fork",route_segment.theme=="crystal"]]:
   scenery.floor_material.set_shader_parameter(pair[0],pair[1])
  scenery.retire_before(distance-500)
+ scenery.clear_branch_selection()
 
 func sync_ally_facing(dt:float):
  if phase in ["prepare","battle"]:

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "ledger": "docs/design/SCENE3D-ASTRA-ISSUE-LEDGER-2026-09-21.json",
+  "issue_count": 15,
+  "handoff_order_count": 15,
+  "status_counts": {
+    "approach_only_visual_review_pending": 1,
+    "bounded_measurement_complete_stress_scope_pending": 1,
+    "capture_exists_provenance_recheck_required": 1,
+    "confirmed_missing_asset_visual_review_pending": 2,
+    "contract_generated_values_pending": 1,
+    "current_capture_batch_stale": 1,
+    "flagged_runtime_audit_pass_formal_enable_pending": 1,
+    "masks_verified_visual_review_pending": 1,
+    "mesh_generator_ready_runtime_profile_pending": 1,
+    "open": 2,
+    "open_family_calibration_required": 1,
+    "unaccepted_experiment": 1,
+    "visual_review_required": 1
+  },
+  "severity_counts": {
+    "blocking": 2,
+    "high": 6,
+    "medium": 7
+  },
+  "evidence_missing": [],
+  "warnings": [],
+  "failures": [],
+  "status": "pass",
+  "rule": "Only explicit evidence can close an issue; this validator never changes the ledger."
+}

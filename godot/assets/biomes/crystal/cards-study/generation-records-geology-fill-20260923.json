@@ -1,0 +1,16 @@
+[
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/backing-geology-e.png",
+    "prompt": "godot\\assets\\biomes\\crystal\\cards-study\\backing-geology-e.prompt.txt",
+    "tool": "built_in_image_gen",
+    "inputs": [
+      "godot\\assets\\biomes\\crystal\\cards-study\\backing-a.png",
+      "scene-production/references/mushroom-corridor/09.png"
+    ],
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-f3a813d7-999f-4785-b585-30f631dc37aa.png",
+    "sha256": "c833616c6347e5457f57cb6ffcb08ffac34ca5dba87a86e99cd2b64fa8cbf67e",
+    "bytes": 3089994,
+    "pixel_editing_after_generation": false,
+    "status": "controlled_material_candidate_not_approved"
+  }
+]

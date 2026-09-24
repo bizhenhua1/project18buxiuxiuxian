@@ -1,0 +1,65 @@
+{
+  "method": "weld_3um_coplanar_0.01deg_no_boundary_dissolve",
+  "parts": [
+    {
+      "chunk": 0,
+      "before": 40909,
+      "after": 40905
+    },
+    {
+      "chunk": 1,
+      "before": 41994,
+      "after": 41987
+    },
+    {
+      "chunk": 2,
+      "before": 54382,
+      "after": 54374
+    },
+    {
+      "chunk": 3,
+      "before": 68613,
+      "after": 68594
+    },
+    {
+      "chunk": 4,
+      "before": 75179,
+      "after": 75167
+    },
+    {
+      "chunk": 5,
+      "before": 75119,
+      "after": 75119
+    },
+    {
+      "chunk": 6,
+      "before": 76729,
+      "after": 76729
+    },
+    {
+      "chunk": 7,
+      "before": 78728,
+      "after": 78722
+    },
+    {
+      "chunk": 8,
+      "before": 76729,
+      "after": 76729
+    },
+    {
+      "chunk": 9,
+      "before": 75119,
+      "after": 75118
+    },
+    {
+      "chunk": 10,
+      "before": 75119,
+      "after": 75117
+    },
+    {
+      "chunk": 11,
+      "before": 76729,
+      "after": 76729
+    }
+  ]
+}

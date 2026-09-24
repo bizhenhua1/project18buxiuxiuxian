@@ -1,0 +1,46 @@
+{
+  "family": "whale",
+  "cases": [
+    {
+      "case": "entry",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "junction2",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "junction3",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "left",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "right",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "center",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "battle",
+      "captured": true,
+      "visual_accepted": false
+    },
+    {
+      "case": "departure",
+      "captured": true,
+      "visual_accepted": false
+    }
+  ],
+  "workflow_verified": false
+}

@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "root": "tempassets/work",
+  "manifest_count": 98,
+  "v2_count": 62,
+  "v2_current_provenance_valid_count": 8,
+  "v2_current_provenance_invalid_count": 54,
+  "legacy_or_malformed_count": 36,
+  "error_counts": {
+    "source_sha256 mismatch: godot/scripts/world3d/scenery.gd": 54,
+    "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd": 46,
+    "non_v2_manifest": 34,
+    "manifest_not_object": 2,
+    "core source hashes missing": 1
+  },
+  "invalid_examples": [
+    {
+      "manifest": "tempassets/work/fairytale-3d-captures/red_cottage-1789958970-34989/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p01-recheck-20260921-174000/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/crystal/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/forest/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/palace/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/sewer/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/swamp/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-110834/whale/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/crystal/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/forest/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/palace/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/sewer/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/swamp/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-baselines-20260921-111618/whale/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-forest/manifest.json",
+      "errors": [
+        "core source hashes missing",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-palace-debug/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-palace-debug2/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/crystal/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/forest/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/palace/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/sewer/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/swamp/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/p02-recheck-20260921-174500/whale/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/representative/piper_mountain-20260921050848/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    },
+    {
+      "manifest": "tempassets/work/representative/red_cottage-20260921050911/manifest.json",
+      "errors": [
+        "source_sha256 mismatch: godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "source_sha256 mismatch: godot/scripts/world3d/scenery.gd"
+      ]
+    }
+  ],
+  "legacy_examples": [
+    "tempassets/work/current-fbx/manifest.json",
+    "tempassets/work/fbx/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/crystal/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/forest/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/palace/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/sewer/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/swamp/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-174500/whale/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/crystal/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/forest/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/palace/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/sewer/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/swamp/manifest.json",
+    "tempassets/work/p02-mask-recheck-20260921-181000/whale/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-131500/forest/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-132000/forest/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-133000/forest/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-134000/forest/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-135000/forest/manifest.json",
+    "tempassets/work/p02-role-depth-masks-20260921-140000/forest/manifest.json"
+  ],
+  "status": "recheck_required",
+  "rule": "Existing manifests are never rewritten; stale or legacy evidence remains explicitly separate from current v2 provenance."
+}

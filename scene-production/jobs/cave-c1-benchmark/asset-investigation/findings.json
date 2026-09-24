@@ -1,0 +1,12 @@
+{
+  "status": "root_cause_reproduced_visual_fix_not_complete",
+  "visual_accepted": false,
+  "qualification": "scene-production/design-v2/C1-ASSET-QUALIFICATION.md",
+  "failed_asset": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+  "instance": {"chunk": 32, "index": 2, "aspect_scale_ratio": 1.0, "horizontal_view_degrees": 74.3246767654843, "horizontal_foreshortening": 0.27018579840660073, "shader_mode": 4},
+  "evidence": ["projection-audit.json", "../isolated-shoulder/isolated-instance-debug-only.png", "../probe-02-left/manifest.json"],
+  "failure": "A fixed artwork plane is viewed at grazing incidence, compressing the silhouette and painted rock blocks. Nonuniform instance scaling is not the cause.",
+  "repetition": {"sources_per_structure_role": 1, "whole_route_instance_counts_not_visible_counts": {"shoulder": 134, "fill_and_divider": 146, "roof": 374}, "regular_section_step_m": 1.4, "decision": "reject_current_periodic_layout_and_high_frequency_use_of_distinctive_sources"},
+  "next": "B04: qualify source viewing capability and two minimal assemblies before new whole-route placement",
+  "unresolved": ["source viewing cones", "replacement ordinary roof and near-side group", "camera and actor framing jointly constrained", "actual visible recurrence analysis", "continuous coverage", "parallel branch battle chamber ownership"]
+}

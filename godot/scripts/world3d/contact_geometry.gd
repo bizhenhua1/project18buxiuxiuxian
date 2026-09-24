@@ -43,7 +43,7 @@ static func contact_mesh(columns:int=9,foot_steps:int=0)->ArrayMesh:
 
 static func bounded_resolution(size:Vector2,anchor_y:float,profile:PackedFloat32Array=PackedFloat32Array())->Vector2i:
  var foot:=anchor_y
- if profile.size()==9:
+ if profile.size()==17:
   foot=1.0
   for value in profile:foot=minf(foot,value)
  var depth:float=(1-clampf(foot,.01,.999))*absf(size.y)*1.6
@@ -54,8 +54,8 @@ static func bounded_contact_mesh(size:Vector2,anchor_y:float,profile:PackedFloat
  var feet:=PackedFloat32Array()
  for x in columns:
   var u:=float(x)/(columns-1);var foot:=anchor_y
-  if profile.size()==9:
-   var index:=u*8;var left:=mini(7,floori(index))
+  if profile.size()==17:
+   var index:=u*16;var left:=mini(15,floori(index))
    foot=lerpf(profile[left],profile[left+1],index-left)
   foot=clampf(foot,.01,.999)
   feet.append(foot)
@@ -74,21 +74,30 @@ static func bounded_contact_mesh(size:Vector2,anchor_y:float,profile:PackedFloat
  var mesh:=ArrayMesh.new();mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays);return mesh
 
 static func contact_profile(im:Image) -> PackedFloat32Array:
- # Sample only the foot band, never mistake the canopy over the empty opening for a foot.
- var result:=PackedFloat32Array();result.resize(9);result.fill(-1.0)
- for column in range(9):
-  var x:=clampi(roundi(column/8.0*(im.get_width()-1)),0,im.get_width()-1)
-  for y in range(im.get_height()-1,int(im.get_height()*.78),-1):
-   if im.get_pixel(x,y).a>.5:
-    result[column]=y/float(im.get_height())-.025
+ # Find the lowest robust opaque pixels, including art whose feet stop well
+ # above the image bottom. An arch's high canopy is rejected relative to its
+ # real feet; empty doorway columns then borrow the nearest real support.
+ var result:=PackedFloat32Array();result.resize(17);result.fill(-1.0)
+ for column in range(17):
+  var x:=clampi(roundi(column/16.0*(im.get_width()-1)),0,im.get_width()-1)
+  for y in range(im.get_height()-1,-1,-1):
+   var covered:=0
+   for offset in range(-2,3):
+    if im.get_pixel(clampi(x+offset,0,im.get_width()-1),y).a>.5:covered+=1
+   if covered>=2:
+    result[column]=(y+.5)/float(im.get_height())
     break
+ var deepest:=0.0
+ for foot in result:deepest=maxf(deepest,foot)
+ for column in range(17):
+  if result[column]<deepest-.18:result[column]=-1.0
  var sampled:=result.duplicate()
- for column in range(9):
+ for column in range(17):
   if result[column]>=0:continue
   var nearest:=-1
-  for candidate in range(9):
+  for candidate in range(17):
    if sampled[candidate]>=0 and (nearest<0 or abs(candidate-column)<abs(nearest-column)):nearest=candidate
-  result[column]=sampled[nearest] if nearest>=0 else .92
+  result[column]=sampled[nearest] if nearest>=0 else 1.0
  return result
 
 

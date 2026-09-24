@@ -1,0 +1,292 @@
+[
+  {
+    "source": "res://assets/biomes/swamp/prop-0.png",
+    "sha256": "d90954b9b122fd24148cd51886e0c3b564871e36dde9bd2ef6cde904e3254242",
+    "pixels": [
+      382,
+      372
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      381,
+      371
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 8.2401611328125,
+      "canvas_height_m_min": 0.311565234024002,
+      "count": 157,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-1.png",
+    "sha256": "9094140ad764b1f91f7a278ec81bcce8ec3d2ed82d3fd892187fa5e8da640985",
+    "pixels": [
+      283,
+      396
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      282,
+      395
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.42476857945644,
+      "canvas_height_m_min": 0.331269276461441,
+      "count": 201,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-2.png",
+    "sha256": "40bc7dda62fa155c70c4aad71654498bf9df847ec0440c5a4ff5f0fe9fdab456",
+    "pixels": [
+      333,
+      384
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      332,
+      383
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.87994546847824,
+      "canvas_height_m_min": 0.282468897917587,
+      "count": 133,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-3.png",
+    "sha256": "451b9af328ff8e54461a185572fcffa390951aff79c7f58148e56a9eab77b0bb",
+    "pixels": [
+      359,
+      384
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      358,
+      383
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.92535216389779,
+      "canvas_height_m_min": 0.30679229121655,
+      "count": 203,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-4.png",
+    "sha256": "5550f2284a508cd88849fdb328c4ff73c255a196dcf4c79f35973d4a23653c46",
+    "pixels": [
+      290,
+      362
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      289,
+      361
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.1753604888916,
+      "canvas_height_m_min": 0.450293217836929,
+      "count": 54,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-5.png",
+    "sha256": "b830bc483697fa245502d40f679cff31baae86dd727b2f9652ef1ebec42a5226",
+    "pixels": [
+      287,
+      387
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      287,
+      386
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.44636721615498,
+      "canvas_height_m_min": 0.550894355773926,
+      "count": 46,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-6.png",
+    "sha256": "ab73cd5df057c9f5fd36fb7fe28857606d321ae0794ece6c29e2013ec19f4a2c",
+    "pixels": [
+      357,
+      374
+    ],
+    "alpha_bounds": [
+      1,
+      5,
+      357,
+      373
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.69122651183034,
+      "canvas_height_m_min": 0.374670556410013,
+      "count": 159,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-7.png",
+    "sha256": "1a6d075da692a5b7e0f5e1b3024112d07274459ad697e649c8c885aa23a89a23",
+    "pixels": [
+      329,
+      345
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      328,
+      345
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.91492371890861,
+      "canvas_height_m_min": 0.100442981719971,
+      "count": 691,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/prop-8.png",
+    "sha256": "9b929bb3be391c95b0ba1f5387d23ca0ba3dce8a2ceaf12d9f4a3c37f0c6c1c7",
+    "pixels": [
+      376,
+      302
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      376,
+      302
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 2.7480104771957,
+      "canvas_height_m_min": 0.316261512395558,
+      "count": 206,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/swamp/shell.png",
+    "sha256": "139262f63eca670e3fe7774158a72d33c19f570aa32ec98600299a5de09fefeb",
+    "pixels": [
+      935,
+      324
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      935,
+      324
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 19.2416825294495,
+      "canvas_height_m_min": 11.7963793873787,
+      "count": 22,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

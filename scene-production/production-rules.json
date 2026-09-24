@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "scope": "Production constraints for new assets; not measurements of existing art. Preserve baseline apparent scale until the replacement passes composition comparison.",
+  "shared": {
+    "units_per_m": 20,
+    "source_min_pixels": {
+      "surface": 1024,
+      "structural_cutout": 2048,
+      "prop": 1024,
+      "small_detail": 512
+    },
+    "resolution_rule": "Visible alpha short axis >= 1.5 * largest projected short axis across supported cameras. Crop whitespace before computing density; never upscale to pass.",
+    "aspect_rule": "One uniform scale; use separate supports and span pieces if required aperture and height cannot both fit. Do not stretch an entire arch.",
+    "ground_rule": "Classify surface, soft rooted, rigid grounded, suspended, attached. Semantic support points must be marked by inspecting source art, not inferred solely from alpha bounds.",
+    "seam_rule": "Inspect a 2x2 material repeat at actual metres per repeat, and a route-joined pair. Edge error is diagnostic, never approval by itself.",
+    "variation_rule": "Distinct silhouette/material content counts; mirror/recolor/scale do not count as variants.",
+    "replacement_rule": "Keep source and hashes; mark replaced in manifest; never silently overwrite referenced baseline art.",
+    "generation_retries": 2,
+    "failure_rule": "After two targeted attempts, register exact failed constraint, source crop, calculation, and recommended asset split/replacement. Do not keep random tuning.",
+    "lighting_closure_override": "LIGHTING-ACCEPTANCE.md has precedence: continuous ceiling geometry is conditional on actual lighting. Diagnostic missing geometry alone never forces replacement. Atmospheric joins using matched dark background, sky or fog are valid when production and supported light changes look correct."
+  },
+  "families": {
+    "forest": {
+      "variants": [
+        3,
+        3,
+        4,
+        4,
+        2
+      ],
+      "examples": [
+        "old oak, split trunk, narrow trunk; root foot separate from canopy reach",
+        "left canopy, right canopy, overhead broken canopy",
+        "fern, broad shrub, bramble, sapling",
+        "short grass, clover, leaf litter, fallen twigs",
+        "distant trunk mass and distant canopy mass"
+      ],
+      "representations": [
+        "rooted_cutout",
+        "suspended_canopy",
+        "rooted_cutout",
+        "rooted_cutout",
+        "distant_cutout"
+      ],
+      "root_policy": "Tree trunk footprint only; canopy overhang may cross road. Grass roots follow terrain; rigid stumps use rigid support. Distant silhouettes never receive near-camera placement.",
+      "assembly": "Tree+root grass: one owner and seed. Root cover 1-3 clumps around trunk footprint, never pasted over entire trunk; inherit terrain, not canopy wind.",
+      "light_fx": "Preserve forest environment. Shared world-anchored curved mist, root-pinned foliage wind; no lamp per tree.",
+      "junction": "All exits share a clearing. Exclude trunk footprints from union of routes; overhead canopy may span exits without creating a closed ceiling.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "swamp": {
+      "variants": [
+        3,
+        2,
+        4,
+        3,
+        3
+      ],
+      "examples": [
+        "root buttress, giant fungus stem, crooked root",
+        "damp mud and water-edge surface",
+        "large cap, shelf fungus, small cluster, unlit cluster",
+        "reed, moss, bank fern",
+        "wet branch, leaf raft, broken shell"
+      ],
+      "representations": [
+        "rooted_cutout",
+        "surface_texture",
+        "rooted_cutout",
+        "rooted_cutout",
+        "rooted_cutout"
+      ],
+      "root_policy": "Roots and reeds attach to bank elevation; water litter at water level. Do not sink stems into a flat water sheet to conceal missing contact.",
+      "assembly": "One bank group owns shoreline, roots and adjacent fungi. Keep open sky between mushrooms; optional glow only on authored glow species.",
+      "light_fx": "Preserve swamp tint. Shared firefly batch and low mist; optional sheen is a surface response, not an extra light on every mushroom.",
+      "junction": "Shared wet clearing and continuous bank mask. Do not duplicate three water surfaces at common junction.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "crystal": {
+      "variants": [
+        3,
+        3,
+        4,
+        3,
+        2
+      ],
+      "examples": [
+        "narrow rock ring, asymmetric ring, broken decorative ring",
+        "left rock buttress, right buttress, freestanding rock",
+        "rubble, chips, grit, low stone shelf",
+        "small shard group, angled cluster, large vein",
+        "tileable rock ceiling skin and curved transition patch"
+      ],
+      "representations": [
+        "structural_cutout",
+        "rigid_cutout",
+        "rigid_cutout",
+        "rigid_cutout",
+        "surface_texture"
+      ],
+      "root_policy": "Mark both ring supports and lower opening; rock overhang is not a support footprint. Crystal tips must not be used as floor anchors.",
+      "assembly": "Ring spacing 4.25m is the old visual cadence, not roof closure. Continuous rock ceiling behind rings owns inter-ring gaps. Separate roots/rubble fill only ground contact seams.",
+      "light_fx": "Cool reference tint and limited crystal emissive accents. Ceiling drips originate on verified rock surface and terminate at ground; one pooled emitter group.",
+      "junction": "Group corridor cross-sections by overlap; one common chamber while overlapping, split rings only after both supports clear all exits. Never stretch a complete ring across the junction.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "sewer": {
+      "variants": [
+        3,
+        2,
+        3,
+        2,
+        4
+      ],
+      "examples": [
+        "plain brick arch, repaired arch, pipe-bearing arch",
+        "channel bed and paving tile",
+        "straight curb, inner turn, outer turn",
+        "round outlet and grated outlet",
+        "damp stain, mineral crust, scrap, rubble"
+      ],
+      "representations": [
+        "structural_cutout",
+        "surface_texture",
+        "rigid_cutout",
+        "attached_cutout",
+        "surface_decal"
+      ],
+      "root_policy": "Channel water and walking ledge have different elevations. Arch supports land on ledge, outlets attach to a structural owner. No freestanding flat stain cards.",
+      "assembly": "Brick vault skin + decorative arches every 4.15-5.9m + connected ledges. Curved junction curb has explicit inside/outside pieces. Pipe outlet owns water emitter origin.",
+      "light_fx": "Keep green-gray reference and sparse amber accents. Outflow terminates on channel water; no drips emitted from empty ceiling pixels.",
+      "junction": "One junction well owns roof, channel and ledges. Interior boundaries omitted; all outgoing channels connect before decoration. No extra left/right walls as a closure workaround.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "whale": {
+      "variants": [
+        3,
+        2,
+        3,
+        4,
+        3
+      ],
+      "examples": [
+        "narrow ribs, asymmetric ribs, healed ribs",
+        "organic ground and membrane surface",
+        "smooth membrane, wrinkled membrane, transition membrane",
+        "tendon, soft nodule, folded tissue, subtle vein",
+        "ship plank, small wreckage group, coral-like fragment"
+      ],
+      "representations": [
+        "structural_cutout",
+        "surface_texture",
+        "surface_texture",
+        "attached_cutout",
+        "rigid_cutout"
+      ],
+      "root_policy": "Soft tissue attaches to enclosing membrane; hard wreckage is grounded. Do not make rigid objects pulse with tissue or flatten ribs into a rectangular ceiling.",
+      "assembly": "Organic ceiling skin behind ribs every 5.395-7.67m. Soft pulse only if shared socket transforms keep attachments connected; initial static implementation preferred.",
+      "light_fx": "Preserve restrained warm organic environment and reference emissive accents. Character tint weaker than environment; no additional red combat wash.",
+      "junction": "One widened common cavity transitioning into separate tubes. Rib supports outside all routes; no crossing full rib rings.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "palace": {
+      "variants": [
+        3,
+        2,
+        4,
+        3,
+        2
+      ],
+      "examples": [
+        "plain column arch, carved column arch, damaged column arch",
+        "stone floor and vault surface",
+        "base plinth, rubble, small urn, fallen carving",
+        "unlit fixture, sparse lamp, empty niche",
+        "statue group and ritual dais"
+      ],
+      "representations": [
+        "structural_cutout",
+        "surface_texture",
+        "rigid_cutout",
+        "attached_cutout",
+        "rigid_cutout"
+      ],
+      "root_policy": "Two columns share module scale and support plane. Sculpture base defines grounding; niche is attached, never a floor prop.",
+      "assembly": "Vault surface behind decorative column bays at 5.81-8.26m. The continuous roof closes shoulders and bay gaps. Sparse chandeliers occupy verified roof sockets.",
+      "light_fx": "Reference gray-green ambient and warm accents. Lamp emissive surface plus shared accent budget; no extra real light for each chandelier.",
+      "junction": "Single crossing hall with pillars only between protected routes. Do not tile three complete facades across it.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    },
+    "red_cottage": {
+      "variants": [
+        3,
+        1,
+        1,
+        3,
+        4,
+        3
+      ],
+      "examples": [
+        "plain beam frame, repaired frame, asymmetric beam frame",
+        "seamless ceiling underside oak planks",
+        "seamless worn floorboards",
+        "hearth+firewood; sewing desk+cloth basket; chest+stool",
+        "pottery, rags, wood shavings, shoes",
+        "lantern+chain; dried herbs+cord; draped cloth+paired hooks"
+      ],
+      "representations": [
+        "structural_cutout",
+        "surface_texture",
+        "surface_texture",
+        "rigid_cutout",
+        "rigid_cutout",
+        "suspended_cutout"
+      ],
+      "root_policy": "Furniture needs authored support points. Hanging fixtures use top sockets and lowest points, never bottom-center roots. A figure hanging by a rope is an explicit optional narrative asset, not randomly selected room dressing.",
+      "assembly": "One continuous ceiling mesh across all exits. Beam supports must clear every path after scale. Hanging chain+body use one pivot; doorway frame is decoration, never proof of closure.",
+      "light_fx": "Default hanging sway zero, optional <=2 degrees, <=8 moving fixtures. No physics chain, no per-fixture real light. Static soft ceiling material; no floor dirt texture reused as final ceiling.",
+      "junction": "Single roof polygon union with continuous UV. Do not add left/right walls. Before a fork, preserve all exits; do not remove unselected roof while still visible.",
+      "initial_dimensions_m": {
+        "ceiling_height": 3.8,
+        "lantern_body": 0.65,
+        "chain": 0.4,
+        "lamp_interval": 9,
+        "character_clearance": 0.35,
+        "camera_clearance": 0.2
+      },
+      "dimension_rule": "Derive ceiling width from locked camera rays, not corridor width. Existing candidate upper-30-percent bound is insufficient for full camera-sweep acceptance.",
+      "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+    }
+  }
+}

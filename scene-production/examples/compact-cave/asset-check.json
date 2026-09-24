@@ -1,0 +1,66 @@
+[
+  {
+    "file": "godot\\assets\\biomes\\crystal\\modular\\roof-cluster-matte-v2.png",
+    "sha256": "beaa21f16a0e2d1f1e6593ee3a0a6b0ea961d5a3b7f68efe49c8652435970af2",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_bbox": [
+      14,
+      111,
+      1757,
+      831
+    ],
+    "solid_alpha_240plus_fraction": 0.3522101150401198,
+    "runtime_active": true
+  },
+  {
+    "file": "godot\\assets\\biomes\\crystal\\modular\\roof-cluster-v1.png",
+    "sha256": "2e9ae81f8bac21ee81ddb10660541ef99507395180895e03ec7483ddfd67e1f6",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_bbox": [
+      14,
+      0,
+      1756,
+      847
+    ],
+    "solid_alpha_240plus_fraction": 0.34801828745158997,
+    "runtime_active": false
+  },
+  {
+    "file": "godot\\assets\\biomes\\crystal\\modular\\shoulder-left-matte-v2.png",
+    "sha256": "ef649ac8ca56acdd88408181ecde7aa2562f11e4a79bd8e90030baca606f4005",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_bbox": [
+      0,
+      74,
+      1231,
+      1216
+    ],
+    "solid_alpha_240plus_fraction": 0.3352468273772731,
+    "runtime_active": true
+  },
+  {
+    "file": "godot\\assets\\biomes\\crystal\\modular\\shoulder-left-v1.png",
+    "sha256": "817a08525b04666b006d6d8558b70827db36f6c7f1e32dbae265c5e35e4e7e2b",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_bbox": [
+      0,
+      9,
+      1230,
+      1213
+    ],
+    "solid_alpha_240plus_fraction": 0.3321473358617655,
+    "runtime_active": false
+  }
+]

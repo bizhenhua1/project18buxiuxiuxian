@@ -1,0 +1,18 @@
+{
+  "draws_p95": 610.0,
+  "family": "forest",
+  "full_performance_accepted": false,
+  "max_ms": 89.755,
+  "p50_ms": 16.111,
+  "p95_ms": 21.163,
+  "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+  "states": [
+    "approach",
+    "travel"
+  ],
+  "viewport": [
+    1440,
+    900
+  ],
+  "vsync": false
+}

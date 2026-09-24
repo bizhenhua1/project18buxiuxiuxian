@@ -10,12 +10,16 @@ var exits:int
 var seed_value:int
 var theme:String
 const TURN_ANGLE:=.5
+const CAVE_FORK=preload("res://scripts/world3d/cave_fork.gd")
 func _init(start:=0.0,position:=Vector2.ZERO,angle:=0.0,junction:=700.0,turn:=420.0,finish:=2200.0,count:=2,seed_number:=1842,biome:="forest"):
  start_s=start;origin=position;heading=angle;junction_s=junction;turn_length=turn;end_s=finish;exits=count;seed_value=seed_number;theme=biome
 func valid_exit(branch:int)->bool:return branch in [-1,1] or (branch==2 and exits==3)
 func pose(s:float,branch:int)->Dictionary:
  var offset:=Vector2(0,s-start_s);var angle:=0.0
- if s>junction_s and branch in [-1,1]:
+ if theme=="crystal" and s>junction_s and branch in [-1,1]:
+  offset.x=CAVE_FORK.lateral(s,junction_s,turn_length,branch)
+  angle=CAVE_FORK.heading(s,junction_s,turn_length,branch)
+ elif s>junction_s and branch in [-1,1]:
   var travel:=s-junction_s;var radius:=turn_length/TURN_ANGLE
   angle=minf(travel/radius,TURN_ANGLE)
   offset=Vector2(branch*radius*(1-cos(angle)),junction_s-start_s+radius*sin(angle))
@@ -38,6 +42,7 @@ func snapshot()->Dictionary:
  return {"start":start_s,"origin":[origin.x,origin.y],"heading":heading,"junction":junction_s,"turn":turn_length,"end":end_s,"exits":exits,"seed":seed_value,"theme":theme}
 func lane_distance(world:Vector2)->float:
  var p:=ForestRoute.to_camera(world,origin,heading)
+ if theme=="crystal":return CAVE_FORK.lane_distance(p,junction_s-start_s,turn_length,end_s-start_s,exits)
  var junction:=junction_s-start_s
  var best:=p.distance_to(Vector2(0,clampf(p.y,0,junction)))
  if exits==3:best=minf(best,p.distance_to(Vector2(0,clampf(p.y,0,end_s-start_s))))

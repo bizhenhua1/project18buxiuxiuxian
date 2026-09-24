@@ -1,0 +1,1127 @@
+{
+  "schema_version": 1,
+  "scope": "six accepted 3D baseline captures; no user visual acceptance",
+  "themes": [
+    "forest",
+    "crystal",
+    "swamp",
+    "sewer",
+    "whale",
+    "palace"
+  ],
+  "scenes": [
+    {
+      "theme": "forest",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/forest/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 0,
+            "sprites": 13391
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "forest",
+          "seed": 1842,
+          "sha256": "209196d43a42562b6566843904e170b157a09055cd3a558d7e8ebe08c39ad9fa",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 0,
+            "sprites": 13391
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "forest",
+          "seed": 1842,
+          "sha256": "f770fa4d271b0a28c734917ebe251dbb2f6de0b1f53e086f2a3ab3b196fd40a3",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/forest/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 0,
+          "dressing": 822327,
+          "root_cover": 359308,
+          "actor": 114339,
+          "ground": 26
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 0,
+              "dressing": 214592,
+              "root_cover": 91375,
+              "actor": 82833,
+              "ground": 0
+            },
+            "middle": {
+              "structure": 0,
+              "dressing": 357306,
+              "root_cover": 128662,
+              "actor": 31506,
+              "ground": 26
+            },
+            "right": {
+              "structure": 0,
+              "dressing": 250429,
+              "root_cover": 139271,
+              "actor": 0,
+              "ground": 0
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 0,
+              "dressing": 453600,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 0,
+              "dressing": 264594,
+              "root_cover": 141734,
+              "actor": 47272,
+              "ground": 0
+            },
+            "ground": {
+              "structure": 0,
+              "dressing": 104133,
+              "root_cover": 217574,
+              "actor": 67067,
+              "ground": 26
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 1278201,
+          "10_30m": 17799,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    },
+    {
+      "theme": "crystal",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/crystal/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 125,
+            "sprites": 3172
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "crystal",
+          "seed": 1842,
+          "sha256": "9a6c3b242d08c80202cd19c47b9103c4f2a99eb50ef84bbe46836fe33eb4c3c2",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 125,
+            "sprites": 3172
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "crystal",
+          "seed": 1842,
+          "sha256": "d75c28e275c11dd0f33bfae1f9c36f372172bcf5788ee362bdb8007edf4a20e6",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/crystal/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 976475,
+          "dressing": 16670,
+          "root_cover": 0,
+          "actor": 115397,
+          "ground": 135397
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 295209,
+              "dressing": 7830,
+              "root_cover": 0,
+              "actor": 82833,
+              "ground": 1237
+            },
+            "middle": {
+              "structure": 307373,
+              "dressing": 8840,
+              "root_cover": 0,
+              "actor": 32564,
+              "ground": 118353
+            },
+            "right": {
+              "structure": 373893,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 15807
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 451909,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 349213,
+              "dressing": 12752,
+              "root_cover": 0,
+              "actor": 48330,
+              "ground": 0
+            },
+            "ground": {
+              "structure": 175353,
+              "dressing": 3918,
+              "root_cover": 0,
+              "actor": 67067,
+              "ground": 135397
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 1082074,
+          "10_30m": 213926,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    },
+    {
+      "theme": "swamp",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/swamp/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 50,
+            "sprites": 3894
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "swamp",
+          "seed": 1842,
+          "sha256": "77f08afb3b22e5cff4c85f76c75c867ae9c0a1323a32c8c3f230f0218ea3abe3",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 50,
+            "sprites": 3894
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "swamp",
+          "seed": 1842,
+          "sha256": "1d630205641d01f57149b194824c6ed815ee9727acac38d817dde22260fb9773",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/swamp/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 594832,
+          "dressing": 220082,
+          "root_cover": 0,
+          "actor": 115397,
+          "ground": 236812
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 184284,
+              "dressing": 73297,
+              "root_cover": 0,
+              "actor": 82833,
+              "ground": 42391
+            },
+            "middle": {
+              "structure": 183947,
+              "dressing": 55457,
+              "root_cover": 0,
+              "actor": 32564,
+              "ground": 131117
+            },
+            "right": {
+              "structure": 226601,
+              "dressing": 91328,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 63304
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 445912,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 77297,
+              "dressing": 214626,
+              "root_cover": 0,
+              "actor": 48330,
+              "ground": 5449
+            },
+            "ground": {
+              "structure": 71623,
+              "dressing": 5456,
+              "root_cover": 0,
+              "actor": 67067,
+              "ground": 231363
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 474980,
+          "10_30m": 821020,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    },
+    {
+      "theme": "sewer",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/sewer/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 113,
+            "sprites": 2243
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "sewer",
+          "seed": 1842,
+          "sha256": "6803345f1a94d6d7a477dde9197518d0cbe4bce67fd9a3e4cac3cc5cd9edb440",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 113,
+            "sprites": 2243
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "sewer",
+          "seed": 1842,
+          "sha256": "850c8604501aac9b1b71fdec5921a28d3cd092d32ee98a3a9618741fbef8d746",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/sewer/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 892614,
+          "dressing": 22081,
+          "root_cover": 0,
+          "actor": 115397,
+          "ground": 148273
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 302686,
+              "dressing": 3281,
+              "root_cover": 0,
+              "actor": 82833,
+              "ground": 0
+            },
+            "middle": {
+              "structure": 224420,
+              "dressing": 13478,
+              "root_cover": 0,
+              "actor": 32564,
+              "ground": 129403
+            },
+            "right": {
+              "structure": 365508,
+              "dressing": 5322,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 18870
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 453600,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 273896,
+              "dressing": 21909,
+              "root_cover": 0,
+              "actor": 48330,
+              "ground": 98
+            },
+            "ground": {
+              "structure": 165118,
+              "dressing": 172,
+              "root_cover": 0,
+              "actor": 67067,
+              "ground": 148175
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 987910,
+          "10_30m": 308090,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    },
+    {
+      "theme": "whale",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/whale/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 87,
+            "sprites": 2922
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "whale",
+          "seed": 1842,
+          "sha256": "44ae4e8892849fd1062308bf04faa6e4dba21a6820ccf708cc2ccf075399d370",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 87,
+            "sprites": 2922
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "whale",
+          "seed": 1842,
+          "sha256": "528b2807cdceec1c17fd78afb636a65dc5180ad3cbc1a7f6e5883c8ce0dbfc60",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/whale/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 807908,
+          "dressing": 96066,
+          "root_cover": 0,
+          "actor": 115397,
+          "ground": 125688
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 294227,
+              "dressing": 1910,
+              "root_cover": 0,
+              "actor": 82833,
+              "ground": 0
+            },
+            "middle": {
+              "structure": 209187,
+              "dressing": 40466,
+              "root_cover": 0,
+              "actor": 32564,
+              "ground": 122359
+            },
+            "right": {
+              "structure": 304494,
+              "dressing": 53690,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 3329
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 414890,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 218784,
+              "dressing": 82874,
+              "root_cover": 0,
+              "actor": 48330,
+              "ground": 409
+            },
+            "ground": {
+              "structure": 174234,
+              "dressing": 13192,
+              "root_cover": 0,
+              "actor": 67067,
+              "ground": 125279
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 387415,
+          "10_30m": 908585,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    },
+    {
+      "theme": "palace",
+      "manifest": "tempassets/work/p02-recheck-20260921-181000/palace/manifest.json",
+      "captures": [
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "capture.png",
+          "kind": "beauty",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 82,
+            "sprites": 1647
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "palace",
+          "seed": 1842,
+          "sha256": "736d9dff93c603f89ab123e92c2c590733331626de3fdea2c281727bfcd9dcee",
+          "viewport": [
+            1440,
+            900
+          ]
+        },
+        {
+          "branch": 0,
+          "camera_transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.25094318389893,
+            -1.84354436397552
+          ],
+          "expected_phase": "travel",
+          "image": "diagnostic.png",
+          "kind": "diagnostic",
+          "native_node_confirmed": true,
+          "phase": "travel",
+          "projection_matrix": [
+            1.06703698635101,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.70725917816162,
+            0.0,
+            0.0,
+            0.0,
+            -0.076296329498291,
+            -1.00090956687927,
+            -1.0,
+            0.0,
+            0.0,
+            -0.10004547983408,
+            0.0
+          ],
+          "role_metrics": {
+            "actors": 0,
+            "mist": 0,
+            "shells": 82,
+            "sprites": 1647
+          },
+          "route_s_m": 1.47132212757926,
+          "scene": "palace",
+          "seed": 1842,
+          "sha256": "c86b5b1a1f6660aa3454acbad6d7244f42f73261b74c20e27663c31b9c46633b",
+          "viewport": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "provenance_valid": true,
+      "role_metrics_source": "world3d_stage projected scene records",
+      "depth_occlusion_masks": "tempassets/work/p02-mask-recheck-20260921-181000/palace/manifest.json",
+      "mask_metrics": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "role_pixel_counts": {
+          "structure": 846995,
+          "dressing": 51276,
+          "root_cover": 0,
+          "actor": 115397,
+          "ground": 137735
+        },
+        "roi_pixel_counts": {
+          "horizontal": {
+            "left": {
+              "structure": 294051,
+              "dressing": 2345,
+              "root_cover": 0,
+              "actor": 82833,
+              "ground": 0
+            },
+            "middle": {
+              "structure": 227550,
+              "dressing": 7140,
+              "root_cover": 0,
+              "actor": 32564,
+              "ground": 124964
+            },
+            "right": {
+              "structure": 325394,
+              "dressing": 41791,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 12771
+            }
+          },
+          "vertical": {
+            "top": {
+              "structure": 434285,
+              "dressing": 0,
+              "root_cover": 0,
+              "actor": 0,
+              "ground": 0
+            },
+            "mid": {
+              "structure": 243934,
+              "dressing": 44198,
+              "root_cover": 0,
+              "actor": 48330,
+              "ground": 507
+            },
+            "ground": {
+              "structure": 168776,
+              "dressing": 7078,
+              "root_cover": 0,
+              "actor": 67067,
+              "ground": 137228
+            }
+          }
+        },
+        "depth_encoding": "grayscale_value/255*20m",
+        "depth_band_pixels": {
+          "0_10m": 352440,
+          "10_30m": 943560,
+          "30m_plus": 0
+        }
+      },
+      "mask_provenance_valid": true
+    }
+  ],
+  "provenance_errors": [],
+  "measurement_status": "role_id_and_depth_masks_verified; visual_review_pending",
+  "rule": "sprite counts and brightness never substitute for role/depth masks or visual review"
+}

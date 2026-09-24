@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "id": "reference_red_cottage",
+  "family": "red_cottage",
+  "style": "低顶室内原有画风与布局，保持镜头；通过生产配方重建",
+  "adapter": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+  "assets": [
+    {
+      "source": "res://assets/fairytales/red_cottage/ceiling-wood-v1.png",
+      "target": "res://assets/fairytales/red_cottage/ceiling-wood-v1.png",
+      "source_sha256": "254e074e9ecf5dc3b5e58539416a506b11a4feee7bb4e7c569d9b389a0d0f6ec",
+      "target_sha256": "254e074e9ecf5dc3b5e58539416a506b11a4feee7bb4e7c569d9b389a0d0f6ec",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/blanket/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/blanket/prop.png",
+      "source_sha256": "4f9c8df5a31730a1eff7b76102d777457eba145f08c05c84d12f952b6e303a27",
+      "target_sha256": "4f9c8df5a31730a1eff7b76102d777457eba145f08c05c84d12f952b6e303a27",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/chest/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/chest/prop.png",
+      "source_sha256": "a391f59feacfef3d30c1f11ae544d526c10b1c8e15437de7e692b22383d6196a",
+      "target_sha256": "a391f59feacfef3d30c1f11ae544d526c10b1c8e15437de7e692b22383d6196a",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/firewood/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/firewood/prop.png",
+      "source_sha256": "ff672abe07234ac77bfa4d8f738bd850288729fa6d96913240a79b4c8255e0a0",
+      "target_sha256": "ff672abe07234ac77bfa4d8f738bd850288729fa6d96913240a79b4c8255e0a0",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/hamper/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/hamper/prop.png",
+      "source_sha256": "74513bb3b843655a6c38bbac4d29ee7cafeb1054e92b3e9394196ebd14d6d178",
+      "target_sha256": "74513bb3b843655a6c38bbac4d29ee7cafeb1054e92b3e9394196ebd14d6d178",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/pottery/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/pottery/prop.png",
+      "source_sha256": "d11201fae85b1818af3abdbe8b4a96169aebb3ad08e2c437280e81c98fa68488",
+      "target_sha256": "d11201fae85b1818af3abdbe8b4a96169aebb3ad08e2c437280e81c98fa68488",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/rags/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/rags/prop.png",
+      "source_sha256": "4491812604cef2f0af077e934fa20336b6d987ca4b2615e4ec1c5c5addf2b6d4",
+      "target_sha256": "4491812604cef2f0af077e934fa20336b6d987ca4b2615e4ec1c5c5addf2b6d4",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/shavings/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/shavings/prop.png",
+      "source_sha256": "7a6a113a848fddaacbaad614489a14fcec91fea03bf41bbaa47a1273d71703da",
+      "target_sha256": "7a6a113a848fddaacbaad614489a14fcec91fea03bf41bbaa47a1273d71703da",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/shoes/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/shoes/prop.png",
+      "source_sha256": "e908ad09aade04873fe6635c81d945450dcdc3d27736240e5ad394b3c6abad3a",
+      "target_sha256": "e908ad09aade04873fe6635c81d945450dcdc3d27736240e5ad394b3c6abad3a",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/dressing/stool/prop.png",
+      "target": "res://assets/fairytales/red_cottage/dressing/stool/prop.png",
+      "source_sha256": "a9172870f1299f342a9ef4072d15fb91816bb01898aae46af0b00b8ba9c4bd91",
+      "target_sha256": "a9172870f1299f342a9ef4072d15fb91816bb01898aae46af0b00b8ba9c4bd91",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/furnishings/hearth-v2.png",
+      "target": "res://assets/fairytales/red_cottage/furnishings/hearth-v2.png",
+      "source_sha256": "d0c1ed74be8b8e722d253c605eb8e9fa24d22d20c44d5ebee14fa96ca390a873",
+      "target_sha256": "d0c1ed74be8b8e722d253c605eb8e9fa24d22d20c44d5ebee14fa96ca390a873",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/furnishings/sewing-corner-v2.png",
+      "target": "res://assets/fairytales/red_cottage/furnishings/sewing-corner-v2.png",
+      "source_sha256": "6d409a649ed33b4c823ca63268dfbd8b77de6ee1621d96d61a62eb852b227728",
+      "target_sha256": "6d409a649ed33b4c823ca63268dfbd8b77de6ee1621d96d61a62eb852b227728",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/ground.png",
+      "target": "res://assets/fairytales/red_cottage/ground.png",
+      "source_sha256": "d598d9753ba1bbfb4d9d587ae5b47be970aa0cd2270d0c60e20acc8707a63a5a",
+      "target_sha256": "d598d9753ba1bbfb4d9d587ae5b47be970aa0cd2270d0c60e20acc8707a63a5a",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/fairytales/red_cottage/structure.png",
+      "target": "res://assets/fairytales/red_cottage/structure.png",
+      "source_sha256": "19b8430c8ae23effe4de0a03c569d2b503f38f321a87607ba7b60af265d6522e",
+      "target_sha256": "19b8430c8ae23effe4de0a03c569d2b503f38f321a87607ba7b60af265d6522e",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/style2/lantern.png",
+      "target": "res://assets/style2/lantern.png",
+      "source_sha256": "1b5dd4f2ed2d762c84782c409cbe6ed9de81887e3c47b86d5b33669260a07078",
+      "target_sha256": "1b5dd4f2ed2d762c84782c409cbe6ed9de81887e3c47b86d5b33669260a07078",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    }
+  ],
+  "closure_strategy": "hybrid",
+  "new_asset_policy": "inspect metadata, preserve compatible support/opening/aspect, compile; incompatible geometry is rejected, never stretched"
+}

@@ -1,0 +1,3575 @@
+{
+  "source": {
+    "path": "godot/assets/biomes/crystal/arch-study/surround-a.png",
+    "sha256": "a6ac7af26357f67439c3503d01ee9d680ed041b6e10d957adcd36d82f89a01eb",
+    "source_variants": 1,
+    "role": "candidate_surround_source",
+    "art_accepted": false
+  },
+  "results": [
+    {
+      "mode": "whole",
+      "step": 1.2,
+      "instances": 70,
+      "triangles": 140,
+      "worst_missing_pixels": 50,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 2,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 1,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 21,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 36,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 4,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 14,
+          "visible_cards": 44
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 15,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 15,
+          "visible_cards": 44
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 19,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 13,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 23,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 0,
+          "visible_cards": 44
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 0,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 0,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 0,
+          "visible_cards": 43
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 2,
+          "visible_cards": 45
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 0,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 4,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 2,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 1,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 8,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 6,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 15,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 29,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 14,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 16,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 32,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 31,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 20,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 3,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 2,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 1,
+          "visible_cards": 37
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 9,
+          "visible_cards": 38
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 8,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 6,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 16,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 16,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 20,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 22,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 14,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 0,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 3,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 24,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 6,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 0,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 0,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 0,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 0,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 0,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 0,
+          "visible_cards": 39
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 12,
+          "visible_cards": 38
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 28,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 50,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 42,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 2,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 6,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 3,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 9,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 4,
+          "visible_cards": 40
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 10,
+          "visible_cards": 41
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 8,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 16,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 14,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 13,
+          "visible_cards": 42
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 26,
+          "visible_cards": 42
+        }
+      ]
+    },
+    {
+      "mode": "whole",
+      "step": 1.8,
+      "instances": 46,
+      "triangles": 92,
+      "worst_missing_pixels": 583,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 381,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 208,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 88,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 71,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 74,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 73,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 102,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 111,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 127,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 167,
+          "visible_cards": 33
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 172,
+          "visible_cards": 34
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 190,
+          "visible_cards": 35
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 144,
+          "visible_cards": 35
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 121,
+          "visible_cards": 35
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 64,
+          "visible_cards": 34
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 16,
+          "visible_cards": 33
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 16,
+          "visible_cards": 33
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 37,
+          "visible_cards": 33
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 59,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 100,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 132,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 204,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 305,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 389,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 475,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 559,
+          "visible_cards": 32
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 509,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 345,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 127,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 36,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 43,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 72,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 91,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 129,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 140,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 215,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 238,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 327,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 421,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 466,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 480,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 383,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 255,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 60,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 45,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 48,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 63,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 71,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 118,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 160,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 230,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 299,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 389,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 544,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 583,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 551,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 445,
+          "visible_cards": 31
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 231,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 87,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 61,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 29,
+          "visible_cards": 30
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 39,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 61,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 73,
+          "visible_cards": 29
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 95,
+          "visible_cards": 29
+        }
+      ]
+    },
+    {
+      "mode": "whole",
+      "step": 2.4,
+      "instances": 35,
+      "triangles": 70,
+      "worst_missing_pixels": 1203,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 1203,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 1061,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 1038,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 883,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 793,
+          "visible_cards": 27
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 625,
+          "visible_cards": 27
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 471,
+          "visible_cards": 27
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 364,
+          "visible_cards": 27
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 376,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 365,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 424,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 444,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 452,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 484,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 531,
+          "visible_cards": 28
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 667,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 812,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 962,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 1106,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 1149,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 1133,
+          "visible_cards": 26
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 1033,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 941,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 807,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 697,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 561,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 408,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 206,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 95,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 127,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 140,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 179,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 184,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 238,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 281,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 379,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 451,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 606,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 644,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 752,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 748,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 629,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 509,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 312,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 295,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 357,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 389,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 374,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 401,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 411,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 528,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 661,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 775,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 982,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 1104,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 1178,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 1166,
+          "visible_cards": 25
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 1059,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 973,
+          "visible_cards": 24
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 825,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 708,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 558,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 422,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 371,
+          "visible_cards": 23
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 333,
+          "visible_cards": 23
+        }
+      ]
+    },
+    {
+      "mode": "segmented",
+      "step": 1.2,
+      "instances": 211,
+      "triangles": 422,
+      "worst_missing_pixels": 70,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 0,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 15,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 33,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 64,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 70,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 0,
+          "visible_cards": 90
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 0,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 0,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 0,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 0,
+          "visible_cards": 92
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 0,
+          "visible_cards": 94
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 0,
+          "visible_cards": 94
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 0,
+          "visible_cards": 94
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 8,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 28,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 38,
+          "visible_cards": 90
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 0,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 0,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 0,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 5,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 5,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 5,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 6,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 0,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 0,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 0,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 10,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 31,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 22,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 0,
+          "visible_cards": 84
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 0,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 0,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 0,
+          "visible_cards": 92
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 0,
+          "visible_cards": 92
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 6,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 2,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 1,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 0,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 5,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 6,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 6,
+          "visible_cards": 88
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 6,
+          "visible_cards": 85
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 14,
+          "visible_cards": 85
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 18,
+          "visible_cards": 85
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 31,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 0,
+          "visible_cards": 84
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 0,
+          "visible_cards": 85
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 0,
+          "visible_cards": 91
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 0,
+          "visible_cards": 87
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 1,
+          "visible_cards": 89
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 0,
+          "visible_cards": 86
+        }
+      ]
+    },
+    {
+      "mode": "segmented",
+      "step": 1.8,
+      "instances": 140,
+      "triangles": 280,
+      "worst_missing_pixels": 435,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 435,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 418,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 353,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 320,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 253,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 178,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 62,
+          "visible_cards": 74
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 20,
+          "visible_cards": 75
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 13,
+          "visible_cards": 73
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 3,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 6,
+          "visible_cards": 73
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 6,
+          "visible_cards": 73
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 12,
+          "visible_cards": 75
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 29,
+          "visible_cards": 76
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 42,
+          "visible_cards": 74
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 76,
+          "visible_cards": 74
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 111,
+          "visible_cards": 78
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 97,
+          "visible_cards": 77
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 64,
+          "visible_cards": 73
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 63,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 60,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 83,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 126,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 181,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 259,
+          "visible_cards": 70
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 370,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 396,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 393,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 327,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 312,
+          "visible_cards": 70
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 309,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 266,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 181,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 95,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 10,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 14,
+          "visible_cards": 66
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 14,
+          "visible_cards": 65
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 27,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 68,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 114,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 179,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 202,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 224,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 185,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 185,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 144,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 90,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 17,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 9,
+          "visible_cards": 70
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 19,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 42,
+          "visible_cards": 72
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 64,
+          "visible_cards": 71
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 122,
+          "visible_cards": 70
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 207,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 276,
+          "visible_cards": 70
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 299,
+          "visible_cards": 66
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 335,
+          "visible_cards": 68
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 268,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 172,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 125,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 54,
+          "visible_cards": 69
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 40,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 56,
+          "visible_cards": 67
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 74,
+          "visible_cards": 66
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 91,
+          "visible_cards": 67
+        }
+      ]
+    },
+    {
+      "mode": "segmented",
+      "step": 2.4,
+      "instances": 105,
+      "triangles": 210,
+      "worst_missing_pixels": 959,
+      "rows": [
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.0
+          ],
+          "missing": 866,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.125
+          ],
+          "missing": 888,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.25
+          ],
+          "missing": 950,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.375
+          ],
+          "missing": 917,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.5
+          ],
+          "missing": 867,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.625
+          ],
+          "missing": 761,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.75
+          ],
+          "missing": 652,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            4.875
+          ],
+          "missing": 546,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.0
+          ],
+          "missing": 561,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.125
+          ],
+          "missing": 505,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.25
+          ],
+          "missing": 473,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.375
+          ],
+          "missing": 446,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.5
+          ],
+          "missing": 379,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.625
+          ],
+          "missing": 331,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.75
+          ],
+          "missing": 393,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            5.875
+          ],
+          "missing": 442,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.0
+          ],
+          "missing": 530,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.125
+          ],
+          "missing": 597,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.25
+          ],
+          "missing": 735,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.375
+          ],
+          "missing": 811,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.5
+          ],
+          "missing": 899,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.625
+          ],
+          "missing": 882,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.75
+          ],
+          "missing": 937,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            6.875
+          ],
+          "missing": 959,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.0
+          ],
+          "missing": 918,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.125
+          ],
+          "missing": 825,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.25
+          ],
+          "missing": 743,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.375
+          ],
+          "missing": 590,
+          "visible_cards": 51
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.5
+          ],
+          "missing": 511,
+          "visible_cards": 51
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.625
+          ],
+          "missing": 427,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.75
+          ],
+          "missing": 351,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            7.875
+          ],
+          "missing": 305,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.0
+          ],
+          "missing": 220,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.125
+          ],
+          "missing": 177,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.25
+          ],
+          "missing": 159,
+          "visible_cards": 57
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.375
+          ],
+          "missing": 171,
+          "visible_cards": 59
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.5
+          ],
+          "missing": 192,
+          "visible_cards": 59
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.625
+          ],
+          "missing": 240,
+          "visible_cards": 58
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.75
+          ],
+          "missing": 301,
+          "visible_cards": 57
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            8.875
+          ],
+          "missing": 459,
+          "visible_cards": 58
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.0
+          ],
+          "missing": 528,
+          "visible_cards": 58
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.125
+          ],
+          "missing": 598,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.25
+          ],
+          "missing": 606,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.375
+          ],
+          "missing": 578,
+          "visible_cards": 52
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.5
+          ],
+          "missing": 608,
+          "visible_cards": 51
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.625
+          ],
+          "missing": 649,
+          "visible_cards": 51
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.75
+          ],
+          "missing": 626,
+          "visible_cards": 50
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            9.875
+          ],
+          "missing": 576,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.0
+          ],
+          "missing": 604,
+          "visible_cards": 52
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.125
+          ],
+          "missing": 550,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.25
+          ],
+          "missing": 524,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.375
+          ],
+          "missing": 560,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.5
+          ],
+          "missing": 508,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.625
+          ],
+          "missing": 596,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.75
+          ],
+          "missing": 674,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            10.875
+          ],
+          "missing": 765,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.0
+          ],
+          "missing": 825,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.125
+          ],
+          "missing": 837,
+          "visible_cards": 56
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.25
+          ],
+          "missing": 823,
+          "visible_cards": 54
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.375
+          ],
+          "missing": 821,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.5
+          ],
+          "missing": 816,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.625
+          ],
+          "missing": 826,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.75
+          ],
+          "missing": 810,
+          "visible_cards": 53
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            11.875
+          ],
+          "missing": 794,
+          "visible_cards": 55
+        },
+        {
+          "pose": [
+            0.0,
+            1.3,
+            12.0
+          ],
+          "missing": 756,
+          "visible_cards": 54
+        }
+      ]
+    }
+  ]
+}

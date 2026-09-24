@@ -1,0 +1,3698 @@
+[
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.351956277868556,
+    "y": -0.11719409199475189,
+    "z": 51.2,
+    "width": 2.9899071486464504,
+    "height": 4.4848607229696755,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 0
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.684714930595408,
+    "y": -0.11819275101075954,
+    "z": 54.4678546214544,
+    "width": 3.0191250581433597,
+    "height": 4.52868758721504,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 1
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.74297560771743,
+    "y": -0.11916492489816354,
+    "z": 57.4677103740484,
+    "width": 3.0475680884491223,
+    "height": 4.571352132673684,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 2
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.837949161838184,
+    "y": -0.11815329774085,
+    "z": 60.1843397941809,
+    "width": 3.017970768189435,
+    "height": 4.526956152284153,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 3
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.483206358746745,
+    "y": -0.11281121988389357,
+    "z": 63.5920590536166,
+    "width": 2.8616768331744815,
+    "height": 4.292515249761722,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 4
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.42365755492148,
+    "y": -0.111975730851973,
+    "z": 67.0491478038797,
+    "width": 2.8372328112120058,
+    "height": 4.255849216818008,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 5
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.620259998589642,
+    "y": -0.11091924973160547,
+    "z": 70.2300458058911,
+    "width": 2.8063231921475382,
+    "height": 4.209484788221308,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 6
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.222081898114283,
+    "y": -0.11065511204652831,
+    "z": 73.6173522468265,
+    "width": 2.798595278161281,
+    "height": 4.197892917241921,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 7
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.387747801076107,
+    "y": -0.11314881574299468,
+    "z": 77.0086239655858,
+    "width": 2.8715539234521827,
+    "height": 4.307330885178274,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 8
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.326151180392219,
+    "y": -0.11443340893781505,
+    "z": 80.1423461485242,
+    "width": 2.9091374500663556,
+    "height": 4.363706175099534,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 9
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.322131765172349,
+    "y": -0.11400187662893332,
+    "z": 83.0258242916627,
+    "width": 2.8965120476579305,
+    "height": 4.344768071486896,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 10
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.314589557631357,
+    "y": -0.11319213042054459,
+    "z": 86.4276878687618,
+    "width": 2.872821187161071,
+    "height": 4.309231780741607,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 11
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.307864396293692,
+    "y": -0.11247010389656222,
+    "z": 89.8859177112267,
+    "width": 2.8516967540022726,
+    "height": 4.277545131003409,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 12
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.290317834883452,
+    "y": -0.11058627061632163,
+    "z": 92.7213024866602,
+    "width": 2.7965811746032343,
+    "height": 4.194871761904851,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 13
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.294000207086347,
+    "y": -0.11098161732522144,
+    "z": 96.1620113242619,
+    "width": 2.808147889743617,
+    "height": 4.212221834615425,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 14
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.350797689422856,
+    "y": -0.1170795065331288,
+    "z": 98.8671369448124,
+    "width": 2.9865547054263923,
+    "height": 4.479832058139588,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 15
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.384160884604586,
+    "y": -0.12066144466613668,
+    "z": 102.093023443678,
+    "width": 3.0913519810892507,
+    "height": 4.637027971633876,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 16
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.364731752617535,
+    "y": -0.11857549491292564,
+    "z": 105.194306957785,
+    "width": 3.030323051166734,
+    "height": 4.545484576750101,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 17
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.3374627995321795,
+    "y": -0.11564784657554082,
+    "z": 108.274639669166,
+    "width": 2.9446684255243896,
+    "height": 4.417002638286585,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 18
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.333856414684162,
+    "y": -0.11526065801823836,
+    "z": 110.993071604825,
+    "width": 2.9333403945907404,
+    "height": 4.400010591886111,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 19
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.31350722281775,
+    "y": -0.11307592883012661,
+    "z": 114.190894215115,
+    "width": 2.8694214606299853,
+    "height": 4.304132190944978,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 20
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.351828387715757,
+    "y": -0.11719016432531143,
+    "z": 50.602900935124296,
+    "width": 2.9897922362605356,
+    "height": 4.484688354390803,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 21
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.529862944127441,
+    "y": -0.11782275704038127,
+    "z": 53.72321781241017,
+    "width": 3.0083000916957214,
+    "height": 4.512450137543582,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 22
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.308060966058846,
+    "y": -0.1190059476301372,
+    "z": 56.40396061343996,
+    "width": 3.042916867807438,
+    "height": 4.564375301711157,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 23
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.373241777979791,
+    "y": -0.119081826201554,
+    "z": 58.95393033991383,
+    "width": 3.045136858011175,
+    "height": 4.5677052870167625,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 24
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.423109956817079,
+    "y": -0.1138386794747364,
+    "z": 62.79372323413853,
+    "width": 2.8917373652037117,
+    "height": 4.337606047805568,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 25
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.446143875498292,
+    "y": -0.11201445521557145,
+    "z": 66.82192357806309,
+    "width": 2.8383657754498572,
+    "height": 4.257548663174786,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 26
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.918419004455476,
+    "y": -0.11121715783067776,
+    "z": 69.38054355342716,
+    "width": 2.8150391319603965,
+    "height": 4.2225586979405945,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 27
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.333406868548915,
+    "y": -0.11061432161062176,
+    "z": 73.33186282589564,
+    "width": 2.7974018665507576,
+    "height": 4.196102799826137,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 28
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.5320890365737965,
+    "y": -0.1121455453253936,
+    "z": 75.97488458188896,
+    "width": 2.8422010975200824,
+    "height": 4.263301646280124,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 29
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.326143130107879,
+    "y": -0.11443254464348405,
+    "z": 79.78372663597337,
+    "width": 2.909112163283643,
+    "height": 4.3636682449254645,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 30
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.32498244830114,
+    "y": -0.11430793156607338,
+    "z": 81.79848160461142,
+    "width": 2.905466340675971,
+    "height": 4.358199511013956,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 31
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.315276812017951,
+    "y": -0.1132659154007004,
+    "z": 85.7080199866993,
+    "width": 2.874979924866201,
+    "height": 4.312469887299302,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 32
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.308736375158472,
+    "y": -0.11256372125934522,
+    "z": 89.73216487869186,
+    "width": 2.8544357305591244,
+    "height": 4.281653595838686,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 33
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.291879541091038,
+    "y": -0.11075393846069441,
+    "z": 92.37764956102528,
+    "width": 2.801486656678598,
+    "height": 4.202229985017897,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 34
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.287407623990048,
+    "y": -0.11027382466150834,
+    "z": 94.96545355020503,
+    "width": 2.7874398986681252,
+    "height": 4.181159848002188,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 35
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.320714155883761,
+    "y": -0.11384967931267383,
+    "z": 97.63488570777622,
+    "width": 2.8920591890336524,
+    "height": 4.338088783550479,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 36
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.384091159225272,
+    "y": -0.1206539588125293,
+    "z": 101.57739892186301,
+    "width": 3.0911329664008522,
+    "height": 4.636699449601278,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 37
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.374648494083548,
+    "y": -0.11964017574516633,
+    "z": 104.28638263379365,
+    "width": 3.0614725703728616,
+    "height": 4.592208855559292,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 38
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.337477345356366,
+    "y": -0.11564940824378182,
+    "z": 108.26859199933295,
+    "width": 2.9447141154752123,
+    "height": 4.417071173212818,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 39
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.334574549402113,
+    "y": -0.11533775837139262,
+    "z": 110.79990714764642,
+    "width": 2.935596130637311,
+    "height": 4.403394195955967,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 40
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.317927933001019,
+    "y": -0.11355054495409722,
+    "z": 113.4823189739212,
+    "width": 2.8833073723712968,
+    "height": 4.324961058556945,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 41
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.436852111201889,
+    "y": -0.1263086753280852,
+    "z": 51.2,
+    "width": 3.2565738153131165,
+    "height": 4.884860722969675,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 42
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.769610763928742,
+    "y": -0.12730733434409286,
+    "z": 54.4678546214544,
+    "width": 3.2857917248100263,
+    "height": 4.928687587215039,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 43
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.827871441050762,
+    "y": -0.12827950823149686,
+    "z": 57.4677103740484,
+    "width": 3.314234755115789,
+    "height": 4.971352132673683,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 44
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.922844995171518,
+    "y": -0.12726788107418335,
+    "z": 60.1843397941809,
+    "width": 3.2846374348561014,
+    "height": 4.926956152284152,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 45
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.568102192080078,
+    "y": -0.1219258032172269,
+    "z": 63.5920590536166,
+    "width": 3.1283434998411477,
+    "height": 4.692515249761722,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 46
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.508553388254812,
+    "y": -0.12109031418530634,
+    "z": 67.0491478038797,
+    "width": 3.103899477878672,
+    "height": 4.655849216818008,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 47
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.705155831922974,
+    "y": -0.12003383306493881,
+    "z": 70.2300458058911,
+    "width": 3.072989858814205,
+    "height": 4.609484788221307,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 48
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.306977731447615,
+    "y": -0.11976969537986164,
+    "z": 73.6173522468265,
+    "width": 3.065261944827947,
+    "height": 4.5978929172419205,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 49
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.47264363440944,
+    "y": -0.12226339907632802,
+    "z": 77.0086239655858,
+    "width": 3.138220590118849,
+    "height": 4.707330885178274,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 50
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.411047013725552,
+    "y": -0.12354799227114839,
+    "z": 80.1423461485242,
+    "width": 3.175804116733022,
+    "height": 4.763706175099533,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 51
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.407027598505683,
+    "y": -0.12311645996226667,
+    "z": 83.0258242916627,
+    "width": 3.1631787143245966,
+    "height": 4.744768071486895,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 52
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.39948539096469,
+    "y": -0.12230671375387793,
+    "z": 86.4276878687618,
+    "width": 3.1394878538277378,
+    "height": 4.709231780741606,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 53
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.392760229627026,
+    "y": -0.12158468722989554,
+    "z": 89.8859177112267,
+    "width": 3.118363420668939,
+    "height": 4.677545131003408,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 54
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.3752136682167855,
+    "y": -0.11970085394965498,
+    "z": 92.7213024866602,
+    "width": 3.0632478412699005,
+    "height": 4.594871761904851,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 55
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.37889604041968,
+    "y": -0.12009620065855477,
+    "z": 96.1620113242619,
+    "width": 3.074814556410283,
+    "height": 4.612221834615425,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 56
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.435693522756189,
+    "y": -0.12619408986646213,
+    "z": 98.8671369448124,
+    "width": 3.2532213720930585,
+    "height": 4.879832058139588,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 57
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.469056717937919,
+    "y": -0.12977602799947002,
+    "z": 102.093023443678,
+    "width": 3.3580186477559173,
+    "height": 5.037027971633876,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 58
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.449627585950868,
+    "y": -0.127690078246259,
+    "z": 105.194306957785,
+    "width": 3.2969897178334002,
+    "height": 4.945484576750101,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 59
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.422358632865512,
+    "y": -0.12476242990887416,
+    "z": 108.274639669166,
+    "width": 3.211335092191056,
+    "height": 4.817002638286584,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 60
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.418752248017495,
+    "y": -0.1243752413515717,
+    "z": 110.993071604825,
+    "width": 3.200007061257407,
+    "height": 4.80001059188611,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 61
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.398403056151083,
+    "y": -0.12219051216345996,
+    "z": 114.190894215115,
+    "width": 3.136088127296652,
+    "height": 4.704132190944978,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 62
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.43672422104909,
+    "y": -0.12630474765864477,
+    "z": 50.602900935124296,
+    "width": 3.2564589029272017,
+    "height": 4.884688354390803,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 63
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.614758777460774,
+    "y": -0.12693734037371462,
+    "z": 53.72321781241017,
+    "width": 3.2749667583623876,
+    "height": 4.912450137543582,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 64
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.392956799392179,
+    "y": -0.12812053096347054,
+    "z": 56.40396061343996,
+    "width": 3.309583534474104,
+    "height": 4.964375301711156,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 65
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.458137611313125,
+    "y": -0.12819640953488734,
+    "z": 58.95393033991383,
+    "width": 3.3118035246778414,
+    "height": 4.967705287016762,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 66
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.508005790150412,
+    "y": -0.12295326280806973,
+    "z": 62.79372323413853,
+    "width": 3.158404031870378,
+    "height": 4.737606047805567,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 67
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.531039708831626,
+    "y": -0.12112903854890479,
+    "z": 66.82192357806309,
+    "width": 3.105032442116524,
+    "height": 4.6575486631747856,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 68
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.003314837788809,
+    "y": -0.1203317411640111,
+    "z": 69.38054355342716,
+    "width": 3.0817057986270626,
+    "height": 4.622558697940594,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 69
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.418302701882247,
+    "y": -0.11972890494395509,
+    "z": 73.33186282589564,
+    "width": 3.0640685332174242,
+    "height": 4.596102799826136,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 70
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.61698486990713,
+    "y": -0.12126012865872694,
+    "z": 75.97488458188896,
+    "width": 3.108867764186749,
+    "height": 4.663301646280123,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 71
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.411038963441213,
+    "y": -0.12354712797681738,
+    "z": 79.78372663597337,
+    "width": 3.175778829950309,
+    "height": 4.763668244925464,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 72
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.409878281634473,
+    "y": -0.12342251489940673,
+    "z": 81.79848160461142,
+    "width": 3.1721330073426373,
+    "height": 4.758199511013956,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 73
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.400172645351285,
+    "y": -0.12238049873403373,
+    "z": 85.7080199866993,
+    "width": 3.1416465915328673,
+    "height": 4.712469887299301,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 74
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.3936322084918045,
+    "y": -0.12167830459267856,
+    "z": 89.73216487869186,
+    "width": 3.1211023972257905,
+    "height": 4.681653595838686,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 75
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.376775374424372,
+    "y": -0.11986852179402775,
+    "z": 92.37764956102528,
+    "width": 3.068153323345264,
+    "height": 4.602229985017896,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 76
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.372303457323381,
+    "y": -0.11938840799484167,
+    "z": 94.96545355020503,
+    "width": 3.0541065653347914,
+    "height": 4.581159848002187,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 77
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.405609989217094,
+    "y": -0.12296426264600717,
+    "z": 97.63488570777622,
+    "width": 3.1587258557003186,
+    "height": 4.738088783550478,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 78
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.468986992558605,
+    "y": -0.12976854214586264,
+    "z": 101.57739892186301,
+    "width": 3.3577996330675184,
+    "height": 5.036699449601278,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 79
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.459544327416881,
+    "y": -0.12875475907849965,
+    "z": 104.28638263379365,
+    "width": 3.3281392370395277,
+    "height": 4.992208855559292,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 80
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.4223731786897,
+    "y": -0.12476399157711517,
+    "z": 108.26859199933295,
+    "width": 3.2113807821418785,
+    "height": 4.817071173212818,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 81
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.4194703827354465,
+    "y": -0.12445234170472597,
+    "z": 110.79990714764642,
+    "width": 3.2022627973039772,
+    "height": 4.803394195955966,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 82
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.402823766334352,
+    "y": -0.12266512828743055,
+    "z": 113.4823189739212,
+    "width": 3.149974039037963,
+    "height": 4.724961058556945,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 83
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.521747944535222,
+    "y": -0.13542325866141858,
+    "z": 51.2,
+    "width": 3.5232404819797836,
+    "height": 5.284860722969675,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 84
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.854506597262075,
+    "y": -0.13642191767742623,
+    "z": 54.4678546214544,
+    "width": 3.552458391476693,
+    "height": 5.32868758721504,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 85
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.912767274384095,
+    "y": -0.13739409156483023,
+    "z": 57.4677103740484,
+    "width": 3.5809014217824555,
+    "height": 5.3713521326736835,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 86
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.00774082850485,
+    "y": -0.1363824644075167,
+    "z": 60.1843397941809,
+    "width": 3.5513041015227684,
+    "height": 5.326956152284152,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 87
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.65299802541341,
+    "y": -0.13104038655056027,
+    "z": 63.5920590536166,
+    "width": 3.3950101665078147,
+    "height": 5.092515249761722,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 88
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.593449221588147,
+    "y": -0.1302048975186397,
+    "z": 67.0491478038797,
+    "width": 3.370566144545339,
+    "height": 5.055849216818008,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 89
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.790051665256309,
+    "y": -0.12914841639827218,
+    "z": 70.2300458058911,
+    "width": 3.3396565254808714,
+    "height": 5.009484788221307,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 90
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.391873564780948,
+    "y": -0.128884278713195,
+    "z": 73.6173522468265,
+    "width": 3.331928611494614,
+    "height": 4.997892917241921,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 91
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.557539467742774,
+    "y": -0.13137798240966136,
+    "z": 77.0086239655858,
+    "width": 3.404887256785516,
+    "height": 5.107330885178274,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 92
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.495942847058886,
+    "y": -0.13266257560448175,
+    "z": 80.1423461485242,
+    "width": 3.442470783399689,
+    "height": 5.1637061750995334,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 93
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.491923431839016,
+    "y": -0.13223104329560004,
+    "z": 83.0258242916627,
+    "width": 3.4298453809912637,
+    "height": 5.1447680714868955,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 94
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.484381224298024,
+    "y": -0.1314212970872113,
+    "z": 86.4276878687618,
+    "width": 3.4061545204944044,
+    "height": 5.109231780741607,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 95
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.477656062960359,
+    "y": -0.1306992705632289,
+    "z": 89.8859177112267,
+    "width": 3.385030087335606,
+    "height": 5.077545131003409,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 96
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.460109501550118,
+    "y": -0.12881543728298833,
+    "z": 92.7213024866602,
+    "width": 3.3299145079365675,
+    "height": 4.994871761904851,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 97
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.463791873753014,
+    "y": -0.12921078399188812,
+    "z": 96.1620113242619,
+    "width": 3.34148122307695,
+    "height": 5.012221834615425,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 98
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.5205893560895225,
+    "y": -0.1353086731997955,
+    "z": 98.8671369448124,
+    "width": 3.5198880387597256,
+    "height": 5.279832058139588,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 99
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.553952551271252,
+    "y": -0.13889061133280337,
+    "z": 102.093023443678,
+    "width": 3.624685314422584,
+    "height": 5.437027971633876,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 100
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.534523419284201,
+    "y": -0.13680466157959234,
+    "z": 105.194306957785,
+    "width": 3.5636563845000673,
+    "height": 5.345484576750101,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 101
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.507254466198845,
+    "y": -0.13387701324220752,
+    "z": 108.274639669166,
+    "width": 3.478001758857723,
+    "height": 5.217002638286584,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 102
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.503648081350828,
+    "y": -0.13348982468490506,
+    "z": 110.993071604825,
+    "width": 3.4666737279240736,
+    "height": 5.200010591886111,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 103
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.483298889484416,
+    "y": -0.1313050954967933,
+    "z": 114.190894215115,
+    "width": 3.4027547939633185,
+    "height": 5.104132190944978,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 104
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.521620054382423,
+    "y": -0.13541933099197812,
+    "z": 50.602900935124296,
+    "width": 3.523125569593869,
+    "height": 5.284688354390803,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 105
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.6996546107941075,
+    "y": -0.13605192370704797,
+    "z": 53.72321781241017,
+    "width": 3.5416334250290546,
+    "height": 5.312450137543582,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 106
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.477852632725513,
+    "y": -0.1372351142968039,
+    "z": 56.40396061343996,
+    "width": 3.576250201140771,
+    "height": 5.364375301711156,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 107
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.543033444646458,
+    "y": -0.13731099286822068,
+    "z": 58.95393033991383,
+    "width": 3.578470191344508,
+    "height": 5.367705287016762,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 108
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.592901623483746,
+    "y": -0.1320678461414031,
+    "z": 62.79372323413853,
+    "width": 3.425070698537045,
+    "height": 5.137606047805567,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 109
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.615935542164959,
+    "y": -0.13024362188223815,
+    "z": 66.82192357806309,
+    "width": 3.3716991087831905,
+    "height": 5.057548663174786,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 110
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.088210671122143,
+    "y": -0.12944632449734444,
+    "z": 69.38054355342716,
+    "width": 3.3483724652937297,
+    "height": 5.022558697940594,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 111
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.503198535215581,
+    "y": -0.12884348827728845,
+    "z": 73.33186282589564,
+    "width": 3.330735199884091,
+    "height": 4.9961027998261365,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 112
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.701880703240463,
+    "y": -0.1303747119920603,
+    "z": 75.97488458188896,
+    "width": 3.3755344308534156,
+    "height": 5.063301646280124,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 113
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.495934796774545,
+    "y": -0.13266171131015075,
+    "z": 79.78372663597337,
+    "width": 3.442445496616976,
+    "height": 5.163668244925464,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 114
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.494774114967806,
+    "y": -0.13253709823274007,
+    "z": 81.79848160461142,
+    "width": 3.4387996740093043,
+    "height": 5.158199511013956,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 115
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.485068478684617,
+    "y": -0.1314950820673671,
+    "z": 85.7080199866993,
+    "width": 3.4083132581995343,
+    "height": 5.1124698872993015,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 116
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.478528041825138,
+    "y": -0.1307928879260119,
+    "z": 89.73216487869186,
+    "width": 3.3877690638924576,
+    "height": 5.081653595838686,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 117
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.461671207757705,
+    "y": -0.1289831051273611,
+    "z": 92.37764956102528,
+    "width": 3.334819990011931,
+    "height": 5.002229985017896,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 118
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.457199290656715,
+    "y": -0.12850299132817503,
+    "z": 94.96545355020503,
+    "width": 3.3207732320014585,
+    "height": 4.9811598480021875,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 119
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.4905058225504275,
+    "y": -0.13207884597934053,
+    "z": 97.63488570777622,
+    "width": 3.4253925223669857,
+    "height": 5.1380887835504785,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 120
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.553882825891939,
+    "y": -0.13888312547919598,
+    "z": 101.57739892186301,
+    "width": 3.6244662997341854,
+    "height": 5.436699449601278,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 121
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.544440160750215,
+    "y": -0.13786934241183302,
+    "z": 104.28638263379365,
+    "width": 3.594805903706195,
+    "height": 5.392208855559292,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 122
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.507269012023033,
+    "y": -0.13387857491044852,
+    "z": 108.26859199933295,
+    "width": 3.4780474488085455,
+    "height": 5.217071173212818,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 123
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.50436621606878,
+    "y": -0.13356692503805934,
+    "z": 110.79990714764642,
+    "width": 3.4689294639706443,
+    "height": 5.203394195955966,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 124
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.4877195996676855,
+    "y": -0.1317797116207639,
+    "z": 113.4823189739212,
+    "width": 3.41664070570463,
+    "height": 5.124961058556945,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 125
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.606643777868555,
+    "y": -0.1445378419947519,
+    "z": 51.2,
+    "width": 3.7899071486464497,
+    "height": 5.684860722969675,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 126
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.9394024305954085,
+    "y": -0.14553650101075954,
+    "z": 54.4678546214544,
+    "width": 3.8191250581433596,
+    "height": 5.728687587215039,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 127
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.997663107717429,
+    "y": -0.14650867489816355,
+    "z": 57.4677103740484,
+    "width": 3.847568088449122,
+    "height": 5.771352132673683,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 128
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.092636661838185,
+    "y": -0.14549704774085004,
+    "z": 60.1843397941809,
+    "width": 3.8179707681894346,
+    "height": 5.726956152284152,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 129
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.737893858746745,
+    "y": -0.1401549698838936,
+    "z": 63.5920590536166,
+    "width": 3.661676833174481,
+    "height": 5.492515249761722,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 130
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.67834505492148,
+    "y": -0.13931948085197304,
+    "z": 67.0491478038797,
+    "width": 3.637232811212005,
+    "height": 5.455849216818008,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 131
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.874947498589641,
+    "y": -0.1382629997316055,
+    "z": 70.2300458058911,
+    "width": 3.606323192147538,
+    "height": 5.409484788221307,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 132
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.476769398114282,
+    "y": -0.13799886204652834,
+    "z": 73.6173522468265,
+    "width": 3.59859527816128,
+    "height": 5.39789291724192,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 133
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.642435301076107,
+    "y": -0.14049256574299473,
+    "z": 77.0086239655858,
+    "width": 3.671553923452182,
+    "height": 5.507330885178273,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 134
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.580838680392219,
+    "y": -0.14177715893781506,
+    "z": 80.1423461485242,
+    "width": 3.7091374500663554,
+    "height": 5.563706175099533,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 135
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.576819265172349,
+    "y": -0.14134562662893335,
+    "z": 83.0258242916627,
+    "width": 3.69651204765793,
+    "height": 5.544768071486895,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 136
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.569277057631357,
+    "y": -0.1405358804205446,
+    "z": 86.4276878687618,
+    "width": 3.672821187161071,
+    "height": 5.509231780741606,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 137
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.562551896293693,
+    "y": -0.13981385389656226,
+    "z": 89.8859177112267,
+    "width": 3.651696754002272,
+    "height": 5.477545131003408,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 138
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.545005334883451,
+    "y": -0.13793002061632165,
+    "z": 92.7213024866602,
+    "width": 3.5965811746032337,
+    "height": 5.3948717619048505,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 139
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.548687707086347,
+    "y": -0.13832536732522147,
+    "z": 96.1620113242619,
+    "width": 3.6081478897436163,
+    "height": 5.4122218346154245,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 140
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.605485189422856,
+    "y": -0.14442325653312882,
+    "z": 98.8671369448124,
+    "width": 3.7865547054263917,
+    "height": 5.679832058139588,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 141
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.638848384604586,
+    "y": -0.1480051946661367,
+    "z": 102.093023443678,
+    "width": 3.8913519810892505,
+    "height": 5.8370279716338755,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 142
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.619419252617535,
+    "y": -0.14591924491292568,
+    "z": 105.194306957785,
+    "width": 3.8303230511667334,
+    "height": 5.7454845767501,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 143
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.592150299532179,
+    "y": -0.14299159657554084,
+    "z": 108.274639669166,
+    "width": 3.7446684255243894,
+    "height": 5.617002638286584,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 144
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.588543914684162,
+    "y": -0.14260440801823837,
+    "z": 110.993071604825,
+    "width": 3.73334039459074,
+    "height": 5.60001059188611,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 145
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.56819472281775,
+    "y": -0.14041967883012663,
+    "z": 114.190894215115,
+    "width": 3.669421460629985,
+    "height": 5.504132190944977,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 146
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.606515887715757,
+    "y": -0.14453391432531149,
+    "z": 50.602900935124296,
+    "width": 3.789792236260535,
+    "height": 5.6846883543908024,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 147
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.784550444127441,
+    "y": -0.1451665070403813,
+    "z": 53.72321781241017,
+    "width": 3.808300091695721,
+    "height": 5.712450137543581,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 148
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.562748466058846,
+    "y": -0.14634969763013722,
+    "z": 56.40396061343996,
+    "width": 3.8429168678074372,
+    "height": 5.764375301711156,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 149
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -9.627929277979792,
+    "y": -0.14642557620155405,
+    "z": 58.95393033991383,
+    "width": 3.8451368580111747,
+    "height": 5.767705287016762,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 150
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.677797456817078,
+    "y": -0.14118242947473642,
+    "z": 62.79372323413853,
+    "width": 3.691737365203711,
+    "height": 5.537606047805567,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 151
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.700831375498293,
+    "y": -0.13935820521557146,
+    "z": 66.82192357806309,
+    "width": 3.638365775449857,
+    "height": 5.457548663174785,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 152
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -10.173106504455475,
+    "y": -0.1385609078306778,
+    "z": 69.38054355342716,
+    "width": 3.615039131960396,
+    "height": 5.422558697940594,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 153
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -8.588094368548914,
+    "y": -0.1379580716106218,
+    "z": 73.33186282589564,
+    "width": 3.5974018665507574,
+    "height": 5.396102799826136,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 154
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.786776536573797,
+    "y": -0.13948929532539361,
+    "z": 75.97488458188896,
+    "width": 3.6422010975200823,
+    "height": 5.463301646280123,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 155
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.5808306301078785,
+    "y": -0.14177629464348407,
+    "z": 79.78372663597337,
+    "width": 3.7091121632836423,
+    "height": 5.563668244925464,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 156
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.57966994830114,
+    "y": -0.14165168156607344,
+    "z": 81.79848160461142,
+    "width": 3.7054663406759705,
+    "height": 5.558199511013956,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 157
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.569964312017951,
+    "y": -0.1406096654007004,
+    "z": 85.7080199866993,
+    "width": 3.6749799248662005,
+    "height": 5.512469887299301,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 158
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.563423875158471,
+    "y": -0.13990747125934525,
+    "z": 89.73216487869186,
+    "width": 3.6544357305591237,
+    "height": 5.481653595838686,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 159
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.546567041091038,
+    "y": -0.13809768846069442,
+    "z": 92.37764956102528,
+    "width": 3.6014866566785972,
+    "height": 5.402229985017896,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 160
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.542095123990048,
+    "y": -0.13761757466150837,
+    "z": 94.96545355020503,
+    "width": 3.5874398986681246,
+    "height": 5.381159848002187,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 161
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.575401655883761,
+    "y": -0.14119342931267387,
+    "z": 97.63488570777622,
+    "width": 3.692059189033652,
+    "height": 5.538088783550478,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 162
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.638778659225272,
+    "y": -0.14799770881252933,
+    "z": 101.57739892186301,
+    "width": 3.8911329664008516,
+    "height": 5.836699449601277,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 163
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.629335994083548,
+    "y": -0.14698392574516633,
+    "z": 104.28638263379365,
+    "width": 3.861472570372861,
+    "height": 5.792208855559291,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 164
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.592164845356367,
+    "y": -0.14299315824378184,
+    "z": 108.26859199933295,
+    "width": 3.7447141154752117,
+    "height": 5.617071173212818,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 165
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.589262049402112,
+    "y": -0.14268150837139265,
+    "z": 110.79990714764642,
+    "width": 3.7355961306373104,
+    "height": 5.603394195955966,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 166
+  },
+  {
+    "role": "left",
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "branch": -1,
+    "owner_branch": -1,
+    "x": -7.572615433001019,
+    "y": -0.14089429495409722,
+    "z": 113.4823189739212,
+    "width": 3.683307372371296,
+    "height": 5.524961058556944,
+    "uv": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "study_profile": {
+      "clear_body_height_m": 2.0,
+      "inward_opaque_body_limit_m": -2.0
+    },
+    "id": 167
+  }
+]

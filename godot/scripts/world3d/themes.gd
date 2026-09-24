@@ -14,6 +14,10 @@ static func _labels()->Array:
  return result
 static func plan(key:String,exits:int=2,layout_seed:int=1842)->RoutePlan:
  assert(exits in [2,3])
+ # The open crystal-mine fork has two visible mouths. Three choices require
+ # authored closed doors, which this biome does not provide yet.
+ if key=="crystal":exits=2
+ ForestRoute.cave_fork=key=="crystal"
  var result:RoutePlan=load("res://spaces/routes/connected.tres").duplicate(true)
  result.layout_seed=layout_seed;result.exits=exits
  if exits==3:

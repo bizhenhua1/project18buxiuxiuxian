@@ -88,8 +88,17 @@ func setup(sprites:Array[Dictionary]) -> void:
 	edge_pass.texture=atlas;edge_pass.material=shader.duplicate()
 	edge_pass.material.set_shader_parameter("edge_only",true)
 	edge_pass.z_index=1;add_child(edge_pass)
-	white_edge_pass=edge_pass.duplicate()
-	white_edge_pass.multimesh=edge_pass.multimesh.duplicate()
+	# Do not duplicate a live MultiMesh: Godot retains its old instance buffer,
+	# so changing/using the copy can produce a buffer-size mismatch on the first
+	# native 3D scene. Build a same-topology pass with a fresh buffer instead.
+	white_edge_pass=MultiMeshInstance2D.new()
+	white_edge_pass.multimesh=MultiMesh.new()
+	white_edge_pass.multimesh.transform_format=MultiMesh.TRANSFORM_2D
+	white_edge_pass.multimesh.use_colors=true
+	white_edge_pass.multimesh.use_custom_data=true
+	white_edge_pass.multimesh.mesh=quad
+	white_edge_pass.multimesh.instance_count=32
+	white_edge_pass.texture=atlas
 	white_edge_pass.material=edge_pass.material.duplicate()
 	white_edge_pass.material.set_shader_parameter("edge_color",Vector3(.20,.62,1.0))
 	white_edge_pass.material.set_shader_parameter("discovery_edge",true)

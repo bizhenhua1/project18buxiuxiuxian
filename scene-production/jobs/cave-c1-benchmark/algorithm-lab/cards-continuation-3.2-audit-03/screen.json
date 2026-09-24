@@ -1,0 +1,586 @@
+{
+  "status": "geometry_fixture_ready_for_visual_probe_not_art_accepted",
+  "frames": [
+    {
+      "name": "battle-continuation",
+      "pose": [
+        -4.4,
+        1.944,
+        34.025
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-40",
+      "pose": [
+        -4.4,
+        1.3,
+        40
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 139,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-48",
+      "pose": [
+        -4.4,
+        1.3,
+        48
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 101,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-51",
+      "pose": [
+        -4.440337236114985,
+        1.3,
+        51
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 91,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-55",
+      "pose": [
+        -5.381841153573376,
+        1.3,
+        55
+      ],
+      "background_pixels": 2,
+      "border_background_pixels": 0,
+      "visible_cards": 97,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-59",
+      "pose": [
+        -6.982666103594579,
+        1.3,
+        59
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 100,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-63",
+      "pose": [
+        -7.599219754151026,
+        1.3,
+        63
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 121,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-65",
+      "pose": [
+        -7.5595002637782605,
+        1.3,
+        65
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 117,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-68",
+      "pose": [
+        -6.9685249675722085,
+        1.3,
+        68
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 118,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-72",
+      "pose": [
+        -5.38559440929972,
+        1.3,
+        72
+      ],
+      "background_pixels": 9,
+      "border_background_pixels": 0,
+      "visible_cards": 127,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-76",
+      "pose": [
+        -4.428370807924369,
+        1.3,
+        76
+      ],
+      "background_pixels": 12,
+      "border_background_pixels": 0,
+      "visible_cards": 115,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend--1-79",
+      "pose": [
+        -4.4,
+        1.3,
+        79
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 112,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-40",
+      "pose": [
+        0.0,
+        1.3,
+        40
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 165,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-48",
+      "pose": [
+        0.0,
+        1.3,
+        48
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 120,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-51",
+      "pose": [
+        0.0403372361149845,
+        1.3,
+        51
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 116,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-55",
+      "pose": [
+        0.9818411535733754,
+        1.3,
+        55
+      ],
+      "background_pixels": 4,
+      "border_background_pixels": 0,
+      "visible_cards": 125,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-59",
+      "pose": [
+        2.5826661035945806,
+        1.3,
+        59
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 150,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-63",
+      "pose": [
+        3.1992197541510254,
+        1.3,
+        63
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 147,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-65",
+      "pose": [
+        3.159500263778261,
+        1.3,
+        65
+      ],
+      "background_pixels": 6,
+      "border_background_pixels": 0,
+      "visible_cards": 141,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-68",
+      "pose": [
+        2.5685249675722086,
+        1.3,
+        68
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 145,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-72",
+      "pose": [
+        0.9855944092997196,
+        1.3,
+        72
+      ],
+      "background_pixels": 11,
+      "border_background_pixels": 0,
+      "visible_cards": 150,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-76",
+      "pose": [
+        0.028370807924368854,
+        1.3,
+        76
+      ],
+      "background_pixels": 12,
+      "border_background_pixels": 0,
+      "visible_cards": 142,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-0-79",
+      "pose": [
+        0.0,
+        1.3,
+        79
+      ],
+      "background_pixels": 15,
+      "border_background_pixels": 0,
+      "visible_cards": 134,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-40",
+      "pose": [
+        4.4,
+        1.3,
+        40
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 146,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-48",
+      "pose": [
+        4.4,
+        1.3,
+        48
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 104,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-51",
+      "pose": [
+        4.440337236114985,
+        1.3,
+        51
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 112,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-55",
+      "pose": [
+        5.381841153573376,
+        1.3,
+        55
+      ],
+      "background_pixels": 4,
+      "border_background_pixels": 0,
+      "visible_cards": 113,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-59",
+      "pose": [
+        6.982666103594579,
+        1.3,
+        59
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 137,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-63",
+      "pose": [
+        7.599219754151026,
+        1.3,
+        63
+      ],
+      "background_pixels": 5,
+      "border_background_pixels": 0,
+      "visible_cards": 134,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-65",
+      "pose": [
+        7.5595002637782605,
+        1.3,
+        65
+      ],
+      "background_pixels": 6,
+      "border_background_pixels": 0,
+      "visible_cards": 131,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-68",
+      "pose": [
+        6.9685249675722085,
+        1.3,
+        68
+      ],
+      "background_pixels": 8,
+      "border_background_pixels": 0,
+      "visible_cards": 125,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-72",
+      "pose": [
+        5.38559440929972,
+        1.3,
+        72
+      ],
+      "background_pixels": 10,
+      "border_background_pixels": 0,
+      "visible_cards": 128,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-76",
+      "pose": [
+        4.428370807924369,
+        1.3,
+        76
+      ],
+      "background_pixels": 12,
+      "border_background_pixels": 0,
+      "visible_cards": 127,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    },
+    {
+      "name": "bend-1-79",
+      "pose": [
+        4.4,
+        1.3,
+        79
+      ],
+      "background_pixels": 16,
+      "border_background_pixels": 0,
+      "visible_cards": 118,
+      "retirement": {
+        "removed": 904,
+        "owner_changes": 0,
+        "depth_changes": 0
+      },
+      "exposed_partition_seam_samples": 0
+    }
+  ],
+  "body_intersections": [],
+  "max_border_background_pixels": 0,
+  "rejection_reasons": []
+}

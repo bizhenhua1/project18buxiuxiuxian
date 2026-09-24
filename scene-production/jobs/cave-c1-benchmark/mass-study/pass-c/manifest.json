@@ -1,0 +1,5418 @@
+{
+  "alignment_m": 22.8554971775875,
+  "branch": -1,
+  "exits": 2,
+  "frames": [
+    {
+      "branch": 0,
+      "camera": [
+        0.0,
+        1.25199139118195,
+        -4.46885824203491
+      ],
+      "distance_m": 4.06885808915046,
+      "draw_calls": 188.0,
+      "name": "00-travel",
+      "objects": 576.0,
+      "phase": "approach",
+      "yaw": 0.0
+    },
+    {
+      "branch": 0,
+      "camera": [
+        0.0,
+        1.28377604484558,
+        -6.51608276367188
+      ],
+      "distance_m": 6.11608228494944,
+      "draw_calls": 188.0,
+      "name": "01-travel",
+      "objects": 576.0,
+      "phase": "approach",
+      "yaw": 0.0
+    },
+    {
+      "branch": 0,
+      "camera": [
+        0.0,
+        1.30089938640594,
+        -8.52485370635986
+      ],
+      "distance_m": 8.12485296005793,
+      "draw_calls": 187.0,
+      "name": "02-travel",
+      "objects": 575.0,
+      "phase": "approach",
+      "yaw": 0.0
+    },
+    {
+      "branch": 0,
+      "camera": [
+        0.0,
+        1.30222511291504,
+        -8.84480094909668
+      ],
+      "distance_m": 8.44479980767078,
+      "draw_calls": 210.0,
+      "name": "03-choice",
+      "objects": 791.0,
+      "phase": "choose",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        0.0,
+        1.30267596244812,
+        -10.5593509674072
+      ],
+      "distance_m": 10.1593500716524,
+      "draw_calls": 165.0,
+      "name": "04-travel",
+      "objects": 548.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -0.120851278305054,
+        1.28783011436462,
+        -12.6004247665405
+      ],
+      "distance_m": 12.2065742674514,
+      "draw_calls": 163.0,
+      "name": "05-travel",
+      "objects": 546.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -0.697076261043549,
+        1.25675225257874,
+        -14.5599803924561
+      ],
+      "distance_m": 14.2537984632504,
+      "draw_calls": 161.0,
+      "name": "06-travel",
+      "objects": 544.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -1.59379625320435,
+        1.21599221229553,
+        -16.3994998931885
+      ],
+      "distance_m": 16.3010226590494,
+      "draw_calls": 161.0,
+      "name": "07-travel",
+      "objects": 544.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -2.5217080116272,
+        1.17151987552643,
+        -18.2239818572998
+      ],
+      "distance_m": 18.3482468548484,
+      "draw_calls": 160.0,
+      "name": "08-travel",
+      "objects": 543.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.19299912452698,
+        1.13128161430359,
+        -20.1540203094482
+      ],
+      "distance_m": 20.3954710506475,
+      "draw_calls": 160.0,
+      "name": "09-travel",
+      "objects": 543.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.39843249320984,
+        1.10516798496246,
+        -22.1622943878174
+      ],
+      "distance_m": 22.418221344621,
+      "draw_calls": 159.0,
+      "name": "10-travel",
+      "objects": 542.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.40000009536743,
+        1.09267282485962,
+        -24.1853008270264
+      ],
+      "distance_m": 24.441233041411,
+      "draw_calls": 156.0,
+      "name": "11-travel",
+      "objects": 539.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.40000009536743,
+        1.09250235557556,
+        -26.2032833099365
+      ],
+      "distance_m": 26.45921117727,
+      "draw_calls": 153.0,
+      "name": "12-travel",
+      "objects": 536.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.40000009536743,
+        1.10532093048096,
+        -28.2212619781494
+      ],
+      "distance_m": 28.4771893131291,
+      "draw_calls": 153.0,
+      "name": "13-travel",
+      "objects": 536.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.40000009536743,
+        1.13002824783325,
+        -30.2392387390137
+      ],
+      "distance_m": 30.4951674489883,
+      "draw_calls": 152.0,
+      "name": "14-travel",
+      "objects": 535.0,
+      "phase": "travel",
+      "yaw": 0.0
+    },
+    {
+      "branch": -1,
+      "camera": [
+        -3.40000009536743,
+        1.91836678981781,
+        -31.0106506347656
+      ],
+      "distance_m": 31.6054971775875,
+      "draw_calls": 170.0,
+      "name": "15-event",
+      "objects": 751.0,
+      "phase": "encounter",
+      "yaw": 0.0
+    }
+  ],
+  "junction_m": 10.1995634040699,
+  "limitations": [
+    "only one preselected continuation replayed",
+    "no gameplay integration or event acceptance",
+    "four source masses are a structural trial, not a completed art library"
+  ],
+  "placement": [
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.71392321586609,
+        -0.333822610304821,
+        1.70155155658722
+      ],
+      "role": "foot",
+      "size": [
+        3.22784650976008,
+        3.11458873748779
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.06499910354614,
+        -0.273178655131968,
+        -0.240097403526306
+      ],
+      "role": "foot",
+      "size": [
+        3.87998224474349,
+        3.26930141448975
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.04851150512695,
+        -0.22757500492599,
+        -1.69216072559357
+      ],
+      "role": "foot",
+      "size": [
+        3.59720798393465,
+        3.03103375434875
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.92470049858093,
+        -0.184058721392319,
+        -2.96065330505371
+      ],
+      "role": "foot",
+      "size": [
+        3.28227322868679,
+        3.37622022628784
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.84474158287048,
+        -0.205797229104149,
+        -4.44824695587158
+      ],
+      "role": "foot",
+      "size": [
+        3.22344907847318,
+        3.11034560203552
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.62721562385559,
+        -0.157705055773406,
+        -6.14610528945923
+      ],
+      "role": "foot",
+      "size": [
+        2.94984494122592,
+        2.84634160995483
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.63573241233826,
+        -0.0923090296365349,
+        -8.00304794311523
+      ],
+      "role": "foot",
+      "size": [
+        2.96839576596799,
+        3.05335879325867
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.80224633216858,
+        -0.102566275693983,
+        -9.35629177093506
+      ],
+      "role": "foot",
+      "size": [
+        3.22483730523483,
+        3.31714034080505
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.68533062934875,
+        -0.104866734455029,
+        -11.3280239105225
+      ],
+      "role": "foot",
+      "size": [
+        3.28093699206477,
+        3.37484574317932
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.35257649421692,
+        -0.151237259897329,
+        -13.0029354095459
+      ],
+      "role": "foot",
+      "size": [
+        3.15674436742609,
+        3.04598140716553
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.77528309822083,
+        -0.138210891285503,
+        -14.474081993103
+      ],
+      "role": "foot",
+      "size": [
+        3.38528675784235,
+        3.482182264328
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.57232761383057,
+        -0.232266789837517,
+        -16.0124282836914
+      ],
+      "role": "foot",
+      "size": [
+        3.44335597645153,
+        3.32253646850586
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.0500000007450581,
+        0.0454849386348276,
+        -16.0124282836914
+      ],
+      "role": "foot",
+      "size": [
+        0.601298904418945,
+        0.618509606513226
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.24707698822021,
+        -0.242625009794976,
+        -17.7755870819092
+      ],
+      "role": "foot",
+      "size": [
+        2.99510312513872,
+        2.89001178741455
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.0500000007450581,
+        -0.0807235336711973,
+        -17.7755870819092
+      ],
+      "role": "foot",
+      "size": [
+        2.39905090332031,
+        2.46771783436347
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.9108772277832,
+        -0.278600901512552,
+        -19.7450714111328
+      ],
+      "role": "foot",
+      "size": [
+        2.90910130847584,
+        2.80702757835388
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.44581800699234,
+        -0.149107983624272,
+        -19.7450714111328
+      ],
+      "role": "foot",
+      "size": [
+        2.95962203398995,
+        3.04433393478394
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.21331691741943,
+        -0.267636382288435,
+        -21.4369430541992
+      ],
+      "role": "foot",
+      "size": [
+        3.07674404310144,
+        3.16480827331543
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.36844190955162,
+        -0.27259272282016,
+        -21.4369430541992
+      ],
+      "role": "foot",
+      "size": [
+        3.48149752183394,
+        3.35933971405029
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.23289012908936,
+        -0.285478866024723,
+        -23.0407829284668
+      ],
+      "role": "foot",
+      "size": [
+        3.16578051401221,
+        3.25639319419861
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.714221954345703,
+        -0.201234566225965,
+        -23.0407829284668
+      ],
+      "role": "foot",
+      "size": [
+        2.87155604403952,
+        2.95374727249146
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.62019014358521,
+        -0.32410404933025,
+        -24.8574600219727
+      ],
+      "role": "foot",
+      "size": [
+        3.70667019295243,
+        3.12326741218567
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.22608661651611,
+        -0.356309218180031,
+        -26.661563873291
+      ],
+      "role": "foot",
+      "size": [
+        3.8121339878946,
+        3.2121319770813
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.74722766876221,
+        -0.303164386211265,
+        -28.3248100280762
+      ],
+      "role": "foot",
+      "size": [
+        2.86099015567614,
+        2.94287896156311
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.9601993560791,
+        -0.368755956535775,
+        -29.6375274658203
+      ],
+      "role": "foot",
+      "size": [
+        3.36753914139488,
+        3.24937987327576
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.63962459564209,
+        -0.263916814197371,
+        -31.0487480163574
+      ],
+      "role": "foot",
+      "size": [
+        2.97453179235044,
+        3.05967044830322
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -9.03103637695313,
+        -0.271890611369495,
+        -33.0408210754395
+      ],
+      "role": "foot",
+      "size": [
+        3.86207186231073,
+        3.25420999526978
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.74666500091553,
+        -0.246606222156722,
+        -34.8193283081055
+      ],
+      "role": "foot",
+      "size": [
+        3.29333060437983,
+        3.17777514457703
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.7993106842041,
+        -0.164463367107361,
+        -36.3333778381348
+      ],
+      "role": "foot",
+      "size": [
+        3.39862154172814,
+        3.49589872360229
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.60617160797119,
+        -0.105475420208744,
+        -37.8379020690918
+      ],
+      "role": "foot",
+      "size": [
+        3.01234346431235,
+        3.0985643863678
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.94786262512207,
+        -0.109980945261119,
+        -39.6229782104492
+      ],
+      "role": "foot",
+      "size": [
+        3.69572527363615,
+        3.11404514312744
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.76730918884277,
+        -0.0658219863060889,
+        -40.9878807067871
+      ],
+      "role": "foot",
+      "size": [
+        3.33461848474898,
+        2.80977392196655
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.54536151885986,
+        -0.0214780272840644,
+        -42.7751960754395
+      ],
+      "role": "foot",
+      "size": [
+        2.89072298506032,
+        2.9734628200531
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -9.1301155090332,
+        -0.0784016637349601,
+        -44.3774719238281
+      ],
+      "role": "foot",
+      "size": [
+        3.96010586765577,
+        3.33681416511536
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.84634876251221,
+        -0.0343242112892204,
+        -45.7876434326172
+      ],
+      "role": "foot",
+      "size": [
+        3.14988358622012,
+        3.24004125595093
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -9.36203670501709,
+        -0.0978273400498414,
+        -47.0831413269043
+      ],
+      "role": "foot",
+      "size": [
+        4.11343320585647,
+        3.46600890159607
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.92042255401611,
+        -0.0693204262912939,
+        -48.6329116821289
+      ],
+      "role": "foot",
+      "size": [
+        3.35593614080678,
+        3.45199155807495
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.75656795501709,
+        -0.084995852924731,
+        -50.3062896728516
+      ],
+      "role": "foot",
+      "size": [
+        3.22623380578083,
+        3.31857681274414
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -9.06981372833252,
+        -0.149344660151141,
+        -51.8545379638672
+      ],
+      "role": "foot",
+      "size": [
+        3.90472481925533,
+        3.2901496887207
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.82894515991211,
+        -0.206708773874443,
+        -53.4233627319336
+      ],
+      "role": "foot",
+      "size": [
+        3.35680760036815,
+        3.23902487754822
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.60719203948975,
+        -0.213599022547026,
+        -54.9219169616699
+      ],
+      "role": "foot",
+      "size": [
+        3.06504321098328,
+        2.9574978351593
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.78917980194092,
+        -0.225337450878717,
+        -56.9036064147949
+      ],
+      "role": "foot",
+      "size": [
+        3.59758006761659,
+        3.03134727478027
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.89069223403931,
+        -0.212596763015707,
+        -58.5453910827637
+      ],
+      "role": "foot",
+      "size": [
+        2.7813847570834,
+        2.860995054245
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.25695705413818,
+        -0.332380780044478,
+        -60.0626029968262
+      ],
+      "role": "foot",
+      "size": [
+        3.51391452442516,
+        3.3906192779541
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.0356707572937,
+        -0.248948533089399,
+        -61.8139343261719
+      ],
+      "role": "foot",
+      "size": [
+        3.0713411505326,
+        3.15925073623657
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.92760801315308,
+        -0.237049497829858,
+        -63.3960075378418
+      ],
+      "role": "foot",
+      "size": [
+        2.82649392667024,
+        2.907395362854
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.03660869598389,
+        -0.289785799511011,
+        -65.3093185424805
+      ],
+      "role": "foot",
+      "size": [
+        2.92475336681713,
+        2.82213044166565
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.03324270248413,
+        -0.276286442411222,
+        -67.097282409668
+      ],
+      "role": "foot",
+      "size": [
+        2.99507520415566,
+        2.88998484611511
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.3297963142395,
+        -0.228552691444357,
+        -68.3534393310547
+      ],
+      "role": "foot",
+      "size": [
+        3.60575232685737,
+        3.03823328018188
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.18061017990112,
+        -0.183595966712381,
+        -69.8112640380859
+      ],
+      "role": "foot",
+      "size": [
+        3.20138953955277,
+        3.29302144050598
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.34767484664917,
+        -0.171589274265619,
+        -71.3542556762695
+      ],
+      "role": "foot",
+      "size": [
+        3.35623470747246,
+        2.82798790931702
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.22012901306152,
+        -0.194036633971723,
+        -73.1191787719727
+      ],
+      "role": "foot",
+      "size": [
+        3.0625851761211,
+        2.9551260471344
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.32673597335815,
+        -0.207382326263339,
+        -74.5504837036133
+      ],
+      "role": "foot",
+      "size": [
+        3.46930815956809,
+        3.34757804870605
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.7869565486908,
+        -0.232921907763792,
+        2.33348631858826
+      ],
+      "role": "foot",
+      "size": [
+        3.20685586062345,
+        3.09433460235596
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.19961071014404,
+        -0.172175164116805,
+        0.83717268705368
+      ],
+      "role": "foot",
+      "size": [
+        3.85960507482853,
+        3.25213146209717
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.06989240646362,
+        -0.122275548370107,
+        -0.822165310382843
+      ],
+      "role": "foot",
+      "size": [
+        3.55832368292899,
+        2.99826955795288
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.27320861816406,
+        -0.124641676973751,
+        -2.17719912528992
+      ],
+      "role": "foot",
+      "size": [
+        4.13374586240301,
+        3.48312449455261
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.64596247673035,
+        -0.0409220071345573,
+        -3.82760047912598
+      ],
+      "role": "foot",
+      "size": [
+        3.0919247573355,
+        3.18042349815369
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.86685109138489,
+        -0.0419508550352545,
+        -5.71441602706909
+      ],
+      "role": "foot",
+      "size": [
+        3.53370221245964,
+        2.97752332687378
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.61583423614502,
+        -0.0569644485181666,
+        -7.15221691131592
+      ],
+      "role": "foot",
+      "size": [
+        3.03166824687611,
+        2.92529392242432
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.79192137718201,
+        -0.0795045735796894,
+        -9.07317066192627
+      ],
+      "role": "foot",
+      "size": [
+        3.38384277170355,
+        3.26511144638062
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.63611817359924,
+        -0.0112644662589645,
+        -10.3537368774414
+      ],
+      "role": "foot",
+      "size": [
+        3.07863586674566,
+        3.16675424575806
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.66332602500916,
+        -0.0600614986649387,
+        -12.1385107040405
+      ],
+      "role": "foot",
+      "size": [
+        3.64341511816349,
+        3.06996822357178
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.36507964134216,
+        -0.0506563717623462,
+        -13.9017009735107
+      ],
+      "role": "foot",
+      "size": [
+        2.96594140177188,
+        3.05083417892456
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.18798446655273,
+        -0.159804843879744,
+        -15.5560312271118
+      ],
+      "role": "foot",
+      "size": [
+        3.15394757444208,
+        3.04328274726868
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.111256949603558,
+        -0.0482624773706362,
+        -17.2798385620117
+      ],
+      "role": "foot",
+      "size": [
+        1.92322273254395,
+        1.62052153934545
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        5.32957410812378,
+        -0.182358287246833,
+        -17.2798385620117
+      ],
+      "role": "foot",
+      "size": [
+        3.31341206177421,
+        3.40825033187866
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.168069303035736,
+        -0.225567745611637,
+        -19.1222267150879
+      ],
+      "role": "foot",
+      "size": [
+        3.44833455952731,
+        3.32734036445618
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        6.03067111968994,
+        -0.278786423848021,
+        -19.1222267150879
+      ],
+      "role": "foot",
+      "size": [
+        3.07550888495012,
+        2.96759629249573
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.498418301343918,
+        -0.229426329024074,
+        -21.039400100708
+      ],
+      "role": "foot",
+      "size": [
+        3.02800788012418,
+        2.92176198959351
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        6.17396020889282,
+        -0.265729300951249,
+        -21.039400100708
+      ],
+      "role": "foot",
+      "size": [
+        2.87861364489016,
+        2.96100687980652
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.637642920017242,
+        -0.254565145505047,
+        -22.9874153137207
+      ],
+      "role": "foot",
+      "size": [
+        3.02471419247714,
+        2.91858386993408
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        6.66831350326538,
+        -0.365582657165172,
+        -22.9874153137207
+      ],
+      "role": "foot",
+      "size": [
+        4.03662721121086,
+        3.40129160881042
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.215903371572495,
+        -0.257468357897919,
+        -24.4385948181152
+      ],
+      "role": "foot",
+      "size": [
+        3.84636229119211,
+        3.24097299575806
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.616467714309692,
+        -0.283320664414023,
+        -25.8952903747559
+      ],
+      "role": "foot",
+      "size": [
+        4.06986291408539,
+        3.42929625511169
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.74144995212555,
+        -0.339155996264407,
+        -27.1891994476318
+      ],
+      "role": "foot",
+      "size": [
+        3.60108408060941,
+        3.4747302532196
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.99774205684662,
+        -0.272293759329644,
+        -28.9773406982422
+      ],
+      "role": "foot",
+      "size": [
+        3.39548401832581,
+        2.86105966567993
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.69842410087585,
+        -0.225142263821684,
+        -30.6495265960693
+      ],
+      "role": "foot",
+      "size": [
+        2.7968482481915,
+        2.87690114974976
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.68375337123871,
+        -0.210164162526455,
+        -31.9052104949951
+      ],
+      "role": "foot",
+      "size": [
+        2.76750667074452,
+        2.84671974182129
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.78564441204071,
+        -0.251075019562074,
+        -33.2951202392578
+      ],
+      "role": "foot",
+      "size": [
+        2.97128875038841,
+        2.86703300476074
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.72253406047821,
+        -0.165359521094892,
+        -35.2333145141602
+      ],
+      "role": "foot",
+      "size": [
+        2.77492469621741,
+        2.85435009002686
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.41798186302185,
+        -0.212861555985575,
+        -37.2028350830078
+      ],
+      "role": "foot",
+      "size": [
+        4.01078451399533,
+        3.37951636314392
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.8351674079895,
+        -0.175373310843223,
+        -38.6058082580566
+      ],
+      "role": "foot",
+      "size": [
+        2.90812185027383,
+        2.80608248710632
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.73389947414398,
+        -0.106806737756076,
+        -40.0533905029297
+      ],
+      "role": "foot",
+      "size": [
+        2.77760690440302,
+        2.85710906982422
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.12229824066162,
+        -0.138527091309302,
+        -41.9406967163086
+      ],
+      "role": "foot",
+      "size": [
+        3.47401433080997,
+        2.92722988128662
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.17323684692383,
+        -0.137257026027074,
+        -43.9403953552246
+      ],
+      "role": "foot",
+      "size": [
+        3.40650731572565,
+        2.87034797668457
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.12669897079468,
+        -0.1492341700953,
+        -45.785888671875
+      ],
+      "role": "foot",
+      "size": [
+        3.40655626665871,
+        2.87038922309875
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.02126121520996,
+        -0.232551489740247,
+        -47.6970176696777
+      ],
+      "role": "foot",
+      "size": [
+        3.44252254746177,
+        3.32173228263855
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.9150972366333,
+        -0.190327894914017,
+        -49.4641799926758
+      ],
+      "role": "foot",
+      "size": [
+        3.23019453629203,
+        3.32265090942383
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.32256984710693,
+        -0.272610850721968,
+        -51.4347267150879
+      ],
+      "role": "foot",
+      "size": [
+        4.0451398633561,
+        3.4084644317627
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.70480144023895,
+        -0.237407548178766,
+        -53.0577926635742
+      ],
+      "role": "foot",
+      "size": [
+        2.80960287591685,
+        2.89002084732056
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.02472138404846,
+        -0.320719908466169,
+        -55.0477027893066
+      ],
+      "role": "foot",
+      "size": [
+        3.69031577110291,
+        3.10948705673218
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.07962250709534,
+        -0.319718551879402,
+        -56.4424858093262
+      ],
+      "role": "foot",
+      "size": [
+        3.23983282379482,
+        3.33256506919861
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.205245703458786,
+        -0.383739741407419,
+        -58.2601585388184
+      ],
+      "role": "foot",
+      "size": [
+        3.00268923152577,
+        2.89733171463013
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.287502706050873,
+        -0.402761914369862,
+        -59.8369369506836
+      ],
+      "role": "foot",
+      "size": [
+        3.10216872908852,
+        2.99332070350647
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.324870437383652,
+        -0.333109288344062,
+        -61.7015914916992
+      ],
+      "role": "foot",
+      "size": [
+        2.8625486734639,
+        2.94448208808899
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.587485492229462,
+        -0.346616946447751,
+        -63.0082855224609
+      ],
+      "role": "foot",
+      "size": [
+        3.31829158534174,
+        3.41326951980591
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.408109813928604,
+        -0.379261088938852,
+        -64.9621353149414
+      ],
+      "role": "foot",
+      "size": [
+        3.17290567484769,
+        3.06157565116882
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.497260421514511,
+        -0.384847187226177,
+        -66.2147827148438
+      ],
+      "role": "foot",
+      "size": [
+        3.55625088865107,
+        3.43147015571594
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.264520645141602,
+        -0.329745165790641,
+        -67.5488204956055
+      ],
+      "role": "foot",
+      "size": [
+        3.1290413162925,
+        3.01925039291382
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.265482544898987,
+        -0.231725382173131,
+        -69.1452713012695
+      ],
+      "role": "foot",
+      "size": [
+        3.13096511799356,
+        3.22058129310608
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/buttress.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.417173266410828,
+        -0.2080039929362,
+        -70.9156646728516
+      ],
+      "role": "foot",
+      "size": [
+        3.43434653192196,
+        2.89380550384521
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.694501221179962,
+        -0.199311825696924,
+        -72.3470306396484
+      ],
+      "role": "foot",
+      "size": [
+        3.98900248059687,
+        3.3611626625061
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.611775875091553,
+        -0.161842381442062,
+        -73.7696304321289
+      ],
+      "role": "foot",
+      "size": [
+        3.82355172229263,
+        3.22175264358521
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.98369526863098,
+        2.35369525681578,
+        1.45956921577454
+      ],
+      "role": "shoulder",
+      "size": [
+        3.53478088812395,
+        3.41075348854065
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.02799344062805,
+        2.33073855549189,
+        -0.704492568969727
+      ],
+      "role": "shoulder",
+      "size": [
+        3.71197362379594,
+        3.5817289352417
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.17701959609985,
+        2.25989510667389,
+        -2.41983413696289
+      ],
+      "role": "shoulder",
+      "size": [
+        4.30807880995409,
+        3.63001871109009
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.10352230072021,
+        2.29719616387747,
+        -4.32104063034058
+      ],
+      "role": "shoulder",
+      "size": [
+        4.01408879106695,
+        3.87324357032776
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.17366194725037,
+        2.48867375379751,
+        -6.23696041107178
+      ],
+      "role": "shoulder",
+      "size": [
+        4.29464780796859,
+        3.66168069839478
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.26696991920471,
+        2.67431276983095,
+        -8.5262508392334
+      ],
+      "role": "shoulder",
+      "size": [
+        4.66787976903735,
+        3.93318963050842
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.17797899246216,
+        2.65684451967286,
+        -10.35475730896
+      ],
+      "role": "shoulder",
+      "size": [
+        4.32488052286623,
+        3.68745756149292
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.71301460266113,
+        2.59449194798972,
+        -12.2829895019531
+      ],
+      "role": "shoulder",
+      "size": [
+        3.56276660832492,
+        3.43775725364685
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.9456353187561,
+        2.59960202866772,
+        -14.0847339630127
+      ],
+      "role": "shoulder",
+      "size": [
+        4.04730219301188,
+        3.41028642654419
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.07112741470337,
+        2.61060741933877,
+        -16.283374786377
+      ],
+      "role": "shoulder",
+      "size": [
+        4.30643428496595,
+        3.62863302230835
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.21175718307495,
+        2.44597466097548,
+        -18.4472599029541
+      ],
+      "role": "shoulder",
+      "size": [
+        4.69874913287613,
+        3.95920038223267
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.63442516326904,
+        2.24379109727473,
+        -20.190601348877
+      ],
+      "role": "shoulder",
+      "size": [
+        4.42638670723393,
+        3.72970581054688
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.55425310134888,
+        2.14866362249714,
+        -22.1048679351807
+      ],
+      "role": "shoulder",
+      "size": [
+        3.61708033301614,
+        3.49016523361206
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.53647804260254,
+        2.23828427472102,
+        -24.1252880096436
+      ],
+      "role": "shoulder",
+      "size": [
+        3.54591147682884,
+        3.42149353027344
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.55146455764771,
+        2.31818198632168,
+        -26.0190296173096
+      ],
+      "role": "shoulder",
+      "size": [
+        4.29180171144053,
+        3.65925407409668
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.12438488006592,
+        2.28809584930302,
+        -28.1220607757568
+      ],
+      "role": "shoulder",
+      "size": [
+        4.09753867929632,
+        3.95376539230347
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.13441276550293,
+        2.30008835587329,
+        -29.9789333343506
+      ],
+      "role": "shoulder",
+      "size": [
+        4.13764970763465,
+        3.5278217792511
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.13735866546631,
+        2.44777271942088,
+        -31.9150791168213
+      ],
+      "role": "shoulder",
+      "size": [
+        4.14943449497223,
+        3.49634385108948
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.13304996490479,
+        2.61601925864909,
+        -33.5937538146973
+      ],
+      "role": "shoulder",
+      "size": [
+        4.13219810746751,
+        3.48182034492493
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.07468318939209,
+        2.67993189555876,
+        -35.3786888122559
+      ],
+      "role": "shoulder",
+      "size": [
+        3.89873312603344,
+        3.7619354724884
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.19189643859863,
+        2.56373812711085,
+        -37.5171813964844
+      ],
+      "role": "shoulder",
+      "size": [
+        4.36758446963328,
+        3.6801586151123
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.24048805236816,
+        2.47126642471025,
+        -39.6842613220215
+      ],
+      "role": "shoulder",
+      "size": [
+        4.56195046467409,
+        3.88958692550659
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.23013877868652,
+        2.51359694656919,
+        -41.4012603759766
+      ],
+      "role": "shoulder",
+      "size": [
+        4.52055623052732,
+        3.85429358482361
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.12223815917969,
+        2.56580588508791,
+        -43.0028953552246
+      ],
+      "role": "shoulder",
+      "size": [
+        4.08895203969736,
+        3.48630142211914
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.0594367980957,
+        2.51671024551639,
+        -45.0090599060059
+      ],
+      "role": "shoulder",
+      "size": [
+        3.83774702765725,
+        3.70308923721313
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.20073890686035,
+        2.40141508210333,
+        -47.2871932983398
+      ],
+      "role": "shoulder",
+      "size": [
+        4.40295439227363,
+        3.75402450561523
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.22307777404785,
+        2.45426521374255,
+        -49.2199325561523
+      ],
+      "role": "shoulder",
+      "size": [
+        4.49230946639799,
+        3.78525280952454
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.12604236602783,
+        2.5903596569168,
+        -50.8476028442383
+      ],
+      "role": "shoulder",
+      "size": [
+        4.10416855378584,
+        3.96016263961792
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -8.17865180969238,
+        2.67851646002296,
+        -52.6488952636719
+      ],
+      "role": "shoulder",
+      "size": [
+        4.31460597829999,
+        3.6355185508728
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.95173931121826,
+        2.58989255358605,
+        -54.8618583679199
+      ],
+      "role": "shoulder",
+      "size": [
+        3.66800474687056,
+        3.53930282592773
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.38668346405029,
+        2.49096625299642,
+        -56.3760528564453
+      ],
+      "role": "shoulder",
+      "size": [
+        4.34853852548564,
+        3.70762872695923
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.54110383987427,
+        2.45047707894709,
+        -58.0620193481445
+      ],
+      "role": "shoulder",
+      "size": [
+        4.05279092248881,
+        3.4149112701416
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.51611852645874,
+        2.48220149539856,
+        -60.13427734375
+      ],
+      "role": "shoulder",
+      "size": [
+        4.06447405815125,
+        3.92186093330383
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.52869129180908,
+        2.40513954844564,
+        -62.2126617431641
+      ],
+      "role": "shoulder",
+      "size": [
+        4.11476478441706,
+        3.46713089942932
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.52380132675171,
+        2.21111166989712,
+        -64.4307403564453
+      ],
+      "role": "shoulder",
+      "size": [
+        4.0952047838355,
+        3.45064949989319
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.50177431106567,
+        2.17449733476608,
+        -66.5404586791992
+      ],
+      "role": "shoulder",
+      "size": [
+        4.00709754295066,
+        3.41651105880737
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.63055896759033,
+        2.34385752425134,
+        -68.6617660522461
+      ],
+      "role": "shoulder",
+      "size": [
+        4.52223570151843,
+        3.85572552680969
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.38596296310425,
+        2.47385100193957,
+        -70.7738418579102
+      ],
+      "role": "shoulder",
+      "size": [
+        3.54385150129145,
+        3.41950583457947
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.50271463394165,
+        2.47570063001684,
+        -72.9928512573242
+      ],
+      "role": "shoulder",
+      "size": [
+        4.01085860512473,
+        3.87012672424316
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.53467893600464,
+        2.49593310672035,
+        -74.5642623901367
+      ],
+      "role": "shoulder",
+      "size": [
+        4.13871595209295,
+        3.99349784851074
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.1530544757843,
+        2.48733201211963,
+        1.80723118782043
+      ],
+      "role": "shoulder",
+      "size": [
+        4.21221788649289,
+        3.54924559593201
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.08236813545227,
+        2.52056309932689,
+        -0.429419755935669
+      ],
+      "role": "shoulder",
+      "size": [
+        3.92947264584628,
+        3.79159641265869
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.2182891368866,
+        2.56680241038779,
+        -2.54994106292725
+      ],
+      "role": "shoulder",
+      "size": [
+        4.47315689489301,
+        3.81388020515442
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.16666579246521,
+        2.71285272867662,
+        -4.41021251678467
+      ],
+      "role": "shoulder",
+      "size": [
+        4.26666305632396,
+        3.63782048225403
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.01198530197144,
+        2.82762100150067,
+        -6.10912084579468
+      ],
+      "role": "shoulder",
+      "size": [
+        3.64794166738337,
+        3.51994371414185
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.27663230895996,
+        2.80713222743619,
+        -7.63736057281494
+      ],
+      "role": "shoulder",
+      "size": [
+        4.70652950169905,
+        3.96575617790222
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.11304926872253,
+        2.62189349940935,
+        -9.71172714233398
+      ],
+      "role": "shoulder",
+      "size": [
+        4.0521974736994,
+        3.91001510620117
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.15941333770752,
+        2.49610146769189,
+        -11.2961750030518
+      ],
+      "role": "shoulder",
+      "size": [
+        4.70974583265916,
+        3.96846628189087
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.89934253692627,
+        2.47209384426797,
+        -12.9206790924072
+      ],
+      "role": "shoulder",
+      "size": [
+        4.49861536520832,
+        3.79056620597839
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.33973431587219,
+        2.49139837799831,
+        -14.8638048171997
+      ],
+      "role": "shoulder",
+      "size": [
+        4.30494679909832,
+        3.62737965583801
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.56061124801636,
+        2.38009214706152,
+        -17.1611499786377
+      ],
+      "role": "shoulder",
+      "size": [
+        4.43385347070304,
+        3.78036952018738
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        5.17296266555786,
+        2.26126623007602,
+        -18.7809028625488
+      ],
+      "role": "shoulder",
+      "size": [
+        4.04581781963133,
+        3.40903568267822
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        5.67209339141846,
+        2.23211952660753,
+        -20.3912963867188
+      ],
+      "role": "shoulder",
+      "size": [
+        4.45501743373374,
+        3.79841423034668
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        5.64782381057739,
+        2.35691064850035,
+        -22.2837829589844
+      ],
+      "role": "shoulder",
+      "size": [
+        3.99129464409568,
+        3.85124921798706
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        5.58022975921631,
+        2.48269407492437,
+        -24.0301647186279
+      ],
+      "role": "shoulder",
+      "size": [
+        3.72091822190718,
+        3.59035968780518
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.423101335763931,
+        2.58111044816009,
+        -25.9616050720215
+      ],
+      "role": "shoulder",
+      "size": [
+        3.81501712365584,
+        3.681156873703
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.48563826084137,
+        2.42686688718242,
+        -28.1784896850586
+      ],
+      "role": "shoulder",
+      "size": [
+        4.74255314413107,
+        3.99610996246338
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.32856595516205,
+        2.41258109848683,
+        -30.2036609649658
+      ],
+      "role": "shoulder",
+      "size": [
+        4.11426359523426,
+        3.96990346908569
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.34846758842468,
+        2.47378224907278,
+        -32.1296463012695
+      ],
+      "role": "shoulder",
+      "size": [
+        4.1938703206392,
+        3.57575631141663
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.35495269298553,
+        2.43588873765457,
+        -34.2656555175781
+      ],
+      "role": "shoulder",
+      "size": [
+        4.21981065723131,
+        3.55564332008362
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.19222867488861,
+        2.31728783284753,
+        -35.9926643371582
+      ],
+      "role": "shoulder",
+      "size": [
+        3.56891466054049,
+        3.44368958473206
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.46383035182953,
+        2.25570561807156,
+        -38.0575294494629
+      ],
+      "role": "shoulder",
+      "size": [
+        4.65532144960367,
+        3.92260789871216
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.42641186714172,
+        2.37420753930066,
+        -39.8454475402832
+      ],
+      "role": "shoulder",
+      "size": [
+        4.50564760532019,
+        3.7964916229248
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.42369592189789,
+        2.53910345184851,
+        -41.7682571411133
+      ],
+      "role": "shoulder",
+      "size": [
+        4.49478389362119,
+        3.78733777999878
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.48617839813232,
+        2.56861367718018,
+        -43.9572639465332
+      ],
+      "role": "shoulder",
+      "size": [
+        4.74471349311325,
+        3.99793028831482
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.4303320646286,
+        2.514672596049,
+        -45.9927406311035
+      ],
+      "role": "shoulder",
+      "size": [
+        4.52132829503056,
+        3.85495185852051
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.45337057113647,
+        2.55882448567499,
+        -48.1257438659668
+      ],
+      "role": "shoulder",
+      "size": [
+        4.61348226655204,
+        3.88735389709473
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.47483515739441,
+        2.62854356943612,
+        -50.2954521179199
+      ],
+      "role": "shoulder",
+      "size": [
+        4.69934050542004,
+        3.95969867706299
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.44757044315338,
+        2.55079884061602,
+        -51.9380989074707
+      ],
+      "role": "shoulder",
+      "size": [
+        4.59028196024629,
+        3.91374278068542
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.31947433948517,
+        2.35425906887521,
+        -53.6727600097656
+      ],
+      "role": "shoulder",
+      "size": [
+        4.07789713252674,
+        3.93481302261353
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.06008660793304,
+        2.17332079566616,
+        -55.6717338562012
+      ],
+      "role": "shoulder",
+      "size": [
+        4.62143941882818,
+        3.94030809402466
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.0251697059720755,
+        2.16614376133994,
+        -57.4524574279785
+      ],
+      "role": "shoulder",
+      "size": [
+        4.23453809720165,
+        3.56805276870728
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.357282280921936,
+        2.22707738433617,
+        -59.5024452209473
+      ],
+      "role": "shoulder",
+      "size": [
+        3.77087083729831,
+        3.63855957984924
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.150213420391083,
+        2.21164516352223,
+        -61.0920448303223
+      ],
+      "role": "shoulder",
+      "size": [
+        4.59914630097528,
+        3.92130064964294
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.21234704554081,
+        2.1573231663716,
+        -63.1825714111328
+      ],
+      "role": "shoulder",
+      "size": [
+        4.35061179466967,
+        3.66585731506348
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.198365122079849,
+        2.22380961545534,
+        -64.934814453125
+      ],
+      "role": "shoulder",
+      "size": [
+        4.40653950898152,
+        3.71298241615295
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.213341921567917,
+        2.42563193805993,
+        -66.8006362915039
+      ],
+      "role": "shoulder",
+      "size": [
+        4.34663233846988,
+        3.66250419616699
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.295441895723343,
+        2.58208106254099,
+        -68.4919128417969
+      ],
+      "role": "shoulder",
+      "size": [
+        4.0182324626229,
+        3.87724184989929
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.128738582134247,
+        2.58232489759992,
+        -70.7736434936523
+      ],
+      "role": "shoulder",
+      "size": [
+        4.68504570115287,
+        3.94765377044678
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.38377258181572,
+        2.49381764750248,
+        -72.6814880371094
+      ],
+      "role": "shoulder",
+      "size": [
+        3.6649097182534,
+        3.53631639480591
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.267041862010956,
+        2.51352863850484,
+        -74.8381958007813
+      ],
+      "role": "shoulder",
+      "size": [
+        4.13183256496083,
+        3.98685598373413
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        4.02589012613046,
+        2.85964775085449
+      ],
+      "role": "crown",
+      "size": [
+        4.63204004629603,
+        3.90299081802368
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        4.07980764723146,
+        2.58964776992798
+      ],
+      "role": "crown",
+      "size": [
+        4.48537933870762,
+        3.82430124282837
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.97816600643169,
+        1.09850013256073
+      ],
+      "role": "crown",
+      "size": [
+        4.2965711182378,
+        3.66332054138184
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        4.03346422282826,
+        0.828500092029572
+      ],
+      "role": "crown",
+      "size": [
+        4.50909765576417,
+        3.79939866065979
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.91143351390317,
+        -0.496228039264679
+      ],
+      "role": "crown",
+      "size": [
+        4.11117357170715,
+        3.5052478313446
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        3.96695925752283,
+        -0.766228020191193
+      ],
+      "role": "crown",
+      "size": [
+        4.25662373956644,
+        3.58666229248047
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.93653155765979,
+        -2.58566737174988
+      ],
+      "role": "crown",
+      "size": [
+        4.22149546527508,
+        3.59930992126465
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        3.99045182067523,
+        -2.85566735267639
+      ],
+      "role": "crown",
+      "size": [
+        4.50080720642685,
+        3.83745527267456
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        4.00458710210903,
+        -4.26718616485596
+      ],
+      "role": "crown",
+      "size": [
+        4.45913771098515,
+        3.75730204582214
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        4.0554323586134,
+        -4.53718614578247
+      ],
+      "role": "crown",
+      "size": [
+        4.51458553638098,
+        3.80402278900146
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.98840909689178,
+        -6.11670207977295
+      ],
+      "role": "crown",
+      "size": [
+        4.36063032465161,
+        3.67429900169373
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        4.03454245407492,
+        -6.38670206069946
+      ],
+      "role": "crown",
+      "size": [
+        4.49667899626338,
+        3.83393549919128
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.86808972641501,
+        -7.9916353225708
+      ],
+      "role": "crown",
+      "size": [
+        4.67778426881106,
+        3.94153523445129
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        3.90823954679857,
+        -8.26163578033447
+      ],
+      "role": "crown",
+      "size": [
+        4.45196116465443,
+        3.75125503540039
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.80803776002396,
+        -9.90858173370361
+      ],
+      "role": "crown",
+      "size": [
+        4.78656782536702,
+        4.08109903335571
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        3.84146526587134,
+        -10.178581237793
+      ],
+      "role": "crown",
+      "size": [
+        4.40162502079648,
+        3.75289106369019
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        3.92860758387083,
+        -11.947582244873
+      ],
+      "role": "crown",
+      "size": [
+        4.74537758467332,
+        3.99848985671997
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        3.9538354540329,
+        -12.2175827026367
+      ],
+      "role": "crown",
+      "size": [
+        4.76114487827949,
+        4.01177549362183
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.14999997615814,
+        4.05221912400935,
+        -13.4666996002197
+      ],
+      "role": "crown",
+      "size": [
+        4.78750538016265,
+        4.03398704528809
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.14999997615814,
+        4.07155717970504,
+        -13.7367000579834
+      ],
+      "role": "crown",
+      "size": [
+        4.72981143706793,
+        4.03270769119263
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.43233323097229,
+        4.07923502586689,
+        -15.6933126449585
+      ],
+      "role": "crown",
+      "size": [
+        4.20885832690838,
+        3.58853530883789
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.43233323097229,
+        4.09778923883516,
+        -15.6933126449585
+      ],
+      "role": "crown",
+      "size": [
+        4.78992915873258,
+        4.03602933883667
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.50687956809998,
+        3.97328818069267,
+        -17.791540145874
+      ],
+      "role": "crown",
+      "size": [
+        4.42465608802427,
+        3.77252769470215
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.50687956809998,
+        3.98740330973794,
+        -17.791540145874
+      ],
+      "role": "crown",
+      "size": [
+        4.48320603725192,
+        3.82244825363159
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.16263270378113,
+        3.95724199778098,
+        -19.6234550476074
+      ],
+      "role": "crown",
+      "size": [
+        4.10733450123812,
+        3.50197458267212
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.16263270378113,
+        3.95736909122639,
+        -19.6234550476074
+      ],
+      "role": "crown",
+      "size": [
+        4.18174437441916,
+        3.52356839179993
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.39709782600403,
+        4.02472779055479,
+        -21.6599388122559
+      ],
+      "role": "crown",
+      "size": [
+        4.16708512621106,
+        3.51121640205383
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.39709782600403,
+        4.00595450156986,
+        -21.6599388122559
+      ],
+      "role": "crown",
+      "size": [
+        4.58692992228382,
+        3.86498069763184
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.99683542086557,
+        -23.5245971679688
+      ],
+      "role": "crown",
+      "size": [
+        4.19040784071077,
+        3.53086829185486
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        3.40000009536743,
+        3.96115667886348,
+        -23.5245971679688
+      ],
+      "role": "crown",
+      "size": [
+        4.53441575743117,
+        3.82073187828064
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.80563473600694,
+        -25.4345207214355
+      ],
+      "role": "crown",
+      "size": [
+        4.79307277067652,
+        4.03867816925049
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.83668046993024,
+        -25.7045211791992
+      ],
+      "role": "crown",
+      "size": [
+        4.17431317005517,
+        3.51730680465698
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.6407056428189,
+        -27.2644119262695
+      ],
+      "role": "crown",
+      "size": [
+        4.19768455253457,
+        3.53699970245361
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.68179834529634,
+        -27.5344123840332
+      ],
+      "role": "crown",
+      "size": [
+        4.1587897822542,
+        3.50422668457031
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.68988223932139,
+        -27.8044109344482
+      ],
+      "role": "crown",
+      "size": [
+        4.19346911322396,
+        3.53344774246216
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.68143369857316,
+        -29.4294738769531
+      ],
+      "role": "crown",
+      "size": [
+        4.774185152302,
+        4.07054138183594
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.71853300095996,
+        -29.6994743347168
+      ],
+      "role": "crown",
+      "size": [
+        4.40769310987221,
+        3.71395444869995
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.71974974114757,
+        -29.9694728851318
+      ],
+      "role": "crown",
+      "size": [
+        4.1144301683043,
+        3.50802445411682
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.82843122214698,
+        -31.6384468078613
+      ],
+      "role": "crown",
+      "size": [
+        4.73125962626259,
+        3.9865939617157
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.86010304348767,
+        -31.908447265625
+      ],
+      "role": "crown",
+      "size": [
+        4.35243797572154,
+        3.667396068573
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.85396255460624,
+        -32.1784477233887
+      ],
+      "role": "crown",
+      "size": [
+        4.86533453419523,
+        4.09956645965576
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.86366115863058,
+        -33.6337203979492
+      ],
+      "role": "crown",
+      "size": [
+        4.76791595243058,
+        4.01748085021973
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.8891060563697,
+        -33.9037208557129
+      ],
+      "role": "crown",
+      "size": [
+        4.2883114045521,
+        3.61336255073547
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.87588868164827,
+        -34.1737213134766
+      ],
+      "role": "crown",
+      "size": [
+        4.62718809758864,
+        3.94520950317383
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.88009209823908,
+        -35.8694114685059
+      ],
+      "role": "crown",
+      "size": [
+        4.46662607192993,
+        3.76361179351807
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.89697800656101,
+        -36.1394119262695
+      ],
+      "role": "crown",
+      "size": [
+        4.56957497731695,
+        3.85035729408264
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.87554836188139,
+        -36.4094123840332
+      ],
+      "role": "crown",
+      "size": [
+        4.24580249422988,
+        3.62003445625305
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.01613957973739,
+        -37.664909362793
+      ],
+      "role": "crown",
+      "size": [
+        4.3763945057707,
+        3.68758201599121
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        4.02563580974326,
+        -37.9349098205566
+      ],
+      "role": "crown",
+      "size": [
+        4.59529296926406,
+        3.91801524162292
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.99761891490864,
+        -38.2049102783203
+      ],
+      "role": "crown",
+      "size": [
+        4.58360267360255,
+        3.86217713356018
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.24210852749518,
+        -39.8709449768066
+      ],
+      "role": "crown",
+      "size": [
+        4.86074163508865,
+        4.09569644927979
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        4.24105772646133,
+        -40.1409454345703
+      ],
+      "role": "crown",
+      "size": [
+        4.29563791616908,
+        3.61953592300415
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        4.20527413459137,
+        -40.410945892334
+      ],
+      "role": "crown",
+      "size": [
+        4.36568500365851,
+        3.6785581111908
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.27509768114815,
+        -41.8142929077148
+      ],
+      "role": "crown",
+      "size": [
+        4.40276312384907,
+        3.75386142730713
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        4.26493342541115,
+        -42.0842933654785
+      ],
+      "role": "crown",
+      "size": [
+        4.65753895516665,
+        3.92447638511658
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        4.22282507408595,
+        -42.3542938232422
+      ],
+      "role": "crown",
+      "size": [
+        4.42121856939394,
+        3.76959681510925
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.14368134401367,
+        -43.705623626709
+      ],
+      "role": "crown",
+      "size": [
+        4.16883512943651,
+        3.55441093444824
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        4.12482128686935,
+        -43.9756240844727
+      ],
+      "role": "crown",
+      "size": [
+        4.54771060448773,
+        3.83193421363831
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        4.07746713809501,
+        -44.2456245422363
+      ],
+      "role": "crown",
+      "size": [
+        4.55883831168121,
+        3.84131050109863
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.03126433343006,
+        -45.5291938781738
+      ],
+      "role": "crown",
+      "size": [
+        4.3010485505158,
+        3.62409496307373
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        4.00393367648007,
+        -45.7991943359375
+      ],
+      "role": "crown",
+      "size": [
+        4.44201931503584,
+        3.74287796020508
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.95320395506534,
+        -46.0691947937012
+      ],
+      "role": "crown",
+      "size": [
+        4.17354189862106,
+        3.55842399597168
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        4.02509766685614,
+        -47.8063278198242
+      ],
+      "role": "crown",
+      "size": [
+        4.4125859395513,
+        3.71807718276978
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.98847761761692,
+        -48.0763282775879
+      ],
+      "role": "crown",
+      "size": [
+        4.51024899302788,
+        3.80036878585815
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.93415689813378,
+        -48.3463287353516
+      ],
+      "role": "crown",
+      "size": [
+        4.18441403946787,
+        3.52581787109375
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.97467066582175,
+        -50.0713195800781
+      ],
+      "role": "crown",
+      "size": [
+        4.62965025910658,
+        3.94730877876282
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.93026260093368,
+        -50.3413200378418
+      ],
+      "role": "crown",
+      "size": [
+        4.16568758939722,
+        3.55172729492188
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.87536999670367,
+        -50.6113204956055
+      ],
+      "role": "crown",
+      "size": [
+        4.61679706528502,
+        3.8901469707489
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.83399695721468,
+        -51.7524642944336
+      ],
+      "role": "crown",
+      "size": [
+        4.1985424671533,
+        3.53772258758545
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.78565022354544,
+        -52.0224647521973
+      ],
+      "role": "crown",
+      "size": [
+        4.48236705087266,
+        3.77687525749207
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.73164356593002,
+        -52.2924652099609
+      ],
+      "role": "crown",
+      "size": [
+        4.36767207911467,
+        3.72394227981567
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.71344157233939,
+        -53.4137077331543
+      ],
+      "role": "crown",
+      "size": [
+        4.38250686447575,
+        3.69273233413696
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.66222632958468,
+        -53.683708190918
+      ],
+      "role": "crown",
+      "size": [
+        4.85693478044474,
+        4.09248876571655
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.61046131761157,
+        -53.9537086486816
+      ],
+      "role": "crown",
+      "size": [
+        4.76328061504435,
+        4.06124401092529
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.69999980926514,
+        3.72020630822401,
+        -55.0250625610352
+      ],
+      "role": "crown",
+      "size": [
+        4.16471167302043,
+        3.55089521408081
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -3.40000009536743,
+        3.6673851464379,
+        -55.2950630187988
+      ],
+      "role": "crown",
+      "size": [
+        4.67337104509462,
+        3.93781661987305
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.10000002384186,
+        3.61919648287529,
+        -55.5650634765625
+      ],
+      "role": "crown",
+      "size": [
+        4.19725389750499,
+        3.53663682937622
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.83871405499657,
+        -56.9748268127441
+      ],
+      "role": "crown",
+      "size": [
+        4.16864221860778,
+        3.51252841949463
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.78705984158344,
+        -57.2448272705078
+      ],
+      "role": "crown",
+      "size": [
+        4.39482637126491,
+        3.70311284065247
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.93061914595768,
+        -58.7931137084961
+      ],
+      "role": "crown",
+      "size": [
+        4.12404895670795,
+        3.51622557640076
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.88242841432028,
+        -59.0631141662598
+      ],
+      "role": "crown",
+      "size": [
+        4.28182384967804,
+        3.60789608955383
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.89526359401827,
+        -60.5689811706543
+      ],
+      "role": "crown",
+      "size": [
+        4.79980479726252,
+        4.04435062408447
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.85210604557462,
+        -60.838981628418
+      ],
+      "role": "crown",
+      "size": [
+        4.86513646683603,
+        4.09939956665039
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.83424727128855,
+        -62.099552154541
+      ],
+      "role": "crown",
+      "size": [
+        4.51418855280246,
+        3.80368828773499
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.79657541985361,
+        -62.3695526123047
+      ],
+      "role": "crown",
+      "size": [
+        4.32987357625422,
+        3.64838314056396
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.83642634224037,
+        -63.6633033752441
+      ],
+      "role": "crown",
+      "size": [
+        4.38702905887122,
+        3.74044632911682
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.80371571592845,
+        -63.9333038330078
+      ],
+      "role": "crown",
+      "size": [
+        4.56549843802328,
+        3.89261198043823
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.91336979351528,
+        -65.3783111572266
+      ],
+      "role": "crown",
+      "size": [
+        4.59618247929116,
+        3.91877365112305
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.88761839064586,
+        -65.6483154296875
+      ],
+      "role": "crown",
+      "size": [
+        4.15585851757943,
+        3.54334688186646
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.94833631952539,
+        -67.3806915283203
+      ],
+      "role": "crown",
+      "size": [
+        4.74925178221936,
+        4.00175428390503
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.93046730471021,
+        -67.6506958007813
+      ],
+      "role": "crown",
+      "size": [
+        4.55769687778545,
+        3.84034872055054
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.81640051321335,
+        -69.448844909668
+      ],
+      "role": "crown",
+      "size": [
+        4.86192607789669,
+        4.0966944694519
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.80659462765201,
+        -69.7188491821289
+      ],
+      "role": "crown",
+      "size": [
+        4.78994522307442,
+        4.0839786529541
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.70066194089275,
+        -71.0278701782227
+      ],
+      "role": "crown",
+      "size": [
+        4.40462136808431,
+        3.71136617660522
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.69693937315846,
+        -71.2978668212891
+      ],
+      "role": "crown",
+      "size": [
+        4.19461648914049,
+        3.53441452980042
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.68835607057431,
+        -72.5461578369141
+      ],
+      "role": "crown",
+      "size": [
+        4.25183667746618,
+        3.62517929077148
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.69007391294248,
+        -72.8161544799805
+      ],
+      "role": "crown",
+      "size": [
+        4.5894702776423,
+        3.86712121963501
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.55000019073486,
+        3.80391301718536,
+        -74.3794021606445
+      ],
+      "role": "crown",
+      "size": [
+        4.61455183029175,
+        3.88825511932373
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.25,
+        3.811826965462,
+        -74.6494064331055
+      ],
+      "role": "crown",
+      "size": [
+        4.22756823775494,
+        3.604487657547
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/overhang.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.1800000667572,
+        0.0654104549168969,
+        -2.93853330612183
+      ],
+      "role": "rubble",
+      "size": [
+        0.549964581795458,
+        0.463404178619385
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.84924459457397,
+        -0.12503607083178,
+        -24.95383644104
+      ],
+      "role": "rubble",
+      "size": [
+        0.384698115153746,
+        0.371199935674667
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.86016833782196,
+        0.0919212481528166,
+        -13.2159252166748
+      ],
+      "role": "rubble",
+      "size": [
+        0.645217438463895,
+        0.543664932250977
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.1800000667572,
+        -0.020166704030751,
+        0.977542698383331
+      ],
+      "role": "rubble",
+      "size": [
+        0.364036958325993,
+        0.351263731718063
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.130972914255249,
+        -44.0475845336914
+      ],
+      "role": "rubble",
+      "size": [
+        0.420507331389301,
+        0.354322552680969
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.92373704910278,
+        0.110225254296113,
+        -12.1234512329102
+      ],
+      "role": "rubble",
+      "size": [
+        0.429459126429124,
+        0.414390385150909
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.117949717629084,
+        -45.3223724365234
+      ],
+      "role": "rubble",
+      "size": [
+        0.626716037178939,
+        0.528075516223907
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        -0.0333123505382516,
+        -35.241626739502
+      ],
+      "role": "rubble",
+      "size": [
+        0.574491522528908,
+        0.554333925247192
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        -0.0178040181108927,
+        -53.6921195983887
+      ],
+      "role": "rubble",
+      "size": [
+        0.746788219460901,
+        0.629249215126038
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.64964771270752,
+        -0.0970578015589673,
+        -20.4756660461426
+      ],
+      "role": "rubble",
+      "size": [
+        0.450585735927929,
+        0.434775710105896
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.98964762687683,
+        -0.0637266537822751,
+        -20.4756660461426
+      ],
+      "role": "rubble",
+      "size": [
+        0.557794280485673,
+        0.538222551345825
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.1800000667572,
+        0.108787431841556,
+        -5.05288648605347
+      ],
+      "role": "rubble",
+      "size": [
+        0.424576519176645,
+        0.357751280069351
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.17956018447876,
+        0.122660490909306,
+        -10.2559280395508
+      ],
+      "role": "rubble",
+      "size": [
+        0.474956121227958,
+        0.458290994167328
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.22000002861023,
+        -0.202423641422446,
+        -64.3744659423828
+      ],
+      "role": "rubble",
+      "size": [
+        0.637863197416629,
+        0.537468194961548
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.73000001907349,
+        -0.119430506138514,
+        -23.2021427154541
+      ],
+      "role": "rubble",
+      "size": [
+        0.401536537300457,
+        0.387447535991669
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.73000001907349,
+        -0.156323112598329,
+        -23.2021427154541
+      ],
+      "role": "rubble",
+      "size": [
+        0.415116667205637,
+        0.400551170110703
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        -0.0126130784810666,
+        -35.2986068725586
+      ],
+      "role": "rubble",
+      "size": [
+        0.602862006988166,
+        0.507975935935974
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        -0.143135255275895,
+        -29.581615447998
+      ],
+      "role": "rubble",
+      "size": [
+        0.522266312078996,
+        0.503941178321838
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.03180193901062,
+        0.0699778401984113,
+        -11.4698114395142
+      ],
+      "role": "rubble",
+      "size": [
+        0.536975890285564,
+        0.452459812164307
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0262576969420663,
+        -36.9987030029297
+      ],
+      "role": "rubble",
+      "size": [
+        0.482112417437814,
+        0.465196192264557
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0762758745987625,
+        -49.3219451904297
+      ],
+      "role": "rubble",
+      "size": [
+        0.593577599525452,
+        0.500152826309204
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        0.0317711588745986,
+        -40.5347671508789
+      ],
+      "role": "rubble",
+      "size": [
+        0.490330699357119,
+        0.473126113414764
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        -0.127841900061678,
+        -53.147403717041
+      ],
+      "role": "rubble",
+      "size": [
+        0.731195366607522,
+        0.616110563278198
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.91658449172974,
+        -0.131076462484894,
+        -25.126091003418
+      ],
+      "role": "rubble",
+      "size": [
+        0.457789689302444,
+        0.441726893186569
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.0699999332428,
+        -0.0785969538344917,
+        -22.1961517333984
+      ],
+      "role": "rubble",
+      "size": [
+        0.720423897707237,
+        0.60703444480896
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.73000001907349,
+        -0.141981302252951,
+        -22.1961517333984
+      ],
+      "role": "rubble",
+      "size": [
+        0.59277203128023,
+        0.499474048614502
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0872919905881313,
+        -40.8296546936035
+      ],
+      "role": "rubble",
+      "size": [
+        0.624558539824052,
+        0.602644205093384
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.114152626393801,
+        -41.3688812255859
+      ],
+      "role": "rubble",
+      "size": [
+        0.423488492729529,
+        0.356834501028061
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.22000002861023,
+        -0.218335889004835,
+        -64.0745697021484
+      ],
+      "role": "rubble",
+      "size": [
+        0.654125996069475,
+        0.631174206733704
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.06761240959167,
+        -0.066525271806092,
+        -21.6944999694824
+      ],
+      "role": "rubble",
+      "size": [
+        0.598353145032559,
+        0.504176735877991
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.72761249542236,
+        -0.128972004967242,
+        -21.6944999694824
+      ],
+      "role": "rubble",
+      "size": [
+        0.522809865171055,
+        0.440523415803909
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.06973361968994,
+        -0.0978838557290225,
+        -24.2372169494629
+      ],
+      "role": "rubble",
+      "size": [
+        0.582728274302049,
+        0.562281668186188
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.1800000667572,
+        0.0678971773603651,
+        -8.08502197265625
+      ],
+      "role": "rubble",
+      "size": [
+        0.420726195821222,
+        0.354506969451904
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.57999992370605,
+        -0.147372084770238,
+        -64.2054748535156
+      ],
+      "role": "rubble",
+      "size": [
+        0.46416963393038,
+        0.447882980108261
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        0.0459802226787855,
+        -41.8037567138672
+      ],
+      "role": "rubble",
+      "size": [
+        0.456020384464624,
+        0.384246110916138
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -4.72999906539917,
+        -0.114744603621213,
+        -22.1692199707031
+      ],
+      "role": "rubble",
+      "size": [
+        0.43371954722838,
+        0.418501317501068
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        4.72999906539917,
+        -0.143186631585593,
+        -22.1692199707031
+      ],
+      "role": "rubble",
+      "size": [
+        0.474218500744213,
+        0.457579255104065
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.106270760625372,
+        -41.7163772583008
+      ],
+      "role": "rubble",
+      "size": [
+        0.649895294319909,
+        0.547606527805328
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.214395731687546,
+        0.0278619331554682,
+        -15.9061870574951
+      ],
+      "role": "rubble",
+      "size": [
+        0.670922073450955,
+        0.647380948066711
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.214395731687546,
+        0.0325765373795417,
+        -15.9061870574951
+      ],
+      "role": "rubble",
+      "size": [
+        0.663956035267223,
+        0.640659332275391
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        0.0294821965807907,
+        -43.5588493347168
+      ],
+      "role": "rubble",
+      "size": [
+        0.732083910928582,
+        0.616859257221222
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.10194063186646,
+        0.112023834591153,
+        -11.0528450012207
+      ],
+      "role": "rubble",
+      "size": [
+        0.560713629289107,
+        0.54103946685791
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        -0.134404280858834,
+        -54.1049919128418
+      ],
+      "role": "rubble",
+      "size": [
+        0.472437551224007,
+        0.398079335689545
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.1800000667572,
+        0.104529337860998,
+        -6.22514057159424
+      ],
+      "role": "rubble",
+      "size": [
+        0.577509336038069,
+        0.557245850563049
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.1800000667572,
+        0.00388679902934703,
+        -3.86262512207031
+      ],
+      "role": "rubble",
+      "size": [
+        0.505617795237955,
+        0.42603725194931
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.06656098365784,
+        0.118901378608449,
+        -11.2692413330078
+      ],
+      "role": "rubble",
+      "size": [
+        0.433132156458768,
+        0.417934536933899
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.1800000667572,
+        0.0643262009252774,
+        -8.60112380981445
+      ],
+      "role": "rubble",
+      "size": [
+        0.553084001226245,
+        0.46603262424469
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -2.1800000667572,
+        0.0315485028952404,
+        -6.35875844955444
+      ],
+      "role": "rubble",
+      "size": [
+        0.591898278756575,
+        0.57112991809845
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -6.91375637054443,
+        -0.0548882174600974,
+        -55.4109802246094
+      ],
+      "role": "rubble",
+      "size": [
+        0.743575283941233,
+        0.626541972160339
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0643514037958785,
+        -49.9188270568848
+      ],
+      "role": "rubble",
+      "size": [
+        0.468786912072789,
+        0.452338248491287
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0819645200703874,
+        -39.3951873779297
+      ],
+      "role": "rubble",
+      "size": [
+        0.497131210171951,
+        0.41888639330864
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -5.57999992370605,
+        -0.147403118714194,
+        -62.255069732666
+      ],
+      "role": "rubble",
+      "size": [
+        0.404631442373449,
+        0.390433847904205
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.11701861515593,
+        -41.8499603271484
+      ],
+      "role": "rubble",
+      "size": [
+        0.466181805898558,
+        0.392808198928833
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        2.1800000667572,
+        0.130635508787779,
+        -9.49768733978271
+      ],
+      "role": "rubble",
+      "size": [
+        0.399894388155504,
+        0.38586300611496
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        1.85518276691437,
+        0.0957511003272008,
+        -12.8946886062622
+      ],
+      "role": "rubble",
+      "size": [
+        0.660362800562157,
+        0.556426525115967
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -1.22000002861023,
+        -0.226375102313639,
+        -61.5156745910645
+      ],
+      "role": "rubble",
+      "size": [
+        0.585916949402202,
+        0.565358459949493
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.0783557309495672,
+        -39.3485908508301
+      ],
+      "role": "rubble",
+      "size": [
+        0.552625121597974,
+        0.465645968914032
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        0.0297425215012643,
+        -40.0047149658203
+      ],
+      "role": "rubble",
+      "size": [
+        0.47578226111152,
+        0.459088146686554
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        0.379999995231628,
+        -0.102278572449046,
+        -29.7124404907227
+      ],
+      "role": "rubble",
+      "size": [
+        0.749969605679782,
+        0.631929874420166
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -7.17999982833862,
+        0.121183576628454,
+        -43.8286590576172
+      ],
+      "role": "rubble",
+      "size": [
+        0.452095075087114,
+        0.436232089996338
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/broken.png"
+    },
+    {
+      "aspect_scale": 1.0,
+      "contact_gap": 0.0,
+      "p": [
+        -0.760654747486115,
+        -0.0987524442837023,
+        -26.4711952209473
+      ],
+      "role": "rubble",
+      "size": [
+        0.712494412458168,
+        0.600353002548218
+      ],
+      "source": "res://assets/biomes/crystal/mass-study/rounded.png"
+    }
+  ],
+  "simulation_cpu_median_ms": 4.828,
+  "simulation_cpu_p95_ms": 6.276,
+  "status": "candidate_not_accepted",
+  "timing_scope": "manual simulation callback; excludes render/GPU and diagnostic capture"
+}

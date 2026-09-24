@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>洞穴长通道 · 顶视算法原型</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#0b1017;color:#e7edf3}
+*{box-sizing:border-box}body{margin:0}header{padding:16px 20px;border-bottom:1px solid #263341;background:#101923}h1{font-size:20px;margin:0 0 5px}p{margin:0;color:#aab9c9;font-size:13px;line-height:1.5}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;min-height:calc(100vh - 73px)}.map{position:relative;min-height:660px;background:#0a0f15}canvas{display:block;width:100%;height:100%;touch-action:none}.tag{position:absolute;left:14px;top:12px;padding:6px 10px;border-radius:5px;background:#10202bcc;border:1px solid #345062;color:#c4e9f2;font-size:12px;pointer-events:none}
+aside{padding:15px 17px;border-left:1px solid #263341;background:#121b25;overflow:auto}fieldset{border:0;border-top:1px solid #2a3846;margin:0;padding:13px 0}legend{color:#b9d0de;font-weight:700;font-size:13px;padding-right:8px}label{font-size:12px;color:#c5d3de}button,select,input{font:inherit}button,select{background:#1a2936;color:#e7f0f5;border:1px solid #3b5366;border-radius:5px;padding:7px 9px;cursor:pointer}button:hover{background:#294055}button.active{background:#236278;border-color:#54b9c7}.row{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.row button{flex:1;min-width:64px}input[type=range]{width:100%;accent-color:#64c9d4}.value{font-variant-numeric:tabular-nums;color:#70d9e4;font-size:12px}.readout{background:#0d151d;border:1px solid #2d4655;border-radius:5px;padding:10px 11px;font-size:12px;line-height:1.6;color:#bdd0dd}.readout strong{color:#f0f7fa}.legend{display:grid;grid-template-columns:18px 1fr;gap:6px 7px;font-size:12px;color:#b9c9d5}.swatch{width:14px;height:8px;margin-top:5px;border-radius:2px}.help{margin-top:10px;font-size:12px;color:#8fa3b4}.warning{color:#f4a69b}
+@media(max-width:850px){.layout{display:block}.map{position:sticky;top:0;z-index:2;height:48vh;min-height:300px;box-shadow:0 7px 20px #0008}aside{border-left:0;border-top:1px solid #263341}}
+</style>
+</head>
+<body>
+<header><h1>洞穴超长通道 · 顶视算法原型</h1><p>示意几何，不使用美术图片。亮蓝是镜头附近结构，暗蓝是远端规划，橙色是短洞口，红色是旧算法重叠。</p></header>
+<div class="layout">
+  <div class="map"><canvas id="map" aria-label="洞穴长通道顶视图"></canvas><div class="tag" id="mapTag">拖拽平移 · 滚轮缩放 · 点击岔口选路</div></div>
+  <aside>
+    <fieldset><legend>岔路形态</legend><div class="row"><button data-kind="open" class="active">无门洞穴</button><button data-kind="door">有门通道</button></div><div class="row"><button data-exits="2" class="active">两岔</button><button data-exits="3">三岔</button></div></fieldset>
+    <fieldset><legend>选择路线</legend><div class="row"><button data-choice="-1">左</button><button data-choice="0">直</button><button data-choice="1">右</button></div><div class="row"><button id="reset">回到选路前</button><button id="play">自动前进</button></div></fieldset>
+    <fieldset><legend>位置与镜头</legend><label for="progress">行进距离 <span id="progressValue" class="value"></span></label><input id="progress" type="range" min="0" max="8200" step="10" value="2130"><div class="row"><button id="follow" class="active">跟随角色</button><button id="focusFork">定位岔口</button><button id="whole">全长视图</button></div><label for="zoom">缩放 <span id="zoomValue" class="value"></span></label><input id="zoom" type="range" min="0.06" max="0.95" step="0.01" value="0.42"></fieldset>
+    <fieldset><legend>观察图层</legend><label><input id="old" type="checkbox"> 显示旧算法：多组完整拱形重叠</label><br><label><input id="camera" type="checkbox" checked> 显示摄像机可见范围</label><br><label><input id="arches" type="checkbox" checked> 显示拱形结构节奏</label><br><label><input id="assets" type="checkbox" checked> 显示两侧零碎资产</label><br><label><input id="future" type="checkbox"> 显示未渲染的逻辑路径</label></fieldset>
+    <div class="readout" id="readout" aria-live="polite"></div>
+    <div class="help">亮蓝仅表示镜头附近已显示的连续通道，暗蓝是已规划但仍被遮挡的远端。选路前只有短洞口；未选路线离开视域后移除。选定路线逐渐横移，随后与原始通道平行。战斗点前后强制回到局部直道。</div>
+    <fieldset><legend>图例</legend><div class="legend"><i class="swatch" style="background:#2c7485"></i><span>镜头附近已显示结构</span><i class="swatch" style="background:#1a353c"></i><span>远端已规划、仍被遮挡</span><i class="swatch" style="background:#ecae68"></i><span>候选洞口 / 门</span><i class="swatch" style="background:#d1616b"></i><span>旧算法的整幅拱形重叠</span><i class="swatch" style="background:#83dce6"></i><span>角色与镜头视域</span></div></fieldset>
+  </aside>
+</div>
+<script>
+(()=>{
+  'use strict';
+  const TOTAL=8200,FORK=2350,LANE=240,PORTAL=116,EVENTS=[4200,6900];
+  const canvas=document.getElementById('map'),ctx=canvas.getContext('2d');
+  const controls={progress:document.getElementById('progress'),zoom:document.getElementById('zoom'),old:document.getElementById('old'),camera:document.getElementById('camera'),arches:document.getElementById('arches'),assets:document.getElementById('assets'),future:document.getElementById('future')};
+  const state={kind:'open',exits:2,choice:null,s:2130,scale:.42,panS:2460,panX:0,follow:true,play:false,drag:null,last:0};
+  const smooth=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t)};
+  const choiceList=()=>state.exits===3?[-1,0,1]:[-1,1];
+  const sideOffset=()=>state.exits===3?215:175;
+  function routeX(s,branch){
+    if(s<=FORK)return 0;
+    const offset=branch*sideOffset()*smooth((s-FORK)/620);
+    const meander=branch===0?0:18*Math.sin((s-3100)/390)*smooth((s-(FORK+620))/400);
+    let calm=1;
+    for(const event of EVENTS)calm*=smooth(Math.abs(s-event)/430);
+    return offset+meander*calm;
+  }
+  function widthAt(s){
+    const throat=smooth((s-(FORK-100))/170)*(1-smooth((s-FORK)/470));
+    const base=LANE*(1-.22*throat);
+    if(state.kind==='door'&&s>FORK-100&&s<FORK+230){
+      const open=smooth((s-(FORK-100))/150),close=1-smooth((s-(FORK+110))/120);
+      return base+(LANE*1.4-base)*open*close;
+    }
+    return base;
+  }
+  function sx(x){return canvas.clientWidth*.5+(x-state.panX)*state.scale;}
+  function sy(s){return canvas.clientHeight*.5-(s-state.panS)*state.scale;}
+  function worldAt(px,py){return {x:(px-canvas.clientWidth*.5)/state.scale+state.panX,s:state.panS-(py-canvas.clientHeight*.5)/state.scale};}
+  function stroke(points,color,width,dash=[]){if(points.length<2)return;ctx.beginPath();ctx.moveTo(sx(points[0][0]),sy(points[0][1]));for(let i=1;i<points.length;i++)ctx.lineTo(sx(points[i][0]),sy(points[i][1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.stroke();ctx.setLineDash([])}
+  function poly(points,fill,strokeColor=null){ctx.beginPath();ctx.moveTo(sx(points[0][0]),sy(points[0][1]));for(let i=1;i<points.length;i++)ctx.lineTo(sx(points[i][0]),sy(points[i][1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(strokeColor){ctx.strokeStyle=strokeColor;ctx.lineWidth=1.5;ctx.stroke()}}
+  function label(x,s,text,color='#c9d9e4',size=12){ctx.fillStyle=color;ctx.font=`${size}px system-ui`;ctx.textAlign='center';ctx.fillText(text,sx(x),sy(s))}
+  function lineX(s,branch){return branch===null?0:routeX(s,branch)}
+  function corridor(start,end,branch,alpha=1){
+    if(end<=start)return;
+    const a=[],b=[],left=[],right=[];
+    for(let s=start;s<=end+1;s+=28){const at=Math.min(end,s),x=lineX(at,branch),w=widthAt(at);a.push([x-w*.5,at]);b.push([x+w*.5,at]);left.push([x-w*.5,at]);right.push([x+w*.5,at]);}
+    ctx.globalAlpha=alpha;
+    poly(a.concat(b.reverse()),'#18353c');stroke(left,'#4c8b93',Math.max(2,Math.min(9,9*state.scale)));stroke(right,'#4c8b93',Math.max(2,Math.min(9,9*state.scale)));
+    stroke(left,'#12272e',1.5,[3,6]);stroke(right,'#12272e',1.5,[3,6]);
+    ctx.globalAlpha=1;
+  }
+  function arch(s,branch,alpha=1){const x=lineX(s,branch),w=widthAt(s);ctx.globalAlpha=alpha;stroke([[x-w*.46,s],[x+w*.46,s]],'#688d91',Math.max(1,Math.min(4,3*state.scale)),[5,4]);ctx.globalAlpha=1}
+  function hash(n){let v=Math.sin(n*124.128+4.27)*43758.545;return v-Math.floor(v)}
+  function assets(start,end,branch,alpha=1){
+    if(!controls.assets.checked)return;
+    ctx.globalAlpha=alpha;
+    for(let s=Math.ceil(start/82)*82;s<end;s+=82){
+      if(s>FORK-120&&s<FORK+260)continue;
+      const x=lineX(s,branch),w=widthAt(s);
+      for(const side of [-1,1]){
+        const jitter=(hash(s+side*281)-.5)*26;
+        const px=sx(x+side*(w*.58+14+jitter)),py=sy(s+(hash(s+side*913)-.5)*34);
+        const r=Math.max(1.5,Math.min(12,(11+hash(s+side*721)*13)*state.scale));
+        ctx.beginPath();ctx.ellipse(px,py,r,r*(.7+hash(s+side*111)*.55),hash(s+side*129)*3.14,0,Math.PI*2);ctx.fillStyle=hash(s+side*31)>.84?'#4b7480':'#355661';ctx.fill();
+      }
+    }
+    ctx.globalAlpha=1;
+  }
+  function structure(start,end,branch,alpha=1){corridor(start,end,branch,alpha);if(controls.arches.checked)for(let s=Math.ceil(start/102)*102;s<end;s+=102)arch(s,branch,alpha);assets(start,end,branch,alpha)}
+  function portal(branch){
+    const door=state.kind==='door';const s=FORK+(door?115:125);const x=branch*(state.exits===3?195:165);
+    if(door){
+      const gateX=branch*(state.exits===3?118:83),gateY=FORK+105;
+      stroke([[gateX-44,gateY],[gateX+44,gateY]],'#f0bb79',Math.max(4,10*state.scale));
+      label(gateX,gateY+49,'门','#f6cb87',11);return;
+    }
+    // Short mouths are only visual promises. They are not full future corridors.
+    const pts=[];for(let q=0;q<=1.001;q+=.1)pts.push([x*smooth(q),FORK-35+q*(s-FORK+35)]);
+    stroke(pts,door?'#9b724c':'#654f40',Math.max(4,PORTAL*state.scale*.42));
+    stroke(pts,'#d09b63',Math.max(1,PORTAL*state.scale*.28));
+    const r=Math.max(4,PORTAL*.5*state.scale);ctx.beginPath();ctx.arc(sx(x),sy(s),r,Math.PI,0);ctx.strokeStyle='#f0bb79';ctx.lineWidth=3;ctx.stroke();label(x,s+73,'洞口','#eabb83',11)
+  }
+  function oldOverlay(){
+    if(!controls.old.checked)return;
+    ctx.save();ctx.globalAlpha=.7;
+    for(const branch of choiceList()){
+      const a=[],b=[];
+      for(let s=FORK+120;s<=FORK+820;s+=35){let x=routeX(s,branch);a.push([x-255,s]);b.push([x+255,s]);}
+      poly(a.concat(b.reverse()),'#ab334858','#e76570');
+      for(let s=FORK+120;s<FORK+700;s+=100)stroke([[routeX(s,branch)-255,s],[routeX(s,branch)+255,s]],'#f27b83',2);
+    }
+    ctx.restore();
+    label(0,FORK+900,'旧方案：各分支同时放约 510 宽完整拱形','#f09aa3',13);
+  }
+  function visibleRange(){const pad=170/state.scale;return [Math.max(0,state.panS-canvas.clientHeight*.5/state.scale-pad),Math.min(TOTAL,state.panS+canvas.clientHeight*.5/state.scale+pad)]}
+  function grid(){const [low,high]=visibleRange();ctx.strokeStyle='#22313a';ctx.lineWidth=1;ctx.fillStyle='#6c8491';ctx.font='11px system-ui';ctx.textAlign='left';for(let s=Math.ceil(low/500)*500;s<=high;s+=500){let y=sy(s);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.clientWidth,y);ctx.stroke();ctx.fillText(`s=${s}`,10,y-6)}ctx.beginPath();ctx.moveTo(sx(0),0);ctx.lineTo(sx(0),canvas.clientHeight);ctx.setLineDash([5,8]);ctx.strokeStyle='#385064';ctx.stroke();ctx.setLineDash([])}
+  function camera(){
+    if(!controls.camera.checked)return;
+    const x=state.s<FORK?0:routeX(state.s,state.choice||0),reach=570,half=340;
+    poly([[x-22,state.s],[x+22,state.s],[x+half,state.s+reach],[x-half,state.s+reach]],'#78dce217','#64c8d156');
+    ctx.beginPath();ctx.arc(sx(x),sy(state.s),Math.max(5,8*state.scale),0,Math.PI*2);ctx.fillStyle='#8ff0f0';ctx.fill();ctx.strokeStyle='#d9ffff';ctx.lineWidth=2;ctx.stroke();label(x,state.s-42,'镜头 / 角色','#b8fbfa',12)
+  }
+  function eventMarks(){for(const [i,s] of EVENTS.entries()){const x=state.choice===null?0:routeX(s,state.choice);const w=widthAt(s);ctx.globalAlpha=state.choice===null?.35:1;poly([[x-w*.55,s-95],[x+w*.55,s-95],[x+w*.55,s+95],[x-w*.55,s+95]],'#517a3740','#9bbe84');label(x,s+5,`战斗直道 ${i+1}`,'#cde9ae',12);ctx.globalAlpha=1}}
+  function render(){
+    const dpr=Math.min(window.devicePixelRatio||1,2),w=canvas.clientWidth,h=canvas.clientHeight;
+    if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#0b1219';ctx.fillRect(0,0,w,h);grid();
+    const [low,high]=visibleRange();
+    structure(Math.max(low,0),Math.min(high,FORK+(state.kind==='door'&&state.choice===null?105:5)),null);
+    if(state.choice===null){
+      // Candidate mouths are short overlays; nothing beyond them exists visually.
+      for(const branch of choiceList())portal(branch);
+      if(controls.future.checked)for(const branch of choiceList()){
+        const pts=[];for(let s=FORK+150;s<TOTAL;s+=60)pts.push([routeX(s,branch),s]);stroke(pts,'#718696',1,[3,8]);
+      }
+    }else{
+      // The route is planned for the full long corridor, while art only
+      // becomes bright in a moving camera window. No distant batch appears
+      // fully formed on the selection frame.
+      structure(Math.max(low,FORK),high,state.choice,.16);
+      const activeStart=Math.max(low,FORK,state.s-310),activeEnd=Math.min(high,TOTAL,state.s+650);
+      for(let s=activeStart;s<activeEnd;s+=68){
+        const end=Math.min(activeEnd,s+68);
+        const ahead=s-state.s;
+        const reveal=smooth((ahead+310)/125)*(1-smooth((ahead-470)/180));
+        structure(s,end,state.choice,.85*reveal);
+      }
+      const retire=smooth((state.s-FORK-40)/170);
+      if(state.kind==='open'&&retire<1){ctx.globalAlpha=1-retire;for(const branch of choiceList())if(branch!==state.choice)portal(branch);ctx.globalAlpha=1}
+      if(state.kind==='door'&&retire<1){ctx.globalAlpha=1-retire;for(const branch of choiceList())if(branch!==state.choice)portal(branch);ctx.globalAlpha=1}
+      eventMarks();
+    }
+    oldOverlay();camera();
+    label(0,290,'起点  s=0','#b6c6d0',12);label(0,TOTAL-70,'远端  s=8200','#b6c6d0',12);
+    const forkY=sy(FORK);if(forkY>-40&&forkY<h+40)label(-360,FORK,'小型岔口','#e9c290',13);
+    updateReadout();
+  }
+  function updateReadout(){
+    const selected=state.choice===null?'未选':state.choice===-1?'左路':state.choice===1?'右路':'直路';
+    const x=state.choice===null?0:routeX(state.s,state.choice);
+    const sep=(840*(1-Math.cos(120/840))).toFixed(1);
+    document.getElementById('progressValue').textContent=`${Math.round(state.s)} / ${TOTAL}`;
+    document.getElementById('zoomValue').textContent=`${state.scale.toFixed(2)} px/单位`;
+    const preview=state.kind==='door'?'候选门位于同一段短前厅，门后路径暂不绘制。':'候选出口仅展示约 160 单位的短洞口；远端未绘制。';
+    document.getElementById('readout').innerHTML=`<strong>当前：${selected}</strong> · 中线横移 ${Math.round(x)} 单位<br>通道宽 ${Math.round(widthAt(state.s))}；岔口只比常规通道略宽。<br>${state.choice===null?preview:'所选通道的中心线在约 620 单位内横移，末端切线恢复为原始轴向；未选洞口在离开镜头时退休。'}<br><span class="warning">旧方案在岔后 120 单位处，单侧中心仅偏移约 ${sep}，却同时摆宽约 510 的拱图，必定互相遮挡。</span>`;
+    document.querySelectorAll('[data-choice]').forEach(b=>{b.disabled=b.dataset.choice==='0'&&state.exits===2;b.classList.toggle('active',state.choice!==null&&Number(b.dataset.choice)===state.choice)});
+    document.getElementById('play').textContent=state.play?'暂停前进':'自动前进';
+    document.getElementById('follow').classList.toggle('active',state.follow);
+  }
+  function setChoice(branch){if(!choiceList().includes(branch))return;if(state.choice!==branch&&state.s>FORK+20)state.s=FORK;state.choice=branch;state.s=Math.max(state.s,FORK);controls.progress.value=state.s;if(state.follow)state.panS=state.s+260;render()}
+  document.querySelectorAll('[data-kind]').forEach(b=>b.addEventListener('click',()=>{state.kind=b.dataset.kind;document.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('active',x===b));render()}));
+  document.querySelectorAll('[data-exits]').forEach(b=>b.addEventListener('click',()=>{state.exits=Number(b.dataset.exits);if(state.choice===0&&state.exits===2)state.choice=null;document.querySelectorAll('[data-exits]').forEach(x=>x.classList.toggle('active',x===b));render()}));
+  document.querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>setChoice(Number(b.dataset.choice))));
+  document.getElementById('reset').addEventListener('click',()=>{state.choice=null;state.s=2130;state.play=false;controls.progress.value=state.s;state.panS=2460;render()});
+  document.getElementById('play').addEventListener('click',()=>{state.play=!state.play;render()});
+  document.getElementById('follow').addEventListener('click',()=>{state.follow=!state.follow;if(state.follow)state.panS=state.s+260;render()});
+  document.getElementById('focusFork').addEventListener('click',()=>{state.follow=false;state.panS=FORK+130;state.panX=0;render()});
+  document.getElementById('whole').addEventListener('click',()=>{state.follow=false;state.scale=Math.max(.06,(canvas.clientHeight-75)/TOTAL);state.panS=TOTAL/2;state.panX=0;controls.zoom.value=state.scale;render()});
+  controls.progress.addEventListener('input',()=>{state.s=Number(controls.progress.value);if(state.choice===null)state.s=Math.min(state.s,FORK);if(state.follow)state.panS=state.s+260;render()});
+  controls.zoom.addEventListener('input',()=>{state.scale=Number(controls.zoom.value);render()});
+  for(const name of ['old','camera','arches','assets','future'])controls[name].addEventListener('change',render);
+  canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);state.drag={x:e.clientX,y:e.clientY,panX:state.panX,panS:state.panS,moved:false}});
+  canvas.addEventListener('pointermove',e=>{if(!state.drag)return;const dx=e.clientX-state.drag.x,dy=e.clientY-state.drag.y;if(Math.abs(dx)+Math.abs(dy)>5)state.drag.moved=true;state.follow=false;state.panX=state.drag.panX-dx/state.scale;state.panS=state.drag.panS+dy/state.scale;render()});
+  canvas.addEventListener('pointerup',e=>{const drag=state.drag;state.drag=null;if(drag?.moved)return;const box=canvas.getBoundingClientRect(),at=worldAt(e.clientX-box.left,e.clientY-box.top);if(Math.abs(at.s-(FORK+125))<130){const candidates=choiceList().map(b=>({branch:b,d:Math.abs(at.x-b*(state.exits===3?195:165))})).sort((a,b)=>a.d-b.d);if(candidates[0].d<PORTAL)setChoice(candidates[0].branch)}});
+  canvas.addEventListener('wheel',e=>{e.preventDefault();const box=canvas.getBoundingClientRect(),at=worldAt(e.clientX-box.left,e.clientY-box.top);state.scale=Math.max(.06,Math.min(1.35,state.scale*Math.exp(-e.deltaY*.001)));state.panX=at.x-(e.clientX-box.left-canvas.clientWidth*.5)/state.scale;state.panS=at.s+(e.clientY-box.top-canvas.clientHeight*.5)/state.scale;state.follow=false;controls.zoom.value=Math.min(.95,state.scale);render()},{passive:false});
+  window.addEventListener('keydown',e=>{if(['1','2','3'].includes(e.key)){const mapping={'1':-1,'2':0,'3':1};setChoice(mapping[e.key])}if(e.key===' '){e.preventDefault();state.play=!state.play;render()}if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();state.s=Math.max(0,Math.min(state.choice===null?FORK:TOTAL,state.s+(e.key==='ArrowUp'?90:-90)));controls.progress.value=state.s;if(state.follow)state.panS=state.s+260;render()}});
+  window.addEventListener('resize',render);
+  function tick(now){const dt=Math.min(.05,(now-state.last)/1000||0);state.last=now;if(state.play){state.s=Math.min(state.choice===null?FORK:TOTAL,state.s+dt*170);controls.progress.value=state.s;if(state.follow)state.panS=state.s+260;if(state.choice===null&&state.s>=FORK)state.play=false;render()}requestAnimationFrame(tick)}
+  render();requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

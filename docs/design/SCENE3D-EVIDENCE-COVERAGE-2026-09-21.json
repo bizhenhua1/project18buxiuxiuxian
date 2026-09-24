@@ -1,0 +1,831 @@
+{
+  "schema_version": 1,
+  "scope": "existing capture manifests only; no screenshots generated",
+  "required_categories": [
+    "approach",
+    "travel",
+    "event",
+    "battle",
+    "junction_2_entry",
+    "junction_2_left",
+    "junction_2_right",
+    "junction_3_entry",
+    "junction_3_middle",
+    "junction_3_side",
+    "turn_sequence",
+    "successor"
+  ],
+  "manifest_count": 31,
+  "scene_count": 18,
+  "parse_errors": [],
+  "status": "coverage_audit_complete_visual_acceptance_pending",
+  "scenes": [
+    {
+      "scene_id": "alice_hall",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/alice_hall/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/alice_hall/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "alice_roses",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/alice_roses/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/alice_roses/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "alice_tea",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/alice_tea/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/alice_tea/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "cinder_clock",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/cinder_clock/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/cinder_clock/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "cinder_garden",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/cinder_garden/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/cinder_garden/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "cinder_kitchen",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/cinder_kitchen/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/cinder_kitchen/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "piper_bridge",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/piper_bridge/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/piper_bridge/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "piper_market",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/piper_market/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/piper_market/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "piper_mountain",
+      "manifest_count": 8,
+      "manifests": [
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051142/manifest.json",
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/manifest.json",
+        "tempassets/work/representative-fork/piper_mountain-20260921051843/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-1842/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-2718/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/piper_mountain-4096/manifest.json",
+        "tempassets/work/representative-travel/piper_mountain-left-20260921052020/manifest.json",
+        "tempassets/work/scene3d-18-captures-20260921/piper_mountain/manifest.json"
+      ],
+      "present": [
+        "approach",
+        "junction_2_entry",
+        "travel"
+      ],
+      "missing": [
+        "event",
+        "battle",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/manifest.json",
+            "image": "beauty.png",
+            "kind": "beauty",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/manifest.json",
+            "image": "diagnostic.png",
+            "kind": "diagnostic",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/piper_mountain-1842/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/piper_mountain-2718/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 107447
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/piper_mountain-4096/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 108825
+          },
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/piper_mountain/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ],
+        "junction_2_entry": [
+          {
+            "manifest": "tempassets/work/representative-fork/piper_mountain-20260921051843/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "choose",
+            "branch": 0,
+            "seed": 106571
+          }
+        ],
+        "travel": [
+          {
+            "manifest": "tempassets/work/representative-travel/piper_mountain-left-20260921052020/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "travel",
+            "branch": -1,
+            "seed": 106571
+          }
+        ],
+        "unknown": [
+          {
+            "manifest": "tempassets/work/representative-diagnostic/piper_mountain-20260921051142/manifest.json",
+            "image": "beauty.png",
+            "kind": "beauty",
+            "phase": "",
+            "branch": 0,
+            "seed": null
+          },
+          {
+            "manifest": "tempassets/work/representative-diagnostic/piper_mountain-20260921051142/manifest.json",
+            "image": "diagnostic.png",
+            "kind": "diagnostic",
+            "phase": "",
+            "branch": 0,
+            "seed": null
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "puppet_fair",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/puppet_fair/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/puppet_fair/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "puppet_theatre",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/puppet_theatre/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/puppet_theatre/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "puppet_workshop",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/puppet_workshop/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/puppet_workshop/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "red_cottage",
+      "manifest_count": 7,
+      "manifests": [
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051120/manifest.json",
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448/manifest.json",
+        "tempassets/work/representative-fork/red_cottage-20260921052213/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-1842/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-2718/manifest.json",
+        "tempassets/work/representative-multiseed-20260921/red_cottage-4096/manifest.json",
+        "tempassets/work/scene3d-18-captures-20260921/red_cottage/manifest.json"
+      ],
+      "present": [
+        "approach",
+        "junction_2_entry"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/representative-diagnostic/red_cottage-20260921051448/manifest.json",
+            "image": "beauty.png",
+            "kind": "beauty",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-diagnostic/red_cottage-20260921051448/manifest.json",
+            "image": "diagnostic.png",
+            "kind": "diagnostic",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/red_cottage-1842/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/red_cottage-2718/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 107447
+          },
+          {
+            "manifest": "tempassets/work/representative-multiseed-20260921/red_cottage-4096/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 108825
+          },
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/red_cottage/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ],
+        "junction_2_entry": [
+          {
+            "manifest": "tempassets/work/representative-fork/red_cottage-20260921052213/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "choose",
+            "branch": 0,
+            "seed": 106571
+          }
+        ],
+        "unknown": [
+          {
+            "manifest": "tempassets/work/representative-diagnostic/red_cottage-20260921051120/manifest.json",
+            "image": "beauty.png",
+            "kind": "beauty",
+            "phase": "",
+            "branch": 0,
+            "seed": null
+          },
+          {
+            "manifest": "tempassets/work/representative-diagnostic/red_cottage-20260921051120/manifest.json",
+            "image": "diagnostic.png",
+            "kind": "diagnostic",
+            "phase": "",
+            "branch": 0,
+            "seed": null
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "red_village",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/red_village/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/red_village/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "red_workshop",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/red_workshop/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/red_workshop/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "snow_house",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/snow_house/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/snow_house/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "snow_mirror",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/snow_mirror/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/snow_mirror/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    },
+    {
+      "scene_id": "snow_orchard",
+      "manifest_count": 1,
+      "manifests": [
+        "tempassets/work/scene3d-18-captures-20260921/snow_orchard/manifest.json"
+      ],
+      "present": [
+        "approach"
+      ],
+      "missing": [
+        "travel",
+        "event",
+        "battle",
+        "junction_2_entry",
+        "junction_2_left",
+        "junction_2_right",
+        "junction_3_entry",
+        "junction_3_middle",
+        "junction_3_side",
+        "turn_sequence",
+        "successor"
+      ],
+      "visual_acceptance": "unreviewed",
+      "evidence": {
+        "approach": [
+          {
+            "manifest": "tempassets/work/scene3d-18-captures-20260921/snow_orchard/manifest.json",
+            "image": "capture.png",
+            "kind": "",
+            "phase": "approach",
+            "branch": 0,
+            "seed": 106571
+          }
+        ]
+      }
+    }
+  ]
+}

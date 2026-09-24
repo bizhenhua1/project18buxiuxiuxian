@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "reference_crystal",
+  "family": "crystal",
+  "style": "矿洞原有画风与布局，保持镜头；通过生产配方重建",
+  "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+  "assets": [
+    {
+      "source": "res://assets/biomes/crystal/ground.png",
+      "target": "res://assets/biomes/crystal/ground.png",
+      "source_sha256": "a2f4117325c1b27ec630a37321f9d72841db5ddca6e72ec9215ba45b5f2abfe3",
+      "target_sha256": "a2f4117325c1b27ec630a37321f9d72841db5ddca6e72ec9215ba45b5f2abfe3",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-0.png",
+      "target": "res://assets/biomes/crystal/prop-0.png",
+      "source_sha256": "460cf8613c8444fde27cb18c0bc2a28e818b91089b192c68c7aec01a63362da3",
+      "target_sha256": "460cf8613c8444fde27cb18c0bc2a28e818b91089b192c68c7aec01a63362da3",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-1.png",
+      "target": "res://assets/biomes/crystal/prop-1.png",
+      "source_sha256": "6d6335dffe8271d84f708da84f79f8112f8d733e75f3a1e7b49e9ab2c70e7724",
+      "target_sha256": "6d6335dffe8271d84f708da84f79f8112f8d733e75f3a1e7b49e9ab2c70e7724",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-2.png",
+      "target": "res://assets/biomes/crystal/prop-2.png",
+      "source_sha256": "58ee48aa715f688672f864d1210ce39f6946ccfded1c82ca5df4aa0f09ac5914",
+      "target_sha256": "58ee48aa715f688672f864d1210ce39f6946ccfded1c82ca5df4aa0f09ac5914",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-3.png",
+      "target": "res://assets/biomes/crystal/prop-3.png",
+      "source_sha256": "2cc8d08135d8e1f5e785df95a88f477f5b49d0c5bc25c56c6df97700e882a245",
+      "target_sha256": "2cc8d08135d8e1f5e785df95a88f477f5b49d0c5bc25c56c6df97700e882a245",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-4.png",
+      "target": "res://assets/biomes/crystal/prop-4.png",
+      "source_sha256": "4648f9c152ccc44479b5e4a4a2cde45e36f8b366479c18b499060a9571e75d2d",
+      "target_sha256": "4648f9c152ccc44479b5e4a4a2cde45e36f8b366479c18b499060a9571e75d2d",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-5.png",
+      "target": "res://assets/biomes/crystal/prop-5.png",
+      "source_sha256": "177020a3cc82ed0db1344958243f7f59288141c93f68dd55d1a84c21d86a33dd",
+      "target_sha256": "177020a3cc82ed0db1344958243f7f59288141c93f68dd55d1a84c21d86a33dd",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-6.png",
+      "target": "res://assets/biomes/crystal/prop-6.png",
+      "source_sha256": "90acc7316ebb3b13c5992a70ca459a54d77684a74ea7e96ebe2ccaac4b941880",
+      "target_sha256": "90acc7316ebb3b13c5992a70ca459a54d77684a74ea7e96ebe2ccaac4b941880",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-7.png",
+      "target": "res://assets/biomes/crystal/prop-7.png",
+      "source_sha256": "14f00ac086bff9bcd6968b62e614341d3d3e84f2e786bacdd8a71ac3d8ef6505",
+      "target_sha256": "14f00ac086bff9bcd6968b62e614341d3d3e84f2e786bacdd8a71ac3d8ef6505",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/prop-8.png",
+      "target": "res://assets/biomes/crystal/prop-8.png",
+      "source_sha256": "4549dc2429749cb1d5b440507e96305ab3d5f4ccc70b8272810f43b7431e1b3a",
+      "target_sha256": "4549dc2429749cb1d5b440507e96305ab3d5f4ccc70b8272810f43b7431e1b3a",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/crystal/shell.png",
+      "target": "res://assets/biomes/crystal/shell.png",
+      "source_sha256": "00c54771ae79eea734b8700052236a8ddf0ad8896d8c9b028c10b3f280791db5",
+      "target_sha256": "00c54771ae79eea734b8700052236a8ddf0ad8896d8c9b028c10b3f280791db5",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    }
+  ],
+  "closure_strategy": "atmospheric",
+  "new_asset_policy": "inspect metadata, preserve compatible support/opening/aspect, compile; incompatible geometry is rejected, never stretched"
+}

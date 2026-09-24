@@ -1,0 +1,3406 @@
+{
+  "instances": [
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 12,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.629032254219055,
+      "horizontal_view_degrees": 51.0212399574209,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.12618160247803,
+        -0.487090647220612,
+        -19.6066932678223
+      ],
+      "projected_bounds_px": [
+        -328.027893066406,
+        -30.8607559204102,
+        443.779846191406,
+        665.669616699219
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000002045268,
+      "canvas_m": [
+        0.9714235663414,
+        1.45713531970978
+      ],
+      "chunk": 12,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.965091586112976,
+      "horizontal_view_degrees": 15.1835816861786,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.75594973564148,
+        -0.0461302027106285,
+        -15.9495639801025
+      ],
+      "projected_bounds_px": [
+        401.602752685547,
+        351.426361083984,
+        361.363433837891,
+        542.045166015625
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.67903804779053,
+        4.01855707168579
+      ],
+      "chunk": 12,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.953455209732056,
+      "horizontal_view_degrees": 17.5498028781751,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.64533233642578,
+        -0.305879831314087,
+        -18.4895668029785
+      ],
+      "projected_bounds_px": [
+        335.819274902344,
+        17.9285087585449,
+        428.876525878906,
+        643.314819335938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.88000011444092,
+        4.32000017166138
+      ],
+      "chunk": 12,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.979906737804413,
+      "horizontal_view_degrees": 11.5051622888439,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.75,
+        -0.369350552558899,
+        -21.4727592468262
+      ],
+      "projected_bounds_px": [
+        492.591857910156,
+        148.196807861328,
+        276.233764648438,
+        414.350616455078
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 13,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.733261585235596,
+      "horizontal_view_degrees": 42.8394742714794,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.13951587677002,
+        2.32090926170349,
+        -19.5566921234131
+      ],
+      "projected_bounds_px": [
+        -53.8234100341797,
+        -54.88916015625,
+        335.846374511719,
+        335.846466064453
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 13,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.857837438583374,
+      "horizontal_view_degrees": 30.9253691173836,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.15000009536743,
+        2.24156069755554,
+        -22.6015110015869
+      ],
+      "projected_bounds_px": [
+        240.102325439453,
+        112.752464294434,
+        216.535308837891,
+        216.535308837891
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 15,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.788328766822815,
+      "horizontal_view_degrees": 37.9703946992093,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.96333312988281,
+        -0.21543937921524,
+        -22.6515102386475
+      ],
+      "projected_bounds_px": [
+        93.332405090332,
+        151.001419067383,
+        251.159332275391,
+        376.739013671875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.67903804779053,
+        4.01855707168579
+      ],
+      "chunk": 28,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.754331588745117,
+      "horizontal_view_degrees": 41.033000300623,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        2.64533233642578,
+        -0.0550372898578644,
+        -18.4895668029785
+      ],
+      "projected_bounds_px": [
+        1182.78076171875,
+        -22.227897644043,
+        428.876586914063,
+        643.314819335938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.88000011444092,
+        4.32000017166138
+      ],
+      "chunk": 28,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.881559312343597,
+      "horizontal_view_degrees": 28.1689618025766,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        2.75,
+        -0.130425751209259,
+        -21.4727592468262
+      ],
+      "projected_bounds_px": [
+        1020.12152099609,
+        125.280487060547,
+        276.233825683594,
+        414.350616455078
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 29,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.607184410095215,
+      "horizontal_view_degrees": 52.6138052591379,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        7.14845418930054,
+        2.28126692771912,
+        -19.8411464691162
+      ],
+      "projected_bounds_px": [
+        1550.37585449219,
+        -27.8280506134033,
+        319.40478515625,
+        319.404846191406
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 29,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.751780033111572,
+      "horizontal_view_degrees": 41.2551939997196,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        7.15000009536743,
+        2.13626909255981,
+        -22.7010536193848
+      ],
+      "projected_bounds_px": [
+        1295.07568359375,
+        124.70027923584,
+        214.049194335938,
+        214.049255371094
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 31,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.684325933456421,
+      "horizontal_view_degrees": 46.8173813305188,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        8.05666637420654,
+        -0.509730935096741,
+        -22.7510547637939
+      ],
+      "projected_bounds_px": [
+        1402.88610839844,
+        149.839111328125,
+        267.391845703125,
+        401.087524414063
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 44,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.857925713062286,
+      "horizontal_view_degrees": 30.9155262055648,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -5.5,
+        2.67055535316467,
+        -21.1522979736328
+      ],
+      "projected_bounds_px": [
+        29.0521373748779,
+        -88.2862854003906,
+        638.969543457031,
+        425.979614257813
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 45,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.937496840953827,
+      "horizontal_view_degrees": 20.3646549369495,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        0.0,
+        3.11580467224121,
+        -17.3583488464355
+      ],
+      "projected_bounds_px": [
+        357.218566894531,
+        -738.682800292969,
+        1367.48046875,
+        911.653442382813
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 45,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.488102942705154,
+      "horizontal_view_degrees": 60.7840304101887,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        4.71500682830811,
+        3.06158185005188,
+        -17.3583488464355
+      ],
+      "projected_bounds_px": [
+        1368.619140625,
+        -727.051513671875,
+        1367.48022460938,
+        911.6533203125
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 45,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.991841435432434,
+      "horizontal_view_degrees": 7.32386311531766,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        0.0,
+        3.06297707557678,
+        -23.6411991119385
+      ],
+      "projected_bounds_px": [
+        630.996765136719,
+        8.6082239151001,
+        473.490661621094,
+        315.660430908203
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 45,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.818917155265808,
+      "horizontal_view_degrees": 35.0234567112675,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        5.5,
+        2.96353530883789,
+        -23.6411991119385
+      ],
+      "projected_bounds_px": [
+        1039.49853515625,
+        15.9940557479858,
+        473.49072265625,
+        315.660430908203
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 46,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.691127598285675,
+      "horizontal_view_degrees": 46.2805655488248,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -4.71500682830811,
+        3.0380482673645,
+        -17.3583488464355
+      ],
+      "projected_bounds_px": [
+        -654.18212890625,
+        -722.003662109375,
+        1367.48046875,
+        911.653564453125
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 46,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.914041757583618,
+      "horizontal_view_degrees": 23.9299916232541,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -5.5,
+        3.00267100334167,
+        -23.6411991119385
+      ],
+      "projected_bounds_px": [
+        222.494964599609,
+        13.0872964859009,
+        473.490692138672,
+        315.660430908203
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 47,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.985289573669434,
+      "horizontal_view_degrees": 9.83975057326698,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        0.0,
+        2.74657416343689,
+        -21.1522979736328
+      ],
+      "projected_bounds_px": [
+        580.320007324219,
+        -95.90576171875,
+        638.969543457031,
+        425.979675292969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        6.375,
+        4.25
+      ],
+      "chunk": 47,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.72654139995575,
+      "horizontal_view_degrees": 43.4027743772358,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        5.5,
+        2.655513048172,
+        -21.1522979736328
+      ],
+      "projected_bounds_px": [
+        1131.58776855469,
+        -86.7786178588867,
+        638.969482421875,
+        425.979644775391
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.88000011444092,
+        4.32000017166138
+      ],
+      "chunk": 48,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.988805592060089,
+      "horizontal_view_degrees": 8.58112380807678,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.75,
+        -0.386691182851791,
+        -24.0692253112793
+      ],
+      "projected_bounds_px": [
+        565.8955078125,
+        214.145004272461,
+        204.785766601563,
+        307.178588867188
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.88000011444092,
+        4.32000017166138
+      ],
+      "chunk": 49,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.929437935352325,
+      "horizontal_view_degrees": 21.6526317609228,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        2.75,
+        -0.173387706279755,
+        -24.0692253112793
+      ],
+      "projected_bounds_px": [
+        956.979431152344,
+        198.977798461914,
+        204.785705566406,
+        307.178649902344
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 50,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.830455005168915,
+      "horizontal_view_degrees": 33.8544935607551,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.05666637420654,
+        -0.525102078914642,
+        -24.1995639801025
+      ],
+      "projected_bounds_px": [
+        182.517318725586,
+        186.324523925781,
+        229.30290222168,
+        343.954345703125
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 50,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.847533166408539,
+      "horizontal_view_degrees": 32.0556318739811,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.5866670608521,
+        -0.541317045688629,
+        -28.963903427124
+      ],
+      "projected_bounds_px": [
+        246.151275634766,
+        240.708129882813,
+        165.705261230469,
+        248.557769775391
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 50,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.910680413246155,
+      "horizontal_view_degrees": 24.4004504184832,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.5066661834717,
+        -0.432116538286209,
+        -34.4691276550293
+      ],
+      "projected_bounds_px": [
+        395.156066894531,
+        289.637298583984,
+        114.08642578125,
+        171.129699707031
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 50,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998255968093872,
+      "horizontal_view_degrees": 3.38437113222142,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.417231500148773,
+        -0.455701857805252,
+        -27.86252784729
+      ],
+      "projected_bounds_px": [
+        728.761962890625,
+        223.733520507813,
+        178.899719238281,
+        268.349456787109
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 50,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999263286590576,
+      "horizontal_view_degrees": 2.19944741801434,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.493333339691162,
+        -0.382409900426865,
+        -33.3466415405273
+      ],
+      "projected_bounds_px": [
+        743.056823730469,
+        281.480041503906,
+        120.716247558594,
+        181.074371337891
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.891758859157562,
+      "horizontal_view_degrees": 26.9048967658549,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.15000009536743,
+        2.12089800834656,
+        -24.1495628356934
+      ],
+      "projected_bounds_px": [
+        322.087677001953,
+        164.964553833008,
+        183.408233642578,
+        183.408248901367
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.890974819660187,
+      "horizontal_view_degrees": 27.0040009894243,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        2.26668286323547,
+        -28.9139041900635
+      ],
+      "projected_bounds_px": [
+        349.889770507813,
+        232.699035644531,
+        124.696319580078,
+        124.696380615234
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.917415618896484,
+      "horizontal_view_degrees": 23.4488597358207,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        2.26636266708374,
+        -31.5169334411621
+      ],
+      "projected_bounds_px": [
+        413.321258544922,
+        257.378631591797,
+        106.133880615234,
+        106.133850097656
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.964619219303131,
+      "horizontal_view_degrees": 15.2865751934061,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.48038101196289,
+        2.99187564849854,
+        -25.0995635986328
+      ],
+      "projected_bounds_px": [
+        497.072631835938,
+        128.832550048828,
+        167.666931152344,
+        167.666931152344
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998307466506958,
+      "horizontal_view_degrees": 3.33401492667295,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        2.33987474441528,
+        -30.2512092590332
+      ],
+      "projected_bounds_px": [
+        677.209655761719,
+        243.139419555664,
+        114.415710449219,
+        114.415756225586
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 51,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998799383640289,
+      "horizontal_view_degrees": 2.80791023548818,
+      "instance": 5,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        2.26359009742737,
+        -33.2966423034668
+      ],
+      "projected_bounds_px": [
+        692.825805664063,
+        270.508331298828,
+        96.3296508789063,
+        96.3296508789063
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 52,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.820267915725708,
+      "horizontal_view_degrees": 34.888377858034,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.92621803283691,
+        -0.253468960523605,
+        -26.494384765625
+      ],
+      "projected_bounds_px": [
+        167.53857421875,
+        159.303955078125,
+        221.44580078125,
+        332.168609619141
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 52,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.885987341403961,
+      "horizontal_view_degrees": 27.6267301869955,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.4133329391479,
+        -0.190637350082397,
+        -31.5669345855713
+      ],
+      "projected_bounds_px": [
+        340.675445556641,
+        275.769439697266,
+        123.4697265625,
+        185.204711914063
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 52,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.995154976844788,
+      "horizontal_view_degrees": 5.64236350634983,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.3337140083313,
+        -0.14012436568737,
+        -25.1495628356934
+      ],
+      "projected_bounds_px": [
+        581.363586425781,
+        123.108879089355,
+        248.229553222656,
+        372.344329833984
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 52,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.99920654296875,
+      "horizontal_view_degrees": 2.28259077154547,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.586666703224182,
+        -0.11712533980608,
+        -30.3012084960938
+      ],
+      "projected_bounds_px": [
+        737.914306640625,
+        263.004638671875,
+        133.074768066406,
+        199.612274169922
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 52,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998979032039642,
+      "horizontal_view_degrees": 2.58928970116227,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.253333330154419,
+        -0.0793063119053841,
+        -35.7424545288086
+      ],
+      "projected_bounds_px": [
+        744.719360351563,
+        255.420562744141,
+        127.121459960938,
+        190.682098388672
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 54,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.902493178844452,
+      "horizontal_view_degrees": 25.512255372274,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -6.73243427276611,
+        2.6249372959137,
+        -25.5495643615723
+      ],
+      "projected_bounds_px": [
+        254.091033935547,
+        117.889312744141,
+        362.512786865234,
+        241.675170898438
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 54,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.991113662719727,
+      "horizontal_view_degrees": 7.64400846223301,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.22887301445007,
+        -30.1606597900391
+      ],
+      "projected_bounds_px": [
+        550.760559082031,
+        171.353393554688,
+        258.880615234375,
+        172.587036132813
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 54,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.946235775947571,
+      "horizontal_view_degrees": 18.8733755629331,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        2.75833463668823,
+        -32.648998260498
+      ],
+      "projected_bounds_px": [
+        419.841552734375,
+        219.738006591797,
+        224.281127929688,
+        149.520751953125
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 55,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.970327019691467,
+      "horizontal_view_degrees": 13.9925866735565,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -4.26756572723389,
+        2.82907819747925,
+        -26.1995639801025
+      ],
+      "projected_bounds_px": [
+        426.553009033203,
+        120.898330688477,
+        343.149139404297,
+        228.766036987305
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 55,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.924873530864716,
+      "horizontal_view_degrees": 22.3507077502549,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        2.99479937553406,
+        -29.5106601715088
+      ],
+      "projected_bounds_px": [
+        347.635528564453,
+        172.613143920898,
+        269.750885009766,
+        179.833969116211
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 55,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.993747770786285,
+      "horizontal_view_degrees": 6.4103480687209,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        2.98348379135132,
+        -33.298999786377
+      ],
+      "projected_bounds_px": [
+        587.446655273438,
+        217.424331665039,
+        216.715148925781,
+        144.476760864258
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 57,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.961682438850403,
+      "horizontal_view_degrees": 15.9123075664873,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        3.19910430908203,
+        -36.3563041687012
+      ],
+      "projected_bounds_px": [
+        478.983947753906,
+        235.313552856445,
+        187.037841796875,
+        124.691909790039
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 57,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.996540606021881,
+      "horizontal_view_degrees": 4.7671950548364,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.14505052566528,
+        -39.9886131286621
+      ],
+      "projected_bounds_px": [
+        636.038757324219,
+        259.620758056641,
+        160.865478515625,
+        107.24365234375
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 57,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.97638601064682,
+      "horizontal_view_degrees": 12.4761519263858,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        3.35714864730835,
+        -42.7971458435059
+      ],
+      "projected_bounds_px": [
+        545.486206054688,
+        267.907196044922,
+        145.159790039063,
+        96.7731628417969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 57,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.997679591178894,
+      "horizontal_view_degrees": 3.90394686718448,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.19077110290527,
+        -45.752815246582
+      ],
+      "projected_bounds_px": [
+        661.471069335938,
+        283.809448242188,
+        131.634643554688,
+        87.7565002441406
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 58,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.995590507984161,
+      "horizontal_view_degrees": 5.38259401960774,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.4038245677948,
+        -37.0063056945801
+      ],
+      "projected_bounds_px": [
+        617.871337890625,
+        233.567245483398,
+        181.746398925781,
+        121.164199829102
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 58,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.969800472259521,
+      "horizontal_view_degrees": 14.1168163692675,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        2.96343469619751,
+        -39.3386154174805
+      ],
+      "projected_bounds_px": [
+        513.984619140625,
+        261.178833007813,
+        164.997131347656,
+        109.998046875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 58,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.997303068637848,
+      "horizontal_view_degrees": 4.20891573073601,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.50754356384277,
+        -43.4471473693848
+      ],
+      "projected_bounds_px": [
+        652.494201660156,
+        267.141204833984,
+        141.952331542969,
+        94.6348571777344
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 58,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.979658305644989,
+      "horizontal_view_degrees": 11.57630988755,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        3.06170415878296,
+        -45.1028137207031
+      ],
+      "projected_bounds_px": [
+        562.591247558594,
+        284.377319335938,
+        134.388366699219,
+        89.5922241210938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 59,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.925718665122986,
+      "horizontal_view_degrees": 22.2230257655118,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.7466669082642,
+        -0.0970153510570526,
+        -37.3111114501953
+      ],
+      "projected_bounds_px": [
+        425.091094970703,
+        265.59765625,
+        118.555816650391,
+        177.833709716797
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 59,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.952982485294342,
+      "horizontal_view_degrees": 17.6394055870147,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.4133329391479,
+        0.00966392271220684,
+        -42.8949432373047
+      ],
+      "projected_bounds_px": [
+        511.522186279297,
+        318.943481445313,
+        75.0130310058594,
+        112.519561767578
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 59,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999702394008636,
+      "horizontal_view_degrees": 1.39787789267894,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.586666703224182,
+        0.0061502275057137,
+        -40.6072006225586
+      ],
+      "projected_bounds_px": [
+        752.683410644531,
+        312.198089599609,
+        81.4702758789063,
+        122.205413818359
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 59,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999504923820496,
+      "horizontal_view_degrees": 1.8029827211567,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.253333330154419,
+        -0.0298192910850048,
+        -45.2214431762695
+      ],
+      "projected_bounds_px": [
+        754.225708007813,
+        297.740081787109,
+        88.4887084960938,
+        132.733032226563
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.950614631175995,
+      "horizontal_view_degrees": 18.0817517892787,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        3.03498458862305,
+        -37.2611122131348
+      ],
+      "projected_bounds_px": [
+        503.000823974609,
+        268.631561279297,
+        79.8901062011719,
+        79.89013671875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.959198176860809,
+      "horizontal_view_degrees": 16.4234825668264,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        2.4578697681427,
+        -39.7622947692871
+      ],
+      "projected_bounds_px": [
+        529.537109375,
+        297.254699707031,
+        72.1245727539063,
+        72.1246032714844
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.97135192155838,
+      "horizontal_view_degrees": 13.747624969555,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        2.36185526847839,
+        -45.0323028564453
+      ],
+      "projected_bounds_px": [
+        571.433715820313,
+        316.659240722656,
+        59.864013671875,
+        59.864013671875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.99925035238266,
+      "horizontal_view_degrees": 2.21867324945255,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        2.46981978416443,
+        -38.4202308654785
+      ],
+      "projected_bounds_px": [
+        710.298461914063,
+        291.339324951172,
+        76.0933227539063,
+        76.0933227539063
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999366164207459,
+      "horizontal_view_degrees": 2.04008823918239,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        2.46315026283264,
+        -40.5571975708008
+      ],
+      "projected_bounds_px": [
+        715.591369628906,
+        300.1435546875,
+        69.9632568359375,
+        69.9633178710938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999539911746979,
+      "horizontal_view_degrees": 1.73810038309683,
+      "instance": 5,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        3.10218071937561,
+        -45.171443939209
+      ],
+      "projected_bounds_px": [
+        724.542358398438,
+        300.054901123047,
+        59.5965576171875,
+        59.5965576171875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 60,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999600172042847,
+      "horizontal_view_degrees": 1.62027481138014,
+      "instance": 6,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.39999997615814,
+        2.45373845100403,
+        -47.4365730285645
+      ],
+      "projected_bounds_px": [
+        728.031494140625,
+        320.578918457031,
+        55.5555419921875,
+        55.5555419921875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 61,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.94007009267807,
+      "horizontal_view_degrees": 19.9366691080178,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.5866670608521,
+        -0.350130319595337,
+        -39.8122940063477
+      ],
+      "projected_bounds_px": [
+        469.101379394531,
+        301.7685546875,
+        95.9796752929688,
+        143.969451904297
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 61,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.958199322223663,
+      "horizontal_view_degrees": 16.6247007991855,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.5066661834717,
+        -0.284144788980484,
+        -45.0823020935059
+      ],
+      "projected_bounds_px": [
+        525.325317382813,
+        323.409973144531,
+        75.0927124023438,
+        112.639007568359
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 61,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999435067176819,
+      "horizontal_view_degrees": 1.92600088422909,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.41333332657814,
+        -0.338180303573608,
+        -38.4702301025391
+      ],
+      "projected_bounds_px": [
+        749.378967285156,
+        296.113128662109,
+        101.250183105469,
+        151.875335693359
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 61,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999668598175049,
+      "horizontal_view_degrees": 1.47511905342435,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.493333339691162,
+        -0.290051281452179,
+        -42.8378067016602
+      ],
+      "projected_bounds_px": [
+        753.91064453125,
+        317.713531494141,
+        80.9434814453125,
+        121.415222167969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 61,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999698400497437,
+      "horizontal_view_degrees": 1.40722601934418,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.41333332657814,
+        -0.354261577129364,
+        -47.486572265625
+      ],
+      "projected_bounds_px": [
+        756.553344726563,
+        324.022491455078,
+        73.96337890625,
+        110.945007324219
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 63,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.963223397731781,
+      "horizontal_view_degrees": 15.5870341694089,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.7466669082642,
+        -0.0304865259677172,
+        -48.1267356872559
+      ],
+      "projected_bounds_px": [
+        536.403198242188,
+        306.331207275391,
+        80.9486083984375,
+        121.422973632813
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 63,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.977050006389618,
+      "horizontal_view_degrees": 12.2988079428486,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.91771697998047,
+        -0.0643238201737404,
+        -53.8563461303711
+      ],
+      "projected_bounds_px": [
+        593.198669433594,
+        342.138763427734,
+        54.3668823242188,
+        81.5502319335938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 63,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.984540164470673,
+      "horizontal_view_degrees": 10.087909271352,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.14666652679443,
+        -0.126576244831085,
+        -58.4997787475586
+      ],
+      "projected_bounds_px": [
+        617.975158691406,
+        329.349945068359,
+        62.066162109375,
+        93.0993347167969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 63,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999843299388886,
+      "horizontal_view_degrees": 1.01432854313426,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.586666703224182,
+        -0.0906837657094002,
+        -50.6580772399902
+      ],
+      "projected_bounds_px": [
+        759.081665039063,
+        337.739807128906,
+        59.1141357421875,
+        88.6711120605469
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999938340025,
+      "canvas_m": [
+        3.86666655540466,
+        5.80000019073486
+      ],
+      "chunk": 63,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999893724918365,
+      "horizontal_view_degrees": 0.835328309784588,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.85160732269287,
+        -0.216126814484596,
+        -56.2989692687988
+      ],
+      "projected_bounds_px": [
+        732.941528320313,
+        327.266967773438,
+        65.2979125976563,
+        97.9468078613281
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 64,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.976072311401367,
+      "horizontal_view_degrees": 12.5590792300449,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.60000038146973,
+        3.10151338577271,
+        -48.0767364501953
+      ],
+      "projected_bounds_px": [
+        589.726257324219,
+        308.461090087891,
+        54.5109252929688,
+        54.5109558105469
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 64,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.98448634147644,
+      "horizontal_view_degrees": 10.1054999885235,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -9.10438346862793,
+        2.39267611503601,
+        -53.8063468933105
+      ],
+      "projected_bounds_px": [
+        625.452880859375,
+        334.13720703125,
+        46.65869140625,
+        46.6587219238281
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 64,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.989960372447968,
+      "horizontal_view_degrees": 8.12569370969942,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.01818752288818,
+        2.26850032806396,
+        -56.0737495422363
+      ],
+      "projected_bounds_px": [
+        652.01318359375,
+        339.711151123047,
+        44.1423950195313,
+        44.1423950195313
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 64,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999372780323029,
+      "horizontal_view_degrees": 2.02941174706735,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -1.86232089996338,
+        2.19514226913452,
+        -53.7463302612305
+      ],
+      "projected_bounds_px": [
+        727.34326171875,
+        337.59033203125,
+        46.7291870117188,
+        46.7292175292969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 64,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998190522193909,
+      "horizontal_view_degrees": 3.44730547814349,
+      "instance": 4,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.99827408790588,
+        2.91587328910828,
+        -56.2489700317383
+      ],
+      "projected_bounds_px": [
+        711.021545410156,
+        329.009368896484,
+        43.9591674804688,
+        43.9591674804688
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 65,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.983806192874908,
+      "horizontal_view_degrees": 10.3252347083299,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        3.37626457214355,
+        -48.9664688110352
+      ],
+      "projected_bounds_px": [
+        586.192749023438,
+        290.560363769531,
+        119.525939941406,
+        79.6840209960938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 65,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998426496982574,
+      "horizontal_view_degrees": 3.2146106832824,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        3.10168051719666,
+        -52.5752487182617
+      ],
+      "projected_bounds_px": [
+        681.742797851563,
+        305.741973876953,
+        108.335205078125,
+        72.2234802246094
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 65,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.990960359573364,
+      "horizontal_view_degrees": 7.70976085544761,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -6.905442237854,
+        3.28957438468933,
+        -55.9149894714355
+      ],
+      "projected_bounds_px": [
+        629.518188476563,
+        309.928161621094,
+        99.6968383789063,
+        66.4645690917969
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 65,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.997869789600372,
+      "horizontal_view_degrees": 3.74046853282574,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -4.19999980926514,
+        3.03345537185669,
+        -59.3804512023926
+      ],
+      "projected_bounds_px": [
+        683.295166015625,
+        320.720153808594,
+        92.078369140625,
+        61.3855590820313
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 66,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998154819011688,
+      "horizontal_view_degrees": 3.48115946404697,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.40000009536743,
+        2.82309532165527,
+        -49.6164703369141
+      ],
+      "projected_bounds_px": [
+        673.905822753906,
+        303.625946044922,
+        117.3427734375,
+        78.228515625
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 66,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.98618620634079,
+      "horizontal_view_degrees": 9.53444288104653,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -7.59999990463257,
+        3.02359676361084,
+        -51.9252510070801
+      ],
+      "projected_bounds_px": [
+        601.012817382813,
+        305.623474121094,
+        110.193420410156,
+        73.4622802734375
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 66,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.997748076915741,
+      "horizontal_view_degrees": 3.84588186840222,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -4.09455823898315,
+        2.72501993179321,
+        -56.5649909973145
+      ],
+      "projected_bounds_px": [
+        678.928283691406,
+        320.75439453125,
+        98.1732788085938,
+        65.4488525390625
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 66,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.992339670658112,
+      "horizontal_view_degrees": 7.09641455286976,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -6.80000019073486,
+        2.94429588317871,
+        -58.7304496765137
+      ],
+      "projected_bounds_px": [
+        640.428283691406,
+        321.014343261719,
+        93.4173583984375,
+        62.2781982421875
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 68,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.969204843044281,
+      "horizontal_view_degrees": 14.2560661325631,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -10.5866670608521,
+        -0.357507646083832,
+        -50.8358917236328
+      ],
+      "projected_bounds_px": [
+        561.021240234375,
+        330.853912353516,
+        67.2325439453125,
+        100.848876953125
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 68,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.983719944953918,
+      "horizontal_view_degrees": 10.3527690548884,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.92485427856445,
+        -0.377499639987946,
+        -56.1237487792969
+      ],
+      "projected_bounds_px": [
+        617.903747558594,
+        344.663726806641,
+        55.3951416015625,
+        83.0925903320313
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999975671574,
+      "canvas_m": [
+        3.26666665077209,
+        4.90000009536743
+      ],
+      "chunk": 68,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999975323677063,
+      "horizontal_view_degrees": 0.402511919814379,
+      "instance": 2,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -0.955654323101044,
+        -0.450857758522034,
+        -53.7963333129883
+      ],
+      "projected_bounds_px": [
+        751.699279785156,
+        342.835418701172,
+        58.6372680664063,
+        87.9559020996094
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 68,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999853670597076,
+      "horizontal_view_degrees": 0.980186522015762,
+      "instance": 3,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.01333332061768,
+        -0.551110744476318,
+        -59.5126113891602
+      ],
+      "projected_bounds_px": [
+        736.584655761719,
+        346.7783203125,
+        54.4063720703125,
+        81.609619140625
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 1.00000004584973,
+      "canvas_m": [
+        3.46666669845581,
+        5.19999980926514
+      ],
+      "chunk": 69,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.986550569534302,
+      "horizontal_view_degrees": 9.40757161351741,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.98666667938232,
+        -0.431138128042221,
+        -60.8152160644531
+      ],
+      "projected_bounds_px": [
+        631.28857421875,
+        346.385162353516,
+        52.8916015625,
+        79.3373718261719
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 70,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.991900146007538,
+      "horizontal_view_degrees": 7.29742777295513,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -8.0,
+        2.3768618106842,
+        -60.7652168273926
+      ],
+      "projected_bounds_px": [
+        664.737426757813,
+        343.947601318359,
+        39.711181640625,
+        39.7111511230469
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.199951171875,
+        0.93994140625
+      ],
+      "aspect_scale_ratio": 1.0,
+      "canvas_m": [
+        2.59999990463257,
+        2.59999990463257
+      ],
+      "chunk": 70,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998600482940674,
+      "horizontal_view_degrees": 3.03163834687109,
+      "instance": 1,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -3.0,
+        2.21990942955017,
+        -62.0838813781738
+      ],
+      "projected_bounds_px": [
+        718.885986328125,
+        347.773315429688,
+        38.6213989257813,
+        38.6213989257813
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png",
+      "source_px": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 72,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.993261873722076,
+      "horizontal_view_degrees": 6.65505066089599,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -6.80000019073486,
+        3.27277493476868,
+        -61.7245178222656
+      ],
+      "projected_bounds_px": [
+        648.939086914063,
+        320.956237792969,
+        87.5528564453125,
+        58.3685913085938
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-layers-v2.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.8095703125
+      ],
+      "aspect_scale_ratio": 0.999999959244688,
+      "canvas_m": [
+        5.84999990463257,
+        3.90000009536743
+      ],
+      "chunk": 73,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.998124718666077,
+      "horizontal_view_degrees": 3.50944740107387,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -4.19999980926514,
+        2.71641683578491,
+        -62.3745193481445
+      ],
+      "projected_bounds_px": [
+        689.03662109375,
+        330.212158203125,
+        86.375732421875,
+        57.5838012695313
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png",
+      "source_px": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "anchor": [
+        0.5,
+        0.97998046875
+      ],
+      "aspect_scale_ratio": 0.999999947600315,
+      "canvas_m": [
+        3.03333330154419,
+        4.55000019073486
+      ],
+      "chunk": 74,
+      "chunk_visible": true,
+      "heading_degrees": 0.0,
+      "horizontal_foreshortening": 0.999804377555847,
+      "horizontal_view_degrees": 1.13332390849033,
+      "instance": 0,
+      "mode": 2,
+      "near_plane_crossing": false,
+      "origin_m": [
+        -2.18666672706604,
+        -0.237090572714806,
+        -62.1338806152344
+      ],
+      "projected_bounds_px": [
+        739.37548828125,
+        354.3837890625,
+        45.0115356445313,
+        67.5171813964844
+      ],
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "source_px": [
+        1024,
+        1536
+      ]
+    }
+  ],
+  "limits": "Bounds include transparent pixels and occluded instances. Horizontal incidence is geometric, not a certified source-art viewing cone. Mode 4 shader reproduced for this C1 fixture; other deformation modes need separate implementations.",
+  "reference_camera_manifest": "",
+  "status": "diagnostic_only_not_visual_approval",
+  "viewport": [
+    1552.0,
+    830.0
+  ]
+}

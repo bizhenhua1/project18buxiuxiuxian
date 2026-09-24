@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "id": "cave-c1-benchmark",
+  "date": "2026-09-22",
+  "status": "prototype_rejected_return_to_asset_qualification",
+  "specification": "FIRST-BENCHMARK.md",
+  "runtime_implemented": false,
+  "runtime_partial": true,
+  "latest_review": "C1-ASSET-QUALIFICATION.md",
+  "latest_research": "2D-JOINT-ENCLOSURE-TRIAL.md",
+  "research_status": "2d_grouped_shoulder_roof_backfill_local_joint_checks_pass_thinner_layers_asset_repetition_and_full_route_not_accepted",
+  "route_event_contract": "ROUTE-EVENT-CONTRACT.md",
+  "core_references": "../references/CORE-REFERENCES.md",
+  "route_event_implementation_status": "actual_single_left_battle_clear_resume_completed_successor_pending",
+  "confirmed_product_boundaries": {
+    "player_free_camera_rotation": false,
+    "player_free_camera_zoom": false,
+    "combat_at_arbitrary_travel_position": false,
+    "combat_requires_prepared_event_zone": true,
+    "side_view_is_required_feature": false,
+    "global_side_view_angle_limit_degrees": null,
+    "side_view_policy": "Prefer suitable frontal presentation; only if a concrete solution needs side viewing, justify and validate it per asset and camera domain. User's 15 degrees was an example, not a default.",
+    "scene_appearance_primary": "2d_authored_assets",
+    "cheap_geometry_policy": "Optional local support with measured visual and cost benefit; not default replacement of scene art. Invisible route/visibility envelopes are not appearance assets.",
+    "geometry_escalation_policy": "Do not replace unsuccessful 2D assembly with full structural modeling by default; any local geometry support requires a bounded comparison and preserves authored 2D appearance."
+  },
+  "visual_accepted": false,
+  "planned_output_root": "scene-production/jobs/cave-c1-benchmark",
+  "next_task": "B04",
+  "scope": {
+    "subtype": "C1",
+    "grammar": [
+      "R1",
+      "R2",
+      "R4",
+      "R5"
+    ],
+    "route_cases": [
+      "fork2_left",
+      "fork2_right",
+      "fork3_left",
+      "fork3_center",
+      "fork3_right"
+    ],
+    "states": [
+      "approach",
+      "choice",
+      "portal_transit",
+      "forward_recovery",
+      "battle_expansion",
+      "successor"
+    ],
+    "protected": [
+      "accepted_forest_visuals",
+      "existing_character_projection",
+      "existing_battle_rules",
+      "web_demo"
+    ],
+    "prohibited": [
+      "new_continuous_side_walls",
+      "anisotropic_arch_stretching",
+      "giant_roof_patch_as_default",
+      "permanent_unplanned_branch_divergence",
+      "unbounded_generation_or_capture_retries"
+    ],
+    "numeric_contracts": "Freeze measured or explicitly authored inputs in B00; old cave dimensions are not approved defaults."
+  },
+  "planned_limits": {
+    "complete_candidates_per_node": 32,
+    "local_repair_rounds": 2,
+    "meaning": "Engineering stop limits, not evidence of visual quality or measured optimal budgets."
+  },
+  "gates": {
+    "G0": "Protected forest and declared projection domain",
+    "G1": "Continuous finite route and single shared data source",
+    "G2": "Actual party and equipment transit without teleporting or speed hacks",
+    "G3": "Compact cave identity and small portal to interior expansion; visual acceptance required",
+    "G4": "Valid assemblies, apertures and viewing cones",
+    "G5": "Semantic coverage under supported cameras and lighting",
+    "G6": "Layering, repetition control and functional narrative groups",
+    "G7": "Stable movement, world identities and transitions",
+    "G8": "Measured scoped runtime cost",
+    "G9": "Reproducible compiled production package"
+  },
+  "tasks": [
+    {
+      "id": "B00",
+      "title": "冻结保护基准与测量输入",
+      "status": "partial_projection_measured_domain_not_frozen",
+      "depends_on": [],
+      "outputs": [
+        "baseline.json"
+      ],
+      "gates": [
+        "G0"
+      ],
+      "done_when": "Projection, supported viewports and lighting, actual party transit envelope and evidence provenance are recorded; unknown values are explicit.",
+      "on_failure": "Report the exact missing source or measurement; do not reuse rejected cave sizes."
+    },
+    {
+      "id": "B01",
+      "title": "统一有限侧移路线与接续",
+      "status": "partial_math_test_passed_runtime_transitions_pending",
+      "depends_on": [
+        "B00"
+      ],
+      "outputs": [
+        "route-contract.json"
+      ],
+      "gates": [
+        "G1"
+      ],
+      "done_when": "Five exit cases use arc length and stable local frames, with continuous successors and no unwanted final heading drift.",
+      "on_failure": "Return incompatible offset, transition length or swept-domain constraints."
+    },
+    {
+      "id": "B02",
+      "title": "验证通行队形与门后展开",
+      "status": "planned",
+      "depends_on": [
+        "B00",
+        "B01"
+      ],
+      "outputs": [
+        "transit-contract.json"
+      ],
+      "gates": [
+        "G2"
+      ],
+      "done_when": "Actual transit fits or required continuous contraction is implemented; equipment sweeps and battle readiness are checked.",
+      "on_failure": "Report party versus portal conflict; no hidden teleport or altered locomotion speed."
+    },
+    {
+      "id": "B03",
+      "title": "定义穿口和恢复镜头许可域",
+      "status": "partial_stable_axis_frame_integrated_full_transit_not_accepted",
+      "depends_on": [
+        "B00",
+        "B01"
+      ],
+      "outputs": [
+        "camera-contract.json"
+      ],
+      "gates": [
+        "G0",
+        "G7"
+      ],
+      "done_when": "Camera state candidates preserve projection and define near-plane and motion constraints for joint solving.",
+      "on_failure": "Return infeasible camera state and protected composition constraints; do not change FOV to hide holes."
+    },
+    {
+      "id": "B04",
+      "title": "资产能力盘点与最小岩组预检",
+      "status": "three_candidates_minimal_assembly_failed_contact_semantics_added",
+      "depends_on": [
+        "B00"
+      ],
+      "outputs": [
+        "asset-capabilities.json",
+        "assembly-check.json"
+      ],
+      "gates": [
+        "G4"
+      ],
+      "done_when": "Candidate modules have support, inner contour, connector and view capabilities; failed M-shaped pairs are retained as negative cases.",
+      "on_failure": "Record precise missing capability. Declared proxy capabilities may support provisional geometry planning but never visual approval."
+    },
+    {
+      "id": "B05",
+      "title": "联合求解空间镜头与结构",
+      "status": "bounded_static_assembly_search_failed_full_joint_solver_pending",
+      "depends_on": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "outputs": [
+        "template-contract.json",
+        "constraint-report.json"
+      ],
+      "gates": [
+        "G1",
+        "G2",
+        "G4",
+        "G5"
+      ],
+      "done_when": "A feasible joint template exists inside declared bounds; proxy-based findings are explicitly provisional until B06 revalidation.",
+      "on_failure": "Stop dependent generation and return the conflicting constraints within the bounded search limit."
+    },
+    {
+      "id": "B06",
+      "title": "推导资产需求并补足明确缺口",
+      "status": "three_targeted_preflight_candidates_not_approved_library",
+      "depends_on": [
+        "B05"
+      ],
+      "outputs": [
+        "asset-demand.json",
+        "production-requests.json"
+      ],
+      "gates": [
+        "G4",
+        "G6"
+      ],
+      "done_when": "Every requested source has a requirement ID; real assets replace proxies and affected B04/B05 checks are rerun.",
+      "on_failure": "Return only incompatible capabilities to B04/B05; do not regenerate the whole library."
+    },
+    {
+      "id": "B07",
+      "title": "接地与四层稳定撒布",
+      "status": "rigid_support_numeric_pass_legacy_repetition_layout_still_rejected",
+      "depends_on": [
+        "B05",
+        "B06"
+      ],
+      "outputs": [
+        "compiled-layout.json"
+      ],
+      "gates": [
+        "G1",
+        "G4",
+        "G6",
+        "G7"
+      ],
+      "done_when": "Ground regions, support, structure groups, conditional dressing and sparse accents compile with stable IDs and scoped batches.",
+      "on_failure": "Attribute failures to support, geometry, recurrence or ownership instead of globally increasing density."
+    },
+    {
+      "id": "B08",
+      "title": "顶角背景光雾联验",
+      "status": "planned",
+      "depends_on": [
+        "B07"
+      ],
+      "outputs": [
+        "closure-report.json",
+        "lighting-profile.json"
+      ],
+      "gates": [
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "done_when": "Top, sides and upper corners respect semantic closure in formal and supported bright conditions, with stable fog intersections.",
+      "on_failure": "Locate invalid view domain, missing module capability or lighting mismatch; no blanket darkness or oversized ceiling."
+    },
+    {
+      "id": "B09",
+      "title": "连续体验与成本验收包",
+      "status": "planned",
+      "depends_on": [
+        "B08"
+      ],
+      "outputs": [
+        "review/index.html",
+        "acceptance.json",
+        "cost-report.json"
+      ],
+      "gates": [
+        "G0",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "done_when": "All five processes have reproducible evidence and scoped cost measurements; visual status remains pending until actual review.",
+      "on_failure": "Return only the failed gate to its owning task; stop after two repairs without meaningful improvement."
+    },
+    {
+      "id": "B10",
+      "title": "冻结获认可的首例",
+      "status": "planned",
+      "depends_on": [
+        "B09"
+      ],
+      "outputs": [
+        "benchmark-release.json"
+      ],
+      "gates": [
+        "G0",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "done_when": "Required technical gates and user visual acceptance are present with dependency hashes, applicability bounds and unsupported cases.",
+      "on_failure": "Keep pending or failed status and explicit issue; do not certify by file existence."
+    },
+    {
+      "id": "B11",
+      "title": "迁移规则与 Luna 小工单",
+      "status": "planned",
+      "depends_on": [
+        "B10"
+      ],
+      "outputs": [
+        "transfer-report.json",
+        "next-type-tasks.json"
+      ],
+      "gates": [
+        "G9"
+      ],
+      "done_when": "Reusable versus subtype-specific algorithms are separated, I1 extension compatibility is tested, and downstream tasks have concrete inputs, outputs and failure routes.",
+      "on_failure": "Expose cave-specific coupling and fix the interface before claiming generality or delegating uncertain design."
+    }
+  ],
+  "latest_implementation_checkpoint": "C1-IMPLEMENTATION-CHECKPOINT.md",
+  "ground_contact_status": "rigid_support_numeric_tests_passed_visual_root_transition_pending"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "reference_swamp",
+  "family": "swamp",
+  "style": "沼泽原有画风与布局，保持镜头；通过生产配方重建",
+  "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+  "assets": [
+    {
+      "source": "res://assets/biomes/swamp/ground.png",
+      "target": "res://assets/biomes/swamp/ground.png",
+      "source_sha256": "8d76bb6328ceeacc1491212019c6839637b86dbe1fab669d5bbf706dc6c5fbcc",
+      "target_sha256": "8d76bb6328ceeacc1491212019c6839637b86dbe1fab669d5bbf706dc6c5fbcc",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-0.png",
+      "target": "res://assets/biomes/swamp/prop-0.png",
+      "source_sha256": "d90954b9b122fd24148cd51886e0c3b564871e36dde9bd2ef6cde904e3254242",
+      "target_sha256": "d90954b9b122fd24148cd51886e0c3b564871e36dde9bd2ef6cde904e3254242",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-1.png",
+      "target": "res://assets/biomes/swamp/prop-1.png",
+      "source_sha256": "9094140ad764b1f91f7a278ec81bcce8ec3d2ed82d3fd892187fa5e8da640985",
+      "target_sha256": "9094140ad764b1f91f7a278ec81bcce8ec3d2ed82d3fd892187fa5e8da640985",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-2.png",
+      "target": "res://assets/biomes/swamp/prop-2.png",
+      "source_sha256": "40bc7dda62fa155c70c4aad71654498bf9df847ec0440c5a4ff5f0fe9fdab456",
+      "target_sha256": "40bc7dda62fa155c70c4aad71654498bf9df847ec0440c5a4ff5f0fe9fdab456",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-3.png",
+      "target": "res://assets/biomes/swamp/prop-3.png",
+      "source_sha256": "451b9af328ff8e54461a185572fcffa390951aff79c7f58148e56a9eab77b0bb",
+      "target_sha256": "451b9af328ff8e54461a185572fcffa390951aff79c7f58148e56a9eab77b0bb",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-4.png",
+      "target": "res://assets/biomes/swamp/prop-4.png",
+      "source_sha256": "5550f2284a508cd88849fdb328c4ff73c255a196dcf4c79f35973d4a23653c46",
+      "target_sha256": "5550f2284a508cd88849fdb328c4ff73c255a196dcf4c79f35973d4a23653c46",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-5.png",
+      "target": "res://assets/biomes/swamp/prop-5.png",
+      "source_sha256": "b830bc483697fa245502d40f679cff31baae86dd727b2f9652ef1ebec42a5226",
+      "target_sha256": "b830bc483697fa245502d40f679cff31baae86dd727b2f9652ef1ebec42a5226",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-6.png",
+      "target": "res://assets/biomes/swamp/prop-6.png",
+      "source_sha256": "ab73cd5df057c9f5fd36fb7fe28857606d321ae0794ece6c29e2013ec19f4a2c",
+      "target_sha256": "ab73cd5df057c9f5fd36fb7fe28857606d321ae0794ece6c29e2013ec19f4a2c",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-7.png",
+      "target": "res://assets/biomes/swamp/prop-7.png",
+      "source_sha256": "1a6d075da692a5b7e0f5e1b3024112d07274459ad697e649c8c885aa23a89a23",
+      "target_sha256": "1a6d075da692a5b7e0f5e1b3024112d07274459ad697e649c8c885aa23a89a23",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/prop-8.png",
+      "target": "res://assets/biomes/swamp/prop-8.png",
+      "source_sha256": "9b929bb3be391c95b0ba1f5387d23ca0ba3dce8a2ceaf12d9f4a3c37f0c6c1c7",
+      "target_sha256": "9b929bb3be391c95b0ba1f5387d23ca0ba3dce8a2ceaf12d9f4a3c37f0c6c1c7",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/swamp/shell.png",
+      "target": "res://assets/biomes/swamp/shell.png",
+      "source_sha256": "139262f63eca670e3fe7774158a72d33c19f570aa32ec98600299a5de09fefeb",
+      "target_sha256": "139262f63eca670e3fe7774158a72d33c19f570aa32ec98600299a5de09fefeb",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    }
+  ],
+  "closure_strategy": "open",
+  "new_asset_policy": "inspect metadata, preserve compatible support/opening/aspect, compile; incompatible geometry is rejected, never stretched"
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "reference_whale",
+  "family": "whale",
+  "style": "鲸腹原有画风与布局，保持镜头；通过生产配方重建",
+  "adapter": "godot/scripts/spaces/layouts/biome_layout.gd",
+  "assets": [
+    {
+      "source": "res://assets/biomes/whale/ground.png",
+      "target": "res://assets/biomes/whale/ground.png",
+      "source_sha256": "3d3d3939123472c3f246f79241c01b2ec78e77da7558ece6cd8d9a27bb953112",
+      "target_sha256": "3d3d3939123472c3f246f79241c01b2ec78e77da7558ece6cd8d9a27bb953112",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-0.png",
+      "target": "res://assets/biomes/whale/prop-0.png",
+      "source_sha256": "980765b3e7eae451806fe46077abdedadf348cd6fa2967c047b2e58dd0233214",
+      "target_sha256": "980765b3e7eae451806fe46077abdedadf348cd6fa2967c047b2e58dd0233214",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-1.png",
+      "target": "res://assets/biomes/whale/prop-1.png",
+      "source_sha256": "16f58fce45715823132091c1e7e984021f867c909016ff409bd8bc5a00f6ad66",
+      "target_sha256": "16f58fce45715823132091c1e7e984021f867c909016ff409bd8bc5a00f6ad66",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-2.png",
+      "target": "res://assets/biomes/whale/prop-2.png",
+      "source_sha256": "f6e5cb58845f99862671c5405ce6cbcb88516896c70e675cc85cedeb43a84055",
+      "target_sha256": "f6e5cb58845f99862671c5405ce6cbcb88516896c70e675cc85cedeb43a84055",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-3.png",
+      "target": "res://assets/biomes/whale/prop-3.png",
+      "source_sha256": "57269c231baa96e003e299003fe0b474fd3660293ca9be062dc4c129e2c1cfd0",
+      "target_sha256": "57269c231baa96e003e299003fe0b474fd3660293ca9be062dc4c129e2c1cfd0",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-4.png",
+      "target": "res://assets/biomes/whale/prop-4.png",
+      "source_sha256": "8a7b5b0e238e455fa214075071fa7489a09510e5c567c23d68fb2dc0b51be08f",
+      "target_sha256": "8a7b5b0e238e455fa214075071fa7489a09510e5c567c23d68fb2dc0b51be08f",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-5.png",
+      "target": "res://assets/biomes/whale/prop-5.png",
+      "source_sha256": "ba6ac73c78a3ca939521bab512706e49fd359bd36ddd166a19336d1985d3a33a",
+      "target_sha256": "ba6ac73c78a3ca939521bab512706e49fd359bd36ddd166a19336d1985d3a33a",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-6.png",
+      "target": "res://assets/biomes/whale/prop-6.png",
+      "source_sha256": "58c93c6e770b2591fc20c64aaa7d0aad8241cb805d9d902c2b845eddc3ff490c",
+      "target_sha256": "58c93c6e770b2591fc20c64aaa7d0aad8241cb805d9d902c2b845eddc3ff490c",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-7.png",
+      "target": "res://assets/biomes/whale/prop-7.png",
+      "source_sha256": "81d8ee65f5e5a4790cb1302be36f29faae86526142b282714b2dbe6bd5236a1c",
+      "target_sha256": "81d8ee65f5e5a4790cb1302be36f29faae86526142b282714b2dbe6bd5236a1c",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/prop-8.png",
+      "target": "res://assets/biomes/whale/prop-8.png",
+      "source_sha256": "24ecab8d54a7fe7bdbff38f863edffb4982780c09d48711fae79f85f6cbcc5dd",
+      "target_sha256": "24ecab8d54a7fe7bdbff38f863edffb4982780c09d48711fae79f85f6cbcc5dd",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    },
+    {
+      "source": "res://assets/biomes/whale/shell.png",
+      "target": "res://assets/biomes/whale/shell.png",
+      "source_sha256": "4a29fe93e806c780310620df01cde3c856eb90dcbcb4264dc2f041ee6fac9d12",
+      "target_sha256": "4a29fe93e806c780310620df01cde3c856eb90dcbcb4264dc2f041ee6fac9d12",
+      "mode": "reuse_exact_reference",
+      "semantic_policy": "inherit original adapter anchors and contact rules; replacement requires independent review"
+    }
+  ],
+  "closure_strategy": "atmospheric",
+  "new_asset_policy": "inspect metadata, preserve compatible support/opening/aspect, compile; incompatible geometry is rejected, never stretched"
+}

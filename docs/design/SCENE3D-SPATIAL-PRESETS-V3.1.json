@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "design presets; runtime adapter pending; do not directly load as existing engine schema",
+  "authority": "docs/design/SCENE3D-SPATIAL-PRESETS-V3.1.md",
+  "number_source": "design_initial",
+  "presets": [
+    {"id":"domestic_low","topology":"chamber_chain","enclosure":"low_ceiling","floor":"dry","supports":"timber","furnishing_height":"low","scenes":["red_cottage","snow_house"]},
+    {"id":"workshop_low","topology":"corridor","enclosure":"low_ceiling","floor":"dry","supports":"timber","furnishing_height":"low","scenes":["red_workshop","puppet_workshop","cinder_kitchen"]},
+    {"id":"ceremonial_vault","topology":"corridor","enclosure":"vaulted","floor":"dry","supports":"masonry","furnishing_height":"mixed","scenes":["snow_mirror","alice_hall"]},
+    {"id":"cave_tube","topology":"corridor","enclosure":"irregular_tube","floor":"dry","supports":"rock","furnishing_height":"mixed","scenes":["piper_mountain"]},
+    {"id":"cultivated_garden","topology":"court","enclosure":"open","floor":"dry","supports":"vegetation","furnishing_height":"mixed","scenes":["snow_orchard","alice_tea","alice_roses","cinder_garden"],"scene_overrides":{"alice_tea":{"enclosure":"local_canopy"},"alice_roses":{"enclosure":"local_canopy"}}},
+    {"id":"settlement_street","topology":"corridor","enclosure":"local_canopy","floor":"dry","supports":"masonry","furnishing_height":"mixed","scenes":["red_village","piper_market","puppet_fair"],"scene_overrides":{"red_village":{"supports":"timber"},"puppet_fair":{"supports":"timber"}}},
+    {"id":"elevated_bridge","topology":"platform_chain","enclosure":"open","floor":"elevated","supports":"masonry","furnishing_height":"low","scenes":["piper_bridge"]},
+    {"id":"backstage","topology":"chamber_chain","enclosure":"low_ceiling","floor":"dry","supports":"timber","furnishing_height":"mixed","scenes":["puppet_theatre"]},
+    {"id":"machinery_hall","topology":"platform_chain","enclosure":"low_ceiling","floor":"dry","supports":"mechanical","furnishing_height":"mixed","scenes":["cinder_clock"]}
+  ],
+  "reserved_extensions": ["sewer_channel","organic_tube","roofless_ruin","cliff_platform","flooded_chamber"],
+  "reserved_extensions_scope": "design recipes only; no new scene production requested",
+  "hanging_module": {
+    "default_motion":"static",
+    "optional_sway_degrees":2,
+    "optional_period_seconds":8,
+    "character_clearance_m":0.35,
+    "camera_clearance_m":0.20,
+    "screen_short_axis_keepout_ratio":0.03,
+    "dynamic_visible_limit":8,
+    "hanging_figure_visible_limit":3,
+    "new_realtime_lights_default":0,
+    "subtypes":["chandelier","hanging_figure","cloth_banner","chain_hook","roots_stalactite","cocoon_cage"],
+    "hanging_figure_auto_populate":false,
+    "assembly_contract_required":["owner_id","owner_socket","attachment_local_m","lowest_local_point_m","rest_transform","rope_endpoints","sway_envelope","exclude_from_combat"],
+    "schema_note":"assembly instance fields belong to pending runtime profile adapter; do not insert unknown fields into strict AssetSpec v2"
+  },
+  "first_visible_delivery": {
+    "scene":"red_cottage","preset":"domestic_low","length_m":[6,10],
+    "prerequisites":["locked camera","existing asset inventory for this patch","safe route clearance"],
+    "not_prerequisites":["all329assets","all18captures","exact role/depth metrics","full variant quotas","all forks"],
+    "checks":["continuous enclosure without undeclared gaps","furniture scale and hanging clearance","static transforms stable during travel"],
+    "next":"R03 complete representative including two/three branch junctions"
+  },
+  "old_goal_audit": {
+    "observed_status":"blocked",
+    "observed_protocol":"SCENE3D-LUNA-EXECUTION-2026-09-21.md",
+    "product_intent":"retained",
+    "execution_workflow":"superseded_do_not_resume_verbatim",
+    "goal_system_mutated":false
+  }
+}

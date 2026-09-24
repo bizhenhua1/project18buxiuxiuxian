@@ -1,0 +1,24 @@
+[
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/backing-matte-d.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/backing-matte-d.prompt.txt",
+    "tool": "built_in_image_gen",
+    "input": "godot/assets/biomes/crystal/cards-study/backing-quiet-c.png",
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-907a3c01-a5ae-4f5f-a2e2-e7f83af6ff42.png",
+    "sha256": "5b703db793370ac432ca32aa25de20206209d60e3512d0fb04e73868416ebe52",
+    "bytes": 2463323,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_rejected_as_standalone_background_style"
+  },
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/crown-matte-e.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/crown-matte-e.prompt.txt",
+    "tool": "built_in_image_gen",
+    "input": "godot/assets/biomes/crystal/cards-study/crown-quiet-d.png",
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-5b4949fb-a258-4e3f-b326-a46d03610688.png",
+    "sha256": "0fc723a1ffde258b64fb6b1cb97d8330a0e262a25643b0e81292889cf0f6926a",
+    "bytes": 1682334,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_rejected_as_standalone_background_style"
+  }
+]

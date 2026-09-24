@@ -1,0 +1,122 @@
+[
+  {
+    "recipe": {
+      "method": "hybrid",
+      "step": 1.25,
+      "band": 1.6,
+      "transition": 12.0,
+      "offset": 3.4,
+      "exits": 2,
+      "radius": 2.1,
+      "throat": 1.25,
+      "height": 3.7,
+      "spring": 1.1,
+      "jitter": 0.0,
+      "seed": 37,
+      "depth_nodes": [],
+      "thickness": 0.8
+    },
+    "max_missing_fraction": 0.0,
+    "max_p99_extra_depth_m": 0.41536180499597564,
+    "clearance_violations": 0,
+    "visible_sibling_markers": 0,
+    "settled_divider_width_m": 2.5999999999999996,
+    "section_count": 68,
+    "worst_pose": [
+      0.0,
+      1.3,
+      4.0
+    ],
+    "screened": true
+  },
+  {
+    "recipe": {
+      "method": "hybrid",
+      "step": 2.0,
+      "band": 1.6,
+      "transition": 12.0,
+      "offset": 3.4,
+      "exits": 2,
+      "radius": 2.1,
+      "throat": 1.25,
+      "height": 3.7,
+      "spring": 1.1,
+      "jitter": 0.0,
+      "seed": 37,
+      "depth_nodes": [],
+      "thickness": 0.8
+    },
+    "max_missing_fraction": 0.0,
+    "max_p99_extra_depth_m": 1.1617647058823621,
+    "clearance_violations": 0,
+    "visible_sibling_markers": 0,
+    "settled_divider_width_m": 2.5999999999999996,
+    "section_count": 43,
+    "worst_pose": [
+      0.0,
+      1.3,
+      4.0
+    ],
+    "screened": true
+  },
+  {
+    "recipe": {
+      "method": "hybrid",
+      "step": 1.25,
+      "band": 1.6,
+      "transition": 12.0,
+      "offset": 5.0,
+      "exits": 3,
+      "radius": 2.1,
+      "throat": 1.25,
+      "height": 3.7,
+      "spring": 1.1,
+      "jitter": 0.0,
+      "seed": 37,
+      "depth_nodes": [],
+      "thickness": 0.8
+    },
+    "max_missing_fraction": 0.0,
+    "max_p99_extra_depth_m": 0.42058823529410994,
+    "clearance_violations": 0,
+    "visible_sibling_markers": 0,
+    "settled_divider_width_m": 0.7999999999999998,
+    "section_count": 68,
+    "worst_pose": [
+      0.0,
+      1.3,
+      4.0
+    ],
+    "screened": true
+  },
+  {
+    "recipe": {
+      "method": "hybrid",
+      "step": 2.0,
+      "band": 1.6,
+      "transition": 12.0,
+      "offset": 5.0,
+      "exits": 3,
+      "radius": 2.1,
+      "throat": 1.25,
+      "height": 3.7,
+      "spring": 1.1,
+      "jitter": 0.0,
+      "seed": 37,
+      "depth_nodes": [],
+      "thickness": 0.8
+    },
+    "max_missing_fraction": 0.0,
+    "max_p99_extra_depth_m": 5.404621848739502,
+    "clearance_violations": 0,
+    "visible_sibling_markers": 0,
+    "settled_divider_width_m": 0.7999999999999998,
+    "section_count": 43,
+    "worst_pose": [
+      0.0,
+      1.3,
+      4.0
+    ],
+    "screened": false
+  }
+]

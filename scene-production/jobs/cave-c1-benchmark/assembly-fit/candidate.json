@@ -1,0 +1,288 @@
+{
+  "camera_eye_m": 1.25,
+  "instances": [
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": false,
+      "position_m": [
+        -3.65,
+        0.0,
+        -3.3
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": true,
+      "position_m": [
+        3.65,
+        0.0,
+        -3.3
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": false,
+      "position_m": [
+        -3.45000004768372,
+        0.0,
+        -5.0
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": false,
+      "position_m": [
+        -1.9,
+        2.0,
+        -4.94999980926514
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": true,
+      "position_m": [
+        3.45000004768372,
+        0.0,
+        -5.0
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": true,
+      "position_m": [
+        1.9,
+        2.0,
+        -4.94999980926514
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.806640625
+      ],
+      "canvas_height_m": 4.1,
+      "flip": false,
+      "position_m": [
+        0.0,
+        2.75,
+        -5.65000009536743
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": false,
+      "position_m": [
+        -3.65000009536743,
+        0.0,
+        -8.39999961853027
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": false,
+      "position_m": [
+        -1.9,
+        2.0,
+        -8.35000038146973
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": true,
+      "position_m": [
+        3.65000009536743,
+        0.0,
+        -8.39999961853027
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": true,
+      "position_m": [
+        1.9,
+        2.0,
+        -8.35000038146973
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.806640625
+      ],
+      "canvas_height_m": 4.1,
+      "flip": true,
+      "position_m": [
+        0.129999995231628,
+        2.75,
+        -9.05000019073486
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": false,
+      "position_m": [
+        -3.40000009536743,
+        0.0,
+        -12.8000001907349
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": false,
+      "position_m": [
+        -1.9,
+        2.0,
+        -12.75
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.955078125
+      ],
+      "canvas_height_m": 4.5,
+      "flip": true,
+      "position_m": [
+        3.40000009536743,
+        0.0,
+        -12.8000001907349
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.949999988079071
+      ],
+      "canvas_height_m": 2.7,
+      "flip": true,
+      "position_m": [
+        1.9,
+        2.0,
+        -12.75
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png"
+    },
+    {
+      "anchor": [
+        0.5,
+        0.806640625
+      ],
+      "canvas_height_m": 4.1,
+      "flip": false,
+      "position_m": [
+        0.259999990463257,
+        2.75,
+        -13.4499998092651
+      ],
+      "rigid": true,
+      "source": "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png"
+    }
+  ],
+  "status": "candidate_inspection_not_accepted",
+  "viewport": [
+    1552,
+    830
+  ],
+  "views": [
+    {
+      "camera_x_m": -0.65,
+      "camera_y_m": 1.23575162887573,
+      "name": "left",
+      "note": "diagnostic asset assembly; no actors, no gameplay or continuous coverage acceptance",
+      "yaw": 0
+    },
+    {
+      "camera_x_m": 0.0,
+      "camera_y_m": 1.25,
+      "name": "front",
+      "note": "diagnostic asset assembly; no actors, no gameplay or continuous coverage acceptance",
+      "yaw": 0
+    },
+    {
+      "camera_x_m": 0.65,
+      "camera_y_m": 1.26424837112427,
+      "name": "right",
+      "note": "diagnostic asset assembly; no actors, no gameplay or continuous coverage acceptance",
+      "yaw": 0
+    }
+  ]
+}

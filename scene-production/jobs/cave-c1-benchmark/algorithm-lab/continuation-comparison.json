@@ -1,0 +1,27 @@
+{
+  "status": "offline_comparison_not_art_acceptance",
+  "scope": "battle viewpoint only; world-level geometry not GPU frames",
+  "candidates": [
+    {
+      "offset_m": 2.4,
+      "battle_background_pixels": 1,
+      "axial_sightline_m": 28.328095556683266,
+      "instances": 1289,
+      "source_count": 11
+    },
+    {
+      "offset_m": 3.2,
+      "battle_background_pixels": 0,
+      "axial_sightline_m": 24.82396102959956,
+      "instances": 1289,
+      "source_count": 11
+    },
+    {
+      "offset_m": 4.0,
+      "battle_background_pixels": 0,
+      "axial_sightline_m": 24.82396102959956,
+      "instances": 1289,
+      "source_count": 11
+    }
+  ]
+}

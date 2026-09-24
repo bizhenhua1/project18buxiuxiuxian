@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "handoff_target": "Astra",
+  "scope": "3D场景生产中已确认或需要Astra处理的问题",
+  "rule": "问题保持可追溯；没有证据的猜测不升级为缺陷；没有修复证据的问题不能标记closed",
+  "issues": [
+    {
+      "id": "ROOF-001",
+      "severity": "blocking",
+      "status": "confirmed_missing_asset_visual_review_pending",
+      "family": "interior",
+      "scene": "red_cottage",
+      "title": "外婆小屋缺少连续室内顶棚/顶壁连接面",
+      "evidence": [
+        "godot/assets/fairytales/red_cottage/corridor-shell.png",
+        "docs/design/asset_requests/red_cottage-roof-connection.json",
+        "docs/design/SCENE3D-ROOF-REUSE-AUDIT-2026-09-21.json",
+        "tempassets/work/fairytale-3d-captures/red_cottage-1789958970-34989/capture.png",
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448/beauty.png",
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448/diagnostic.png",
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448/manifest.json"
+      ],
+      "finding": "现有壳体有左右承重结构和上方横梁，中心开口透明；正常光照下容易被黑暗误认为已经封闭。",
+      "impact": "室内闭合验收不能通过，顶视和相机向上时会看到背景。",
+      "recommended_fix": "优先制作closed_arch连续顶壁；若没有高拱梁，采用closed_low_ceiling连续顶面并加ceiling sockets；无法满足则保持blocked_missing_asset。",
+      "do_not_fix_by": [
+        "调暗背景",
+        "增加雾",
+        "压低相机",
+        "把家具或横截面拉伸成顶面"
+      ],
+      "blocks": [
+        "P05",
+        "P07",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T03",
+        "T04",
+        "T06"
+      ]
+    },
+    {
+      "id": "ROOF-002",
+      "severity": "blocking",
+      "status": "pending_evidence_correction",
+      "family": "interior",
+      "scene": "palace",
+      "title": "地下宫殿拱门上方存在结构漏空",
+      "evidence": [
+        "tempassets/work/p02-palace-debug2/diagnostic.png",
+        "tempassets/work/p02-baselines-20260921-111618/palace/diagnostic.png",
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/beauty.png",
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/diagnostic.png",
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509/manifest.json"
+      ],
+      "finding": "palace只读基准；piper_mountain图不能作为palace缺陷证据。历史中性诊断有效性未获保证，基准漏顶结论需限定。新景顶壁闭合按各自profile实施。",
+      "impact": "正式暗光截图无法可靠判断结构是否存在，室内连续顶面不成立。",
+      "recommended_fix": "按closed_arch或closed_low_ceiling补齐连续面；若是洞穴环形截面，改用cave_shell并记录入口到洞内的截面过渡。",
+      "blocks": [
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending_evidence_correction",
+      "v3_tasks": [
+        "T01",
+        "T07",
+        "T09"
+      ],
+      "historical_finding": "关闭正式雾、舞台光和环境补光后的诊断图显示拱门上方贯通到灰色背景。",
+      "historical_status": "confirmed_missing_asset_visual_review_pending",
+      "evidence_scope_note": "piper_mountain evidence belongs to cave scene, not palace; retained for historical traceability"
+    },
+    {
+      "id": "ROOF-003",
+      "experiment_evidence": "tempassets/work/p03a-ceiling-experiment-20260921-180000/manifest.json",
+      "severity": "high",
+      "status": "pending",
+      "family": "interior_and_cave",
+      "scene": "all closed scenes",
+      "title": "没有高拱梁时的低顶方案尚未接入运行时",
+      "evidence": [
+        "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B9"
+      ],
+      "finding": "CeilingBand是待修原型：uv_repeat_m未用于UV，累计距离时机有误，step_units量纲不同且公共厅连接尚未完成。不能称为生产可用生成器。",
+      "impact": "执行模型仍可能在高拱资产缺失时临时改相机或使用黑背景。",
+      "recommended_fix": "由Astra/美术为每个封闭场景批准SceneProfile、材质、净空和ceiling sockets，再把生成器接入正式layout；超过净空阈值则进入asset_request。",
+      "blocks": [
+        "P05",
+        "P06",
+        "P08"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T04",
+        "T05"
+      ],
+      "historical_finding": "已产出并通过测试的closed_low_ceiling连续顶面带生成器，使用路径共享边和累计UV；当前仍未绑定到具体SceneProfile、批准材质、ceiling_height_m和ceiling sockets，也没有接入正式layout。",
+      "historical_status": "mesh_generator_ready_runtime_profile_pending"
+    },
+    {
+      "id": "ASSET-001",
+      "severity": "high",
+      "status": "open",
+      "family": "all",
+      "scene": "18 fairytale scenes",
+      "title": "旧资产尚未完成物理语义标注",
+      "evidence": [
+        "docs/design/SCENE3D-ASSET-MIGRATION.json",
+        "docs/design/SCENE3D-ASSET-MIGRATION-VALIDATION-2026-09-21.json",
+        "docs/design/SCENE3D-ASSET-GAP-REPORT-2026-09-21.json",
+        "docs/design/SCENE3D-ASSET-INVENTORY.json",
+        "tempassets/work/fairytale-travel-audit/report.json"
+      ],
+      "finding": "18个故事场景的旅行生成与资源引用审计均通过，且已无损迁移329个旧资产；329个资产的size_px和alpha_bounds_px现已由旧metadata或PNG文件读取，当前没有资产触及透明画布边缘，但size_m、footprints_m、contact、sockets_m仍显式为空，runtime_ready为0。",
+      "impact": "不能可靠进行接地、穿插、开口和顶面连接计算。",
+      "recommended_fix": "按AssetSpec逐资产标注；未知字段保持缺口，不填零面积脚印。优先结构、顶壁、家具，再做地被和碎屑。",
+      "blocks": [
+        "P03A",
+        "P04",
+        "P05",
+        "P06",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T03"
+      ]
+    },
+    {
+      "id": "CAP-001",
+      "severity": "medium",
+      "status": "invalid_metrics_quarantined",
+      "family": "measurement",
+      "scene": "six baselines",
+      "title": "基准截图已有正式/诊断成对证据，但深度感知role-ID遮罩未完成",
+      "evidence": [
+        "docs/design/SCENE3D-BASELINE-MEASUREMENTS.json",
+        "tempassets/work/p02-role-depth-masks-20260921-150000",
+        "scripts/aggregate_scene3d_baselines.py"
+      ],
+      "finding": "历史mask/depth指标隔离：原vertex变换、每实例role、20m深度上限与30m档、背景有效性均需修复和校准。",
+      "impact": "尚不能从截图计算正式的上/中/下、左右ROI和距离段覆盖率。",
+      "recommended_fix": "由用户审查六套基准的遮罩与正式图；发现差异后再建立设计例外，不把机器统计当作美术批准。",
+      "blocks": [
+        "P07",
+        "P08"
+      ],
+      "v3_implementation_status": "invalid_metrics_quarantined",
+      "v3_tasks": [
+        "T02"
+      ],
+      "historical_finding": "六个主题的来源、相机、种子、PNG和日志均通过；同Camera3D的role-ID与线性视空间深度遮罩已经完成，并完成ROI与距离段机器统计。视觉审查仍未完成。",
+      "historical_status": "masks_verified_visual_review_pending"
+    },
+    {
+      "id": "CAP-002",
+      "severity": "medium",
+      "status": "diagnostic_untrusted",
+      "family": "measurement",
+      "scene": "all",
+      "title": "正式光照截图不能用于判断几何缺失",
+      "evidence": [
+        "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E1",
+        "godot/tests/capture_world3d_baseline.gd"
+      ],
+      "finding": "历史neutral截图不能证明正式光雾关闭；需冻结后停止scenery覆写并禁用独立mist批次。",
+      "impact": "把暗部误判为缺资产，或把漏空误判为设计留白。",
+      "recommended_fix": "所有封闭空间同时提交beauty和diagnostic；diagnostic不参与美术风格评分，只参与几何和资产完整性检查。",
+      "blocks": [
+        "P02"
+      ],
+      "v3_implementation_status": "diagnostic_untrusted",
+      "v3_tasks": [
+        "T01"
+      ],
+      "historical_finding": "正常截图保留风格光照；诊断模式已关闭雾、舞台/敌方/补光并提亮材质，但两者必须在报告中分开解释。",
+      "historical_status": "open"
+    },
+    {
+      "id": "JUNCTION-001",
+      "severity": "high",
+      "status": "flagged_runtime_audit_pass_formal_enable_pending",
+      "family": "junction",
+      "scene": "all branches",
+      "title": "多岔路线保护区并集与共用厅唯一owner尚未落地",
+      "evidence": [
+        "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D2",
+        "godot/scripts/world3d/junction_geometry.gd",
+        "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+        "tempassets/work/fairytale-travel-audit-junction-geometry/report.json"
+      ],
+      "finding": "路径保护区、SAT、空间桶和segment+junction owner模块已通过直线、左右转、2/3岔及边界接续测试；fairytale_corridor已在显式--junction-geometry-layout开关下完成18景运行时审计。开关模式的sprite数量相对默认模式下降，说明确实拒绝了部分非壳体装饰；正式默认启用仍需Astra审查开关结果，并确认各场景的结构例外。",
+      "impact": "拱梁、顶面和装饰可能侵入任一路线，选路时会跳变或重复生成大厅。",
+      "recommended_fix": "审查带开关的18景结果后，再决定是否默认启用；不要靠固定距离删除拱梁。壳体继续使用专用支撑/开口检查，SAT仅约束家具、装饰和碎屑地面脚印。",
+      "blocks": [
+        "P04",
+        "P05",
+        "P06",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T05"
+      ]
+    },
+    {
+      "id": "PROFILE-001",
+      "severity": "medium",
+      "status": "unaccepted_experiment",
+      "family": "scatter",
+      "scene": "18 fairytale scenes",
+      "title": "七类撒布参数仍是试配，不能代表生产标准",
+      "evidence": [
+        "godot/data/fairytale_scatter_profiles.json",
+        "art/fairytales/corridor/scatter-profiles.json",
+        "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md"
+      ],
+      "finding": "参数可以作为对照，但尚未用六基准同机位测量校准，也没有解决顶部、共用厅或战场避让。",
+      "impact": "直接批量套用会把室内、洞穴、桥和舞台错误地当成森林撒布。",
+      "recommended_fix": "保留旧配置只作对照；代表物理家族通过后再启用对应namespace和SceneProfile。",
+      "blocks": [
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T06",
+        "T07",
+        "T08"
+      ]
+    },
+    {
+      "id": "PERF-001",
+      "severity": "medium",
+      "status": "bounded_measurement_complete_stress_scope_pending",
+      "family": "performance",
+      "scene": "six baselines",
+      "title": "当前截图中的FPS不是可比较的性能结论",
+      "evidence": [
+        "tempassets/work/scene3d-performance-20260921/p10-report.json",
+        "docs/design/SCENE3D-P10-SUMMARY-2026-09-21.json",
+        "godot/tests/benchmark_scene3d_p10.gd",
+        "scripts/summarize_scene3d_p10.py",
+        "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#E3"
+      ],
+      "finding": "P10固定测量协议已在Windows/OpenGL桌面渲染环境执行：1440x900、60Hz模拟、120帧预热、每次1800帧（30秒）、3轮参考/候选交替。draw-call监控真实可用；三轮样本中各场景draw p95最大值为631（alice_tea单轮最低459，snow_mirror单轮最低382），森林9885精灵，alice_tea 1372精灵，snow_mirror 632精灵。候选样本frame_ms_p95最高12.726ms，参考森林最高16.881ms，上传峰值最高0.052ms；按参考中位P95加max(10%,2ms)规则，旅行范围门通过。该报告只覆盖旅行/流式路径，明确排除技能、AOE、多弹道、远程特效和高密度战斗压力，因此不能单独宣称最终战斗稳定60FPS。",
+      "impact": "不能据此删减资产层，也不能声称满足稳定60FPS。",
+      "recommended_fix": "P10按固定轨迹和相同设置测量；先定位透明叠层、批组和上传尖峰，最多两轮有目标优化。",
+      "blocks": [
+        "P10"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T10"
+      ]
+    },
+    {
+      "id": "CAP-003",
+      "latest_audit": "Current audit: 98 manifests total; 62 v2, 8 current-source valid (P01, six P02 themes, and the isolated ceiling experiment), 54 stale/invalid v2, and 36 legacy or malformed. The original 18-scene approach batch remains stale and is not current visual evidence.",
+      "severity": "medium",
+      "status": "capture_exists_provenance_recheck_required",
+      "family": "measurement",
+      "scene": "18 fairytale scenes",
+      "title": "18景已捕获统一approach机位，但尚未完成逐景视觉审查",
+      "evidence": [
+        "tempassets/work/scene3d-18-captures-20260921/batch-summary.json",
+        "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png",
+        "tempassets/work/representative-multiseed-20260921/batch-summary.json",
+        "tempassets/work/representative-multiseed-20260921/contact-sheet.png",
+        "docs/design/SCENE3D-EVIDENCE-COVERAGE-2026-09-21.json",
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json",
+        "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd"
+      ],
+      "finding": "18个场景均有seed=1842、1440x900、approach截图文件，但当前批量复核显示47个v2 manifest中0个与当前源码完全匹配；46个包含fairytale_corridor.gd旧hash，另有1个核心hash缺失。旧截图仍保留作为视觉参考，不能继续宣称当前provenance已通过。现有证据覆盖审计仍显示绝大多数场景只有approach，不能替代移动、事件、战斗和完整2/3岔视觉验收。",
+      "recommended_fix": "源码冻结后重新运行单场景捕获器，生成与当前源码hash一致的新manifest；旧截图不覆盖、不改hash。新批次通过provenance后，再按物理家族审查顶部闭合、密度、接地、接缝、通道宽度和战场避让。",
+      "blocks": [
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "historical_navigation_only",
+      "v3_tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+    {
+      "id": "CAP-004",
+      "latest_audit": "Current audit: 98 manifests total; 62 v2, 8 current-source valid (P01, six P02 themes, and the isolated ceiling experiment), 54 stale/invalid v2, and 36 legacy or malformed. P01/P02 rechecks are stored separately; old manifests remain untouched.",
+      "severity": "high",
+      "status": "current_capture_batch_stale",
+      "family": "measurement",
+      "scene": "capture manifests under tempassets/work",
+      "title": "现有截图批次与当前源码 provenance 不一致",
+      "evidence": [
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json",
+        "scripts/audit_scene3d_manifest_provenance.py",
+        "scripts/validate_scene3d_capture.py"
+      ],
+      "finding": "共发现71个manifest：47个v2、24个旧格式或辅助manifest；v2中0个当前有效，46个因fairytale_corridor.gd源码hash变化失败，1个因核心源码hash缺失失败。该审计没有修改任何截图或manifest。",
+      "impact": "在源码未冻结前继续用这些截图做视觉或参数结论，会把旧运行状态误当成当前3D生产结果。",
+      "recommended_fix": "冻结capture依赖源码后重采集P01/P02及代表景；旧批次标记为历史参考，保留其原始hash和文件，不覆盖原六基准。",
+      "blocks": [
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T01",
+        "T11"
+      ]
+    },
+    {
+      "id": "SCATTER-002",
+      "severity": "high",
+      "status": "open_family_calibration_required",
+      "family": "scatter",
+      "scene": "18 fairytale scenes",
+      "title": "不同物理家族仍缺少独立的密度、顶部和装饰规范",
+      "evidence": [
+        "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md",
+        "docs/design/SCENE3D-SCENE-PROFILES-2026-09-21.json",
+        "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png",
+        "tempassets/work/representative-multiseed-20260921/contact-sheet.png"
+      ],
+      "finding": "18景入口截图只证明能构造和渲染；室外、室内、洞穴、花园、桥、舞台和钟楼仍不能共用森林撒布密度、顶部处理或岔路装饰规则。场景级SceneProfile已生成，但数值和资产绑定仍为pending。",
+      "impact": "直接批量套用会造成室内/洞穴空旷、顶部漏空、通道层次错误、桥面或舞台装饰侵入战场。",
+      "recommended_fix": "按六套基准先校准物理家族，再填SceneProfile的结构层、顶部层、功能组、地被、战场净空和limits；没有同机位对照证据不得批量推广。",
+      "blocks": [
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+    {
+      "id": "ASSET-002",
+      "severity": "high",
+      "status": "visual_review_required",
+      "family": "asset_physics",
+      "scene": "18 fairytale scenes",
+      "title": "地面接触、root高度和穿插检查尚未形成逐资产闭环",
+      "evidence": [
+        "docs/design/SCENE3D-ASSET-CONTRACT.schema.json",
+        "docs/design/SCENE3D-ASSET-MIGRATION.json",
+        "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png"
+      ],
+      "finding": "资产合同已经要求contact、footprints_m和sockets_m，但迁移资产仍有大量空字段；当前旅行审计只能证明引用和值有限，不足以证明root落地、地面不穿插、顶部不穿插或战场净空。",
+      "impact": "草、家具、拱梁和装饰可能出现悬浮、插地、穿墙或挡住角色的情况。",
+      "recommended_fix": "按资产族建立接触面、root偏移、脚印和socket；在SceneProfile中记录批准值，并用统一的接地/穿插审计截图回填证据。",
+      "blocks": [
+        "P03A",
+        "P05",
+        "P06",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T03",
+        "T06"
+      ]
+    },
+    {
+      "id": "MOTION-001",
+      "severity": "medium",
+      "status": "approach_only_visual_review_pending",
+      "family": "movement",
+      "scene": "18 fairytale scenes",
+      "title": "当前批次尚未覆盖真实移动过渡，滑步、跳变和镜头过渡仍需单独验收",
+      "evidence": [
+        "tempassets/work/scene3d-18-captures-20260921/batch-summary.json",
+        "tempassets/work/representative-travel/piper_mountain-left-20260921052020/manifest.json",
+        "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#D3"
+      ],
+      "finding": "现有18景批次以approach入口机位为主；真实移动、两岔/三岔选择、角色根运动与镜头预停尚未纳入这批视觉证据。",
+      "impact": "即使撒布通过，角色仍可能出现滑步、转弯跳变、镜头先切导致角色出画或切场时位置不连续。",
+      "recommended_fix": "为每个物理家族补同机位travel/choose/transition证据；优先采用动画root-motion与世界速度匹配，禁止以缩短距离强行压到固定秒数。",
+      "blocks": [
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    },
+    {
+      "id": "PROFILE-002",
+      "severity": "medium",
+      "status": "contract_generated_values_pending",
+      "family": "scene_profile",
+      "scene": "18 fairytale scenes",
+      "title": "18景SceneProfile已生成，但尚未由Astra填入批准的生产参数",
+      "evidence": [
+        "docs/design/SCENE3D-SCENE-PROFILES-2026-09-21.json",
+        "scripts/build_scene3d_scene_profiles.py",
+        "scripts/validate_scene3d_scene_profiles.py",
+        "tempassets/work/fairytale-travel-audit/report.json"
+      ],
+      "finding": "18个profile与fairytale catalog一一对应，校验通过，运行时旅行审计也已确认每景注册了对应profile；结构、顶部、功能组、地被、战场净空和limits仍显式标为pending，未知数值没有被猜填。",
+      "impact": "没有批准的profile不能安全驱动18景生产，也不能把单场景调参结果扩散到同族场景。",
+      "recommended_fix": "按物理家族和六套基准逐项回填数值、资产ID、材质和例外；每次修改保留profile版本和对照截图。",
+      "blocks": [
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09"
+      ],
+      "v3_implementation_status": "pending",
+      "v3_tasks": [
+        "T06",
+        "T07",
+        "T08",
+        "T09"
+      ]
+    }
+  ],
+  "handoff_order": [
+    "ROOF-001",
+    "ROOF-002",
+    "ROOF-003",
+    "ASSET-001",
+    "ASSET-002",
+    "SCATTER-002",
+    "PROFILE-001",
+    "PROFILE-002",
+    "CAP-001",
+    "CAP-002",
+    "CAP-003",
+    "CAP-004",
+    "MOTION-001",
+    "JUNCTION-001",
+    "PERF-001"
+  ],
+  "current_goal_state": "P00/P01/P02/P03/P04 complete; P03A awaiting approved roof asset; P05-P10 not complete; no representative scene visually approved",
+  "v3_review": {
+    "authoritative_entry": "docs/design/SCENE3D-START-HERE.md",
+    "decisions": "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "execution_index": "docs/design/SCENE3D-PRODUCTION-PLAN-V3.json",
+    "historical_values_not_current_acceptance": true,
+    "runtime_fixed_by_this_revision": false
+  }
+}

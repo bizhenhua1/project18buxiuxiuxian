@@ -1,0 +1,28 @@
+{
+  "request_id": "red_cottage-roof-connection-v1",
+  "scene_id": "red_cottage",
+  "physical_family": "interior",
+  "role": "roof",
+  "why_existing_assets_fail": "corridor-shell.png supplies side supports and a top beam but its central opening is transparent; it does not provide a continuous interior ceiling/roof connection surface for the closed-room camera path. A dark screenshot cannot be used as proof that this opening is sealed.",
+  "required_sockets": ["roof_left", "roof_right", "wall_top"],
+  "size_source": "godot/assets/fairytales/red_cottage/corridor.json:image_size and alpha_bounds; world-space width must be measured from the accepted interior camera path",
+  "alpha_requirements": "RGBA with clean transparent opening only where the approved entrance remains; no black background fill; no fringe over 1 percent of visible edge",
+  "opening_requirements": "preserve the camera-facing passage width from corridor.json; ceiling connector must cover the closed interior protected polygon and stop at the entrance throat",
+  "footprint_requirements": "two side support footprints plus a non-walkable overhead shell; no footprint may enter the route protection polygon",
+  "view_angles": ["camera-facing interior travel", "2-way junction", "3-way junction", "top debug view"],
+  "palette_reference": [
+    "godot/assets/fairytales/red_cottage/corridor-shell.png",
+    "godot/assets/fairytales/red_cottage/ground.png"
+  ],
+  "source_prompt_path": "art/fairytales/corridor/raw/red_cottage-roof-connection.prompt.txt",
+  "blocking_tasks": ["P05"],
+  "status": "awaiting_asset",
+  "existing_material_experiment": {
+    "mode": "closed_low_ceiling",
+    "flag": "--closed-low-ceiling",
+    "material_candidate": "godot/assets/fairytales/red_cottage/ground.png",
+    "evidence_manifest": "tempassets/work/p03a-ceiling-experiment-20260921-180000/manifest.json",
+    "result": "diagnostic top gap is geometrically closed; repeated ground texture and final material styling await Astra visual review",
+    "default_enabled": false
+  }
+}

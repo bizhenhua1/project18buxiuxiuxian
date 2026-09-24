@@ -1,0 +1,71 @@
+{
+  "errors": [],
+  "zones": [
+    {
+      "active_end": 874.762947916746,
+      "approach_start": 554.732812924096,
+      "branch": -1,
+      "combat_capability": "required",
+      "event_index": 0,
+      "exit_end": 874.762947916746,
+      "id": "-1:0",
+      "requires_straight": true,
+      "trigger_s": 616.149538798065
+    },
+    {
+      "active_end": 1084.66432531885,
+      "approach_start": 764.634190326199,
+      "branch": -1,
+      "combat_capability": "required",
+      "event_index": 1,
+      "exit_end": 1084.66432531885,
+      "id": "-1:1",
+      "requires_straight": true,
+      "trigger_s": 826.050916200168
+    },
+    {
+      "active_end": 874.762947916746,
+      "approach_start": 554.732812924096,
+      "branch": 1,
+      "combat_capability": "required",
+      "event_index": 0,
+      "exit_end": 874.762947916746,
+      "id": "1:0",
+      "requires_straight": true,
+      "trigger_s": 616.149538798065
+    },
+    {
+      "active_end": 1084.66432531885,
+      "approach_start": 764.634190326199,
+      "branch": 1,
+      "combat_capability": "required",
+      "event_index": 1,
+      "exit_end": 1084.66432531885,
+      "id": "1:1",
+      "requires_straight": true,
+      "trigger_s": 826.050916200168
+    },
+    {
+      "active_end": 874.762947916746,
+      "approach_start": 554.732812924096,
+      "branch": 2,
+      "combat_capability": "required",
+      "event_index": 0,
+      "exit_end": 874.762947916746,
+      "id": "2:0",
+      "requires_straight": true,
+      "trigger_s": 616.149538798065
+    },
+    {
+      "active_end": 1084.66432531885,
+      "approach_start": 764.634190326199,
+      "branch": 2,
+      "combat_capability": "required",
+      "event_index": 1,
+      "exit_end": 1084.66432531885,
+      "id": "2:1",
+      "requires_straight": true,
+      "trigger_s": 826.050916200168
+    }
+  ]
+}

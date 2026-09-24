@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "input": "tempassets/work/scene3d-performance-20260921/p10-report.json",
+  "display_server": "Windows",
+  "draw_metrics_available": true,
+  "scene_summary": {
+    "alice_tea": {
+      "rounds": 3,
+      "frame_ms_p95_min": 7.019,
+      "frame_ms_p95_median": 7.338,
+      "frame_ms_p95_max": 11.352,
+      "draws_p95_max": 631.0,
+      "world_sprites_max": 1372.0,
+      "upload_peak_ms_max": 0.012
+    },
+    "forest": {
+      "rounds": 3,
+      "frame_ms_p95_min": 12.726,
+      "frame_ms_p95_median": 16.309,
+      "frame_ms_p95_max": 16.881,
+      "draws_p95_max": 631.0,
+      "world_sprites_max": 9885.0,
+      "upload_peak_ms_max": 0.029
+    },
+    "snow_mirror": {
+      "rounds": 3,
+      "frame_ms_p95_min": 7.01,
+      "frame_ms_p95_median": 8.032,
+      "frame_ms_p95_max": 10.433,
+      "draws_p95_max": 631.0,
+      "world_sprites_max": 632.0,
+      "upload_peak_ms_max": 0.052
+    }
+  },
+  "travel_frame_gate": {
+    "pass": true,
+    "rule": "candidate P95 may exceed reference median by at most max(10%, 2ms)",
+    "comparisons": {
+      "alice_tea": {
+        "frame_ms_p95_median": 7.338,
+        "reference_median": 16.309,
+        "allowed_limit": 18.309,
+        "pass": true
+      },
+      "snow_mirror": {
+        "frame_ms_p95_median": 8.032,
+        "reference_median": 16.309,
+        "allowed_limit": 18.309,
+        "pass": true
+      }
+    }
+  },
+  "scope_limitations": [
+    "travel and streaming only",
+    "no skill, AOE, multi-projectile, remote-effect or high-density battle stress",
+    "visual acceptance remains separate from the numeric gate"
+  ],
+  "failures": [],
+  "status": "pass_travel_scope_stress_pending"
+}

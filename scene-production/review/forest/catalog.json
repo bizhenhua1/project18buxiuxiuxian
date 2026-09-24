@@ -1,0 +1,291 @@
+[
+  {
+    "source": "res://assets/style2/clover.png",
+    "sha256": "c3d99871b06edbdb10a1aece0f1d84c76a1bbd4e2eed07c012cf3c57151feeff",
+    "pixels": [
+      481,
+      302
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      480,
+      301
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.33948278427124,
+      "canvas_height_m_min": 0.283973741531372,
+      "count": 1100,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/fern.png",
+    "sha256": "347aac3dd79595dc4f04f8dead410ab104e9390cf3bd91988f937d7510e088c7",
+    "pixels": [
+      721,
+      606
+    ],
+    "alpha_bounds": [
+      0,
+      2,
+      720,
+      512
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.34953193664551,
+      "canvas_height_m_min": 0.272957801818848,
+      "count": 604,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/litter.png",
+    "sha256": "2bca932fdfbf1af15007715f50b6593cf52dd8829991ab08f83be01f3a85bb57",
+    "pixels": [
+      481,
+      294
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      480,
+      293
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 0.449472427368164,
+      "canvas_height_m_min": 0.250821042060852,
+      "count": 247,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/reeds.png",
+    "sha256": "e3aad09a622be3285bdbe95e8b9746657c7f93805aa2a45aeaa920e2a4820790",
+    "pixels": [
+      613,
+      700
+    ],
+    "alpha_bounds": [
+      6,
+      6,
+      607,
+      697
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.34655418395996,
+      "canvas_height_m_min": 0.277388548851013,
+      "count": 217,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/rocks.png",
+    "sha256": "1d56b4a75a507608e4e0694dff3d04f001e9cdd52a1732590019514b5d81f07e",
+    "pixels": [
+      721,
+      532
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      721,
+      530
+    ],
+    "runtime_usage": {
+      "branches": [
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.04566068649292,
+      "canvas_height_m_min": 0.612665176391602,
+      "count": 8,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/short-grass.png",
+    "sha256": "afeb54ace33bb127b59d0bc394fd3a1c8ca420e3ed6c047deb2005d31415ea53",
+    "pixels": [
+      481,
+      334
+    ],
+    "alpha_bounds": [
+      2,
+      2,
+      479,
+      333
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.34930419921875,
+      "canvas_height_m_min": 0.251762890815735,
+      "count": 2001,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/shrub.png",
+    "sha256": "bbc5313f55aa3656f9829792198b98976a5bd132c2fbc2ed25e6163afd5f9012",
+    "pixels": [
+      721,
+      646
+    ],
+    "alpha_bounds": [
+      1,
+      2,
+      719,
+      645
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.3452486038208,
+      "canvas_height_m_min": 0.273360419273376,
+      "count": 208,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/stump.png",
+    "sha256": "ad393ef806f43dbb8ef27c85c40416ba787f7380a11316ee241478e1b4cf62be",
+    "pixels": [
+      481,
+      388
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      481,
+      387
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.09544162750244,
+      "canvas_height_m_min": 0.606722974777222,
+      "count": 19,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/tree-a.png",
+    "sha256": "0c1ae46b071e53b5d99c32e776f28f0bf0e2f4b7d8d268d9cce77495a61caa06",
+    "pixels": [
+      962,
+      874
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      961,
+      874
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 17.7479339599609,
+      "canvas_height_m_min": 4.76279602050781,
+      "count": 1237,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/style2/tree-b.png",
+    "sha256": "74be3f6265b88898a26468b57e181b71d9fecb70ce1c77e0a6b8a3a7c4553feb",
+    "pixels": [
+      546,
+      962
+    ],
+    "alpha_bounds": [
+      0,
+      0,
+      545,
+      961
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 17.7471618652344,
+      "canvas_height_m_min": 4.75576629638672,
+      "count": 1284,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

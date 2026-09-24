@@ -1,5 +1,15 @@
 {
   "status": "active",
+  "scene_production_handoff_20260921": {
+    "status": "specification_delivered_not_visual_acceptance",
+    "document": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md",
+    "inventory": "docs/design/SCENE3D-ASSET-INVENTORY.json",
+    "scatter_profiles": "unaccepted_experiment_no_ceiling_or_junction_contract",
+    "capture_correction": "Initial contact sheets used September 16 historical images, not verified current native 3D evidence",
+    "stream_audit_limit": "Finite values and partial state checks only; no pointwise rotation equivalence or GPU lifetime proof",
+    "next_owner": "Luna implementation after user dispatch",
+    "runtime_changes_this_handoff": false
+  },
   "particle_update_optimization": {
     "differential_samples": 5383,
     "geometry_max_error": 0,
@@ -120,15 +130,39 @@
     "crystal_same_camera_original_renderer_comparison",
     "crystal_contact_line_ground_footprint_deformation",
     "shared_cutout_mesh_and_contact_profile_cache"
+    ,"fairytale_scene_native_route_binding_audit"
+    ,"fairytale_scene_successor_streaming_audit"
   ],
   "next": [
     "six_theme_visual_comparison_and_missing_environment_layers",
-    "continuous_route_and_theme_streaming",
     "stable_performance_replay_and_animation_lod",
     "party_live_edit_and_health_conversion",
     "vfx_muzzle_mount_and_per_clip_strike_markers",
     "transition_visual_parity"
   ],
+  "fairytale_scene_route_audit": {
+    "date": "2026-09-20",
+    "scenes": 18,
+    "native_route_view_instantiated": true,
+    "world_grid_theme_and_feature_refs": true,
+    "corridor_and_dressing_runtime_assets": true,
+    "test": "res://tests/audit_fairytale_travel_visual.gd",
+    "result": "TRAVEL_ART_AUDIT_PASS count=18",
+    "scope_limit": "Travel-only structural audit; does not claim screenshot-level visual acceptance or replace missing new image assets."
+  },
+  "fairytale_scene_stream_audit": {
+    "date": "2026-09-20",
+    "scenes": 18,
+    "current_and_successor_segments": true,
+    "branch_successor_join": true,
+    "rotated_world_positions_and_biome_lights": true,
+    "forest_route_context_restored": true,
+    "resource_texture_checks": true,
+    "test": "res://tests/audit_world3d_fairytale_streaming.gd",
+    "result": "WORLD3D_FAIRYTALE_STREAM_PASS count=18",
+    "report": "tempassets/work/world3d-fairytale-stream-audit.json",
+    "scope_limit": "Structural streaming and successor audit; does not replace screenshot visual acceptance or a long-run GPU lifetime profile."
+  },
   "notes": "Engineering sample only; not a finished migration. See WORLD3D-MIGRATION-GOAL.md.",
   "benchmark": {
     "baseline": {

@@ -1,0 +1,292 @@
+[
+  {
+    "source": "res://assets/biomes/whale/prop-0.png",
+    "sha256": "980765b3e7eae451806fe46077abdedadf348cd6fa2967c047b2e58dd0233214",
+    "pixels": [
+      380,
+      373
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      380,
+      373
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24854183197021,
+      "canvas_height_m_min": 0.370541620254517,
+      "count": 129,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-1.png",
+    "sha256": "16f58fce45715823132091c1e7e984021f867c909016ff409bd8bc5a00f6ad66",
+    "pixels": [
+      315,
+      393
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      314,
+      392
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24965209960938,
+      "canvas_height_m_min": 0.354605197906494,
+      "count": 119,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-2.png",
+    "sha256": "f6e5cb58845f99862671c5405ce6cbcb88516896c70e675cc85cedeb43a84055",
+    "pixels": [
+      346,
+      388
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      346,
+      387
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 6.0,
+      "canvas_height_m_min": 0.355012392997742,
+      "count": 47,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-3.png",
+    "sha256": "57269c231baa96e003e299003fe0b474fd3660293ca9be062dc4c129e2c1cfd0",
+    "pixels": [
+      371,
+      360
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      370,
+      359
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 4.9612865447998,
+      "canvas_height_m_min": 0.357556128501892,
+      "count": 208,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-4.png",
+    "sha256": "8a7b5b0e238e455fa214075071fa7489a09510e5c567c23d68fb2dc0b51be08f",
+    "pixels": [
+      290,
+      388
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      289,
+      387
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24989290237427,
+      "canvas_height_m_min": 0.353249335289001,
+      "count": 36,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-5.png",
+    "sha256": "ba6ac73c78a3ca939521bab512706e49fd359bd36ddd166a19336d1985d3a33a",
+    "pixels": [
+      385,
+      378
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      383,
+      378
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24222068786621,
+      "canvas_height_m_min": 0.352394819259644,
+      "count": 99,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-6.png",
+    "sha256": "58c93c6e770b2591fc20c64aaa7d0aad8241cb805d9d902c2b845eddc3ff490c",
+    "pixels": [
+      362,
+      383
+    ],
+    "alpha_bounds": [
+      0,
+      1,
+      361,
+      383
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24777040481567,
+      "canvas_height_m_min": 0.352485680580139,
+      "count": 137,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-7.png",
+    "sha256": "81d8ee65f5e5a4790cb1302be36f29faae86526142b282714b2dbe6bd5236a1c",
+    "pixels": [
+      386,
+      352
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      386,
+      352
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.24712591171265,
+      "canvas_height_m_min": 0.100086402893066,
+      "count": 510,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/prop-8.png",
+    "sha256": "24ecab8d54a7fe7bdbff38f863edffb4982780c09d48711fae79f85f6cbcc5dd",
+    "pixels": [
+      377,
+      398
+    ],
+    "alpha_bounds": [
+      1,
+      1,
+      376,
+      397
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 1.21104936599731,
+      "canvas_height_m_min": 0.364896821975708,
+      "count": 119,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  },
+  {
+    "source": "res://assets/biomes/whale/shell.png",
+    "sha256": "4a29fe93e806c780310620df01cde3c856eb90dcbcb4264dc2f041ee6fac9d12",
+    "pixels": [
+      1000,
+      317
+    ],
+    "alpha_bounds": [
+      1,
+      0,
+      999,
+      317
+    ],
+    "runtime_usage": {
+      "branches": [
+        0,
+        -1,
+        1
+      ],
+      "canvas_height_m_max": 19.7930734753609,
+      "canvas_height_m_min": 11.9103599631786,
+      "count": 42,
+      "semantic_support_verified": false
+    },
+    "support_points_m": null,
+    "footprints_m": null,
+    "sockets_m": null,
+    "status": "requires_semantic_annotation"
+  }
+]

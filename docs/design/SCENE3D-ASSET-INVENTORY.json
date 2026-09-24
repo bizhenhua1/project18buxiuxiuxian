@@ -1,0 +1,917 @@
+{
+  "schema_version": 1,
+  "scope": "read-only repository inventory, not runtime capture",
+  "source_sha256": {
+    "godot/scripts/spaces/biome_catalog.gd": "f3d23128799af5f020fd688f177b269c394e11692c851ba68c83c58a92b5bcaf",
+    "godot/scripts/spaces/layouts/biome_layout.gd": "7e5b622051d6a8feecdf223e7428d0002c039e2cb1cddbb198a91fb25648314f",
+    "godot/scripts/spaces/layouts/fairytale_corridor.gd": "f22fd24dddbe8c1391360844c505f3de98bce874d8be7df0eae1b84e74ac64b4",
+    "godot/scripts/world3d/scenery.gd": "e0602d6fb2a2eb656078173e11070ec02ef9bad29959e024849dc1b898d0d3a8",
+    "godot/scripts/world3d/route_view.gd": "0b33eacc8edd7bfd144365c4dc0a637201486831522de798842f45479de167de"
+  },
+  "scenes": [
+    {
+      "id": "red_village",
+      "name": "不可回头的村庄",
+      "space": "street",
+      "story_parent_not_geometry_baseline": "forest",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1942,
+          809
+        ],
+        "alpha_bounds": [
+          18,
+          21,
+          1925,
+          795
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9826946847960445
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.49228,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 768.16,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "red_cottage",
+      "name": "外婆的长屋",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "forest",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1971,
+          798
+        ],
+        "alpha_bounds": [
+          58,
+          22,
+          1914,
+          763
+        ],
+        "ground_anchor": [
+          0.5,
+          0.956140350877193
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.6002,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 790.38,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3
+      },
+      "furniture_variants": 2,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "red_workshop",
+      "name": "猎人的兽皮作坊",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "forest",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          8,
+          11,
+          1975,
+          781
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9848675914249685
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.62481,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "snow_mirror",
+      "name": "王后的魔镜长廊",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "crystal",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          158,
+          9,
+          1824,
+          764
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9634300126103404
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.50076,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {
+        "file": "branch-side.png",
+        "role": "side",
+        "ground_anchor": [
+          0.5,
+          0.9933993399339934
+        ],
+        "suggested_canvas_height": 319.2140468227425,
+        "source_box": [
+          50,
+          93,
+          704,
+          1887
+        ],
+        "image_size": [
+          678,
+          1818
+        ],
+        "edge_touch": false
+      },
+      "dressing_roles": {
+        "anchor": 1,
+        "cover": 2,
+        "litter": 2,
+        "prop": 4
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "snow_orchard",
+      "name": "毒苹果果园",
+      "space": "garden",
+      "story_parent_not_geometry_baseline": "crystal",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          16,
+          14,
+          1965,
+          775
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9773013871374527
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.25063,
+        "suggested_canvas_height": 382.94,
+        "suggested_canvas_width": 957.59,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 1,
+        "cover": 4,
+        "litter": 2,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "snow_house",
+      "name": "七个矮人的住宅",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "crystal",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          43,
+          8,
+          1940,
+          758
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9558638083228247
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.53454,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {
+        "file": "branch-side.png",
+        "role": "side",
+        "ground_anchor": [
+          0.5,
+          0.9921259842519685
+        ],
+        "suggested_canvas_height": 220,
+        "junction_side_radius": 700,
+        "image_size": [
+          656,
+          1016
+        ],
+        "source": "art/fairytales/corridor/raw/snow_house-branch-pier-v2-key.png",
+        "edge_touch": false
+      },
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3
+      },
+      "furniture_variants": 2,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "alice_tea",
+      "name": "无尽茶会庭院",
+      "space": "garden",
+      "story_parent_not_geometry_baseline": "swamp",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          2060,
+          763
+        ],
+        "alpha_bounds": [
+          11,
+          8,
+          2051,
+          747
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9790301441677588
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.36796,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 863.96,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {
+        "file": "branch-side.png",
+        "role": "side",
+        "ground_anchor": [
+          0.5,
+          0.9917241379310345
+        ],
+        "suggested_canvas_height": 305.04908835904627,
+        "source_box": [
+          12,
+          9,
+          1076,
+          1435
+        ],
+        "image_size": [
+          1088,
+          1450
+        ],
+        "edge_touch": false
+      },
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "alice_roses",
+      "name": "王后的玫瑰庭园",
+      "space": "garden",
+      "story_parent_not_geometry_baseline": "swamp",
+      "corridor": {
+        "file": "corridor-side.png",
+        "role": "side",
+        "image_size": [
+          1374,
+          1145
+        ],
+        "alpha_bounds": [
+          10,
+          15,
+          1095,
+          1125
+        ],
+        "ground_anchor": [
+          0.32933042212518193,
+          0.982532751091703
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "suggested_canvas_height": 230,
+        "repeat_distance_range": [
+          150,
+          240
+        ],
+        "placement": "outside_each_road_using_footprint",
+        "lower_footprint_x": [
+          0.00727802037845706,
+          0.6521106259097526
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "alice_hall",
+      "name": "兔子洞与门厅",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "swamp",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          59,
+          13,
+          1925,
+          769
+        ],
+        "ground_anchor": [
+          0.5,
+          0.969735182849937
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.41402,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "piper_market",
+      "name": "空城集市",
+      "space": "street",
+      "story_parent_not_geometry_baseline": "sewer",
+      "corridor": {
+        "file": "corridor-side.png",
+        "role": "side",
+        "image_size": [
+          1430,
+          1100
+        ],
+        "alpha_bounds": [
+          24,
+          19,
+          1410,
+          1081
+        ],
+        "ground_anchor": [
+          0.44825174825174824,
+          0.9827272727272728
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "suggested_canvas_height": 230,
+        "repeat_distance_range": [
+          150,
+          240
+        ],
+        "placement": "outside_each_road_using_footprint",
+        "lower_footprint_x": [
+          0.016783216783216783,
+          0.8804195804195805
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "piper_bridge",
+      "name": "河岸与旧石桥",
+      "space": "bridge",
+      "story_parent_not_geometry_baseline": "sewer",
+      "corridor": {
+        "file": "corridor-side.png",
+        "role": "side",
+        "image_size": [
+          1430,
+          1100
+        ],
+        "alpha_bounds": [
+          17,
+          15,
+          1391,
+          1083
+        ],
+        "ground_anchor": [
+          0.28076923076923077,
+          0.9845454545454545
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "suggested_canvas_height": 230,
+        "repeat_distance_range": [
+          150,
+          240
+        ],
+        "placement": "outside_each_road_using_footprint",
+        "lower_footprint_x": [
+          0.011888111888111888,
+          0.5503496503496503
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "piper_mountain",
+      "name": "山中封闭的入口",
+      "space": "cave",
+      "story_parent_not_geometry_baseline": "sewer",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          9,
+          12,
+          1973,
+          780
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9836065573770492
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.29148,
+        "suggested_canvas_height": 329.27,
+        "suggested_canvas_width": 823.39,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 3,
+        "cover": 3,
+        "litter": 1,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "puppet_workshop",
+      "name": "木偶匠的工坊",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "whale",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          26,
+          8,
+          1933,
+          782
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9861286254728878
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.62279,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "puppet_theatre",
+      "name": "无人木偶剧院",
+      "space": "stage",
+      "story_parent_not_geometry_baseline": "whale",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          119,
+          27,
+          1864,
+          719
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9066834804539723
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.56884,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {
+        "file": "branch-side.png",
+        "role": "side",
+        "ground_anchor": [
+          0.5,
+          0.9921259842519685
+        ],
+        "suggested_canvas_height": 220,
+        "junction_side_radius": 700,
+        "image_size": [
+          388,
+          1016
+        ],
+        "source": "art/fairytales/corridor/raw/puppet_theatre-curtain-pier-v3-key.png",
+        "edge_touch": false
+      },
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 2,
+        "prop": 4
+      },
+      "furniture_variants": 1,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "puppet_fair",
+      "name": "玩乐之国游乐场",
+      "space": "street",
+      "story_parent_not_geometry_baseline": "whale",
+      "corridor": {
+        "file": "corridor-side.png",
+        "role": "side",
+        "image_size": [
+          1374,
+          1145
+        ],
+        "alpha_bounds": [
+          23,
+          25,
+          1343,
+          1118
+        ],
+        "ground_anchor": [
+          0.5604075691411936,
+          0.9764192139737992
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "suggested_canvas_height": 230,
+        "repeat_distance_range": [
+          150,
+          240
+        ],
+        "placement": "outside_each_road_using_footprint",
+        "lower_footprint_x": [
+          0.14410480349344978,
+          0.9774381368267832
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 3,
+        "prop": 2
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "cinder_kitchen",
+      "name": "灰烬厨房",
+      "space": "interior",
+      "story_parent_not_geometry_baseline": "palace",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          99,
+          69,
+          1885,
+          723
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9117276166456494
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.57186,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 1,
+        "cover": 1,
+        "litter": 3,
+        "prop": 4
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "cinder_garden",
+      "name": "午夜南瓜庭院",
+      "space": "garden",
+      "story_parent_not_geometry_baseline": "palace",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          25,
+          13,
+          1962,
+          776
+        ],
+        "ground_anchor": [
+          0.5,
+          0.978562421185372
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.41553,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 4,
+        "litter": 2,
+        "prop": 1
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    },
+    {
+      "id": "cinder_clock",
+      "name": "封存钟声的钟楼",
+      "space": "clock",
+      "story_parent_not_geometry_baseline": "palace",
+      "corridor": {
+        "file": "corridor-shell.png",
+        "role": "shell",
+        "image_size": [
+          1983,
+          793
+        ],
+        "alpha_bounds": [
+          126,
+          8,
+          1857,
+          777
+        ],
+        "ground_anchor": [
+          0.5,
+          0.9798234552332913
+        ],
+        "edge_touch": false,
+        "residual_key_pixels": 0,
+        "status": "geometry_checked_runtime_pending",
+        "lower_passage_min_width_fraction": 0.43419,
+        "suggested_canvas_height": 320,
+        "suggested_canvas_width": 800.2,
+        "minimum_travel_clearance": 240,
+        "repeat_distance_range": [
+          130,
+          210
+        ]
+      },
+      "branch_side": {},
+      "dressing_roles": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3
+      },
+      "furniture_variants": 0,
+      "referenced_asset_missing": [],
+      "has_explicit_ceiling_manifest": false,
+      "acceptance": "unreviewed; file presence is not visual acceptance"
+    }
+  ]
+}

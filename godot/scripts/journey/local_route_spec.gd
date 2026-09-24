@@ -8,6 +8,7 @@ static func profile(zone: Dictionary) -> Dictionary:
 	var result: Dictionary = catalog[key].duplicate(true)
 	result.theme = zone.get("theme","forest")
 	result.exits = int(zone.get("exits",2))
+	if result.theme=="crystal":result.exits=2
 	result.before_fork = result.fork and zone.get("event_placement","after")=="before"
 	var first:=TravelPace.leg_distance(true) if int(zone.get("endless_leg",1))==1 else TravelPace.mixed_distance()
 	var walk:=TravelPace.EXIT_DISTANCE+TravelPace.mixed_distance()
@@ -61,6 +62,7 @@ static func plan(zone: Dictionary) -> RoutePlan:
 	result.title = zone.get("title","地块探索")
 	result.straight = not spec.fork
 	ForestRoute.configure(spec.fork,spec.junction,TravelPace.WALK)
+	ForestRoute.cave_fork=spec.theme=="crystal"
 	result.exits = spec.exits
 	var catalog=preload("res://scripts/spaces/biome_catalog.gd")
 	var space:SpaceType

@@ -1,0 +1,47 @@
+{
+  "notice":"Schema fixtures only, not actual assets, not art approval and never publish to runtime catalog.",
+  "valid": [
+    {
+      "record_type":"asset","schema_version":2,"asset_id":"example-furnishing-stool-a","scene_id":"example",
+      "role":"furnishing","representation":"cutout_plane","contact":"grounded","collision":"footprint","view_policy":"fixed_route","status":"runtime_ready",
+      "provenance":{"kind":"example","source":"schema fixture","rights_note":"No artwork supplied","operations":[]},
+      "art":{"path":"example/stool.png","size_px":[1000,1000],"alpha_bounds_px":[100,100,900,900],"anchor_uv":[0.5,0.9],"alpha_mode":"cutout","alpha_threshold":0.5},
+      "physical":{"units":"m","dimension_source":"design_initial","dimension_note":"Fixture: visible height .8m, canvas 1m; not measured art","visible_size_m":[0.8,0.8],"canvas_size_m":[1,1],"depth_m":0.4,"support_points_m":[[-0.35,0,-0.15],[0.35,0,-0.15],[-0.35,0,0.15],[0.35,0,0.15]],"footprints_m":[[[-0.35,-0.2],[0.35,-0.2],[0.35,0.2],[-0.35,0.2]]],"openings_m":[],"sockets":{},"not_applicable":{"openings_m":"No passage through stool","sockets":"No mounted children"}},
+      "review":{"issues":[],"evidence":["fixture: structural validation only"],"approved_by":null}
+    },
+    {
+      "record_type":"asset","schema_version":2,"asset_id":"example-hanging-lamp-a","scene_id":"example",
+      "role":"hanging","representation":"cutout_plane","contact":"suspended","collision":"none","view_policy":"fixed_route","status":"runtime_ready",
+      "provenance":{"kind":"example","source":"schema fixture","rights_note":"No artwork supplied","operations":[]},
+      "art":{"path":"example/lamp.png","size_px":[1000,1000],"alpha_bounds_px":[100,100,900,900],"anchor_uv":[0.5,0.1],"alpha_mode":"cutout","alpha_threshold":0.5},
+      "physical":{"units":"m","dimension_source":"design_initial","dimension_note":"Hanging fixture with top anchor, no ground footprint","visible_size_m":[0.8,0.8],"canvas_size_m":[1,1],"depth_m":0.4,"support_points_m":[],"footprints_m":[],"openings_m":[],"sockets":{"hanger":[0,0,0]},"not_applicable":{"support_points_m":"Supported by roof socket","footprints_m":"Suspended and noncolliding","openings_m":"Not an opening"}},
+      "review":{"issues":[],"evidence":["fixture: hanging exception"],"approved_by":null}
+    },
+    {
+      "record_type":"asset","schema_version":2,"asset_id":"example-roof-band-a","scene_id":"example",
+      "role":"roof","representation":"simple_mesh","contact":"surface","collision":"none","view_policy":"surface","status":"runtime_ready",
+      "provenance":{"kind":"example","source":"schema fixture","rights_note":"No artwork supplied","operations":[]},
+      "art":{"path":null,"size_px":null,"alpha_bounds_px":null,"anchor_uv":null,"alpha_mode":"none","material_id":"example-roof-material"},
+      "physical":{"units":"m","dimension_source":"design_initial","dimension_note":"Fixture dimensions of mesh bounds; texture separate","visible_size_m":[4,8],"canvas_size_m":[4,8],"depth_m":0,"support_points_m":[],"footprints_m":[],"openings_m":[],"sockets":{},"not_applicable":{"support_points_m":"Mesh attached to wall structure","footprints_m":"Ceiling surface is not a ground obstacle","openings_m":"Continuous ceiling fixture","sockets":"No hanging children in fixture"}},
+      "review":{"issues":[],"evidence":["fixture: roof exception"],"approved_by":null}
+    },
+    {
+      "record_type":"request","schema_version":2,"request_id":"example-cottage-roof-material","scene_id":"red_cottage","role":"roof",
+      "gap":"Illustrative request only: if no existing seamless neutral ceiling material passes inspection",
+      "reuse_candidates":[{"path":"godot/assets/fairytales/red_cottage/corridor-shell.png","decision":"Frame and decorative wall source; material crop suitability must be checked before generation"}],
+      "deliverables":["one seamless material","prompt and source references","3x3 repeat check","v2 asset candidate"],
+      "reference_paths":["godot/assets/fairytales/red_cottage/corridor-shell.png"],"prompt_path":null,
+      "view_requirement":"Orthogonal texture without room perspective","size_requirement":"1024 square minimum; 2-4m designed repeat interval","variants_min":1,
+      "acceptance":["No baked furniture, perspective or fog","No visible edge seams","Neutral geometry inspection"],
+      "fallback":"Continue geometric closure and reusable assets; keep material pending",
+      "generation_permission":"not_in_current_scope","status":"reuse_first"
+    }
+  ],
+  "negative_cases": [
+    {"name":"grounded-without-footprint","base":0,"set":{"physical.footprints_m":[]}},
+    {"name":"unknown-dimension-cannot-publish","base":0,"set":{"physical.dimension_source":"unknown"}},
+    {"name":"suspended-without-socket","base":1,"set":{"physical.sockets":{}}},
+    {"name":"request-is-not-generation-authorization","base":3,"set":{"status":"ready_to_generate"}},
+    {"name":"visual-approval-is-required","base":0,"set":{"status":"visual_accepted"}}
+  ]
+}

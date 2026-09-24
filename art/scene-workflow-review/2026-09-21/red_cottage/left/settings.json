@@ -1,0 +1,30 @@
+{
+  "branch": -1,
+  "case": "left",
+  "exits": 3,
+  "forest_settings": {
+    "bend": 12.0,
+    "camera_height": 30.0,
+    "camera_horizon": 0.48,
+    "camera_lens": 1.0,
+    "cover": 1.6,
+    "density": 2.0,
+    "height": 1.0,
+    "size": 1.0,
+    "variation": 8.0,
+    "width": 26.0
+  },
+  "frames": 30,
+  "native_viewport": [
+    1552,
+    830
+  ],
+  "phase": "travel",
+  "scene": "red_cottage",
+  "seed": 106571,
+  "test_victory_triggered": false,
+  "viewport": [
+    1440,
+    900
+  ]
+}

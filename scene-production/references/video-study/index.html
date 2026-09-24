@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>场景参考视频 · 证据复核</title>
+<style>body{margin:24px auto;max-width:1100px;padding:0 20px;background:#14181c;color:#e2e7eb;font:16px/1.6 system-ui}video{width:100%;max-height:66vh;background:#000}button,select{padding:8px 12px;margin:4px;background:#283640;color:#fff;border:1px solid #577079;border-radius:5px;cursor:pointer}a{color:#93d3d1}small{color:#bbc3c9}.time{font-variant-numeric:tabular-nums}section{margin:18px 0}h1{font-size:24px}h2{font-size:19px}</style>
+<h1>场景参考视频 · 证据复核</h1>
+<p>原视频直接播放；按钮定位并暂停。下方描述区分可见事实与不能确认的部分。<a href="../VIDEO-ANALYSIS.md">完整分析</a> · <a href="../CORE-REFERENCES.md">核心图册</a></p>
+<video id="v" controls preload="metadata" src="../../../tmp/场景参考.mp4"></video>
+<div><button id="prev">后退约一帧</button><button id="next">前进约一帧</button><select id="speed" aria-label="播放速度"><option value="0.25">0.25 倍</option><option value="0.5">0.5 倍</option><option value="1" selected>原速</option></select> <span id="time" class="time">载入中</span></div>
+<small>帧步进按 30 fps 请求定位；浏览器视频解码可能有帧级误差。精确帧序号见抽帧目录的 frames.json。</small>
+<section><h2>天然洞穴：包围、前进与战斗</h2><button data-time="211">03:31 门组</button><button data-time="211.667">03:31.667 洞穴入场</button><button data-time="214">03:34 战斗景别</button><button data-time="256.8">04:16.8 前往池水</button><button data-time="257.8">04:17.8 近景退出</button><button data-time="258.967">04:18.967 远口接近</button><p>重点看 04:16.8–04:18.967：近侧岩体退出后，后面是否仍有岩体承接；钟乳和池岸是否与主体按同一种节拍重复。03:31.5 前后有画面不连续，不能据此推断完整过门算法。</p><a href="cave-forward-detail/sheet-1.jpg">查看连续抽帧</a></section>
+<section><h2>窄入口如何显露较宽空间</h2><button data-time="743.033">12:23.033 窄通道</button><button data-time="744.533">12:24.533 远处落脚区</button><button data-time="745.533">12:25.533 近侧骨柱</button><button data-time="746.867">12:26.867 空间展开</button><p>观察后续空间逐渐展开，入口前没有把全部空间摊开。这段不证明三条无门岔路的内部实现。</p><a href="hall-transfer-detail/sheet-1.jpg">连续抽帧 1</a> · <a href="hall-transfer-detail/sheet-2.jpg">连续抽帧 2</a></section>
+<section><h2>其他对照</h2><button data-time="60">01:00 根系通道前进</button><button data-time="180">03:00 商店与吊挂</button><button data-time="736">12:16 集中门组</button><p>原片包含剪辑、卡牌特写与界面放大。界面放大不计入空间和镜头分析；商店挂件只能证明视觉附着关系，不能证明灯光使用了实时光源。</p></section>
+<script>
+const v=document.getElementById('v');
+function seek(t){v.pause();v.currentTime=Math.max(0,Math.min(Number.isFinite(v.duration)?v.duration:t,t));}
+document.querySelectorAll('[data-time]').forEach(b=>b.onclick=()=>seek(Number(b.dataset.time)));
+document.getElementById('prev').onclick=()=>seek(v.currentTime-1/30);
+document.getElementById('next').onclick=()=>seek(v.currentTime+1/30);
+document.getElementById('speed').onchange=e=>v.playbackRate=Number(e.target.value);
+v.ontimeupdate=()=>{const ms=Math.round(v.currentTime*1000);document.getElementById('time').textContent=String(Math.floor(ms/60000)).padStart(2,'0')+':'+((ms%60000)/1000).toFixed(3).padStart(6,'0');};
+v.onerror=()=>document.getElementById('time').textContent='无法载入原视频，请确认工程 tmp/场景参考.mp4 仍在原位置。';
+</script></html>

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "id": "workflow_red_cottage",
+  "family": "red_cottage",
+  "style": "黑暗童话木屋，低顶、生活家具组合和吊挂装饰",
+  "stage": "draft",
+  "family_sha256": "639339d647813abbd949d75c6d3a05f794c2c8834dcbaa8c8ce59053d02d0b1e",
+  "slots": [
+    {
+      "id": "slot_1",
+      "purpose": "梁架",
+      "prompt": "01-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "structural_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_2",
+      "purpose": "连续天花材质",
+      "prompt": "02-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 1,
+      "representation": "surface_texture",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_3",
+      "purpose": "地板材质",
+      "prompt": "03-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 1,
+      "representation": "surface_texture",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_4",
+      "purpose": "生活功能组合",
+      "prompt": "04-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_5",
+      "purpose": "小物与碎屑",
+      "prompt": "05-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 4,
+      "representation": "rigid_cutout",
+      "status": "needs_specification"
+    },
+    {
+      "id": "slot_6",
+      "purpose": "吊挂装饰",
+      "prompt": "06-prompt.txt",
+      "assets": [],
+      "references": [],
+      "required_variants": 3,
+      "representation": "suspended_cutout",
+      "status": "needs_specification"
+    }
+  ],
+  "assemblies": [],
+  "runtime_evidence": [],
+  "visual_review": null,
+  "rules": {
+    "id": "red_cottage",
+    "title": "低顶室内",
+    "roof": "domestic_low",
+    "support": "timber",
+    "adapter": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+    "slots": [
+      "梁架",
+      "连续天花材质",
+      "地板材质",
+      "生活功能组合",
+      "小物与碎屑",
+      "吊挂装饰"
+    ],
+    "scatter_rule": "梁架先验净空；壁炉与柴薪、缝纫台与布篓成组；低家具不放大道路边界。",
+    "junction_rule": "低顶所有出口先并集三角化，只生成一张顶；拱架脚点避开全部道路，路口停止重复整框。",
+    "top_rule": "连续平顶使用世界材质相位；不新增左右墙。挂物必须绑定真实顶面socket。",
+    "effects": [
+      "ground_mist",
+      "hanging_sway",
+      "fixture_glow"
+    ],
+    "reference_scene": "red_cottage",
+    "protected_camera": true,
+    "ground": {
+      "policy": "dry_room",
+      "max_slope_degrees": 2,
+      "max_support_error_m": 0.02,
+      "source": "design_initial; measure runtime slope before acceptance"
+    },
+    "lighting": {
+      "policy": "inherit_reference_palette",
+      "new_realtime_lights": 0,
+      "diagnostic": "freeze exact camera and simulation; white ambient; fog/virtual lights disabled; bright background",
+      "closure_strategy": "hybrid",
+      "closure_strategy_status": "initial_policy_verify_against_reference_lighting",
+      "acceptance": "Diagnostic gaps are observations. Accept matched dark background/sky/fog joins when production lighting and supported light changes remain convincing; require local geometry for visibly lit gaps."
+    },
+    "hanging": {
+      "allowed": true,
+      "character_clearance_m": 0.35,
+      "camera_clearance_m": 0.2,
+      "sway_degrees_max": 2,
+      "default_sway_degrees": 0,
+      "max_dynamic_visible": 8,
+      "required": [
+        "owner_id",
+        "socket_m",
+        "lowest_point_m",
+        "sway_radius_m"
+      ],
+      "figure_requires_explicit_selection": true
+    },
+    "cases": [
+      "entry",
+      "junction2",
+      "junction3",
+      "left",
+      "right",
+      "center",
+      "battle",
+      "departure"
+    ],
+    "acceptance": "not_yet_workflow_verified"
+  },
+  "production_rules_sha256": "8a8d8af853c2a0a3558baeefa9d5b6b9b9a6ff55553e320e2a1b0ba560788cc9",
+  "kit": {
+    "variants": [
+      3,
+      1,
+      1,
+      3,
+      4,
+      3
+    ],
+    "examples": [
+      "plain beam frame, repaired frame, asymmetric beam frame",
+      "seamless ceiling underside oak planks",
+      "seamless worn floorboards",
+      "hearth+firewood; sewing desk+cloth basket; chest+stool",
+      "pottery, rags, wood shavings, shoes",
+      "lantern+chain; dried herbs+cord; draped cloth+paired hooks"
+    ],
+    "representations": [
+      "structural_cutout",
+      "surface_texture",
+      "surface_texture",
+      "rigid_cutout",
+      "rigid_cutout",
+      "suspended_cutout"
+    ],
+    "root_policy": "Furniture needs authored support points. Hanging fixtures use top sockets and lowest points, never bottom-center roots. A figure hanging by a rope is an explicit optional narrative asset, not randomly selected room dressing.",
+    "assembly": "One continuous ceiling mesh across all exits. Beam supports must clear every path after scale. Hanging chain+body use one pivot; doorway frame is decoration, never proof of closure.",
+    "light_fx": "Default hanging sway zero, optional <=2 degrees, <=8 moving fixtures. No physics chain, no per-fixture real light. Static soft ceiling material; no floor dirt texture reused as final ceiling.",
+    "junction": "Single roof polygon union with continuous UV. Do not add left/right walls. Before a fork, preserve all exits; do not remove unselected roof while still visible.",
+    "initial_dimensions_m": {
+      "ceiling_height": 3.8,
+      "lantern_body": 0.65,
+      "chain": 0.4,
+      "lamp_interval": 9,
+      "character_clearance": 0.35,
+      "camera_clearance": 0.2
+    },
+    "dimension_rule": "Derive ceiling width from locked camera rays, not corridor width. Existing candidate upper-30-percent bound is insufficient for full camera-sweep acceptance.",
+    "lighting_acceptance": "Choose open/atmospheric/hybrid/geometric. Compare diagnostic with production lighting and actual permitted changes before deciding roof asset scope."
+  },
+  "publication_allowed": false
+}

@@ -1,0 +1,1139 @@
+{
+  "status": "real_2d_asset_fixture_not_accepted",
+  "scope": "straight_8m_only",
+  "source": {
+    "path": "godot/assets/biomes/crystal/arch-study/surround-a.png",
+    "sha256": "a6ac7af26357f67439c3503d01ee9d680ed041b6e10d957adcd36d82f89a01eb",
+    "source_variants": 1,
+    "role": "candidate_surround_source",
+    "art_accepted": false
+  },
+  "cards": [
+    {
+      "role": "whole",
+      "z": -2.0,
+      "x": 0.06564015572353112,
+      "y": -0.03,
+      "width": 6.221909900760421,
+      "height": 4.147939933840281,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": -0.6773830712045406,
+      "x": 0.053576631490277624,
+      "y": -0.03,
+      "width": 6.225309314870682,
+      "height": 4.1502062099137875,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 0.6779891972180532,
+      "x": 0.06288595105821447,
+      "y": -0.03,
+      "width": 6.222325426912742,
+      "height": 4.148216951275161,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 1.8389656247520465,
+      "x": -0.04936034913119457,
+      "y": -0.03,
+      "width": 6.326568015142417,
+      "height": 4.217712010094945,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 3.1680626830274154,
+      "x": -0.0037295018500701355,
+      "y": -0.03,
+      "width": 6.438684072892539,
+      "height": 4.292456048595026,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 4.386626083935528,
+      "x": 0.04737275702095524,
+      "y": -0.03,
+      "width": 6.195191907322914,
+      "height": 4.130127938215276,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 5.420347556177634,
+      "x": -0.018268496965440126,
+      "y": -0.03,
+      "width": 6.455374025455672,
+      "height": 4.3035826836371145,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 6.589406298566925,
+      "x": 0.07784126235599971,
+      "y": -0.03,
+      "width": 6.215982674524549,
+      "height": 4.143988449683032,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 7.808272354558936,
+      "x": -0.0198326077067739,
+      "y": -0.03,
+      "width": 6.229325161675255,
+      "height": 4.1528834411168365,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 9.116666072803959,
+      "x": 0.008221621325090994,
+      "y": -0.03,
+      "width": 6.369403871049521,
+      "height": 4.246269247366347,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 10.2829748935961,
+      "x": 0.008230595099234253,
+      "y": -0.03,
+      "width": 6.153236762646371,
+      "height": 4.102157841764247,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 11.494050274921918,
+      "x": -0.012754056239458952,
+      "y": -0.03,
+      "width": 6.479998149673087,
+      "height": 4.319998766448725,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 12.81163266745469,
+      "x": 0.04785202055075487,
+      "y": -0.03,
+      "width": 6.334879469258288,
+      "height": 4.223252979505525,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 14.068051087846008,
+      "x": -0.014450033171867216,
+      "y": -0.03,
+      "width": 6.186181094380479,
+      "height": 4.124120729586986,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 15.257609678492267,
+      "x": -0.037670853436757704,
+      "y": -0.03,
+      "width": 6.337845969860664,
+      "height": 4.225230646573777,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 16.624168156066197,
+      "x": 0.009490842740371944,
+      "y": -0.03,
+      "width": 6.464361167066398,
+      "height": 4.309574111377599,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 18.004133354982777,
+      "x": 0.03569940913094509,
+      "y": -0.03,
+      "width": 6.287211845210386,
+      "height": 4.191474563473591,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 19.301513919841017,
+      "x": 0.0178578306459289,
+      "y": -0.03,
+      "width": 6.132637036993815,
+      "height": 4.08842469132921,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 20.347841811251193,
+      "x": -0.03342987740136545,
+      "y": -0.03,
+      "width": 6.339760641380838,
+      "height": 4.2265070942538925,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 21.690536589620766,
+      "x": -0.053564540840060196,
+      "y": -0.03,
+      "width": 6.2692508137695775,
+      "height": 4.179500542513051,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 22.761670043800898,
+      "x": -0.048597352847006496,
+      "y": -0.03,
+      "width": 6.414686002306484,
+      "height": 4.276457334870989,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 24.10635158587568,
+      "x": 0.03271725713826097,
+      "y": -0.03,
+      "width": 6.37576225916613,
+      "height": 4.25050817277742,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 25.22754624372706,
+      "x": -0.03739133102568317,
+      "y": -0.03,
+      "width": 6.382748949248537,
+      "height": 4.255165966165691,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 26.28764261664884,
+      "x": -0.03230233183960488,
+      "y": -0.03,
+      "width": 6.17786466308072,
+      "height": 4.118576442053813,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 27.312146672934432,
+      "x": 0.06661078115580803,
+      "y": -0.03,
+      "width": 6.33264286135128,
+      "height": 4.22176190756752,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 28.569234496222474,
+      "x": 0.05720739277069391,
+      "y": -0.03,
+      "width": 6.329559068000396,
+      "height": 4.219706045333598,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 29.95210795429467,
+      "x": -0.07554341278671371,
+      "y": -0.03,
+      "width": 6.459831675495852,
+      "height": 4.306554450330568,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 31.26757534995334,
+      "x": 0.026649789810660046,
+      "y": -0.03,
+      "width": 6.3285270686574275,
+      "height": 4.219018045771619,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 32.37749716698496,
+      "x": -0.059193745863125924,
+      "y": -0.03,
+      "width": 6.348485110126932,
+      "height": 4.232323406751288,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 33.62383821630354,
+      "x": 0.039574315939517976,
+      "y": -0.03,
+      "width": 6.225878659691558,
+      "height": 4.150585773127705,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 34.709983109228624,
+      "x": 0.026907063908378076,
+      "y": -0.03,
+      "width": 6.389286221429774,
+      "height": 4.2595241476198495,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 35.868327661830435,
+      "x": -0.048074746053742796,
+      "y": -0.03,
+      "width": 6.312937694680782,
+      "height": 4.208625129787188,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 36.985356284615996,
+      "x": -0.051208017774573344,
+      "y": -0.03,
+      "width": 6.142385838781293,
+      "height": 4.094923892520862,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 38.266129077422505,
+      "x": 0.016765594540675458,
+      "y": -0.03,
+      "width": 6.395138778584256,
+      "height": 4.263425852389504,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 39.56578780887903,
+      "x": -0.059645975415076276,
+      "y": -0.03,
+      "width": 6.324509521752315,
+      "height": 4.21633968116821,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 40.69345854302742,
+      "x": 0.07879510956650547,
+      "y": -0.03,
+      "width": 6.154714102802481,
+      "height": 4.103142735201654,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 42.06349064406413,
+      "x": 0.01158084980338496,
+      "y": -0.03,
+      "width": 6.2127502800716865,
+      "height": 4.141833520047791,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 43.16181318852354,
+      "x": -0.07537152783071788,
+      "y": -0.03,
+      "width": 6.403460689261594,
+      "height": 4.268973792841063,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 44.49732625470469,
+      "x": -0.054051478936014696,
+      "y": -0.03,
+      "width": 6.3738957119794355,
+      "height": 4.24926380798629,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 45.78418751571871,
+      "x": -0.03302852430920883,
+      "y": -0.03,
+      "width": 6.370765877853232,
+      "height": 4.247177251902155,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 47.075618718741026,
+      "x": 0.06759771937466584,
+      "y": -0.03,
+      "width": 6.402236646055646,
+      "height": 4.268157764037097,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 48.22132027593857,
+      "x": 0.024947487713167474,
+      "y": -0.03,
+      "width": 6.268622167453907,
+      "height": 4.179081444969271,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 49.54875892459777,
+      "x": 0.07612175884087123,
+      "y": -0.03,
+      "width": 6.170713534553371,
+      "height": 4.11380902303558,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 50.7819582490007,
+      "x": -0.061535005751826036,
+      "y": -0.03,
+      "width": 6.140074458967803,
+      "height": 4.093382972645202,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 52.04339623266253,
+      "x": -0.029402340381701378,
+      "y": -0.03,
+      "width": 6.439003977550104,
+      "height": 4.292669318366736,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 53.09301875256489,
+      "x": -0.0654257703592082,
+      "y": -0.03,
+      "width": 6.254438952852471,
+      "height": 4.169625968568314,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 54.27189760578591,
+      "x": -0.011639231466650926,
+      "y": -0.03,
+      "width": 6.4595880920229,
+      "height": 4.3063920613486,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 55.6420088010648,
+      "x": -0.029981723713878826,
+      "y": -0.03,
+      "width": 6.144121037103046,
+      "height": 4.0960806914020305,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 56.84701510276143,
+      "x": 0.0768271101170691,
+      "y": -0.03,
+      "width": 6.2930459523647,
+      "height": 4.195363968243133,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 58.2293850812496,
+      "x": 0.05391192646345107,
+      "y": -0.03,
+      "width": 6.264356727310378,
+      "height": 4.176237818206919,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 59.295562031919594,
+      "x": -0.07012938014619793,
+      "y": -0.03,
+      "width": 6.122631014603228,
+      "height": 4.081754009735485,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 60.60606670325887,
+      "x": -0.02317594138000089,
+      "y": -0.03,
+      "width": 6.148026931526829,
+      "height": 4.0986846210178856,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 61.67027785152995,
+      "x": -0.0721890731735973,
+      "y": -0.03,
+      "width": 6.458688521281922,
+      "height": 4.305792347521281,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 62.94772657205589,
+      "x": 0.05374298174434007,
+      "y": -0.03,
+      "width": 6.2007746683943274,
+      "height": 4.133849778929552,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 64.06808706388807,
+      "x": 0.034507408386857244,
+      "y": -0.03,
+      "width": 6.324278463480242,
+      "height": 4.216185642320162,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 65.16697900673583,
+      "x": 0.07296637546236139,
+      "y": -0.03,
+      "width": 6.304774252061394,
+      "height": 4.203182834707596,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 66.45749295524524,
+      "x": -0.03152076134433207,
+      "y": -0.03,
+      "width": 6.28816473219034,
+      "height": 4.192109821460226,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 67.83004445197263,
+      "x": 0.044309465270361045,
+      "y": -0.03,
+      "width": 6.145228259141,
+      "height": 4.096818839427333,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 68.91664231529356,
+      "x": -0.07863699774827525,
+      "y": -0.03,
+      "width": 6.1930753258731,
+      "height": 4.1287168839154,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 70.19006192570836,
+      "x": -0.033734396199464334,
+      "y": -0.03,
+      "width": 6.244594270983633,
+      "height": 4.163062847322422,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 71.3059301557485,
+      "x": -0.026600182480641853,
+      "y": -0.03,
+      "width": 6.33414287602073,
+      "height": 4.222761917347153,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 72.53365442370098,
+      "x": -0.011871164702373566,
+      "y": -0.03,
+      "width": 6.150107799327592,
+      "height": 4.100071866218395,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 73.5810729934641,
+      "x": -0.06865171723638534,
+      "y": -0.03,
+      "width": 6.440973900254654,
+      "height": 4.29398260016977,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 74.68292375168065,
+      "x": -0.006997585267147055,
+      "y": -0.03,
+      "width": 6.3384400170603605,
+      "height": 4.22562667804024,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 75.7018760593878,
+      "x": 0.025274524095586767,
+      "y": -0.03,
+      "width": 6.243620016433752,
+      "height": 4.162413344289168,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 76.82928421113783,
+      "x": 0.07589767484755554,
+      "y": -0.03,
+      "width": 6.385008236140627,
+      "height": 4.256672157427085,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 78.1161093518314,
+      "x": 0.006269331912240161,
+      "y": -0.03,
+      "width": 6.147865750216228,
+      "height": 4.098577166810819,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 79.38516272018447,
+      "x": 0.07324932033052094,
+      "y": -0.03,
+      "width": 6.378829515422534,
+      "height": 4.252553010281689,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 80.39962987157458,
+      "x": -0.012118168288299813,
+      "y": -0.03,
+      "width": 6.337354372818944,
+      "height": 4.224902915212629,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    },
+    {
+      "role": "whole",
+      "z": 81.69125119008869,
+      "x": 0.008124780914808824,
+      "y": -0.03,
+      "width": 6.3855377981722405,
+      "height": 4.257025198781494,
+      "uv": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "asset": "godot/assets/biomes/crystal/arch-study/surround-a.png"
+    }
+  ],
+  "lens": 1.0,
+  "horizon": 0.48,
+  "shots": [
+    {
+      "name": "cards-0",
+      "pose": [
+        0.0,
+        1.3,
+        4.0
+      ]
+    },
+    {
+      "name": "cards-1",
+      "pose": [
+        0.0,
+        1.3,
+        5.0
+      ]
+    },
+    {
+      "name": "cards-2",
+      "pose": [
+        0.0,
+        1.3,
+        6.0
+      ]
+    },
+    {
+      "name": "cards-3",
+      "pose": [
+        0.0,
+        1.3,
+        7.0
+      ]
+    },
+    {
+      "name": "cards-4",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ]
+    },
+    {
+      "name": "cards-5",
+      "pose": [
+        0.0,
+        1.3,
+        9.0
+      ]
+    },
+    {
+      "name": "cards-6",
+      "pose": [
+        0.0,
+        1.3,
+        10.0
+      ]
+    },
+    {
+      "name": "cards-7",
+      "pose": [
+        0.0,
+        1.3,
+        11.0
+      ]
+    },
+    {
+      "name": "cards-8",
+      "pose": [
+        0.0,
+        1.3,
+        12.0
+      ]
+    }
+  ]
+}

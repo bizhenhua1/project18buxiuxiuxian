@@ -1,0 +1,14 @@
+项目：黑暗童话绘本游戏。新场景风格：巨鲸体内，肋架与连续有机膜面
+空间族：鲸腹。本张唯一用途：有机地面。
+结构限制：有机曲面与肋架分工；不能用方房间顶替有机穹面。
+撒布用途：肋架基准130U节距乘0.83–1.18；软组织起伏与硬残骸接地分开。
+岔路要求：公共体腔扩大后分离管道；禁止多个肋环互穿，分离位置由通路与支撑决定。
+具体内容：organic ground and membrane surface。至少2个真正不同的轮廓或材质。
+表达方式：surface_texture。
+支撑/挂点：Soft tissue attaches to enclosing membrane; hard wreckage is grounded. Do not make rigid objects pulse with tissue or flatten ribs into a rectangular ceiling.
+拼组：Organic ceiling skin behind ribs every 5.395-7.67m. Soft pulse only if shared socket transforms keep attachments connected; initial static implementation preferred.
+光效：Preserve restrained warm organic environment and reference emissive accents. Character tint weaker than environment; no additional red combat wash.
+只制作指定部件或材质，不画整幅走廊背景，不烘焙消失点，不夹带人物。构件完整保留支撑端、挂点及连接边；结构连接件必须指定正面/侧面/转角。材质须无方向性投影、无道具且可平铺；独立物件须透明底、完整轮廓、无文字无水印。沿用参考图的线条与材料笔触，颜色由新风格决定；不能仅把参考改色。
+生成前必须查看并绑定对应参考图片，填写下列槽位的物理尺寸、视角和拆件方案。此提示仅是工单起点；缺少具体内容、尺寸和参考时不得调用生成或发布。
+
+最新光照裁决优先：诊断图露空不自动要求补顶。正式暗场可用相近深色背景、天空盒或雾衔接；只对正式照明或游戏允许灯光变化中穿帮的区域补面。先按 LIGHTING-ACCEPTANCE.md 对照，决定真正需要生成的顶部资产范围。

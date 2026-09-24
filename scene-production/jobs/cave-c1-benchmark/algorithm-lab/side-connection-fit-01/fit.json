@@ -1,0 +1,599 @@
+{
+  "scope": "bounded shape/roof-depth fit on recorded native cameras; new motion holdout and native render required",
+  "candidates": [
+    {
+      "height": 4.4,
+      "align_to_roof": false,
+      "exposed_samples": 1525
+    },
+    {
+      "height": 4.4,
+      "align_to_roof": true,
+      "exposed_samples": 746
+    },
+    {
+      "height": 4.8,
+      "align_to_roof": false,
+      "exposed_samples": 132
+    },
+    {
+      "height": 4.8,
+      "align_to_roof": true,
+      "exposed_samples": 0
+    }
+  ],
+  "accepted": {
+    "height": 4.8,
+    "align_to_roof": true,
+    "placements": [
+      {
+        "record_index": 1075,
+        "query_id": 63,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.43672422104909,
+          "y": -0.12630474765864477,
+          "z": 50.602900935124296,
+          "width": 3.2564589029272017,
+          "height": 4.884688354390803,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 63
+        },
+        "original_z": 51.2
+      },
+      {
+        "record_index": 1140,
+        "query_id": 64,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.614758777460774,
+          "y": -0.12693734037371462,
+          "z": 53.72321781241017,
+          "width": 3.2749667583623876,
+          "height": 4.912450137543582,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 64
+        },
+        "original_z": 54.4678546214544
+      },
+      {
+        "record_index": 1201,
+        "query_id": 65,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -8.392956799392179,
+          "y": -0.12812053096347054,
+          "z": 56.40396061343996,
+          "width": 3.309583534474104,
+          "height": 4.964375301711156,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 65
+        },
+        "original_z": 57.4677103740484
+      },
+      {
+        "record_index": 1255,
+        "query_id": 66,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -9.458137611313125,
+          "y": -0.12819640953488734,
+          "z": 58.95393033991383,
+          "width": 3.3118035246778414,
+          "height": 4.967705287016762,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 66
+        },
+        "original_z": 60.1843397941809
+      },
+      {
+        "record_index": 1310,
+        "query_id": 67,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -10.508005790150412,
+          "y": -0.12295326280806973,
+          "z": 62.79372323413853,
+          "width": 3.158404031870378,
+          "height": 4.737606047805567,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 67
+        },
+        "original_z": 63.5920590536166
+      },
+      {
+        "record_index": 1354,
+        "query_id": 68,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -10.531039708831626,
+          "y": -0.12112903854890479,
+          "z": 66.82192357806309,
+          "width": 3.105032442116524,
+          "height": 4.6575486631747856,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 68
+        },
+        "original_z": 67.0491478038797
+      },
+      {
+        "record_index": 1406,
+        "query_id": 69,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -10.003314837788809,
+          "y": -0.1203317411640111,
+          "z": 69.38054355342716,
+          "width": 3.0817057986270626,
+          "height": 4.622558697940594,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 69
+        },
+        "original_z": 70.2300458058911
+      },
+      {
+        "record_index": 1459,
+        "query_id": 70,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -8.418302701882247,
+          "y": -0.11972890494395509,
+          "z": 73.33186282589564,
+          "width": 3.0640685332174242,
+          "height": 4.596102799826136,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 70
+        },
+        "original_z": 73.6173522468265
+      },
+      {
+        "record_index": 1502,
+        "query_id": 71,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.61698486990713,
+          "y": -0.12126012865872694,
+          "z": 75.97488458188896,
+          "width": 3.108867764186749,
+          "height": 4.663301646280123,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 71
+        },
+        "original_z": 77.0086239655858
+      },
+      {
+        "record_index": 1552,
+        "query_id": 72,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.411038963441213,
+          "y": -0.12354712797681738,
+          "z": 79.78372663597337,
+          "width": 3.175778829950309,
+          "height": 4.763668244925464,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 72
+        },
+        "original_z": 80.1423461485242
+      },
+      {
+        "record_index": 1617,
+        "query_id": 73,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.409878281634473,
+          "y": -0.12342251489940673,
+          "z": 81.79848160461142,
+          "width": 3.1721330073426373,
+          "height": 4.758199511013956,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 73
+        },
+        "original_z": 83.0258242916627
+      },
+      {
+        "record_index": 1670,
+        "query_id": 74,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.400172645351285,
+          "y": -0.12238049873403373,
+          "z": 85.7080199866993,
+          "width": 3.1416465915328673,
+          "height": 4.712469887299301,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 74
+        },
+        "original_z": 86.4276878687618
+      },
+      {
+        "record_index": 1729,
+        "query_id": 75,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.3936322084918045,
+          "y": -0.12167830459267856,
+          "z": 89.73216487869186,
+          "width": 3.1211023972257905,
+          "height": 4.681653595838686,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 75
+        },
+        "original_z": 89.8859177112267
+      },
+      {
+        "record_index": 1777,
+        "query_id": 76,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.376775374424372,
+          "y": -0.11986852179402775,
+          "z": 92.37764956102528,
+          "width": 3.068153323345264,
+          "height": 4.602229985017896,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 76
+        },
+        "original_z": 92.7213024866602
+      },
+      {
+        "record_index": 1843,
+        "query_id": 77,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.372303457323381,
+          "y": -0.11938840799484167,
+          "z": 94.96545355020503,
+          "width": 3.0541065653347914,
+          "height": 4.581159848002187,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 77
+        },
+        "original_z": 96.1620113242619
+      },
+      {
+        "record_index": 1885,
+        "query_id": 78,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.405609989217094,
+          "y": -0.12296426264600717,
+          "z": 97.63488570777622,
+          "width": 3.1587258557003186,
+          "height": 4.738088783550478,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 78
+        },
+        "original_z": 98.8671369448124
+      },
+      {
+        "record_index": 1938,
+        "query_id": 79,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.468986992558605,
+          "y": -0.12976854214586264,
+          "z": 101.57739892186301,
+          "width": 3.3577996330675184,
+          "height": 5.036699449601278,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 79
+        },
+        "original_z": 102.093023443678
+      },
+      {
+        "record_index": 1978,
+        "query_id": 80,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.459544327416881,
+          "y": -0.12875475907849965,
+          "z": 104.28638263379365,
+          "width": 3.3281392370395277,
+          "height": 4.992208855559292,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 80
+        },
+        "original_z": 105.194306957785
+      },
+      {
+        "record_index": 2030,
+        "query_id": 81,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.4223731786897,
+          "y": -0.12476399157711517,
+          "z": 108.26859199933295,
+          "width": 3.2113807821418785,
+          "height": 4.817071173212818,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 81
+        },
+        "original_z": 108.274639669166
+      },
+      {
+        "record_index": 2075,
+        "query_id": 82,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.4194703827354465,
+          "y": -0.12445234170472597,
+          "z": 110.79990714764642,
+          "width": 3.2022627973039772,
+          "height": 4.803394195955966,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 82
+        },
+        "original_z": 110.993071604825
+      },
+      {
+        "record_index": 2144,
+        "query_id": 83,
+        "card": {
+          "role": "left",
+          "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+          "branch": -1,
+          "owner_branch": -1,
+          "x": -7.402823766334352,
+          "y": -0.12266512828743055,
+          "z": 113.4823189739212,
+          "width": 3.149974039037963,
+          "height": 4.724961058556945,
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "study_profile": {
+            "clear_body_height_m": 2.0,
+            "inward_opaque_body_limit_m": -2.0
+          },
+          "id": 83
+        },
+        "original_z": 114.190894215115
+      }
+    ]
+  },
+  "art_accepted": false
+}

@@ -1,0 +1,26 @@
+{
+  "job": "dark_tailor_room",
+  "assets_checked": false,
+  "publication_allowed": false,
+  "errors": [
+    "slot_1: visual reference missing",
+    "slot_1: variant requirement unspecified",
+    "slot_1: needs assets",
+    "slot_2: visual reference missing",
+    "slot_2: variant requirement unspecified",
+    "slot_2: needs assets",
+    "slot_3: visual reference missing",
+    "slot_3: variant requirement unspecified",
+    "slot_3: needs assets",
+    "slot_4: visual reference missing",
+    "slot_4: variant requirement unspecified",
+    "slot_4: needs assets",
+    "slot_5: visual reference missing",
+    "slot_5: variant requirement unspecified",
+    "slot_5: needs assets",
+    "slot_6: visual reference missing",
+    "slot_6: variant requirement unspecified",
+    "slot_6: needs assets"
+  ],
+  "assets": []
+}

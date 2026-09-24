@@ -1,0 +1,18 @@
+{
+  "draws_p95": 425.0,
+  "family": "sewer",
+  "full_performance_accepted": false,
+  "max_ms": 74.579,
+  "p50_ms": 9.413,
+  "p95_ms": 13.501,
+  "scope": "300 measured frames after 120 warmup; travel/left fork only; not full stress acceptance",
+  "states": [
+    "approach",
+    "travel"
+  ],
+  "viewport": [
+    1440,
+    900
+  ],
+  "vsync": false
+}

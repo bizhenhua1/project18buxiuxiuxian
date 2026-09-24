@@ -1,0 +1,1017 @@
+{
+  "shots": 56,
+  "expected_shots": 56,
+  "source_checks_passed": true,
+  "errors": [],
+  "visual_accepted": false,
+  "items": [
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "forest/entry/beauty.png",
+      "diagnostic": "forest/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "8f97bb0dd3a0db749ce14b46b7162817e7b8e7abb5bac8bf8d0950aa70ffccfe",
+        "diagnostic": "c4196c29be2bd9d061edc77767f3b8facc5b5dc0cd37603659fdfa1a730ad8d5"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "forest/junction2/beauty.png",
+      "diagnostic": "forest/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "26c561e0c16b99ba82512ddbf259f0edfdf7987ee3a972f8ece83ad44d2361e6",
+        "diagnostic": "f09cccaefb04421f7a5beac7aebcf3dc876da77c9c5ff5f86e3266ff95a50cb1"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "forest/junction3/beauty.png",
+      "diagnostic": "forest/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "f80183cc5fa0e0959de889936c95bfc47e4320ac8b36d9709f22b3f59dbc8cd7",
+        "diagnostic": "a581b58c46706cbff2388d23893984e16eef75d333065481117f99db07c47afb"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "forest/left/beauty.png",
+      "diagnostic": "forest/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "d79620fee0bfedfbfc88ae8c40f988fe10d546790a542ac79a57fb5220752da0",
+        "diagnostic": "2d850a8752d381e65e43c230f48756bb45e9dc0537d242e9572a1968ca615bbe"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "forest/right/beauty.png",
+      "diagnostic": "forest/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "0d1b8afcd419bcccf4763fe44c6d253b7dc8ab9c9ea1fef3dc50cd0d22447a48",
+        "diagnostic": "53027c987c6753b1f51c0a8370d17782755f917c3b89c406e16cc244d5156303"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "forest/center/beauty.png",
+      "diagnostic": "forest/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "53f0d9eebe6d1facdd9c861ecabae1ba0c05202a3c1472fbdb55e83f830fa06f",
+        "diagnostic": "cd310fd1f8cab7aa0e9e809adf81f839d59b953730783792b355d683d11f2c29"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "forest/battle/beauty.png",
+      "diagnostic": "forest/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "264fe21e57af203b4a9db7c342c9fab893b2702ec0cf46bb140f54c51dc7b7af",
+        "diagnostic": "e7449704896497ec906d0eb35d9426a45fe448e40360cad030f2a25a3e22370a"
+      }
+    },
+    {
+      "family": "forest",
+      "title": "森林",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "forest/departure/beauty.png",
+      "diagnostic": "forest/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "forest/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "3caff5e6a94b8484654c65b8ff8ce0f2c0d0f4cc86da8370514f52ace0a9b0a8",
+        "diagnostic": "593970034859fa317d1c049a64c0ef8b372f5fd225c1144f4a46321da3465ca2"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "swamp/entry/beauty.png",
+      "diagnostic": "swamp/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "0d6834209a210b6803f4d3b9a2a59f7f4334f52df1b8e190ee6cecb2a4125d64",
+        "diagnostic": "c73460ab5935b7504b8165903e13890dd859323a83f2af4bcc992193c9a2dcb3"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "swamp/junction2/beauty.png",
+      "diagnostic": "swamp/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "03412e357d060c8afad08bee027c6071149fec61c421d78e29efe3aafc235c08",
+        "diagnostic": "febd718e3f2f493e2b9bb82b2dc0daaaff87c8b6f4fad356d12ebf16318ffecf"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "swamp/junction3/beauty.png",
+      "diagnostic": "swamp/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "8ef33af8429eec561ef031431bebc5757d4ae7340b7dcf3fa4f0d160eebf29d1",
+        "diagnostic": "190890088b3eda55d5ea5365b6473c3f22be3ef5f91d98e46ba8d4c11d370ce9"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "swamp/left/beauty.png",
+      "diagnostic": "swamp/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "bb6e05d4b6daaba3c4a183f194ef161711dafe1e23ef2672ebf70954a68aa399",
+        "diagnostic": "b8601060c3e99658d1d934fb99d38df91051a7dfe0cb89b03ddf85dcd86fd336"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "swamp/right/beauty.png",
+      "diagnostic": "swamp/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "99032a2db2fdd44d103f6c6fb94c644b871185cd318942ecd6572fc23340de7f",
+        "diagnostic": "1fc52f970f8a1301459f0b8436ac928b17daf7b91b8d14414d41a2b640724fd6"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "swamp/center/beauty.png",
+      "diagnostic": "swamp/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "b951b09634dc830ae8a0a4e68718524d4c611e315ea57203a61015273660dfbd",
+        "diagnostic": "a32ac7fec111900061330425f62ffde0a2f78744022bf3114a03c5485ab36936"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "swamp/battle/beauty.png",
+      "diagnostic": "swamp/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "c19f68e1b5a52e1d87a6cc9dac96f669667c4b0b01ddde0d9fcaa2880e5751c9",
+        "diagnostic": "502e41e16448c3e42f34500ba3dd6658628b049a58e4cbd93abd0de7332b22fc"
+      }
+    },
+    {
+      "family": "swamp",
+      "title": "沼泽",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "swamp/departure/beauty.png",
+      "diagnostic": "swamp/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "swamp/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "cd950b42d54a3c879b463f0f26dbedfe940aeffdb1d24143c325499d5c1ff9df",
+        "diagnostic": "0003e874190a093b1f71a57b1d471daab9d0655965b1e8b7c89a20a8f1964e81"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "crystal/entry/beauty.png",
+      "diagnostic": "crystal/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "19b8175d3ff8d924b615ceb3f8a98ebd7481e966d647e7886a46f951c07bae6e",
+        "diagnostic": "0a59d4cc0be3ce10b9e72e4dc2c5d004a44b2545d2aa65394f033b13f1d0e3b2"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "crystal/junction2/beauty.png",
+      "diagnostic": "crystal/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "5e6e4c5fe5a68b68523c69bf8d3ad0e7dddc1790436d1d174833be93324644bd",
+        "diagnostic": "94e1114c9bfe249b7440600c3f465cdc50ec8347ebf269e8cf503dd02eeff4b0"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "crystal/junction3/beauty.png",
+      "diagnostic": "crystal/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "d754f654120c9a83fec394c55ed255d40daf408b4774f713110fd7607ac0b533",
+        "diagnostic": "8fa24f61855f7be86c4191039788fb53ec7e986457b56e3e3a319e95ea88b826"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "crystal/left/beauty.png",
+      "diagnostic": "crystal/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "00aab82ae2ef0a64183e37ec2b41a894362d442a1aec432078333c54a357bb58",
+        "diagnostic": "063d6a562cae2460b5105cc44d5b9cacc5b576c1a97a5f36c12ad92f2f553ff7"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "crystal/right/beauty.png",
+      "diagnostic": "crystal/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "41c242aceb322c1d8e66c066c849c497a32766d4c7a1f35317cd8cda9621584c",
+        "diagnostic": "e9d5f55beeb907aa4b982d1b7453430fcad645b5e52fb745464e4d304eab237f"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "crystal/center/beauty.png",
+      "diagnostic": "crystal/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "2cf96bde65fb7999dab188a709d0dcb6c5d7be676934f18d92ddd7ce00ad0838",
+        "diagnostic": "e3ca02afe11fce8fec84ebe4015165ae1866a24cf48586be2e377abecc389b23"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "crystal/battle/beauty.png",
+      "diagnostic": "crystal/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "6598d62487316124e51d3694c43eddf0c72b8b898a43eaac050fc7ab90452d87",
+        "diagnostic": "ab3816631f39c66d67f9bb68d787fe22d5e571f42aca77792f469497855e9aca"
+      }
+    },
+    {
+      "family": "crystal",
+      "title": "矿洞",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "crystal/departure/beauty.png",
+      "diagnostic": "crystal/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "crystal/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "fecc874b8b58a767a0802b71b8e3b1ef0c7259cb6d948def8665da73b0e442c4",
+        "diagnostic": "df32e436906913289a02ab60b34a72dc87a57911f4bec84b22efe74005671c3d"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "sewer/entry/beauty.png",
+      "diagnostic": "sewer/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "4a745b83528b437c546a3a3707d771032356be37246de8c1e96b83bb86601652",
+        "diagnostic": "09bb7d1f2c5d2fdd3d472cb1459b9a9a4a5721724296d82ca604430f9e527f8b"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "sewer/junction2/beauty.png",
+      "diagnostic": "sewer/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "ba8a7f5aab173ebef903051ea37be1f39e7fd25d531d1062182834f878500f73",
+        "diagnostic": "ba9291f4d7cdbcd0e15dae9d78a6181a7744d5b0003767d1b4072c23656c158a"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "sewer/junction3/beauty.png",
+      "diagnostic": "sewer/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "0ad4ee66c604c76bdfb07e8b2eaa4202ae3f1eae9c995607ee4306098a1dc249",
+        "diagnostic": "413f7326f193f8709416c6ad1375d55641acdf26dc0cb80d593bcff46756fd73"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "sewer/left/beauty.png",
+      "diagnostic": "sewer/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "a7555a41987142f530570af24c0084de3feb094cd797ea431c176a99e8acdcb8",
+        "diagnostic": "b7eff8a981bccfe48391ef588a042b194fdcfcc0bb8e8123a095ef82d1abb6e2"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "sewer/right/beauty.png",
+      "diagnostic": "sewer/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "c9d7b481bb8089d7a8136d96bc63e7cb2ffa1257178b7bb95ef42e57edb8a099",
+        "diagnostic": "43e3fbf0d3dace8c4df1595f6fece0709891305a70decbb77e2cfd8de6bbf442"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "sewer/center/beauty.png",
+      "diagnostic": "sewer/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "8f5e5e8a30c00ac2b7dc9bb9b1cfa682aaf112f9faf0c6a46811c226935bff3d",
+        "diagnostic": "d13f5ded294cf8a06e2b386c3123f5e751d500593b6e6e9fc85cce65f2ab94b8"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "sewer/battle/beauty.png",
+      "diagnostic": "sewer/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "99a6365e884e4c4900ee9199e24282c2c700b000e4527517b6b3879af3324607",
+        "diagnostic": "765de60b3583b3657d55a40ea6ee18862ffc58ed12d138b616b4f64b3b872bdf"
+      }
+    },
+    {
+      "family": "sewer",
+      "title": "下水道",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "sewer/departure/beauty.png",
+      "diagnostic": "sewer/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "sewer/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "509ad895f2abcec784ecf3a619ceac8c05b3617d84b4ab48cf318cce4c38a675",
+        "diagnostic": "9efb947ca9d9af88ef987fae7249e33902a20f6408fd5b3695d56dc5ffa55ae1"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "whale/entry/beauty.png",
+      "diagnostic": "whale/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "35afde0041988862a770ae9c8f40871e5eb9c8852518db7e1573a4d607621f48",
+        "diagnostic": "a01b68bbe163680730003231af9c086a0c340ed0cee83a4c000ef4d82a24fbb4"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "whale/junction2/beauty.png",
+      "diagnostic": "whale/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "458adfb3f8bcd3a5ecb4fa14bd2f0db87aba3d027015ebe400ddf6246fb211a6",
+        "diagnostic": "363431ee6e1b3f2d074c5daf9362f13b9bfe8a2b6ea9c83f3ab65ab9d3d3d710"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "whale/junction3/beauty.png",
+      "diagnostic": "whale/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "7fc8519835a62cdc2a10690dab70cd20258ba7a732fa2e03ce6a8860612ad806",
+        "diagnostic": "1f768afb7ba808965ffe6d4d2e11640f62a46e8be6ce32a925a6a690d0689b59"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "whale/left/beauty.png",
+      "diagnostic": "whale/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "618788804fff466688db3cebc1347e6e80695ad54fd8165981a0ab8af8ff41f1",
+        "diagnostic": "163c1494adb478428e42de8b80f243242672dda948a06a6782798cd8c633ad2a"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "whale/right/beauty.png",
+      "diagnostic": "whale/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "41b5cbd3769cff1205d4c097abae7cbb2594b0d9dc9886072a26467faf8ac361",
+        "diagnostic": "bbdc17acdfd565f6e854fc676f2d75808ee5a9d354de9423c96585af24a853d8"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "whale/center/beauty.png",
+      "diagnostic": "whale/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "1b3ae4de3329e66884cf39de54db38066f1b6b80f828e696f309490fb0625da6",
+        "diagnostic": "5679f62aac420981ed2d55cdd36e4f3fc79e5d4c103310999b4870b0cd8793c6"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "whale/battle/beauty.png",
+      "diagnostic": "whale/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "14981276a263e50e2f81783c3e7dfde74cd562154c1f080757cac64e1959dabf",
+        "diagnostic": "80c910ae7a2f5632a3873525b6ef92d283c718239c93516956d5cb13d8ea100c"
+      }
+    },
+    {
+      "family": "whale",
+      "title": "鲸腹",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "whale/departure/beauty.png",
+      "diagnostic": "whale/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "whale/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "b8a08b84a69511da2cef1569a367f81289f8b84e439d6102c927a668a61de28b",
+        "diagnostic": "428ca5e48d93cca259db186297ad9a706c5becc5a09eba60f981c94ab551c44c"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "palace/entry/beauty.png",
+      "diagnostic": "palace/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "efe13f462b29d8a8e189bd0f5cd22b9848b3f1ee7f6391f006c7566631183e73",
+        "diagnostic": "d69a57136f3cf1c7da8420ef94715f1358d7759b3738953e1947e134e5e3bd25"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "palace/junction2/beauty.png",
+      "diagnostic": "palace/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "fb7a9fffbb4f5a689e1b077c35428e4a9eae612f0fa70b0a01c61d5660b6c0b6",
+        "diagnostic": "8ae7e570a84ab8d3cc24edfd243b71b349c26f43a9fd009cbc110ea1eded93af"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "palace/junction3/beauty.png",
+      "diagnostic": "palace/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "54236fe76971dfd984cb6e0cb9403378c53ab70d4195ad2d7861b3d7d7464961",
+        "diagnostic": "f06fd2adac05cfbe5fea1ee1067bd17deba7c67dac0deedcf790e4f057617f56"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "palace/left/beauty.png",
+      "diagnostic": "palace/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "bdc5f8b6d6e2800f6d3793c0fae30d3d6d15c09c5ead2d0a281df72eb7a87afe",
+        "diagnostic": "7a61799768ce980248c1c5076e853aca8521120538c136755c2f18a79b663ec4"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "palace/right/beauty.png",
+      "diagnostic": "palace/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "8d5dc706a60152dc96e30fc772627261c6e8b3a550f5c067358f8870d944d852",
+        "diagnostic": "78d96192c66338c33ee6855c0a8da5210144dd1b95c5a51cbe625d06b78fa9f9"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "palace/center/beauty.png",
+      "diagnostic": "palace/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "ec17e7e193d9da084290911970151a14842a0c3ef6217d8cd5ded73ee088a160",
+        "diagnostic": "26daae9039c6e12d00147c39bbb5d7a3be71af4e89c45c64febfb4e15e0ba532"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "palace/battle/beauty.png",
+      "diagnostic": "palace/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "849889b4757468d7823780005011b2d8d6b5babd4bda4503f89b1241819e0cfb",
+        "diagnostic": "09c4319609e05281d09e251c7c9111be86cf81826a3d15034a00fe00ea937f29"
+      }
+    },
+    {
+      "family": "palace",
+      "title": "宫殿",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "palace/departure/beauty.png",
+      "diagnostic": "palace/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "palace/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "67c18135c2954d72551c893204617103ec27d2b95acb351f79af875136288781",
+        "diagnostic": "4c6193218a18edfc072ce42460289499a1e069c1e0db7b31f909ee6fb62f0e46"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "entry",
+      "label": "入口 / 前进",
+      "beauty": "red_cottage/entry/beauty.png",
+      "diagnostic": "red_cottage/entry/diagnostic.png",
+      "phase": "approach",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/entry/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "c3a4778c4a67f854c1763e18b48723da97444c4b83318dc99a7b7546571bc986",
+        "diagnostic": "6f715b05907e1d90b0f8a6baadf3d21b485dc9eed9c03c0ca090854bf4adb7bd"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "junction2",
+      "label": "两岔路口",
+      "beauty": "red_cottage/junction2/beauty.png",
+      "diagnostic": "red_cottage/junction2/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/junction2/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "b93a5bba73f9d2ae1ed74a63eac9b4500c1c6885f2fec84beb29ed8ba3f141c3",
+        "diagnostic": "2fb53ecc6ed4e7386b15b93d3c787d73c53d9dbb3be923c3005c5f03f4e4b775"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "junction3",
+      "label": "三岔路口",
+      "beauty": "red_cottage/junction3/beauty.png",
+      "diagnostic": "red_cottage/junction3/diagnostic.png",
+      "phase": "choose",
+      "branch": 0,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/junction3/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "d52eb906ffae20ee72791a92b06ea8f637990b82163c57f78a47c60c48f5ad9d",
+        "diagnostic": "359b356fe53f3a83f162f59bd959a713e67846601b8c764e4a91b0384164a794"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "left",
+      "label": "选择左路",
+      "beauty": "red_cottage/left/beauty.png",
+      "diagnostic": "red_cottage/left/diagnostic.png",
+      "phase": "travel",
+      "branch": -1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/left/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "224bfce863399b653932ba737928409a0c6be07055958ce3fb1251e986104a36",
+        "diagnostic": "bd0553b9f4ecfb2921473c94a15264c46e7b8eb38251482ffc5dd2bc072f7d27"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "right",
+      "label": "选择右路",
+      "beauty": "red_cottage/right/beauty.png",
+      "diagnostic": "red_cottage/right/diagnostic.png",
+      "phase": "travel",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/right/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "a7b0996a7ba5d6e879900e92252902b636c7bdbb34516b0d888bd38a6e2aca77",
+        "diagnostic": "1884326e38fc9b00e558412e15f7b575c4557a1cd1058de61402f713b97898fa"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "center",
+      "label": "选择中路",
+      "beauty": "red_cottage/center/beauty.png",
+      "diagnostic": "red_cottage/center/diagnostic.png",
+      "phase": "travel",
+      "branch": 2,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/center/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "c16ee4de111b6015d05784fefdf67a976fabd6f10fa5489c15596e3b12be80e5",
+        "diagnostic": "b6f033528dc985051a2903e0b8f0fd5ee8072e361db79f5def9d7cb7bad94fc8"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "battle",
+      "label": "战斗机位",
+      "beauty": "red_cottage/battle/beauty.png",
+      "diagnostic": "red_cottage/battle/diagnostic.png",
+      "phase": "battle",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/battle/manifest.json",
+      "test_victory": false,
+      "image_hashes": {
+        "beauty": "5b9335a2d29a46b489636db5e47292ba4632b3b67e3fa513088022078810cda7",
+        "diagnostic": "d54277b3dcf587435ccfb159d639c40e56b6043e9300b759a90ecd2f7251873a"
+      }
+    },
+    {
+      "family": "red_cottage",
+      "title": "低顶室内",
+      "case": "departure",
+      "label": "战后继续前进",
+      "beauty": "red_cottage/departure/beauty.png",
+      "diagnostic": "red_cottage/departure/diagnostic.png",
+      "phase": "clearing",
+      "branch": 1,
+      "seed": 106571,
+      "source_valid": true,
+      "manifest": "red_cottage/departure/manifest.json",
+      "test_victory": true,
+      "image_hashes": {
+        "beauty": "1eb4714c275a0be372b444b9f8ebdda959ed9fd97bd2c4e4889d3f744777ef01",
+        "diagnostic": "55c7a5885d2e7187d9c10a58a6c2321c8a95a2532f35b5140e1ed6ecdf1b03f9"
+      }
+    }
+  ]
+}

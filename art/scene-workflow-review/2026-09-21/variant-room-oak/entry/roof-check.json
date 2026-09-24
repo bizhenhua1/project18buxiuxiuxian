@@ -1,0 +1,9 @@
+{
+  "misses": [],
+  "passed": true,
+  "passed_meaning": "geometric coverage only; not scene acceptance",
+  "rays": 65,
+  "scope": "upper 30 percent, current camera only",
+  "triangle_count": 439,
+  "visual_failure_inferred": false
+}

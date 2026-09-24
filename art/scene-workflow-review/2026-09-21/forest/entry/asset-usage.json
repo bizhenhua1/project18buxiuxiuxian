@@ -1,0 +1,111 @@
+{
+  "res://assets/style2/clover.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.33948278427124,
+    "canvas_height_m_min": 0.283973741531372,
+    "count": 1100,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/fern.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.34953193664551,
+    "canvas_height_m_min": 0.272957801818848,
+    "count": 604,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/litter.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 0.449472427368164,
+    "canvas_height_m_min": 0.250821042060852,
+    "count": 247,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/reeds.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.34655418395996,
+    "canvas_height_m_min": 0.277388548851013,
+    "count": 217,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/rocks.png": {
+    "branches": [
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.04566068649292,
+    "canvas_height_m_min": 0.612665176391602,
+    "count": 8,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/short-grass.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.34930419921875,
+    "canvas_height_m_min": 0.251762890815735,
+    "count": 2001,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/shrub.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.3452486038208,
+    "canvas_height_m_min": 0.273360419273376,
+    "count": 208,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/stump.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.09544162750244,
+    "canvas_height_m_min": 0.606722974777222,
+    "count": 19,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/tree-a.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 17.7479339599609,
+    "canvas_height_m_min": 4.76279602050781,
+    "count": 1237,
+    "semantic_support_verified": false
+  },
+  "res://assets/style2/tree-b.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 17.7471618652344,
+    "canvas_height_m_min": 4.75576629638672,
+    "count": 1284,
+    "semantic_support_verified": false
+  }
+}

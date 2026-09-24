@@ -1,0 +1,31 @@
+[
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.prompt.txt",
+    "tool": "built_in_image_gen",
+    "inputs": [
+      "godot/assets/biomes/crystal/cards-study/shoulder-left-a.png",
+      "godot/assets/biomes/crystal/cards-study/roof-coverage-a.png"
+    ],
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-d924d429-b0a6-4add-9a30-a4a5eff23596.png",
+    "sha256": "0e0a88f728fc1da4c972bb1d1a58320e4862d3b2368d8e2f55ec730726cdc7d9",
+    "bytes": 2350354,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_ground_contact_and_hidden_top_connection_required"
+  },
+  {
+    "asset": "godot/assets/biomes/crystal/cards-study/shoulder-right-covered-c.png",
+    "prompt": "godot/assets/biomes/crystal/cards-study/shoulder-right-covered-c.prompt.txt",
+    "tool": "built_in_image_gen",
+    "inputs": [
+      "godot/assets/biomes/crystal/cards-study/shoulder-right-b.png",
+      "godot/assets/biomes/crystal/cards-study/shoulder-left-covered-c.png",
+      "godot/assets/biomes/crystal/cards-study/roof-coverage-a.png"
+    ],
+    "output_original": "C:/Users/admin/.codex/generated_images/01a07252-c2fb-7271-92fd-cbe98920f3a0/exec-49fca367-ed65-4a1a-9288-3b073f432cdd.png",
+    "sha256": "edd37ba7c664f62e2dccc8e4062b749de130207ca609e2459f0f02bea0312192",
+    "bytes": 2131721,
+    "pixel_editing_after_generation": false,
+    "status": "candidate_ground_contact_and_joint_coverage_required"
+  }
+]

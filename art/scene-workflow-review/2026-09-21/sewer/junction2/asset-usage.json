@@ -1,0 +1,112 @@
+{
+  "res://assets/biomes/sewer/prop-0.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24278955459595,
+    "canvas_height_m_min": 0.362915420532227,
+    "count": 90,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-1.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24838943481445,
+    "canvas_height_m_min": 0.369706845283508,
+    "count": 82,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.22680492401123,
+    "canvas_height_m_min": 0.351506567001343,
+    "count": 84,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-3.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 6.0,
+    "canvas_height_m_min": 0.358670926094055,
+    "count": 134,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-4.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.175927734375,
+    "canvas_height_m_min": 0.361590671539307,
+    "count": 47,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-5.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.21864881515503,
+    "canvas_height_m_min": 0.3740638256073,
+    "count": 80,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.20883159637451,
+    "canvas_height_m_min": 0.412031602859497,
+    "count": 83,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-7.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24012136459351,
+    "canvas_height_m_min": 0.100009405612946,
+    "count": 283,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/prop-8.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.22423295974731,
+    "canvas_height_m_min": 0.354531574249268,
+    "count": 82,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/sewer/shell.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 15.2222304046154,
+    "canvas_height_m_min": 1.67940379414558,
+    "count": 82,
+    "semantic_support_verified": false
+  }
+}

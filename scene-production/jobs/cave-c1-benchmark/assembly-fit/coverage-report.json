@@ -1,0 +1,78 @@
+{
+  "status": "fixture_only_not_visual_acceptance",
+  "candidate_count": 32,
+  "method": "project original alpha into declared view samples; union structural silhouettes",
+  "source_manifest": "scene-production\\jobs\\cave-c1-benchmark\\minimal-assembly-v2\\manifest.json",
+  "asset_sha256": {
+    "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png": "d0b2aece90ea7c73e34f0a6d5ae2cb6e075091cf2d12e16a17b2dacdbc369689",
+    "res://assets/biomes/crystal/c1-candidates/shoulder-connector-v1.png": "3ce747ebd5c85f038b64faf8dd30935ab9c26217b2b392f64ea9c43a82e6f3aa",
+    "res://assets/biomes/crystal/c1-candidates/roof-underside-v1.png": "71915dd0df0624d7726c1eea6136e09be449678e6c4a635a377c6eefc2b4e4fd"
+  },
+  "inspection_grid": [
+    388,
+    208
+  ],
+  "authored_fixture_goal": 0.98,
+  "goal_is_not_global_scene_standard": true,
+  "baseline": [
+    {
+      "view": "left",
+      "coverage": {
+        "top": 0.9083310114237949,
+        "left": 1.0,
+        "right": 0.7041499330655957
+      }
+    },
+    {
+      "view": "front",
+      "coverage": {
+        "top": 0.8745472276400111,
+        "left": 0.8718206157965194,
+        "right": 0.8718206157965194
+      }
+    },
+    {
+      "view": "right",
+      "coverage": {
+        "top": 0.9071468375592087,
+        "left": 0.7064926372155288,
+        "right": 1.0
+      }
+    }
+  ],
+  "best": [
+    {
+      "view": "left",
+      "coverage": {
+        "top": 0.9812621900250766,
+        "left": 0.9948683623382418,
+        "right": 0.9228023203926818
+      }
+    },
+    {
+      "view": "front",
+      "coverage": {
+        "top": 0.9864168292003344,
+        "left": 0.9911869701026328,
+        "right": 0.9911869701026328
+      }
+    },
+    {
+      "view": "right",
+      "coverage": {
+        "top": 0.9763165227082753,
+        "left": 0.928937974118697,
+        "right": 0.9991075412762159
+      }
+    }
+  ],
+  "worst_region_coverage": 0.9228023203926818,
+  "fixture_goal_met": false,
+  "limitations": [
+    "sampled lateral views only",
+    "no continuous travel proof",
+    "no perspective camera yaw",
+    "no overdraw/performance or gameplay clearance certification",
+    "asset variety still insufficient"
+  ]
+}

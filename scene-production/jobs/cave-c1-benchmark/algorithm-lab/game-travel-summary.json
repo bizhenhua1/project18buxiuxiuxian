@@ -1,0 +1,117 @@
+{
+  "status": "five_single_fork_travel_cases_checked_not_art_accepted",
+  "date": "2026-09-23",
+  "rows": [
+    {
+      "run": "game-card-fork-left-formation-01",
+      "manifest_sha256": "0a9b86ba42f455f55292fae62bf392feaab4167aaefcfbf80cb8151fa68e69f2",
+      "status": "sampled_travel_checks_pass_not_art_accepted",
+      "exits": 3.0,
+      "branch": -1,
+      "views": 15,
+      "trajectory_samples": 149,
+      "body_intersections": 0,
+      "boundary_components": 0,
+      "retirement": {
+        "rgba_identical": false,
+        "max_channel_delta": 1,
+        "changed_pixels": 2,
+        "alpha_identical": true,
+        "tolerance": "one RGB code value in 8-bit output; alpha must match exactly"
+      },
+      "released_batches": 56,
+      "released_instances": 616
+    },
+    {
+      "run": "game-card-fork-middle-formation-01",
+      "manifest_sha256": "aa4728578e7ff8cc187d76de82fbeb4b4a37c0725f02e0c296a4f8abe95990fe",
+      "status": "sampled_travel_checks_pass_not_art_accepted",
+      "exits": 3.0,
+      "branch": 0,
+      "views": 15,
+      "trajectory_samples": 143,
+      "body_intersections": 0,
+      "boundary_components": 0,
+      "retirement": {
+        "rgba_identical": false,
+        "max_channel_delta": 1,
+        "changed_pixels": 1,
+        "alpha_identical": true,
+        "tolerance": "one RGB code value in 8-bit output; alpha must match exactly"
+      },
+      "released_batches": 46,
+      "released_instances": 616
+    },
+    {
+      "run": "game-card-fork-right-formation-01",
+      "manifest_sha256": "60461697f2b468877ea312ebcfbd4e6bdaeab7612c28456d4d86b6b3e8e83998",
+      "status": "sampled_travel_checks_pass_not_art_accepted",
+      "exits": 3.0,
+      "branch": 1,
+      "views": 15,
+      "trajectory_samples": 149,
+      "body_intersections": 0,
+      "boundary_components": 0,
+      "retirement": {
+        "rgba_identical": false,
+        "max_channel_delta": 1,
+        "changed_pixels": 4,
+        "alpha_identical": true,
+        "tolerance": "one RGB code value in 8-bit output; alpha must match exactly"
+      },
+      "released_batches": 56,
+      "released_instances": 616
+    },
+    {
+      "run": "game-card-fork-2way-left-formation-01",
+      "manifest_sha256": "9f376190440a7e139c9552c98b0739ccdd271fffff569dbb4108b246783d5651",
+      "status": "sampled_travel_checks_pass_not_art_accepted",
+      "exits": 2.0,
+      "branch": -1,
+      "views": 15,
+      "trajectory_samples": 147,
+      "body_intersections": 0,
+      "boundary_components": 0,
+      "retirement": {
+        "rgba_identical": false,
+        "max_channel_delta": 1,
+        "changed_pixels": 1,
+        "alpha_identical": true,
+        "tolerance": "one RGB code value in 8-bit output; alpha must match exactly"
+      },
+      "released_batches": 32,
+      "released_instances": 308
+    },
+    {
+      "run": "game-card-fork-2way-right-formation-01",
+      "manifest_sha256": "281d3e0ef96eaf730ceb1c8b40de0d18ebe2765e85e97d11ebba6e1b39f440ee",
+      "status": "sampled_travel_checks_pass_not_art_accepted",
+      "exits": 2.0,
+      "branch": 1,
+      "views": 15,
+      "trajectory_samples": 147,
+      "body_intersections": 0,
+      "boundary_components": 0,
+      "retirement": {
+        "rgba_identical": true,
+        "max_channel_delta": 0,
+        "changed_pixels": 0,
+        "alpha_identical": true,
+        "tolerance": "one RGB code value in 8-bit output; alpha must match exactly"
+      },
+      "released_batches": 34,
+      "released_instances": 308
+    }
+  ],
+  "structural_art": "2D bitmap cards only",
+  "art_accepted": false,
+  "pending": [
+    "visual variety and atmosphere",
+    "terminal treatment",
+    "events and prepared combat zones",
+    "door variants",
+    "repeated forks and saves",
+    "export and scoped full frame performance",
+    "indoor benchmark"
+  ]
+}

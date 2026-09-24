@@ -1,0 +1,112 @@
+{
+  "res://assets/biomes/swamp/prop-0.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 8.2401611328125,
+    "canvas_height_m_min": 0.311565234024002,
+    "count": 157,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-1.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.42476857945644,
+    "canvas_height_m_min": 0.331269276461441,
+    "count": 201,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.87994546847824,
+    "canvas_height_m_min": 0.282468897917587,
+    "count": 133,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-3.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.92535216389779,
+    "canvas_height_m_min": 0.30679229121655,
+    "count": 203,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-4.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.1753604888916,
+    "canvas_height_m_min": 0.450293217836929,
+    "count": 54,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-5.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.44636721615498,
+    "canvas_height_m_min": 0.550894355773926,
+    "count": 46,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.69122651183034,
+    "canvas_height_m_min": 0.374670556410013,
+    "count": 159,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-7.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.91492371890861,
+    "canvas_height_m_min": 0.100442981719971,
+    "count": 691,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/prop-8.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 2.7480104771957,
+    "canvas_height_m_min": 0.316261512395558,
+    "count": 206,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/swamp/shell.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 19.2416825294495,
+    "canvas_height_m_min": 11.7963793873787,
+    "count": 22,
+    "semantic_support_verified": false
+  }
+}

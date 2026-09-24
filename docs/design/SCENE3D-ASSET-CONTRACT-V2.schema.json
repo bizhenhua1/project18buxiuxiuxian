@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scene3d:asset-contract:2",
+  "title": "Scene3D asset or production request; examples are not runtime assets",
+  "oneOf": [{"$ref":"#/$defs/asset"},{"$ref":"#/$defs/request"}],
+  "$defs": {
+    "nonempty": {"type":"string","minLength":1},
+    "vec2": {"type":"array","prefixItems":[{"type":"number"},{"type":"number"}],"items":false,"minItems":2},
+    "vec3": {"type":"array","prefixItems":[{"type":"number"},{"type":"number"},{"type":"number"}],"items":false,"minItems":3},
+    "size2": {"type":"array","items":{"type":"integer","minimum":1},"minItems":2,"maxItems":2},
+    "polygon": {"type":"array","items":{"$ref":"#/$defs/vec2"},"minItems":3},
+    "point_list": {"type":["array","null"],"items":{"$ref":"#/$defs/vec3"}},
+    "polygons": {"type":["array","null"],"items":{"$ref":"#/$defs/polygon"}},
+    "role": {"enum":["ground","wall","roof","structure","furnishing","cover","litter","landmark","hanging","water","background"]},
+    "asset": {
+      "type":"object","additionalProperties":false,
+      "required":["record_type","schema_version","asset_id","scene_id","role","representation","contact","collision","view_policy","status","provenance","art","physical","review"],
+      "properties": {
+        "record_type":{"const":"asset"},"schema_version":{"const":2},
+        "asset_id":{"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "scene_id":{"$ref":"#/$defs/nonempty"},"role":{"$ref":"#/$defs/role"},
+        "representation":{"enum":["surface_texture","cutout_plane","cross_planes","simple_mesh","assembly"]},
+        "contact":{"enum":["grounded","wall_mounted","suspended","surface","none"]},
+        "collision":{"enum":["none","footprint","opening_boundary"]},
+        "view_policy":{"enum":["fixed_route","fixed_world","limited_axial","surface","far_only"]},
+        "status":{"enum":["inventoried","needs_annotation","annotated_candidate","runtime_ready","visual_accepted","rejected"]},
+        "provenance":{
+          "type":"object","additionalProperties":false,"required":["kind","source","rights_note","operations"],
+          "properties":{
+            "kind":{"enum":["existing","generated","derived","geometry","example"]},
+            "source":{"$ref":"#/$defs/nonempty"},"rights_note":{"$ref":"#/$defs/nonempty"},
+            "request_id":{"type":["string","null"]},"prompt_path":{"type":["string","null"]},
+            "reference_paths":{"type":"array","items":{"type":"string"}},
+            "operations":{"type":"array","items":{"type":"string"}}
+          },
+          "allOf":[{"if":{"properties":{"kind":{"const":"generated"}}},"then":{"required":["request_id","prompt_path","reference_paths"],"properties":{"request_id":{"$ref":"#/$defs/nonempty"},"prompt_path":{"$ref":"#/$defs/nonempty"},"reference_paths":{"minItems":1}}}}]
+        },
+        "art":{
+          "type":"object","additionalProperties":false,"required":["path","size_px","alpha_bounds_px","anchor_uv","alpha_mode"],
+          "properties":{
+            "path":{"type":["string","null"]},"size_px":{"oneOf":[{"$ref":"#/$defs/size2"},{"type":"null"}]},
+            "alpha_bounds_px":{"type":["array","null"],"items":{"type":"integer","minimum":0},"minItems":4,"maxItems":4},
+            "anchor_uv":{"oneOf":[{"type":"array","items":{"type":"number","minimum":0,"maximum":1},"minItems":2,"maxItems":2},{"type":"null"}]},
+            "alpha_mode":{"enum":["opaque","cutout","hash","blend","none"]},
+            "alpha_threshold":{"type":"number","minimum":0,"maximum":1},
+            "material_id":{"type":["string","null"]},"assembly_children":{"type":"array","items":{"type":"string"}}
+          }
+        },
+        "physical":{
+          "type":"object","additionalProperties":false,
+          "required":["units","dimension_source","dimension_note","visible_size_m","canvas_size_m","depth_m","support_points_m","footprints_m","openings_m","sockets","not_applicable"],
+          "properties":{
+            "units":{"const":"m"},
+            "dimension_source":{"enum":["unknown","code_measured","capture_measured","design_initial","accepted"]},
+            "dimension_note":{"$ref":"#/$defs/nonempty"},
+            "visible_size_m":{"oneOf":[{"$ref":"#/$defs/vec2"},{"type":"null"}]},
+            "canvas_size_m":{"oneOf":[{"$ref":"#/$defs/vec2"},{"type":"null"}]},
+            "depth_m":{"type":["number","null"],"minimum":0},
+            "support_points_m":{"$ref":"#/$defs/point_list"},
+            "footprints_m":{"$ref":"#/$defs/polygons"},
+            "openings_m":{"$ref":"#/$defs/polygons"},
+            "opening_height_ranges_m":{"type":["array","null"],"items":{"$ref":"#/$defs/vec2"}},
+            "sockets":{"type":["object","null"],"additionalProperties":{"$ref":"#/$defs/vec3"}},
+            "not_applicable":{"type":"object","additionalProperties":{"$ref":"#/$defs/nonempty"}}
+          }
+        },
+        "review":{
+          "type":"object","additionalProperties":false,"required":["issues","evidence","approved_by"],
+          "properties":{"issues":{"type":"array","items":{"type":"string"}},"evidence":{"type":"array","items":{"type":"string"}},"approved_by":{"type":["string","null"]}}
+        }
+      },
+      "allOf":[
+        {"if":{"properties":{"status":{"enum":["runtime_ready","visual_accepted"]}}},"then":{
+          "properties":{"physical":{"properties":{
+            "dimension_source":{"not":{"const":"unknown"}},
+            "visible_size_m":{"type":"array","items":{"type":"number","exclusiveMinimum":0}},
+            "canvas_size_m":{"type":"array","items":{"type":"number","exclusiveMinimum":0}},
+            "depth_m":{"type":"number"},"support_points_m":{"type":"array"},"footprints_m":{"type":"array"},"openings_m":{"type":"array"},"sockets":{"type":"object"}
+          }},"review":{"properties":{"evidence":{"minItems":1},"issues":{"maxItems":0}}}},
+          "allOf":[
+            {"if":{"properties":{"contact":{"const":"grounded"}}},"then":{"properties":{"physical":{"properties":{"support_points_m":{"minItems":1},"footprints_m":{"minItems":1}}}}}},
+            {"if":{"properties":{"contact":{"enum":["suspended","wall_mounted"]}}},"then":{"properties":{"physical":{"properties":{"sockets":{"minProperties":1}}}}}},
+            {"if":{"properties":{"collision":{"enum":["footprint","opening_boundary"]}}},"then":{"properties":{"physical":{"properties":{"footprints_m":{"minItems":1}}}}}},
+            {"if":{"properties":{"collision":{"const":"opening_boundary"}}},"then":{"properties":{"physical":{"required":["opening_height_ranges_m"],"properties":{"openings_m":{"minItems":1},"opening_height_ranges_m":{"type":"array","minItems":1}}}}}},
+            {"if":{"properties":{"representation":{"enum":["surface_texture","cutout_plane","cross_planes"]}}},"then":{"properties":{"art":{"properties":{"path":{"$ref":"#/$defs/nonempty"},"size_px":{"$ref":"#/$defs/size2"},"alpha_bounds_px":{"type":"array"},"anchor_uv":{"type":"array"}}}}}},
+            {"if":{"properties":{"representation":{"const":"simple_mesh"}}},"then":{"properties":{"art":{"properties":{"material_id":{"$ref":"#/$defs/nonempty"}}}}}},
+            {"if":{"properties":{"representation":{"const":"assembly"}}},"then":{"properties":{"art":{"required":["assembly_children"],"properties":{"assembly_children":{"minItems":1}}}}}}
+          ]
+        }},
+        {"if":{"properties":{"status":{"const":"visual_accepted"}}},"then":{"properties":{"review":{"properties":{"approved_by":{"$ref":"#/$defs/nonempty"}}}}}}
+      ]
+    },
+    "request":{
+      "type":"object","additionalProperties":false,
+      "required":["record_type","schema_version","request_id","scene_id","role","gap","reuse_candidates","deliverables","reference_paths","prompt_path","view_requirement","size_requirement","variants_min","acceptance","fallback","generation_permission","status"],
+      "properties":{
+        "record_type":{"const":"request"},"schema_version":{"const":2},
+        "request_id":{"$ref":"#/$defs/nonempty"},"scene_id":{"$ref":"#/$defs/nonempty"},"role":{"$ref":"#/$defs/role"},
+        "gap":{"$ref":"#/$defs/nonempty"},
+        "reuse_candidates":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["path","decision"],"properties":{"path":{"type":"string"},"decision":{"$ref":"#/$defs/nonempty"}}}},
+        "deliverables":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/nonempty"}},
+        "reference_paths":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/nonempty"}},
+        "prompt_path":{"type":["string","null"]},
+        "view_requirement":{"$ref":"#/$defs/nonempty"},"size_requirement":{"$ref":"#/$defs/nonempty"},
+        "variants_min":{"type":"integer","minimum":1},
+        "acceptance":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/nonempty"}},
+        "fallback":{"$ref":"#/$defs/nonempty"},
+        "generation_permission":{"enum":["not_in_current_scope","authorized"]},
+        "status":{"enum":["draft","reuse_first","ready_to_generate","generation_blocked","generated_candidate","closed"]}
+      },
+      "allOf":[{"if":{"properties":{"status":{"const":"ready_to_generate"}}},"then":{"properties":{"generation_permission":{"const":"authorized"},"prompt_path":{"$ref":"#/$defs/nonempty"}}}}]
+    }
+  }
+}

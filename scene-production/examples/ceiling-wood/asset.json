@@ -1,0 +1,20 @@
+{
+  "path": "../../../godot/assets/fairytales/red_cottage/ceiling-wood-v1.png",
+  "representation": "surface_texture",
+  "size_m": [
+    4,
+    4
+  ],
+  "anchor_uv": [
+    0,
+    0
+  ],
+  "view_policy": "surface",
+  "contact": "surface",
+  "sha256": "254e074e9ecf5dc3b5e58539416a506b11a4feee7bb4e7c569d9b389a0d0f6ec",
+  "max_projected_short_axis_px": 512,
+  "semantic_review": "Inspected full source and 2x2 repeat: opaque orthographic oak underside; no fixtures, perspective or directional shadows. Small repeated plank joints remain visible; candidate use, not seamless perfection.",
+  "generator": "built-in image_gen",
+  "prompt": "prompt.txt",
+  "status": "asset_checked_runtime_candidate"
+}

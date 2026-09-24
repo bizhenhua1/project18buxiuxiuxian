@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "scope": "3D scene production handoff",
+  "protocol": "docs/design/SCENE3D-START-HERE.md",
+  "delivery_status": "v3_design_specification_delivered_runtime_execution_pending",
+  "generated_at_utc": "2026-09-21",
+  "artifacts": [
+    {
+      "path": "docs/design/SCENE3D-PRODUCTION-STANDARD-2026-09-21.md",
+      "purpose": "facts, six baseline families, 18-scene mapping and non-negotiable design rules",
+      "status": "delivered"
+    },
+    {
+      "path": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md",
+      "purpose": "executable algorithms, numeric gates, work packages, failure routing and asset production contract",
+      "status": "delivered"
+    },
+    {
+      "path": "docs/design/SCENE3D-LUNA-TASKS.json",
+      "purpose": "dependency-ordered P00-P10 task graph and exact 18-scene assignments",
+      "status": "delivered"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASSET-CONTRACT.schema.json",
+      "purpose": "machine-readable asset request and AssetSpec fields",
+      "status": "delivered"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASSET-MIGRATION.json",
+      "purpose": "lossless 18-scene legacy metadata ledger with explicit unknown fields, recovered pixel sizes and alpha bounds",
+      "status": "delivered_and_regenerated_size_px_known_329_of_329"
+    },
+    {
+      "path": "scripts/migrate_scene3d_asset_metadata.py",
+      "purpose": "lossless migration that recovers only explicit legacy pixel dimensions, PNG header dimensions, alpha bounds and anchors",
+      "status": "delivered_and_executed"
+    },
+    {
+      "path": "scripts/validate_scene3d_asset_migration.py",
+      "purpose": "read-only validation of migrated pixel facts, alpha bounds, anchors and explicit physical-field gaps",
+      "status": "delivered_and_passed",
+      "evidence": "docs/design/SCENE3D-ASSET-MIGRATION-VALIDATION-2026-09-21.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASSET-MIGRATION-VALIDATION-2026-09-21.json",
+      "purpose": "18-scene and 329-asset migration integrity report",
+      "status": "passed_329_assets_zero_invalid_pixel_facts"
+    },
+    {
+      "path": "scripts/validate_scene3d_asset_contract.py",
+      "purpose": "conservative AssetSpec validator",
+      "status": "delivered_and_tested"
+    },
+    {
+      "path": "scripts/test_scene3d_asset_contract.py",
+      "purpose": "valid and missing-footprint regression cases",
+      "status": "passed"
+    },
+    {
+      "path": "docs/design/asset_requests/red_cottage-roof-connection.json",
+      "purpose": "evidence-backed missing continuous ceiling/roof connection request",
+      "status": "awaiting_asset"
+    },
+    {
+      "path": "scripts/audit_scene3d_roof_reuse.py",
+      "purpose": "conservative read-only audit of existing roof, shell and arch candidates; never approves runtime reuse",
+      "status": "delivered_and_executed",
+      "evidence": "docs/design/SCENE3D-ROOF-REUSE-AUDIT-2026-09-21.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-ROOF-REUSE-AUDIT-2026-09-21.json",
+      "purpose": "existing shell/arch candidate inventory with image probes and no-runtime-approval boundary",
+      "status": "generated_candidate_review_pending"
+    },
+    {
+      "path": "docs/design/SCENE3D-P03A-AWAITING-2026-09-21.json",
+      "purpose": "explicit P03A handoff state while the approved roof asset is unavailable",
+      "status": "awaiting_external_asset_with_closed_low_ceiling_experiment",
+      "evidence": "tempassets/work/p03a-ceiling-experiment-20260921-180000/manifest.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-BASELINE-CONTEXT.json",
+      "purpose": "P00 repository, source hash, catalog and task-state snapshot",
+      "status": "delivered"
+    },
+    {
+      "path": "scripts/create_scene3d_baseline_context.py",
+      "purpose": "reproducible P00 context generator",
+      "status": "delivered"
+    },
+    {
+      "path": "scripts/validate_scene3d_capture.py",
+      "purpose": "provenance validator; explicitly does not judge visual quality",
+      "status": "delivered"
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd",
+      "purpose": "P01 single-scene native capture tool",
+      "status": "delivered_tool_current_provenance_validated",
+      "evidence": [
+        "tempassets/work/p01-recheck-20260921-181000/manifest.json",
+        "docs/design/SCENE3D-P01-PROVENANCE-RECHECK-2026-09-21.json",
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json"
+      ]
+    },
+    {
+      "path": "godot/tests/capture_world3d_baseline.gd",
+      "purpose": "P02 six-theme beauty and formal-lighting-free diagnostic capture",
+      "status": "delivered_executed_current_provenance_validated",
+      "evidence": [
+        "docs/design/SCENE3D-BASELINE-MEASUREMENTS-RECHECK-2026-09-21.json",
+        "tempassets/work/p02-recheck-20260921-181000",
+        "tempassets/work/p02-mask-recheck-20260921-181000",
+        "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json"
+      ]
+    },
+    {
+      "path": "scripts/aggregate_scene3d_baselines.py",
+      "purpose": "six baseline provenance and preliminary role metrics aggregate",
+      "status": "delivered_and_tested; visual review remains pending"
+    },
+    {
+      "path": "docs/design/SCENE3D-BASELINE-MEASUREMENTS.json",
+      "purpose": "machine-readable six-theme baseline evidence",
+      "status": "role/depth masks and ROI metrics verified; not visual acceptance"
+    },
+    {
+      "path": "scripts/aggregate_scene3d_baselines.py",
+      "purpose": "same-camera role-ID/depth mask validation and ROI/distance-band aggregation",
+      "status": "delivered_and_tested",
+      "evidence": "tempassets/work/p02-role-depth-masks-20260921-150000"
+    },
+    {
+      "path": "godot/tests/capture_world3d_role_depth_masks.gd",
+      "purpose": "diagnostic role-ID and linearized view-depth captures without production material mutation",
+      "status": "delivered_and_executed",
+      "evidence": "tempassets/work/p02-role-depth-masks-20260921-150000"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASTRA-ISSUE-LEDGER-2026-09-21.json",
+      "purpose": "evidence-backed roof, asset annotation, diagnostic, junction and performance handoff issues",
+      "status": "delivered_for_astra"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASTRA-ISSUE-LEDGER-2026-09-21.md",
+      "purpose": "short human-readable Astra handoff order",
+      "status": "delivered_for_astra"
+    },
+    {
+      "path": "scripts/validate_scene3d_astra_issue_ledger.py",
+      "purpose": "read-only validation of issue IDs, evidence paths, handoff order and unresolved-state boundary",
+      "status": "delivered_and_passed",
+      "evidence": "docs/design/SCENE3D-ASTRA-ISSUE-LEDGER-VALIDATION-2026-09-21.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASTRA-ISSUE-LEDGER-VALIDATION-2026-09-21.json",
+      "purpose": "machine report proving the concentrated Astra ledger is internally complete and evidence-backed",
+      "status": "passed_15_issues_zero_missing_evidence"
+    },
+    {
+      "path": "scripts/audit_scene3d_manifest_provenance.py",
+      "purpose": "read-only audit separating current v2 capture provenance from legacy or stale manifests",
+      "status": "delivered_and_executed_recheck_required",
+      "evidence": "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-MANIFEST-PROVENANCE-AUDIT-2026-09-21.json",
+      "purpose": "98-manifest current-source provenance audit",
+      "status": "recheck_required_54_invalid_v2_8_current_valid_36_legacy_or_malformed"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASTRA-HANDOFF-2026-09-21.md",
+      "purpose": "single entrypoint for Astra issue order, evidence boundaries and required resolution output",
+      "status": "delivered_for_astra"
+    },
+    {
+      "path": "docs/design/SCENE3D-SCENE-PROFILES-2026-09-21.json",
+      "purpose": "18-scene SceneProfile contract with family-specific topology, required roles, scatter namespace, roof, junction, seed and pending-value provenance",
+      "status": "generated_and_validated_values_pending_visual_review"
+    },
+    {
+      "path": "scripts/build_scene3d_scene_profiles.py",
+      "purpose": "reproducible draft SceneProfile generator that preserves unknown numeric values as pending",
+      "status": "delivered_and_executed"
+    },
+    {
+      "path": "scripts/validate_scene3d_scene_profiles.py",
+      "purpose": "18-scene SceneProfile schema/catalog validator without visual acceptance",
+      "status": "delivered_and_passed"
+    },
+    {
+      "path": "scripts/report_scene3d_asset_gaps.py",
+      "purpose": "read-only per-scene and per-role AssetSpec gap report; never infers missing physical values",
+      "status": "delivered_and_executed",
+      "evidence": "docs/design/SCENE3D-ASSET-GAP-REPORT-2026-09-21.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-ASSET-GAP-REPORT-2026-09-21.json",
+      "purpose": "329-asset annotation backlog grouped by scene, physical family, role and missing field",
+      "status": "generated_values_pending_astra_annotation"
+    },
+    {
+      "path": "scripts/audit_scene_production_contract.py",
+      "purpose": "read-only 18-scene referenced-asset inventory and missing-reference audit",
+      "status": "executed_missing_references_zero_visual_acceptance_unreviewed",
+      "evidence": "docs/design/SCENE3D-ASSET-INVENTORY.json"
+    },
+    {
+      "path": "godot/scripts/world3d/junction_geometry.gd",
+      "purpose": "deterministic route corridor, SAT footprint, spatial bucket and common-junction owner geometry helpers",
+      "status": "delivered_and_tested",
+      "evidence": "godot/tests/test_scene3d_junction_geometry.gd"
+    },
+    {
+      "path": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+      "purpose": "optional runtime junction geometry integration; SAT is applied to non-shell dressing behind an explicit flag",
+      "status": "delivered_and_audited_flagged",
+      "evidence": "tempassets/work/fairytale-travel-audit-junction-geometry/report.json"
+    },
+    {
+      "path": "godot/scripts/spaces/segment_world.gd",
+      "purpose": "runtime SceneProfile provenance container; does not apply pending numeric values",
+      "status": "delivered_and_tested"
+    },
+    {
+      "path": "godot/scripts/journey/expedition_route.gd",
+      "purpose": "honor validated tour_biome metadata after save restoration so native 3D benchmarks actually measure the requested scene",
+      "status": "delivered_and_probe_verified",
+      "evidence": "godot/tests/probe_endless_route_theme.gd"
+    },
+    {
+      "path": "godot/scripts/world3d/ceiling_band.gd",
+      "purpose": "B9 closed_low_ceiling continuous mesh generator with shared route edges and cumulative UVs",
+      "status": "delivered_and_tested",
+      "evidence": "godot/tests/test_scene3d_ceiling_band.gd"
+    },
+    {
+      "path": "godot/tests/audit_fairytale_travel_visual.gd",
+      "purpose": "18-scene travel-only runtime/layout audit with SceneProfile provenance checks and without visual acceptance",
+      "status": "executed_headless_and_windows_opengl_visual_acceptance_pending",
+      "evidence": "tempassets/work/fairytale-travel-audit/report.json"
+    },
+    {
+      "path": "godot/tests/benchmark_fairytale_supplement.gd",
+      "purpose": "bounded 1440x900 travel frame-time and draw-call sample for two representative story scenes",
+      "status": "executed_not_final_performance_gate",
+      "evidence": "art/fairytales/corridor/review-20260916/runtime-budget.json"
+    },
+    {
+      "path": "godot/tests/benchmark_scene3d_p10.gd",
+      "purpose": "P10 fixed 60Hz, 30-second native 3D travel benchmark with three alternating rounds and upload-peak sampling",
+      "status": "delivered_and_executed_windows_opengl_draw_metrics_available_stress_scope_pending",
+      "evidence": "tempassets/work/scene3d-performance-20260921/p10-report.json"
+    },
+    {
+      "path": "scripts/summarize_scene3d_p10.py",
+      "purpose": "conservative aggregation of P10 rounds with travel-only frame-time gate",
+      "status": "delivered_and_passed",
+      "evidence": "docs/design/SCENE3D-P10-SUMMARY-2026-09-21.json"
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_representative.gd",
+      "purpose": "paired beauty/diagnostic runtime evidence for representative interior and cave-entry scenes",
+      "status": "delivered_and_executed_visual_review_pending",
+      "evidence": [
+        "tempassets/work/representative-diagnostic/red_cottage-20260921051448",
+        "tempassets/work/representative-diagnostic/piper_mountain-20260921051509"
+      ]
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd",
+      "purpose": "P01 runtime capture with real branch selection support via --select=-1/1",
+      "status": "updated_and_validated",
+      "evidence": "tempassets/work/representative-travel/piper_mountain-left-20260921052020/manifest.json"
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd",
+      "purpose": "red_cottage real choose-phase representative capture",
+      "status": "executed_provenance_valid_visual_review_pending",
+      "evidence": "tempassets/work/representative-fork/red_cottage-20260921052213/manifest.json"
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd",
+      "purpose": "18-scene native 3D approach capture batch with unified seed, viewport and manifest provenance",
+      "status": "executed_18_of_18_visual_review_pending",
+      "evidence": [
+        "tempassets/work/scene3d-18-captures-20260921/batch-summary.json",
+        "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png",
+        "tempassets/work/scene3d-18-captures-20260921"
+      ]
+    },
+    {
+      "path": "scripts/build_scene3d_contact_sheet.py",
+      "purpose": "review-only contact sheet compositor for existing runtime captures",
+      "status": "delivered_and_executed",
+      "evidence": "tempassets/work/scene3d-18-captures-20260921/contact-sheet.png"
+    },
+    {
+      "path": "scripts/audit_scene3d_evidence_coverage.py",
+      "purpose": "read-only coverage audit for existing approach/travel/event/battle/junction/successor manifests",
+      "status": "delivered_and_executed_visual_acceptance_pending",
+      "evidence": "docs/design/SCENE3D-EVIDENCE-COVERAGE-2026-09-21.json"
+    },
+    {
+      "path": "godot/tests/capture_fairytale_3d_scatter_contact_sheet.gd",
+      "purpose": "three-seed representative entry captures for red_cottage and piper_mountain",
+      "status": "executed_6_of_6_provenance_valid_visual_review_pending",
+      "evidence": [
+        "tempassets/work/representative-multiseed-20260921/batch-summary.json",
+        "tempassets/work/representative-multiseed-20260921/contact-sheet.png"
+      ]
+    },
+    {
+      "path": "godot/tests/audit_world3d_fairytale_streaming.gd",
+      "purpose": "18-scene current/successor world construction and finite-value audit",
+      "status": "executed_headless_and_windows_opengl",
+      "evidence": "tempassets/work/world3d-fairytale-stream-audit.json"
+    },
+    {
+      "path": "docs/design/SCENE3D-VISUAL-ALIGNMENT-ALICE-TEA-2026-09-21.json",
+      "purpose": "first current-source before/after visual alignment pass for a garden scene",
+      "status": "rejected_experiment_runtime_reverted",
+      "evidence": [
+        "tempassets/work/visual-alignment-alice-20260921-170950/beauty.png",
+        "tempassets/work/visual-alignment-alice-20260921-171959/beauty.png",
+        "tempassets/work/visual-alignment-alice-20260921-171959/manifest.json"
+      ]
+    },
+    {
+      "path": "docs/design/SCENE3D-VISUAL-MISALIGNMENT-ISSUES-2026-09-21.json",
+      "purpose": "concentrated blocker register for scene-to-baseline visual mismatch",
+      "status": "blocked_on_visual_direction"
+    }
+  ],
+  "completed": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04"
+  ],
+  "in_progress": [
+    "P03A"
+  ],
+  "not_completed": [
+    "P03A",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10"
+  ],
+  "asset_generation": {
+    "allowed": true,
+    "when": "after P01, only for a validated asset_request",
+    "contract": "docs/design/SCENE3D-LUNA-EXECUTION-2026-09-21.md#B8",
+    "raw_generation_is_runtime_ready": false
+  },
+  "honest_limit": "No representative story scene is claimed aligned; the Alice Tea and Piper Market density experiments were reverted and recorded as rejected.",
+  "v3_review": {
+    "authoritative_entry": "docs/design/SCENE3D-START-HERE.md",
+    "decisions": "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "execution_index": "docs/design/SCENE3D-PRODUCTION-PLAN-V3.json",
+    "historical_values_not_current_acceptance": true,
+    "runtime_fixed_by_this_revision": false
+  },
+  "artifacts_status_scope": "historical artifact statuses; v3 review supersedes diagnostic and measurement confidence"
+}

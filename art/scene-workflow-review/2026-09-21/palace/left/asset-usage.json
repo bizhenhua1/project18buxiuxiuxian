@@ -1,0 +1,122 @@
+{
+  "res://assets/biomes/palace/prop-0.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.23601684570313,
+    "canvas_height_m_min": 0.351635670661926,
+    "count": 90,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-1.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.23945074081421,
+    "canvas_height_m_min": 0.350081634521484,
+    "count": 92,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 2.19453430175781,
+    "canvas_height_m_min": 0.352181506156921,
+    "count": 127,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-3.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 6.0,
+    "canvas_height_m_min": 0.358923387527466,
+    "count": 128,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-4.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.12074489593506,
+    "canvas_height_m_min": 0.367699766159058,
+    "count": 15,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-5.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.24726705551147,
+    "canvas_height_m_min": 0.356149005889893,
+    "count": 88,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.24461116790771,
+    "canvas_height_m_min": 0.354188370704651,
+    "count": 110,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-7.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.23978910446167,
+    "canvas_height_m_min": 0.100955903530121,
+    "count": 320,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/prop-8.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.22815771102905,
+    "canvas_height_m_min": 0.350954985618591,
+    "count": 101,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/palace/shell.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 18.9546272754669,
+    "canvas_height_m_min": 11.9260879379511,
+    "count": 54,
+    "semantic_support_verified": false
+  }
+}

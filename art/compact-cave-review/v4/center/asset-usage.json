@@ -1,0 +1,134 @@
+{
+  "res://assets/biomes/crystal/modular/roof-cluster-matte-v2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 3.99374733499967,
+    "canvas_height_m_min": 3.50653470025949,
+    "count": 236,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/modular/shoulder-left-matte-v2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 8.21487527423241,
+    "canvas_height_m_min": 7.28514170319481,
+    "count": 225,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-0.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 2.06859931945801,
+    "canvas_height_m_min": 0.397246217727661,
+    "count": 10,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-1.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.2488917350769,
+    "canvas_height_m_min": 0.362411236763,
+    "count": 100,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 4.77974243164063,
+    "canvas_height_m_min": 0.352107548713684,
+    "count": 471,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-3.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.24958477020264,
+    "canvas_height_m_min": 0.351988959312439,
+    "count": 357,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-4.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.23924102783203,
+    "canvas_height_m_min": 0.38222827911377,
+    "count": 142,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-5.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.2418399810791,
+    "canvas_height_m_min": 0.35021390914917,
+    "count": 129,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.24508399963379,
+    "canvas_height_m_min": 0.100044929981232,
+    "count": 358,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-7.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.24919328689575,
+    "canvas_height_m_min": 0.358905339241028,
+    "count": 226,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/crystal/prop-8.png": {
+    "branches": [
+      0,
+      -1,
+      1,
+      2
+    ],
+    "canvas_height_m_max": 1.2495813369751,
+    "canvas_height_m_min": 0.358262205123901,
+    "count": 124,
+    "semantic_support_verified": false
+  }
+}

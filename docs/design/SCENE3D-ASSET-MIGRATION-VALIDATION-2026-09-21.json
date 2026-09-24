@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "migration": "docs/design/SCENE3D-ASSET-MIGRATION.json",
+  "scene_count": 18,
+  "asset_count": 329,
+  "size_px_known_count": 329,
+  "size_px_source_counts": {
+    "file_header": 167,
+    "legacy_metadata": 162
+  },
+  "alpha_bounds_known_count": 329,
+  "alpha_edge_touch_count": 0,
+  "physical_fields_missing_counts": {
+    "contact": 329,
+    "footprints_m": 329,
+    "size_m": 329,
+    "sockets_m": 329
+  },
+  "status_counts": {
+    "unannotated": 329
+  },
+  "failures": [],
+  "status": "pass",
+  "rule": "Only explicit pixel/alpha facts are accepted; world-space semantics remain null until reviewed."
+}

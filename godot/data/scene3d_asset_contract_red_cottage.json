@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "scene_id": "red_cottage",
+  "status": "annotated_candidate",
+  "dimension_source": "design_initial",
+  "scale": {
+    "world_units_per_m": 20.0,
+    "route_step_units": 20.0,
+    "outer_span_m": 8.0,
+    "inner_clear_span_m": 4.7,
+    "camera_envelope_half_width_m": 7.0,
+    "corridor_shell_scale": [0.25, 0.25],
+    "note": "Candidate dimensions are explicit production inputs; they remain visual-review pending."
+  },
+  "assets": [
+    {"id":"red-cottage-corridor-shell","role":"structure","path":"res://assets/fairytales/red_cottage/corridor-shell.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[7.9,3.2],"repeat_distance_m":[6.5,10.5],"allow_on_road":false},
+    {"id":"red-cottage-roof-material","role":"roof","path":"res://assets/fairytales/red_cottage/ground.png","representation":"surface_texture","contact":"surface","status":"annotated_candidate","repeat_distance_m":[4.0,4.0],"allow_on_road":false},
+    {"id":"red-cottage-structure","role":"structure","path":"res://assets/fairytales/red_cottage/structure.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[4.6,3.3],"allow_on_road":false},
+    {"id":"red-cottage-hearth","role":"furnishing","path":"res://assets/fairytales/red_cottage/furnishings/hearth-v2.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[3.2,1.15],"allow_on_road":false},
+    {"id":"red-cottage-sewing-corner","role":"furnishing","path":"res://assets/fairytales/red_cottage/furnishings/sewing-corner-v2.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[3.0,1.08],"allow_on_road":false},
+    {"id":"red-cottage-chest","role":"furnishing","path":"res://assets/fairytales/red_cottage/dressing/chest/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[1.9,0.34],"allow_on_road":false},
+    {"id":"red-cottage-hamper","role":"furnishing","path":"res://assets/fairytales/red_cottage/dressing/hamper/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[1.9,0.38],"allow_on_road":false},
+    {"id":"red-cottage-litter","role":"litter","path":"res://assets/fairytales/red_cottage/dressing/pottery/prop.png","representation":"cutout_plane","contact":"grounded","status":"annotated_candidate","visible_size_m":[0.55,0.04],"allow_on_road":true}
+  ],
+  "placement_rules": {
+    "road_clearance_m": 1.2,
+    "wall_clearance_m": 0.35,
+    "furnishing_repeat_m": [6.0, 8.2],
+    "litter_repeat_m": [0.8, 1.6],
+    "max_hanging_count": 1,
+    "branch_policy": "junction uses one shared square; branch dressing begins after the turn clearance"
+  },
+  "review": {
+    "issues": ["per-asset footprint/socket annotation and final user visual acceptance remain pending"],
+    "evidence": ["legacy anchors.json", "corridor.json", "dressing.json", "furnishings.json"],
+    "approved_by": null
+  }
+}

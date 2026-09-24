@@ -1,0 +1,4530 @@
+{
+  "schema_version": 1,
+  "scope": "read-only AssetSpec gap summary for Astra; no dimensions or footprints inferred",
+  "source": {
+    "migration": "docs/design/SCENE3D-ASSET-MIGRATION.json",
+    "profiles": "docs/design/SCENE3D-SCENE-PROFILES-2026-09-21.json"
+  },
+  "summary": {
+    "scene_count": 18,
+    "asset_count": 329,
+    "size_px_known_count": 329,
+    "alpha_bounds_known_count": 329,
+    "alpha_edge_touch_count": 0,
+    "runtime_ready_count": 0,
+    "missing_by_field": {
+      "contact": 329,
+      "footprints_m": 329,
+      "size_m": 329,
+      "sockets_m": 329
+    },
+    "role_counts": {
+      "anchor": 34,
+      "cover": 39,
+      "furnishing": 5,
+      "litter": 41,
+      "prop": 48,
+      "structure": 18,
+      "unknown": 144
+    }
+  },
+  "annotation_order": [
+    "structure/roof/wall: size_m, footprints_m, contact, sockets_m",
+    "canopy/furnishing: size_m, footprints_m, contact",
+    "cover/prop: size_m, footprints_m, contact",
+    "litter: size_m, contact"
+  ],
+  "scenes": [
+    {
+      "scene_id": "piper_bridge",
+      "physical_family": "bridge",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "piper_bridge:corridor-side.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "piper_bridge:dressing/barrel/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/marker/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/driftwood/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/grass/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/reeds/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/chain/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/net/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_bridge:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "piper_bridge:dressing/slate/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "piper_mountain",
+      "physical_family": "cave",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 3,
+        "cover": 3,
+        "litter": 1,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "piper_mountain:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "piper_mountain:dressing/boulder/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/marker/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/stump/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/fern/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/roots/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/sticks/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/cloth/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/wax/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_mountain:dressing/gravel/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "cinder_clock",
+      "physical_family": "clock",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "cinder_clock:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "cinder_clock:dressing/bell/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/gears/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/rubble/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/timbers/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/chain/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/chest/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/weight/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_clock:dressing/bolts/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "cinder_clock:dressing/brass/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "alice_roses",
+      "physical_family": "garden",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "alice_roses:corridor-side.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "alice_roses:dressing/pot/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/rook/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/bush/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/stones/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/thorns/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/knight/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/lamp/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_roses:dressing/petals/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "alice_roses:dressing/pottery/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "alice_tea",
+      "physical_family": "garden",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "alice_tea:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "alice_tea:dressing/plinth/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/urn/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/bush/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/stones/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/twigs/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/caddy/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/cloth/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_tea:dressing/china/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "alice_tea:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "cinder_garden",
+      "physical_family": "garden",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 4,
+        "litter": 2,
+        "prop": 1,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "cinder_garden:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "cinder_garden:dressing/plinth/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/pot/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/limestone/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/roots/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/shrub/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/vines/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/pumpkin/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_garden:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "cinder_garden:dressing/pottery/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "snow_orchard",
+      "physical_family": "garden",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 1,
+        "cover": 4,
+        "litter": 2,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "snow_orchard:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "snow_orchard:dressing/stump/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/bush/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/grass/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/stones/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/twigs/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/crate/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/sack/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_orchard:dressing/apples/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "snow_orchard:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "alice_hall",
+      "physical_family": "interior",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "alice_hall:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "alice_hall:dressing/clock/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/stool/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/fern/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/tiles/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/books/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/bottles/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/scrolls/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "alice_hall:dressing/keys/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "alice_hall:dressing/pages/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "cinder_kitchen",
+      "physical_family": "interior",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 1,
+        "cover": 1,
+        "litter": 3,
+        "prop": 4,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "cinder_kitchen:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "cinder_kitchen:dressing/sack/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/firewood/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/basket/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/bowls/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/cloth/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/scuttle/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "cinder_kitchen:dressing/ash/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "cinder_kitchen:dressing/peelings/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "cinder_kitchen:dressing/pottery/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "puppet_workshop",
+      "physical_family": "interior",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "puppet_workshop:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "puppet_workshop:dressing/barrel/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/chest/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/blocks/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/rope/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/spool/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/tools/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_workshop:dressing/pegs/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "puppet_workshop:dressing/rag/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "puppet_workshop:dressing/shavings/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "red_cottage",
+      "physical_family": "interior",
+      "asset_count": 20,
+      "size_px_known_count": 20,
+      "alpha_bounds_known_count": 20,
+      "missing_by_field": {
+        "contact": 20,
+        "footprints_m": 20,
+        "size_m": 20,
+        "sockets_m": 20
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 1,
+        "furnishing": 2,
+        "litter": 3,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "red_cottage:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "red_cottage:furnishings/hearth-v2.png",
+          "role": "furnishing",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "red_cottage:furnishings/sewing-corner-v2.png",
+          "role": "furnishing",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "red_cottage:dressing/chest/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/hamper/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/firewood/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/blanket/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/shoes/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/stool/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_cottage:dressing/pottery/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "red_cottage:dressing/rags/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "red_cottage:dressing/shavings/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "red_workshop",
+      "physical_family": "interior",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 1,
+        "litter": 3,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "red_workshop:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "red_workshop:dressing/bucket/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/chest/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/logs/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/hide/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/pouch/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/rope/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_workshop:dressing/iron/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "red_workshop:dressing/leather/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "red_workshop:dressing/straw/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "snow_house",
+      "physical_family": "interior",
+      "asset_count": 20,
+      "size_px_known_count": 20,
+      "alpha_bounds_known_count": 20,
+      "missing_by_field": {
+        "contact": 20,
+        "footprints_m": 20,
+        "size_m": 20,
+        "sockets_m": 20
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 1,
+        "furnishing": 2,
+        "litter": 3,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "snow_house:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "snow_house:furnishings/bed-alcove-v2.png",
+          "role": "furnishing",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "snow_house:furnishings/work-cabinet-v2.png",
+          "role": "furnishing",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "snow_house:dressing/cabinet/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/stool/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/firewood/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/boots/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/coal_bucket/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/sack/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_house:dressing/bowls/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "snow_house:dressing/coal/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "snow_house:dressing/rag/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "snow_mirror",
+      "physical_family": "interior",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 1,
+        "cover": 2,
+        "litter": 2,
+        "prop": 4,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "snow_mirror:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "snow_mirror:dressing/plinth/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/ivy/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/molding/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/basin/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/silk/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/stool/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/wax/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "snow_mirror:dressing/glass/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "snow_mirror:dressing/silver/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "puppet_theatre",
+      "physical_family": "stage",
+      "asset_count": 19,
+      "size_px_known_count": 19,
+      "alpha_bounds_known_count": 19,
+      "missing_by_field": {
+        "contact": 19,
+        "footprints_m": 19,
+        "size_m": 19,
+        "sockets_m": 19
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 1,
+        "furnishing": 1,
+        "litter": 2,
+        "prop": 4,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "puppet_theatre:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "puppet_theatre:furnishings/scenery-cart-v2.png",
+          "role": "furnishing",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "puppet_theatre:dressing/chest/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/stool/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/velvet/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/masks/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/pulley/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/rope/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/spool/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_theatre:dressing/tickets/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "puppet_theatre:dressing/wood/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "piper_market",
+      "physical_family": "street",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 2,
+        "prop": 3,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "piper_market:corridor-side.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "piper_market:dressing/barrel/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/crate/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/rope/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/weeds/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/awning/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/basket/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/sack/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "piper_market:dressing/jug/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "piper_market:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "puppet_fair",
+      "physical_family": "street",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 2,
+        "litter": 3,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "puppet_fair:corridor-side.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "puppet_fair:dressing/crate/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/gears/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/flags/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/weeds/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/horse/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/lantern/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "puppet_fair:dressing/bolts/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "puppet_fair:dressing/slats/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "puppet_fair:dressing/wrappers/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "scene_id": "red_village",
+      "physical_family": "street",
+      "asset_count": 18,
+      "size_px_known_count": 18,
+      "alpha_bounds_known_count": 18,
+      "missing_by_field": {
+        "contact": 18,
+        "footprints_m": 18,
+        "size_m": 18,
+        "sockets_m": 18
+      },
+      "role_counts": {
+        "anchor": 2,
+        "cover": 3,
+        "litter": 2,
+        "prop": 2,
+        "structure": 1,
+        "unknown": 8
+      },
+      "runtime_ready": false,
+      "priority_order": [
+        "structure_roof_wall",
+        "canopy_furnishing",
+        "cover_prop",
+        "litter"
+      ],
+      "assets": [
+        {
+          "id": "red_village:corridor-shell.png",
+          "role": "structure",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 0
+        },
+        {
+          "id": "red_village:dressing/barrel/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/crates/prop.png",
+          "role": "anchor",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/bush/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/firewood/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/stones/prop.png",
+          "role": "cover",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/cloth/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/sack/prop.png",
+          "role": "prop",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:enemy-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:enemy-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:enemy-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:prop-0.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:prop-1.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:prop-2.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:prop-3.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:structure.png",
+          "role": "unknown",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "red_village:dressing/leaves/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        },
+        {
+          "id": "red_village:dressing/pottery/prop.png",
+          "role": "litter",
+          "status": "unannotated",
+          "missing_fields": [
+            "contact",
+            "footprints_m",
+            "size_m",
+            "sockets_m"
+          ],
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

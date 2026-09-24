@@ -1,0 +1,4832 @@
+{
+  "status": "measured_not_art_accepted",
+  "frames": [
+    {
+      "name": "approach-5",
+      "pose": [
+        0.0,
+        1.3,
+        5.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 150
+    },
+    {
+      "name": "approach-8",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152
+    },
+    {
+      "name": "approach-10",
+      "pose": [
+        0.0,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 178
+    },
+    {
+      "name": "approach-12",
+      "pose": [
+        0.0,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 177
+    },
+    {
+      "name": "approach-14",
+      "pose": [
+        0.0,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 162
+    },
+    {
+      "name": "branch--1-00",
+      "pose": [
+        -0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152
+    },
+    {
+      "name": "branch--1-01",
+      "pose": [
+        -0.3882716049382716,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 179
+    },
+    {
+      "name": "branch--1-02",
+      "pose": [
+        -1.4617283950617286,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 187
+    },
+    {
+      "name": "branch--1-03",
+      "pose": [
+        -1.85,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 168
+    },
+    {
+      "name": "branch--1-04",
+      "pose": [
+        -1.9645078267132772,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152
+    },
+    {
+      "name": "branch--1-05",
+      "pose": [
+        -2.504619965104222,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 117
+    },
+    {
+      "name": "branch--1-06",
+      "pose": [
+        -3.341135106270684,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 75
+    },
+    {
+      "name": "branch--1-07",
+      "pose": [
+        -4.0712491695177295,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 48
+    },
+    {
+      "name": "branch--1-08",
+      "pose": [
+        -4.383358998081352,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 33
+    },
+    {
+      "name": "branch--1-09",
+      "pose": [
+        -4.4,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch--1-10",
+      "pose": [
+        -4.4,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch--1-11",
+      "pose": [
+        -4.4,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 7
+    },
+    {
+      "name": "branch--1-12",
+      "pose": [
+        -4.4,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-0-00",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152
+    },
+    {
+      "name": "branch-0-01",
+      "pose": [
+        0.0,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 178
+    },
+    {
+      "name": "branch-0-02",
+      "pose": [
+        0.0,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 177
+    },
+    {
+      "name": "branch-0-03",
+      "pose": [
+        0.0,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 162
+    },
+    {
+      "name": "branch-0-04",
+      "pose": [
+        0.0,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 144
+    },
+    {
+      "name": "branch-0-05",
+      "pose": [
+        0.0,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 117
+    },
+    {
+      "name": "branch-0-06",
+      "pose": [
+        0.0,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 77
+    },
+    {
+      "name": "branch-0-07",
+      "pose": [
+        0.0,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 35
+    },
+    {
+      "name": "branch-0-08",
+      "pose": [
+        0.0,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 16
+    },
+    {
+      "name": "branch-0-09",
+      "pose": [
+        0.0,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-0-10",
+      "pose": [
+        0.0,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-0-11",
+      "pose": [
+        0.0,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 2
+    },
+    {
+      "name": "branch-0-12",
+      "pose": [
+        0.0,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-1-00",
+      "pose": [
+        0.0,
+        1.3,
+        8.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 152
+    },
+    {
+      "name": "branch-1-01",
+      "pose": [
+        0.3882716049382716,
+        1.3,
+        10.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 166
+    },
+    {
+      "name": "branch-1-02",
+      "pose": [
+        1.4617283950617286,
+        1.3,
+        12.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 176
+    },
+    {
+      "name": "branch-1-03",
+      "pose": [
+        1.85,
+        1.3,
+        14.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 166
+    },
+    {
+      "name": "branch-1-04",
+      "pose": [
+        1.9645078267132772,
+        1.3,
+        16.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 147
+    },
+    {
+      "name": "branch-1-05",
+      "pose": [
+        2.504619965104222,
+        1.3,
+        18.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 117
+    },
+    {
+      "name": "branch-1-06",
+      "pose": [
+        3.341135106270684,
+        1.3,
+        20.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 83
+    },
+    {
+      "name": "branch-1-07",
+      "pose": [
+        4.0712491695177295,
+        1.3,
+        22.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 50
+    },
+    {
+      "name": "branch-1-08",
+      "pose": [
+        4.383358998081352,
+        1.3,
+        24.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 25
+    },
+    {
+      "name": "branch-1-09",
+      "pose": [
+        4.4,
+        1.3,
+        26.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-1-10",
+      "pose": [
+        4.4,
+        1.3,
+        28.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 1
+    },
+    {
+      "name": "branch-1-11",
+      "pose": [
+        4.4,
+        1.3,
+        30.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 5
+    },
+    {
+      "name": "branch-1-12",
+      "pose": [
+        4.4,
+        1.3,
+        32.0
+      ],
+      "background_pixels": 0,
+      "border_background_pixels": 0,
+      "visible_cards": 10
+    }
+  ],
+  "body_intersections": [
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        -4.65,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        -4.4,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        -4.15,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.65,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.65,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.65,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.65,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.4,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.4,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.4,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.4,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.15,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.15,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.15,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -4.15,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        -4.65,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        -4.4,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        -4.15,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.65,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.65,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.65,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.65,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.4,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.4,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.4,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.4,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.15,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.15,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.15,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -4.15,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 28.542454520797097,
+      "world_point": [
+        -4.65,
+        0.3,
+        28.542454520797097
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 28.542454520797097,
+      "world_point": [
+        -4.4,
+        0.3,
+        28.542454520797097
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 28.542454520797097,
+      "world_point": [
+        -4.15,
+        0.3,
+        28.542454520797097
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.65,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.65,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.65,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.65,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.4,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.4,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.4,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.4,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.15,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.15,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.15,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -4.15,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        -4.65,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        -4.4,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        -4.15,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.65,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.65,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.65,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.65,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.4,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.4,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.4,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.4,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.15,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.15,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.15,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -4.15,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        -4.65,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        -4.4,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        -4.15,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.65,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.65,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.65,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.65,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.4,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.4,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.4,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.4,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.15,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.15,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.15,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -4.15,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        -4.65,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        -4.4,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        -4.15,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.65,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.65,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.65,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.65,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.4,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.4,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.4,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.4,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.15,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.15,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.15,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -4.15,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        -4.65,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        -4.4,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        -4.15,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.65,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.65,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.65,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.65,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.4,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.4,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.4,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.4,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.15,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.15,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.15,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": -1,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -4.15,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 25.936458293555056,
+      "world_point": [
+        0.0,
+        0.3,
+        25.936458293555056
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 25.936458293555056,
+      "world_point": [
+        0.25,
+        0.3,
+        25.936458293555056
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        -0.25,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        0.0,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 26.035049789862835,
+      "world_point": [
+        0.25,
+        0.3,
+        26.035049789862835
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        -0.25,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        -0.25,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        -0.25,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        -0.25,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.0,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.0,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.0,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.0,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.25,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.25,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.25,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        0.25,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -0.25,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -0.25,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -0.25,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        -0.25,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.0,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.0,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.0,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.0,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.25,
+        0.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.25,
+        0.8,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.25,
+        1.3,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 26.155049789862836,
+      "world_point": [
+        0.25,
+        1.75,
+        26.155049789862836
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        -0.25,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        0.0,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.227864442471656,
+      "world_point": [
+        0.25,
+        0.3,
+        27.227864442471656
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        -0.25,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        0.0,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        0.25,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -0.25,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -0.25,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -0.25,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        -0.25,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.0,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.0,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.0,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.0,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.25,
+        0.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.25,
+        0.8,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.25,
+        1.3,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 27.347864442471657,
+      "world_point": [
+        0.25,
+        1.75,
+        27.347864442471657
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        -0.25,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        -0.25,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        -0.25,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        -0.25,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.0,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.0,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.0,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.0,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.25,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.25,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.25,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        0.25,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 28.281445019035807,
+      "world_point": [
+        0.0,
+        0.3,
+        28.281445019035807
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 28.281445019035807,
+      "world_point": [
+        0.25,
+        0.3,
+        28.281445019035807
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        -0.25,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        -0.25,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        -0.25,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        -0.25,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.0,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.0,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.0,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.0,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.25,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.25,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.25,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        0.25,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 28.542454520797097,
+      "world_point": [
+        -0.25,
+        0.3,
+        28.542454520797097
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 28.542454520797097,
+      "world_point": [
+        0.0,
+        0.3,
+        28.542454520797097
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -0.25,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -0.25,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -0.25,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        -0.25,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.0,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.0,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.0,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.0,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.25,
+        0.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.25,
+        0.8,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.25,
+        1.3,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 28.662454520797098,
+      "world_point": [
+        0.25,
+        1.75,
+        28.662454520797098
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 29.474508219643592,
+      "world_point": [
+        -0.25,
+        0.3,
+        29.474508219643592
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 29.474508219643592,
+      "world_point": [
+        0.0,
+        0.3,
+        29.474508219643592
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        -0.25,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        -0.25,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        -0.25,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        -0.25,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.0,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.0,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.0,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.0,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.25,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.25,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.25,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        0.25,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        -0.25,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        0.0,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 29.92385818300699,
+      "world_point": [
+        0.25,
+        0.3,
+        29.92385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -0.25,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -0.25,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -0.25,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        -0.25,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.0,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.0,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.0,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.0,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.25,
+        0.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.25,
+        0.8,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.25,
+        1.3,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 30.04385818300699,
+      "world_point": [
+        0.25,
+        1.75,
+        30.04385818300699
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 30.564167609644752,
+      "world_point": [
+        -0.25,
+        0.3,
+        30.564167609644752
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 30.564167609644752,
+      "world_point": [
+        0.0,
+        0.3,
+        30.564167609644752
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        -0.25,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        -0.25,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        -0.25,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        -0.25,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.0,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.0,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.0,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.0,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.25,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.25,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.25,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        0.25,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        -0.25,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        0.0,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 31.07365055246529,
+      "world_point": [
+        0.25,
+        0.3,
+        31.07365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -0.25,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -0.25,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -0.25,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        -0.25,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.0,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.0,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.0,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.0,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.25,
+        0.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.25,
+        0.8,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.25,
+        1.3,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 31.19365055246529,
+      "world_point": [
+        0.25,
+        1.75,
+        31.19365055246529
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 31.638376926143174,
+      "world_point": [
+        -0.25,
+        0.3,
+        31.638376926143174
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 31.638376926143174,
+      "world_point": [
+        0.0,
+        0.3,
+        31.638376926143174
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        -0.25,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        -0.25,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        -0.25,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        -0.25,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.0,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.0,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.0,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.0,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.25,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.25,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.25,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        0.25,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        -0.25,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        0.0,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 32.29249414478089,
+      "world_point": [
+        0.25,
+        0.3,
+        32.29249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -0.25,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -0.25,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -0.25,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        -0.25,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.0,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.0,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.0,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.0,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.25,
+        0.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.25,
+        0.8,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.25,
+        1.3,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 32.41249414478089,
+      "world_point": [
+        0.25,
+        1.75,
+        32.41249414478089
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 32.79035963940209,
+      "world_point": [
+        -0.25,
+        0.3,
+        32.79035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 32.79035963940209,
+      "world_point": [
+        0.0,
+        0.3,
+        32.79035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        -0.25,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        -0.25,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        -0.25,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        -0.25,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.0,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.0,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.0,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.0,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.25,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.25,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.25,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        0.25,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        -0.25,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        0.0,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 33.46634146997365,
+      "world_point": [
+        0.25,
+        0.3,
+        33.46634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -0.25,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -0.25,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -0.25,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        -0.25,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.0,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.0,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.0,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.0,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.25,
+        0.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.25,
+        0.8,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.25,
+        1.3,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-left",
+      "z": 33.58634146997365,
+      "world_point": [
+        0.25,
+        1.75,
+        33.58634146997365
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 33.8410177141181,
+      "world_point": [
+        -0.25,
+        0.3,
+        33.8410177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "ground-transition",
+      "z": 33.8410177141181,
+      "world_point": [
+        0.0,
+        0.3,
+        33.8410177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        -0.25,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        -0.25,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        -0.25,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        -0.25,
+        1.75,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.0,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.0,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.0,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.0,
+        1.75,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.25,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.25,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.25,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 0,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        0.25,
+        1.75,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 25.936458293555056,
+      "world_point": [
+        4.4,
+        0.3,
+        25.936458293555056
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 25.936458293555056,
+      "world_point": [
+        4.65,
+        0.3,
+        25.936458293555056
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.15,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.15,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.15,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.15,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.4,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.4,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.4,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.4,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.65,
+        0.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.65,
+        0.8,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.65,
+        1.3,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 26.056458293555057,
+      "world_point": [
+        4.65,
+        1.75,
+        26.056458293555057
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        4.15,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        4.4,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 27.228297467256635,
+      "world_point": [
+        4.65,
+        0.3,
+        27.228297467256635
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.15,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.15,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.15,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.15,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.4,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.4,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.4,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.4,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.65,
+        0.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.65,
+        0.8,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.65,
+        1.3,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 27.348297467256636,
+      "world_point": [
+        4.65,
+        1.75,
+        27.348297467256636
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 28.281445019035807,
+      "world_point": [
+        4.4,
+        0.3,
+        28.281445019035807
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 28.281445019035807,
+      "world_point": [
+        4.65,
+        0.3,
+        28.281445019035807
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.15,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.15,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.15,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.15,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.4,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.4,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.4,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.4,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.65,
+        0.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.65,
+        0.8,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.65,
+        1.3,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 28.40144501903581,
+      "world_point": [
+        4.65,
+        1.75,
+        28.40144501903581
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 29.474508219643592,
+      "world_point": [
+        4.15,
+        0.3,
+        29.474508219643592
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 29.474508219643592,
+      "world_point": [
+        4.4,
+        0.3,
+        29.474508219643592
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 29.474508219643592,
+      "world_point": [
+        4.65,
+        0.3,
+        29.474508219643592
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.15,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.15,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.15,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.15,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.4,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.4,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.4,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.4,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.65,
+        0.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.65,
+        0.8,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.65,
+        1.3,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 29.594508219643593,
+      "world_point": [
+        4.65,
+        1.75,
+        29.594508219643593
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 30.564167609644752,
+      "world_point": [
+        4.15,
+        0.3,
+        30.564167609644752
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 30.564167609644752,
+      "world_point": [
+        4.4,
+        0.3,
+        30.564167609644752
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.15,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.15,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.15,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.15,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.4,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.4,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.4,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.4,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.65,
+        0.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.65,
+        0.8,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.65,
+        1.3,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 30.684167609644753,
+      "world_point": [
+        4.65,
+        1.75,
+        30.684167609644753
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 31.638376926143174,
+      "world_point": [
+        4.4,
+        0.3,
+        31.638376926143174
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.15,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.15,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.15,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.15,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.4,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.4,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.4,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.4,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.65,
+        0.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.65,
+        0.8,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.65,
+        1.3,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 31.758376926143175,
+      "world_point": [
+        4.65,
+        1.75,
+        31.758376926143175
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 32.79035963940209,
+      "world_point": [
+        4.15,
+        0.3,
+        32.79035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 32.79035963940209,
+      "world_point": [
+        4.4,
+        0.3,
+        32.79035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.15,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.15,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.15,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.15,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.4,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.4,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.4,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.4,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.65,
+        0.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.65,
+        0.8,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.65,
+        1.3,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 32.91035963940209,
+      "world_point": [
+        4.65,
+        1.75,
+        32.91035963940209
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "ground-transition",
+      "z": 33.8410177141181,
+      "world_point": [
+        4.4,
+        0.3,
+        33.8410177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.15,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.15,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.15,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.15,
+        1.75,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.4,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.4,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.4,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.4,
+        1.75,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.65,
+        0.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.65,
+        0.8,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.65,
+        1.3,
+        33.9610177141181
+      ]
+    },
+    {
+      "branch": 1,
+      "role": "outer-right",
+      "z": 33.9610177141181,
+      "world_point": [
+        4.65,
+        1.75,
+        33.9610177141181
+      ]
+    }
+  ],
+  "max_border_background_pixels": 0
+}

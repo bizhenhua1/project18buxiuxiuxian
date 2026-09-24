@@ -1,0 +1,112 @@
+{
+  "res://assets/biomes/whale/prop-0.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24854183197021,
+    "canvas_height_m_min": 0.370541620254517,
+    "count": 129,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-1.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24965209960938,
+    "canvas_height_m_min": 0.354605197906494,
+    "count": 119,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-2.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 6.0,
+    "canvas_height_m_min": 0.355012392997742,
+    "count": 47,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-3.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 4.9612865447998,
+    "canvas_height_m_min": 0.357556128501892,
+    "count": 208,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-4.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24989290237427,
+    "canvas_height_m_min": 0.353249335289001,
+    "count": 36,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-5.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24222068786621,
+    "canvas_height_m_min": 0.352394819259644,
+    "count": 99,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-6.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24777040481567,
+    "canvas_height_m_min": 0.352485680580139,
+    "count": 137,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-7.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.24712591171265,
+    "canvas_height_m_min": 0.100086402893066,
+    "count": 510,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/prop-8.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 1.21104936599731,
+    "canvas_height_m_min": 0.364896821975708,
+    "count": 119,
+    "semantic_support_verified": false
+  },
+  "res://assets/biomes/whale/shell.png": {
+    "branches": [
+      0,
+      -1,
+      1
+    ],
+    "canvas_height_m_max": 19.7930734753609,
+    "canvas_height_m_min": 11.9103599631786,
+    "count": 42,
+    "semantic_support_verified": false
+  }
+}

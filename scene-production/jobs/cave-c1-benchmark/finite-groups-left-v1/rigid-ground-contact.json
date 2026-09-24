@@ -1,0 +1,845 @@
+{
+  "instances": [
+    {
+      "id": 0,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.241927361735898,
+        "origin_y_m": -0.333538002482585,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 3,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.110392196554913,
+        "origin_y_m": -0.129543695391754,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 4,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.242812190833331,
+        "origin_y_m": -0.477578547510538,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 7,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0666534750076478,
+        "origin_y_m": -0.21725462762056,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 9,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.224229572998754,
+        "origin_y_m": -0.516553561338854,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 11,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0631912493006756,
+        "origin_y_m": -0.222800528322982,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 13,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.249287326525728,
+        "origin_y_m": -0.488430801246105,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 16,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0693097619983417,
+        "origin_y_m": -0.124919689950791,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 17,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.247251856099954,
+        "origin_y_m": -0.378348939935602,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 20,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.10385928410986,
+        "origin_y_m": -0.0541996594059701,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 22,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.27313973827902,
+        "origin_y_m": -0.329425266686146,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 24,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0987250303666491,
+        "origin_y_m": -0.00576331696733127,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 26,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.260750859468258,
+        "origin_y_m": -0.352140919808509,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 29,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0880961752300581,
+        "origin_y_m": -0.138152001829279,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 30,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.254272339276976,
+        "origin_y_m": -0.487090644177102,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 33,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0787632788969717,
+        "origin_y_m": -0.215439386155911,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 35,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.11674732416355,
+        "origin_y_m": -0.0890139061158663,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 38,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.260477406388677,
+        "origin_y_m": -0.40600011618811,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 39,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0952721163607535,
+        "origin_y_m": -0.151705803853294,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 42,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.247845280918264,
+        "origin_y_m": -0.447957353146766,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 44,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.110843564900954,
+        "origin_y_m": -0.175080389769307,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 46,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.256532620914753,
+        "origin_y_m": -0.423255404228945,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 48,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0765152167650336,
+        "origin_y_m": -0.0726255621807123,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 51,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.23416394728362,
+        "origin_y_m": -0.298793134161235,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 52,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0757713720068579,
+        "origin_y_m": 0.019498173358097,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 55,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.261827121618986,
+        "origin_y_m": -0.237172839712428,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 57,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0654989620794449,
+        "origin_y_m": 0.0948485516122347,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 59,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.255235356102072,
+        "origin_y_m": -0.216594001512003,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 61,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.11205156042877,
+        "origin_y_m": -0.00120704776888653,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 64,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.271958626746627,
+        "origin_y_m": -0.422601943546585,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 65,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0672644021359533,
+        "origin_y_m": -0.175733087202629,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 68,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.233294065134343,
+        "origin_y_m": -0.50973092922951,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 103,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.145713539123535,
+        "max_burial_m": 0.078387660960781,
+        "origin_y_m": -0.046130201327295,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 104,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.145713539123535,
+        "max_burial_m": 0.0211645108011982,
+        "origin_y_m": 0.0660011343046315,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 105,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.401855697631836,
+        "max_burial_m": 0.216941247655851,
+        "origin_y_m": -0.305879845849157,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 106,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.401855697631836,
+        "max_burial_m": 0.0768432556087732,
+        "origin_y_m": -0.0550372895725889,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 107,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.432000007629395,
+        "max_burial_m": 0.231233206455324,
+        "origin_y_m": -0.369350539128142,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 108,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.432000007629395,
+        "max_burial_m": 0.0900395655101003,
+        "origin_y_m": -0.130425747236893,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 109,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.432000007629395,
+        "max_burial_m": 0.228068377076957,
+        "origin_y_m": -0.386691189296652,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 110,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.432000007629395,
+        "max_burial_m": 0.0938950510551496,
+        "origin_y_m": -0.173387699013213,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 111,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.250337005838313,
+        "origin_y_m": -0.525102069149548,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 114,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0785542516027098,
+        "origin_y_m": -0.253468962129145,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 115,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.251478253098761,
+        "origin_y_m": -0.541317046886402,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 118,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0741616768414899,
+        "origin_y_m": -0.190637348778277,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 120,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.251288961314383,
+        "origin_y_m": -0.432116524258699,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 122,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.110023001304455,
+        "origin_y_m": -0.0970153538455115,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 124,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.274585203088856,
+        "origin_y_m": -0.35013032725148,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 127,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0997240033828289,
+        "origin_y_m": 0.00966392314917085,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 128,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.265411085865648,
+        "origin_y_m": -0.284144801318471,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 131,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.12540692974691,
+        "origin_y_m": -0.0304865263687572,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 133,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.281698402546169,
+        "origin_y_m": -0.357507639610911,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 135,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.080736296090379,
+        "origin_y_m": -0.0643238170003216,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 137,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.249141796922448,
+        "origin_y_m": -0.377499626286374,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 140,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0791119383774543,
+        "origin_y_m": -0.126576243749432,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 141,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.254304761770441,
+        "origin_y_m": -0.431138122388771,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 144,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.0832087568996921,
+        "origin_y_m": -0.140124371271836,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 147,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.273805756402342,
+        "origin_y_m": -0.455701868943661,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 148,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.081124410695346,
+        "origin_y_m": -0.117125337556612,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 151,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.26394168342595,
+        "origin_y_m": -0.382409901349838,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 153,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.122737968049356,
+        "origin_y_m": -0.0793063138941511,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 155,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.281938454033753,
+        "origin_y_m": -0.338180313395426,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 157,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.100048874987123,
+        "origin_y_m": 0.00615022731885523,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 160,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.264134178950061,
+        "origin_y_m": -0.290051291299524,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 161,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.119874889633499,
+        "origin_y_m": -0.0298192912122882,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 164,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.272567122780735,
+        "origin_y_m": -0.35426157185629,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 166,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0862614179026695,
+        "origin_y_m": -0.0906837622650286,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 168,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.49,
+        "max_burial_m": 0.249438496263763,
+        "origin_y_m": -0.450857766538482,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 170,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.58,
+        "max_burial_m": 0.10769669661581,
+        "origin_y_m": -0.216126808006994,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 173,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-mass-v1.png",
+      "support": {
+        "budget_m": 0.52,
+        "max_burial_m": 0.261218591740352,
+        "origin_y_m": -0.551110747999364,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 174,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/c1-candidates/side-layers-v2.png",
+      "support": {
+        "budget_m": 0.455,
+        "max_burial_m": 0.0709670186754326,
+        "origin_y_m": -0.237090569457941,
+        "reason": "ok",
+        "valid": true
+      }
+    }
+  ],
+  "status": "numerical_support_only_visual_edges_pending"
+}

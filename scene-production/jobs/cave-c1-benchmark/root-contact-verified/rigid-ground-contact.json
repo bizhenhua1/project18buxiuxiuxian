@@ -1,0 +1,3365 @@
+{
+  "instances": [
+    {
+      "id": 0,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.538134994506836,
+        "max_burial_m": 0.25286968450703,
+        "origin_y_m": -0.248583465212023,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 1,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.565041732788086,
+        "max_burial_m": 0.388406581817388,
+        "origin_y_m": -0.388520842189302,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 4,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.5556005859375,
+        "max_burial_m": 0.260332814655404,
+        "origin_y_m": -0.268824035530978,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 5,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.583380584716797,
+        "max_burial_m": 0.39052326970609,
+        "origin_y_m": -0.402629088390887,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 12,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.560424194335937,
+        "max_burial_m": 0.259642932817022,
+        "origin_y_m": -0.289403380252587,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 13,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.58844539642334,
+        "max_burial_m": 0.405203375619477,
+        "origin_y_m": -0.440889590688375,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 16,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572304916381836,
+        "max_burial_m": 0.270697749257555,
+        "origin_y_m": -0.299568774398152,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 17,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.600920181274414,
+        "max_burial_m": 0.40201436365017,
+        "origin_y_m": -0.436528313047427,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 23,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.515154457092285,
+        "max_burial_m": 0.236344970205859,
+        "origin_y_m": -0.301791401036377,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 24,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.540912170410156,
+        "max_burial_m": 0.37193277006195,
+        "origin_y_m": -0.440826170577429,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 27,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.552485389709473,
+        "max_burial_m": 0.263724955715496,
+        "origin_y_m": -0.314069838190769,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 28,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.580109634399414,
+        "max_burial_m": 0.385817176593432,
+        "origin_y_m": -0.441710378697486,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 34,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.566066055297852,
+        "max_burial_m": 0.254036025866522,
+        "origin_y_m": -0.356502687514686,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 35,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.59436939239502,
+        "max_burial_m": 0.404580634462797,
+        "origin_y_m": -0.514291701661908,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 38,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.52220516204834,
+        "max_burial_m": 0.251228025482601,
+        "origin_y_m": -0.320467228397912,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 39,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.548315391540527,
+        "max_burial_m": 0.360728493479388,
+        "origin_y_m": -0.434526754620554,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 46,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.533163070678711,
+        "max_burial_m": 0.236458250600961,
+        "origin_y_m": -0.366080330376104,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 47,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.559821243286133,
+        "max_burial_m": 0.377431570367984,
+        "origin_y_m": -0.513167221292547,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 50,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.531524658203125,
+        "max_burial_m": 0.25626800058132,
+        "origin_y_m": -0.340741388300411,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 51,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.558100891113281,
+        "max_burial_m": 0.362229055715519,
+        "origin_y_m": -0.453517189703851,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 57,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.546295852661133,
+        "max_burial_m": 0.237933142434526,
+        "origin_y_m": -0.392940994711139,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 58,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.573610610961914,
+        "max_burial_m": 0.38054253239249,
+        "origin_y_m": -0.542927632836657,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 61,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.538374633789063,
+        "max_burial_m": 0.259750005276024,
+        "origin_y_m": -0.355742585268293,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 62,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.565293388366699,
+        "max_burial_m": 0.361300925541515,
+        "origin_y_m": -0.466122605363644,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 68,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.543710632324219,
+        "max_burial_m": 0.232018891307578,
+        "origin_y_m": -0.408468879716872,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 69,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.570896148681641,
+        "max_burial_m": 0.371462788453244,
+        "origin_y_m": -0.55664602140777,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 72,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.524766654968262,
+        "max_burial_m": 0.253153982872571,
+        "origin_y_m": -0.356298177863984,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 73,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.551004981994629,
+        "max_burial_m": 0.34459052738893,
+        "origin_y_m": -0.457113367666372,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 80,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.528529014587402,
+        "max_burial_m": 0.220894159718024,
+        "origin_y_m": -0.412795554437752,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 81,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.55495548248291,
+        "max_burial_m": 0.352421498869919,
+        "origin_y_m": -0.553451042885792,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 84,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.560002861022949,
+        "max_burial_m": 0.269026133506847,
+        "origin_y_m": -0.37420195424564,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 85,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.588003005981445,
+        "max_burial_m": 0.359008455944365,
+        "origin_y_m": -0.479029875225674,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 91,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.550409965515137,
+        "max_burial_m": 0.227245826366597,
+        "origin_y_m": -0.42638354396094,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 92,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.577930488586426,
+        "max_burial_m": 0.357383833066326,
+        "origin_y_m": -0.569028421217169,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 95,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.519367828369141,
+        "max_burial_m": 0.248263718502453,
+        "origin_y_m": -0.34594928165887,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 96,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.54533618927002,
+        "max_burial_m": 0.324300204396893,
+        "origin_y_m": -0.435667606611324,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 102,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.518482704162598,
+        "max_burial_m": 0.215864000668721,
+        "origin_y_m": -0.412482503572801,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 103,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.544406852722168,
+        "max_burial_m": 0.329620806487728,
+        "origin_y_m": -0.538971778625401,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 106,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.552007217407227,
+        "max_burial_m": 0.26213684686803,
+        "origin_y_m": -0.349794264694505,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 107,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.579607582092285,
+        "max_burial_m": 0.337411648851644,
+        "origin_y_m": -0.444222636701904,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 114,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.526795997619629,
+        "max_burial_m": 0.220981274985517,
+        "origin_y_m": -0.411110901498767,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 115,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.553135795593262,
+        "max_burial_m": 0.326609091383109,
+        "origin_y_m": -0.53159035353817,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 118,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.526794586181641,
+        "max_burial_m": 0.24786465914022,
+        "origin_y_m": -0.318081400942108,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 119,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.553134307861328,
+        "max_burial_m": 0.314838740178905,
+        "origin_y_m": -0.404878936907929,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 125,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572109680175781,
+        "max_burial_m": 0.241578470317921,
+        "origin_y_m": -0.418414430804685,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 126,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.600715141296387,
+        "max_burial_m": 0.344359020702678,
+        "origin_y_m": -0.542056364036052,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 129,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.520556716918945,
+        "max_burial_m": 0.242057277197042,
+        "origin_y_m": -0.288351965302486,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 130,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.546584548950195,
+        "max_burial_m": 0.303880064952265,
+        "origin_y_m": -0.372757808765721,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 136,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.555329208374023,
+        "max_burial_m": 0.236963260961404,
+        "origin_y_m": -0.39023553297602,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 137,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.583095664978027,
+        "max_burial_m": 0.326209708962817,
+        "origin_y_m": -0.502496897182653,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 140,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.532895431518555,
+        "max_burial_m": 0.244288142610517,
+        "origin_y_m": -0.261830051848995,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 141,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.559540214538574,
+        "max_burial_m": 0.312928436635847,
+        "origin_y_m": -0.358169546928935,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 148,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572505302429199,
+        "max_burial_m": 0.2461356713449,
+        "origin_y_m": -0.37464340322305,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 149,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.601130561828613,
+        "max_burial_m": 0.32952478441669,
+        "origin_y_m": -0.485761770230645,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 152,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.515282020568848,
+        "max_burial_m": 0.232474403191525,
+        "origin_y_m": -0.220187218061913,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 153,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.541046142578125,
+        "max_burial_m": 0.305806246981849,
+        "origin_y_m": -0.323648376064204,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 159,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.540129928588867,
+        "max_burial_m": 0.234348330812974,
+        "origin_y_m": -0.335309767257584,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 160,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.567136421203613,
+        "max_burial_m": 0.307113189608763,
+        "origin_y_m": -0.437365631669956,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 163,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.553812294006348,
+        "max_burial_m": 0.246732890896091,
+        "origin_y_m": -0.209781628203557,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 164,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.581502914428711,
+        "max_burial_m": 0.330799097587554,
+        "origin_y_m": -0.331165335503276,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 170,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.527094955444336,
+        "max_burial_m": 0.230781992298264,
+        "origin_y_m": -0.30294471202975,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 171,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.55344970703125,
+        "max_burial_m": 0.296554146740218,
+        "origin_y_m": -0.400919774243883,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 174,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.575200080871582,
+        "max_burial_m": 0.252384620678806,
+        "origin_y_m": -0.189639707480545,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 175,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.603960075378418,
+        "max_burial_m": 0.344991655324115,
+        "origin_y_m": -0.32531374274714,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 182,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.558716621398926,
+        "max_burial_m": 0.246396285092164,
+        "origin_y_m": -0.289681632389076,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 183,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.586652450561523,
+        "max_burial_m": 0.312083909781987,
+        "origin_y_m": -0.39417784139021,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 186,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.542274436950684,
+        "max_burial_m": 0.237626497561908,
+        "origin_y_m": -0.145665159971754,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 187,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.569388160705566,
+        "max_burial_m": 0.325832438836688,
+        "origin_y_m": -0.2792608233268,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 193,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.566229057312012,
+        "max_burial_m": 0.251974783230045,
+        "origin_y_m": -0.266904870442768,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 194,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.594540519714356,
+        "max_burial_m": 0.317530305456766,
+        "origin_y_m": -0.376721398980604,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 197,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.532784767150879,
+        "max_burial_m": 0.235679765482436,
+        "origin_y_m": -0.121021795749265,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 198,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.559424018859863,
+        "max_burial_m": 0.319438447362522,
+        "origin_y_m": -0.253998761805079,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 204,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.537818336486816,
+        "max_burial_m": 0.241117918687699,
+        "origin_y_m": -0.232339316458599,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 205,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.564709243774414,
+        "max_burial_m": 0.302477230257834,
+        "origin_y_m": -0.34053761252964,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 208,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.521224670410156,
+        "max_burial_m": 0.232105133266375,
+        "origin_y_m": -0.10209175482754,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 209,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.547285881042481,
+        "max_burial_m": 0.311458988305953,
+        "origin_y_m": -0.23471144530415,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 216,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.566851997375488,
+        "max_burial_m": 0.255662005592835,
+        "origin_y_m": -0.232983603934631,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 217,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.59519458770752,
+        "max_burial_m": 0.318388055392559,
+        "origin_y_m": -0.348349989694805,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 220,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.551269607543945,
+        "max_burial_m": 0.247377957357078,
+        "origin_y_m": -0.112153368102731,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 221,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.578833084106445,
+        "max_burial_m": 0.327377214747143,
+        "origin_y_m": -0.251603178288758,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 227,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.523991966247559,
+        "max_burial_m": 0.238218973505284,
+        "origin_y_m": -0.200102786790868,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 228,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.55019157409668,
+        "max_burial_m": 0.294868196796079,
+        "origin_y_m": -0.311515907708725,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 231,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.553227119445801,
+        "max_burial_m": 0.250043596962566,
+        "origin_y_m": -0.113981768696599,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 232,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.580888481140137,
+        "max_burial_m": 0.326155388199965,
+        "origin_y_m": -0.253385622275323,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 238,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.511985473632813,
+        "max_burial_m": 0.234149185599508,
+        "origin_y_m": -0.189223005637689,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 239,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.537584762573242,
+        "max_burial_m": 0.287892750990699,
+        "origin_y_m": -0.301421301642571,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 242,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.549533424377441,
+        "max_burial_m": 0.250011589564326,
+        "origin_y_m": -0.120779549305211,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 243,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.577010116577148,
+        "max_burial_m": 0.321154855450394,
+        "origin_y_m": -0.259568155812816,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 250,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.523233604431152,
+        "max_burial_m": 0.240611724297822,
+        "origin_y_m": -0.198083526849408,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 251,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.549395294189453,
+        "max_burial_m": 0.296049473898601,
+        "origin_y_m": -0.316785848621706,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 254,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.528069763183594,
+        "max_burial_m": 0.241928216743304,
+        "origin_y_m": -0.127652646825932,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 255,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.554473266601562,
+        "max_burial_m": 0.305742831756287,
+        "origin_y_m": -0.261246121641921,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 261,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.567523651123047,
+        "max_burial_m": 0.259768710300822,
+        "origin_y_m": -0.238293672412338,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 262,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.595899848937988,
+        "max_burial_m": 0.326654422504624,
+        "origin_y_m": -0.369926876324102,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 265,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.528126335144043,
+        "max_burial_m": 0.244262350259478,
+        "origin_y_m": -0.159996549978355,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 266,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.554532661437988,
+        "max_burial_m": 0.305516258220458,
+        "origin_y_m": -0.296115451028955,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 272,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.554007606506348,
+        "max_burial_m": 0.248959950139637,
+        "origin_y_m": -0.259567058390308,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 273,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.581707992553711,
+        "max_burial_m": 0.333685518083158,
+        "origin_y_m": -0.398833309705033,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 276,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.536390228271484,
+        "max_burial_m": 0.250094363350275,
+        "origin_y_m": -0.217011283777516,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 277,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.56320972442627,
+        "max_burial_m": 0.31348323654339,
+        "origin_y_m": -0.356701260895862,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 285,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.544924468994141,
+        "max_burial_m": 0.239859053502355,
+        "origin_y_m": -0.283750560728205,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 286,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.572170715332031,
+        "max_burial_m": 0.343283215821364,
+        "origin_y_m": -0.430977535224329,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 289,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.559148635864258,
+        "max_burial_m": 0.256710633097445,
+        "origin_y_m": -0.28337857070764,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 290,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.587106056213379,
+        "max_burial_m": 0.337561129311921,
+        "origin_y_m": -0.431946552378927,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 298,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.520369453430176,
+        "max_burial_m": 0.219892235822465,
+        "origin_y_m": -0.285867254352164,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 299,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.546387939453125,
+        "max_burial_m": 0.351576367028609,
+        "origin_y_m": -0.462965136642248,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 306,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.514716300964356,
+        "max_burial_m": 0.220664616882479,
+        "origin_y_m": -0.281650302092977,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 307,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.540452117919922,
+        "max_burial_m": 0.346872977970207,
+        "origin_y_m": -0.469166494227887,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 312,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.526433563232422,
+        "max_burial_m": 0.223090858985872,
+        "origin_y_m": -0.322717863802228,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 313,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.552755241394043,
+        "max_burial_m": 0.353536868125368,
+        "origin_y_m": -0.492513972763312,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 316,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.340827827453613,
+        "max_burial_m": 0.195457657454923,
+        "origin_y_m": -0.215230741208944,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 320,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.340827827453613,
+        "max_burial_m": 0.21690191247876,
+        "origin_y_m": -0.216860646152958,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 324,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.535937652587891,
+        "max_burial_m": 0.230853729155001,
+        "origin_y_m": -0.338476961396491,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 325,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.562734527587891,
+        "max_burial_m": 0.355966724839236,
+        "origin_y_m": -0.511259176982141,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 331,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.533586730957031,
+        "max_burial_m": 0.230817375737234,
+        "origin_y_m": -0.358468555916205,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 332,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.560266075134277,
+        "max_burial_m": 0.345606241731148,
+        "origin_y_m": -0.511470900189261,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 335,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.41,
+        "max_burial_m": 0.235322650368638,
+        "origin_y_m": -0.287409100810082,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 338,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.41,
+        "max_burial_m": 0.263948277082037,
+        "origin_y_m": -0.304618097340843,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 341,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.57594051361084,
+        "max_burial_m": 0.248577638685797,
+        "origin_y_m": -0.390347635672064,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 342,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.604737548828125,
+        "max_burial_m": 0.374035289234845,
+        "origin_y_m": -0.555649591448233,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 347,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.571102638244629,
+        "max_burial_m": 0.249419251265928,
+        "origin_y_m": -0.40168944891538,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 348,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.599657783508301,
+        "max_burial_m": 0.359176813194526,
+        "origin_y_m": -0.553640125997289,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 351,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.41,
+        "max_burial_m": 0.234478787157266,
+        "origin_y_m": -0.303858637748449,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 354,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.41,
+        "max_burial_m": 0.265479687917653,
+        "origin_y_m": -0.334001261178577,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 357,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.566944580078125,
+        "max_burial_m": 0.243925189509995,
+        "origin_y_m": -0.40868838345748,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 358,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.59529182434082,
+        "max_burial_m": 0.366234991430603,
+        "origin_y_m": -0.564307016711636,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 363,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.518924217224121,
+        "max_burial_m": 0.226599889896682,
+        "origin_y_m": -0.398915071347383,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 364,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.544870414733887,
+        "max_burial_m": 0.324961905215441,
+        "origin_y_m": -0.53418459329817,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 367,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.364708595275879,
+        "max_burial_m": 0.206549023206952,
+        "origin_y_m": -0.28378742697163,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 371,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.364708595275879,
+        "max_burial_m": 0.23705001178247,
+        "origin_y_m": -0.32505400286415,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 375,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.548313674926758,
+        "max_burial_m": 0.231132537687677,
+        "origin_y_m": -0.414800047229725,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 376,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.575729331970215,
+        "max_burial_m": 0.358425360993057,
+        "origin_y_m": -0.56431863413708,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 382,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.551723556518555,
+        "max_burial_m": 0.241093346192748,
+        "origin_y_m": -0.431730484924808,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 383,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.579309768676758,
+        "max_burial_m": 0.338873800451604,
+        "origin_y_m": -0.568652203661406,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 386,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.26363862991333,
+        "max_burial_m": 0.147422425511634,
+        "origin_y_m": -0.223434890992486,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 390,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.26363862991333,
+        "max_burial_m": 0.171994297726334,
+        "origin_y_m": -0.272082181173327,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 393,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.543647308349609,
+        "max_burial_m": 0.225751188564495,
+        "origin_y_m": -0.418059048029197,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 394,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.570829658508301,
+        "max_burial_m": 0.355684620699034,
+        "origin_y_m": -0.561633603880172,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 400,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.543772239685059,
+        "max_burial_m": 0.238977727061482,
+        "origin_y_m": -0.437757013534946,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 401,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.570960845947266,
+        "max_burial_m": 0.325074528971878,
+        "origin_y_m": -0.563640877960395,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 404,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.188135414123535,
+        "max_burial_m": 0.10485861371744,
+        "origin_y_m": -0.178903699471154,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 408,
+      "role": "divider",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.188135414123535,
+        "max_burial_m": 0.123545572128584,
+        "origin_y_m": -0.235919737788903,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 412,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.550628700256348,
+        "max_burial_m": 0.22963422175173,
+        "origin_y_m": -0.424031922115298,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 413,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.578160133361816,
+        "max_burial_m": 0.358350046100135,
+        "origin_y_m": -0.562290635569873,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 419,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.568846054077149,
+        "max_burial_m": 0.247743567189003,
+        "origin_y_m": -0.452445013302895,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 420,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.597288322448731,
+        "max_burial_m": 0.338742619695459,
+        "origin_y_m": -0.580139425376029,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 431,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.538690223693848,
+        "max_burial_m": 0.236136511570312,
+        "origin_y_m": -0.419417931368039,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 432,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.565624732971191,
+        "max_burial_m": 0.350819094363742,
+        "origin_y_m": -0.535063113027076,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 439,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.532499885559082,
+        "max_burial_m": 0.230391871685489,
+        "origin_y_m": -0.429980994664341,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 440,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.559124870300293,
+        "max_burial_m": 0.317987323697833,
+        "origin_y_m": -0.548078226101471,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 443,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.568054275512695,
+        "max_burial_m": 0.26061165086927,
+        "origin_y_m": -0.420245036072847,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 444,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.596456985473633,
+        "max_burial_m": 0.366782002826751,
+        "origin_y_m": -0.525982188878055,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 454,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.555818176269531,
+        "max_burial_m": 0.239963558331362,
+        "origin_y_m": -0.431480221510749,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 455,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.583609085083008,
+        "max_burial_m": 0.327063256331863,
+        "origin_y_m": -0.548018081640262,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 458,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.553795433044434,
+        "max_burial_m": 0.261047619479712,
+        "origin_y_m": -0.391688574170371,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 459,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.581485214233399,
+        "max_burial_m": 0.353076422637523,
+        "origin_y_m": -0.481354769272504,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 469,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.537807388305664,
+        "max_burial_m": 0.234395040021738,
+        "origin_y_m": -0.404481269581979,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 470,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.564697761535645,
+        "max_burial_m": 0.307668616756844,
+        "origin_y_m": -0.510076945737255,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 473,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.538952560424805,
+        "max_burial_m": 0.256847229569176,
+        "origin_y_m": -0.358106728696179,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 474,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.565900192260742,
+        "max_burial_m": 0.338927226295718,
+        "origin_y_m": -0.43664658147197,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 486,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.553336334228516,
+        "max_burial_m": 0.243335120428996,
+        "origin_y_m": -0.390430734497828,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 487,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.581003150939941,
+        "max_burial_m": 0.308491766230982,
+        "origin_y_m": -0.492035245988478,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 490,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.568564643859863,
+        "max_burial_m": 0.272112741056945,
+        "origin_y_m": -0.343647092539754,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 491,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.596992874145508,
+        "max_burial_m": 0.354000763331983,
+        "origin_y_m": -0.425476108049968,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 501,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.543485870361328,
+        "max_burial_m": 0.240580024355907,
+        "origin_y_m": -0.361371700821044,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 502,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.570660171508789,
+        "max_burial_m": 0.305704027934366,
+        "origin_y_m": -0.465533248572847,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 505,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.576426277160645,
+        "max_burial_m": 0.276950659224753,
+        "origin_y_m": -0.318570171524318,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 506,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.605247611999512,
+        "max_burial_m": 0.356625438963686,
+        "origin_y_m": -0.400074129135629,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 516,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.52318546295166,
+        "max_burial_m": 0.233460399128897,
+        "origin_y_m": -0.323450668812612,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 517,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.549344749450684,
+        "max_burial_m": 0.297739037331962,
+        "origin_y_m": -0.429220727418968,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 520,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.576696586608887,
+        "max_burial_m": 0.277882089132616,
+        "origin_y_m": -0.286572881257685,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 521,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.605531425476074,
+        "max_burial_m": 0.355140706868353,
+        "origin_y_m": -0.367824453048759,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 532,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.532137489318848,
+        "max_burial_m": 0.239351894417304,
+        "origin_y_m": -0.295708587494044,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 533,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.55874439239502,
+        "max_burial_m": 0.305987076972906,
+        "origin_y_m": -0.408351238284898,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 536,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.541857719421387,
+        "max_burial_m": 0.261611843366178,
+        "origin_y_m": -0.232466536249079,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 537,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.568950614929199,
+        "max_burial_m": 0.332666375732282,
+        "origin_y_m": -0.307468296253509,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 548,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.574014282226562,
+        "max_burial_m": 0.260117796700091,
+        "origin_y_m": -0.285752520867492,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 549,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.602714996337891,
+        "max_burial_m": 0.331559100905559,
+        "origin_y_m": -0.410493299490019,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 552,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.545698661804199,
+        "max_burial_m": 0.262902613710643,
+        "origin_y_m": -0.20010106743027,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 553,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.572983589172363,
+        "max_burial_m": 0.335432485063683,
+        "origin_y_m": -0.280898260465565,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 563,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.551873397827149,
+        "max_burial_m": 0.251673975790272,
+        "origin_y_m": -0.248173840033472,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 564,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.57946704864502,
+        "max_burial_m": 0.320455508299304,
+        "origin_y_m": -0.372665658381381,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 567,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.571598472595215,
+        "max_burial_m": 0.274128162302271,
+        "origin_y_m": -0.186531393558814,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 568,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.600178375244141,
+        "max_burial_m": 0.35266456842999,
+        "origin_y_m": -0.279160015076583,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 579,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.530463256835938,
+        "max_burial_m": 0.242985627737553,
+        "origin_y_m": -0.216127617427228,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 580,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.556986427307129,
+        "max_burial_m": 0.308691920194943,
+        "origin_y_m": -0.339529518118511,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 583,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.523457183837891,
+        "max_burial_m": 0.249860195242064,
+        "origin_y_m": -0.14053365459318,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 584,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.54963005065918,
+        "max_burial_m": 0.324064291067311,
+        "origin_y_m": -0.228705846349851,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 594,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572439002990723,
+        "max_burial_m": 0.263705072217771,
+        "origin_y_m": -0.220742202733275,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 595,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.601060943603516,
+        "max_burial_m": 0.332385150439201,
+        "origin_y_m": -0.353557911764523,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 598,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.513791618347168,
+        "max_burial_m": 0.243255932769928,
+        "origin_y_m": -0.118567222154159,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 599,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.539481201171875,
+        "max_burial_m": 0.319522210204882,
+        "origin_y_m": -0.21316231312506,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 609,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.568542327880859,
+        "max_burial_m": 0.263283360155209,
+        "origin_y_m": -0.205353708973088,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 610,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.596969451904297,
+        "max_burial_m": 0.330008461456582,
+        "origin_y_m": -0.340035924180129,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 613,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.547702293395996,
+        "max_burial_m": 0.256540819617832,
+        "origin_y_m": -0.12497928427738,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 614,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.575087432861328,
+        "max_burial_m": 0.343118796047305,
+        "origin_y_m": -0.237409605609737,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 625,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.563412475585938,
+        "max_burial_m": 0.261944803826449,
+        "origin_y_m": -0.197454298814747,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 626,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.591583099365234,
+        "max_burial_m": 0.325858371361857,
+        "origin_y_m": -0.332185169367457,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 629,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.562418174743652,
+        "max_burial_m": 0.260096957230578,
+        "origin_y_m": -0.129750664147901,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 630,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.590539054870605,
+        "max_burial_m": 0.354287381857957,
+        "origin_y_m": -0.256820471747611,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 640,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.535411376953125,
+        "max_burial_m": 0.249546775841162,
+        "origin_y_m": -0.183455761713661,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 641,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.562181930541992,
+        "max_burial_m": 0.309429601921514,
+        "origin_y_m": -0.315128012643178,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 644,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.553348655700684,
+        "max_burial_m": 0.252519466396122,
+        "origin_y_m": -0.129251029224745,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 645,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.581016120910644,
+        "max_burial_m": 0.349129041724666,
+        "origin_y_m": -0.262825090684783,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 656,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.525562171936035,
+        "max_burial_m": 0.245109539580671,
+        "origin_y_m": -0.184592661308423,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 657,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.551840286254883,
+        "max_burial_m": 0.302998484056259,
+        "origin_y_m": -0.315432624625439,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 660,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.537706680297852,
+        "max_burial_m": 0.241802380300752,
+        "origin_y_m": -0.130274068971272,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 661,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.564592018127441,
+        "max_burial_m": 0.339480374020267,
+        "origin_y_m": -0.268089941292574,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 672,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.557763977050781,
+        "max_burial_m": 0.260016883597521,
+        "origin_y_m": -0.214243041164365,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 673,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.585652160644531,
+        "max_burial_m": 0.320605002371172,
+        "origin_y_m": -0.35087412412755,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 676,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.520375900268555,
+        "max_burial_m": 0.229677726461854,
+        "origin_y_m": -0.136970885647449,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 677,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.546394691467285,
+        "max_burial_m": 0.327293845159339,
+        "origin_y_m": -0.278892207207161,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 687,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.539130935668945,
+        "max_burial_m": 0.251304802715084,
+        "origin_y_m": -0.222161779332359,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 688,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.566087493896484,
+        "max_burial_m": 0.310039499693449,
+        "origin_y_m": -0.356979387349214,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 691,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.548794746398926,
+        "max_burial_m": 0.239653542992502,
+        "origin_y_m": -0.175230027069113,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 692,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.576234474182129,
+        "max_burial_m": 0.343586056535857,
+        "origin_y_m": -0.330003987619775,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 702,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.568413124084473,
+        "max_burial_m": 0.264494850923237,
+        "origin_y_m": -0.258234166755578,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 703,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.596833763122559,
+        "max_burial_m": 0.326996505338014,
+        "origin_y_m": -0.398596516337796,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 706,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.528744659423828,
+        "max_burial_m": 0.232876061996039,
+        "origin_y_m": -0.19576229867673,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 707,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.555181922912598,
+        "max_burial_m": 0.327102577071731,
+        "origin_y_m": -0.344211104133332,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 719,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.536383666992188,
+        "max_burial_m": 0.249137537323417,
+        "origin_y_m": -0.259878819935406,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 720,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.563202857971191,
+        "max_burial_m": 0.309527777899787,
+        "origin_y_m": -0.395845940989359,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 723,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.513208808898926,
+        "max_burial_m": 0.227796288553586,
+        "origin_y_m": -0.216007078873063,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 724,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.538869285583496,
+        "max_burial_m": 0.313608782165094,
+        "origin_y_m": -0.358512727067692,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 734,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.524674835205078,
+        "max_burial_m": 0.243105909838337,
+        "origin_y_m": -0.271975738928045,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 735,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.550908546447754,
+        "max_burial_m": 0.30409082969977,
+        "origin_y_m": -0.406728588798181,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 738,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.534997673034668,
+        "max_burial_m": 0.239274108261658,
+        "origin_y_m": -0.254182370897983,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 739,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.561747589111328,
+        "max_burial_m": 0.322344208698725,
+        "origin_y_m": -0.39825320307819,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 749,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.516617050170899,
+        "max_burial_m": 0.23836791947727,
+        "origin_y_m": -0.286173404067033,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 750,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.542447929382324,
+        "max_burial_m": 0.30114703351145,
+        "origin_y_m": -0.420400484910056,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 753,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.55229923248291,
+        "max_burial_m": 0.248655587940905,
+        "origin_y_m": -0.291032086285267,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 754,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.579914207458496,
+        "max_burial_m": 0.326402299417799,
+        "origin_y_m": -0.43371238394413,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 765,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.516808700561524,
+        "max_burial_m": 0.237306129658545,
+        "origin_y_m": -0.302160058893878,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 766,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.542649154663086,
+        "max_burial_m": 0.303582287101427,
+        "origin_y_m": -0.436953845626183,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 769,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.526884880065918,
+        "max_burial_m": 0.239211237627888,
+        "origin_y_m": -0.303615146561636,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 770,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.553229141235352,
+        "max_burial_m": 0.303754014845864,
+        "origin_y_m": -0.434202308981046,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 780,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.530345039367676,
+        "max_burial_m": 0.242164053217165,
+        "origin_y_m": -0.318466177148239,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 781,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.556862297058106,
+        "max_burial_m": 0.314030629616214,
+        "origin_y_m": -0.456763008072108,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 784,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572051658630371,
+        "max_burial_m": 0.261032958068191,
+        "origin_y_m": -0.345173748476869,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 785,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.600654220581055,
+        "max_burial_m": 0.332767397628394,
+        "origin_y_m": -0.487281192256124,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 795,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.55694091796875,
+        "max_burial_m": 0.252752191285281,
+        "origin_y_m": -0.33574886737757,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 796,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.584787979125977,
+        "max_burial_m": 0.331760628734249,
+        "origin_y_m": -0.479653182118443,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 799,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.550070762634277,
+        "max_burial_m": 0.252367728166222,
+        "origin_y_m": -0.344472911918332,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 800,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.577574272155762,
+        "max_burial_m": 0.323639257583027,
+        "origin_y_m": -0.486194734076364,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 811,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.559061622619629,
+        "max_burial_m": 0.252276056513023,
+        "origin_y_m": -0.334840266285906,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 812,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.587014694213867,
+        "max_burial_m": 0.335491724924325,
+        "origin_y_m": -0.479424003290783,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 815,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.534684791564941,
+        "max_burial_m": 0.246511872847555,
+        "origin_y_m": -0.342119568765976,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 816,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.561419067382812,
+        "max_burial_m": 0.31724119571823,
+        "origin_y_m": -0.483267918437309,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 827,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.554487686157227,
+        "max_burial_m": 0.248224026367296,
+        "origin_y_m": -0.32331450465125,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 828,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.582212066650391,
+        "max_burial_m": 0.335168105428993,
+        "origin_y_m": -0.467084157782701,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 831,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.539539680480957,
+        "max_burial_m": 0.249678920281877,
+        "origin_y_m": -0.343999184540476,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 832,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.566516647338867,
+        "max_burial_m": 0.324347132018758,
+        "origin_y_m": -0.489158679967471,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 842,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.541681251525879,
+        "max_burial_m": 0.24063179596675,
+        "origin_y_m": -0.300782213935659,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 843,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.568765335083008,
+        "max_burial_m": 0.328829606011133,
+        "origin_y_m": -0.440037401372896,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 846,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.572725791931152,
+        "max_burial_m": 0.265913320532552,
+        "origin_y_m": -0.354192817584362,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 847,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.601362075805664,
+        "max_burial_m": 0.350944299537379,
+        "origin_y_m": -0.508027151953183,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 858,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.55798641204834,
+        "max_burial_m": 0.24568388110621,
+        "origin_y_m": -0.288556973933628,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 859,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.585885734558106,
+        "max_burial_m": 0.339878900189601,
+        "origin_y_m": -0.430646853869412,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 862,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.54752025604248,
+        "max_burial_m": 0.254817480246469,
+        "origin_y_m": -0.328148157079181,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 863,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.574896278381348,
+        "max_burial_m": 0.339655984464557,
+        "origin_y_m": -0.477798059972887,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 873,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.527303581237793,
+        "max_burial_m": 0.230447936421975,
+        "origin_y_m": -0.251605718255413,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 874,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.553668785095215,
+        "max_burial_m": 0.320794740637615,
+        "origin_y_m": -0.383473456815104,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 877,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.538893432617188,
+        "max_burial_m": 0.251140312720525,
+        "origin_y_m": -0.308544843292598,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 878,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.565838088989258,
+        "max_burial_m": 0.336675625235153,
+        "origin_y_m": -0.45683303871174,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 889,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.541285705566406,
+        "max_burial_m": 0.238031216131002,
+        "origin_y_m": -0.236495913747989,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 890,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.568349990844727,
+        "max_burial_m": 0.328290630460031,
+        "origin_y_m": -0.365370337437347,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 893,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.515366516113281,
+        "max_burial_m": 0.240324430678319,
+        "origin_y_m": -0.277612021128949,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 894,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.541134834289551,
+        "max_burial_m": 0.321967542969792,
+        "origin_y_m": -0.419879477583906,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 905,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.514341278076172,
+        "max_burial_m": 0.230191785275864,
+        "origin_y_m": -0.19954241001533,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 906,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.540058326721191,
+        "max_burial_m": 0.310150917724659,
+        "origin_y_m": -0.311178367218923,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 909,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.529252166748047,
+        "max_burial_m": 0.246842016320452,
+        "origin_y_m": -0.263163236652547,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 910,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.55571475982666,
+        "max_burial_m": 0.328376703066924,
+        "origin_y_m": -0.406270116828398,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 920,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.51211368560791,
+        "max_burial_m": 0.233218321823984,
+        "origin_y_m": -0.175360295119425,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 921,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.537719383239746,
+        "max_burial_m": 0.305060311999646,
+        "origin_y_m": -0.274789098765604,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 924,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.576029739379883,
+        "max_burial_m": 0.268367219887653,
+        "origin_y_m": -0.26673086886241,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 925,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.604831237792969,
+        "max_burial_m": 0.352268013713278,
+        "origin_y_m": -0.416186511592829,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 935,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.519577293395996,
+        "max_burial_m": 0.239964399316121,
+        "origin_y_m": -0.160662717516131,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 936,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.545556144714355,
+        "max_burial_m": 0.30808978006612,
+        "origin_y_m": -0.253232391453706,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 939,
+      "role": "shoulder",
+      "source": "res://assets/biomes/crystal/modular/shoulder-rising-v3.png",
+      "support": {
+        "budget_m": 0.512845115661621,
+        "max_burial_m": 0.23858556536674,
+        "origin_y_m": -0.215531438843027,
+        "reason": "ok",
+        "valid": true
+      }
+    },
+    {
+      "id": 940,
+      "role": "side_fill",
+      "source": "res://assets/biomes/crystal/modular/side-fill-v1.png",
+      "support": {
+        "budget_m": 0.538487358093262,
+        "max_burial_m": 0.307479020652363,
+        "origin_y_m": -0.348363476870606,
+        "reason": "ok",
+        "valid": true
+      }
+    }
+  ],
+  "status": "numerical_support_only_visual_edges_pending"
+}

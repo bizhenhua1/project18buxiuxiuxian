@@ -34,3 +34,7 @@
 # 2026-09-16 补充交付更新
 
 此前缺少的十套装饰、茶会与魔镜岔路独立侧景已补齐并接入；长屋和钟楼地面已重做。上文为历史检查记录，当前结果以 `docs/design/ART-SUPPLEMENT-DELIVERY-2026-09-16.md` 和 `review-20260916/` 为准。整体长期目标已进入 3D 迁移阶段。
+
+## 2026-09-20 当前状态修正
+
+上面的“已补齐”和“进入3D迁移”是历史交付记录，不能作为当前视觉验收结论。用户要求重新按画面检查后，视觉验收已重新打开：目前真实接入的中型 furniture 只在 red_cottage、snow_house、puppet_theatre，独立 branch-side 只在 alice_tea、snow_mirror、snow_house、puppet_theatre。其余场景的中景和岔路围合仍需图片资产补充；本轮生图额度不可用，已先完成非生图代码、世界格子、路线净空和最新 native 3D route view 审计。

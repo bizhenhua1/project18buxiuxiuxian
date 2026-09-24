@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "scene_id": "alice_tea",
+  "baseline_id": "swamp",
+  "status": "rejected_experiment_runtime_reverted",
+  "change_scope": [
+    "scene-specific garden scatter rhythm",
+    "grounded tea-table signature furniture fallback",
+    "no new generated art",
+    "no baseline scene overwrite"
+  ],
+  "before": {
+    "capture": "godot/tempassets/work/visual-alignment-alice-20260921-170950/beauty.png",
+    "manifest": "godot/tempassets/work/visual-alignment-alice-20260921-170950/manifest.json",
+    "sprite_count_log": 996,
+    "image_sha256": "078f2918028472c64e76ca5e2b22d292f2bf0ed41343d9b0f9d3a489a1ca7c76"
+  },
+  "after": {
+    "capture": "tempassets/work/visual-alignment-alice-20260921-171959/beauty.png",
+    "diagnostic_capture": "tempassets/work/visual-alignment-alice-20260921-171959/diagnostic.png",
+    "manifest": "tempassets/work/visual-alignment-alice-20260921-171959/manifest.json",
+    "sprite_count_log": 1982,
+    "image_sha256": "410204ebe6636b077c82313237ab6a3d449fdc26dd4f016af721485ba259917f",
+    "provenance_validation": "scripts/validate_scene3d_capture.py:provenance_valid=true"
+  },
+  "implementation": {
+    "profile_source": "godot/data/fairytale_scatter_profiles.json#scene_overrides.alice_tea",
+    "layout_source": "godot/scripts/spaces/layouts/fairytale_corridor.gd",
+    "override": {
+      "cluster_step": [
+        14,
+        24
+      ],
+      "cluster_members": [
+        7,
+        10
+      ],
+      "side_range": [
+        94,
+        210
+      ],
+      "anchor_chance": 0.34,
+      "prop_keep": 0.78
+    },
+    "signature_asset": "godot/assets/fairytales/alice_tea/structure.png",
+    "default_runtime_unchanged_for_other_scenes": true
+  },
+  "review_notes": [
+    "The pre-change frame had the shell and floor but no visible tea-table dressing in the corridor.",
+    "The current frame adds grounded tea-table rhythm on both edges and denser rose-garden dressing while retaining a clear travel lane.",
+    "This experiment only increased sprite counts and was reverted; it is not evidence of baseline alignment."
+  ],
+  "v3_review": {
+    "authoritative_entry": "docs/design/SCENE3D-START-HERE.md",
+    "decisions": "docs/design/SCENE3D-ISSUE-DECISIONS-V3.md",
+    "execution_index": "docs/design/SCENE3D-PRODUCTION-PLAN-V3.json",
+    "historical_values_not_current_acceptance": true,
+    "runtime_fixed_by_this_revision": false,
+    "finding": "structure.png was already placed by fairytale_corridor.gd; lack of a visible table does not establish absent loading. Rejected fallback may duplicate it."
+  }
+}

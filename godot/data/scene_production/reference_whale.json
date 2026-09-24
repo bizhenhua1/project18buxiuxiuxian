@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "reference_whale",
+  "family": "whale",
+  "style": "鲸腹原有画风与布局，保持镜头；通过生产配方重建",
+  "bindings": {
+    "res://assets/biomes/whale/ground.png": "res://assets/biomes/whale/ground.png",
+    "res://assets/biomes/whale/prop-0.png": "res://assets/biomes/whale/prop-0.png",
+    "res://assets/biomes/whale/prop-1.png": "res://assets/biomes/whale/prop-1.png",
+    "res://assets/biomes/whale/prop-2.png": "res://assets/biomes/whale/prop-2.png",
+    "res://assets/biomes/whale/prop-3.png": "res://assets/biomes/whale/prop-3.png",
+    "res://assets/biomes/whale/prop-4.png": "res://assets/biomes/whale/prop-4.png",
+    "res://assets/biomes/whale/prop-5.png": "res://assets/biomes/whale/prop-5.png",
+    "res://assets/biomes/whale/prop-6.png": "res://assets/biomes/whale/prop-6.png",
+    "res://assets/biomes/whale/prop-7.png": "res://assets/biomes/whale/prop-7.png",
+    "res://assets/biomes/whale/prop-8.png": "res://assets/biomes/whale/prop-8.png",
+    "res://assets/biomes/whale/shell.png": "res://assets/biomes/whale/shell.png"
+  },
+  "asset_sha256": {
+    "res://assets/biomes/whale/ground.png": "3d3d3939123472c3f246f79241c01b2ec78e77da7558ece6cd8d9a27bb953112",
+    "res://assets/biomes/whale/prop-0.png": "980765b3e7eae451806fe46077abdedadf348cd6fa2967c047b2e58dd0233214",
+    "res://assets/biomes/whale/prop-1.png": "16f58fce45715823132091c1e7e984021f867c909016ff409bd8bc5a00f6ad66",
+    "res://assets/biomes/whale/prop-2.png": "f6e5cb58845f99862671c5405ce6cbcb88516896c70e675cc85cedeb43a84055",
+    "res://assets/biomes/whale/prop-3.png": "57269c231baa96e003e299003fe0b474fd3660293ca9be062dc4c129e2c1cfd0",
+    "res://assets/biomes/whale/prop-4.png": "8a7b5b0e238e455fa214075071fa7489a09510e5c567c23d68fb2dc0b51be08f",
+    "res://assets/biomes/whale/prop-5.png": "ba6ac73c78a3ca939521bab512706e49fd359bd36ddd166a19336d1985d3a33a",
+    "res://assets/biomes/whale/prop-6.png": "58c93c6e770b2591fc20c64aaa7d0aad8241cb805d9d902c2b845eddc3ff490c",
+    "res://assets/biomes/whale/prop-7.png": "81d8ee65f5e5a4790cb1302be36f29faae86526142b282714b2dbe6bd5236a1c",
+    "res://assets/biomes/whale/prop-8.png": "24ecab8d54a7fe7bdbff38f863edffb4982780c09d48711fae79f85f6cbcc5dd",
+    "res://assets/biomes/whale/shell.png": "4a29fe93e806c780310620df01cde3c856eb90dcbcb4264dc2f041ee6fac9d12"
+  },
+  "recipe_sha256": "9e7ee876c1e1dec7d1a3e8e10dffa03dfd078a2fee836c2830f247acc4380614",
+  "adapter_sha256": "7e5b622051d6a8feecdf223e7428d0002c039e2cb1cddbb198a91fb25648314f",
+  "status": "preview_candidate",
+  "publication_allowed": false
+}

@@ -7,7 +7,7 @@ func run():
  var texture:=ImageTexture.create_from_image(pixels)
  var space:=SpaceType.new();space.key=&"crystal"
  var region:=RouteRegion.new();region.space=space
- var base:Dictionary={"texture":texture,"position":Vector2(20,20),"route_s":20.0,"w":80.0,"h":120.0,"flip":false,"region":region,"biome_prop":true,"ground_anchor":Vector2(.5,.65)}
+ var base:Dictionary={"texture":texture,"position":Vector2(20,20),"route_s":20.0,"w":80.0,"h":120.0,"flip":false,"region":region,"biome_prop":true,"ground_contact":true,"ground_anchor":Vector2(.5,.65)}
  var other:=base.duplicate();other.ground_anchor=Vector2(.5,.92)
  var shell:=base.duplicate();shell.shell=true
  var groups:Dictionary={}
@@ -17,8 +17,7 @@ func run():
  for group in groups.values():
   scenery.build_group(group)
   var item:Dictionary=group.items[0]
-  var profile:=PackedFloat32Array()
-  if item.sprite.get("shell",false):profile=scenery.contact_cache[texture]
+  var profile:PackedFloat32Array=scenery.contact_cache[texture]
   var expected:Mesh=preload("res://scripts/world3d/contact_geometry.gd").bounded_contact_mesh(Vector2(item.member.w,item.member.h)/20,item.member.anchor.y,profile)
   var actual:Array=scenery.chunks.back().multimesh.mesh.surface_get_arrays(0)
   var wanted:Array=expected.surface_get_arrays(0)
